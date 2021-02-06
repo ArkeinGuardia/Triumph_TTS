@@ -37,15 +37,15 @@ function get_strokes_zoc_base(base_obj, transform)
     table.insert(stroke_points, {
         x = p['x'],
         y = p['y'],
-        z = p['z'] + g_base_width_inches
+        z = p['z'] + g_movement_unit_inches
     })
     table.insert(stroke_points, {
-        x = p['x'] - g_base_width_inches,
+        x = p['x'] - g_movement_unit_inches,
         y = p['y'],
-        z = p['z'] + g_base_width_inches
+        z = p['z'] + g_movement_unit_inches
     })
     table.insert(stroke_points, {
-        x = p['x'] - g_base_width_inches,
+        x = p['x'] - g_movement_unit_inches,
         y = p['y'],
         z = p['z']
     })
@@ -84,12 +84,12 @@ function get_strokes_zoc_wwg(base_obj, transform)
     table.insert(stroke_points, {
         x = tr['x'],
         y = tr['y'],
-        z = tr['z'] + g_base_width_inches
+        z = tr['z'] + g_movement_unit_inches
     })
     table.insert(stroke_points, {
         x = tl['x'],
         y = tl['y'],
-        z = tl['z'] + g_base_width_inches
+        z = tl['z'] + g_movement_unit_inches
     })
     table.insert(stroke_points, {
         x = tl['x'],
@@ -100,12 +100,12 @@ function get_strokes_zoc_wwg(base_obj, transform)
     -- SIDE LEFT
 
     table.insert(stroke_points, {
-        x = tl['x'] - g_base_width_inches,
+        x = tl['x'] - g_movement_unit_inches,
         y = tl['y'],
         z = tl['z']
     })
     table.insert(stroke_points, {
-        x = bl['x'] - g_base_width_inches,
+        x = bl['x'] - g_movement_unit_inches,
         y = bl['y'],
         z = bl['z']
     })
@@ -120,12 +120,12 @@ function get_strokes_zoc_wwg(base_obj, transform)
     table.insert(stroke_points, {
         x = bl['x'],
         y = bl['y'],
-        z = bl['z'] - g_base_width_inches
+        z = bl['z'] - g_movement_unit_inches
     })
     table.insert(stroke_points, {
         x = br['x'],
         y = br['y'],
-        z = br['z'] - g_base_width_inches
+        z = br['z'] - g_movement_unit_inches
     })
     table.insert(stroke_points, {
         x = br['x'],
@@ -136,12 +136,12 @@ function get_strokes_zoc_wwg(base_obj, transform)
     -- SIDE RIGHT
 
     table.insert(stroke_points, {
-        x = br['x'] + g_base_width_inches,
+        x = br['x'] + g_movement_unit_inches,
         y = br['y'],
         z = br['z']
     })
     table.insert(stroke_points, {
-        x = tr['x'] + g_base_width_inches,
+        x = tr['x'] + g_movement_unit_inches,
         y = tr['y'],
         z = tr['z']
     })
@@ -177,7 +177,7 @@ function get_strokes_zoc(base_obj, transform)
         end
 
         local size = get_size(base_obj.getName())
-        return get_strokes_around(size, transform, g_base_width_inches, color)
+        return get_strokes_around(size, transform, g_movement_unit_inches, color)
     end
 
     if str_has_substr(base_obj.getName(), 'WWg') then
@@ -195,15 +195,15 @@ function get_strokes_zoc(base_obj, transform)
     table.insert(stroke_points, {
         x = p['x'],
         y = p['y'],
-        z = p['z'] + g_base_width_inches
+        z = p['z'] + g_movement_unit_inches
     })
     table.insert(stroke_points, {
-        x = p['x'] - g_base_width_inches,
+        x = p['x'] - g_movement_unit_inches,
         y = p['y'],
-        z = p['z'] + g_base_width_inches
+        z = p['z'] + g_movement_unit_inches
     })
     table.insert(stroke_points, {
-        x = p['x'] - g_base_width_inches,
+        x = p['x'] - g_movement_unit_inches,
         y = p['y'],
         z = p['z']
     })
@@ -238,7 +238,7 @@ function get_strokes_fire_arc(base_obj, transform, shooting_range, max_width)
     local stroke_points = {}
     local p = transform['corners']['topright']
 
-    local max_angle_arc = math.acos(g_base_width_inches / shooting_range)
+    local max_angle_arc = math.acos(g_movement_unit_inches / shooting_range)
     local side_height = math.sin(max_angle_arc) * shooting_range
 
     table.insert(stroke_points, p)
@@ -341,11 +341,11 @@ function get_strokes_fire_arc(base_obj, transform, shooting_range, max_width)
 end
 
 function get_strokes_bow(base_obj, transform)
-    return get_strokes_fire_arc(base_obj, transform, g_bow_range, g_base_width_inches)
+    return get_strokes_fire_arc(base_obj, transform, g_bow_range, g_movement_unit_inches)
 end
 
 function get_strokes_art(base_obj, transform)
-    return get_strokes_fire_arc(base_obj, transform, g_art_range, g_base_width_inches)
+    return get_strokes_fire_arc(base_obj, transform, g_art_range, g_movement_unit_inches)
 end
 
 -- WWg fire with like a bow on all edges which is weird as fuck
@@ -356,7 +356,7 @@ function get_strokes_fire_around(size, transform, shooting_range, max_width, col
     local br = { x = size['x'] / 2, y = 0, z = -size['z'] / 2 }
     local bl = { x = -size['x'] / 2, y = 0, z = -size['z'] / 2 }
 
-    local max_angle_arc = math.acos(g_base_width_inches / shooting_range)
+    local max_angle_arc = math.acos(g_movement_unit_inches / shooting_range)
     local side_height = math.sin(max_angle_arc) * shooting_range
 
     -- TOP
@@ -628,7 +628,7 @@ function get_strokes_wwg(base_obj, transform)
     if is_base_blue_player(base_obj.getName()) then
         color = g_gizmo_fire_color_player_blue
     end
-    return get_strokes_fire_around(size, transform, g_wwg_range, g_base_width_inches, color)
+    return get_strokes_fire_around(size, transform, g_wwg_range, g_movement_unit_inches, color)
 end
 
 function get_strokes_around(size, transform, range, color)
@@ -784,7 +784,7 @@ function get_strokes_pickup(picked_up_object)
         return {}
     end
     local pos = g_picked_base_initial_transform['position']
-    local radius = from_bw_to_in(g_bw_movement)
+    local radius = from_mu_to_in(g_mu_movement)
 
     local color = g_gizmo_color_player_red
     if is_base_blue_player(picked_up_object.getName()) then
@@ -826,7 +826,7 @@ function get_strokes_future_movements(new_selected_items)
     end
 
     local strokes = {}
-    local magnitude = from_bw_to_in(g_bw_movement)
+    local magnitude = from_mu_to_in(g_mu_movement)
     for _, obj in ipairs(new_selected_items) do
         if g_bases[obj.getName()] ~= nil then
             local transform = calculate_future_position(obj, magnitude)
@@ -952,53 +952,53 @@ function get_strokes_deployment(pos, color, angle, proportion, width, depth)
     local stroke_points = {}
     local center = { x=0, y=0, z=0 }
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_bw_to_in(2) / proportion,
+        x = - half_width + from_mu_to_in(2) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
         z = zpos * half_depth
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_bw_to_in(2) / proportion,
+        x = - half_width + from_mu_to_in(2) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_bw_to_in(3) / proportion
+        z = zpos * from_mu_to_in(3) / proportion
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_bw_to_in(4) / proportion,
+        x = - half_width + from_mu_to_in(4) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_bw_to_in(3) / proportion
+        z = zpos * from_mu_to_in(3) / proportion
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_bw_to_in(4) / proportion,
+        x = - half_width + from_mu_to_in(4) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
         z = zpos * half_depth
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_bw_to_in(4) / proportion,
+        x = - half_width + from_mu_to_in(4) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_bw_to_in(3) / proportion
+        z = zpos * from_mu_to_in(3) / proportion
     }, center, -angle))
 
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width -from_bw_to_in(4) / proportion,
+        x = half_width -from_mu_to_in(4) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_bw_to_in(3) / proportion
+        z = zpos * from_mu_to_in(3) / proportion
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width - from_bw_to_in(4) / proportion,
+        x = half_width - from_mu_to_in(4) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
         z = zpos * half_depth
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width - from_bw_to_in(4) / proportion,
+        x = half_width - from_mu_to_in(4) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_bw_to_in(3) / proportion
+        z = zpos * from_mu_to_in(3) / proportion
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width - from_bw_to_in(2) / proportion,
+        x = half_width - from_mu_to_in(2) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_bw_to_in(3) / proportion
+        z = zpos * from_mu_to_in(3) / proportion
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width - from_bw_to_in(2) / proportion,
+        x = half_width - from_mu_to_in(2) / proportion,
         y = g_table_thickness + g_base_height_inches / 2,
         z = zpos * half_depth
     }, center, -angle))
@@ -1217,7 +1217,7 @@ function show_gizmo_bua_afterdetach()
                 local corners = compute_corners_coords(size, angle, terrain_pos)
                 local transform = get_transform(terrain_pos, corners, angle)
 
-                local strokes_zoc = get_strokes_around(size, transform, g_base_width_inches, g_gizmo_color_command)
+                local strokes_zoc = get_strokes_around(size, transform, g_movement_unit_inches, g_gizmo_color_command)
                 local strokes_bw = get_strokes_around(size, transform, g_bow_range, g_gizmo_color_command)
                 local strokes_art = get_strokes_around(size, transform, g_art_range,  g_gizmo_color_command)
 

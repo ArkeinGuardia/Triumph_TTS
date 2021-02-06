@@ -5,12 +5,12 @@ g_bases = {}
 function add_context_menu_base(base_obj)
     base_obj.clearContextMenu()
     base_obj.addContextMenuItem("Move forward single", function()
-        local moved_bws = move_base(base_obj, from_bw_to_in(g_bw_movement))
-        print_info(base_obj.getName() .. ' ' .. from_in_to_bw(moved_bws) .. ' BW forward')
+        local moved_mus = move_base(base_obj, from_mu_to_in(g_mu_movement))
+        print_info(base_obj.getName() .. ' ' .. from_in_to_mu(moved_mus) .. ' MU forward')
     end)
     base_obj.addContextMenuItem("Move back single", function()
-        local moved_bws = move_base(base_obj, -from_bw_to_in(g_bw_movement))
-        print_info(base_obj.getName() .. ' ' .. from_in_to_bw(moved_bws) .. ' BW backwards')
+        local moved_mus = move_base(base_obj, -from_mu_to_in(g_mu_movement))
+        print_info(base_obj.getName() .. ' ' .. from_in_to_mu(moved_mus) .. ' MU backwards')
     end)
     base_obj.addContextMenuItem("Push forward", function()
         push_forward(base_obj)
@@ -144,7 +144,7 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
 
     local depth = get_depth_base(base['base'])
     local half_depth = depth / 2
-    local half_width = g_base_width_inches / 2
+    local half_width = g_movement_unit_inches / 2
 
     local rows = 1
     local columns = n
@@ -153,7 +153,7 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
         columns = math.ceil(n/rows)
 
     end
-    local column_width = g_base_width_inches / (columns + 1)
+    local column_width = g_movement_unit_inches / (columns + 1)
     local row_depth = depth / (rows + 1)
 
     local model_name = base['model_data']
@@ -224,7 +224,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
         rows = math.ceil(n_bases / g_max_bases_row)
     end
 
-    local width_army = n_bases * g_base_width_inches
+    local width_army = n_bases * g_movement_unit_inches
 
     local z_pos_0 = g_spawn_from_center_in
     local y_rotation = 180
@@ -251,7 +251,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
             local row_z_pos = z_pos * (1 + row) + z_pos_0
 
             local location = {
-                x = g_offset_deployment_x + column * g_base_width_inches - width_army / 2,
+                x = g_offset_deployment_x + column * g_movement_unit_inches - width_army / 2,
                 y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
                 z = row_z_pos - z_pos_modifier
             }

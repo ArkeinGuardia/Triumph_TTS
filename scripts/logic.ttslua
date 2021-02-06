@@ -113,10 +113,10 @@ function turn_around_base(obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
     print_info(obj.getName() .. ' has turned around 180º, which costs '
-        .. string.format('%.2f', from_in_to_bw(distance)) .. ' BW')
+        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
 end
 
--- Moves one or more DBA bases g_bw_movement forward
+-- Moves one or more DBA bases g_mu_movement forward
 -- ASSUMES all bases are in a flat board!!!!
 -- Returns how much it moved (it cna move less in a collision)
 function move_base(obj, how_much_movement, ignore_history)
@@ -158,7 +158,7 @@ function push_back(obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
     print_info(obj.getName() .. ' has moved backwards its own depth, '
-        .. string.format('%.2f', from_in_to_bw(distance)) .. ' BW')
+        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
 end
 
 -- Like push back but in the other direction
@@ -179,7 +179,7 @@ function push_forward(obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
     print_info(obj.getName() .. ' has moved forward its own depth, '
-        .. string.format('%.2f', from_in_to_bw(distance)) .. ' BW')
+        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
 end
 
 
@@ -462,8 +462,8 @@ function push_back_column(objs)
 
     local base_depth = get_size(front_element.getName())['z']
     local distance = base_depth
-    if distance > g_base_width_inches then
-        distance = g_base_width_inches
+    if distance > g_movement_unit_inches then
+        distance = g_movement_unit_inches
     end
 
     local angle = from_degrees_to_rad(front_element.getRotation())['y']
@@ -583,13 +583,13 @@ function wheel_group(objs, angle, direction)
             new_transforms[furthest_element]['corners']['topright'])
     end
     g_current_wheel_newtransforms = new_transforms
-    return from_in_to_bw(max_movement_distance)
+    return from_in_to_mu(max_movement_distance)
 end
 
 function apply_transform_obj(base_obj, old_transform, new_transform)
     local distance = max_distance_between_bases_front_corners(old_transform['corners'], new_transform['corners'])
     print_info('Base ' .. base_obj.getName() .. ' is moving '
-        .. string.format('%.2f', from_in_to_bw(distance)) .. ' BW')
+        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
     base_obj.setPosition(new_transform['position'])
     base_obj.setRotation(transform_to_rotation_vector(new_transform))
 end
@@ -1044,7 +1044,7 @@ end
 function get_size(base_name)
   local tile = g_bases[base_name]['tile']
   return {
-        x = g_base_width_inches,
+        x = g_movement_unit_inches,
         y = g_base_height_inches,
         z = get_depth_base(tile)
     }
@@ -1444,7 +1444,7 @@ function snap_picked_base(obj)
             size_table = g_depth_large_table_in
         end
 
-        local edge_camp_pos = (size_table / 2) - (g_base_width_inches / 2)
+        local edge_camp_pos = (size_table / 2) - (g_movement_unit_inches / 2)
         local distance = math.abs(math.abs(pos['z']) - edge_camp_pos)
 
         print_debug('Camp has pos ' .. pos['z'] .. ' which has distance ' .. distance ..' to the edge ' .. edge_camp_pos)
@@ -1538,7 +1538,7 @@ function onObjectDrop(player_color,  picked_up_object)
         g_picked_base_initial_transform['corners'])
 
     if distance > 0 then
-        print_info(string.format('Movement for %q is %.2f BW', obj_name, from_in_to_bw(distance)))
+        print_info(string.format('Movement for %q is %.2f MU', obj_name, from_in_to_mu(distance)))
         local move = {}
         add_transform_to_move(move, obj_name, g_picked_base_initial_transform, new_transform)
         push_to_history_stack(move)
@@ -1670,11 +1670,11 @@ function check_picked_base()
     if g_picked_base_obj and g_bases[g_picked_base_obj.getName()] then
         local new_corners = compute_corners_base(g_picked_base_obj)
         local distance = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
-        distance = from_in_to_bw(distance)
+        distance = from_in_to_mu(distance)
 
         UI.setAttribute('panel_current_movement', 'active', true)
-        UI.setValue('text_current_movement_BWs',
-            'Current movement: ' .. string.format('%.3f', distance) .. ' BWs' )
+        UI.setValue('text_current_movement_MUs',
+            'Current movement: ' .. string.format('%.3f', distance) .. ' MUs' )
     else
         UI.setAttribute('panel_current_movement', 'active', false)
     end
@@ -1765,7 +1765,7 @@ function get_closest_tile(base_obj)
     end
 
     local size = bounds['size']
-    if math.abs(size['x'] - g_base_width_inches) > 0.01 then
+    if math.abs(size['x'] - g_movement_unit_inches) > 0.01 then
         -- Too wide or too small, ignore
         return true
     end
