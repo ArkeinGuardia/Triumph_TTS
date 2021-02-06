@@ -1,11 +1,3 @@
--- Pending easy first changes:
--- Change shooting ranges. (done)
--- Check Command distance. (done)
--- Movement only with front corners.
--- Make one army propertly
--- Change snap on new table
---
-
 armies["Triumph"] = {}
 
 armies["Triumph"]["Diadachoii in Macedon 320 BC to 279 BC - complete"] = {
@@ -1487,6 +1479,214 @@ armies["Triumph"]["Diadachoii in Macedon 320 BC to 279 BC - Others"] = {
         model_data = 'troop_successors_art'
     },
     base28 = {
+        name = 'Camp',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_carthaginian_camp'
+    }
+}
+
+armies["Triumph"]["Early Ptolemaic 320 BC to 275 BC - Others"] = {
+    data = {
+        aggresiveness = 1,
+        maneuver = 3,
+        terrain = 'Delta, Dry',
+        list = 'Mandatory: 2 x Pikes, 3 x Light Foot. ',
+        general = 'General: Knights if present; if not javelin cavalry, pikes, light foot.',
+        manufacturer = 'Essex miniatures'
+    },
+
+    base1 = {
+        name = 'Pikes_Gen',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+            [1] = 'troop_successors_pike1_yellow',
+            [2] = 'troop_successors_pike1_yellow',
+            [3] = 'troop_successors_cavalry_general',
+            [4] = 'troop_successors_pike1_yellow'
+        }
+    },
+    base2 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base3 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base4 = {
+        name = 'Light Foot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base5 = {
+        name = 'Light Foot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base6 = {
+        name = 'Light Foot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base7 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base8 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base9 = {
+        name = 'Light Foot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base10 = {
+        name = 'Knights_Gen',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_cavalry_bodyguard_red',
+            [2] = 'troop_successors_cavalry_general_red',
+            [3] = 'troop_successors_cavalry_bodyguard_red'
+        }
+    },
+    base11 = {
+        name = 'Knights',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_successors_cavalry_bodyguard_red'
+    },
+    base12 = {
+        name = 'JavelinCavalry',
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        model_data = 'troop_successors_lh_red'
+    },
+    base13 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base14 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base15 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base16 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base17 = {
+        name = 'Pikes',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_successors_pike1_red'
+    },
+    base18 = {
+        name = 'LightFoot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base19 = {
+        name = 'LightFoot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base20 = {
+        name = 'LightFoot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base21 = {
+        name = 'LightFoot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base22 = {
+        name = 'LightFoot',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        model_data = 'troop_thracian_ax2'
+    },
+    base23 = {
+        name = 'El',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_el_red'
+    },
+    base24 = {
+        name = 'Skirmishers',
+        base = 'tile_grass_40x20',
+        n_models = 2,
+        model_data = 'troop_successors_skirmishers_archers'
+    },
+    base25 = {
+        name = 'Skirmishers',
+        base = 'tile_grass_40x20',
+        n_models = 2,
+        model_data = 'troop_successors_skirmishers_archers'
+    },
+    base26 = {
+        name = 'Rabble',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_successors_ax_red'
+    },
+    base27 = {
+        name = 'LightFoot_Gen',
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_ax_red',
+            [2] = 'troop_successors_cavalry_general_red',
+            [3] = 'troop_successors_ax_red'
+        }
+    },
+    base28 = {
+        name = 'JavelinCavalry_Gen',
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+            [1] = 'troop_successors_cav',
+            [2] = 'troop_successors_lh_red'
+        }
+    },
+    base29 = {
+        name = 'Art',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    base30 = {
         name = 'Camp',
         base = 'tile_grass_40x40',
         n_models = 1,
