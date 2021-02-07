@@ -242,12 +242,12 @@ function on_army_selected(player, value, id)
 
     if str_has_substr(g_army_selected, "(Plain)") then
         UI.setValue('text_ag_terr',
-            'Aggresiveness: ' .. army['data']['aggresiveness']
+            'Invasion: ' .. army['data']['Invasion']
             .. ', Terrain: ' .. army['data']['terrain']
             .. ', Flat bases')
     else
         UI.setValue('text_ag_terr',
-            'Aggresiveness: ' .. army['data']['aggresiveness']
+            'Invasion: ' .. army['data']['Invasion']
             .. ', Terrain: ' .. army['data']['terrain']
             .. ', Bases with models')
     end

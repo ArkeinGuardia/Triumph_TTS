@@ -270,7 +270,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
     end
 
     spawn_note(army_name,
-        'Invasion: ' .. army['data']['aggresiveness'] .. '. Maneuver: ' .. army['data']['maneuver'] .. '\n'
+        'Invasion: ' .. army['data']['Invasion'] .. '. Maneuver: ' .. army['data']['maneuver'] .. '\n'
         .. 'Terrain: ' .. army['data']['terrain'] .. '\n'
         .. army['data']['list'] .. '\n'
         .. army['data']['general'] .. '\n'
@@ -280,7 +280,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
 
     print_important('Army deployed: ' .. army_name .. ', see chat for options')
     print_info('List: ' .. army['data']['list'])
-    print_info('Agressiveness: ' .. army['data']['aggresiveness']
+    print_info('Agressiveness: ' .. army['data']['Invasion']
         .. ' Terrain: ' .. army['data']['terrain'])
 
 end
