@@ -1,5 +1,715 @@
 armies["Triumph"] = {}
 
+armies["Triumph"]["Classical Indian Army 500 to 322 BC"] = {
+    data = {
+        aggresiveness = 0,
+        maneuver = 1,
+        terrain = 'Hilly, Delta, Dry, Forest, Arable',
+        list = 'Mandatory: 2 x Elephants, 1 x Bad Horse, 3 x Bow Levy, 1 x Heavy Foot, 3 x Horde.',
+        general = 'General: Elephants',
+        manufacturer = 'Xyston and Essex miniatures'
+    },
+
+    base1 = {
+        name = 'El_Gen',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el_general'
+    },
+    base2 = {
+        name = 'El',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el'
+    },
+    base3 = {
+        name = 'Chariots',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_hch'
+    },
+    base4 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base5 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base6 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base7 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base8 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base9 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_sp',
+            [5] = 'troop_indian_sp',
+            [6] = 'troop_indian_auxilia',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base10 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_auxilia',
+            [3] = 'troop_indian_ps',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_ps',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base11 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_sp',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_ps',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base12 = {
+        name = 'El',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el'
+    },
+    base13 = {
+        name = 'Chariots',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_hch'
+    },
+    base14 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base15 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base16 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base17 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base18 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base19 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base20 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base21 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base22 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base23 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base24 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_ps',
+            [3] = 'troop_indian_sp',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_auxilia',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base25 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_sp',
+            [5] = 'troop_indian_auxilia',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base26 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_ps',
+            [5] = 'troop_indian_sp',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base27 = {
+        name = 'Camp',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_ganesh'
+    }
+}
+
+armies["Triumph"]["Classical Indian Army 321 to 180 BC - Maurya Empire "] = {
+    data = {
+        aggresiveness = 0,
+        maneuver = 2,
+        terrain = 'Hilly, Delta, Dry, Forest, Arable',
+        list = 'Mandatory: 2 x Elephants, 1 x Bad Horse, 3 x Bow Levy, 1 x Heavy Foot, 3 x Horde.',
+        general = 'General: Elephants',
+        manufacturer = 'Xyston and Essex miniatures'
+    },
+
+    base1 = {
+        name = 'El_Gen',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el_general'
+    },
+    base2 = {
+        name = 'El',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el'
+    },
+    base3 = {
+        name = 'Chariots',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_hch'
+    },
+    base4 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base5 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base6 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base7 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base8 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base9 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_sp',
+            [5] = 'troop_indian_sp',
+            [6] = 'troop_indian_auxilia',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base10 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_auxilia',
+            [3] = 'troop_indian_ps',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_ps',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base11 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_sp',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_ps',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base12 = {
+        name = 'El',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el'
+    },
+    base13 = {
+        name = 'Chariots',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_hch'
+    },
+    base14 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base15 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base16 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base17 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base18 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base19 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base20 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base21 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base22 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base23 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base24 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_ps',
+            [3] = 'troop_indian_sp',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_auxilia',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base25 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_sp',
+            [5] = 'troop_indian_auxilia',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base26 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_ps',
+            [5] = 'troop_indian_sp',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base27 = {
+        name = 'Skirmishers',
+        base = 'tile_grass_40x20',
+        n_models = 2,
+        model_data = 'troop_indian_ps',
+        loose = true
+    },
+    base28 = {
+        name = 'Rabble',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_ps',
+        loose = true
+    },
+    base29 = {
+        name = 'Camp',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_ganesh'
+    }
+}
+
+armies["Triumph"]["Classical Indian Army 179 BC to 320 AD"] = {
+    data = {
+        aggresiveness = 0,
+        maneuver = 1,
+        terrain = 'Hilly, Delta, Dry, Forest, Arable',
+        list = 'Mandatory: 2 x Elephants, 1 x Chariot or Bad Horse,  1 x Bad Horse, 3 x Bow Levy, 1 x Heavy Foot, 3 x Horde.',
+        general = 'General: Elephants',
+        manufacturer = 'Xyston and Essex miniatures'
+    },
+
+    base1 = {
+        name = 'El_Gen',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el_general'
+    },
+    base2 = {
+        name = 'El',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el'
+    },
+    base3 = {
+        name = 'Chariots',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_hch'
+    },
+    base4 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base5 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base6 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base7 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base8 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base9 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base10 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_auxilia',
+            [3] = 'troop_indian_ps',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_ps',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base11 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_sp',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_ps',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base12 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_sp',
+            [5] = 'troop_indian_sp',
+            [6] = 'troop_indian_auxilia',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base13 = {
+        name = 'El',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_el'
+    },
+    base14 = {
+        name = 'Chariots',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_hch'
+    },
+    base15 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base16 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base17 = {
+        name = 'BadHorse',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_cavalry'
+    },
+    base18 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base19 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base20 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base21 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base22 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base23 = {
+        name = 'BowLevy',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_indian_bow'
+    },
+    base24 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base25 = {
+        name = 'HeavyFoot',
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_indian_auxilia',
+    },
+    base26 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_ps',
+            [3] = 'troop_indian_sp',
+            [4] = 'troop_indian_auxilia',
+            [5] = 'troop_indian_auxilia',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base27 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_sp',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_sp',
+            [5] = 'troop_indian_auxilia',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_sp',
+        },
+        loose = true
+    },
+    base28 = {
+        name = 'Horde',
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        fixed_models = {
+            [1] = 'troop_indian_auxilia',
+            [2] = 'troop_indian_sp',
+            [3] = 'troop_indian_auxilia',
+            [4] = 'troop_indian_ps',
+            [5] = 'troop_indian_sp',
+            [6] = 'troop_indian_sp',
+            [7] = 'troop_indian_auxilia',
+        },
+        loose = true
+    },
+    base29 = {
+        name = 'Camp',
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_indian_ganesh'
+    }
+}
+
 armies["Triumph"]["Diadachoii in Macedon 320 BC to 279 BC - complete"] = {
     data = {
         aggresiveness = 1,
