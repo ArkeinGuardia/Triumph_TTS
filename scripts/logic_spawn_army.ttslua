@@ -24,7 +24,7 @@ function add_context_menu_base(base_obj)
 end
 
 function add_context_menu_table(table_obj)
-    table_obj.addContextMenuItem('Rotate 90º', function()
+    table_obj.addContextMenuItem('Rotate 180º', function()
         rotate_table()
     end)
     table_obj.addContextMenuItem('Fix terrain and lock', function()
@@ -465,7 +465,7 @@ end
 function rotate_table()
     local gametable = getObjectFromGUID(g_current_table)
     local newrotation = gametable.getRotation()
-    newrotation['y'] = newrotation['y'] + 90
+    newrotation['y'] = newrotation['y'] + 180
     gametable.setRotation(newrotation)
 end
 
