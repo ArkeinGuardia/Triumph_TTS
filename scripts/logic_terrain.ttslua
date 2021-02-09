@@ -315,7 +315,7 @@ function process_vegetation(terrain_obj, type)
     local terrain_pos = terrain_obj.getPosition()
     local terrain_rotation = normalize_angle(math.rad(terrain_obj.getRotation()['y']))
     local terrain_size = terrain_obj.getBoundsNormalized()['size']
-    if str_starts_with(terrain_obj.getName(), 'terrain Forest') then
+    if str_starts_with(terrain_obj.getName(), 'terrain Woods') then
         set_forest(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
     end
     if str_starts_with(terrain_obj.getName(), 'terrain Arid') then
