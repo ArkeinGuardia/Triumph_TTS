@@ -1,5 +1,5 @@
 
-function snap_waterway(waterway)
+function snap_coast(coast)
     if g_current_table == nil then
         print_debug('No table spawned yet, no need to do anything')
         return
@@ -14,10 +14,10 @@ function snap_waterway(waterway)
     local table_w = table_size['x']
     local table_h = table_size['z']
 
-    -- 0 rotation for our waterway objects is looking at -z
-    local rotation = normalize_angle(math.rad(waterway.getRotation()['y']))
-    local pos = waterway.getPosition()
-    local bounds = waterway.getBoundsNormalized()
+    -- 0 rotation for our coast objects is looking at -z
+    local rotation = normalize_angle(math.rad(coast.getRotation()['y']))
+    local pos = coast.getPosition()
+    local bounds = coast.getBoundsNormalized()
 
     local h = bounds['size']['z']
     local zpos = table_h / 2 - (h / 2 - bounds['offset']['z'])
@@ -31,44 +31,44 @@ function snap_waterway(waterway)
         and equals_float(pos['z'], zpos, g_max_camp_edge_snap)
         then
 
-        waterway.setPosition({x=0, y=g_terrain_pos, z=zpos})
-        waterway.setRotation({x=0, y=0, z=0})
-        print_info('Waterway Snapping top')
+        coast.setPosition({x=0, y=g_terrain_pos, z=zpos})
+        coast.setRotation({x=0, y=0, z=0})
+        print_info('coast Snapping top')
 
     elseif equals_float(rotation, math.pi/2, 0.17)
         and equals_float(pos['x'], -xpos, g_max_camp_edge_snap)
         and equals_float(pos['z'], 0, g_max_camp_edge_snap)
         then
 
-        waterway.setPosition({x=-xpos, y=g_terrain_pos, z=0})
-        waterway.setRotation({x=0, y=270, z=0})
-        print_info('Waterway Snapping left')
+        coast.setPosition({x=-xpos, y=g_terrain_pos, z=0})
+        coast.setRotation({x=0, y=270, z=0})
+        print_info('coast Snapping left')
 
     elseif equals_float(rotation, math.pi, 0.17)
         and equals_float(pos['x'], 0, g_max_camp_edge_snap)
         and equals_float(pos['z'], -zpos, g_max_camp_edge_snap)
         then
             
-        waterway.setPosition({x=0, y=g_terrain_pos, z=-zpos})
-        waterway.setRotation({x=0, y=180, z=0})
-        print_info('Waterway Snapping bot')
+        coast.setPosition({x=0, y=g_terrain_pos, z=-zpos})
+        coast.setRotation({x=0, y=180, z=0})
+        print_info('coast Snapping bot')
 
     elseif equals_float(rotation, math.pi*3/2, 0.17)
         and equals_float(pos['x'], xpos, g_max_camp_edge_snap)
         and equals_float(pos['z'], 0, g_max_camp_edge_snap)
         then
             
-        waterway.setPosition({x=xpos, y=g_terrain_pos, z=0})
-        waterway.setRotation({x=0, y=90, z=0})
-        print_info('Waterway Snapping right')
+        coast.setPosition({x=xpos, y=g_terrain_pos, z=0})
+        coast.setRotation({x=0, y=90, z=0})
+        print_info('coast Snapping right')
 
     else
-        print_info('Waterway is not snapping')
+        print_info('coast is not snapping')
     end
 end
 
 function snap_road(road)
-    -- 0 rotation for our waterway objects is looking at -z
+    -- 0 rotation for our coast objects is looking at -z
     local rotation = normalize_angle(math.rad(road.getRotation()['y']))
     local pos = road.getPosition()
 

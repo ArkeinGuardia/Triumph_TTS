@@ -1500,8 +1500,8 @@ end
 
 function onObjectDrop(player_color,  picked_up_object)
     local obj_name = picked_up_object.getName()
-    if (str_has_substr(obj_name, 'Waterway')) then
-        snap_waterway(picked_up_object)
+    if (str_has_substr(obj_name, 'coast')) then
+        snap_coast(picked_up_object)
     elseif (str_has_substr(obj_name, 'Road')) then
         snap_road(picked_up_object)
     end
