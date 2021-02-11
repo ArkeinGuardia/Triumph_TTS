@@ -53,25 +53,29 @@ function update_zone_value(zone)
         local obj_name = obj.getName()
         print_debug('Name is <' .. obj_name .. '>')
         if str_has_substr(obj_name, 'base') then
-            if not (str_has_substr(obj_name, 'Hd')
-                    or str_has_substr(obj_name, 'SCh')) then
+                dead = dead + 3
+
+            if str_has_substr(obj_name, 'BowLevy')
+               or str_has_substr(obj_name, 'Horde')
+               or str_has_substr(obj_name, 'Rabble') then
+                dead = dead - 1
+            end
+
+            if str_has_substr(obj_name, 'Archers')
+               or str_has_substr(obj_name, 'Elite Foot')
+               or str_has_substr(obj_name, 'Pavisiers')
+               or str_has_substr(obj_name, 'Raiders')
+               or str_has_substr(obj_name, 'Spears')
+               or str_has_substr(obj_name, 'Cataphracts')
+               or str_has_substr(obj_name, 'Chariots') 
+               or str_has_substr(obj_name, 'Elephants')
+               or str_has_substr(obj_name, 'Elite Cavalry')
+               or str_has_substr(obj_name, 'HorseBow')
+               or str_has_substr(obj_name, 'Javelin Cavalry')
+               or str_has_substr(obj_name, 'Knights')then
                 dead = dead + 1
             end
 
-            if str_has_substr(obj_name, '6Kn')
-               or str_has_substr(obj_name, '6Cv')
-               or str_has_substr(obj_name, '8Sp')
-               or str_has_substr(obj_name, '6Bd')
-               or str_has_substr(obj_name, '8Bw')
-               or str_has_substr(obj_name, '8Lb')
-               or str_has_substr(obj_name, '8Cb') then
-                has_double_element = true
-            end
-            
-            if str_has_substr(obj_name, 'Gen') then
-                -- Generals count as one extra element lost
-                dead = dead + 1
-            end
         end
     end
 
@@ -99,11 +103,11 @@ function update_zone_value(zone)
     end, 1)
     if dead == 0 then
         UI.setAttribute(image_id, 'image', 'skeleton0' .. image_suffix)
-    elseif dead == 1 or dead == 2 then
+    elseif dead == 1 or dead == 2 or dead == 3 or dead == 4 or dead == 5 or dead == 6 or dead == 7 or dead == 8 then
         UI.setAttribute(image_id, 'image', 'skeleton1' .. image_suffix)
-    elseif dead == 3 then
+    elseif dead == 9 or dead == 10 or dead == 11 or dead == 12 or dead == 13 or dead == 14 or dead == 15 then
         UI.setAttribute(image_id, 'image', 'skeleton2' .. image_suffix)
-    elseif dead == 4 then
+    elseif dead == 16 or dead == 17 or dead == 18 or dead == 19 then
         UI.setAttribute(image_id, 'image', 'skeleton3' .. image_suffix)
     else
         UI.setAttribute(image_id, 'image', 'skeleton4' .. image_suffix)
