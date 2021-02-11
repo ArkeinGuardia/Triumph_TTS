@@ -52,10 +52,11 @@ function update_zone_value(zone)
     for _,obj in ipairs(zone.getObjects()) do
         local obj_name = obj.getName()
         print_debug('Name is <' .. obj_name .. '>')
-        if str_has_substr(obj_name, 'base') then
+        if str_has_substr(obj_name, 'base') 
+          or str_has_substr(obj_name, 'token') then
                 dead = dead + 3
 
-            if str_has_substr(obj_name, 'BowLevy')
+            if str_has_substr(obj_name, 'Bow Levy')
                or str_has_substr(obj_name, 'Horde')
                or str_has_substr(obj_name, 'Rabble') then
                 dead = dead - 1
