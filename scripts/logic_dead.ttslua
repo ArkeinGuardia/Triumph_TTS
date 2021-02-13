@@ -52,8 +52,7 @@ function update_zone_value(zone)
     for _,obj in ipairs(zone.getObjects()) do
         local obj_name = obj.getName()
         print_debug('Name is <' .. obj_name .. '>')
-        if str_has_substr(obj_name, 'base') 
-          or str_has_substr(obj_name, 'token') then
+        if str_has_substr(obj_name, 'base') then
                 dead = dead + 3
 
             if str_has_substr(obj_name, 'Bow Levy')
@@ -77,7 +76,25 @@ function update_zone_value(zone)
                 dead = dead + 1
             end
 
+            if str_has_substr(obj_name, 'Camp') then
+                dead = dead + 5
+            end
+
+            if str_has_substr(obj_name, 'Plaustrella')
+               or str_has_substr(obj_name, 'Shower Shooting') then
+                dead = dead -2
+            end
+
+            if str_has_substr(obj_name, 'Charging Camelry') then
+                dead = dead - 4
+            end
+
+            if str_has_substr(obj_name, 'Sword Fighting') then
+               dead = dead - 3.5
+            end
+
         end
+        
     end
 
     -- The first double element counts as one additional death
