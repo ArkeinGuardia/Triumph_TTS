@@ -1841,14 +1841,14 @@ function print_state()
         local obj = getObjectFromGUID(g_current_table)
         if obj == nil then
             print_error('There\'s a table stored with GUID ' .. g_current_table
-                .. ' but there\'s no object. Please do a !dba_reset.')
+                .. ' but there\'s no object. Please do a !triumph_reset.')
         else
             print_info('Current table GUID: ' .. g_current_table)
         end
     end
 
     if g_bases == nil then
-        print_error('There are no bases registered. Please do a !dba_reset.')
+        print_error('There are no bases registered. Please do a !triumph_reset.')
     else
         local str = 'The current registered bases are: '
         for base_name,_ in pairs(g_bases) do
