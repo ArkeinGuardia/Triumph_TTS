@@ -952,54 +952,54 @@ function get_strokes_deployment(pos, color, angle, proportion, width, depth)
     local stroke_points = {}
     local center = { x=0, y=0, z=0 }
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_mu_to_in(2) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
+        x = - half_width,
+        y = g_table_thickness + g_base_height_inches / 1.5,
         z = zpos * half_depth
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_mu_to_in(2) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_mu_to_in(3) / proportion
+        x = - half_width,
+        y = g_table_thickness + g_base_height_inches / 1.5,
+        z = zpos * half_depth / 2 
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_mu_to_in(4) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_mu_to_in(3) / proportion
+        x = - half_width / 3,
+        y = g_table_thickness + g_base_height_inches / 1.5,
+        z = zpos * half_depth / 2
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_mu_to_in(4) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
+        x = - half_width / 3,
+        y = g_table_thickness + g_base_height_inches / 1.5,
         z = zpos * half_depth
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = - half_width + from_mu_to_in(4) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_mu_to_in(3) / proportion
+        x = - half_width / 3,
+        y = g_table_thickness + g_base_height_inches / 1.5,
+        z = zpos * half_depth / 2
     }, center, -angle))
 
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width -from_mu_to_in(4) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_mu_to_in(3) / proportion
+        x = half_width / 3,
+        y = g_table_thickness + g_base_height_inches / 1.5,
+        z = zpos * half_depth / 2
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width - from_mu_to_in(4) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
+        x = half_width / 3,
+        y = g_table_thickness + g_base_height_inches / 1.5,
         z = zpos * half_depth
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width - from_mu_to_in(4) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_mu_to_in(3) / proportion
+        x = half_width / 3,
+        y = g_table_thickness + g_base_height_inches / 1.5,
+        z = zpos * half_depth / 2
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width - from_mu_to_in(2) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
-        z = zpos * from_mu_to_in(3) / proportion
+        x = half_width,
+        y = g_table_thickness + g_base_height_inches / 1.5,
+        z = zpos * half_depth / 2
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = half_width - from_mu_to_in(2) / proportion,
-        y = g_table_thickness + g_base_height_inches / 2,
+        x = half_width,
+        y = g_table_thickness + g_base_height_inches / 1.5,
         z = zpos * half_depth
     }, center, -angle))
 
