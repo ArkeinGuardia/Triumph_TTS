@@ -1041,12 +1041,37 @@ function get_strokes_quadrant_vertical(angle, width, depth)
     local half_width = width / 2
     local half_depth = depth / 2
     table.insert(stroke_points, rotate_point_relative({
-        x = 0,
+        x = width / 6,
         y = g_table_thickness + g_base_height_inches / 2,
         z = half_depth
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
-        x = 0,
+        x = width / 6,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = -half_depth
+    }, center, -angle))
+
+    return {
+        points    = stroke_points,
+        color     = g_gizmo_color_command,
+        thickness = g_line_thickness,
+        rotation  = {0,0,0}
+    }
+end
+
+
+function get_strokes_quadrant_vertical_2(angle, width, depth)
+    local stroke_points = {}
+    local center = { x=0, y=0, z=0 }
+    local half_width = width / 2
+    local half_depth = depth / 2
+    table.insert(stroke_points, rotate_point_relative({
+        x = - width / 6,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = half_depth
+    }, center, -angle))
+    table.insert(stroke_points, rotate_point_relative({
+        x = - width / 6,
         y = g_table_thickness + g_base_height_inches / 2,
         z = -half_depth
     }, center, -angle))
