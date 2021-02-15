@@ -622,6 +622,15 @@ function get_strokes_fire_around(size, transform, shooting_range, max_width, col
     }
 end
 
+function get_strokes_wwg_triumph(base_obj, transform, range)
+    local size = get_size(base_obj.getName())
+    local color = g_gizmo_fire_color_player_red
+    if is_base_blue_player(base_obj.getName()) then
+        color = g_gizmo_fire_color_player_blue
+    end
+    return get_strokes_around(size, transform, range, color)
+end
+
 function get_strokes_wwg(base_obj, transform)
     local size = get_size(base_obj.getName())
     local color = g_gizmo_fire_color_player_red
@@ -753,6 +762,8 @@ function get_strokes_command(base_obj, transform, range)
     return get_strokes_around(size, transform, range, g_gizmo_color_command)
 end
 
+
+
 function get_strokes_base_pos(obj, transform)
     local strokes = {}
 
@@ -765,7 +776,7 @@ function get_strokes_base_pos(obj, transform)
     elseif str_has_substr(obj.getName(), 'Art') then
         table.insert(strokes, get_strokes_art(obj, transform))
     elseif str_has_substr(obj.getName(), 'WWg') then
-        table.insert(strokes, get_strokes_wwg(obj, transform))
+        table.insert(strokes, get_strokes_wwg_triumph(obj, transform, g_wwg_range))
     end
 
     if str_has_substr(obj.getName(), 'Gen') then
