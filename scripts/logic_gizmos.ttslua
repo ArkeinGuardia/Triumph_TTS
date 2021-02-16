@@ -1070,7 +1070,6 @@ function get_strokes_quadrant_vertical(angle, width, depth)
     }
 end
 
-
 function get_strokes_quadrant_vertical_2(angle, width, depth)
     local stroke_points = {}
     local center = { x=0, y=0, z=0 }
@@ -1095,7 +1094,79 @@ function get_strokes_quadrant_vertical_2(angle, width, depth)
     }
 end
 
-function spawn_text(text, pos)
+function get_strokes_quadrant_vertical_3(angle, width, depth)
+    local stroke_points = {}
+    local center = { x=0, y=0, z=0 }
+    local half_width = width / 2
+    local half_depth = depth / 2
+    table.insert(stroke_points, rotate_point_relative({
+        x = - width / 3,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = half_depth
+    }, center, -angle))
+    table.insert(stroke_points, rotate_point_relative({
+        x = - width / 3,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = -half_depth
+    }, center, -angle))
+
+    return {
+        points    = stroke_points,
+        color     = g_gizmo_color_command,
+        thickness = g_line_thickness,
+        rotation  = {0,0,0}
+    }
+end
+
+function get_strokes_quadrant_vertical_4(angle, width, depth)
+    local stroke_points = {}
+    local center = { x=0, y=0, z=0 }
+    local half_width = width / 2
+    local half_depth = depth / 2
+    table.insert(stroke_points, rotate_point_relative({
+        x = width / 3,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = half_depth
+    }, center, -angle))
+    table.insert(stroke_points, rotate_point_relative({
+        x = width / 3,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = -half_depth
+    }, center, -angle))
+
+    return {
+        points    = stroke_points,
+        color     = g_gizmo_color_command,
+        thickness = g_line_thickness,
+        rotation  = {0,0,0}
+    }
+end
+
+function get_strokes_quadrant_vertical_5(angle, width, depth)
+    local stroke_points = {}
+    local center = { x=0, y=0, z=0 }
+    local half_width = width / 2
+    local half_depth = depth / 2
+    table.insert(stroke_points, rotate_point_relative({
+        x = 0,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = half_depth
+    }, center, -angle))
+    table.insert(stroke_points, rotate_point_relative({
+        x = 0,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = -half_depth
+    }, center, -angle))
+
+    return {
+        points    = stroke_points,
+        color     = g_gizmo_color_command,
+        thickness = g_line_thickness,
+        rotation  = {0,0,0}
+    }
+end
+
+function spawn_text_red(text, pos)
     local params = {
         type = '3DText',
         position = pos,
@@ -1103,9 +1174,50 @@ function spawn_text(text, pos)
     }
     local obj = spawnObject(params)
     obj.setValue(text)
-    obj.TextTool.setFontSize(180)
+    obj.TextTool.setFontSize(100)
     obj.setName('Text ' .. text)
     return obj
+end
+
+function spawn_text_blue(text, pos)
+    local params = {
+        type = '3DText',
+        position = pos,
+        rotation = { 90, 180, 0 }
+    }
+    local obj = spawnObject(params)
+    obj.setValue(text)
+    obj.TextTool.setFontSize(100)
+    obj.setName('Text ' .. text)
+    return obj
+end
+
+function draw_names_quadrant(size)
+    local height_text = g_table_thickness * 2 + g_base_height_tabletop + g_base_height_inches / 1
+
+    spawn_text_red('Left Wing', { -5 * size['x'] / 12, height_text, -size['z'] / 7})
+
+    spawn_text_red('Left Flank', { -3 * size['x'] / 12, height_text, -size['z'] / 7})
+
+    spawn_text_red('Left Center', { -1 * size['x'] / 12, height_text, -size['z'] / 7})
+
+    spawn_text_red('Right Center', { 1 *size['x'] / 12, height_text, -size['z'] / 7})
+
+    spawn_text_red('Right Flank', { 3 * size['x'] / 12, height_text, -size['z'] / 7})
+
+    spawn_text_red('Right Wing', { 5 * size['x'] / 12, height_text, -size['z'] / 7})
+
+    spawn_text_blue('Left Wing', { 5 *size['x'] / 12, height_text, size['z'] / 7})
+
+    spawn_text_blue('Left Flank', { 3 * size['x'] / 12, height_text, size['z'] / 7})
+
+    spawn_text_blue('Left Center', { 1 *size['x'] / 12, height_text, size['z'] / 7})
+
+    spawn_text_blue('Right Center', { -1 * size['x'] / 12, height_text, size['z'] / 7})
+
+    spawn_text_blue('Right Flank', { -3 * size['x'] / 12, height_text, size['z'] / 7})
+
+    spawn_text_blue('Right Wing', { -5 * size['x'] / 12, height_text, size['z'] / 7})
 end
 
 function draw_numbers_quadrant(size)
@@ -1145,9 +1257,14 @@ function draw_deployment_lines()
     table.insert(strokes,
         get_strokes_deployment('bot',
             g_gizmo_color_player_red, angle, proportion, w, h))
+    if g_is_double_dba then
+        table.insert(strokes, get_strokes_quadrant_vertical_3(angle, w, h))
+        table.insert(strokes, get_strokes_quadrant_vertical_4(angle, w, h))
+        table.insert(strokes, get_strokes_quadrant_vertical_5(angle, w, h))
+        draw_names_quadrant(size)
+    end
 
     gametable.setVectorLines(strokes)
-    --draw_numbers_quadrant(size)
 end
 
 function remove_deployment_lines()
