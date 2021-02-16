@@ -85,8 +85,13 @@ function update_zone_value(zone)
             if str_has_substr(obj_name, 'Camp') then
                 dead = dead + 5
             end
+
             if str_has_substr(obj_name, 'Fortified') then
                 dead = dead - 7
+            end
+
+            if str_has_substr(obj_name, 'Herds') then
+                dead = dead - 2
             end
 
             if str_has_substr(obj_name, 'Plaustrella')
