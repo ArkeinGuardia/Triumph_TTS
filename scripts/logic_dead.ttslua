@@ -14,6 +14,10 @@ function delete_all_dead_zones()
             -- This executes on next frame
             obj.destroy()
         end
+        if str_starts_with(name, 'Army Builder') then
+            -- This executes on next frame
+            obj.destroy()
+        end
     end
 end
 
@@ -49,6 +53,9 @@ local g_updating_zone = {}
 function update_zone_value(zone)
     local name = zone.getName()
     local is_red = false
+    if str_has_substr(name, 'Army') then
+        return
+    end
     if str_has_substr(name, 'red') then
         is_red = true
     end
@@ -148,12 +155,102 @@ function update_zone_value(zone)
     g_updating_zone[zone.getName()] = false
 end
 
+function update_armyzone_value(zone)
+    local name = zone.getName()
+    local is_red = false
+    if str_has_substr(name, 'dead') then
+        return
+    end
+    if str_has_substr(name, 'red') then
+        is_red = true
+    end
+
+    local armyvalue = 0
+    local has_double_element = false
+    for _,obj in ipairs(zone.getObjects()) do
+        local obj_name = obj.getName()
+        print_debug('Name is <' .. obj_name .. '>')
+        if str_has_substr(obj_name, 'base') then
+                armyvalue = armyvalue + 3
+
+            if str_has_substr(obj_name, 'Bow Levy')
+               or str_has_substr(obj_name, 'Horde')
+               or str_has_substr(obj_name, 'Rabble') then
+                armyvalue = armyvalue - 1
+            end
+
+            if str_has_substr(obj_name, 'Archers')
+               or str_has_substr(obj_name, 'Elite Foot')
+               or str_has_substr(obj_name, 'Pavisiers')
+               or str_has_substr(obj_name, 'Raiders')
+               or str_has_substr(obj_name, 'Spears')
+               or str_has_substr(obj_name, 'Cataphracts')
+               or str_has_substr(obj_name, 'Chariots') 
+               or str_has_substr(obj_name, 'Elephants')
+               or str_has_substr(obj_name, 'Elite Cavalry')
+               or str_has_substr(obj_name, 'HorseBow')
+               or str_has_substr(obj_name, 'Javelin Cavalry')
+               or str_has_substr(obj_name, 'Knights')then
+                armyvalue = armyvalue + 1
+            end
+
+            if str_has_substr(obj_name, 'Fortified') then
+                armyvalue = armyvalue - 2
+            end
+
+            if str_has_substr(obj_name, 'Herds') then
+                armyvalue = armyvalue - 2
+            end
+
+            if str_has_substr(obj_name, 'Plaustrella')
+               or str_has_substr(obj_name, 'Shower Shooting') then
+                armyvalue = armyvalue -2
+            end
+
+            if str_has_substr(obj_name, 'Charging Camelry') then
+                armyvalue = armyvalue - 4
+            end
+
+            if str_has_substr(obj_name, 'Sword Fighting') then
+                armyvalue = armyvalue - 3.5
+            end
+
+        end
+    end
+    --local points = tostring(armyvalue)
+    local all_objs = getAllObjects()
+    for _,obj in ipairs(all_objs) do
+        local name = obj.getName()
+        if is_red then
+            if str_starts_with(name, 'NumberRed ') then
+                -- This executes on next frame
+                obj.destroy()
+            end
+        else
+            if str_starts_with(name, 'NumberBlue ') then
+                -- This executes on next frame
+                obj.destroy()
+            end
+        end
+    end
+    Wait.frames(function ()
+        if is_red then
+            spawn_number_red(tostring(armyvalue), { 78.2, 1.5, -20.6})
+        else
+            spawn_number_blue(tostring(armyvalue), { 71.3, 1.5, 20.6})
+        end
+    end, 1)
+    print_debug('Updated army zone ' .. zone.getName())
+    g_updating_zone[zone.getName()] = false
+end
+
 function callback_zone(zone, name, color)
     print_debug('Dead zone callback ' .. zone.getName())
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
             update_zone_value(zone)
+            update_armyzone_value(zone)
         end, 30)
     else
         print_debug('Ignoring dead callback because already updating')
@@ -167,7 +264,10 @@ function onObjectEnterScriptingZone(zone, obj)
     print_debug(obj.getName() .. ' entered ' .. zone.getName())
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
-        Wait.frames(function() update_zone_value(zone) end, 60)
+        Wait.frames(function ()
+            update_zone_value(zone)
+            update_armyzone_value(zone)
+        end, 60)
     else
         print_debug('Ignoring dead Enter because already updating')
     end
@@ -180,7 +280,10 @@ function onObjectLeaveScriptingZone(zone, obj)
     print_debug(obj.getName() .. ' left ' .. zone.getName())
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
-        Wait.frames(function() update_zone_value(zone) end, 60)
+        Wait.frames(function ()
+            update_zone_value(zone)
+            update_armyzone_value(zone)
+        end, 60)
     else
         print_debug('Ignoring dead Leave because already updating')
     end

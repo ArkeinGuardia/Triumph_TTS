@@ -1192,6 +1192,32 @@ function spawn_text_blue(text, pos)
     return obj
 end
 
+function spawn_number_red(text, pos)
+    local params = {
+        type = '3DText',
+        position = pos,
+        rotation = { 90, 0, 0 }
+    }
+    local obj = spawnObject(params)
+    obj.setValue(text)
+    obj.TextTool.setFontSize(150)
+    obj.setName('NumberRed ' .. text)
+    return obj
+end
+
+function spawn_number_blue(text, pos)
+    local params = {
+        type = '3DText',
+        position = pos,
+        rotation = { 90, 180, 0 }
+    }
+    local obj = spawnObject(params)
+    obj.setValue(text)
+    obj.TextTool.setFontSize(150)
+    obj.setName('NumberBlue ' .. text)
+    return obj
+end
+
 function draw_names_quadrant(size)
     local height_text = g_table_thickness * 2 + g_base_height_tabletop + g_base_height_inches / 1
 
