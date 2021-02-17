@@ -101,6 +101,10 @@ function update_zone_value(zone)
                 dead = dead - 2
             end
 
+            if str_has_substr(obj_name, 'Mobile') then
+                dead = dead - 3.5
+            end
+
             if str_has_substr(obj_name, 'Plaustrella')
                or str_has_substr(obj_name, 'Shower Shooting') then
                 dead = dead -2
