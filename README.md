@@ -6,7 +6,7 @@ Features: Setup
 
 - Create tables with different environments, like grass fields, steppe or deserts.
 - Automatically fix terrain to the table so it doesn't move.
-- Automatic army creation based on the DBA lists. The models have been adapted and lists are easy to create using a scripting system.
+- Automatic army creation based on the Triumph! lists. The models have been adapted and lists are easy to create using a scripting system.
 - Spawned bases have a base ground theme depending on the table created. Furtheremore, lighter troops spawn in a loose formation, and there are variations between models and textures.
 - The game will tell the options of the army so you don't have to doublecheck everything.
 - There's a checkbox to enable deployment rulers which significantly help with the deployment.
@@ -18,7 +18,7 @@ Features: Gameplay (pending)
 
 - Snapping system: When you drop a base close to another, they will snap, as long as they are close enough and the angle is correct. Snapping includes charging and even "close the door" manouver. It can be turned off for particular manouvers.
 - Single movement: If you pick a base and move it, a small text will appear in the screen telling exactly in realtime how many BWs you are moving. This includes all corners, so it's useful for rotations etc. Once dropped, the total will be shown in the log.
-- Reset movement: When moving a single base, if snapping is active, and you move less than 10pieces, resets the abse to its original position, which can be useful to evaluate future movements.
+- Reset movement: When moving a single base, if snapping is active, and you move less than 0.2 MUs, resets the abse to its original position, which can be useful to evaluate future movements.
 - Group movement: Select multiple bases and with one click move all as a group forward! You can select how much to move with a slider.
 - Preview movement: Using the slider, you also have a small gizmo in front of the troops that shows where the base will end after pressing move.
 - Preview Bow/Artillery range: Like the movement, the range is also projected from the future movement position (which you can set position to check the current range).
