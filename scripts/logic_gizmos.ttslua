@@ -769,13 +769,12 @@ function get_strokes_base_pos(obj, transform)
 
     table.insert(strokes, get_strokes_future_position(obj, transform))
 
-    if str_has_substr(obj.getName(), 'Bw')
-       or str_has_substr(obj.getName(), 'Cb')
-       or str_has_substr(obj.getName(), 'Lb') then
+    if str_has_substr(obj.getName(), 'Archers ')
+       or str_has_substr(obj.getName(), 'Pavisiers') then
         table.insert(strokes, get_strokes_bow(obj, transform))
-    elseif str_has_substr(obj.getName(), 'Art') then
+    elseif str_has_substr(obj.getName(), 'Artillery') then
         table.insert(strokes, get_strokes_art(obj, transform))
-    elseif str_has_substr(obj.getName(), 'WWg') then
+    elseif str_has_substr(obj.getName(), 'War Wagon') then
         table.insert(strokes, get_strokes_wwg_triumph(obj, transform, g_wwg_range))
     end
 
