@@ -137,6 +137,11 @@ function move_base(obj, how_much_movement, ignore_history)
     return how_much_movement
 end
 
+function make_general (obj)
+    obj.setName(obj.getName() .. "General")
+    reset_state()
+end
+
 -- Moves ONE single DBA base by it's depth
 function push_back(obj)
     local initial_transform = calculate_transform(obj)
