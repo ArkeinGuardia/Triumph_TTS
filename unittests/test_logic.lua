@@ -67,6 +67,10 @@ function build_base(base_name, tile)
     },
   }
 
+  base['setName'] = function(new_name) 
+    base.name = new_name
+  end
+
   base['getName']=function()
     return base.name
   end
@@ -1183,6 +1187,24 @@ function test_transform_to_shape()
   lu.assertEquals(actual[2], corners['topright'])
   lu.assertEquals(actual[3], corners['botright'])
   lu.assertEquals(actual[4], corners['botleft'])
+end
+
+function test_make_general_adds_suffix()
+  -- Setup
+  local old_reset_state = reset_state
+  reset_state = function() end
+
+  local base = build_base("Archers")
+
+  -- Exercise
+  make_general(base)
+
+  -- Validate
+  local actual = base.getName()
+  lu.assertEquals(actual, "Archers_Gen")
+
+  -- Cleanup
+  reset_state = old_reset_state
 end
 
 os.exit( lu.LuaUnit.run() )
