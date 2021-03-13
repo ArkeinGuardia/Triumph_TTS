@@ -1194,17 +1194,43 @@ function test_make_general_adds_suffix()
   local old_reset_state = reset_state
   reset_state = function() end
 
-  local base = build_base("Archers")
+  local base = build_base("base Archers #12")
 
   -- Exercise
   make_general(base)
 
   -- Validate
   local actual = base.getName()
-  lu.assertEquals(actual, "Archers_Gen")
+  lu.assertEquals(actual, "base Archers_Gen #12")
 
   -- Cleanup
   reset_state = old_reset_state
 end
+
+function test_make_general_adds_suffix_when_number_missing()
+  -- Setup
+  local old_reset_state = reset_state
+  reset_state = function() end
+  local error_called = false
+  local old_print_error = print_error
+  print_error = function(message) 
+	  error_called = true
+  end
+
+  local base = build_base("base Archers")
+
+  -- Exercise
+  make_general(base)
+
+  -- Validate
+  local actual = base.getName()
+  lu.assertEquals(actual, "base Archers_Gen")
+  lu.assertEquals(true, error_called)
+
+  -- Cleanup
+  reset_state = old_reset_state
+  print_error = old_print_error
+end
+
 
 os.exit( lu.LuaUnit.run() )

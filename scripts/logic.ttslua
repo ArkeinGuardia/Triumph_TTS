@@ -138,7 +138,16 @@ function move_base(obj, how_much_movement, ignore_history)
 end
 
 function make_general (obj)
-    obj.setName(obj.getName() .. "_Gen")
+    local name = obj.getName()
+    local pos = string.find(name, " #")
+    if pos == nil then
+      print_error("troop has no serial number: " .. name)
+      obj.setName(name .. "_Gen")
+    else
+      local new_name = string.sub(name, 1,pos-1) .. "_Gen" .. string.sub(name, pos)
+      obj.setName(new_name)
+    end
+
     reset_state()
 end
 
