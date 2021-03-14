@@ -1779,7 +1779,7 @@ function get_closest_tile(base_obj)
     end
 
     local size = bounds['size']
-    if math.abs(size['x'] - g_two_movement_units_in_inches) > 0.01 then
+    if math.abs(size['x'] - g_base_width_in_inches) > 0.01 then
         -- Too wide or too small, ignore
         return true
     end
