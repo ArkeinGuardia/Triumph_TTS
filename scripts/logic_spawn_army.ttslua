@@ -139,7 +139,7 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
 
     local depth = get_depth_base(base['base'])
     local half_depth = depth / 2
-    local half_width = g_two_movement_units_in_inches / 2
+    local half_width = g_base_width_in_inches / 2
 
     local rows = 1
     local columns = n
@@ -148,7 +148,7 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
         columns = math.ceil(n/rows)
 
     end
-    local column_width = g_two_movement_units_in_inches / (columns + 1)
+    local column_width = g_base_width_in_inches / (columns + 1)
     local row_depth = depth / (rows + 1)
 
     local model_name = base['model_data']
@@ -219,7 +219,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
         rows = math.ceil(n_bases / g_max_bases_row)
     end
 
-    local width_army = n_bases * g_two_movement_units_in_inches
+    local width_army = n_bases * g_base_width_in_inches
 
     local z_pos_0 = g_spawn_from_center_in
     local y_rotation = 180
@@ -246,7 +246,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
             local row_z_pos = z_pos * (1 + row) + z_pos_0
 
             local location = {
-                x = g_offset_deployment_x + column * g_two_movement_units_in_inches - width_army / 2,
+                x = g_offset_deployment_x + column * g_base_width_in_inches - width_army / 2,
                 y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
                 z = row_z_pos - z_pos_modifier
             }
