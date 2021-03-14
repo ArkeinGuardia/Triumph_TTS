@@ -3,7 +3,7 @@
 -- All bases have 40mm width
 g_base_width_in_inches = 1.5748031496062992126
 
-g_movement_units_in_inches = (g_base_width_in_inches / 2)
+g_movement_unit_in_inches = (g_base_width_in_inches / 2)
 g_two_movement_units_in_inches = g_base_width_in_inches
 
 -- All bases are 3mm tall
@@ -17,10 +17,10 @@ g_table_thickness = 0.11811023622047244094
 g_bases_position = g_base_height_inches + g_table_thickness + g_base_height_tabletop
 g_terrain_pos = 1.2
 
--- Shooting range in BW
-g_bow_range = 1.5 * g_two_movement_units_in_inches
-g_art_range = 4 * g_two_movement_units_in_inches
-g_wwg_range = 1.5 * g_two_movement_units_in_inches
+-- Shooting range in inches. Defined in terms of inches, see Rule 59.
+g_bow_range = 3 * g_movement_unit_in_inches
+g_art_range = 8 * g_movement_unit_in_inches
+g_wwg_range = 3 * g_movement_unit_in_inches
 
 -- Initial distance spawns from the center
 g_spawn_from_center_in = 16
