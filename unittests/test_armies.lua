@@ -9,6 +9,7 @@ dofile("../scripts/data/data_armies_Biblical.ttslua")
 dofile("../scripts/data/data_armies_Classical_Era.ttslua")
 dofile("../scripts/data/data_armies_Dark_Ages.ttslua")
 dofile("../scripts/data/data_armies_Medieval_Era.ttslua")
+dofile("../scripts/logic_spawn_army.ttslua")
 
 local function starts_with(str, start)
    return str:sub(1, #start) == start
@@ -34,33 +35,33 @@ end
 function get_valid_base_names_triumph()
   local valid= {}
   valid['Archers']=true
-  valid['Bow Levy']=true 
-  valid['Light Foot']=true 
-  valid['Light Spear']=true 
+  valid['Bow Levy']=true
+  valid['Light Foot']=true
+  valid['Light Spear']=true
   valid['Rabble']=true
-  valid['Raiders']=true 
-  valid['Skirmishers']=true 
+  valid['Raiders']=true
+  valid['Skirmishers']=true
   valid['Warband']=true
-  valid['Artillery']=true 
-  valid['Elite Foot']=true 
+  valid['Artillery']=true
+  valid['Elite Foot']=true
   valid['Heavy Foot']=true
   valid['Horde']=true
-  valid['Pavisiers']=true 
+  valid['Pavisiers']=true
    -- Appendix A uses "Pike"
   valid['Pikes']=true
   -- Appendix A uses "Spear"
-  valid['Spears']=true 
+  valid['Spears']=true
   valid['War Wagons']=true
-  valid['Warriors']=true 
-  valid['Bad Horse']=true 
+  valid['Warriors']=true
+  valid['Bad Horse']=true
   valid['Battle Taxi']=true
   valid['Chariots']=true
   valid['Elite Cavalary']=true
   valid['Horse Bow']=true
-  valid['Javelin Cavalry']=true 
+  valid['Javelin Cavalry']=true
   valid['Knights']=true
-  valid['Cataphracts']=true 
-  valid['Elephants']=true 
+  valid['Cataphracts']=true
+  valid['Elephants']=true
   valid['Camp']=true
   return valid
  end
@@ -68,7 +69,7 @@ function get_valid_base_names_triumph()
 
  -- Assert that the name of a base matches the converntios of the game.
  -- Used to check the army lists to see that they have valid entries.
- -- name: name of the base 
+ -- name: name of the base
  -- army_name: name of the army, used for reporting errors
  -- valid_names: set of names that are valid in the game.
 function assert_base_name_valid(name, army_name, valid_names)
@@ -90,7 +91,8 @@ function test_bases_types_are_in_list()
     for army_name, army in pairs(armies[book_name]) do
       for k,v in pairs(army) do
         if not starts_with(k, "data") then
-          local name = v.name
+          local base_data = get_base_definition(v)
+          local name = base_data.name
           assert_base_name_valid(name, army_name, valid_names)
         end
       end
@@ -98,17 +100,18 @@ function test_bases_types_are_in_list()
   end
 end
 
--- If a base has points override then verify that the points is a 
+-- If a base has points override then verify that the points is a
 -- reasonable value
 function test_points_sane()
   for book_name, book in pairs(armies) do
     for army_name, army in pairs(armies[book_name]) do
       for k,v in pairs(army) do
         if not starts_with(k, "data") then
-          if nil ~= v['points'] then
-            lu.assertTrue(v.points >= 2)
-            lu.assertTrue(v.points <= 5)
-	  end
+          local base_data = get_base_definition(v)
+          if nil ~= base_data['points'] then
+            lu.assertTrue(base_data.points >= 2)
+            lu.assertTrue(base_data.points <= 5)
+	        end
         end
       end
     end
@@ -116,19 +119,21 @@ function test_points_sane()
 end
 
  -- Assert that the battle cards is valid
-function assert_battle_card_valid(base, army, key)
-  if base['battle_card'] == nil then
-    return 
-  end
-  if base.battle_card == 'Deployment Dismounting' then
+function assert_battle_card_valid(base_definition, army, key)
+  if base_definition['battle_card'] == nil then
     return
   end
-  if base.battle_card == 'Mobile Infantry' then
+  if base_definition.battle_card == 'Deployment Dismounting' then
     return
   end
+  if base_definition.battle_card == 'Mobile Infantry' then
+    return
+  end
+
+  -- assertion failed
   print("army: ", army)
-  print("base: ", key, ' ', base.name)
-  print("battle card: ", base['battle_card'])
+  print("base definition: ", key, ' ', base_definition.name)
+  print("battle card: ", base_definition['battle_card'])
   lu.assertTrue(false)
 end
 
@@ -138,7 +143,8 @@ function test_battle_cards_valid()
     for army_name, army in pairs(armies[book_name]) do
       for k,v in pairs(army) do
         if not starts_with(k, "data") then
-          assert_battle_card_valid(v, army, k)
+          local base_data = get_base_definition(v)
+          assert_battle_card_valid(base_data, army, k)
         end
       end
     end

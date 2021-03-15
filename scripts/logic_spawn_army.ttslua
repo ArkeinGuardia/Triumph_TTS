@@ -208,7 +208,22 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
 
     base_obj.setRotation({0, y_rotation, 0})
     base_obj.auto_raise = false
+    return base_obj
 end
+
+-- Get the definition for a base
+-- base_data:  If string is the name of the variable holding the definition,
+--    otherwise it is the definition.
+function get_base_definition(base_data)
+  if type(base_data) == "string" then
+      -- The string refers to the name of the variable that
+      -- defines the base.
+      base_data = _G[base_data]
+    end
+    return base_data
+end
+
+
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
@@ -238,6 +253,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
     local i = 0
     for base_id, base_data in pairs(army) do
         if base_id ~= 'data' then
+           base_data = get_base_definition(base_data)
             local z_pos_modifier = -1 * get_depth_base(base_data['base']) / 2
             if is_red_player then
                 z_pos_modifier = -1 * z_pos_modifier
