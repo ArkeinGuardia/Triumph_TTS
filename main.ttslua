@@ -10,15 +10,11 @@
 #include scripts/data/data_terrain
 #include scripts/data/data_troops
 #include scripts/data/data_troops_greek_successors
---#include scripts/data/data_armies_book_I
---#include scripts/data/data_armies_book_II
---#include scripts/data/data_armies_book_III
---#include scripts/data/data_armies_book_IV
---#include scripts/data/data_armies_Testing_Armies
 #include scripts/data/data_armies_Biblical
 #include scripts/data/data_armies_Classical_Era
 #include scripts/data/data_armies_Dark_Ages
 #include scripts/data/data_armies_Medieval_Era
+#include scripts/data/data_cheat_sheet
 #include scripts/base_cache
 #include scripts/log
 #include scripts/utilities_lua
@@ -29,6 +25,7 @@
 #include scripts/logic_dead
 #include scripts/logic_dice
 #include scripts/logic_history_stack
+#include scripts/logic_tool_tips
 #include scripts/logic
 #include scripts/uievents
 
@@ -40,6 +37,7 @@ function onload()
     spawn_proxy_bases()
     spawn_all_dice()
     spawn_dead_zones()
+    print_tool_tip_status()
 end
 
 function make_scenery_non_interactable()

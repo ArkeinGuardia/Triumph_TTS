@@ -1,0 +1,197 @@
+
+-- Tactical Move Distances are in Table 5 in Rule 35.
+-- Troop types come from Appendix A
+-- Combat factors come from Appendix B 
+
+
+base_tool_tips = {}
+
+base_tool_tips['Archers']={
+  open_order_foot = true,
+  tactical_move_distance = 3,
+  shooting_combat_factor = 3,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 4,
+}
+base_tool_tips['Bow Levy']={
+  open_order_foot = true,
+  tactical_move_distance = 2,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 3,
+}
+base_tool_tips['Light Foot']={
+  open_order_foot = true,
+  tactical_move_distance = 5,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Light Spear']={
+  open_order_foot = true,
+  tactical_move_distance = 4,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 3,
+}
+base_tool_tips['Rabble']={
+  open_order_foot = true,
+  tactical_move_distance = 3,
+  target_combat_factor = 2,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 1,
+}
+base_tool_tips['Raiders']={
+  open_order_foot = true,
+  tactical_move_distance = 4,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 4,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Skirmishers']={
+  open_order_foot = true,
+  tactical_move_distance = 5,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 1,
+}
+base_tool_tips['Warband']={
+  open_order_foot = true,
+  tactical_move_distance = 4,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Artillery']={
+  close_order_foot = true,
+  tactical_move_distance = 2,
+  shooting_combat_factor = 4,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Elite Foot']={
+  close_order_foot = true,
+  tactical_move_distance = 3,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 5,
+  combat_factor_vs_mounted = 3,
+}
+base_tool_tips['Heavy Foot']={
+  close_order_foot = true,
+  tactical_move_distance = 3,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 4,
+  combat_factor_vs_mounted = 3,
+}
+base_tool_tips['Horde']={
+  close_order_foot = true,
+  tactical_move_distance = 2,
+  target_combat_factor = 2,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Pavisiers']={
+  close_order_foot = true,
+  tactical_move_distance = 3,
+  shooting_combat_factor = 3,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 4,
+}
+  -- Appendix A uses "Pike"
+base_tool_tips['Pikes']={
+  close_order_foot = true,
+  tactical_move_distance = 3,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 4,
+}
+-- Appendix A uses "Spear"
+base_tool_tips['Spears']={
+  close_order_foot = true,
+  tactical_move_distance = 3,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 4,
+  combat_factor_vs_mounted = 4,
+}
+base_tool_tips['War Wagons']={
+  close_order_foot = true,
+  tactical_move_distance = 2,
+  shooting_combat_factor = 3,
+  target_combat_factor = 4,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 4,
+}
+base_tool_tips['Warriors']={
+  close_order_foot = true,
+  tactical_move_distance = 3,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Bad Horse']={
+  open_order_mounted = true,
+  tactical_move_distance = 6,
+  target_combat_factor = 2,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Battle Taxi']={
+  open_order_mounted = true,
+  tactical_move_distance = 6,
+  target_combat_factor = 2,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Chariots']={
+  open_order_mounted = true,
+  tactical_move_distance = 6,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 3,
+}
+base_tool_tips['Elite Cavalary']={
+  open_order_mounted = true,
+  tactical_move_distance = 6,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 3,
+}
+base_tool_tips['Horse Bow']={
+  open_order_mounted = true,
+  tactical_move_distance = 8,
+  target_combat_factor = 2,
+  combat_factor_vs_foot = 2,
+  combat_factor_vs_mounted = 3,
+}
+base_tool_tips['Javelin Cavalry']={
+  open_order_mounted = true,
+  tactical_move_distance = 8,
+  target_combat_factor = 2,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 2,
+}
+base_tool_tips['Knights']={
+  open_order_mounted = true,
+  tactical_move_distance = 5,
+  target_combat_factor = 2,
+  combat_factor_vs_foot = 3,
+  combat_factor_vs_mounted = 4,
+}
+base_tool_tips['Cataphracts']={
+  close_order_mounted = true,
+  tactical_move_distance = 4,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 4,
+  combat_factor_vs_mounted = 4,
+}
+base_tool_tips['Elephants']={
+  close_order_mounted = true,
+  tactical_move_distance = 4,
+  target_combat_factor = 3,
+  combat_factor_vs_foot = 5,
+  combat_factor_vs_mounted = 4,
+}
+base_tool_tips['Camp']={}
