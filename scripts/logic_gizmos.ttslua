@@ -1247,17 +1247,6 @@ function draw_names_quadrant(size)
     spawn_text_blue('Right Wing', { -5 * size['x'] / 12, height_text, size['z'] / 7})
 end
 
-function draw_numbers_quadrant(size)
-    local height_text = g_table_thickness * 2 + g_base_height_tabletop + g_base_height_inches / 2
-
-    spawn_text('1', { -size['x'] / 4, height_text, -size['z'] / 4})
-
-    spawn_text('2', { -size['x'] / 4, height_text, size['z'] / 4})
-
-    spawn_text('3', { size['x'] / 4, height_text, size['z'] / 4})
-
-    spawn_text('4', { size['x'] / 4, height_text, -size['z'] / 4})
-end
 
 function draw_deployment_lines()
     local gametable = getObjectFromGUID(g_current_table)
