@@ -29,3 +29,21 @@ License
 -------
 
 See the LICENSE.md at the top directory.
+
+Unit Testing
+------------
+
+Unit tests are in unit tests and require a "Unix" like environment.  
+
+Windows users can use WSL2 (or WSL) https://docs.microsoft.com/en-us/windows/wsl/install-win10, and install
+Ubuntu.  In Ubuntu install make and lua with:
+sudo apt-get install make
+sudo apt-get install lua
+Note: your home directory is under /mnt/c/Users
+
+Mac users can use brew to install make and lua.
+
+Execution of the unit tests is done by:
+cd unittests
+make
+
