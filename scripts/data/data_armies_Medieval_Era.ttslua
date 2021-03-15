@@ -1,14 +1,11 @@
 armies["Medieval"] = {}
 
-armies["Medieval"]["Burgundian Ordonnances 1471 to 1477 AD"] = {
-    data = {
-        Invasion = 4,
-        maneuver = 0,
-        terrain = 'Arable',
-        list = 'Mandatory: 2 x Knights (dism. as EF), 1 x Artillery, 2 x Archers (Mobile), 1 x Pikes of Pavisiers.',
-        general = 'General: Knights.'
-    },
-    base1 = {
+-- Burgundian Ordonnance
+-- 1471 AD to 1477 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e8e1af060017709c95/explore
+-- As of: 20210315
+burgundian_ordannances_1471_to_1477_ad_knights_gen =
+    {
         name = 'Knights_Gen',
         base = 'tile_grass_40x30',
         n_models = 3,
@@ -16,9 +13,43 @@ armies["Medieval"]["Burgundian Ordonnances 1471 to 1477 AD"] = {
             [1] = 'troop_knight_burgundian_ordonnances',
             [2] = 'troop_knight_burgundian_ordonnances_captain',
             [3] = 'troop_knight_burgundian_ordonnances_bannerman'
-        }
-    },
-    base2 = {
+        },
+        points=4
+    }
+burgundian_ordannances_1471_to_1477_ad_knights =
+    {
+        name = 'Knights',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_knight_burgundian_ordonnances',
+        points=4
+    }
+
+burgundian_ordannances_1471_to_1477_ad_knights_gen_dd_mounted =
+    {
+        name = 'Knights_Gen',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_knight_burgundian_ordonnances',
+            [2] = 'troop_knight_burgundian_ordonnances_captain',
+            [3] = 'troop_knight_burgundian_ordonnances_bannerman'
+        },
+        points=4.5,
+        battle_card="Deployment Dismounting"
+    }
+burgundian_ordannances_1471_to_1477_ad_knights_dd_mounted =
+    {
+        name = 'Knights',
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_knight_burgundian_ordonnances',
+        points=4.5,
+        battle_card="Deployment Dismounting"
+    }
+
+burgundian_ordannances_1471_to_1477_ad_knights_gen_dd_dismounted =
+    {
         name = 'Elite Foot_Gen',
         base = 'tile_grass_40x15',
         n_models = 4,
@@ -27,21 +58,23 @@ armies["Medieval"]["Burgundian Ordonnances 1471 to 1477 AD"] = {
             [2] = 'troop_pikeman_burgundian_ordonnances_bannerman',
             [3] = 'troop_pikeman_burgundian_ordonnances_captain',
             [4] = 'troop_swordman_two_handed_burgundian_ordonnances'
-        }
-    },
-    base3 = {
-        name = 'Knights',
-        base = 'tile_grass_40x30',
-        n_models = 3,
-        model_data = 'troop_knight_burgundian_ordonnances'
-    },
-    base4 = {
+        },
+        points=4.5,
+        battle_card="Deployment Dismounting"
+    }
+burgundian_ordannances_1471_to_1477_ad_knights_dd_dismounted =
+    {
         name = 'Elite Foot',
         base = 'tile_grass_40x15',
         n_models = 4,
-        model_data = 'troop_swordman_two_handed_burgundian_ordonnances'
-    },
-    base5 = {
+        model_data = 'troop_swordman_two_handed_burgundian_ordonnances',
+        points=4.5,
+        battle_card="Deployment Dismounting"
+    }
+
+
+burgundian_ordannances_1471_to_1477_ad_artillery =
+    {
         name = 'Artillery',
         base = 'tile_grass_40x40',
         n_models = 3,
@@ -50,38 +83,43 @@ armies["Medieval"]["Burgundian Ordonnances 1471 to 1477 AD"] = {
             [2] = 'troop_artillery_pieces_burgundian_ordonnances',
             [3] = 'troop_artillery_crew_burgundian_ordonnances'
         }
-    },
-    base6 = {
+    }
+
+burgundian_ordannances_1471_to_1477_ad_archers =
+    {
         name = 'Archers',
         base = 'tile_grass_40x20',
         n_models = 4,
         model_data = 'troop_crossbowman_burgundian_ordonnances'
-    },
-    base7 = {
+    }
+burgundian_ordannances_1471_to_1477_ad_archers_mi_mounted =
+    {
         name = 'Archers_Mobile',
         base = 'tile_grass_40x40',
         n_models = 4,
         model_data = 'troop_horse_rider_burgundian_ordonnances'
-    },
-    base8 = {
+    }
+
+burgundian_ordannances_1471_to_1477_ad_archers_mi_dismounted =
+    {
         name = 'Archers',
         base = 'tile_grass_40x20',
         n_models = 4,
-        model_data = 'troop_longbowman_burgundian_ordonnances'
-    },
-    base9 = {
-        name = 'Archers_Mobile',
-        base = 'tile_grass_40x40',
-        n_models = 4,
-        model_data = 'troop_horse_rider_burgundian_ordonnances'
-    },
-    base10 = {
+        model_data = 'troop_crossbowman_burgundian_ordonnances',
+        points=4.5,
+        battle_card="Mobile Infantry",
+    }
+
+
+burgundian_ordannances_1471_to_1477_ad_pikes =
+    {
         name = 'Pikes',
         base = 'tile_grass_40x15',
         n_models = 4,
         model_data = 'troop_pikeman_burgundian_ordonnances_straight'
-    },
-    base11 = {
+    }
+burgundian_ordannances_1471_to_1477_ad_pavisiers =
+    {
         name = 'Pavisiers',
         base = 'tile_grass_40x40',
         n_models = 8,
@@ -95,140 +133,125 @@ armies["Medieval"]["Burgundian Ordonnances 1471 to 1477 AD"] = {
             [7] = 'troop_pikeman_burgundian_ordonnances_inclined',
             [8] = 'troop_pikeman_burgundian_ordonnances_inclined'
         }
+    }
+
+
+armies["Medieval"]["Burgundian Ordonnances 1471 to 1477 AD"] = {
+    data = {
+        Invasion = 4,
+        maneuver = 0,
+        terrain = 'Arable',
+        list = 'Mandatory: 2 x Knights (dism. as EF), 1 x Artillery, 2 x Archers (Mobile), 1 x Pikes of Pavisiers.',
+        general = 'General: Knights.'
     },
-    base12 = {
-        name = 'Knights',
-        base = 'tile_grass_40x30',
-        n_models = 3,
-        model_data = 'troop_knight_burgundian_ordonnances'
-    },
-    base13 = {
-        name = 'Elite Foot',
-        base = 'tile_grass_40x15',
-        n_models = 4,
-        model_data = 'troop_swordman_two_handed_burgundian_ordonnances'
-    },
-    base14 = {
-        name = 'Knights',
-        base = 'tile_grass_40x30',
-        n_models = 3,
-        model_data = 'troop_knight_burgundian_ordonnances'
-    },
-    base15 = {
-        name = 'Elite Foot',
-        base = 'tile_grass_40x15',
-        n_models = 4,
-        model_data = 'troop_swordman_two_handed_burgundian_ordonnances'
-    },
-    base16 = {
-        name = 'Artillery',
-        base = 'tile_grass_40x40',
-        n_models = 3,
-        fixed_models = {
-            [1] = 'troop_artillery_crew_burgundian_ordonnances',
-            [2] = 'troop_artillery_pieces_burgundian_ordonnances',
-            [3] = 'troop_artillery_crew_burgundian_ordonnances'
-        }
-    },
-    base17 = {
-        name = 'Archers',
-        base = 'tile_grass_40x20',
-        n_models = 4,
-        model_data = 'troop_crossbowman_burgundian_ordonnances'
-    },
-    base18 = {
-        name = 'Archers_Mobile',
-        base = 'tile_grass_40x40',
-        n_models = 4,
-        model_data = 'troop_horse_rider_burgundian_ordonnances'
-    },
-    base19 = {
-        name = 'Archers',
-        base = 'tile_grass_40x20',
-        n_models = 4,
-        model_data = 'troop_longbowman_burgundian_ordonnances'
-    },
-    base20 = {
-        name = 'Archers_Mobile',
-        base = 'tile_grass_40x40',
-        n_models = 4,
-        model_data = 'troop_horse_rider_burgundian_ordonnances'
-    },
-    base21 = {
-        name = 'Pikes',
-        base = 'tile_grass_40x15',
-        n_models = 4,
-        model_data = 'troop_pikeman_burgundian_ordonnances_straight'
-    },
-    base22 = {
-        name = 'Pavisiers',
-        base = 'tile_grass_40x40',
-        n_models = 8,
-        fixed_models = {
-            [1] = 'troop_longbowman_burgundian_ordonnances',
-            [2] = 'troop_longbowman_burgundian_ordonnances',
-            [3] = 'troop_longbowman_burgundian_ordonnances',
-            [4] = 'troop_longbowman_burgundian_ordonnances',
-            [5] = 'troop_pikeman_burgundian_ordonnances_inclined',
-            [6] = 'troop_pikeman_burgundian_ordonnances_inclined',
-            [7] = 'troop_pikeman_burgundian_ordonnances_inclined',
-            [8] = 'troop_pikeman_burgundian_ordonnances_inclined'
-        }
-    },
-    base23 = {
+
+    -- Knights 2-4, Deployment Dismountable to Elite foot
+    base1 = burgundian_ordannances_1471_to_1477_ad_knights_gen,
+    base2 = burgundian_ordannances_1471_to_1477_ad_knights,
+    base3 = burgundian_ordannances_1471_to_1477_ad_knights,
+    base4 = burgundian_ordannances_1471_to_1477_ad_knights,
+    -- or
+    base5 = burgundian_ordannances_1471_to_1477_ad_knights_gen_dd_mounted,
+    base6 = burgundian_ordannances_1471_to_1477_ad_knights_dd_mounted,
+    base7 = burgundian_ordannances_1471_to_1477_ad_knights_dd_mounted,
+    base8 = burgundian_ordannances_1471_to_1477_ad_knights_dd_mounted,
+    -- or
+    base9 = burgundian_ordannances_1471_to_1477_ad_knights_gen_dd_dismounted,
+    base10 = burgundian_ordannances_1471_to_1477_ad_knights_dd_dismounted,
+    base11 = burgundian_ordannances_1471_to_1477_ad_knights_dd_dismounted,
+    base12 = burgundian_ordannances_1471_to_1477_ad_knights_dd_dismounted,
+
+    -- 1 or 2 artillery
+    base13 = burgundian_ordannances_1471_to_1477_ad_artillery,
+    base14 = burgundian_ordannances_1471_to_1477_ad_artillery,
+
+    -- 2 to 4 archers, can be mobile infantry
+    base15 = burgundian_ordannances_1471_to_1477_ad_archers,
+    base16 = burgundian_ordannances_1471_to_1477_ad_archers,
+    base17 = burgundian_ordannances_1471_to_1477_ad_archers,
+    base18 = burgundian_ordannances_1471_to_1477_ad_archers,
+    -- or
+    base19 = burgundian_ordannances_1471_to_1477_ad_archers_mi_mounted,
+    base20 = burgundian_ordannances_1471_to_1477_ad_archers_mi_mounted,
+    base21 = burgundian_ordannances_1471_to_1477_ad_archers_mi_mounted,
+    base22 = burgundian_ordannances_1471_to_1477_ad_archers_mi_mounted,
+    -- or
+    base23 = burgundian_ordannances_1471_to_1477_ad_archers_mi_dismounted,
+    base24 = burgundian_ordannances_1471_to_1477_ad_archers_mi_dismounted,
+    base25 = burgundian_ordannances_1471_to_1477_ad_archers_mi_dismounted,
+    base25 = burgundian_ordannances_1471_to_1477_ad_archers_mi_dismounted,
+
+    -- 1 to 2 pikes or pavisiers
+    base26 = burgundian_ordannances_1471_to_1477_ad_pikes, 
+    base27 = burgundian_ordannances_1471_to_1477_ad_pikes, 
+    -- or 
+    base28 = burgundian_ordannances_1471_to_1477_ad_pavisiers,
+    base29 = burgundian_ordannances_1471_to_1477_ad_pavisiers,
+
+    -- 0 to 1 Skimishers
+    base30 = {
         name = 'Skirmishers',
         base = 'tile_grass_40x20',
         n_models = 2,
         model_data = 'troop_handgunner_burgundian_ordonnances'
     },
-    base24 = {
+
+    -- 0 to 2 Knights -- italian men_at_arms
+    base31 = {
         name = 'Knights',
         base = 'tile_grass_40x30',
         n_models = 3,
         model_data = 'troop_knight_late_medieval'
     },
-    base25 = {
+    base32 = {
         name = 'Knights',
         base = 'tile_grass_40x30',
         n_models = 3,
         model_data = 'troop_knight_late_medieval'
     },
-    base26 = {
+
+    -- 0 to 1 Bad Horse -- italian crossbowmen on horses
+    base33 = {
         name = 'Bad Horse',
         base = 'tile_grass_40x30',
         n_models = 3,
         model_data = 'troop_horse_rider_late_medieval'
     },
-    base27 = {
+
+    -- 0 to1 archers -- italian crossbowmen
+    base34 = {
         name = 'Archers',
         base = 'tile_grass_40x20',
         n_models = 4,
         model_data = 'troop_crossbowman_late_medieval'
     },
-    base28 = {
+
+    -- 0 to 4 Pikes -- Low Countries Pikesmen
+    base35 = {
         name = 'Pikes',
         base = 'tile_grass_40x15',
         n_models = 4,
         model_data = 'troop_pikeman_late_medieval_straight'
     },
-    base29 = {
+    base36 = {
         name = 'Pikes',
         base = 'tile_grass_40x15',
         n_models = 4,
         model_data = 'troop_pikeman_late_medieval_inclined'
     },
-    base30 = {
+    base37 = {
         name = 'Pikes',
         base = 'tile_grass_40x15',
         n_models = 4,
         model_data = 'troop_pikeman_late_medieval_straight'
     },
-    base31 = {
+    base3r = {
         name = 'Pikes',
         base = 'tile_grass_40x15',
         n_models = 4,
         model_data = 'troop_pikeman_late_medieval_inclined'
     },
+
     base32 = {
         name = 'Camp',
         base = 'tile_grass_40x40',
@@ -236,6 +259,9 @@ armies["Medieval"]["Burgundian Ordonnances 1471 to 1477 AD"] = {
         model_data = 'troop_camp_burgundian_ordonnances'
     }
 }
+
+
+
 
 armies["Medieval"]["Early Renaissance Swiss 1478 to 1522 AD"] = {
     data = {

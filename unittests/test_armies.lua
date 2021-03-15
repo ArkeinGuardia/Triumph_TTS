@@ -82,16 +82,63 @@ function assert_base_name_valid(name, army_name, valid_names)
   lu.assertTrue(false)
 end
 
--- page 7 lists the abbreviations for the bases.  Verify only the correct
+-- Appendix A lists the abbreviations for the bases.  Verify only the correct
 -- abbreviations are used in the army lists.
-function test_bases_are_in_list()
+function test_bases_types_are_in_list()
   local valid_names = get_valid_base_names_triumph()
   for book_name, book in pairs(armies) do
     for army_name, army in pairs(armies[book_name]) do
       for k,v in pairs(army) do
-        if starts_with(k, "base") then
+        if not starts_with(k, "data") then
           local name = v.name
           assert_base_name_valid(name, army_name, valid_names)
+        end
+      end
+    end
+  end
+end
+
+-- If a base has points override then verify that the points is a 
+-- reasonable value
+function test_points_sane()
+  for book_name, book in pairs(armies) do
+    for army_name, army in pairs(armies[book_name]) do
+      for k,v in pairs(army) do
+        if not starts_with(k, "data") then
+          if nil ~= v['points'] then
+            lu.assertTrue(v.points >= 2)
+            lu.assertTrue(v.points <= 5)
+	  end
+        end
+      end
+    end
+  end
+end
+
+ -- Assert that the battle cards is valid
+function assert_battle_card_valid(base, army, key)
+  if base['battle_card'] == nil then
+    return 
+  end
+  if base.battle_card == 'Deployment Dismounting' then
+    return
+  end
+  if base.battle_card == 'Mobile Infantry' then
+    return
+  end
+  print("army: ", army)
+  print("base: ", key, ' ', base.name)
+  print("battle card: ", base['battle_card'])
+  lu.assertTrue(false)
+end
+
+-- If a base has a battle card check that it is valid
+function test_battle_cards_valid()
+  for book_name, book in pairs(armies) do
+    for army_name, army in pairs(armies[book_name]) do
+      for k,v in pairs(army) do
+        if not starts_with(k, "data") then
+          assert_battle_card_valid(v, army, k)
         end
       end
     end
