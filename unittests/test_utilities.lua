@@ -405,4 +405,15 @@ function test_is_2d_shapes_intersecting_false()
   lu.assertFalse(actual)
 end
 
+function test_from_mu_to_in()
+  local actual = from_mu_to_in(2)
+  lu.assertAlmostEquals(actual, g_base_width_in_inches, 0.01)
+end
+
+function test_in_to_mu()
+  local actual = from_in_to_mu(g_base_width_in_inches)
+  lu.assertAlmostEquals(actual, 2, 0.01)
+end
+
+
 os.exit( lu.LuaUnit.run() )

@@ -168,12 +168,12 @@ function from_mm_to_in(mm)
     return mm / 25.4
 end
 
-function from_mu_to_in(bw)
-    return  bw * g_movement_unit_inches / 2
+function from_mu_to_in(mu)
+    return  mu * g_movement_unit_in_inches
 end
 
 function from_in_to_mu(inches)
-    return 2 * inches / g_movement_unit_inches
+    return inches / g_movement_unit_in_inches
 end
 
 -- Given two tables with x,y,z representing world coords, calculates the distance between them in x,z, SQUARED

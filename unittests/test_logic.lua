@@ -752,7 +752,7 @@ function test_distance_front_to_left_returns_huge_on_bad_angle()
   -- then math.huge is returned.
   local resting_base = build_base("base WWg # 19", 'tile_plain_WWg_40x80')
   local moving_base = build_base("base WWg # 20", 'tile_plain_WWg_40x80')
-  moving_base.position['x'] = moving_base.position['x'] - g_movement_unit_inches
+  moving_base.position['x'] = moving_base.position['x'] - g_two_movement_units_in_inches
   local transform_resting = calculate_transform(resting_base)
   local transform_moving = calculate_transform(moving_base)
   local actual = distance_front_to_left(transform_moving, transform_resting)
@@ -782,7 +782,7 @@ function test_distance_front_to_right_returns_huge_on_bad_angle()
   -- then math.huge is returned.
   local resting_base = build_base("base WWg # 19", 'tile_plain_WWg_40x80')
   local moving_base = build_base("base WWg # 20", 'tile_plain_WWg_40x80')
-  moving_base.position['x'] = moving_base.position['x'] + g_movement_unit_inches
+  moving_base.position['x'] = moving_base.position['x'] + g_two_movement_units_in_inches
   local transform_resting = calculate_transform(resting_base)
   local transform_moving = calculate_transform(moving_base)
   local actual = distance_front_to_right(transform_moving, transform_resting)

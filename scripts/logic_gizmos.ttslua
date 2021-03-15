@@ -31,21 +31,22 @@ function get_strokes_future_position(base_obj, transform)
 end
 
 function get_strokes_zoc_base(base_obj, transform)
+    -- ZOC is 1 basewidth in front.  See Rule 51.2
     local stroke_points = {}
     local p = transform['corners']['topright']
     table.insert(stroke_points, p)
     table.insert(stroke_points, {
         x = p['x'],
         y = p['y'],
-        z = p['z'] + g_movement_unit_inches
+        z = p['z'] + g_base_width_in_inches
     })
     table.insert(stroke_points, {
-        x = p['x'] - g_movement_unit_inches,
+        x = p['x'] - g_base_width_in_inches,
         y = p['y'],
-        z = p['z'] + g_movement_unit_inches
+        z = p['z'] + g_base_width_in_inches
     })
     table.insert(stroke_points, {
-        x = p['x'] - g_movement_unit_inches,
+        x = p['x'] - g_base_width_in_inches,
         y = p['y'],
         z = p['z']
     })
@@ -62,6 +63,7 @@ function get_strokes_zoc_base(base_obj, transform)
 end
 
 function get_strokes_zoc_wwg(base_obj, transform)
+    -- ZOC is one base width in front.  See Rule 51.2
     local size = get_size(base_obj.getName())
     local color = g_gizmo_zoc_color_player_red
     if is_base_blue_player(base_obj.getName()) then
@@ -84,12 +86,12 @@ function get_strokes_zoc_wwg(base_obj, transform)
     table.insert(stroke_points, {
         x = tr['x'],
         y = tr['y'],
-        z = tr['z'] + g_movement_unit_inches
+        z = tr['z'] + g_base_width_in_inches
     })
     table.insert(stroke_points, {
         x = tl['x'],
         y = tl['y'],
-        z = tl['z'] + g_movement_unit_inches
+        z = tl['z'] + g_base_width_in_inches
     })
     table.insert(stroke_points, {
         x = tl['x'],
@@ -100,12 +102,12 @@ function get_strokes_zoc_wwg(base_obj, transform)
     -- SIDE LEFT
 
     table.insert(stroke_points, {
-        x = tl['x'] - g_movement_unit_inches,
+        x = tl['x'] - g_base_width_in_inches,
         y = tl['y'],
         z = tl['z']
     })
     table.insert(stroke_points, {
-        x = bl['x'] - g_movement_unit_inches,
+        x = bl['x'] - g_base_width_in_inches,
         y = bl['y'],
         z = bl['z']
     })
@@ -120,12 +122,12 @@ function get_strokes_zoc_wwg(base_obj, transform)
     table.insert(stroke_points, {
         x = bl['x'],
         y = bl['y'],
-        z = bl['z'] - g_movement_unit_inches
+        z = bl['z'] - g_base_width_in_inches
     })
     table.insert(stroke_points, {
         x = br['x'],
         y = br['y'],
-        z = br['z'] - g_movement_unit_inches
+        z = br['z'] - g_base_width_in_inches
     })
     table.insert(stroke_points, {
         x = br['x'],
@@ -136,12 +138,12 @@ function get_strokes_zoc_wwg(base_obj, transform)
     -- SIDE RIGHT
 
     table.insert(stroke_points, {
-        x = br['x'] + g_movement_unit_inches,
+        x = br['x'] + g_base_width_in_inches,
         y = br['y'],
         z = br['z']
     })
     table.insert(stroke_points, {
-        x = tr['x'] + g_movement_unit_inches,
+        x = tr['x'] + g_base_width_in_inches,
         y = tr['y'],
         z = tr['z']
     })
@@ -177,7 +179,7 @@ function get_strokes_zoc(base_obj, transform)
         end
 
         local size = get_size(base_obj.getName())
-        return get_strokes_around(size, transform, g_movement_unit_inches, color)
+        return get_strokes_around(size, transform, g_base_width_in_inches, color)
     end
 
     if str_has_substr(base_obj.getName(), 'WWg') then
@@ -195,15 +197,15 @@ function get_strokes_zoc(base_obj, transform)
     table.insert(stroke_points, {
         x = p['x'],
         y = p['y'],
-        z = p['z'] + g_movement_unit_inches
+        z = p['z'] + g_base_width_in_inches
     })
     table.insert(stroke_points, {
-        x = p['x'] - g_movement_unit_inches,
+        x = p['x'] - g_base_width_in_inches,
         y = p['y'],
-        z = p['z'] + g_movement_unit_inches
+        z = p['z'] + g_base_width_in_inches
     })
     table.insert(stroke_points, {
-        x = p['x'] - g_movement_unit_inches,
+        x = p['x'] - g_base_width_in_inches,
         y = p['y'],
         z = p['z']
     })
@@ -238,7 +240,7 @@ function get_strokes_fire_arc(base_obj, transform, shooting_range, max_width)
     local stroke_points = {}
     local p = transform['corners']['topright']
 
-    local max_angle_arc = math.acos(g_movement_unit_inches / shooting_range)
+    local max_angle_arc = math.acos(g_base_width_in_inches / shooting_range)
     local side_height = math.sin(max_angle_arc) * shooting_range
 
     table.insert(stroke_points, p)
@@ -341,11 +343,11 @@ function get_strokes_fire_arc(base_obj, transform, shooting_range, max_width)
 end
 
 function get_strokes_bow(base_obj, transform)
-    return get_strokes_fire_arc(base_obj, transform, g_bow_range, g_movement_unit_inches)
+    return get_strokes_fire_arc(base_obj, transform, g_bow_range, g_base_width_in_inches)
 end
 
 function get_strokes_art(base_obj, transform)
-    return get_strokes_fire_arc(base_obj, transform, g_art_range, g_movement_unit_inches)
+    return get_strokes_fire_arc(base_obj, transform, g_art_range, g_base_width_in_inches)
 end
 
 -- WWg fire with like a bow on all edges which is weird as fuck
@@ -356,7 +358,7 @@ function get_strokes_fire_around(size, transform, shooting_range, max_width, col
     local br = { x = size['x'] / 2, y = 0, z = -size['z'] / 2 }
     local bl = { x = -size['x'] / 2, y = 0, z = -size['z'] / 2 }
 
-    local max_angle_arc = math.acos(g_movement_unit_inches / shooting_range)
+    local max_angle_arc = math.acos(g_base_width_in_inches / shooting_range)
     local side_height = math.sin(max_angle_arc) * shooting_range
 
     -- TOP
@@ -637,7 +639,7 @@ function get_strokes_wwg(base_obj, transform)
     if is_base_blue_player(base_obj.getName()) then
         color = g_gizmo_fire_color_player_blue
     end
-    return get_strokes_fire_around(size, transform, g_wwg_range, g_movement_unit_inches, color)
+    return get_strokes_fire_around(size, transform, g_wwg_range, g_base_width_in_inches, color)
 end
 
 function get_strokes_around(size, transform, range, color)
@@ -1397,7 +1399,8 @@ function show_gizmo_bua_afterdetach()
                 local corners = compute_corners_coords(size, angle, terrain_pos)
                 local transform = get_transform(terrain_pos, corners, angle)
 
-                local strokes_zoc = get_strokes_around(size, transform, g_movement_unit_inches, g_gizmo_color_command)
+                -- Zone of control is 1 BW, or 2 MU.  See Rule 51.2
+                local strokes_zoc = get_strokes_around(size, transform, g_base_width_in_inches, g_gizmo_color_command)
                 local strokes_bw = get_strokes_around(size, transform, g_bow_range, g_gizmo_color_command)
                 local strokes_art = get_strokes_around(size, transform, g_art_range,  g_gizmo_color_command)
 
