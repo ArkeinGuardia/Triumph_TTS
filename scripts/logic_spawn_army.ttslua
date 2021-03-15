@@ -281,6 +281,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
         note_pos,
         angle)
 
+    update_tool_tips()
     print_important('Army deployed: ' .. army_name .. ', see chat for options')
     print_info('List: ' .. army['data']['list'])
     print_info('Agressiveness: ' .. army['data']['Invasion']

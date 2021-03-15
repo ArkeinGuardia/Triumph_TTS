@@ -79,7 +79,7 @@ function test_get_tool_tip_returns_nil_if_tool_tips_not_enabled()
     g_tool_tips_enabled = orig
 end
 
-function test_get_tool_tip_returns_tool_tip_if_tool_tips_not_enabled()
+function test_get_tool_tip_returns_tool_tip_if_tool_tips_enabled()
     -- setup
     local orig = g_tool_tips_enabled
     g_tool_tips_enabled = true
@@ -90,6 +90,21 @@ function test_get_tool_tip_returns_tool_tip_if_tool_tips_not_enabled()
     -- validate
     local actual = str_has_substr(tip, "MU")
     lu.assertTrue(actual)
+
+    -- cleanup
+    g_tool_tips_enabled = orig
+end
+
+function test_get_tool_tip_returns_empty_string_for_proxy()
+    -- setup
+    local orig = g_tool_tips_enabled
+    g_tool_tips_enabled = true
+
+    -- exercise
+    local actual = get_tool_tip_for_base_name("base Proxy 40x15 # 1")
+
+    -- validate
+    lu.assertEquals(actual, "")
 
     -- cleanup
     g_tool_tips_enabled = orig

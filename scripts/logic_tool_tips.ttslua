@@ -92,8 +92,8 @@ function build_tool_tip_string_ranged_combat(tip_data)
   if tip_data.target_combat_factor == nil then
     -- error condition, item missing from tip_data
     target = "X"
-  else 
-    target = tostring(tip_data.target_combat_factor) 
+  else
+    target = tostring(tip_data.target_combat_factor)
    end
   return string.format("ranged combat: %s/%s\n", shooting, target)
 end
@@ -109,8 +109,8 @@ function build_tool_tip_string_close_combat(tip_data)
   if tip_data.combat_factor_vs_mounted == nil then
     -- error condition, item missing from tip_data
     mounted = "X"
-  else 
-    mounted = tostring(tip_data.combat_factor_vs_mounted) 
+  else
+    mounted = tostring(tip_data.combat_factor_vs_mounted)
    end
   return string.format("close combat: %s/%s\n", foot, mounted)
 end
@@ -128,6 +128,6 @@ function build_tool_tip(base_type)
   if tip_data == nil then
     return ""
   end
-  return build_tool_tip_string(tip_data)
+  local result = build_tool_tip_string(tip_data)
+  return result
 end
-
