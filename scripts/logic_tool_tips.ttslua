@@ -38,11 +38,22 @@ function get_battle_card_for_base_obj(base_obj)
   if nil == base_definition then
     return ""
   end
-  local battle_card = base_definition['battle_card']
-  if nil == battle_card then
-    return ""
+
+  local tip = ""
+  local dismounts_as = base_definition['dismount_as']
+  if dismounts_as ~= nil then
+    local dismounts_as_definition = _G[dismounts_as]
+    if nil ~= dismounts_as_definition then
+      local dismounts_name = dismounts_as_definition['name']
+      tip = "Dismounts as " .. dismounts_name .. "\n"
+    end
   end
-  return battle_card
+
+  local battle_card = base_definition['battle_card']
+  if nil ~= battle_card then
+    tip = tip .. battle_card
+  end
+  return tip
  end
 
 function get_tool_tip_for_base(base_obj)
