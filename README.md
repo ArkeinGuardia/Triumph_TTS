@@ -61,10 +61,15 @@ Base definition fields are:
 * fixed_models Figures to add to the base when rendering.
 * loose = true (optional) Indictes that the models should be placed in a 
     non-grid formation.  Used to indicate open order troops.
-* points (optional) Number of points the base is worth. Default is the points for the type.
-* battle_card (optional) Battle card that modifies the standard behviour of the type
+* points (optional) Number of points the base is worth. Default is the points 
+  for the type.
+* battle_card (optional) Battle card that modifies the standard behviour of 
+  the type
+* dismount_as (optional) String containing the name of the variable for
+  the base defintion of that will replace this base if the unit
+  is dismounted.  i.e. The base is mobile infantry.
 
-A base definition that has points or battle_card set must be an external 
+A base definition that has points, battle_card, or dismount_as set must be an external 
 base definition, otherwise it may be external or internal.
 
 An external base definition is one in which a variable is declared for the definition.
