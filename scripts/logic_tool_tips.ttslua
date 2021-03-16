@@ -20,11 +20,37 @@ function toggle_tool_tips()
 end
 
 function update_tool_tips()
+print("IN update_tool_tips")
   for _,base in pairs(get_all_bases()) do
+    print("Updating tool tip ", base.getName())
     local tip = get_tool_tip_for_base(base)
     base.setDescription(tip)
   end
+print("OUT update_tool_tips")
 end
+
+-- base: base object 
+-- return: battle card for the base or empty string.
+function get_battle_card_for_base(base)
+  local decoration = g_decorations[ base.getGUID()]
+  if nil == decoration then
+    return ""
+  end
+  local base_definition_name = decoration.base_definition_name
+  if nil == base_definition_name then
+    return ""
+  end
+  local base_definition = _G[base_definition_name]
+  if nil == base_definition_name then
+    print_error("base definition missing: " .. tostring(base_definition_name))
+    return ""
+  end
+  local battle_card = base_definition['battle_card']
+  if nil == battle_card then
+    return ""
+  end
+  return battle_card
+ end
 
 function get_tool_tip_for_base(base)
   if base == nil then
@@ -33,16 +59,19 @@ function get_tool_tip_for_base(base)
   if not g_tool_tips_enabled then
     return nil
   end
-  return get_tool_tip_for_base_name(base.getName())
+  local tip =  
+    get_tool_tip_for_base_name(base.getName()) .. 
+    get_battle_card_for_base(base)
+  return tip
 end
 
 function get_tool_tip_for_base_name(base_name)
   if base_name == nil then
-    return nil
+    return ""
   end
   local type = get_base_type_from_name(base_name)
   if type == nil then
-    return nil
+    return ""
   end
   return get_tool_tip(type)
 end
@@ -53,6 +82,7 @@ function get_base_type_from_name(base_name)
   if type == base_name then
     return nil -- no match.  this is an error
   end
+  type = str_remove_suffix(type, "*")
   type = str_remove_suffix(type, "_Gen")
   return type
 end

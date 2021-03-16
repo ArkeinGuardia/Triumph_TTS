@@ -25,6 +25,7 @@ function remove_suffix(s, suffix)
 end
 
 function normalize_base_name(name)
+  name = remove_suffix(name, "*")
   name = remove_suffix(name, "_Gen")
   name = remove_suffix(name, "_Mobile")
   return name
@@ -91,8 +92,12 @@ function test_bases_types_are_in_list()
     for army_name, army in pairs(armies[book_name]) do
       for k,v in pairs(army) do
         if not starts_with(k, "data") then
-          local base_data = get_base_definition(v)
-          local name = base_data.name
+          local base_definition = get_base_definition(v)
+          if nil == base_definition then
+            print("get_base_definition failed for ", v)
+            lu.assertTrue(false)
+          end
+          local name = base_definition.name
           assert_base_name_valid(name, army_name, valid_names)
         end
       end

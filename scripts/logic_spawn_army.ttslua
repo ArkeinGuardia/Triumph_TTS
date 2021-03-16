@@ -214,15 +214,20 @@ end
 -- Get the definition for a base
 -- base_data:  If string is the name of the variable holding the definition,
 --    otherwise it is the definition.
+-- return: table defining the base
 function get_base_definition(base_data)
-  if type(base_data) == "string" then
-      -- The string refers to the name of the variable that
-      -- defines the base.
-      base_data = _G[base_data]
-    end
+  if type(base_data) ~= "string" then
     return base_data
+  end
+  -- The string refers to the name of the variable that
+  -- defines the base.
+  local definition = _G[base_data]
+  if nil == definition then
+    print_error("base definition missing: " .. tostring(base_data))
+  end
+  definition.base_definition_name = base_data
+  return definition
 end
-
 
 
 -- Given an army object data, spawns it on the center of the table.
@@ -253,24 +258,28 @@ function spawn_army(army_name, army, is_red_player, command_color)
     local i = 0
     for base_id, base_data in pairs(army) do
         if base_id ~= 'data' then
-           base_data = get_base_definition(base_data)
-            local z_pos_modifier = -1 * get_depth_base(base_data['base']) / 2
-            if is_red_player then
-                z_pos_modifier = -1 * z_pos_modifier
+
+            local base_definition = get_base_definition(base_data)
+            if nil ~= base_definition then
+              local z_pos_modifier = -1 * get_depth_base(base_definition['base']) / 2
+              if is_red_player then
+                  z_pos_modifier = -1 * z_pos_modifier
+              end
+
+              local column = i % g_max_bases_row
+              local row = math.floor(i / g_max_bases_row)
+
+              local row_z_pos = z_pos * (1 + row) + z_pos_0
+
+              local location = {
+                  x = g_offset_deployment_x + column * g_base_width_in_inches - width_army / 2,
+                  y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
+                  z = row_z_pos - z_pos_modifier
+              }
+              local base_obj = spawn_base(base_definition, location, y_rotation, is_red_player, command_color)
+              g_decorations[base_obj.getGUID()] = {base_definition_name = base_definition['base_definition_name']}
+              i = i + 1
             end
-
-            local column = i % g_max_bases_row
-            local row = math.floor(i / g_max_bases_row)
-
-            local row_z_pos = z_pos * (1 + row) + z_pos_0
-
-            local location = {
-                x = g_offset_deployment_x + column * g_base_width_in_inches - width_army / 2,
-                y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
-                z = row_z_pos - z_pos_modifier
-            }
-            spawn_base(base_data, location, y_rotation, is_red_player, command_color)
-            i = i + 1
         end
     end
 
@@ -335,6 +344,7 @@ function update_authors_text(army)
     for base_id, base in pairs(army) do
         print_debug('Getting data of base for author of ' .. base_id)
         if base_id ~= 'data' then
+            base = get_base_definition(base)
             local author = get_author_base(base)
 
             if authors_set[author] == nil then
