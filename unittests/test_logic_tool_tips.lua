@@ -3,6 +3,7 @@ armies = {}
 require('scripts/data/data_armies_Medieval_Era')
 require('scripts/utilities_lua')
 require('scripts/utilities')
+require('scripts/logic_spawn_army')
 require('scripts/logic_tool_tips')
 require('scripts/data/data_troops')
 require('scripts/data/data_cheat_sheet')
@@ -77,13 +78,19 @@ function test_build_tool_tip_battle_card_added()
         getGUID = function() return "ABCDE" end,
         base_definition_name = "burgundian_ordannances_1471_to_1477_ad_knights_dd_mounted"
     }
+    assert(_G[base.base_definition_name] ~= nil)
     g_decorations[ base.getGUID() ] = {base_definition_name =  base.base_definition_name}
 
     -- Exercise
     local tip = get_tool_tip_for_base(base)
 
     -- Verify
-    local actual = str_has_substr(tip, "Deployment Dismounting")
+    local expected = "Deployment Dismounting"
+    local actual = str_has_substr(tip, expected)
+    if not actual then
+        print("expected: ", expected)
+        print("tip: ", tip)
+    end
     lu.assertTrue(actual)
 
     -- Cleanup
