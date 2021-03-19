@@ -86,6 +86,15 @@ local g_updating_zone = {}
 -- base_obj: Base object to evaluate.
 -- points_for_camp: How many points is a camp worth
 function get_points_for_base(base_obj, points_for_camp)
+  local base_definition = get_base_definition_from_base_obj(base_obj)
+  if nil ~= base_definition then
+    -- base defintion can override the algorithm
+    local definition_points = base_definition['points']
+    if definition_points ~= nil then
+      return definition_points
+    end
+  end
+
   local base_name = base_obj.getName()
 
   if str_has_substr(base_name, 'Camp') then
