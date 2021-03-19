@@ -82,7 +82,9 @@ end
 
 local g_updating_zone = {}
 
-function update_zone_value(zone)
+-- Update the score based on the contents of a dead zone.
+-- zone: dead zone that has been modified.
+function update_dead_zone_value(zone)
     local name = zone.getName()
     local is_red = false
     if str_has_substr(name, 'Army') then
@@ -285,7 +287,7 @@ function callback_zone(zone, name, color)
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_zone_value(zone)
+            update_dead_zone_value(zone)
             update_armyzone_value(zone)
         end, 30)
     else
@@ -301,7 +303,7 @@ function onObjectEnterScriptingZone(zone, obj)
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_zone_value(zone)
+            update_dead_zone_value(zone)
             update_armyzone_value(zone)
         end, 60)
     else
@@ -317,7 +319,7 @@ function onObjectLeaveScriptingZone(zone, obj)
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_zone_value(zone)
+            update_dead_zone_value(zone)
             update_armyzone_value(zone)
         end, 60)
     else
