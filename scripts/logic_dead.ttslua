@@ -1,8 +1,12 @@
 
+-- Dead zones indexed by name
+g_dead_zones = {}
+
+-- Spawn the dead, and army builder zones.
 function spawn_dead_zones()
     delete_all_dead_zones()
     Wait.frames(function()
-        spawn_dead_zones_after_deletion()
+        spawn_static_zones_after_deletion()
     end, 1)
 end
 
@@ -19,6 +23,24 @@ function delete_all_dead_zones()
             obj.destroy()
         end
     end
+end
+
+
+-- Spawn the dead, and army builder zones.
+-- helper for spawn_dead_zones
+function spawn_static_zones_after_deletion()
+    g_dead_zones['red'] =create_zone('dead zone red',
+                { x = 0, y = 1.6, z = -27 },
+                { x = 10, y = 1, z = 10 })
+    g_dead_zones['blue'] = create_zone('dead zone blue',
+                { x = 0, y = 1.6, z = 27 },
+                { x = 10, y = 1, z = 10 })
+    create_zone('Army Builder red',
+                { x = 75, y = 1.6, z = -25 },
+                { x = 10, y = 1, z = 10 })
+    create_zone('Army Builder blue',
+                { x = 75, y = 1.6, z = 25 },
+                { x = 10, y = 1, z = 10 })
 end
 
 -- Create a scripting zone
@@ -40,7 +62,8 @@ end
 
 g_dead_zones = {}
 
-function spawn_dead_zones_after_deletion()
+-- Spawn the dead, and army builder zones.
+function spawn_static_zones_after_deletion()
     g_dead_zones['red'] =create_zone('dead zone red',
                 { x = 0, y = 1.6, z = -27 },
                 { x = 10, y = 1, z = 10 })
