@@ -82,85 +82,106 @@ end
 
 local g_updating_zone = {}
 
+-- How many points is a base worth
+function get_points_for_base(base_obj)
+  local base_name = base_obj.getName()
+
+  local dead = 3
+
+  if str_has_substr(base_name, 'Bow Levy')
+     or str_has_substr(base_name, 'Horde')
+     or str_has_substr(base_name, 'Rabble') then
+      dead = dead - 1
+  end
+
+  if str_has_substr(base_name, 'Archers')
+     or str_has_substr(base_name, 'Elite Foot')
+     or str_has_substr(base_name, 'Pavisiers')
+     or str_has_substr(base_name, 'Raiders')
+     or str_has_substr(base_name, 'Spears')
+     or str_has_substr(base_name, 'Cataphracts')
+     or str_has_substr(base_name, 'Chariots')
+     or str_has_substr(base_name, 'Elephants')
+     or str_has_substr(base_name, 'Elite Cavalry')
+     or str_has_substr(base_name, 'HorseBow')
+     or str_has_substr(base_name, 'Javelin Cavalry')
+     or str_has_substr(base_name, 'Knights')then
+        dead = dead + 1
+  end
+
+  if str_has_substr(base_name, 'Camp') then
+      dead = dead + 5
+  end
+
+  if str_has_substr(base_name, 'Fortified') then
+      dead = dead - 7
+  end
+
+  if str_has_substr(base_name, 'Herds') then
+      dead = dead - 2
+  end
+
+  if str_has_substr(base_name, 'Mobile') then
+      dead = dead - 3.5
+  end
+
+  if str_has_substr(base_name, 'Plaustrella')
+     or str_has_substr(base_name, 'Shower Shooting') then
+      dead = dead -2
+  end
+
+  if str_has_substr(base_name, 'Charging Camelry') then
+      dead = dead - 4
+  end
+
+  if str_has_substr(base_name, 'Sword Fighting') then
+       dead = dead - 3.5
+  end
+
+  return dead
+end
+
+-- Compute how many points there are in bases
+function calculate_points_for_bases(bases)
+  local dead = 0
+
+  for _,obj in ipairs(bases) do
+    if not is_base_obj(obj) then
+      local obj_name = obj.getName()
+      print_debug("Non-base: " .. tostring(obj_name))
+    else
+      dead = dead + get_points_for_base(obj)
+    end
+  end
+
+  return dead
+end
+
+
 -- Update the score based on the contents of a dead zone.
 -- zone: dead zone that has been modified.
 function update_dead_zone_value(zone)
+    if zone == nil then
+      print_error("zone is nil")
+      return
+    end
+
     local name = zone.getName()
-    local is_red = false
     if str_has_substr(name, 'Army') then
         return
     end
+
+    local bases = zone.getObjects()
+    if bases == nil then
+      print_error("bases is nil")
+      return
+    end
+    local dead =  calculate_points_for_bases(bases)
+
+    local is_red = false
     if str_has_substr(name, 'red') then
         is_red = true
     end
-
-    local dead = 0
-    local has_double_element = false
-    for _,obj in ipairs(zone.getObjects()) do
-        local obj_name = obj.getName()
-        print_debug('Name is <' .. obj_name .. '>')
-        if str_has_substr(obj_name, 'base') then
-                dead = dead + 3
-
-            if str_has_substr(obj_name, 'Bow Levy')
-               or str_has_substr(obj_name, 'Horde')
-               or str_has_substr(obj_name, 'Rabble') then
-                dead = dead - 1
-            end
-
-            if str_has_substr(obj_name, 'Archers')
-               or str_has_substr(obj_name, 'Elite Foot')
-               or str_has_substr(obj_name, 'Pavisiers')
-               or str_has_substr(obj_name, 'Raiders')
-               or str_has_substr(obj_name, 'Spears')
-               or str_has_substr(obj_name, 'Cataphracts')
-               or str_has_substr(obj_name, 'Chariots')
-               or str_has_substr(obj_name, 'Elephants')
-               or str_has_substr(obj_name, 'Elite Cavalry')
-               or str_has_substr(obj_name, 'HorseBow')
-               or str_has_substr(obj_name, 'Javelin Cavalry')
-               or str_has_substr(obj_name, 'Knights')then
-                dead = dead + 1
-            end
-
-            if str_has_substr(obj_name, 'Camp') then
-                dead = dead + 5
-            end
-
-            if str_has_substr(obj_name, 'Fortified') then
-                dead = dead - 7
-            end
-
-            if str_has_substr(obj_name, 'Herds') then
-                dead = dead - 2
-            end
-
-            if str_has_substr(obj_name, 'Mobile') then
-                dead = dead - 3.5
-            end
-
-            if str_has_substr(obj_name, 'Plaustrella')
-               or str_has_substr(obj_name, 'Shower Shooting') then
-                dead = dead -2
-            end
-
-            if str_has_substr(obj_name, 'Charging Camelry') then
-                dead = dead - 4
-            end
-
-            if str_has_substr(obj_name, 'Sword Fighting') then
-               dead = dead - 3.5
-            end
-
-        end
-
-    end
-
-    -- The first double element counts as one additional death
-    if has_double_element then
-        dead = dead + 1
-    end
-
     local text_id = 'text_dead_'
     local image_id = 'dead_'
     local image_suffix = ''
