@@ -1,7 +1,14 @@
 
 -- is the object a base
 function is_base_obj(obj)
-  return str_starts_with(obj.getName(), "base")
+  if obj == null then
+    return false
+  end
+  local name = obj.getName()
+  if name == null then
+    return false
+  end
+  return str_starts_with(name, "base")
 end
 
 
