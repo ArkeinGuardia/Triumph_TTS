@@ -89,6 +89,10 @@ function get_points_for_base(base_obj, points_for_camp)
   local base_name = base_obj.getName()
 
   if str_has_substr(base_name, 'Camp') then
+    -- Fortified Camp battle card
+    if str_has_substr(base_name, 'Fortified') then
+      return points_for_camp + 1
+    end
       return points_for_camp
   end
 
@@ -114,10 +118,6 @@ function get_points_for_base(base_obj, points_for_camp)
      or str_has_substr(base_name, 'Javelin Cavalry')
      or str_has_substr(base_name, 'Knights')then
         dead = dead + 1
-  end
-
-  if str_has_substr(base_name, 'Fortified') then
-      dead = dead - 7
   end
 
   if str_has_substr(base_name, 'Herds') then
@@ -162,6 +162,13 @@ function calculate_points_for_bases(bases, points_for_camp)
   return dead
 end
 
+-- Calculate the number of points for a dead zone
+-- bases: Bases that are in the zone
+-- return: number of points
+function calculate_dead_points(bases)
+  return calculate_points_for_bases(bases, 8)
+end
+
 
 -- Update the score based on the contents of a dead zone.
 -- zone: dead zone that has been modified.
@@ -177,7 +184,7 @@ function update_dead_zone_value(zone)
     end
 
     local bases = zone.getObjects()
-    local dead =  calculate_points_for_bases(bases, 8)
+    local dead =  calculate_dead_points(bases)
 
     local is_red = false
     if str_has_substr(name, 'red') then
@@ -215,6 +222,15 @@ function update_dead_zone_value(zone)
     g_updating_zone[zone.getName()] = false
 end
 
+-- Calculate the number of points for an army builder zone
+-- bases: Bases that are in the zone
+-- return: number of points
+function calculate_army_builder_points(bases)
+  return calculate_points_for_bases(bases, 0)
+end
+
+
+
 function update_armyzone_value(zone)
     local name = zone.getName()
     local is_red = false
@@ -226,7 +242,7 @@ function update_armyzone_value(zone)
     end
 
     local bases = zone.getObjects()
-    local armyvalue =  calculate_points_for_bases(bases, 0)
+    local armyvalue =  calculate_army_builder_points(bases)
 
     --local points = tostring(armyvalue)
     local all_objs = getAllObjects()
