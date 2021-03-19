@@ -389,9 +389,7 @@ function base_killed(base)
       print_info("killed blue ", base_name)
       dead_zone = g_dead_zones['blue']
     end
-    print("dead_zone=", dead_zone)
     local pos = dead_zone.getBounds().center
-    print("pos=", pos)
     base.setPosition(pos)
     -- If we execute reorganize_dead_zone immediately we get a situation
     -- where the base is not yet in the dead_zone.getObjects()
