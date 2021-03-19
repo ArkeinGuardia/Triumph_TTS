@@ -90,4 +90,56 @@ function test_algorithm_used_if_base_definition_does_not_define_points(base_obj)
   get_base_definition_from_base_obj = old_fn
 end
 
+function test_points_for_base_are_not_rounded()
+  -- setup
+  local old_fn = get_base_definition_from_base_obj
+  get_base_definition_from_base_obj = function(base_obj)
+    return {points=4.5}
+  end
+
+  -- exercise
+  local base_obj = { getName = function() return "base Archer* #48" end, getGUID = function() return "ABCDE" end  }
+  local actual = get_points_for_base(base_obj, 32)
+  lu.assertEquals(actual, 4.5)
+
+  -- cleanup
+  get_base_definition_from_base_obj = old_fn
+end
+
+function test_total_points_are_not_rounded_up_for_army_builder()
+  -- setup
+  local old_fn = get_base_definition_from_base_obj
+  get_base_definition_from_base_obj = function(base_obj)
+    return {points=4.5}
+  end
+
+  -- exercise
+  local base_obj = { getName = function() return "base Archer* #48" end, getGUID = function() return "ABCDE" end  }
+  local bases = {base_obj}
+  local actual = calculate_army_builder_points(bases)
+  local bases = {base_obj}
+  lu.assertEquals(actual, 4.5)
+
+  -- cleanup
+  get_base_definition_from_base_obj = old_fn
+end
+
+function test_total_points_are_rounded_up_for_casualties()
+  -- setup
+  local old_fn = get_base_definition_from_base_obj
+  get_base_definition_from_base_obj = function(base_obj)
+    return {points=4.5}
+  end
+
+  -- exercise
+  local base_obj = { getName = function() return "base Archer* #48" end, getGUID = function() return "ABCDE" end  }
+  local bases = {base_obj}
+  local actual = calculate_dead_points(bases)
+  local bases = {base_obj}
+  lu.assertEquals(actual, 5)
+
+  -- cleanup
+  get_base_definition_from_base_obj = old_fn
+end
+
 os.exit( lu.LuaUnit.run() )

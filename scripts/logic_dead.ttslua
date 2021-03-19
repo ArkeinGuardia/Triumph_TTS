@@ -175,7 +175,8 @@ end
 -- bases: Bases that are in the zone
 -- return: number of points
 function calculate_dead_points(bases)
-  return calculate_points_for_bases(bases, 8)
+  -- round up, see battle card Mobile Infantry
+  return math.ceil(calculate_points_for_bases(bases, 8))
 end
 
 
