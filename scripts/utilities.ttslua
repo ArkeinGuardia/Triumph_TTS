@@ -138,8 +138,8 @@ end
 -- delta is the expected difference.
 function is_rad_angle_diff(angleA, angleB, delta)
   -- normalize to be between 0 and 2 PI
-  angleA = normalize_radians(angleA - delta) 
-  angleB = normalize_radians(angleB) 
+  angleA = normalize_radians(angleA - delta)
+  angleB = normalize_radians(angleB)
   local diff_angle = math.abs(angleA - angleB)
   -- Check if the difference
   if diff_angle < g_max_angle_pushback_rad then
@@ -616,7 +616,7 @@ function is_vec_2d(obj)
   if type(obj) ~= "table" then
     return false
   end
-  if table_length(obj) ~= 3 then
+  if table_length(obj) ~= 2 then
     return false
   end
   if obj['x'] == nil then
