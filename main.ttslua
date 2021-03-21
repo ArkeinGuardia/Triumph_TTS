@@ -29,7 +29,17 @@
 #include scripts/logic
 #include scripts/uievents
 
-function onload()
+-- Extra information that is to be persisted.
+-- key is object GUID, value is a table of the properties for the object.
+g_decorations = {}
+
+function onSave()
+  local saved_data = JSON.encode(g_decorations)
+  return saved_data
+end
+
+
+function onload(saved_data)
     print_info('\n---------------------------------\nTriumph! v 1.0 build 20210313\n---------------------------------\n\nCheck the Notebook for instructions.')
     Wait.time(main_loop, g_seconds_main_loop, -1)
     make_scenery_non_interactable()
@@ -38,7 +48,23 @@ function onload()
     spawn_all_dice()
     spawn_dead_zones()
     print_tool_tip_status()
+    restore_extra_data(saved_data)
 end
+
+function restore_extra_data(saved_data)
+  if saved_data == nil then
+    return
+  end
+  local extra = JSON.decode(saved_data)
+  if extra == nil then
+    return
+  end
+  if type(extra) ~= 'table' then
+    return
+  end
+  g_decorations = extra
+end
+
 
 function make_scenery_non_interactable()
     -- Main table
