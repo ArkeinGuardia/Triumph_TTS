@@ -5,7 +5,7 @@
 function inches_to_mu_display_string(distance)
   local mu = math.ceil( 10 * from_in_to_mu(distance)) / 10
   return  string.format('%.1f MU', mu)
-end     
+end
 
 -- Given a base object, computes the 4 bounds points, returned in a table,
 -- each with a vector xyz of world pos coords
@@ -118,8 +118,8 @@ function turn_around_base(obj)
     local new_transform = calculate_transform(obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-    print_info(obj.getName() .. ' has turned around 180º, which costs '
-        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
+    local mu = inches_to_mu_display_string(distance)
+    print_info(obj.getName() .. ' has turned around 180º, which costs ' .. mu)
 end
 
 -- Moves one or more DBA bases g_mu_movement forward
@@ -173,7 +173,7 @@ function push_back(obj)
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
     print_info(obj.getName() .. ' has moved backwards its own depth, '
         .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
-        
+
     history_record_snapshot()
 end
 
