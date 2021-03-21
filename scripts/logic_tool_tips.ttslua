@@ -88,7 +88,7 @@ function get_base_type_from_name(base_name)
     return nil -- no match.  this is an error
   end
   type = str_remove_suffix(type, "*")
-  type = str_remove_suffix(type, "_Gen")
+  type = str_remove_suffix(type, "  General")
   return type
 end
 
