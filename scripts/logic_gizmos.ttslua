@@ -780,7 +780,7 @@ function get_strokes_base_pos(obj, transform)
         table.insert(strokes, get_strokes_wwg_triumph(obj, transform, g_wwg_range))
     end
 
-    if str_has_substr(obj.getName(), 'Gen') then
+    if is_base_army_general(obj) then
         table.insert(strokes, get_strokes_command(obj, transform, g_command_distance_short))
         table.insert(strokes, get_strokes_command(obj, transform, g_command_distance_long))
     end
@@ -971,7 +971,7 @@ function get_strokes_deployment(pos, color, angle, proportion, width, depth)
     table.insert(stroke_points, rotate_point_relative({
         x = - half_width,
         y = g_table_thickness + g_base_height_inches / 1.5,
-        z = zpos * half_depth / 2 
+        z = zpos * half_depth / 2
     }, center, -angle))
     table.insert(stroke_points, rotate_point_relative({
         x = - half_width / 3,
