@@ -89,7 +89,7 @@ function test_str_remove_suffix_returns_original_string()
 end
 
 function test_str_remove_suffix()
-  local actual=str_remove_suffix("4Bd_General", "_General")
+  local actual=str_remove_suffix("4Bd  General", "  General")
   lu.assertEquals(actual, "4Bd")
 end
 

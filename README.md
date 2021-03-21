@@ -54,7 +54,7 @@ A base in army is defined as a table.  We call this table the "base definition".
 
 Base definition fields are:
 * name Augmented type of the base. Starts with the type, e.g. "Knights".  
-  Can have a suffix added to indicate a general "_General".
+  Can have a suffix added to indicate a general "  General".
   Can have a suffix added to indicate mounted infantry "_Mounted".
 * base Tile tht the figures are to be placed on when rendering.
 * n_modelsa Number of models to place on the base

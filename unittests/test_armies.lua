@@ -26,7 +26,7 @@ end
 
 function normalize_base_name(name)
   name = remove_suffix(name, "*")
-  name = remove_suffix(name, "_General")
+  name = remove_suffix(name, "  General")
   name = remove_suffix(name, "_Mobile")
   return name
 end
