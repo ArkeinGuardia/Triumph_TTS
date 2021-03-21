@@ -9,7 +9,6 @@ g_decorations = {}
 -- key: Name of the decoration we are search for, for the object.
 -- return: nil if the decoration is not found, otherwise the value.
 function get_decoration_for_guid(guid, key)
-  print("IN get_decoration_for_guid")
   if guid == nil then
     return nil
   end
@@ -51,7 +50,6 @@ function get_decoration_for_obj(obj, key)
 end
 
 function set_decoration_for_obj(obj, key, value)
-  print("IN set_decoration_for_obj")
   if obj == nil then
     print_error("obj is nil")
     return false

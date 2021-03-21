@@ -321,7 +321,7 @@ function onObjectEnterScriptingZone(zone, obj)
     end
 end
 
-function onObjectLeaveScriptingZone(zone, obj)
+function doOnObjectLeaveScriptingZone(zone, obj)
     if not str_has_substr(obj.getName(), 'base') then
         return
     end
@@ -330,7 +330,7 @@ function onObjectLeaveScriptingZone(zone, obj)
     -- If there is an object specific function call it.
     local leave_fn_name = get_decoration_for_obj(zone, 'onObjectLeaveScriptingZone')
     if leave_fn_name ~= nil then
-      local leave_fn = _G[entry_fn_name]
+      local leave_fn = _G[leave_fn_name]
       if nil ~= leave_fn then
         return leave_fn(zone, obj)
       end
@@ -347,6 +347,14 @@ function onObjectLeaveScriptingZone(zone, obj)
         print_debug('Ignoring dead Leave because already updating')
     end
 end
+
+function onObjectLeaveScriptingZone(zone, obj)
+  local ok, error = pcall( function() doOnObjectLeaveScriptingZone(zone,obj) end)
+  if not ok then
+    print_error(error)
+  end
+end
+
 
 -- Move the bases in the dead zone so they are not colliding with
 -- each other

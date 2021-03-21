@@ -644,8 +644,12 @@ end
 
 
 function transform_to_shape(transform)
-  corners=transform['corners']
-  shape={
+  local corners=transform['corners']
+  return corners_to_shape(corners)
+end
+
+function corners_to_shape(corners)
+  local shape={
     corners['topright'], corners['topleft'], corners['botleft'],
     corners['botright']
   }
