@@ -1695,10 +1695,11 @@ function check_picked_base()
         local new_corners = compute_corners_base(g_picked_base_obj)
         local distance = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
         distance = from_in_to_mu(distance)
+        local mu = inches_to_mu_display_string(distance)
 
         UI.setAttribute('panel_current_movement', 'active', true)
         UI.setValue('text_current_movement_MUs',
-            'Current movement: ' .. string.format('%.3f', distance) .. ' MUs' )
+            'Current movement: ' .. mu)
     else
         UI.setAttribute('panel_current_movement', 'active', false)
     end
