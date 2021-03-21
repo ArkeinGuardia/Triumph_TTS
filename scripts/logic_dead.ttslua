@@ -1,12 +1,17 @@
 
-function spawn_dead_zones()
-    delete_all_dead_zones()
+-- Dead zones indexed by name
+g_dead_zones = {}
+
+-- Spawn the dead, and army builder zones.
+function spawn_static_zones()
+    delete_all_static_zones()
     Wait.frames(function()
-        spawn_dead_zones_after_deletion()
+        spawn_static_zones_after_deletion()
     end, 1)
 end
 
-function delete_all_dead_zones()
+-- Destroy the dead, and army builder zones.
+function delete_all_static_zones()
     local all_objs = getAllObjects()
     for _,obj in ipairs(all_objs) do
         local name = obj.getName()
@@ -19,6 +24,24 @@ function delete_all_dead_zones()
             obj.destroy()
         end
     end
+end
+
+
+-- Spawn the dead, and army builder zones.
+-- helper for spawn_dead_zones
+function spawn_static_zones_after_deletion()
+    g_dead_zones['red'] =create_zone('dead zone red',
+                { x = 0, y = 1.6, z = -27 },
+                { x = 10, y = 1, z = 10 })
+    g_dead_zones['blue'] = create_zone('dead zone blue',
+                { x = 0, y = 1.6, z = 27 },
+                { x = 10, y = 1, z = 10 })
+    create_zone('Army Builder red',
+                { x = 75, y = 1.6, z = -25 },
+                { x = 10, y = 1, z = 10 })
+    create_zone('Army Builder blue',
+                { x = 75, y = 1.6, z = 25 },
+                { x = 10, y = 1, z = 10 })
 end
 
 -- Create a scripting zone
@@ -40,7 +63,8 @@ end
 
 g_dead_zones = {}
 
-function spawn_dead_zones_after_deletion()
+-- Spawn the dead, and army builder zones.
+function spawn_static_zones_after_deletion()
     g_dead_zones['red'] =create_zone('dead zone red',
                 { x = 0, y = 1.6, z = -27 },
                 { x = 10, y = 1, z = 10 })
@@ -58,83 +82,124 @@ end
 
 local g_updating_zone = {}
 
-function update_zone_value(zone)
+-- How many points is a base worth
+-- base_obj: Base object to evaluate.
+-- points_for_camp: How many points is a camp worth
+function get_points_for_base(base_obj, points_for_camp)
+  local base_definition = get_base_definition_from_base_obj(base_obj)
+  if nil ~= base_definition then
+    -- base defintion can override the algorithm
+    local definition_points = base_definition['points']
+    if definition_points ~= nil then
+      return definition_points
+    end
+  end
+
+  local base_name = base_obj.getName()
+
+  if str_has_substr(base_name, 'Camp') then
+    -- Fortified Camp battle card
+    if str_has_substr(base_name, 'Fortified') then
+      return points_for_camp + 1
+    end
+      return points_for_camp
+  end
+
+
+  local dead = 3
+
+  if str_has_substr(base_name, 'Bow Levy')
+     or str_has_substr(base_name, 'Horde')
+     or str_has_substr(base_name, 'Rabble') then
+      dead = dead - 1
+  end
+
+  if str_has_substr(base_name, 'Archers')
+     or str_has_substr(base_name, 'Elite Foot')
+     or str_has_substr(base_name, 'Pavisiers')
+     or str_has_substr(base_name, 'Raiders')
+     or str_has_substr(base_name, 'Spears')
+     or str_has_substr(base_name, 'Cataphracts')
+     or str_has_substr(base_name, 'Chariots')
+     or str_has_substr(base_name, 'Elephants')
+     or str_has_substr(base_name, 'Elite Cavalry')
+     or str_has_substr(base_name, 'HorseBow')
+     or str_has_substr(base_name, 'Javelin Cavalry')
+     or str_has_substr(base_name, 'Knights')then
+        dead = dead + 1
+  end
+
+  if str_has_substr(base_name, 'Herds') then
+      dead = dead - 2
+  end
+
+  if str_has_substr(base_name, 'Mobile') then
+      dead = dead - 3.5
+  end
+
+  if str_has_substr(base_name, 'Plaustrella')
+     or str_has_substr(base_name, 'Shower Shooting') then
+      dead = dead -2
+  end
+
+  if str_has_substr(base_name, 'Charging Camelry') then
+      dead = dead - 4
+  end
+
+  if str_has_substr(base_name, 'Sword Fighting') then
+       dead = dead - 3.5
+  end
+
+  return dead
+end
+
+-- Compute how many points there are in bases
+-- bases: base objects ot evaluate
+-- points_for_camp: How many points is a camp worth
+function calculate_points_for_bases(bases, points_for_camp)
+  local dead = 0
+
+  for _,obj in ipairs(bases) do
+    if not is_base_obj(obj) then
+      local obj_name = obj.getName()
+      print_debug("Non-base: " .. tostring(obj_name))
+    else
+      dead = dead + get_points_for_base(obj, points_for_camp)
+    end
+  end
+
+  return dead
+end
+
+-- Calculate the number of points for a dead zone
+-- bases: Bases that are in the zone
+-- return: number of points
+function calculate_dead_points(bases)
+  -- round up, see battle card Mobile Infantry
+  return math.ceil(calculate_points_for_bases(bases, 8))
+end
+
+
+-- Update the score based on the contents of a dead zone.
+-- zone: dead zone that has been modified.
+function update_dead_zone_value(zone)
+    if zone == nil then
+      print_error("zone is nil")
+      return
+    end
+
     local name = zone.getName()
-    local is_red = false
     if str_has_substr(name, 'Army') then
         return
     end
+
+    local bases = zone.getObjects()
+    local dead =  calculate_dead_points(bases)
+
+    local is_red = false
     if str_has_substr(name, 'red') then
         is_red = true
     end
-
-    local dead = 0
-    local has_double_element = false
-    for _,obj in ipairs(zone.getObjects()) do
-        local obj_name = obj.getName()
-        print_debug('Name is <' .. obj_name .. '>')
-        if str_has_substr(obj_name, 'base') then
-                dead = dead + 3
-
-            if str_has_substr(obj_name, 'Bow Levy')
-               or str_has_substr(obj_name, 'Horde')
-               or str_has_substr(obj_name, 'Rabble') then
-                dead = dead - 1
-            end
-
-            if str_has_substr(obj_name, 'Archers')
-               or str_has_substr(obj_name, 'Elite Foot')
-               or str_has_substr(obj_name, 'Pavisiers')
-               or str_has_substr(obj_name, 'Raiders')
-               or str_has_substr(obj_name, 'Spears')
-               or str_has_substr(obj_name, 'Cataphracts')
-               or str_has_substr(obj_name, 'Chariots')
-               or str_has_substr(obj_name, 'Elephants')
-               or str_has_substr(obj_name, 'Elite Cavalry')
-               or str_has_substr(obj_name, 'HorseBow')
-               or str_has_substr(obj_name, 'Javelin Cavalry')
-               or str_has_substr(obj_name, 'Knights')then
-                dead = dead + 1
-            end
-
-            if str_has_substr(obj_name, 'Camp') then
-                dead = dead + 5
-            end
-
-            if str_has_substr(obj_name, 'Fortified') then
-                dead = dead - 7
-            end
-
-            if str_has_substr(obj_name, 'Herds') then
-                dead = dead - 2
-            end
-
-            if str_has_substr(obj_name, 'Mobile') then
-                dead = dead - 3.5
-            end
-
-            if str_has_substr(obj_name, 'Plaustrella')
-               or str_has_substr(obj_name, 'Shower Shooting') then
-                dead = dead -2
-            end
-
-            if str_has_substr(obj_name, 'Charging Camelry') then
-                dead = dead - 4
-            end
-
-            if str_has_substr(obj_name, 'Sword Fighting') then
-               dead = dead - 3.5
-            end
-
-        end
-
-    end
-
-    -- The first double element counts as one additional death
-    if has_double_element then
-        dead = dead + 1
-    end
-
     local text_id = 'text_dead_'
     local image_id = 'dead_'
     local image_suffix = ''
@@ -167,6 +232,15 @@ function update_zone_value(zone)
     g_updating_zone[zone.getName()] = false
 end
 
+-- Calculate the number of points for an army builder zone
+-- bases: Bases that are in the zone
+-- return: number of points
+function calculate_army_builder_points(bases)
+  return calculate_points_for_bases(bases, 0)
+end
+
+
+
 function update_armyzone_value(zone)
     local name = zone.getName()
     local is_red = false
@@ -177,58 +251,9 @@ function update_armyzone_value(zone)
         is_red = true
     end
 
-    local armyvalue = 0
-    local has_double_element = false
-    for _,obj in ipairs(zone.getObjects()) do
-        local obj_name = obj.getName()
-        print_debug('Name is <' .. obj_name .. '>')
-        if str_has_substr(obj_name, 'base') then
-                armyvalue = armyvalue + 3
+    local bases = zone.getObjects()
+    local armyvalue =  calculate_army_builder_points(bases)
 
-            if str_has_substr(obj_name, 'Bow Levy')
-               or str_has_substr(obj_name, 'Horde')
-               or str_has_substr(obj_name, 'Rabble') then
-                armyvalue = armyvalue - 1
-            end
-
-            if str_has_substr(obj_name, 'Archers')
-               or str_has_substr(obj_name, 'Elite Foot')
-               or str_has_substr(obj_name, 'Pavisiers')
-               or str_has_substr(obj_name, 'Raiders')
-               or str_has_substr(obj_name, 'Spears')
-               or str_has_substr(obj_name, 'Cataphracts')
-               or str_has_substr(obj_name, 'Chariots')
-               or str_has_substr(obj_name, 'Elephants')
-               or str_has_substr(obj_name, 'Elite Cavalry')
-               or str_has_substr(obj_name, 'HorseBow')
-               or str_has_substr(obj_name, 'Javelin Cavalry')
-               or str_has_substr(obj_name, 'Knights')then
-                armyvalue = armyvalue + 1
-            end
-
-            if str_has_substr(obj_name, 'Fortified') then
-                armyvalue = armyvalue - 2
-            end
-
-            if str_has_substr(obj_name, 'Herds') then
-                armyvalue = armyvalue - 2
-            end
-
-            if str_has_substr(obj_name, 'Plaustrella')
-               or str_has_substr(obj_name, 'Shower Shooting') then
-                armyvalue = armyvalue -2
-            end
-
-            if str_has_substr(obj_name, 'Charging Camelry') then
-                armyvalue = armyvalue - 4
-            end
-
-            if str_has_substr(obj_name, 'Sword Fighting') then
-                armyvalue = armyvalue - 3.5
-            end
-
-        end
-    end
     --local points = tostring(armyvalue)
     local all_objs = getAllObjects()
     for _,obj in ipairs(all_objs) do
@@ -261,7 +286,7 @@ function callback_zone(zone, name, color)
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_zone_value(zone)
+            update_dead_zone_value(zone)
             update_armyzone_value(zone)
         end, 30)
     else
@@ -277,7 +302,7 @@ function onObjectEnterScriptingZone(zone, obj)
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_zone_value(zone)
+            update_dead_zone_value(zone)
             update_armyzone_value(zone)
         end, 60)
     else
@@ -293,7 +318,7 @@ function onObjectLeaveScriptingZone(zone, obj)
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_zone_value(zone)
+            update_dead_zone_value(zone)
             update_armyzone_value(zone)
         end, 60)
     else
