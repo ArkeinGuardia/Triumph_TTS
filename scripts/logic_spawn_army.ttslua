@@ -58,6 +58,16 @@ function add_context_menu_base(base_obj)
     base_obj.addContextMenuItem("Turn around", function()
         turn_around_base(base_obj)
     end)
+   base_obj.addContextMenuItem("Killed", function()
+     local ok
+     local error
+       ok,error = pcall( function()
+        base_killed(base_obj)
+      end)
+      if not ok then
+        print_error("base_killed: " .. tostring(error))
+      end
+    end)
     base_obj.addContextMenuItem("Make General", function()
         make_general(base_obj)
     end)
