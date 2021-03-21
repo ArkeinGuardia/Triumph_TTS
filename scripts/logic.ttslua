@@ -600,8 +600,8 @@ end
 
 function apply_transform_obj(base_obj, old_transform, new_transform)
     local distance = max_distance_between_bases_front_corners(old_transform['corners'], new_transform['corners'])
-    print_info('Base ' .. base_obj.getName() .. ' is moving '
-        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
+    local mu = inches_to_mu_display_string(distance)
+    print_info('Base ' .. base_obj.getName() .. ' is moving ' .. mu)
     base_obj.setPosition(new_transform['position'])
     base_obj.setRotation(transform_to_rotation_vector(new_transform))
 end
