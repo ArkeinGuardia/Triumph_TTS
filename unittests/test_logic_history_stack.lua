@@ -147,7 +147,7 @@ function test_go_back_changes_current_event()
     local applied_event = nil
     local sut = Stack.Create()
 local head = sut._head
-local tail = sut._tail    
+local tail = sut._tail
     local event1 = {type="1", apply = function() applied_event = 1 end}
     local event2 = {type="2", apply = function() applied_event = 2 end}
     local event3 = {type="3", apply = function() applied_event = 3 end}
@@ -328,5 +328,34 @@ function test_top_returns_most_recent_event()
     top.apply()
     lu.assertEquals(applied_event, 2)
 end
-  
+
+-- Test fix for bug where we undo and event and then
+-- redo past the top of the stack, then sit on
+-- the head, and then make a move.
+-- The new event is to be inserted after the head.
+function test_move_after_past_top()
+  -- Setup
+  local old = print_important
+  print_important = function() end
+  -- Exercise
+  local sut = Stack.Create()
+  local event1 = {apply = function()  end}
+  local event2 = {apply = function()  end}
+  sut:push(event1)
+  sut:push(event2)
+  sut:go_back()
+  sut:go_forward()
+  sut:go_forward()
+  local applied_event = nil
+  local event3 = {apply = function()  applied_event = 3 end}
+  sut:push(event3)
+  -- Verify
+  applied_event = nil
+  sut._head.before.apply()
+  lu.assertEquals(3, applied_event)
+
+  -- Clean up
+  print_important = old
+end
+
 os.exit( lu.LuaUnit.run() )

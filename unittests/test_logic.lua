@@ -1233,5 +1233,14 @@ function test_make_general_adds_suffix_when_number_missing()
   print_error = old_print_error
 end
 
+function test_inches_to_mu_display_string_1_decimal_digit()
+  local actual = inches_to_mu_display_string(4.87 * g_movement_unit_in_inches)
+  lu.assertEquals(actual, "4.9 MU")
+end
+
+function test_mu_display_string_rounds_up()
+  local actual = inches_to_mu_display_string(4.81 * g_movement_unit_in_inches)
+  lu.assertEquals(actual, "4.9 MU")
+end
 
 os.exit( lu.LuaUnit.run() )
