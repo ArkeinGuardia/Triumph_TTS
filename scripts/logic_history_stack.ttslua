@@ -74,7 +74,11 @@ function Stack:Create()
         return
       end
 
-      self:_pop_to_current()
+      if _stack._head == _stack._current then
+        _stack._current = _stack._head.before
+      else
+        self:_pop_to_current()
+      end
 
       while _stack._size >= _stack._capacity do
         _stack:_delete_node(_stack._tail.after)
