@@ -1202,7 +1202,7 @@ function test_make_general_adds_suffix()
 
   -- Validate
   local actual = base.getName()
-  lu.assertEquals(actual, "base Archers_Gen #12")
+  lu.assertEquals(actual, "base Archers_General #12")
 
   -- Cleanup
   reset_state = old_reset_state
@@ -1225,7 +1225,7 @@ function test_make_general_adds_suffix_when_number_missing()
 
   -- Validate
   local actual = base.getName()
-  lu.assertEquals(actual, "base Archers_Gen")
+  lu.assertEquals(actual, "base Archers_General")
   lu.assertEquals(true, error_called)
 
   -- Cleanup

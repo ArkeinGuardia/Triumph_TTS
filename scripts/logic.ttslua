@@ -145,9 +145,9 @@ function make_general (obj)
     local pos = string.find(name, " #")
     if pos == nil then
       print_error("troop has no serial number: " .. name)
-      obj.setName(name .. "_Gen")
+      obj.setName(name .. "_General")
     else
-      local new_name = string.sub(name, 1,pos-1) .. "_Gen" .. string.sub(name, pos)
+      local new_name = string.sub(name, 1,pos-1) .. "_General" .. string.sub(name, pos)
       obj.setName(new_name)
     end
 

@@ -149,7 +149,7 @@ function test_get_base_type_from_name_removes_base_and_serial_number()
 end
 
 function test_get_base_type_from_name_removes_general()
-    local actual = get_base_type_from_name("base Archers_Gen # 3")
+    local actual = get_base_type_from_name("base Archers_General # 3")
     lu.assertEquals(actual, "Archers")
 end
 
@@ -157,7 +157,7 @@ end
 -- is something special about it, and the tool tips should
 -- be consultex
 function test_get_base_type_from_name_removes_asterix()
-    local actual = get_base_type_from_name("base Archers_Gen* # 3")
+    local actual = get_base_type_from_name("base Archers_General* # 3")
     lu.assertEquals(actual, "Archers")
 end
 
