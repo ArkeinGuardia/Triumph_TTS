@@ -171,8 +171,8 @@ function push_back(obj)
     local new_transform = calculate_transform(obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-    print_info(obj.getName() .. ' has moved backwards its own depth, '
-        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
+    local mu = inches_to_mu_display_string(distance)
+    print_info(obj.getName() .. ' has moved backwards its own depth ' .. mu)
 
     history_record_snapshot()
 end
