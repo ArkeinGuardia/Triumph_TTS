@@ -1,4 +1,12 @@
 
+
+
+-- Format a distance in inches for displaying to the user.
+function inches_to_mu_display_string(distance)
+  local mu = math.ceil( 10 * from_in_to_mu(distance)) / 10
+  return  string.format('%.1f MU', mu)
+end     
+
 -- Given a base object, computes the 4 bounds points, returned in a table,
 -- each with a vector xyz of world pos coords
 --
