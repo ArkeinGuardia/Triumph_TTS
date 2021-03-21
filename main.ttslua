@@ -17,6 +17,7 @@
 #include scripts/data/data_cheat_sheet
 #include scripts/base_cache
 #include scripts/log
+#include scripts/logic_decorations
 #include scripts/utilities_lua
 #include scripts/utilities
 #include scripts/logic_base_obj
@@ -31,9 +32,6 @@
 #include scripts/logic
 #include scripts/uievents
 
--- Extra information that is to be persisted.
--- key is object GUID, value is a table of the properties for the object.
-g_decorations = {}
 
 function onSave()
   local saved_data = JSON.encode(g_decorations)

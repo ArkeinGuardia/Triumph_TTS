@@ -1,0 +1,60 @@
+
+-- Extra information that is to be persisted.
+-- key is object GUID, value is a table of the properties for the object.
+g_decorations = {}
+
+-- Retrieve a decoration for an object.  A decoration is extra information for the
+-- object that is persisted.
+-- guid: GUID of the object we are searching for.
+-- key: Name of the decoration we are search for, for the object.
+-- return: nil if the decoration is not found, otherwise the value.
+function get_decoration_for_guid(guid, key)
+  print("IN get_decoration_for_guid")
+  if guid == nil then
+    return nil
+  end
+ local decorations = g_decorations[guid]
+ if decorations == nil then
+   return nil
+ end
+ local decoration = decorations[key]
+ return decoration
+end
+
+-- Set a decoration for an object.  A decoration is extra information for the
+-- object that is persisted.
+-- guid: GUID of the object we are searching for.
+-- key: Name of the decoration we are search for, for the object.
+-- value: New value of the decoration, nil can be used to remove the
+-- decoration.
+-- return: true on success, false on failure.
+function set_decoration_for_guid(guid, key, value)
+  if guid == nil then
+    print_error("GUID is nil")
+    return false
+  end
+ local decorations = g_decorations[guid]
+ if decorations == nil then
+   g_decorations[guid] = {}
+   return set_decoration_for_guid(guid, key, value)
+ end
+ decorations[key] = value
+ return true
+end
+
+function get_decoration_for_obj(obj, key)
+  if obj == nil then
+    return nil
+  end
+  local guid = obj.getGUID()
+  return get_decoration_for_guid(guid, key)
+end
+
+function set_decoration_for_obj(obj, key, value)
+  print("IN set_decoration_for_obj")
+  if obj == nil then
+    print_error("obj is nil")
+    return false
+  end
+  return set_decoration_for_guid(obj.getGUID(), key, value)
+end
