@@ -1,203 +1,162 @@
 Stack = {}
 
+
 -- This is NOT a true stack, but more like a list that behaves with a browsable
 -- head. It imitates history stacks: you can go down but doesnt remember elements
 -- until you go up. However, if you add something, everything up of the current
 -- is removed.
 function Stack:Create()
+    -- Fake node that is before the first recorded position
+    local tail = { after=nil, before=nil,
+      apply = function()
+        print_important("Before first event")
+        return false
+      end
+    }
+
+    -- Fake node that is after the last recorded position.
+    -- Current should never point to head.
+    local head = { after=nil, before=nil,
+      apply = function()
+        print_important("After last event")
+        return false
+      end
+    }
+    tail.before = tail
+    tail.after = head
+    head.after = head
+    head.before = tail
+
     local _stack = {}
-    _stack._current = nil
-    _stack._entries = {}
+
+    -- Maximum number of events to keep
+    _stack._capacity = 60
+
+    -- dummy nodes indicating one past the last known events.
+    _stack._head = head
+    _stack._tail = tail
+
+
+    -- Board as we know it.
+    _stack._current = _stack._head.before
+
+    -- number of events
+    _stack._size = 0
+
+    function _stack:size()
+      return self._size
+    end
+
+    -- Is the current node at the last known event.
+    function _stack:is_at_top()
+      return (_stack._current == _stack._head.before)
+    end
+
+
+    -- Return the most recent event that is known in the history.
+    -- nil if no events are known.
+    function _stack:top()
+      if _stack:size() == 0 then
+        return nil
+      end
+      return _stack._head.before
+    end
 
     -- Enters the value into the stack at the top.
-    -- Returns nil
-    function _stack:push(...)
-        if ... then
-            self:pop_to_current()
-            local table_args = {...}
-            for _, val in ipairs(table_args) do
-                table.insert(self._entries, val)
-            end
-            self._current = #self._entries
-        end
+    function _stack:push(event)
+      if nil == event then
+        print_error("pushing nil")
+        return
+      end
+      local apply = event["apply"]
+      if nil == apply then
+        print_error("apply is nil")
+        return
+      end
+
+      if _stack._head == _stack._current then
+        _stack._current = _stack._head.before
+      else
+        self:_pop_to_current()
+      end
+
+      while _stack._size >= _stack._capacity do
+        _stack:_delete_node(_stack._tail.after)
+      end
+
+      -- Make new node to be the top of stack.
+      local new_node = {
+        after = _stack._head,
+        before = _stack._head.before,
+                apply = function()
+                  event.apply()
+                end
+      }
+      _stack._head.before.after = new_node
+      _stack._head.before = new_node
+      _stack._current = new_node
+
+      _stack._size = _stack._size + 1
     end
-    
+
+
     -- Gets the current element and advances current lower into the stack, as if
     -- the element is removed (but it isn't). Cannot go lower than the bottom.
-    -- Returns that element if exists.
-    function _stack:pop()
-        if self._current == nil or self._current < 1 then
-            return
-        end
-        self._current = self._current - 1
-        return self._entries[self._current + 1]
+    function _stack:go_back()
+        self._current = self._current.before
+        self._current.apply()
     end
 
     -- Goes up in the stack, setting the current to the top of the current one,
     -- and returns it. The stack itself is not modified. Cannot go upper than
     -- the top.
-    -- Returns that element if it exists
-    function _stack:pop_reverse()
-        if self._current == nil or self._current == #self._entries then
-            return
-        end
-        self._current = self._current + 1
-        return self._entries[self._current]
+    function _stack:go_forward()
+        self._current = self._current.after
+        self._current.apply()
     end
 
 
-    -- Removes the last added element. This behaves like a proper stack pop
-    -- Returns that last value, if exists
-    function _stack:real_pop()
-        if #self._entries ~= 0 then 
-            return table.remove(self._entries) 
-        end
+    function _stack:_delete_node(node)
+
+      node.before.after = node.after
+      node.after.before = node.before
+      -- nil the pointers so the node can be garbage collected
+      node.before = nil
+      node.after = nil
+
+      self._size = self._size - 1
     end
 
-    -- Drops everything on top of the current head. Returns nothing.
-    function _stack:pop_to_current(n)
-        if self._current == nil then
-            return 
-        end
-
-        while #self._entries > self._current do
-            self:real_pop()
-        end
+    -- Drops everything on top of the current.
+    function _stack:_pop_to_current()
+      local current = self._current
+      while self._current ~= self._head.before do
+        self:_delete_node(self._head.before)
+      end
     end
 
-    -- Gets the last element, if exists
-    function _stack:peek()
-        if #self._entries ~= 0 then 
-            return self._entries[#self._entries]
-        end
-    end
-
-    -- Gets the current size of the stack
-    function _stack:size() 
-        return #self._entries 
-    end
-
-    -- Gets the element at position n, with 1 being the first inserted 
-    -- and #size the last one
-    function _stack:get_at(n)
-        if n <= self:size() then 
-            return self._entries[n] 
-        end
-    end
-
-    -- Iterates through the values, from the last insert to the first
-    function _stack:iterator()
-        local count = self:size()
-        local index = count + 1
-        return function()
-            index = index - 1
-            if index > 0 then 
-                return self:get_at(index) 
-            end
-        end
-    end
-
-    -- Iterates through the values, from the first insert to the last
-    function _stack:iterator_inverse()
-        local index = 0
-        local count = self:size()
-        return function()
-            index = index + 1
-            if index <= count then 
-                return self:get_at(index)
-            end
-        end
-    end
     return _stack
 end
 
 g_history_stack = Stack:Create()
 
--- move is a table of the following type
--- {
---    "base_name_1" = {
---       "old" = old_transform_before_move,
---       "new" = new_transform_after_move
---    },
---    "base_name_2" = { ... }
--- }
-function push_to_history_stack(move) 
-    g_history_stack:push(move) 
-    log('Pushed new move')
-    log(move)
-    log('---')
-    print_debug('History stack size: ' .. g_history_stack:size())
+
+function push_to_history_stack(event)
+    g_history_stack:push(event)
+    log('Pushed new event')
+    log(event)
 end
 
--- Utility function to create moves for the push_to_history_stack
--- Usage:
--- local move = {}
--- add_transform_to_move(move, 'base1', ..., ...)
--- add_transform_to_move(move, 'base2', ..., ...)
--- push_to_history_stack(move)
-function add_transform_to_move(move, base_name, old_transform, new_transform)
-    local t = {}
-    t['old'] = old_transform
-    t['new'] = new_transform
 
-    move[base_name] = t
-end
-
-function apply_move(move, forward)
-    local bases = get_all_bases()
-    local base_objs = {}
-    for base_name, transforms in pairs(move) do
-        print_debug('Searching if this base exists: ' .. base_name)
-        local base_obj = nil
-        for _, base in ipairs(bases) do
-            if base.getName() == base_name then
-                base_obj = base
-                break
-            end
-        end
-
-        if base_obj == nil then
-            print_error('Cannot apply this move '
-                        .. 'because it involves a deleted unit ' 
-                        .. 'or something that cannot be found: ' 
-                        .. base_name)
-            return
-        end
-        base_objs[base_name] = base_obj
-    end
-
-    
-    for base_name, transforms in pairs(move) do
-        print_debug('Applying move to ' .. base_name)
-        local base_obj = base_objs[base_name]
-
-        if forward then
-            apply_transform_obj(base_obj, transforms['old'], transforms['new'])
-        else
-            apply_transform_obj(base_obj, transforms['new'], transforms['old'])
-        end
-    end
-end
 
 -- Applies the last move on the history stack, going back
 function go_back_history_stack()
-    local last_move = g_history_stack:pop()
-    if not last_move then 
-        return print_important('Cannot go back because there are no saved moves') 
-    end
-
-    print_debug('Going back in history... ')
-    apply_move(last_move, false)
+    print_info("Going back in history")
+    g_history_stack:go_back()
 end
 
 -- Undoes the last move on the history stack, going forward
 function go_forward_history_stack()
-    local last_move = g_history_stack:pop_reverse()
-    if not last_move then 
-        return print_important('Cannot go forward because there are no saved moves') 
-    end
-
-    print_debug('Going forward in history... ')
-    apply_move(last_move, true)
+  g_history_stack:go_forward()
+  print_info("Going forward in history")
 end
-

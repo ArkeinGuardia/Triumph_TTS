@@ -1,5 +1,9 @@
 lu = require('externals/luaunit/luaunit')
+armies = {}
+require('scripts/data/data_armies_Medieval_Era')
 require('scripts/utilities_lua')
+require('scripts/utilities')
+require('scripts/logic_spawn_army')
 require('scripts/logic_tool_tips')
 require('scripts/data/data_troops')
 require('scripts/data/data_cheat_sheet')
@@ -64,6 +68,35 @@ function test_build_tool_tip_target_close_combat_vs_mounted_missing()
     lu.assertTrue(actual)
 end
 
+function test_build_tool_tip_battle_card_added()
+    -- setup
+    local old_decorations = g_decorations
+    g_decorations = {}
+
+    local base = {
+        getName = function() return "Archers_Mobile" end,
+        getGUID = function() return "ABCDE" end,
+        base_definition_name = "burgundian_ordannances_1471_to_1477_ad_knights_dd_mounted"
+    }
+    assert(_G[base.base_definition_name] ~= nil)
+    g_decorations[ base.getGUID() ] = {base_definition_name =  base.base_definition_name}
+
+    -- Exercise
+    local tip = get_tool_tip_for_base(base)
+
+    -- Verify
+    local expected = "Deployment Dismounting"
+    local actual = str_has_substr(tip, expected)
+    if not actual then
+        print("expected: ", expected)
+        print("tip: ", tip)
+    end
+    lu.assertTrue(actual)
+
+    -- Cleanup
+    g_decorations = old_decorations
+end
+
 function test_get_tool_tip_returns_nil_if_tool_tips_not_enabled()
     -- setup
     local orig = g_tool_tips_enabled
@@ -116,7 +149,15 @@ function test_get_base_type_from_name_removes_base_and_serial_number()
 end
 
 function test_get_base_type_from_name_removes_general()
-    local actual = get_base_type_from_name("base Archers_Gen # 3")
+    local actual = get_base_type_from_name("base Archers  General # 3")
+    lu.assertEquals(actual, "Archers")
+end
+
+-- asterix is added to the name of a base to indicate that there
+-- is something special about it, and the tool tips should
+-- be consultex
+function test_get_base_type_from_name_removes_asterix()
+    local actual = get_base_type_from_name("base Archers  General* # 3")
     lu.assertEquals(actual, "Archers")
 end
 

@@ -17,28 +17,54 @@
 #include scripts/data/data_cheat_sheet
 #include scripts/base_cache
 #include scripts/log
+#include scripts/logic_decorations
 #include scripts/utilities_lua
 #include scripts/utilities
+#include scripts/logic_base_obj
 #include scripts/logic_terrain
 #include scripts/logic_gizmos
 #include scripts/logic_spawn_army
 #include scripts/logic_dead
 #include scripts/logic_dice
 #include scripts/logic_history_stack
+#include scripts/logic_history_snapshot
 #include scripts/logic_tool_tips
 #include scripts/logic
 #include scripts/uievents
 
-function onload()
+
+function onSave()
+  local saved_data = JSON.encode(g_decorations)
+  return saved_data
+end
+
+
+function onload(saved_data)
     print_info('\n---------------------------------\nTriumph! v 1.0 build 20210313\n---------------------------------\n\nCheck the Notebook for instructions.')
     Wait.time(main_loop, g_seconds_main_loop, -1)
     make_scenery_non_interactable()
     reset_state()
     spawn_proxy_bases()
     spawn_all_dice()
-    spawn_dead_zones()
+    spawn_static_zones()
     print_tool_tip_status()
+    restore_extra_data(saved_data)
 end
+
+function restore_extra_data(saved_data)
+  if saved_data == nil then
+    return
+  end
+  local extra = JSON.decode(saved_data)
+  if extra == nil then
+    return
+  end
+  if type(extra) ~= 'table' then
+    return
+  end
+  g_decorations = extra
+end
+
 
 function make_scenery_non_interactable()
     -- Main table

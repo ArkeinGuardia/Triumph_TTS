@@ -1,4 +1,12 @@
 
+
+
+-- Format a distance in inches for displaying to the user.
+function inches_to_mu_display_string(distance)
+  local mu = math.ceil( 10 * from_in_to_mu(distance)) / 10
+  return  string.format('%.1f MU', mu)
+end
+
 -- Given a base object, computes the 4 bounds points, returned in a table,
 -- each with a vector xyz of world pos coords
 --
@@ -106,14 +114,12 @@ function turn_around_base(obj)
     rotation['y'] = rotation['y'] + 180
     obj.setRotation(rotation)
 
+    history_record_snapshot()
     local new_transform = calculate_transform(obj)
-    local move = {}
-    add_transform_to_move(move, obj.getName(), initial_transform, new_transform)
-    push_to_history_stack(move)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-    print_info(obj.getName() .. ' has turned around 180º, which costs '
-        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
+    local mu = inches_to_mu_display_string(distance)
+    print_info(obj.getName() .. ' has turned around 180º, which costs ' .. mu)
 end
 
 -- Moves one or more DBA bases g_mu_movement forward
@@ -129,10 +135,7 @@ function move_base(obj, how_much_movement, ignore_history)
     obj.setPosition(destination)
 
     if not ignore_history then
-        local new_transform = calculate_transform(obj)
-        local move = {}
-        add_transform_to_move(move, obj.getName(), initial_transform, new_transform)
-        push_to_history_stack(move)
+        history_record_snapshot()
     end
     return how_much_movement
 end
@@ -142,9 +145,9 @@ function make_general (obj)
     local pos = string.find(name, " #")
     if pos == nil then
       print_error("troop has no serial number: " .. name)
-      obj.setName(name .. "_Gen")
+      obj.setName(name .. "  General")
     else
-      local new_name = string.sub(name, 1,pos-1) .. "_Gen" .. string.sub(name, pos)
+      local new_name = string.sub(name, 1,pos-1) .. "  General" .. string.sub(name, pos)
       obj.setName(new_name)
     end
 
@@ -166,13 +169,12 @@ function push_back(obj)
     obj.setPosition(destination)
 
     local new_transform = calculate_transform(obj)
-    local move = {}
-    add_transform_to_move(move, obj.getName(), initial_transform, new_transform)
-    push_to_history_stack(move)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-    print_info(obj.getName() .. ' has moved backwards its own depth, '
-        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
+    local mu = inches_to_mu_display_string(distance)
+    print_info(obj.getName() .. ' has moved backwards its own depth ' .. mu)
+
+    history_record_snapshot()
 end
 
 -- Like push back but in the other direction
@@ -187,13 +189,11 @@ function push_forward(obj)
 
     local new_transform = calculate_transform(obj)
 
-    local move = {}
-    add_transform_to_move(move, obj.getName(), initial_transform, new_transform)
-    push_to_history_stack(move)
-
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-    print_info(obj.getName() .. ' has moved forward its own depth, '
-        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
+    local mu = inches_to_mu_display_string(distance)
+    print_info(obj.getName() .. ' has moved forward its own depth, ' .. mu)
+
+    history_record_snapshot()
 end
 
 
@@ -458,6 +458,8 @@ end
 
 -- Pushes back a whole column, that may not be exactly aligned
 function push_back_column(objs)
+    history_record_snapshot()
+
     -- We use many comparisons for the column so we precalculate all the
     -- transforms
     local transforms = {}
@@ -486,13 +488,11 @@ function push_back_column(objs)
         angle = angle - 2*math.pi
     end
 
-    local move = {}
 
     -- Move the front_element fist, then align the others to its back
     local displacement_vector = rad_to_vector(angle)
     local destination = vec_add(front_element.getPosition(), vec_mul_escalar(displacement_vector, distance))
     front_element.setPosition(destination)
-    add_transform_to_move(move, front_element.getName(), transforms[front_element], calculate_transform(front_element))
 
     local magnitude = base_depth / 2
     local next_element = behind_of[front_element]
@@ -503,14 +503,12 @@ function push_back_column(objs)
         magnitude = magnitude + base_depth / 2
         local next_destination = vec_add(destination, vec_mul_escalar(displacement_vector, magnitude))
         next_element.setPosition(next_destination)
-        add_transform_to_move(move, front_element.getName(), transforms[front_element], calculate_transform(front_element))
 
         front_element = next_element
         next_element = behind_of[next_element]
 
         magnitude = magnitude + base_depth / 2
     end
-    push_to_history_stack(move)
 end
 
 -- Calculates the future position of the given group of objs, assuming a wheel
@@ -602,34 +600,31 @@ end
 
 function apply_transform_obj(base_obj, old_transform, new_transform)
     local distance = max_distance_between_bases_front_corners(old_transform['corners'], new_transform['corners'])
-    print_info('Base ' .. base_obj.getName() .. ' is moving '
-        .. string.format('%.2f', from_in_to_mu(distance)) .. ' MU')
+    local mu = inches_to_mu_display_string(distance)
+    print_info('Base ' .. base_obj.getName() .. ' is moving ' .. mu)
     base_obj.setPosition(new_transform['position'])
     base_obj.setRotation(transform_to_rotation_vector(new_transform))
 end
 
 function perform_wheels()
+    history_record_snapshot()
     local new_transforms = g_current_wheel_newtransforms
     local old_transforms = g_current_wheel_transforms
     local front_elements = g_current_wheel_group['front_elements']
     local behind_of = g_current_wheel_group['behind_of']
 
-    local move = {}
     for col, front_element in pairs(front_elements) do
         local current_element = front_element
         apply_transform_obj(current_element,
             old_transforms[current_element],
             new_transforms[current_element])
-        add_transform_to_move(move, current_element.getName(), old_transforms[current_element], new_transforms[current_element])
         while behind_of[current_element] ~= nil do
             current_element = behind_of[current_element]
             apply_transform_obj(current_element,
                 old_transforms[current_element],
                 new_transforms[current_element])
-            add_transform_to_move(move, current_element.getName(), old_transforms[current_element], new_transforms[current_element])
         end
     end
-    push_to_history_stack(move)
 end
 
 function calculate_future_position_wheel(obj, transform, pivot_point, angle, is_left, depth)
@@ -649,8 +644,12 @@ end
 
 
 function transform_to_shape(transform)
-  corners=transform['corners']
-  shape={
+  local corners=transform['corners']
+  return corners_to_shape(corners)
+end
+
+function corners_to_shape(corners)
+  local shape={
     corners['topright'], corners['topleft'], corners['botleft'],
     corners['botright']
   }
@@ -1090,14 +1089,22 @@ function max_distance_between_bases_front_corners(base1_corners, base2_corners)
     })
 end
 
+g_picked_base_objects = {}
 g_picked_base_obj = nil
 g_picked_base_initial_transform = nil
 function onObjectPickUp(player_color,  picked_up_object)
+    -- record the objects that are up in the air
+    if is_base_obj(picked_up_object) then
+      g_picked_base_objects[picked_up_object] = picked_up_object
+    end
+
     if g_bases[picked_up_object.getName()] == nil then
         return
     end
 
     local objs = filter_bases(Player[player_color].getSelectedObjects())
+
+
     local n_objs = tlen(objs)
     if n_objs > 1 then
         -- Ignoring this, we don't want to print the circle for more than one unit
@@ -1513,6 +1520,13 @@ function get_all_bases()
 end
 
 function onObjectDrop(player_color,  picked_up_object)
+    g_picked_base_objects[picked_up_object] = nil
+    if is_table_empty(g_picked_base_objects) then
+      if is_base_obj(picked_up_object) then
+        history_record_snapshot()
+      end
+    end
+
     local obj_name = picked_up_object.getName()
     if (str_has_substr(obj_name, 'coast')) then
         snap_coast(picked_up_object)
@@ -1525,6 +1539,7 @@ function onObjectDrop(player_color,  picked_up_object)
     end
 
     local objs = filter_bases(Player[player_color].getSelectedObjects())
+
     local n_objs = tlen(objs)
     if n_objs > 1 then
         picked_up_object.setVelocity({x=0, y=0, z=0})
@@ -1552,10 +1567,9 @@ function onObjectDrop(player_color,  picked_up_object)
         g_picked_base_initial_transform['corners'])
 
     if distance > 0 then
-        print_info(string.format('Movement for %q is %.2f MU', obj_name, from_in_to_mu(distance)))
-        local move = {}
-        add_transform_to_move(move, obj_name, g_picked_base_initial_transform, new_transform)
-        push_to_history_stack(move)
+        local mu = inches_to_mu_display_string(distance)
+        print_info(string.format('Movement for %q is %s', obj_name, mu))
+
     else
         print_info(string.format('Movement for %q has been resetted', obj_name))
     end
@@ -1685,10 +1699,11 @@ function check_picked_base()
         local new_corners = compute_corners_base(g_picked_base_obj)
         local distance = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
         distance = from_in_to_mu(distance)
+        local mu = inches_to_mu_display_string(distance)
 
         UI.setAttribute('panel_current_movement', 'active', true)
         UI.setValue('text_current_movement_MUs',
-            'Current movement: ' .. string.format('%.3f', distance) .. ' MUs' )
+            'Current movement: ' .. mu)
     else
         UI.setAttribute('panel_current_movement', 'active', false)
     end
@@ -1732,6 +1747,7 @@ end
 function reset_state()
     g_selected_objects = {}
     g_picked_base_obj = nil
+    g_picked_base_objects = {}
     g_picked_base_initial_transform = nil
     g_last_zoc_value = nil
     g_current_wheel_group = nil

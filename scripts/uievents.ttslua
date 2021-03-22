@@ -3,7 +3,7 @@ g_mu_movement = 3
 
 -- Updates the global that manages the number of MUs moved by the other functions, and updates the UI
 function slider_MUs_changed(player, value, id)
-    g_mu_movement = round_to_decimals(value, 2)
+    g_mu_movement = round_to_decimals(value, 1)
 
     if math.abs(g_mu_movement - 1) < g_ui_snap_slider_movement then
         g_mu_movement = 1
@@ -36,17 +36,14 @@ function move_bases(player, value, id)
     return
     end
 
-    local move = {}
+    history_record_snapshot()
+
     for _,obj in ipairs(objs) do
-        local initial_transform = calculate_transform(obj)
         local moved = move_base(obj, from_mu_to_in(g_mu_movement), true)
-        local new_transform = calculate_transform(obj)
-        add_transform_to_move(move, obj.getName(), initial_transform, new_transform)
 
         print_info(player.steam_name .. ' is moving ' .. obj.getName() .. ' '
             .. from_in_to_mu(moved) .. ' MU forward')
     end
-    push_to_history_stack(move)
 
     -- Moving the bases shpuld imply update the gizmos
     draw_all_gizmos()
@@ -499,10 +496,11 @@ function preview_wheel(objs_if_first_time)
         return distance
     end
 
+    local mu = inches_to_mu_display_string(distance)
     UI.setValue('text_wheeling',
-        string.format('Wheeling %2.1f degrees will cost %.3f MUs',
+        string.format('Wheeling %2.1f degrees will cost %s',
             g_degrees_wheeling,
-            distance))
+            mu))
     return distance
 end
 

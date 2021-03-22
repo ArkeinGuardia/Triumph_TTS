@@ -3,23 +3,24 @@ require('scripts/data/data_settings')
 require('scripts/data/data_tables')
 require('scripts/data/data_terrain')
 require('scripts/data/data_troops')
---require('scripts/data/data_troops_greek_successors')
---require('scripts/data/data_armies_book_I')
---require('scripts/data/data_armies_book_II')
---require('scripts/data/data_armies_book_III')
---require('scripts/data/data_armies_book_IV')
 require('scripts/base_cache')
 require('scripts/log')
 require('scripts/utilities_lua')
 require('scripts/utilities')
+require('scripts/logic_base_obj')
 require('scripts/logic_terrain')
 require('scripts/logic_gizmos')
 require('scripts/logic_spawn_army')
 require('scripts/logic_dead')
 require('scripts/logic_dice')
 require('scripts/logic_history_stack')
+require('scripts/logic_history_snapshot')
 require('scripts/logic')
 require('scripts/uievents')
+
+
+-- disable history since we do not want to use startLuaCoroutine
+history_record_snapshot = function() end
 
 lu.assertPointEquals = function(a,b)
   lu.assertEquals(a['x'], b['x'])
@@ -1201,7 +1202,7 @@ function test_make_general_adds_suffix()
 
   -- Validate
   local actual = base.getName()
-  lu.assertEquals(actual, "base Archers_Gen #12")
+  lu.assertEquals(actual, "base Archers  General #12")
 
   -- Cleanup
   reset_state = old_reset_state
@@ -1224,7 +1225,7 @@ function test_make_general_adds_suffix_when_number_missing()
 
   -- Validate
   local actual = base.getName()
-  lu.assertEquals(actual, "base Archers_Gen")
+  lu.assertEquals(actual, "base Archers  General")
   lu.assertEquals(true, error_called)
 
   -- Cleanup
@@ -1232,5 +1233,14 @@ function test_make_general_adds_suffix_when_number_missing()
   print_error = old_print_error
 end
 
+function test_inches_to_mu_display_string_1_decimal_digit()
+  local actual = inches_to_mu_display_string(4.87 * g_movement_unit_in_inches)
+  lu.assertEquals(actual, "4.9 MU")
+end
+
+function test_mu_display_string_rounds_up()
+  local actual = inches_to_mu_display_string(4.81 * g_movement_unit_in_inches)
+  lu.assertEquals(actual, "4.9 MU")
+end
 
 os.exit( lu.LuaUnit.run() )

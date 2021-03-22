@@ -1,0 +1,26 @@
+
+-- is the object a base
+function is_base_obj(obj)
+  if obj == null then
+    return false
+  end
+  local name = obj.getName()
+  if name == null then
+    return false
+  end
+  return str_starts_with(name, "base")
+end
+
+-- Is the base a general for an army.
+function is_base_army_general(base_obj)
+  return str_has_substr(base_obj.getName(), '  General')
+end
+
+function are_all_bases_are_at_rest()
+  for _, base in pairs(get_all_bases()) do
+    if not base.resting then
+      return false
+    end
+  end
+  return true
+end

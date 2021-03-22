@@ -2,6 +2,43 @@
 g_base_index = 1
 g_bases = {}
 
+-- If the base is dismountable add a menu item to dismount
+-- the base
+function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
+  local definition = get_base_definition_from_base_obj(base_obj)
+  if nil == definition then
+    return
+  end
+  local dismount_as = definition['dismount_as']
+  if nil == dismount_as then
+    return
+  end
+  local dismounted_definition = get_base_definition(dismount_as)
+  if nil == dismounted_definition then
+    return
+  end
+
+  local decorations = g_decorations[base_obj.getGUID()]
+  if nil == decorations then
+    return
+  end
+  local is_red_player = decorations['is_red_player']
+  local command_color = decorations['command_color']
+
+  base_obj.addContextMenuItem('Dismount', function()
+    local old_name = base_obj.getName()
+    local pos = base_obj.getPosition()
+    local rotation = base_obj.getRotation()
+    local y_rotation = rotation.y
+    base_obj.destruct()
+
+    local new_obj = spawn_base(dismounted_definition, pos, y_rotation,
+      is_red_player, command_color)
+    local new_name = new_obj.getName()
+    print_info("Dismounted " .. old_name .. " as " .. new_name)
+  end)
+end
+
 function add_context_menu_base(base_obj)
     base_obj.clearContextMenu()
     base_obj.addContextMenuItem("Move forward single", function()
@@ -21,9 +58,20 @@ function add_context_menu_base(base_obj)
     base_obj.addContextMenuItem("Turn around", function()
         turn_around_base(base_obj)
     end)
+   base_obj.addContextMenuItem("Killed", function()
+     local ok
+     local error
+       ok,error = pcall( function()
+        base_killed(base_obj)
+      end)
+      if not ok then
+        print_error("base_killed: " .. tostring(error))
+      end
+    end)
     base_obj.addContextMenuItem("Make General", function()
         make_general(base_obj)
     end)
+    add_dismount_context_menu_base(base_obj)
     base_obj.addContextMenuItem('Toggle tool tips', function()
         toggle_tool_tips()
     end)
@@ -63,6 +111,7 @@ function on_clone(source_obj, new_obj)
         is_red_player = g_bases[name]['is_red_player']
     }
     new_obj.clearContextMenu()
+    g_decorations[new_obj.getGUID()] = deep_copy(g_decorations[source_obj.getGUID()])
     add_context_menu_base(new_obj)
 
 end
@@ -88,6 +137,96 @@ function onObjectSpawn(new_obj)
     end
 end
 
+-- add models to base object
+-- base_name: Name of the base, e.g. "Camp"
+-- base_obj: base object
+-- base: definition of the base
+-- is_player_red: red or blue base
+-- pos Location of the base.
+-- y_rotation: rotation of the base
+function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
+  local n = base['n_models']
+  if n == 0 then
+      base_obj.setRotation({0, y_rotation, 0})
+      base_obj.auto_raise = false
+      return
+  end
+
+  local depth = get_depth_base(base['base'])
+  local half_depth = depth / 2
+  local half_width = g_base_width_in_inches / 2
+
+  local rows = 1
+  local columns = n
+  if n > 4 then
+      rows = math.floor(math.sqrt(n))
+      columns = math.ceil(n/rows)
+  end
+
+  local column_width = g_base_width_in_inches / (columns + 1)
+  local row_depth = depth / (rows + 1)
+
+  local model_name = base['model_data']
+  local meshes = {}
+
+  -- If the element has multiple nonfixed element, select randomly without
+  -- repeating
+  if model_name ~= nil then
+      meshes = calculate_random_meshes(n, _G[model_name]['mesh'])
+  end
+
+  for i=1,n do
+      local column = (i - 1) % columns + 1
+      local row = math.floor((i - 1) / columns) + 1
+
+      local random_rotation = math.random(0, 40) - 20
+      if str_has_substr(base_name, 'Camp') then
+          random_rotation = 0
+      end
+
+      local random_x = 0
+      local random_z = 0
+      if base['loose'] == true then
+          random_x = random_float(-g_max_loose_spawn, g_max_loose_spawn)
+          random_z = random_float(-g_max_loose_spawn, g_max_loose_spawn)
+      end
+
+      local relative_pos = {
+          x = pos['x'] + column * column_width - half_width + random_x,
+          y = pos['y'] + g_base_height_inches / 2,
+          z = pos['z'] + row * row_depth - half_depth + random_x
+      }
+
+      local this_model_name = model_name
+      local soldier_obj = nil
+      if this_model_name ~= nil then
+          -- The object has non-fixed models, so we use any of the
+          -- randomly selected meshes
+          soldier_obj = spawn_model(this_model_name, relative_pos, random_rotation, minimal_collider, is_red_player, nil, meshes[i])
+      else
+          -- Now we have fixed models, so we use the corresponding one
+          -- Except that fixed models may use assets instead of meshes!
+          this_model_name = base['fixed_models'][i]
+          if _G[this_model_name]['customasset'] ~= nil then
+              soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
+          else
+              meshes[i] = random_element(_G[this_model_name]['mesh'])
+              soldier_obj = spawn_model(this_model_name, relative_pos, random_rotation, minimal_collider, is_red_player, nil, meshes[i])
+          end
+      end
+
+      base_obj.addAttachment(soldier_obj)
+  end
+
+  base_obj.setRotation({0, y_rotation, 0})
+  base_obj.auto_raise = false
+end
+
+-- base: base base_definition
+-- pos: position where the base will be located
+-- y_rotation: in degrees
+-- is_red_player: Will the base belong to the red player
+-- common_color: color of the base edge, who ows the base.
 function spawn_base(base, pos, y_rotation, is_red_player, command_color)
     print_debug('Spawning base #' .. g_base_index)
     local overriden_tex = nil
@@ -113,7 +252,6 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
     end
     local base_name = 'base ' .. base['name'] .. ' #' .. g_base_index
     base_obj.setName(base_name)
-    add_context_menu_base(base_obj)
 
     g_base_index = g_base_index + 1
     g_bases[base_name] = {
@@ -133,82 +271,56 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
         end
     end
 
-    local n = base['n_models']
-    if n == 0 then
-        base_obj.setRotation({0, y_rotation, 0})
-        base_obj.auto_raise = false
-        return
-    end
-
-    local depth = get_depth_base(base['base'])
-    local half_depth = depth / 2
-    local half_width = g_base_width_in_inches / 2
-
-    local rows = 1
-    local columns = n
-    if n > 4 then
-        rows = math.floor(math.sqrt(n))
-        columns = math.ceil(n/rows)
-
-    end
-    local column_width = g_base_width_in_inches / (columns + 1)
-    local row_depth = depth / (rows + 1)
-
-    local model_name = base['model_data']
-    local meshes = {}
-
-    -- If the element has multiple nonfixed element, select randomly without
-    -- repeating
-    if model_name ~= nil then
-        meshes = calculate_random_meshes(n, _G[model_name]['mesh'])
-    end
-
-    for i=1,n do
-        local column = (i - 1) % columns + 1
-        local row = math.floor((i - 1) / columns) + 1
-
-        local random_rotation = math.random(0, 40) - 20
-        if str_has_substr(base_name, 'Camp') then
-            random_rotation = 0
-        end
-
-        local random_x = 0
-        local random_z = 0
-        if base['loose'] == true then
-            random_x = random_float(-g_max_loose_spawn, g_max_loose_spawn)
-            random_z = random_float(-g_max_loose_spawn, g_max_loose_spawn)
-        end
-
-        local relative_pos = {
-            x = pos['x'] + column * column_width - half_width + random_x,
-            y = pos['y'] + g_base_height_inches / 2,
-            z = pos['z'] + row * row_depth - half_depth + random_x
-        }
-
-        local this_model_name = model_name
-        local soldier_obj = nil
-        if this_model_name ~= nil then
-            -- The object has non-fixed models, so we use any of the
-            -- randomly selected meshes
-            soldier_obj = spawn_model(this_model_name, relative_pos, random_rotation, minimal_collider, is_red_player, nil, meshes[i])
-        else
-            -- Now we have fixed models, so we use the corresponding one
-            -- Except that fixed models may use assets instead of meshes!
-            this_model_name = base['fixed_models'][i]
-            if _G[this_model_name]['customasset'] ~= nil then
-                soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
-            else
-                meshes[i] = random_element(_G[this_model_name]['mesh'])
-                soldier_obj = spawn_model(this_model_name, relative_pos, random_rotation, minimal_collider, is_red_player, nil, meshes[i])
-            end
-        end
-
-        base_obj.addAttachment(soldier_obj)
-    end
-
-    base_obj.setRotation({0, y_rotation, 0})
-    base_obj.auto_raise = false
+    g_decorations[base_obj.getGUID()] = {
+      base_definition_name = base['base_definition_name'],
+      command_color = command_color,
+      is_red_player = is_red_player
+    }
+    add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
+    update_tool_tip(base_obj)
+    add_context_menu_base(base_obj)
+    return base_obj
 end
+
+-- Get the base definition for an base object.
+-- base_obj:  Base object
+-- return: base definition or nil.
+function get_base_definition_from_base_obj(base_obj)
+  local decoration = g_decorations[ base_obj.getGUID()]
+  if nil == decoration then
+    return nil
+  end
+  local base_definition_name = decoration.base_definition_name
+  if nil == base_definition_name then
+    return nil
+  end
+  local base_definition = _G[base_definition_name]
+  if nil == base_definition_name then
+    print_error("base definition missing: " .. tostring(base_definition_name))
+    return nil
+  end
+  return base_definition
+end
+
+
+-- Get the definition for a base
+-- base_data:  If string is the name of the variable holding the definition,
+--    otherwise it is the definition.
+-- return: table defining the base
+function get_base_definition(base_data)
+  if type(base_data) ~= "string" then
+    return base_data
+  end
+  -- The string refers to the name of the variable that
+  -- defines the base.
+  local definition = _G[base_data]
+  if nil == definition then
+    print_error("base definition missing: " .. tostring(base_data))
+  end
+  definition.base_definition_name = base_data
+  return definition
+end
+
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
@@ -238,23 +350,27 @@ function spawn_army(army_name, army, is_red_player, command_color)
     local i = 0
     for base_id, base_data in pairs(army) do
         if base_id ~= 'data' then
-            local z_pos_modifier = -1 * get_depth_base(base_data['base']) / 2
-            if is_red_player then
-                z_pos_modifier = -1 * z_pos_modifier
+
+            local base_definition = get_base_definition(base_data)
+            if nil ~= base_definition then
+              local z_pos_modifier = -1 * get_depth_base(base_definition['base']) / 2
+              if is_red_player then
+                  z_pos_modifier = -1 * z_pos_modifier
+              end
+
+              local column = i % g_max_bases_row
+              local row = math.floor(i / g_max_bases_row)
+
+              local row_z_pos = z_pos * (1 + row) + z_pos_0
+
+              local location = {
+                  x = g_offset_deployment_x + column * g_base_width_in_inches - width_army / 2,
+                  y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
+                  z = row_z_pos - z_pos_modifier
+              }
+              local base_obj = spawn_base(base_definition, location, y_rotation, is_red_player, command_color)
+              i = i + 1
             end
-
-            local column = i % g_max_bases_row
-            local row = math.floor(i / g_max_bases_row)
-
-            local row_z_pos = z_pos * (1 + row) + z_pos_0
-
-            local location = {
-                x = g_offset_deployment_x + column * g_base_width_in_inches - width_army / 2,
-                y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
-                z = row_z_pos - z_pos_modifier
-            }
-            spawn_base(base_data, location, y_rotation, is_red_player, command_color)
-            i = i + 1
         end
     end
 
@@ -319,6 +435,7 @@ function update_authors_text(army)
     for base_id, base in pairs(army) do
         print_debug('Getting data of base for author of ' .. base_id)
         if base_id ~= 'data' then
+            base = get_base_definition(base)
             local author = get_author_base(base)
 
             if authors_set[author] == nil then
