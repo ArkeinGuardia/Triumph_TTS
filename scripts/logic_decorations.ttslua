@@ -41,6 +41,21 @@ function set_decoration_for_guid(guid, key, value)
  return true
 end
 
+-- Add an to the list of items.  If the list does not exist a new list
+-- is created
+-- guid:  GUID of the object being decorated
+-- key: Name of the decoration
+-- new_item:  Item to add to the list
+function add_to_decoration_list_guid(guid, key, new_item)
+  local list = get_decoration_for_guid(guid, key)
+  if list == nil then
+    list = {}
+    set_decoration_for_guid(guid, key, list)
+  end
+  table.insert(list, new_item)
+end
+
+
 function get_decoration_for_obj(obj, key)
   if obj == nil then
     return nil
@@ -49,10 +64,47 @@ function get_decoration_for_obj(obj, key)
   return get_decoration_for_guid(guid, key)
 end
 
+-- Set the decoration for an object
+-- obj: Object to decorate
+-- key: Name of the decoration
+-- value: Value to remember
+-- return: true on success, false on failure
 function set_decoration_for_obj(obj, key, value)
   if obj == nil then
     print_error("obj is nil")
     return false
   end
-  return set_decoration_for_guid(obj.getGUID(), key, value)
+  local guid = obj.getGUID()
+  local result = set_decoration_for_guid(guid, key, value)
+  return result
+end
+
+-- Add an to the list of items.  If the list does not exist a new list
+-- is created
+-- obj:  object being decorated
+-- key: Name of the decoration
+-- new_item:  Item to add to the list
+function add_to_decoration_list_obj(obj, key, new_item)
+  if obj == nil then
+    print_error("obj is nil")
+    return false
+  end
+  local guid = obj.getGUID()
+  add_to_decoration_list_guid(guid, key, new_item)
+end
+
+-- Delete the reference to the GUID from the decorations table
+function remove_decorations_for_guid(guid)
+  if guid == nil then
+    return
+  end
+  g_decorations[guid] = nil
+end
+
+-- Delete the reference to the object from the decorations table
+function remove_decorations_for_obj(obj)
+  if obj == nil then
+    return
+  end
+  remove_decorations_for_guid(obj.getGUID())
 end
