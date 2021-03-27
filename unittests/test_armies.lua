@@ -91,7 +91,7 @@ function test_bases_types_are_in_list()
   for book_name, book in pairs(armies) do
     for army_name, army in pairs(armies[book_name]) do
       for k,v in pairs(army) do
-        if not starts_with(k, "data") then
+        if not starts_with(tostring(k), "data") then
           local base_definition = get_base_definition(v)
           if nil == base_definition then
             print("get_base_definition failed for ", v)
@@ -111,7 +111,7 @@ function test_points_sane()
   for book_name, book in pairs(armies) do
     for army_name, army in pairs(armies[book_name]) do
       for k,v in pairs(army) do
-        if not starts_with(k, "data") then
+        if not starts_with(tostring(k), "data") then
           local base_data = get_base_definition(v)
           if nil ~= base_data['points'] then
             lu.assertTrue(base_data.points >= 2)
@@ -147,7 +147,7 @@ function test_battle_cards_valid()
   for book_name, book in pairs(armies) do
     for army_name, army in pairs(armies[book_name]) do
       for k,v in pairs(army) do
-        if not starts_with(k, "data") then
+        if not starts_with(tostring(k), "data") then
           local base_data = get_base_definition(v)
           assert_battle_card_valid(base_data, army, k)
         end
