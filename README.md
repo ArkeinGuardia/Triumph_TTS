@@ -63,6 +63,9 @@ Base definition fields are:
     non-grid formation.  Used to indicate open order troops.
 * points (optional) Number of points the base is worth. Default is the points
   for the type.
+* max (optional) Indicates that the base definition is for multiple bases,
+  all of which will use the same defintion.  e.g, max=4, will create four
+  bases when the the army is spawned.
 * battle_card (optional) Battle card that modifies the standard behviour of
   the type
 * dismount_as (optional) String containing the name of the variable for
