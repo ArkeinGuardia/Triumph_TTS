@@ -57,7 +57,7 @@ Base definition fields are:
   Can have a suffix added to indicate a general "  General".
   Can have a suffix added to indicate mounted infantry "_Mounted".
 * base Tile tht the figures are to be placed on when rendering.
-* n_modelsa Number of models to place on the base
+* n_models Number of models to place on the base
 * fixed_models Figures to add to the base when rendering.
 * loose = true (optional) Indictes that the models should be placed in a
     non-grid formation.  Used to indicate open order troops.

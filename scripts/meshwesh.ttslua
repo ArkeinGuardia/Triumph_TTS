@@ -1,0 +1,226 @@
+
+-- g_meshwesh_api="https://meshwesh.wgcwar.com/api/v1/"
+g_meshwesh_api="http://localhost:8000/"
+
+function spawn_meshesh_army(player, id)
+  local url = g_meshwesh_api .. "armyLists/" .. id
+  print(url)
+  WebRequest.get(url,
+    function(webReturn)
+      if webReturn.is_error then
+        print_error(webReturn.error)
+        return
+      end
+      on_meshwesh_army_request_completed(webReturn.text, player)
+    end)
+end
+
+function has_one_option(data_point)
+  return tlen(data_point) ==1 and (nil == data_point[1]['note'] )
+end
+
+function get_sole_option(data_point)
+    if not has_one_option(data_point) then
+      return nil
+    end
+    return data_point[1]['value']
+end
+
+
+g_troop_type_code_to_name = {
+    CHT = "Chariots",
+    RDR = "Raiders",
+    ARC = 'Archers',
+    EFT = 'Elite Foot',
+    HFT = 'Heavy Foot',
+    LFT = 'Light Foot',
+    BLV = 'Bow Levy',
+    PAV = 'Pavisiers',
+    SKM = 'Skirmishers',
+    WBD = 'Warband',
+--  valid['Light Spear']=true
+--  valid['Rabble']=true
+--  valid['Raiders']=true
+--  valid['Artillery']=true
+--  valid['Horde']=true
+--   -- Appendix A uses "Pike"
+--  valid['Pikes']=true
+--  ---- Appendix A uses "Spear"
+  --valid['Spears']=true
+  --valid['War Wagons']=true
+  --valid['Warriors']=true
+--  valid['Bad Horse']=true
+  --valid['Battle Taxi']=true
+--  valid['Chariots']=true
+  --valid['Elite Cavalary']=true
+  --valid['Horse Bow']=true
+--  valid['Javelin Cavalry']=true
+  --valid['Knights']=true
+--  valid['Cataphracts']=true
+--  valid['Elephants']=true
+}
+
+
+-- TODO  counters go here
+g_default_models = {
+    CHT = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    RDR = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    ARC = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    EFT = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    HFT = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    LFT = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    BLV = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    PAV = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    SKM = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+    WBD = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    },
+}
+
+function get_models(troop_entry)
+  -- TODO lookup to see if there is a definition for the troop entry ID
+  local models = g_default_models[troop_entry.troopTypeCode]
+  if models == nil then
+    print_error("no default models for " .. tostring(troop_entry.troopTypeCode))
+  end
+  return models
+end
+
+
+-- return nil on error
+function troop_option_to_base_definition(troop_option)
+    if tlen(troop_option.troopEntries) ~= 1 then
+      print_error("incorrect number of troopEntries")
+      return nil
+    end
+    local troop_entry = troop_option.troopEntries[1]
+    local name = g_troop_type_code_to_name[troop_entry.troopTypeCode]
+    if name == nil then
+        print_error("No name for: " .. troop_entry.troopTypeCode)
+        return nil
+    end
+    local definition = {
+        name=name,
+        min = troop_option.min,
+        max = troop_option.max,
+        description = troop_option.description,
+        id = troop_entry._id
+    }
+    if troop_option.battleCardEntries ~= nil then
+        local nb_battle_cards = tlen(troop_option.battleCardEntries)
+        if nb_battle_cards > 1 then
+            print_error("wrong number of battle cards :" .. tostring(nb_battle_cards))
+        elseif nb_battle_cards == 1 then
+            definition.battle_card = troop_option.battleCardEntries[1]
+        end
+    end
+    -- TODO dismount_as
+    -- TODO note
+
+    -- Define the models
+    local models = get_models(troop_entry)
+    if models == nil then
+      print_error("Unable to get models " .. troop_entry._id)
+      return nil
+    end
+    for k,v in pairs(models) do
+      definition[k] = v
+    end
+
+    return definition
+end
+
+-- Convert the army from the meshwesh JSON object to the format used
+-- internally for spawn_army
+function meshwesh_to_lua_army(json)
+  local army = {}
+  army['data']={}
+  army['data']['name'] = json.derivedData.extendedName
+
+  -- For now we are not handling options such as different years,
+  -- or armies
+  army['data']['Invasion']=get_sole_option(json['invasionRatings'])
+--  army['data']['terrain']="TODO"
+  --army['data']['general']="TODO"
+  --army['data']['manufacturer']="TODO"
+  --army['data']['list']="TODO"
+
+
+  -- add the bases
+  for _,troop_option in pairs(json['troopOptions']) do
+    local base_defintion = {}
+    if tlen(troop_option.troopEntries) ~= 1 then
+      print_error("incorrect number of troopEntries")
+    else
+      local base_definition = troop_option_to_base_definition(troop_option)
+      if base_definition ~= nil then
+      -- TODO we will need to base defintion accessible for dismounting
+        table.insert(army, base_definition)
+      end
+    end
+  end
+  -- TODO add troopEntriesForGeneral
+  -- TODO allies
+
+  return army
+end
+
+function on_meshwesh_army_request_completed(json_text, player)
+  local json
+  local ok,result = pcall(
+        function()
+          json = JSON.decode(json_text)
+        end)
+  if not ok then
+    print_error("Could not decode as json :" .. tostring(json_text))
+    return
+  end
+
+  print("BEFORE meshwesh_to_lua_army")
+  local army = meshwesh_to_lua_army(json)
+  print("AFTER meshwesh_to_lua_army")
+  local army_name = army['data']['name']
+  local is_red_player = (player == "red")
+  command_color = player -- TODO
+  print("BEFORE spawn_army")
+  spawn_army(army_name, army, is_red_player, command_color)
+  print("AFTER spawn_army")
+end
