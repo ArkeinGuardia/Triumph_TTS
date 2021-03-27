@@ -1,6 +1,6 @@
 
 -- Dead zones indexed by name
-g_dead_zones = {}
+g_dead_z14s = {}
 
 -- Spawn the dead, and army builder zones.
 function spawn_static_zones()
@@ -299,6 +299,17 @@ function onObjectEnterScriptingZone(zone, obj)
         return
     end
     print_debug(obj.getName() .. ' entered ' .. zone.getName())
+
+    -- If there is an object specific function call it.
+    local entry_fn_name = get_decoration_for_obj(zone, 'onObjectEnterScriptingZone')
+    if entry_fn_name ~= nil then
+      local entry_fn = _G[entry_fn_name]
+      if nil ~= entry_fn then
+        return entry_fn(zone, obj)
+      end
+    end
+
+    -- default behaviour
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
@@ -310,11 +321,22 @@ function onObjectEnterScriptingZone(zone, obj)
     end
 end
 
-function onObjectLeaveScriptingZone(zone, obj)
+function doOnObjectLeaveScriptingZone(zone, obj)
     if not str_has_substr(obj.getName(), 'base') then
         return
     end
     print_debug(obj.getName() .. ' left ' .. zone.getName())
+
+    -- If there is an object specific function call it.
+    local leave_fn_name = get_decoration_for_obj(zone, 'onObjectLeaveScriptingZone')
+    if leave_fn_name ~= nil then
+      local leave_fn = _G[leave_fn_name]
+      if nil ~= leave_fn then
+        return leave_fn(zone, obj)
+      end
+    end
+
+    -- default behaviour
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
@@ -325,6 +347,14 @@ function onObjectLeaveScriptingZone(zone, obj)
         print_debug('Ignoring dead Leave because already updating')
     end
 end
+
+function onObjectLeaveScriptingZone(zone, obj)
+  local ok, error = pcall( function() doOnObjectLeaveScriptingZone(zone,obj) end)
+  if not ok then
+    print_error(error)
+  end
+end
+
 
 -- Move the bases in the dead zone so they are not colliding with
 -- each other

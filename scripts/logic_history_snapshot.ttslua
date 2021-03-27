@@ -24,13 +24,10 @@ end
 -- lhs_base: snapshot for a base
 -- rhs_base: snapshot for a base
 function is_snapshot_base_same(lhs_base, rhs_base)
-  print("comparing base ", guid)
   if lhs_base == nil and rhs_base == nil then
-    print("true both are nli")
     return true
   end
   if lhs_base == nil or rhs_base == nil then
-    print("false one nli")
     return false
   end
   local lhs_pos = lhs_base.position
@@ -55,7 +52,6 @@ function is_snapshot_base_same(lhs_base, rhs_base)
   if lhs_rot.z ~= rhs_rot.z then
     return false
   end
-  print("same")
   return true
 end
 
