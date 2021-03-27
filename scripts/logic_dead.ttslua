@@ -27,23 +27,6 @@ function delete_all_static_zones()
 end
 
 
--- Spawn the dead, and army builder zones.
--- helper for spawn_dead_zones
-function spawn_static_zones_after_deletion()
-    g_dead_zones['red'] =create_zone('dead zone red',
-                { x = 0, y = 1.6, z = -27 },
-                { x = 10, y = 1, z = 10 })
-    g_dead_zones['blue'] = create_zone('dead zone blue',
-                { x = 0, y = 1.6, z = 27 },
-                { x = 10, y = 1, z = 10 })
-    create_zone('Army Builder red',
-                { x = 75, y = 1.6, z = -25 },
-                { x = 10, y = 1, z = 10 })
-    create_zone('Army Builder blue',
-                { x = 75, y = 1.6, z = 25 },
-                { x = 10, y = 1, z = 10 })
-end
-
 -- Create a scripting zone
 -- name: Name of the zone
 -- position: Center point of the zone
