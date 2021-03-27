@@ -120,6 +120,32 @@ Example: !triumph_load_army red 5fb1b9f1e1af06001770a195
 ]])
 end
 
+-- parse and execute the command '!triumph_load_army'
+function triumph_load_army_command(message)
+  local ok, error = pcall( function()
+    local match = message:split(' ')
+    print("match= ", match)
+    local player = match[2]
+    print("player=", player)
+    local id = match[3]
+    print("id=", id)
+    if (player == nil)  or (player ~= 'red' and player ~= 'blue') then
+      print_error("player must be read or blue")
+      return false
+    end
+    if id == nil then
+      print_error("army identifier must be set.")
+      return false
+    end
+    spawn_meshesh_army(player, id)
+  end)
+  if not ok then
+    print_error(error)
+  end
+  return false
+end
+
+
 function onChat(message, player)
     if message == '!triumph_help' then
         print_info(player.get_steam_name() .. ': ' .. message)
@@ -182,16 +208,7 @@ function onChat(message, player)
     end
 
     if str_starts_with(message, '!triumph_load_army') then
-      local ok, error = pcall( function()
-        local match = message:split(' ')
-        local player = match[2]
-        local id = match[3]
-        print("player=",player, " id=",id)
-        print("Not implemented yet")
-      end)
-      if not ok then
-        print_error(error)
-      end
+      triumph_load_army_command(message)
       return false
     end
 
