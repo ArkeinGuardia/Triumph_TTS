@@ -322,6 +322,46 @@ function get_base_definition(base_data)
   return definition
 end
 
+function get_note_text(army)
+    local invasion=""
+    if army['data']['Invasion'] ~= nil then
+        invasion = army['data']['Invasion']
+    end
+
+    local maneuver=""
+    if army['data']['maneuver'] ~= nil then
+        invasion = army['data']['maneuver']
+    end
+
+    local terrain=""
+    if army['data']['terrain'] ~= nil then
+        terrain = army['data']['terrain']
+    end
+
+    local list=""
+    if army['data']['list'] ~= nil then
+        list = army['data']['list']
+    end
+
+    local general=""
+    if army['data']['general'] ~= nil then
+        list = army['data']['general']
+    end
+
+    local maker = ''
+    if army['data']['manufacturer'] ~= nil then
+        maker = '\n\nMiniatures by: ' .. army['data']['manufacturer']
+    end
+
+    local text = 
+        'Invasion: ' .. tostring(invasion) .. '. Maneuver: ' .. tostring(maneuver) .. '\n'
+        .. 'Terrain: ' .. tostring(terrain) .. '\n'
+        .. tostring(list) .. '\n'
+        .. tostring(general) .. '\n'
+        .. maker
+    return text
+end
+
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
@@ -392,26 +432,18 @@ function spawn_army(army_name, army, is_red_player, command_color)
         angle = 0
     end
 
-    local maker = ''
-    if army['data']['manufacturer'] ~= nil then
-        maker = '\n\nMiniatures by: ' .. army['data']['manufacturer']
-    end
+    local note_text = get_note_text(army)
 
-    spawn_note(army_name,
-        'Invasion: ' .. army['data']['Invasion'] .. '. Maneuver: ' .. army['data']['maneuver'] .. '\n'
-        .. 'Terrain: ' .. army['data']['terrain'] .. '\n'
-        .. army['data']['list'] .. '\n'
-        .. army['data']['general'] .. '\n'
-        .. maker,
+    spawn_note(army_name, note_text,
         note_pos,
         angle)
 
     update_tool_tips()
     print_important('Army deployed: ' .. army_name .. ', see chat for options')
-    print_info('List: ' .. army['data']['list'])
-    print_info('Agressiveness: ' .. army['data']['Invasion']
-        .. ' Terrain: ' .. army['data']['terrain'])
-
+    print_info(
+      'List: ' .. tostring(army['data']['list']) .. "\n" ..
+      'Agressiveness: ' .. tostring(army['data']['Invasion']) .. "\n" ..
+      'Terrain: ' .. tostring(army['data']['terrain']))
 end
 
 function get_author_tile(tilename)
