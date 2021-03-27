@@ -670,3 +670,14 @@ function table_print (tbl, indent)
     end
   end
 end
+
+
+function get_object_by_name(name)
+  for _,obj in pairs(getAllObjects()) do
+    local obj_name = obj.getName()
+    if name == obj_name then
+      return obj
+    end
+  end
+  return nil
+end

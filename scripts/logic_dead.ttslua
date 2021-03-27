@@ -1,48 +1,25 @@
 
--- Dead zones indexed by name
-g_dead_z14s = {}
+g_dead_zone_red_name = 'dead zone red'
+g_dead_zone_blue_name = 'dead zone blue'
+g_army_builder_zone_red_name = 'Army Builder red'
+g_army_builder_zone_blue_name = 'Army Builder blue'
 
--- Spawn the dead, and army builder zones.
-function spawn_static_zones()
-    delete_all_static_zones()
-    Wait.frames(function()
-        spawn_static_zones_after_deletion()
-    end, 1)
+function get_red_dead_zone()
+  local result = get_object_by_name(g_dead_zone_red_name)
+  if result == nil then
+    print_error("Unable to find: " .. g_dead_zone_red_name)
+  end
+  return result
 end
 
--- Destroy the dead, and army builder zones.
-function delete_all_static_zones()
-    local all_objs = getAllObjects()
-    for _,obj in ipairs(all_objs) do
-        local name = obj.getName()
-        if str_starts_with(name, 'dead zone') then
-            -- This executes on next frame
-            obj.destroy()
-        end
-        if str_starts_with(name, 'Army Builder') then
-            -- This executes on next frame
-            obj.destroy()
-        end
-    end
+function get_blue_dead_zone()
+  local result = get_object_by_name(g_dead_zone_blue_name)
+  if result == nil then
+    print_error("Unable to find: " .. g_dead_zone_blue_name)
+  end
+  return result
 end
 
-
--- Spawn the dead, and army builder zones.
--- helper for spawn_dead_zones
-function spawn_static_zones_after_deletion()
-    g_dead_zones['red'] =create_zone('dead zone red',
-                { x = 0, y = 1.6, z = -27 },
-                { x = 10, y = 1, z = 10 })
-    g_dead_zones['blue'] = create_zone('dead zone blue',
-                { x = 0, y = 1.6, z = 27 },
-                { x = 10, y = 1, z = 10 })
-    create_zone('Army Builder red',
-                { x = 75, y = 1.6, z = -25 },
-                { x = 10, y = 1, z = 10 })
-    create_zone('Army Builder blue',
-                { x = 75, y = 1.6, z = 25 },
-                { x = 10, y = 1, z = 10 })
-end
 
 -- Create a scripting zone
 -- name: Name of the zone
@@ -61,23 +38,6 @@ function create_zone(name, position, size)
     return obj
 end
 
-g_dead_zones = {}
-
--- Spawn the dead, and army builder zones.
-function spawn_static_zones_after_deletion()
-    g_dead_zones['red'] =create_zone('dead zone red',
-                { x = 0, y = 1.6, z = -27 },
-                { x = 10, y = 1, z = 10 })
-    g_dead_zones['blue'] = create_zone('dead zone blue',
-                { x = 0, y = 1.6, z = 27 },
-                { x = 10, y = 1, z = 10 })
-    create_zone('Army Builder red',
-                { x = 75, y = 1.6, z = -25 },
-                { x = 10, y = 1, z = 10 })
-    create_zone('Army Builder blue',
-                { x = 75, y = 1.6, z = 25 },
-                { x = 10, y = 1, z = 10 })
-end
 
 
 local g_updating_zone = {}
@@ -356,6 +316,11 @@ function onObjectLeaveScriptingZone(zone, obj)
 end
 
 
+function is_red_dead_zone(dead_zone)
+  local name = dead_zone.getName()
+  return name == g_dead_zone_red_name
+end
+
 -- Move the bases in the dead zone so they are not colliding with
 -- each other
 function reorganize_dead_zone(dead_zone)
@@ -364,15 +329,16 @@ function reorganize_dead_zone(dead_zone)
   ok, error = pcall( function()
     local dead = dead_zone.getObjects()
 
+    local is_red = is_red_dead_zone(dead_zone)
     -- have the unit facing off the board, since they are
     -- running away.
     local rotation = dead_zone.getRotation()
-    if dead_zone == g_dead_zones['red'] then
+    if is_red then
       rotation['y'] = rotation['y'] + 180
     end
 
     local row_direction
-    if dead_zone == g_dead_zones['red'] then
+    if is_red then
       row_direction = 1
     else
       row_direction = -1
@@ -439,10 +405,13 @@ function base_killed(base)
     local dead_zone
     if is_base_red_player(base_name) then
       print_info("killed red ", base_name)
-      dead_zone = g_dead_zones['red']
+      dead_zone = get_red_dead_zone()
     else
       print_info("killed blue ", base_name)
-      dead_zone = g_dead_zones['blue']
+      dead_zone = get_blue_dead_zone()
+    end
+    if dead_zone == nil then
+      return false, "dead zone not found"
     end
     local pos = dead_zone.getBounds().center
     base.setPosition(pos)
