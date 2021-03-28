@@ -2,8 +2,10 @@
 start:
 	 python3 -m http.server 8000
 
-json: armyLists/5fb1b9f1e1af06001770a195
+# Get a local caopy of the Meshwesh JSON
+clone:
+	rm -rf armyLists
+	mkdir armyLists
+	curl -o armyLists/summary 'https://meshwesh.wgcwar.com/api/v1/armyLists?summary=true'
+	python3 clone.py
 
-armyLists/5fb1b9f1e1af06001770a195:
-	mkdir -p $(dir $@)
-	curl -o $@  https://meshwesh.wgcwar.com/api/v1/$@
