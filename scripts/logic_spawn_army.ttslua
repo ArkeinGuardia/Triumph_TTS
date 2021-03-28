@@ -222,15 +222,15 @@ function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
   base_obj.auto_raise = false
 end
 
--- base: base base_definition
+-- base: base_definition base_definition
 -- pos: position where the base will be located
 -- y_rotation: in degrees
 -- is_red_player: Will the base belong to the red player
 -- common_color: color of the base edge, who ows the base.
-function spawn_base(base, pos, y_rotation, is_red_player, command_color)
+function spawn_base(base_definition, pos, y_rotation, is_red_player, command_color)
     print_debug('Spawning base #' .. g_base_index)
     local overriden_tex = nil
-    if base['ignore_terrain'] == nil then
+    if base_definition['ignore_terrain'] == nil then
         local type = from_toggle_number_to_table_type(g_current_table_type)
 
         if tables[type] == nil then
@@ -244,18 +244,18 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
         end
     end
 
-    local base_obj = spawn_model(base['base'], pos, 0, nil, is_red_player, overriden_tex)
+    local base_obj = spawn_model(base_definition['base'], pos, 0, nil, is_red_player, overriden_tex)
 
-    if base['name'] == nil then
+    if base_definition['name'] == nil then
         print_error('One of the bases of this army has no name! Please report to us so we can fix it asap')
         return
     end
-    local base_name = 'base ' .. base['name'] .. ' #' .. g_base_index
+    local base_name = 'base ' .. base_definition['name'] .. ' #' .. g_base_index
     base_obj.setName(base_name)
 
     g_base_index = g_base_index + 1
     g_bases[base_name] = {
-        tile = base['base'],
+        tile = base_definition['base'],
         is_red_player = is_red_player
     }
 
@@ -272,11 +272,11 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
     end
 
     g_decorations[base_obj.getGUID()] = {
-      base_definition_name = base['base_definition_name'],
+      base_definition_name = base_definition['base_definition_name'],
       command_color = command_color,
       is_red_player = is_red_player
     }
-    add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
+    add_models(base_name, base_definition, base_obj, is_red_player, pos, y_rotation)
     update_tool_tip(base_obj)
     add_context_menu_base(base_obj)
     return base_obj
