@@ -9,3 +9,7 @@ clone:
 	curl -o armyLists/summary 'https://meshwesh.wgcwar.com/api/v1/armyLists?summary=true'
 	python3 clone.py
 
+army_data:
+	mkdir army_data
+	python3 tts_army.py
+
