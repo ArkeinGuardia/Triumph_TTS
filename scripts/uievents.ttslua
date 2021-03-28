@@ -206,7 +206,7 @@ function on_book_selected(player, value, id)
     else
         local book = armies[g_book_selected]
         for army_name,_ in pairs(book) do
-            if not str_has_substr(army_name, '(Plain)') then
+            if is_army_with_models(army_name) then
                 g_army_selected = army_name
                 break
             end
@@ -229,6 +229,10 @@ function on_book_selected(player, value, id)
     end)
 end
 
+function is_army_with_models(army_name)
+    return not str_has_substr(g_army_selected, "(Plain)") 
+end
+
 g_army_selected = ''
 function on_army_selected(player, value, id)
     g_army_selected = value
@@ -237,17 +241,28 @@ function on_army_selected(player, value, id)
     print_debug('Selected army is ' .. g_army_selected)
     update_authors_text(army)
 
-    if str_has_substr(g_army_selected, "(Plain)") then
-        UI.setValue('text_ag_terr',
-            'Invasion: ' .. army['data']['Invasion']
-            .. ', Terrain: ' .. army['data']['terrain']
-            .. ', Flat bases')
-    else
-        UI.setValue('text_ag_terr',
-            'Invasion: ' .. army['data']['Invasion']
-            .. ', Terrain: ' .. army['data']['terrain']
-            .. ', Bases with models')
+    local text = ""
+    if nil ~= army['data']['Invasion'] then
+        text = 'Invasion: ' .. army['data']['Invasion']
     end
+
+    if nil ~= army['data']['terrain'] then
+        if text ~= "" then
+          text = text .. ", "
+        end
+        text = text .. 'Terrain: ' .. army['data']['terrain']
+    end
+
+    if text ~= "" then
+      text = text .. ", "
+    end
+    if is_army_with_models(g_army_selected) then
+        text = text .. "Bases with models"
+    else
+        text = text .. "Flat bases"
+    end
+
+    UI.setValue('text_ag_terr', text)
 end
 
 g_color_spawn_army_selected = 'Red'
