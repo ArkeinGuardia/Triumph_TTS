@@ -61,65 +61,119 @@ g_troop_type_code_to_name = {
 }
 
 
--- TODO  counters go here
-g_default_models = {
-    CHT = {
+-- TODO   plain bases  go here
+g_default_models = {}
+g_default_models['Chariots'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    RDR = {
+    }
+g_default_models['Raiders'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    ARC = {
+    }
+g_default_models['Archers'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    EFT = {
+    }
+g_default_models[ 'Elite Foot'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    HFT = {
+    }
+g_default_models['Heavy Foot'] = {
+      base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models['Light Foot'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    LFT = {
+    }
+g_default_models['Bow Levy'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    BLV = {
+    }
+g_default_models['Pavisiers'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    PAV = {
+    }
+g_default_models['Skirmishers'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    SKM = {
+    }
+g_default_models['Warband'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-    WBD = {
+    }
+g_default_models['Chariots General'] = {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
-    },
-}
+    }
+g_default_models['Raiders  General']= {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models['Archers General'] = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models['Elite Foot General'] = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models['Heavy Foot General'] = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models['Light Foot General'] = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models['Bow Levy General'] = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models['Pavisiers General'] = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models['Skirmishers General'] = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
+g_default_models[ 'Warband General'] = {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+    }
 
-function get_models(troop_entry)
+
+-- Get the definitions of the models
+-- troop_entry_id: Identifier of the troopEntries member in
+-- meshwesh
+-- name: Name of the troop.
+function get_models(troop_entry_id, name)
   -- TODO lookup to see if there is a definition for the troop entry ID
-  local models = g_default_models[troop_entry.troopTypeCode]
+  local models = g_default_models[name]
   if models == nil then
-    print_error("no default models for " .. tostring(troop_entry.troopTypeCode))
+    print_error("no default models for " .. tostring(name))
   end
   return models
 end
@@ -156,7 +210,7 @@ function troop_option_to_base_definition(troop_option)
     -- TODO note
 
     -- Define the models
-    local models = get_models(troop_entry)
+    local models = get_models(troop_entry, name)
     if models == nil then
       print_error("Unable to get models " .. troop_entry._id)
       return nil
@@ -185,6 +239,7 @@ function meshwesh_to_lua_army(json)
 
 
   -- add the bases
+  local troop_type_definitions = {}
   for _,troop_option in pairs(json['troopOptions']) do
     local base_defintion = {}
     if tlen(troop_option.troopEntries) ~= 1 then
@@ -192,13 +247,49 @@ function meshwesh_to_lua_army(json)
     else
       local base_definition = troop_option_to_base_definition(troop_option)
       if base_definition ~= nil then
-      -- TODO we will need to base defintion accessible for dismounting
+        -- TODO we will need to base defintion accessible for dismounting
         table.insert(army, base_definition)
+        troop_type_definitions[ base_definition.name] = base_definition
       end
     end
   end
-  -- TODO add troopEntriesForGeneral
-  -- TODO allies
+  -- Generals
+  if json.troopEntriesForGeneral == nil then
+    print_error("No general")
+  else
+    for _,troop_entries_for_general in pairs(json.troopEntriesForGeneral) do
+      local troop_entries = troop_entries_for_general.troopEntries
+      for _,troop_entry in pairs(troop_entries) do
+        local troopTypeCode = troop_entry.troopTypeCode
+        local name = g_troop_type_code_to_name[ troop_entry.troopTypeCode]
+        if name == nil then
+          print_error("No name for " .. tostring(troop_entry.troopTypeCode))
+        else
+          local orig = troop_type_definitions[name]
+          if orig == nil then
+            print_error("No base definition for " .. tostring(name))
+          else
+            local base_definition = shallow_copy(orig)
+            base_definition.max = 1
+            base_definition.min = 0
+            base_definition.name = base_definition.name .. " General"
+            -- Define the models
+            local models = get_models(troop_entry, base_definition.name)
+            if models == nil then
+              print_error("Unable to get models " .. troop_entry._id)
+              return nil
+            end
+            for k,v in pairs(models) do
+              base_definition[k] = v
+            end
+            -- TODO we will need to base defintion accessible for dismounting
+            table.insert(army, base_definition)
+            troop_type_definitions[ base_definition.name] = base_definition
+          end
+        end
+      end
+    end
+  end
 
   return army
 end
