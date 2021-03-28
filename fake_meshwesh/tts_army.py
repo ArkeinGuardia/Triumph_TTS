@@ -73,7 +73,11 @@ def troop_type_to_name(troop_type) :
 def base_definition(file, troop_option, troop_entry) :
   min = troop_option['min']
   max = troop_option['max']
+
   description = troop_option['description']
+  #escape quotes
+  description = description.replace("'", "\\'")
+
   id = troop_entry['_id']
   file.write("g_str_%s='%s'\n" % (id,id))
 
@@ -165,7 +169,11 @@ def generate_army(army_id) :
     # TODO maneuver
     # TODO terrain
     # TODO list
-    army_data.write("    name='%s'\n" %(army_name))
+
+    #escape quotes
+    name = army_name.replace("'", "\\'")
+
+    army_data.write("    name='%s'\n" %(name))
     army_data.write("  },\n")
 
     # Bases that make up the army
@@ -184,7 +192,7 @@ def generate_army(army_id) :
 
 summary = read_json("armyLists/summary")
 
-with open("army_data/all_arnmies.ttslua", "w") as all_armies:
+with open("army_data/all_armies.ttslua", "w") as all_armies:
   for army_entry in summary :
     army_id = army_entry['id']
     print(army_id)
@@ -193,4 +201,4 @@ with open("army_data/all_arnmies.ttslua", "w") as all_armies:
     except:
       print(army_entry['name'])
       raise
-    all_armies.write( "include army_data/%s\n" % (army_id))
+    all_armies.write( "#include %s\n" % (army_id))
