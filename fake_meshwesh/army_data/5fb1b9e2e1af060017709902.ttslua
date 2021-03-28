@@ -1,0 +1,36 @@
+-- 5fb1b9e2e1af060017709902 Gepid (all mounted)  250 to 566 AD
+
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+if army == nil then
+  army = {}
+end
+g_str_5fb1ba2de1af06001770d54d='5fb1ba2de1af06001770d54d'
+g_base_definitions[g_str_5fb1ba2de1af06001770d54d]={
+  id=g_str_5fb1ba2de1af06001770d54d,
+  name='Knights',
+  min=8,
+  max=12,
+  description='Charging horsemen',
+}
+g_str_5fb1ba2de1af06001770d54f='5fb1ba2de1af06001770d54f'
+g_base_definitions[g_str_5fb1ba2de1af06001770d54f]={
+  name='Knights General',
+  min=1,
+  max=1,
+}
+g_str_5fb1b9e2e1af060017709902_camp='5fb1b9e2e1af060017709902_camp'
+g_base_definitions[g_str_5fb1b9e2e1af060017709902_camp]={
+  name='Camp',
+  min=1,
+  max=1,
+}
+army['5fb1b9e2e1af060017709902']={
+  data={
+    name='Gepid (all mounted)  250 to 566 AD'
+  },
+  g_base_definitions[g_str_5fb1b9e2e1af060017709902_camp],
+  g_base_definitions[g_str_5fb1ba2de1af06001770d54f],
+  g_base_definitions[g_str_5fb1ba2de1af06001770d54d],
+}

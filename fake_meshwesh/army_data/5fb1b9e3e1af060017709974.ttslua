@@ -1,0 +1,45 @@
+-- 5fb1b9e3e1af060017709974 Western Hunnic  374 to 561 AD
+
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+if army == nil then
+  army = {}
+end
+g_str_5fb1ba2ee1af06001770d6c1='5fb1ba2ee1af06001770d6c1'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d6c1]={
+  id=g_str_5fb1ba2ee1af06001770d6c1,
+  name='Horse Bow',
+  min=6,
+  max=12,
+  description='Hun horse archers',
+}
+g_str_5fb1ba2ee1af06001770d6c3='5fb1ba2ee1af06001770d6c3'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d6c3]={
+  id=g_str_5fb1ba2ee1af06001770d6c3,
+  name='Horse Bow',
+  min=0,
+  max=1,
+  description='Alan subject horse archers',
+}
+g_str_5fb1ba2ee1af06001770d6c5='5fb1ba2ee1af06001770d6c5'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d6c5]={
+  name='Horse Bow General',
+  min=1,
+  max=1,
+}
+g_str_5fb1b9e3e1af060017709974_camp='5fb1b9e3e1af060017709974_camp'
+g_base_definitions[g_str_5fb1b9e3e1af060017709974_camp]={
+  name='Camp',
+  min=1,
+  max=1,
+}
+army['5fb1b9e3e1af060017709974']={
+  data={
+    name='Western Hunnic  374 to 561 AD'
+  },
+  g_base_definitions[g_str_5fb1b9e3e1af060017709974_camp],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d6c5],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d6c1],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d6c3],
+}

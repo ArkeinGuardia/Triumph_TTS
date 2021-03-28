@@ -1,0 +1,54 @@
+-- 5fb1b9f4e1af06001770a357 Early Samurai  900 to 1019 AD
+
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+if army == nil then
+  army = {}
+end
+g_str_5fb1ba43e1af06001770fc7a='5fb1ba43e1af06001770fc7a'
+g_base_definitions[g_str_5fb1ba43e1af06001770fc7a]={
+  id=g_str_5fb1ba43e1af06001770fc7a,
+  name='Horse Bow',
+  min=3,
+  max=9,
+  description='Mounted bushi',
+}
+g_str_5fb1ba43e1af06001770fc7c='5fb1ba43e1af06001770fc7c'
+g_base_definitions[g_str_5fb1ba43e1af06001770fc7c]={
+  id=g_str_5fb1ba43e1af06001770fc7c,
+  name='Pavisiers',
+  min=0,
+  max=9,
+  description='Bowmen protected by spearmen with pavises',
+}
+g_str_5fb1ba43e1af06001770fc7e='5fb1ba43e1af06001770fc7e'
+g_base_definitions[g_str_5fb1ba43e1af06001770fc7e]={
+  id=g_str_5fb1ba43e1af06001770fc7e,
+  name='Rabble',
+  min=0,
+  max=2,
+  description='Inji 'ruffians'',
+}
+g_str_5fb1ba43e1af06001770fc80='5fb1ba43e1af06001770fc80'
+g_base_definitions[g_str_5fb1ba43e1af06001770fc80]={
+  name='Horse Bow General',
+  min=1,
+  max=1,
+}
+g_str_5fb1b9f4e1af06001770a357_camp='5fb1b9f4e1af06001770a357_camp'
+g_base_definitions[g_str_5fb1b9f4e1af06001770a357_camp]={
+  name='Camp',
+  min=1,
+  max=1,
+}
+army['5fb1b9f4e1af06001770a357']={
+  data={
+    name='Early Samurai  900 to 1019 AD'
+  },
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a357_camp],
+  g_base_definitions[g_str_5fb1ba43e1af06001770fc80],
+  g_base_definitions[g_str_5fb1ba43e1af06001770fc7a],
+  g_base_definitions[g_str_5fb1ba43e1af06001770fc7c],
+  g_base_definitions[g_str_5fb1ba43e1af06001770fc7e],
+}

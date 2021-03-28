@@ -1,0 +1,54 @@
+-- 5fb1b9dbe1af06001770948b Early Bronze Age North Europe  2000 to 1200 BC
+
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+if army == nil then
+  army = {}
+end
+g_str_5fb1ba23e1af06001770c4af='5fb1ba23e1af06001770c4af'
+g_base_definitions[g_str_5fb1ba23e1af06001770c4af]={
+  id=g_str_5fb1ba23e1af06001770c4af,
+  name='Bow Levy',
+  min=8,
+  max=21,
+  description='Barbarian bowmen without training in massed warfare',
+}
+g_str_5fb1ba23e1af06001770c4b1='5fb1ba23e1af06001770c4b1'
+g_base_definitions[g_str_5fb1ba23e1af06001770c4b1]={
+  id=g_str_5fb1ba23e1af06001770c4b1,
+  name='Skirmishers',
+  min=2,
+  max=4,
+  description='Barbarian skirmishing bowmen or slingers',
+}
+g_str_5fb1ba23e1af06001770c4b3='5fb1ba23e1af06001770c4b3'
+g_base_definitions[g_str_5fb1ba23e1af06001770c4b3]={
+  id=g_str_5fb1ba23e1af06001770c4b3,
+  name='Horde',
+  min=0,
+  max=2,
+  description='Unenthusiastic or poorly equipped throng',
+}
+g_str_5fb1ba23e1af06001770c4b5='5fb1ba23e1af06001770c4b5'
+g_base_definitions[g_str_5fb1ba23e1af06001770c4b5]={
+  name='Bow Levy General',
+  min=1,
+  max=1,
+}
+g_str_5fb1b9dbe1af06001770948b_camp='5fb1b9dbe1af06001770948b_camp'
+g_base_definitions[g_str_5fb1b9dbe1af06001770948b_camp]={
+  name='Camp',
+  min=1,
+  max=1,
+}
+army['5fb1b9dbe1af06001770948b']={
+  data={
+    name='Early Bronze Age North Europe  2000 to 1200 BC'
+  },
+  g_base_definitions[g_str_5fb1b9dbe1af06001770948b_camp],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4b5],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4af],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4b1],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4b3],
+}
