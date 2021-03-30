@@ -1047,11 +1047,67 @@ function distance_front_to_right(transformA, transformB)
     return corners_snapping_distance(transformA, transformB, matching_corners)
 end
 
--- tile_name: string.  e.g. 'tile_plain_WWg_40x80'  Name of the
+-- Appendix A: Troop Types
+base_depth_by_troop_type = {}
+base_depth_by_troop_type['Archers']=20
+base_depth_by_troop_type['Bow Levy']=30
+base_depth_by_troop_type['Light Foot']=20
+base_depth_by_troop_type['Light Spear']=20
+base_depth_by_troop_type['Rabble']=30
+base_depth_by_troop_type['Raiders']=20
+base_depth_by_troop_type['Skirmishers']=20
+base_depth_by_troop_type['Warband']=20
+base_depth_by_troop_type['Artillery']=40
+base_depth_by_troop_type['Elite Foot']=15
+base_depth_by_troop_type['Heavy Foot']=15
+base_depth_by_troop_type['Horde']=40
+base_depth_by_troop_type['Pavisiers']=40
+   -- Appendix A uses "Pike"
+base_depth_by_troop_type['Pikes']=15
+  -- Appendix A uses "Spear"
+base_depth_by_troop_type['Spears']=15
+base_depth_by_troop_type['War Wagons']=40
+base_depth_by_troop_type['Warriors']=15
+base_depth_by_troop_type['Bad Horse']=30
+base_depth_by_troop_type['Battle Taxi']=40
+base_depth_by_troop_type['Chariots']=40
+base_depth_by_troop_type['Elite Cavalary']=30
+base_depth_by_troop_type['Horse Bow']=30
+base_depth_by_troop_type['Javelin Cavalry']=30
+base_depth_by_troop_type['Knights']=30
+base_depth_by_troop_type['Cataphracts']=40
+base_depth_by_troop_type['Elephants']=40
+base_depth_by_troop_type['Camp']=40
+
+-- @param troop_type: e.g. 'Archers'
+-- @return Depth in millimeters
+function get_base_depth(troop_type)
+  local tt = str_remove_suffix(troop_type, " General")
+  if tt == 'Elite Foot' then
+    return 15
+  end
+  local depth = base_depth_by_troop_type[tt]
+  if depth == nil then
+    print_error("No depth for : '" .. tostring(tt) .. "'")
+    assert(false)
+  end
+  return depth
+end
+
+-- tile_name: string.  e.g. 'tile_plain_40x40_War_Wagon'  Name of the
 -- variable that contains the information for a tile.
 function get_depth_base(tile_name)
     local base_data = _G[tile_name]
-    return from_mm_to_in(base_data['depth'])
+    if base_data == nil then
+      print_error("No variable " .. tostring(tile_name))
+      assert(false)
+    end
+    local depth = base_data['depth']
+    if depth == nil then
+      print_error("No depth for tile " .. tostring(tile_name))
+      assert(false)
+    end
+    return from_mm_to_in(depth)
 end
 
 function get_size(base_name)
@@ -1060,7 +1116,7 @@ function get_size(base_name)
         x = g_base_width_in_inches,
         y = g_base_height_inches,
         z = get_depth_base(tile)
-    }
+  }
 end
 
 function is_base_red_player(base_name)

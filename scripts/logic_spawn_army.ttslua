@@ -139,20 +139,21 @@ end
 
 -- add models to base object
 -- base_name: Name of the base, e.g. "Camp"
+-- model_definition: definition of how the base should look like
+-- base_definition: definition of base we are constructing
 -- base_obj: base object
--- base: definition of the base
 -- is_player_red: red or blue base
 -- pos Location of the base.
 -- y_rotation: rotation of the base
-function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
-  local n = base['n_models']
+function add_models(base_name, model_definition, base_definition, base_obj, is_red_player, pos, y_rotation)
+  local n = model_definition['n_models']
   if n == 0 then
       base_obj.setRotation({0, y_rotation, 0})
       base_obj.auto_raise = false
       return
   end
 
-  local depth = get_depth_base(base['base'])
+  local depth = get_depth_base(model_definition['base'])
   local half_depth = depth / 2
   local half_width = g_base_width_in_inches / 2
 
@@ -166,7 +167,7 @@ function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
   local column_width = g_base_width_in_inches / (columns + 1)
   local row_depth = depth / (rows + 1)
 
-  local model_name = base['model_data']
+  local model_name = model_definition['model_data']
   local meshes = {}
 
   -- If the element has multiple nonfixed element, select randomly without
@@ -186,7 +187,7 @@ function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
 
       local random_x = 0
       local random_z = 0
-      if base['loose'] == true then
+      if base_definition['loose'] == true then
           random_x = random_float(-g_max_loose_spawn, g_max_loose_spawn)
           random_z = random_float(-g_max_loose_spawn, g_max_loose_spawn)
       end
@@ -206,7 +207,7 @@ function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
       else
           -- Now we have fixed models, so we use the corresponding one
           -- Except that fixed models may use assets instead of meshes!
-          this_model_name = base['fixed_models'][i]
+          this_model_name = model_definition['fixed_models'][i]
           if _G[this_model_name]['customasset'] ~= nil then
               soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
           else
@@ -244,10 +245,12 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
         end
     end
 
-    local base_obj = spawn_model(base_definition['base'], pos, 0, nil, is_red_player, overriden_tex)
+    local model_definition = get_a_model_definition(base_definition)
+
+    local base_obj = spawn_model(model_definition['base'], pos, 0, nil, is_red_player, overriden_tex)
 
     if base_definition['name'] == nil then
-        print_error('One of the bases of this army has no name! Please report to us so we can fix it asap')
+        print_error('One of the base definitions of this army has no name! Please report to us so we can fix it asap')
         return
     end
     local base_name = 'base ' .. base_definition['name'] .. ' #' .. g_base_index
@@ -255,7 +258,7 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
 
     g_base_index = g_base_index + 1
     g_bases[base_name] = {
-        tile = base_definition['base'],
+        tile = model_definition['base'],
         is_red_player = is_red_player
     }
 
@@ -276,10 +279,108 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
       command_color = command_color,
       is_red_player = is_red_player
     }
-    add_models(base_name, base_definition, base_obj, is_red_player, pos, y_rotation)
+    add_models(base_name, model_definition, base_definition, base_obj,
+        is_red_player, pos, y_rotation)
     update_tool_tip(base_obj)
     add_context_menu_base(base_obj)
     return base_obj
+end
+
+troop_type_to_plain_model_tile_name = {}
+troop_type_to_plain_model_tile_name['Archers']='tile_plain_40x20_Archers'
+troop_type_to_plain_model_tile_name['Bow Levy']='tile_plain_40x30_Bow_Levy'
+troop_type_to_plain_model_tile_name['Light Foot']='tile_plain_40x20_Light_Foot'
+troop_type_to_plain_model_tile_name['Light Spear']='tile_plain_40x20_Light_Spear'
+troop_type_to_plain_model_tile_name['Rabble']='tile_plain_40x30_Rabble'
+troop_type_to_plain_model_tile_name['Raiders']='tile_plain_40x20_Raiders'
+troop_type_to_plain_model_tile_name['Skirmishers']='tile_plain_40x20_Skirmishers'
+troop_type_to_plain_model_tile_name['Warband']='tile_plain_40x20_Warband'
+troop_type_to_plain_model_tile_name['Artillery']='tile_plain_40x40_Artillery'
+troop_type_to_plain_model_tile_name['Elite Foot']='tile_plain_40x15_Elite_Foot'
+troop_type_to_plain_model_tile_name['Heavy Foot']='tile_plain_40x15_Heavy_Foot'
+troop_type_to_plain_model_tile_name['Horde']='tile_plain_40x40_Horde'
+troop_type_to_plain_model_tile_name['Pavisiers']='tile_plain_40x40_Pavisiers'
+   -- Appendix A uses "Pike"
+troop_type_to_plain_model_tile_name['Pikes']='tile_plain_40x15_Pikes_Gen'
+  -- Appendix A uses "Spear"
+troop_type_to_plain_model_tile_name['Spears']='tile_plain_40x15_Spears'
+troop_type_to_plain_model_tile_name['War Wagons']='tile_plain_40x40_War_Wagon'
+troop_type_to_plain_model_tile_name['Warriors']='tile_plain_40x15_Warriors'
+troop_type_to_plain_model_tile_name['Bad Horse']='tile_plain_40x30_Bad_Horse'
+troop_type_to_plain_model_tile_name['Battle Taxi']='tile_plain_40x40_Battle_Taxi'
+troop_type_to_plain_model_tile_name['Chariots']='tile_plain_40x40_Chariots'
+troop_type_to_plain_model_tile_name['Elite Cavalary']='tile_plain_40x30_Elite_Cav'
+troop_type_to_plain_model_tile_name['Horse Bow']='tile_plain_40x30_Horse_Bow'
+troop_type_to_plain_model_tile_name['Javelin Cavalry']='tile_plain_40x30_Jav_Cav'
+troop_type_to_plain_model_tile_name['Knights']='tile_plain_40x30_Knights'
+troop_type_to_plain_model_tile_name['Cataphracts']='tile_plain_40x40_Cataphracts'
+troop_type_to_plain_model_tile_name['Elephants']='tile_plain_40x40_Elephants'
+troop_type_to_plain_model_tile_name['Camp']='tile_plain_40x40_Camp'
+
+troop_type_to_plain_model_tile_name['Archers General']='tile_plain_40x20_Archers_General'
+troop_type_to_plain_model_tile_name['Bow Levy General']='tile_plain_40x30_Bow_Levy_Gen'
+troop_type_to_plain_model_tile_name['Light Foot General']='tile_plain_40x20_Light_Foot_Gen'
+troop_type_to_plain_model_tile_name['Light Spear General']='tile_plain_40x20_Light_Spear_Gen'
+troop_type_to_plain_model_tile_name['Rabble General']='tile_plain_40x30_Rabble_Gen'
+troop_type_to_plain_model_tile_name['Raiders General']='tile_plain_40x20_Raiders_Gen'
+troop_type_to_plain_model_tile_name['Skirmishers General']='tile_plain_40x20_Skirmishers_Gen'
+troop_type_to_plain_model_tile_name['Warband General']='tile_plain_40x20_Warband_Gen'
+troop_type_to_plain_model_tile_name['Artillery General']='tile_plain_40x40_Artillery_Gen'
+troop_type_to_plain_model_tile_name['Elite Foot General']='tile_plain_40x15_Elite_Foot_Gen'
+troop_type_to_plain_model_tile_name['Heavy Foot General']='tile_plain_40x15_Heavy_Foot_Gen'
+troop_type_to_plain_model_tile_name['Horde General']='tile_plain_40x40_Horde_Gen'
+troop_type_to_plain_model_tile_name['Pavisiers General']='tile_plain_40x40_Pavisiers_Gen'
+   -- Appendix A uses "Pike"
+troop_type_to_plain_model_tile_name['Pikes General']='tile_plain_40x15_Pikes_Gen_Gen'
+  -- Appendix A uses "Spear"
+troop_type_to_plain_model_tile_name['Spears General']='tile_plain_40x15_Spears_Gen'
+troop_type_to_plain_model_tile_name['War Wagons General']='tile_plain_40x40_War_Wagon_Gen'
+troop_type_to_plain_model_tile_name['Warriors General']='tile_plain_40x15_Warriors_Gen'
+troop_type_to_plain_model_tile_name['Bad Horse General']='tile_plain_40x30_Bad_Horse_Gen'
+troop_type_to_plain_model_tile_name['Battle Taxi General']='tile_plain_40x40_Battle_Taxi_Gen'
+troop_type_to_plain_model_tile_name['Chariots General']='tile_plain_40x40_Chariots_Gen'
+troop_type_to_plain_model_tile_name['Elite Cavalary General']='tile_plain_40x30_Elite_Cav_Gen'
+troop_type_to_plain_model_tile_name['Horse Bow General']='tile_plain_40x30_Horse_Bow_Gen'
+troop_type_to_plain_model_tile_name['Javelin Cavalry General']='tile_plain_40x30_Jav_Cav_Gen'
+troop_type_to_plain_model_tile_name['Knights General']='tile_plain_40x30_Knights_Gen'
+troop_type_to_plain_model_tile_name['Cataphracts General']='tile_plain_40x40_Cataphracts_Gen'
+troop_type_to_plain_model_tile_name['Elephants General']='tile_plain_40x40_Elephants_Gen'
+troop_type_to_plain_model_tile_name['Camp General']='tile_plain_40x40_Camp_Gen'
+
+-- Return name (a string) of the variable that is plain tile for
+-- the base definition
+function get_plain_model_tile_name(base_definition)
+  local name = base_definition.name
+  local tile = troop_type_to_plain_model_tile_name[name]
+  if tile == nil then
+    print_error("No plain tile for " .. tostring(name))
+    -- TODO choose something that is an obvious error -- like a plain tile with no info.
+    return  'tile_grass_40x15'
+    end
+    return tile
+end
+
+
+-- Get a model definition, base and fgitures, that can be used to represent
+-- a base definition.
+function get_a_model_definition(base_definition)
+  local id = base_definition.id
+  if nil ~= id then
+    if nil ~= g_models[id] then
+      -- TODO choose a random model definition
+    end
+  end
+  if  base_definition.n_models ~= nil then
+    return base_definition
+  end
+  -- Use a plain base.
+  local tile_name = get_plain_model_tile_name(base_definition)
+  return {
+      name = base_definition.name,
+      ignore_terrain = 'false',
+      n_models = 0,
+      base = tile_name,
+  }
 end
 
 -- Get the base definition for an base object.
@@ -389,7 +490,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
         z_pos = z_pos * -1
     end
     local i = 0
-    for base_id, base_data in pairs(army) do
+    for base_id,base_data  in pairs(army) do
         if base_id ~= 'data' then
             local base_definition = get_base_definition(base_data)
             if nil ~= base_definition then
@@ -398,7 +499,7 @@ function spawn_army(army_name, army, is_red_player, command_color)
               end
 
               for copy=1,base_definition['max'] do
-                local z_pos_modifier = -1 * get_depth_base(base_definition['base']) / 2
+                local z_pos_modifier = -1 * get_depth_base(get_plain_model_tile_name(base_definition)) / 2
                 if is_red_player then
                     z_pos_modifier = -1 * z_pos_modifier
                 end
@@ -642,6 +743,9 @@ end
 function spawn_model(troop_name, pos, added_y_axis_rotation, collider, is_player_red, overridden_tex, overridden_mesh)
     -- Better pray that the input name actually exists! lol
     local model_data = _G[troop_name]
+    if model_data == nil then
+      print_error("Unable to spawn model, variable not defined: " .. tostring(troop_name))
+    end
 
     local texture = overridden_tex
     if texture == nil then
