@@ -10,6 +10,15 @@ dofile("../scripts/data/data_armies_Classical_Era.ttslua")
 dofile("../scripts/data/data_armies_Dark_Ages.ttslua")
 dofile("../scripts/data/data_armies_Medieval_Era.ttslua")
 dofile("../scripts/logic_spawn_army.ttslua")
+dofile("../scripts/logic.ttslua")
+dofile("../scripts/utilities.ttslua")
+dofile("../scripts/utilities_lua.ttslua")
+dofile("../scripts/data/data_models.ttslua")
+dofile("../scripts/data/data_settings.ttslua")
+dofile("../scripts/data/data_troops.ttslua")
+-- A randomly chose army
+dofile("../fake_meshwesh/army_data/5fb1b9d8e1af0600177092e5.ttslua")
+
 
 local function starts_with(str, start)
    return str:sub(1, #start) == start
@@ -155,5 +164,140 @@ function test_battle_cards_valid()
     end
   end
 end
+
+function assert_base_definitions_have_names(army_obj)
+  for base_id,base_data  in pairs(army_obj) do
+    if base_id ~= 'data' then
+      local base_definition = get_base_definition(base_data)
+      lu.assertTrue(nil ~= base_definition)
+      local name = base_definition['name']
+      lu.assertTrue(nil ~= name)
+    end
+  end
+end
+
+function test_base_definitions_have_names()
+  for themes,armies_in_theme in pairs(armies) do
+    for _,army_obj in pairs(armies_in_theme) do
+      assert_base_definitions_have_names(army_obj)
+    end
+  end
+  for _,army_obj in pairs(army) do
+    assert_base_definitions_have_names(army_obj)
+  end
+end
+
+
+function assert_base_definitions_have_depth(army_obj)
+  for base_id,base_data  in pairs(army_obj) do
+    if base_id ~= 'data' then
+      local base_definition = get_base_definition(base_data)
+      lu.assertTrue(nil ~= base_definition)
+      local name = base_definition['name']
+      lu.assertTrue(nil ~= name)
+      local depth = get_base_depth(name)
+      lu.assertTrue(nil ~= depth)
+    end
+  end
+end
+
+function test_base_definitions_have_depth()
+  for themes,armies_in_theme in pairs(armies) do
+    for _,army_obj in pairs(armies_in_theme) do
+      assert_base_definitions_have_depth(army_obj)
+    end
+  end
+  for _,army_obj in pairs(army) do
+    assert_base_definitions_have_depth(army_obj)
+  end
+end
+
+
+
+function test_get_base_depth_camp()
+  -- Exercise
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  local actual = get_base_depth('Camp')
+  lu.assertEquals(actual, 40)
+
+  -- Cleanup
+  print_error = old_print_error
+end
+
+function test_get_base_depth_elite_foot()
+  -- Exercise
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  local actual = get_base_depth('Elite Foot')
+  lu.assertEquals(actual, 15)
+
+  -- Cleanup
+  print_error = old_print_error
+end
+
+function test_get_base_depth_elite_foot_general()
+  -- Exercise
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  local actual = get_base_depth('Elite Foot General')
+  lu.assertEquals(actual, 15)
+
+  -- Cleanup
+  print_error = old_print_error
+end
+
+
+-- Check that the armies could be spawned
+function test_spawn_army(army_name)
+  -- setup
+  local old_spawn_base = spawn_base
+  local old_spawn_note = spawn_note
+  local old_print_error = print_error
+  local old_print_important = print_important
+  local old_print_info = print_info
+  local old_update_tool_tips = update_tool_tips
+  spawn_base = function() end
+  spawn_note = function() end
+  update_tool_tips = function() end
+  print_important = function() end
+  print_info = function() end
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  for id,army_obj in pairs(army) do
+  print(army_obj)
+  table_print(army_obj)
+    spawn_army(army_obj.data.name, army_obj, false, 'red')
+  end
+
+  -- Cleanup
+  update_tool_tips = old_update_tool_tips
+  print_info = old_print_info
+  print_important = old_print_important
+  print_error = old_print_error
+  spawn_note = old_spawn_note
+  spawn_base = old_spawn_base
+end
+
+
 
 os.exit( lu.LuaUnit.run() )
