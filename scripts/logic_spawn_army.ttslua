@@ -147,7 +147,7 @@ end
 -- y_rotation: rotation of the base
 function add_models(base_name, model_definition, base_definition, base_obj, is_red_player, pos, y_rotation)
   local n = model_definition['n_models']
-  if n == 0 then
+  if (n == nil) or (n == 0) then
       base_obj.setRotation({0, y_rotation, 0})
       base_obj.auto_raise = false
       return
@@ -233,7 +233,6 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     local overriden_tex = nil
     if base_definition['ignore_terrain'] == nil then
         local type = from_toggle_number_to_table_type(g_current_table_type)
-
         if tables[type] == nil then
             type = 'grass'
         end
@@ -246,8 +245,29 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     end
 
     local model_definition = get_a_model_definition(base_definition)
+    local model_base_name = model_definition['base']
+    print("249 model_base_name = ", model_base_name)
+    local model_base = _G[model_base_name]
+    print("250 model_base = ", model_base)
+    -- model texture overides other textures
+    local texture_name
+    if is_red_player then
+      print("252 red")
+      texture_name = 'player_red_tex'
+    else
+      print("257 blue")
+      texture_name = 'player_blue_tex'
+    end
 
-    local base_obj = spawn_model(model_definition['base'], pos, 0, nil, is_red_player, overriden_tex)
+    local model_texture = model_base[texture_name]
+    if (nil ~= model_texture) then
+      overriden_tex = model_texture
+      print("261 using model texture ", overriden_tex)
+    end
+
+    print("250 model_base=", model_base)
+
+    local base_obj = spawn_model(model_base_name, pos, 0, nil, is_red_player, overriden_tex)
 
     if base_definition['name'] == nil then
         print_error('One of the base definitions of this army has no name! Please report to us so we can fix it asap')
@@ -279,6 +299,7 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
       command_color = command_color,
       is_red_player = is_red_player
     }
+
     add_models(base_name, model_definition, base_definition, base_obj,
         is_red_player, pos, y_rotation)
     update_tool_tip(base_obj)
