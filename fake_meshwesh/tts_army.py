@@ -15,6 +15,10 @@ def read_army_json(army_id) :
   file_name = os.path.join("armyLists", army_id)
   return read_json(file_name)
 
+def read_army_theme_json(army_id) :
+  file_name = os.path.join("armyLists", army_id + "_thematicCategories")
+  return read_json(file_name)
+
 def troop_type_to_name(troop_type) :
   if troop_type == "WWG" :
     return "War Wagons"
@@ -146,6 +150,7 @@ def camp(file, army_id) :
 # @param army_id Identifier for the army in Meshwesh
 def generate_army(army_id) :
   army_json = read_army_json(army_id)
+  army_theme_json = read_army_theme_json(army_id)
   file_name = os.path.join("army_data", army_id + ".ttslua")
   with open(file_name, "w") as army_data :
 
@@ -190,6 +195,18 @@ def generate_army(army_id) :
       id = troop_entry['_id']
       army_data.write("  g_base_definitions[g_str_%s],\n" %(id))
     army_data.write("}\n")
+
+    for army_theme in army_theme_json :
+      theme_name = army_theme["name"]
+
+      army_data.write('if nil == armies[\"%s\"] then\n' % 
+        (theme_name))
+      army_data.write('  armies[\"%s\"] ={}\n' % 
+        (theme_name))
+      army_data.write('end\n')
+
+      army_data.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' % 
+        (theme_name, name, army_id))
 
 
 summary = read_json("armyLists/summary")
