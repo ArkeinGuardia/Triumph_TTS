@@ -196,6 +196,15 @@ def generate_army(army_id) :
       army_data.write("  g_base_definitions[g_str_%s],\n" %(id))
     army_data.write("}\n")
 
+    # Meshwesh is in front so it will be the first entry in the 
+    # dialog otherwise it will be the second which just looks weird.
+    army_data.write('if nil == armies[\"Meshwesh id\"] then\n')
+    army_data.write('  armies[\"Meshwesh id\"] ={}\n')
+    army_data.write('end\n')
+    army_data.write('armies[\"Meshwesh id\"][\"%s\"] = army[\"%s\"]\n' % 
+      (army_id, army_id))
+
+
     for army_theme in army_theme_json :
       theme_name = army_theme["name"]
 
@@ -204,11 +213,8 @@ def generate_army(army_id) :
       army_data.write('  armies[\"%s\"] ={}\n' % 
         (theme_name))
       army_data.write('end\n')
-
       army_data.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' % 
         (theme_name, name, army_id))
-
-
 summary = read_json("armyLists/summary")
 
 with open("army_data/all_armies.ttslua", "w") as all_armies:
