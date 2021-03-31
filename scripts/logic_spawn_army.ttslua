@@ -667,18 +667,34 @@ function update_player_color_menu(is_player_red)
     set_options_dropdown_by_id('dropdown_playercolor', { 'Red', 'Blue' },  selected)
 end
 
-function update_armies_menu(book, army_selected)
-    local options = {}
-    for army_name,_ in pairs(book) do
-        if not g_filter_armies_models then
-            table.insert(options, dataname_to_friendlyname(army_name))
-        end
 
-        if g_filter_armies_models
-           and is_army_with_models(army_name) then
+function pairsByKeys (t, f)
+    local a = {}
+    for n in pairs(t) do table.insert(a, n)
+    end
+    table.sort(a, f)
+    local i = 0      -- iterator variable
+    local iter = function ()   -- iterator function
+        i = i + 1
+        if a[i] == nil then
+            return nil
+        else
+          return a[i], t[a[i]]
+        end
+    end
+    return iter
+end
+
+function update_armies_menu(book, army_selected)
+
+    -- Sort by army name alphabetically
+    local options = {}
+    for army_name, line in pairsByKeys(book) do
+        if (not g_filter_armies_models) or is_army_with_models(army_name) then
             table.insert(options, dataname_to_friendlyname(army_name))
         end
     end
+
     set_options_dropdown_by_id('dropdown_army', options, army_selected)
 end
 
