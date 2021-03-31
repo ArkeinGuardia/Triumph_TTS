@@ -11,7 +11,7 @@ end
 function test_get_a_model_definition_returns_model_base()
     local base_def = g_base_definitions[g_str_5fb1ba34e1af06001770e186]
     local model_def = get_a_model_definition(base_def)
-    lu.assertEquals(model_def.description, 'Late Medieval Artillery')
+    lu.assertEquals(model_def.base, 'tile_grass_40x40')
 end
 
 os.exit( lu.LuaUnit.run() )

@@ -246,7 +246,14 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
 
     local model_definition = get_a_model_definition(base_definition)
     local model_base_name = model_definition['base']
+    if model_base_name == nil then
+      print_error("no base for model definition")
+      return
+    end
     local model_base = _G[model_base_name]
+    if model_base == nil then
+      print_error("No variable defined for " .. tostring(model_base_name))
+    end
     -- model texture overides other textures
     local texture_name
     if is_red_player then
@@ -397,8 +404,9 @@ function get_a_model_definition(base_definition)
 
   -- Use a plain base.
   local tile_name = get_plain_model_tile_name(base_definition)
+  local base_def_name = base_definition.name
   return {
-      name = base_definition.name,
+      name = base_def_name,
       ignore_terrain = 'false',
       n_models = 0,
       base = tile_name,
