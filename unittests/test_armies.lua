@@ -1,23 +1,5 @@
 lu = require('externals/luaunit/luaunit')
-function dofile (filename)
-  local f = assert(loadfile(filename))
-  return f()
-
-end
-armies={}
-dofile("../scripts/data/data_armies_Biblical.ttslua")
-dofile("../scripts/data/data_armies_Classical_Era.ttslua")
-dofile("../scripts/data/data_armies_Dark_Ages.ttslua")
-dofile("../scripts/data/data_armies_Medieval_Era.ttslua")
-dofile("../scripts/logic_spawn_army.ttslua")
-dofile("../scripts/logic.ttslua")
-dofile("../scripts/utilities.ttslua")
-dofile("../scripts/utilities_lua.ttslua")
-dofile("../scripts/data/data_models.ttslua")
-dofile("../scripts/data/data_settings.ttslua")
-dofile("../scripts/data/data_troops.ttslua")
--- A randomly chose army
-dofile("../fake_meshwesh/army_data/5fb1b9d8e1af0600177092e5.ttslua")
+require('flatten')
 
 
 local function starts_with(str, start)
@@ -35,7 +17,7 @@ end
 
 function normalize_base_name(name)
   name = remove_suffix(name, "*")
-  name = remove_suffix(name, "  General")
+  name = remove_suffix(name, " General")
   name = remove_suffix(name, "_Mobile")
   return name
 end
@@ -202,20 +184,48 @@ function assert_base_definitions_have_depth(army_obj)
 end
 
 function test_base_definitions_have_depth()
+  -- Setup
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
   for themes,armies_in_theme in pairs(armies) do
     for _,army_obj in pairs(armies_in_theme) do
       assert_base_definitions_have_depth(army_obj)
     end
   end
-  for _,army_obj in pairs(army) do
-    assert_base_definitions_have_depth(army_obj)
+
+  -- Cleanup
+  print_error = old_print_error
+end
+
+
+
+-- Any base whose name is "_Mobile" is on a square base.
+-- See Battle Card "Mobile Infantry"
+function test_get_base_depth_mobile()
+  -- Setup
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
   end
+
+  -- Exercise
+  local actual = get_base_depth('Archers_Mobile')
+  lu.assertEquals(actual, 40)
+
+  -- Cleanup
+  print_error = old_print_error
 end
 
 
 
 function test_get_base_depth_camp()
-  -- Exercise
+  -- Setup
   local old_print_error = print_error
   print_error = function(message)
     print(message)
@@ -262,6 +272,23 @@ function test_get_base_depth_elite_foot_general()
   print_error = old_print_error
 end
 
+-- A base that has important information in the tool top
+-- gets an asterix in its name.
+function test_get_base_depth_with_notes()
+  -- Exercise
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  local actual = get_base_depth('Elite Foot General*')
+  lu.assertEquals(actual, 15)
+
+  -- Cleanup
+  print_error = old_print_error
+end
 
 -- Check that the armies could be spawned
 function test_spawn_army(army_name)
@@ -284,8 +311,6 @@ function test_spawn_army(army_name)
 
   -- Exercise
   for id,army_obj in pairs(army) do
-  print(army_obj)
-  table_print(army_obj)
     spawn_army(army_obj.data.name, army_obj, false, 'red')
   end
 

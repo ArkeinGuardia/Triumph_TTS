@@ -246,26 +246,19 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
 
     local model_definition = get_a_model_definition(base_definition)
     local model_base_name = model_definition['base']
-    print("249 model_base_name = ", model_base_name)
     local model_base = _G[model_base_name]
-    print("250 model_base = ", model_base)
     -- model texture overides other textures
     local texture_name
     if is_red_player then
-      print("252 red")
       texture_name = 'player_red_tex'
     else
-      print("257 blue")
       texture_name = 'player_blue_tex'
     end
 
     local model_texture = model_base[texture_name]
     if (nil ~= model_texture) then
       overriden_tex = model_texture
-      print("261 using model texture ", overriden_tex)
     end
-
-    print("250 model_base=", model_base)
 
     local base_obj = spawn_model(model_base_name, pos, 0, nil, is_red_player, overriden_tex)
 
@@ -387,13 +380,21 @@ end
 function get_a_model_definition(base_definition)
   local id = base_definition.id
   if nil ~= id then
-    if nil ~= g_models[id] then
-      -- TODO choose a random model definition
-    end
+    if g_models[ id ] ~= nil then
+      -- choose a random model definition
+      local models = g_models[ id ]
+      local index = math.random(1, #models)
+      local model = models[index]
+      assert(nil ~= model)
+      return model
+     end
   end
+
   if  base_definition.n_models ~= nil then
+    -- base definition is model definition, legacy.
     return base_definition
   end
+
   -- Use a plain base.
   local tile_name = get_plain_model_tile_name(base_definition)
   return {
