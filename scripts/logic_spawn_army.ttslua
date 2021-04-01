@@ -648,28 +648,6 @@ function get_author_base(base_definition)
     -- return get_author_model(model)
 end
 
-function update_authors_text(army)
-    local authorship_models = 'The authors of the models are:\n\n'
-    local authors_set = {}
-    for base_id, base in pairs(army) do
-        print_debug('Getting data of base for author of ' .. base_id)
-        if base_id ~= 'data' then
-            local base_definition = get_base_definition(base)
-            -- Should be a set of authors for a base, since a base could
-            -- be put together from many differe sources, or manny
-            -- different bases could be used for one base definition.
-            local author = get_author_base(base_definition)
-            if author ~= nil then
-            if authors_set[author] == nil then
-                authorship_models = authorship_models .. ' - ' .. author .. '\n\n'
-                authors_set[author] = 1
-            end
-          end
-        end
-    end
-    UI.setValue('text_authors', authorship_models)
-end
-
 function book_has_an_army_with_models(book_dataname)
     local book_armies = armies[book_dataname]
     for army_name,army in pairs(book_armies) do
