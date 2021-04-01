@@ -6,8 +6,25 @@
 -- a valid representation of the base definition.
 -- A model defintion is a table:
 -- TODO fill in the details.
+-- Split the file and use #include to make it more managable
 g_models = {}
 
+-- Post-Zama Carthaginian
+-- 201 BC to 146 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af06001770957a/explore
+-- As of: 20210331
+
+-- 'Libyan heavy infantry armed with spears'
+g_models[g_str_5fb1ba26e1af06001770c82a] = {
+  {
+    base = 'tile_grass_40x15',
+    n_models = 4,
+    random_models = {
+      'troop_carthaginian_spearmen_aspis',
+      'troop_carthaginian_spearmen_imitation'
+    }
+  }
+}
 
 -- Burgundian Ordonnance
 -- 1471 AD to 1477 AD

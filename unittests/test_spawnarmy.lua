@@ -14,4 +14,14 @@ function test_get_a_model_definition_returns_model_base()
     lu.assertEquals(model_def.base, 'tile_grass_40x40')
 end
 
+-- Random model iterator will always return a non-nil figure to add to a base.
+function test_random_model_iterator()
+    local model_def = g_models[g_str_5fb1ba26e1af06001770c82a]
+    local iter = random_model_iterator(model_def[1]['random_models'])    
+    for i=1,10 do
+        local figure = iter()
+        lu.assertTrue(figure ~= nil)
+    end
+end
+
 os.exit( lu.LuaUnit.run() )

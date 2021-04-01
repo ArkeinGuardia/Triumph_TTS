@@ -137,6 +137,37 @@ function onObjectSpawn(new_obj)
     end
 end
 
+
+-- Always return the same figure name
+function static_model_iterator(model_name)
+  return function ()
+    return model_name
+  end
+end
+
+-- Return the figures in sequence
+function fixed_model_iterator(fixed_models)
+  local i = 0
+  return function ()
+    i = i + 1
+    return fixed_models[i]
+  end
+end
+
+-- Return a random figure
+function random_model_iterator(random_models)
+  if random_models == nil then
+    print_error("random_models is nil")
+    return nil
+  end
+  local nb = tlen(random_models)
+  return function ()
+      local i = math.random(1, nb)
+      return random_models[i]
+  end
+end
+
+
 -- add models to base object
 -- base_name: Name of the base, e.g. "Camp"
 -- model_definition: definition of how the base should look like
@@ -168,6 +199,7 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
   local row_depth = depth / (rows + 1)
 
   local model_name = model_definition['model_data']
+
   local meshes = {}
 
   -- If the element has multiple nonfixed element, select randomly without
@@ -175,6 +207,19 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
   if model_name ~= nil then
       meshes = calculate_random_meshes(n, _G[model_name]['mesh'])
   end
+
+  local figure_iter -- iterator of next figure to add
+  if model_name ~= nil then
+    figure_iter = static_model_iterator(model_name)
+  elseif model_definition['fixed_models'] ~= nil then
+    figure_iter = fixed_model_iterator(model_definition['fixed_models'])
+  elseif model_definition['random_models'] ~= nil then
+    figure_iter = random_model_iterator(model_definition['random_models'])
+  else
+    print_error("model definition not understood")
+    return nil
+  end
+
 
   for i=1,n do
       local column = (i - 1) % columns + 1
@@ -198,7 +243,7 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
           z = pos['z'] + row * row_depth - half_depth + random_x
       }
 
-      local this_model_name = model_name
+      local this_model_name = figure_iter()
       local soldier_obj = nil
       if this_model_name ~= nil then
           -- The object has non-fixed models, so we use any of the
@@ -208,6 +253,7 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
           -- Now we have fixed models, so we use the corresponding one
           -- Except that fixed models may use assets instead of meshes!
           this_model_name = model_definition['fixed_models'][i]
+
           if _G[this_model_name]['customasset'] ~= nil then
               soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
           else
