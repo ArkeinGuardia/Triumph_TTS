@@ -205,8 +205,8 @@ function on_book_selected(player, value, id)
         g_army_selected = first_key_table(armies[g_book_selected])
     else
         local book = armies[g_book_selected]
-        for army_name,_ in pairs(book) do
-            if is_army_with_models(army_name) then
+        for army_name,army in pairs(book) do
+            if is_army_with_models(army) then
                 g_army_selected = army_name
                 break
             end
@@ -229,8 +229,9 @@ function on_book_selected(player, value, id)
     end)
 end
 
-function is_army_with_models(army_name)
-    return not str_has_substr(g_army_selected, "(Plain)") 
+function is_army_with_models(army)
+  local result = (army ~= nil) and (army.data ~= nil) and (army.data.has_models == true)
+  return result
 end
 
 g_army_selected = ''
@@ -256,7 +257,7 @@ function on_army_selected(player, value, id)
     if text ~= "" then
       text = text .. ", "
     end
-    if is_army_with_models(g_army_selected) then
+    if is_army_with_models(army) then
         text = text .. "Bases with models"
     else
         text = text .. "Flat bases"

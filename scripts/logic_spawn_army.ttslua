@@ -672,8 +672,8 @@ end
 
 function book_has_an_army_with_models(book_dataname)
     local book_armies = armies[book_dataname]
-    for army_name,_ in pairs(book_armies) do
-        if is_army_with_models(army_name) then
+    for army_name,army in pairs(book_armies) do
+        if is_army_with_models(army) then
             return true
         end
     end
@@ -691,8 +691,8 @@ end
 
 function get_first_army_with_models(book_dataname)
     local book_armies = armies[book_dataname]
-    for army_name,_ in pairs(book_armies) do
-        if is_army_with_models(army_name) then
+    for army_name,army in pairs(book_armies) do
+        if is_army_with_models(army) then
             return army_name
         end
     end
@@ -740,13 +740,19 @@ function pairsByKeys (t, f)
     return iter
 end
 
-function update_armies_menu(book, army_selected)
+function is_army_model_filtered_in(army)
+  if not g_filter_armies_models then
+    return true
+  end
+   return is_army_with_models(army)
+end
 
+function update_armies_menu(book, army_selected)
     -- Sort by army name alphabetically
     local options = {}
-    for army_name, line in pairsByKeys(book) do
-        if (not g_filter_armies_models) or is_army_with_models(army_name) then
-            table.insert(options, dataname_to_friendlyname(army_name))
+    for army_name, army in pairsByKeys(book) do
+        if is_army_model_filtered_in(army) then
+            table.insert(options, army_name)
         end
     end
 
