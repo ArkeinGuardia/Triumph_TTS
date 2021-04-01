@@ -431,21 +431,24 @@ end
 -- Get a model definition, base and fgitures, that can be used to represent
 -- a base definition.
 function get_a_model_definition(base_definition)
-  local id = base_definition.id
-  if nil ~= id then
-    if g_models[ id ] ~= nil then
-      -- choose a random model definition
-      local models = g_models[ id ]
-      local index = math.random(1, #models)
-      local model = models[index]
-      assert(nil ~= model)
-      return model
-     end
-  end
+  if not g_use_plain_bases then
+    -- try to use models
+    local id = base_definition.id
+    if nil ~= id then
+      if g_models[ id ] ~= nil then
+        -- choose a random model definition
+        local models = g_models[ id ]
+        local index = math.random(1, #models)
+        local model = models[index]
+        assert(nil ~= model)
+        return model
+       end
+    end
 
-  if  base_definition.n_models ~= nil then
-    -- base definition is model definition, legacy.
-    return base_definition
+    if  base_definition.n_models ~= nil then
+      -- base definition is model definition, legacy.
+      return base_definition
+    end
   end
 
   -- Use a plain base.

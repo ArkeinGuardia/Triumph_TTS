@@ -126,6 +126,14 @@ function get_initial_army()
     return book, army
 end
 
+g_use_plain_bases = false
+
+-- Indication that the preference to use use plain bases or models has been made.
+function on_use_plain_bases(player, value, id)
+    g_use_plain_bases = value == "True"
+    UI.setAttribute('toggle_use_plain_bases', 'isOn', g_use_plain_bases)
+end
+
 g_filter_armies_models = false
 function on_filter_models(player, value, id)
     g_filter_armies_models = value == "True"
