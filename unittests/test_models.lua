@@ -111,6 +111,7 @@ function test_model_data()
         local model_data_name_type = type(model_data_name)
         if "string" ~=model_data_name_type then
           print("model_data must be string ", model_data_name_type, ' ', model_data_name)
+	  print(id, ' ', i)
           lu.assertTrue(false)
         end
         if nil == _G[model_data_name] then
