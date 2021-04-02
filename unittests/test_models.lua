@@ -103,12 +103,34 @@ function test_random_models()
 end
 
 
-function test_random_models()
+function test_model_data()
+  for id,models in pairs(g_models) do
+    for i,model in pairs(models) do
+      if model['model_data'] ~= nil then
+        local model_data_name = model['model_data']
+        local model_data_name_type = type(model_data_name)
+        if "string" ~=model_data_name_type then
+          print("model_data must be string ", model_data_name_type, ' ', model_data_name)
+          lu.assertTrue(false)
+        end
+        if nil == _G[model_data_name] then
+          print("No variable ", model_data_name)
+          lu.assertTrue(false)
+        end
+      end
+    end
+  end
+end
+
+
+function test_model_have_instructions()
   for id,models in pairs(g_models) do
     for i,model in pairs(models) do      
       if model['random_models'] ~= nil then
         -- pass
       elseif  model['fixed_models'] ~= nil then
+        -- pass
+      elseif  model['model_data'] ~= nil then
         -- pass
       else
         print("g_models['" .. id .. "'][" .. tostring(i) .. "] does not have recogized models.")
