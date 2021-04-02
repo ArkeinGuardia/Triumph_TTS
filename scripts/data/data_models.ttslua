@@ -6,4 +6,140 @@
 -- a valid representation of the base definition.
 -- A model defintion is a table:
 -- TODO fill in the details.
+-- Split the file and use #include to make it more managable
+
+-- Armies that are considered to have models.
+--
+
+-- Post-Zama Carthaginian
+army['5fb1b9dce1af06001770957a'].data.has_models = true
+-- Burgundian Ordonnance
+army['5fb1b9e8e1af060017709c95'].data.has_models = true
+-- Camillan Roman
+army['5fb1b9dce1af060017709543'].data.has_models = true
+-- Warlike Gallic
+army['5fb1b9dce1af06001770959d'].data.has_models = true
+
 g_models = {}
+
+-- Post-Zama Carthaginian
+-- 201 BC to 146 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af06001770957a/explore
+-- As of: 20210331
+
+-- 'Libyan heavy infantry armed with spears'
+g_models[g_str_5fb1ba26e1af06001770c82a] = {
+  {
+    base = 'tile_grass_40x15',
+    n_models = 4,
+    random_models = {
+      'troop_carthaginian_spearmen_aspis',
+      'troop_carthaginian_spearmen_imitation'
+    }
+  }
+}
+
+-- Burgundian Ordonnance
+-- 1471 AD to 1477 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e8e1af060017709c95/explore
+-- As of: 20210315
+
+
+
+-- burgundian_ordannances_1471_to_1477_ad_knights_gen =
+g_models[g_str_5fb1ba34e1af06001770e198] = {
+  {
+    base = 'tile_grass_40x30',
+    n_models = 3,
+    fixed_models = {
+        'troop_knight_burgundian_ordonnances',
+        'troop_knight_burgundian_ordonnances_captain',
+        'troop_knight_burgundian_ordonnances_bannerman'
+    },
+  }
+}
+
+-- burgundian_ordannances_1471_to_1477_ad_artillery
+g_models[g_str_5fb1ba34e1af06001770e186] = {
+  {
+    base = 'tile_grass_40x40',
+    n_models = 3,
+    fixed_models = {
+      'troop_artillery_crew_burgundian_ordonnances',
+      'troop_artillery_pieces_burgundian_ordonnances',
+      'troop_artillery_crew_burgundian_ordonnances'
+    }
+  }
+}
+
+  -- Camillan Roman
+  -- 400 BC to 276 BC
+  -- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af060017709543/explore
+  -- As of: 20210402
+
+  -- Roman and better ally horsemen
+  g_models[g_str_5fb1ba26e1af06001770c71c] = {
+    {
+      base = 'tile_grass_40x30',
+      n_models = 2,
+      random_models = {
+        'troop_camillan_roman_bodyguard'
+      }
+    }
+  }
+  -- Italian ally horsemen
+  g_models[g_str_5fb1ba26e1af06001770c71e] = {
+    {
+      base = 'tile_grass_40x30',
+      n_models = 3,
+      random_models = {
+        'troop_camillan_roman_cavalry'
+      }
+  }
+}
+
+    -- Triarii, principes, and better-equipped hastati
+    g_models[g_str_5fb1ba26e1af06001770c720] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = {
+          'troop_camillan_roman_spear'
+        }
+    },
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = {
+          'troop_camillan_roman_blade'
+        }
+    },
+  }
+
+    -- Leves and rorarii
+    g_models[g_str_5fb1ba26e1af06001770c725] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        loose = true,
+        random_models = {
+          'troop_camillan_roman_psiloi'
+        }
+    }
+  }
+
+    -- Warlike Gallic
+    -- 400 to 100 BC
+    -- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af06001770959d/explore
+    -- As of: 20210402
+
+  -- Warriors General
+  g_models[g_str_5fb1ba27e1af06001770c891] = {
+    {
+      base = 'tile_grass_40x15',
+      n_models = 4,
+      random_models = {
+        'troop_gallic_warband_general'
+      }
+    }
+  }
