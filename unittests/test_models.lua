@@ -41,11 +41,8 @@ function test_fixed_models()
     for i,model in pairs(models) do
       if model['fixed_models'] ~= nil then
         local n_models = model['n_models']
-        if n_models == nil then
-          n_models = 0
-        end 
         local actual = tlen(model['fixed_models'])
-        if n_models ~= actual then
+        if (n_models ~=nil) and (n_models ~= actual) then
           print("g_models['" .. id .. "'] has wrong number of models.")
           lu.assertTrue(false)
         end
@@ -65,7 +62,7 @@ function test_fixed_models()
             lu.assertTrue(false)
           end
         end
-        lu.assertEquals(n_models, actual)
+        lu.assertTrue((n_models == nil) or (n_models == actual))
       end
     end
   end
@@ -77,8 +74,7 @@ function test_random_models()
     for i,model in pairs(models) do
       if model['random_models'] ~= nil then
         local n_models = model['n_models']
-        lu.assertFalse(n_models == nil)
-        lu.assertTrue(n_models > 0)
+        lu.assertTrue((n_models==nil) or (n_models > 0))
         local number_of_figures = tlen(model['random_models'])
         lu.assertTrue(number_of_figures > 0)
         for j,figure in pairs(model['random_models']) do
@@ -126,7 +122,7 @@ end
 
 function test_model_have_instructions()
   for id,models in pairs(g_models) do
-    for i,model in pairs(models) do      
+    for i,model in pairs(models) do
       if model['random_models'] ~= nil then
         -- pass
       elseif  model['fixed_models'] ~= nil then

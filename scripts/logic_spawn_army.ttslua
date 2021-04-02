@@ -168,6 +168,83 @@ function random_model_iterator(random_models)
 end
 
 
+-- Appendix A
+-- @param troop_type, e.g. archers
+-- @return Number of figures that should be on the base,
+function figures_per_base(troop_type) 
+  if troop_type == "Archers" then
+    return 4
+  end
+  if troop_type == "Bow Levy" then
+    return 3
+  end
+  if troop_type == "Light Foot" then
+    return 3
+  end
+  if troop_type == "Light Spear" then
+    return 3
+  end
+  if troop_type == "Rabble" then
+    return 3
+  end
+  if troop_type == "Raiders" then
+    return 4
+  end
+  if troop_type == "Skirmishers" then
+    return 2
+  end
+  if troop_type == "Warband" then
+    return 3
+  end
+
+  if troop_type == "Elite Foot" then
+    return 4
+  end
+  if troop_type == "Heavy Foot" then
+    return 4
+  end
+  if troop_type == "Horde" then
+    return 7
+  end
+  if troop_type == "Pavisiers" then
+    return 8
+  end
+  if troop_type == "Pikes" then
+    return 4
+  end
+  if troop_type == "Spears" then
+    return 4
+  end
+  if troop_type == "Warriors" then
+    return 4
+  end
+
+
+  if troop_type == "Bad Horse" then
+    return 3
+  end
+  if troop_type == "Elite Cavalary" then
+    return 3
+  end
+  if troop_type == "Horse Bow" then
+    return 2
+  end
+  if troop_type == "Javelin Cavalary" then
+    return 2
+  end
+  if troop_type == "Knights" then
+    return 3
+  end
+
+  if troop_type == "Cataphracts" then
+    return 4
+  end
+
+  print_error("No default number of figures for " .. troop_type)
+  return 0
+end
+
+
 -- add models to base object
 -- base_name: Name of the base, e.g. "Camp"
 -- model_definition: definition of how the base should look like
@@ -178,7 +255,10 @@ end
 -- y_rotation: rotation of the base
 function add_models(base_name, model_definition, base_definition, base_obj, is_red_player, pos, y_rotation)
   local n = model_definition['n_models']
-  if (n == nil) or (n == 0) then
+  if n == nil then
+    n = figures_per_base(base_definition.name)
+  end
+  if (n == 0) then
       base_obj.setRotation({0, y_rotation, 0})
       base_obj.auto_raise = false
       return
