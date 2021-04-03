@@ -15,40 +15,40 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
 --  manufacturer = 'Xyston and Essex miniatures'
 --},
 
-    -- Roman and better ally horsemen
+    -- Roman and better ally horsemen - JavCav
     g_models[g_str_5fb1ba26e1af06001770c71c] = {
       {
         base = 'tile_grass_40x30',
         model_data = 'troop_camillan_roman_bodyguard'
       }
     }
-    -- Italian ally horsemen
+    -- Italian ally horsemen - BadHorse
     g_models[g_str_5fb1ba26e1af06001770c71e] = {
       {
         base = 'tile_grass_40x30',
         model_data = 'troop_camillan_roman_cavalry'
+      }
     }
-  }
 
     -- Triarii, principes, and better-equipped hastati
     g_models[g_str_5fb1ba26e1af06001770c720] = {
       {
         base = 'tile_grass_40x15',
         model_data = 'troop_camillan_roman_spear'
-    },
+      },
       {
         base = 'tile_grass_40x15',
         model_data = 'troop_camillan_roman_blade'
-    },
-  }
+      }
+    }
 
     -- Hastati, or Latin ally heavy infantry
     g_models[g_str_5fb1ba26e1af06001770c723] = {
       {
         base = 'tile_grass_40x15',
         model_data = 'troop_camillan_roman_blade_plain_shield'
-    },
-  }
+      }
+    }
 
     -- Leves and rorarii
     g_models[g_str_5fb1ba26e1af06001770c725] = {
@@ -56,24 +56,24 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
         base = 'tile_grass_40x30',
         loose = true,
         model_data = 'troop_camillan_roman_psiloi'
+      }
     }
-  }
 
     -- Accensi
     g_models[g_str_5fb1ba26e1af06001770c727] = {
       {
         base = 'tile_grass_40x15',
         model_data = 'troop_camillan_roman_accensi'
+      }
     }
-  }
 
     -- Italian allied infantry
     g_models[g_str_5fb1ba26e1af06001770c729] = {
       {
         base = 'tile_grass_40x20',
         model_data = 'troop_camillan_roman_allied_spear'
+      }
     }
-  }
 
     -- Javelin Cavalry General
     g_models[g_str_5fb1ba26e1af06001770c72b] = {
@@ -84,8 +84,8 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
             [1] = 'troop_camillan_roman_bodyguard',
             [2] = 'troop_camillan_roman_general'
         }
+      }
     }
-  }
 
     -- Bad Horse General
     g_models[g_str_5fb1ba26e1af06001770c72d] = {
@@ -97,22 +97,22 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
             [2] = 'troop_camillan_roman_general',
             [3] = 'troop_camillan_roman_cavalry'
         }
+      }
     }
-  }
 
     -- Elite Foot General
     g_models[g_str_5fb1ba26e1af06001770c72f] = {
-      {
-        base = 'tile_grass_40x15',
-        n_models = 4,
-        fixed_models = {
-          [1] = 'troop_camillan_roman_spear',
-          [2] = 'troop_camillan_roman_general',
-          [3] = 'troop_camillan_roman_spear',
-          [4] = 'troop_camillan_roman_spear'
+        {
+          base = 'tile_grass_40x15',
+          n_models = 4,
+          fixed_models = {
+            [1] = 'troop_camillan_roman_spear',
+            [2] = 'troop_camillan_roman_general',
+            [3] = 'troop_camillan_roman_spear',
+            [4] = 'troop_camillan_roman_spear'
+        }
       }
     }
-  }
 
     -- Roman Camp
     g_models[g_str_5fb1b9dce1af060017709543_camp] = {
@@ -120,5 +120,144 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_camillan_roman_camp'
+      }
     }
-  }
+
+
+-- Polybian Roman
+-- 275 to 105 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dde1af0600177095c0/explore
+-- As of: 20210403
+
+-- Polybian Roman
+army['5fb1b9dde1af0600177095c0'].data.has_models = true
+
+
+    -- Roman, Gallic, Spanish, and effective allied horsemen - JavCav
+    g_models[g_str_5fb1ba27e1af06001770c8e2] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_camillan_roman_bodyguard'
+      },
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_gallic_cav'
+      },
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_ancient_spanish_lh'
+      }
+    }
+
+    -- Legionaries
+    g_models[g_str_5fb1ba27e1af06001770c8e4] = g_models[g_str_5fb1ba26e1af06001770c720]
+
+    -- Raw, mutinous, or recently recruited legionaries
+    -- &
+    -- Large numbers of recently recruited legionaries
+    g_models[g_str_5fb1ba27e1af06001770c8e7] = g_models[g_str_5fb1ba26e1af06001770c723]
+    g_models[g_str_5fb1ba27e1af06001770c8ea] = g_models[g_str_5fb1ba26e1af06001770c723]
+
+    -- Leves - Rabble
+    g_models[g_str_5fb1ba27e1af06001770c8ed] = g_models[g_str_5fb1ba26e1af06001770c725]
+
+    -- Velites - Light Foot
+    g_models[g_str_5fb1ba27e1af06001770c8f0] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_camillan_roman_psiloi'
+      }
+    }
+
+    -- Italian allied horsemen or hamippoi (light foot mixed with cavalry)
+    g_models[g_str_5fb1ba27e1af06001770c8f2] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_camillan_roman_cavalry'
+      },
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_camillan_roman_cavalry',
+            [2] = 'troop_ancient_spanish_caetrati',
+            [3] = 'troop_camillan_roman_cavalry'
+        }
+      },
+            {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_camillan_roman_cavalry',
+          [2] = 'troop_successors_psiloi',
+          [3] = 'troop_camillan_roman_cavalry'
+      }
+      }
+    }
+
+    -- Italian allied light infantry
+    g_models[g_str_5fb1ba27e1af06001770c8f4] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_camillan_roman_accensi'
+      }
+    }
+
+    -- Skirmishing bowmen and slingers
+    g_models[g_str_5fb1ba27e1af06001770c8f6] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_ancient_spanish_slingers'
+      }
+    }
+
+    -- Spanish or Illyrian light infantry
+    g_models[g_str_5fb1ba27e1af06001770c8f8] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_ancient_spanish_caetrati'
+      },
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_successors_psiloi'
+      }
+    }
+
+    -- Gallic tribesmen
+    g_models[g_str_5fb1ba27e1af06001770c8fb] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_gallic_warriors'
+      },
+    }
+
+    -- Roman, Gallic, Spanish, and effective allied horsemen - JavCav
+    g_models[g_str_5fb1ba27e1af06001770c8fd] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+            [1] = 'troop_camillan_roman_bodyguard',
+            [2] = 'troop_camillan_roman_general'
+        }
+      },
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+            [1] = 'troop_camillan_roman_general',
+            [2] = 'troop_gallic_cav'
+        }
+      },
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+            [1] = 'troop_ancient_spanish_lh',
+            [2] = 'troop_camillan_roman_general'
+        }
+      }
+    }
+
+    -- Roman Camp
+    g_models[g_str_5fb1b9dde1af0600177095c0_camp] = g_models[g_str_5fb1b9dce1af060017709543_camp]
