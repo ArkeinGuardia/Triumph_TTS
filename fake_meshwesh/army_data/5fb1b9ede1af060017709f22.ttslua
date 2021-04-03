@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec5e]={
   max=4,
   description='Turkish ghulams',
 }
+g_str_5fb1ba39e1af06001770ec5e_dismounted='5fb1ba39e1af06001770ec5e_dismounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_dismounted]={
+  id=g_str_5fb1ba39e1af06001770ec5e_dismounted,
+  name='Archer',
+  min=2,
+  max=4,
+  description='Turkish ghulams\nDeployment dismounted from Elite Cavalary',
+  points=4,
+}
+g_5fb1ba39e1af06001770ec5e_dismounted=g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_dismounted]
+g_str_5fb1ba39e1af06001770ec5e_mounted='5fb1ba39e1af06001770ec5e_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_mounted]={
+  id=g_str_5fb1ba39e1af06001770ec5e_mounted,
+  name='Elite Cavalary',
+  min=2,
+  max=4,
+  description='Turkish ghulams\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba39e1af06001770ec5e_dismounted,
+}
 g_str_5fb1ba39e1af06001770ec62='5fb1ba39e1af06001770ec62'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec62]={
   id=g_str_5fb1ba39e1af06001770ec62,
@@ -163,6 +183,8 @@ army['5fb1b9ede1af060017709f22']={
   g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec8a],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec5e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_dismounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec62],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec64],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec66],

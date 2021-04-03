@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec34]={
   max=4,
   description='Turkish ghulams',
 }
+g_str_5fb1ba39e1af06001770ec34_dismounted='5fb1ba39e1af06001770ec34_dismounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec34_dismounted]={
+  id=g_str_5fb1ba39e1af06001770ec34_dismounted,
+  name='Archer',
+  min=2,
+  max=4,
+  description='Turkish ghulams\nDeployment dismounted from Elite Cavalary',
+  points=4,
+}
+g_5fb1ba39e1af06001770ec34_dismounted=g_base_definitions[g_str_5fb1ba39e1af06001770ec34_dismounted]
+g_str_5fb1ba39e1af06001770ec34_mounted='5fb1ba39e1af06001770ec34_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec34_mounted]={
+  id=g_str_5fb1ba39e1af06001770ec34_mounted,
+  name='Elite Cavalary',
+  min=2,
+  max=4,
+  description='Turkish ghulams\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba39e1af06001770ec34_dismounted,
+}
 g_str_5fb1ba39e1af06001770ec38='5fb1ba39e1af06001770ec38'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec38]={
   id=g_str_5fb1ba39e1af06001770ec38,
@@ -22,6 +42,26 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec38]={
   max=1,
   description='Ahl Khurasan Arab lancers',
 }
+g_str_5fb1ba39e1af06001770ec38_dismounted='5fb1ba39e1af06001770ec38_dismounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec38_dismounted]={
+  id=g_str_5fb1ba39e1af06001770ec38_dismounted,
+  name='Spears',
+  min=0,
+  max=1,
+  description='Ahl Khurasan Arab lancers\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba39e1af06001770ec38_dismounted=g_base_definitions[g_str_5fb1ba39e1af06001770ec38_dismounted]
+g_str_5fb1ba39e1af06001770ec38_mounted='5fb1ba39e1af06001770ec38_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec38_mounted]={
+  id=g_str_5fb1ba39e1af06001770ec38_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Ahl Khurasan Arab lancers\nDeployment dismounting as Spears',
+  points=4,
+  dismount_as=g_5fb1ba39e1af06001770ec38_dismounted,
+}
 g_str_5fb1ba39e1af06001770ec3b='5fb1ba39e1af06001770ec3b'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec3b]={
   id=g_str_5fb1ba39e1af06001770ec3b,
@@ -29,6 +69,26 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec3b]={
   min=0,
   max=1,
   description='Ahl al-Sham',
+}
+g_str_5fb1ba39e1af06001770ec3b_dismounted='5fb1ba39e1af06001770ec3b_dismounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec3b_dismounted]={
+  id=g_str_5fb1ba39e1af06001770ec3b_dismounted,
+  name='Heavy Foot',
+  min=0,
+  max=1,
+  description='Ahl al-Sham\nDeployment dismounted from Bad Horse',
+  points=3,
+}
+g_5fb1ba39e1af06001770ec3b_dismounted=g_base_definitions[g_str_5fb1ba39e1af06001770ec3b_dismounted]
+g_str_5fb1ba39e1af06001770ec3b_mounted='5fb1ba39e1af06001770ec3b_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec3b_mounted]={
+  id=g_str_5fb1ba39e1af06001770ec3b_mounted,
+  name='Bad Horse',
+  min=0,
+  max=1,
+  description='Ahl al-Sham\nDeployment dismounting as Heavy Foot',
+  points=3,
+  dismount_as=g_5fb1ba39e1af06001770ec3b_dismounted,
 }
 g_str_5fb1ba39e1af06001770ec3e='5fb1ba39e1af06001770ec3e'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec3e]={
@@ -155,8 +215,14 @@ army['5fb1b9ede1af060017709f1b']={
   g_base_definitions[g_str_5fb1b9ede1af060017709f1b_camp],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec59],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec34],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec34_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec34_dismounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec38],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec38_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec38_dismounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec3b],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec3b_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec3b_dismounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec3e],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec40],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec42],

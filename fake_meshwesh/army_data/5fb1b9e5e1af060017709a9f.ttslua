@@ -22,6 +22,26 @@ g_base_definitions[g_str_5fb1ba30e1af06001770da76]={
   max=1,
   description='Laenstropperne',
 }
+g_str_5fb1ba30e1af06001770da76_dismounted='5fb1ba30e1af06001770da76_dismounted'
+g_base_definitions[g_str_5fb1ba30e1af06001770da76_dismounted]={
+  id=g_str_5fb1ba30e1af06001770da76_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Laenstropperne\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba30e1af06001770da76_dismounted=g_base_definitions[g_str_5fb1ba30e1af06001770da76_dismounted]
+g_str_5fb1ba30e1af06001770da76_mounted='5fb1ba30e1af06001770da76_mounted'
+g_base_definitions[g_str_5fb1ba30e1af06001770da76_mounted]={
+  id=g_str_5fb1ba30e1af06001770da76_mounted,
+  name='Knights',
+  min=0,
+  max=1,
+  description='Laenstropperne\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba30e1af06001770da76_dismounted,
+}
 g_str_5fb1ba30e1af06001770da7a='5fb1ba30e1af06001770da7a'
 g_base_definitions[g_str_5fb1ba30e1af06001770da7a]={
   id=g_str_5fb1ba30e1af06001770da7a,
@@ -29,6 +49,26 @@ g_base_definitions[g_str_5fb1ba30e1af06001770da7a]={
   min=0,
   max=1,
   description='Huscarles on horses',
+}
+g_str_5fb1ba30e1af06001770da7a_dismounted='5fb1ba30e1af06001770da7a_dismounted'
+g_base_definitions[g_str_5fb1ba30e1af06001770da7a_dismounted]={
+  id=g_str_5fb1ba30e1af06001770da7a_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Huscarles on horses\nDeployment dismounted from Bad Horse',
+  points=4,
+}
+g_5fb1ba30e1af06001770da7a_dismounted=g_base_definitions[g_str_5fb1ba30e1af06001770da7a_dismounted]
+g_str_5fb1ba30e1af06001770da7a_mounted='5fb1ba30e1af06001770da7a_mounted'
+g_base_definitions[g_str_5fb1ba30e1af06001770da7a_mounted]={
+  id=g_str_5fb1ba30e1af06001770da7a_mounted,
+  name='Bad Horse',
+  min=0,
+  max=1,
+  description='Huscarles on horses\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba30e1af06001770da7a_dismounted,
 }
 g_str_5fb1ba30e1af06001770da7e='5fb1ba30e1af06001770da7e'
 g_base_definitions[g_str_5fb1ba30e1af06001770da7e]={
@@ -116,7 +156,11 @@ army['5fb1b9e5e1af060017709a9f']={
   g_base_definitions[g_str_5fb1ba30e1af06001770da8c],
   g_base_definitions[g_str_5fb1ba30e1af06001770da73],
   g_base_definitions[g_str_5fb1ba30e1af06001770da76],
+  g_base_definitions[g_str_5fb1ba30e1af06001770da76_mounted],
+  g_base_definitions[g_str_5fb1ba30e1af06001770da76_dismounted],
   g_base_definitions[g_str_5fb1ba30e1af06001770da7a],
+  g_base_definitions[g_str_5fb1ba30e1af06001770da7a_mounted],
+  g_base_definitions[g_str_5fb1ba30e1af06001770da7a_dismounted],
   g_base_definitions[g_str_5fb1ba30e1af06001770da7e],
   g_base_definitions[g_str_5fb1ba30e1af06001770da80],
   g_base_definitions[g_str_5fb1ba30e1af06001770da82],

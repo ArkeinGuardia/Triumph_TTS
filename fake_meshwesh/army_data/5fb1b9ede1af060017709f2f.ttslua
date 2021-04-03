@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770eca8]={
   max=4,
   description='Turkish, Greek and Armenian ghulams',
 }
+g_str_5fb1ba3ae1af06001770eca8_dismounted='5fb1ba3ae1af06001770eca8_dismounted'
+g_base_definitions[g_str_5fb1ba3ae1af06001770eca8_dismounted]={
+  id=g_str_5fb1ba3ae1af06001770eca8_dismounted,
+  name='Archer',
+  min=2,
+  max=4,
+  description='Turkish, Greek and Armenian ghulams\nDeployment dismounted from Elite Cavalary',
+  points=4,
+}
+g_5fb1ba3ae1af06001770eca8_dismounted=g_base_definitions[g_str_5fb1ba3ae1af06001770eca8_dismounted]
+g_str_5fb1ba3ae1af06001770eca8_mounted='5fb1ba3ae1af06001770eca8_mounted'
+g_base_definitions[g_str_5fb1ba3ae1af06001770eca8_mounted]={
+  id=g_str_5fb1ba3ae1af06001770eca8_mounted,
+  name='Elite Cavalary',
+  min=2,
+  max=4,
+  description='Turkish, Greek and Armenian ghulams\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba3ae1af06001770eca8_dismounted,
+}
 g_str_5fb1ba3ae1af06001770ecac='5fb1ba3ae1af06001770ecac'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ecac]={
   id=g_str_5fb1ba3ae1af06001770ecac,
@@ -187,6 +207,8 @@ army['5fb1b9ede1af060017709f2f']={
   g_base_definitions[g_str_5fb1b9ede1af060017709f2f_camp],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ecd8],
   g_base_definitions[g_str_5fb1ba3ae1af06001770eca8],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770eca8_mounted],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770eca8_dismounted],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ecac],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ecae],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ecb0],

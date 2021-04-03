@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3a5]={
   max=10,
   description='Tibetan horsemen',
 }
+g_str_5fb1ba3de1af06001770f3a5_dismounted='5fb1ba3de1af06001770f3a5_dismounted'
+g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_dismounted]={
+  id=g_str_5fb1ba3de1af06001770f3a5_dismounted,
+  name='Spears',
+  min=4,
+  max=10,
+  description='Tibetan horsemen\nDeployment dismounted from Cataphracts',
+  points=4,
+}
+g_5fb1ba3de1af06001770f3a5_dismounted=g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_dismounted]
+g_str_5fb1ba3de1af06001770f3a5_mounted='5fb1ba3de1af06001770f3a5_mounted'
+g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_mounted]={
+  id=g_str_5fb1ba3de1af06001770f3a5_mounted,
+  name='Cataphracts',
+  min=4,
+  max=10,
+  description='Tibetan horsemen\nDeployment dismounting as Spears',
+  points=4,
+  dismount_as=g_5fb1ba3de1af06001770f3a5_dismounted,
+}
 g_str_5fb1ba3de1af06001770f3a8='5fb1ba3de1af06001770f3a8'
 g_base_definitions[g_str_5fb1ba3de1af06001770f3a8]={
   id=g_str_5fb1ba3de1af06001770f3a8,
@@ -75,6 +95,8 @@ army['5fb1b9f0e1af06001770a0dd']={
   g_base_definitions[g_str_5fb1b9f0e1af06001770a0dd_camp],
   g_base_definitions[g_str_5fb1ba3de1af06001770f3b2],
   g_base_definitions[g_str_5fb1ba3de1af06001770f3a5],
+  g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_mounted],
+  g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_dismounted],
   g_base_definitions[g_str_5fb1ba3de1af06001770f3a8],
   g_base_definitions[g_str_5fb1ba3de1af06001770f3aa],
   g_base_definitions[g_str_5fb1ba3de1af06001770f3ac],

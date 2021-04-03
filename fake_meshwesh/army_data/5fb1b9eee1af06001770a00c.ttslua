@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba3be1af06001770f032]={
   max=2,
   description='Brother men-at-arms, sergeants, and turcopoles',
 }
+g_str_5fb1ba3be1af06001770f032_dismounted='5fb1ba3be1af06001770f032_dismounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770f032_dismounted]={
+  id=g_str_5fb1ba3be1af06001770f032_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=2,
+  description='Brother men-at-arms, sergeants, and turcopoles\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba3be1af06001770f032_dismounted=g_base_definitions[g_str_5fb1ba3be1af06001770f032_dismounted]
+g_str_5fb1ba3be1af06001770f032_mounted='5fb1ba3be1af06001770f032_mounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770f032_mounted]={
+  id=g_str_5fb1ba3be1af06001770f032_mounted,
+  name='Knights',
+  min=0,
+  max=2,
+  description='Brother men-at-arms, sergeants, and turcopoles\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba3be1af06001770f032_dismounted,
+}
 g_str_5fb1ba3be1af06001770f035='5fb1ba3be1af06001770f035'
 g_base_definitions[g_str_5fb1ba3be1af06001770f035]={
   id=g_str_5fb1ba3be1af06001770f035,
@@ -123,6 +143,8 @@ army['5fb1b9eee1af06001770a00c']={
   g_base_definitions[g_str_5fb1ba3be1af06001770f04a],
   g_base_definitions[g_str_5fb1ba3be1af06001770f04c],
   g_base_definitions[g_str_5fb1ba3be1af06001770f032],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f032_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f032_dismounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770f035],
   g_base_definitions[g_str_5fb1ba3be1af06001770f037],
   g_base_definitions[g_str_5fb1ba3be1af06001770f039],

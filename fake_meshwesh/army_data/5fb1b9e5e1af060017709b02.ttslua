@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbff]={
   max=1,
   description='Men-at-arms (English 1328 AD and later)',
 }
+g_str_5fb1ba31e1af06001770dbff_dismounted='5fb1ba31e1af06001770dbff_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dbff_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dbff_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Men-at-arms (English 1328 AD and later)\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba31e1af06001770dbff_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dbff_dismounted]
+g_str_5fb1ba31e1af06001770dbff_mounted='5fb1ba31e1af06001770dbff_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dbff_mounted]={
+  id=g_str_5fb1ba31e1af06001770dbff_mounted,
+  name='Knights',
+  min=0,
+  max=1,
+  description='Men-at-arms (English 1328 AD and later)\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba31e1af06001770dbff_dismounted,
+}
 g_str_5fb1ba31e1af06001770dc03='5fb1ba31e1af06001770dc03'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc03]={
   id=g_str_5fb1ba31e1af06001770dc03,
@@ -22,6 +42,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc03]={
   max=1,
   description='Hobilars',
 }
+g_str_5fb1ba31e1af06001770dc03_dismounted='5fb1ba31e1af06001770dc03_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc03_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dc03_dismounted,
+  name='Light Foot',
+  min=0,
+  max=1,
+  description='Hobilars\nDeployment dismounted from Bad Horse',
+  points=3,
+}
+g_5fb1ba31e1af06001770dc03_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc03_dismounted]
+g_str_5fb1ba31e1af06001770dc03_mounted='5fb1ba31e1af06001770dc03_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc03_mounted]={
+  id=g_str_5fb1ba31e1af06001770dc03_mounted,
+  name='Bad Horse',
+  min=0,
+  max=1,
+  description='Hobilars\nDeployment dismounting as Light Foot',
+  points=3,
+  dismount_as=g_5fb1ba31e1af06001770dc03_dismounted,
+}
 g_str_5fb1ba31e1af06001770dc07='5fb1ba31e1af06001770dc07'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc07]={
   id=g_str_5fb1ba31e1af06001770dc07,
@@ -29,6 +69,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc07]={
   min=0,
   max=2,
   description='Horsemen armed with spears',
+}
+g_str_5fb1ba31e1af06001770dc07_dismounted='5fb1ba31e1af06001770dc07_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc07_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dc07_dismounted,
+  name='Raider',
+  min=0,
+  max=2,
+  description='Horsemen armed with spears\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba31e1af06001770dc07_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc07_dismounted]
+g_str_5fb1ba31e1af06001770dc07_mounted='5fb1ba31e1af06001770dc07_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc07_mounted]={
+  id=g_str_5fb1ba31e1af06001770dc07_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=2,
+  description='Horsemen armed with spears\nDeployment dismounting as Raider',
+  points=4,
+  dismount_as=g_5fb1ba31e1af06001770dc07_dismounted,
 }
 g_str_5fb1ba31e1af06001770dc0a='5fb1ba31e1af06001770dc0a'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc0a]={
@@ -131,8 +191,14 @@ army['5fb1b9e5e1af060017709b02']={
   g_base_definitions[g_str_5fb1ba31e1af06001770dc1d],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc1e],
   g_base_definitions[g_str_5fb1ba31e1af06001770dbff],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dbff_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dbff_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc03],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc03_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc03_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc07],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc07_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc07_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc0a],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc0c],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc0f],

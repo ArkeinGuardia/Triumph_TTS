@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef07]={
   max=3,
   description='Khwarizmian lancers',
 }
+g_str_5fb1ba3be1af06001770ef07_dismounted='5fb1ba3be1af06001770ef07_dismounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted]={
+  id=g_str_5fb1ba3be1af06001770ef07_dismounted,
+  name='Archer',
+  min=1,
+  max=3,
+  description='Khwarizmian lancers\nDeployment dismounted from Elite Cavalary',
+  points=4,
+}
+g_5fb1ba3be1af06001770ef07_dismounted=g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted]
+g_str_5fb1ba3be1af06001770ef07_mounted='5fb1ba3be1af06001770ef07_mounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted]={
+  id=g_str_5fb1ba3be1af06001770ef07_mounted,
+  name='Elite Cavalary',
+  min=1,
+  max=3,
+  description='Khwarizmian lancers\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba3be1af06001770ef07_dismounted,
+}
 g_str_5fb1ba3be1af06001770ef0b='5fb1ba3be1af06001770ef0b'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef0b]={
   id=g_str_5fb1ba3be1af06001770ef0b,
@@ -21,6 +41,26 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef0b]={
   min=3,
   max=7,
   description='Qangli and similar horse archers',
+}
+g_str_5fb1ba3be1af06001770ef0b_dismounted='5fb1ba3be1af06001770ef0b_dismounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_dismounted]={
+  id=g_str_5fb1ba3be1af06001770ef0b_dismounted,
+  name='Archer',
+  min=3,
+  max=7,
+  description='Qangli and similar horse archers\nDeployment dismounted from Horse Bow',
+  points=4,
+}
+g_5fb1ba3be1af06001770ef0b_dismounted=g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_dismounted]
+g_str_5fb1ba3be1af06001770ef0b_mounted='5fb1ba3be1af06001770ef0b_mounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted]={
+  id=g_str_5fb1ba3be1af06001770ef0b_mounted,
+  name='Horse Bow',
+  min=3,
+  max=7,
+  description='Qangli and similar horse archers\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba3be1af06001770ef0b_dismounted,
 }
 g_str_5fb1ba3be1af06001770ef0f='5fb1ba3be1af06001770ef0f'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef0f]={
@@ -83,7 +123,11 @@ army['5fb1b9ede1af060017709fc1']={
   g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef1c],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef07],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0b],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_dismounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0f],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef12],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef15],

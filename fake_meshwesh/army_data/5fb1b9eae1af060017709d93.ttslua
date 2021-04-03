@@ -70,6 +70,26 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e5ee]={
   max=1,
   description='Lithuanian horsemen',
 }
+g_str_5fb1ba36e1af06001770e5ee_dismounted='5fb1ba36e1af06001770e5ee_dismounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_dismounted]={
+  id=g_str_5fb1ba36e1af06001770e5ee_dismounted,
+  name='Archer',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba36e1af06001770e5ee_dismounted=g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_dismounted]
+g_str_5fb1ba36e1af06001770e5ee_mounted='5fb1ba36e1af06001770e5ee_mounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_mounted]={
+  id=g_str_5fb1ba36e1af06001770e5ee_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba36e1af06001770e5ee_dismounted,
+}
 g_str_5fb1ba36e1af06001770e5f2='5fb1ba36e1af06001770e5f2'
 g_base_definitions[g_str_5fb1ba36e1af06001770e5f2]={
   id=g_str_5fb1ba36e1af06001770e5f2,
@@ -114,6 +134,8 @@ army['5fb1b9eae1af060017709d93']={
   g_base_definitions[g_str_5fb1ba36e1af06001770e5e8],
   g_base_definitions[g_str_5fb1ba36e1af06001770e5eb],
   g_base_definitions[g_str_5fb1ba36e1af06001770e5ee],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_mounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_dismounted],
   g_base_definitions[g_str_5fb1ba36e1af06001770e5f2],
   g_base_definitions[g_str_5fb1ba36e1af06001770e5f5],
 }

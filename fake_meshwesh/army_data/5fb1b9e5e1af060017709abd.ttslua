@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dad7]={
   max=2,
   description='Uchelwyr',
 }
+g_str_5fb1ba30e1af06001770dad7_dismounted='5fb1ba30e1af06001770dad7_dismounted'
+g_base_definitions[g_str_5fb1ba30e1af06001770dad7_dismounted]={
+  id=g_str_5fb1ba30e1af06001770dad7_dismounted,
+  name='Elite Foot',
+  min=1,
+  max=2,
+  description='Uchelwyr\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba30e1af06001770dad7_dismounted=g_base_definitions[g_str_5fb1ba30e1af06001770dad7_dismounted]
+g_str_5fb1ba30e1af06001770dad7_mounted='5fb1ba30e1af06001770dad7_mounted'
+g_base_definitions[g_str_5fb1ba30e1af06001770dad7_mounted]={
+  id=g_str_5fb1ba30e1af06001770dad7_mounted,
+  name='Javelin Cavalry',
+  min=1,
+  max=2,
+  description='Uchelwyr\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba30e1af06001770dad7_dismounted,
+}
 g_str_5fb1ba30e1af06001770dada='5fb1ba30e1af06001770dada'
 g_base_definitions[g_str_5fb1ba30e1af06001770dada]={
   id=g_str_5fb1ba30e1af06001770dada,
@@ -83,6 +103,8 @@ army['5fb1b9e5e1af060017709abd']={
   g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp],
   g_base_definitions[g_str_5fb1ba30e1af06001770daeb],
   g_base_definitions[g_str_5fb1ba30e1af06001770dad7],
+  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_mounted],
+  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_dismounted],
   g_base_definitions[g_str_5fb1ba30e1af06001770dada],
   g_base_definitions[g_str_5fb1ba30e1af06001770dadc],
   g_base_definitions[g_str_5fb1ba30e1af06001770dadf],

@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d93c]={
   max=7,
   description='Caballarii',
 }
+g_str_5fb1ba2fe1af06001770d93c_dismounted='5fb1ba2fe1af06001770d93c_dismounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d93c_dismounted,
+  name='Heavy Foot',
+  min=3,
+  max=7,
+  description='Caballarii\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba2fe1af06001770d93c_dismounted=g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_dismounted]
+g_str_5fb1ba2fe1af06001770d93c_mounted='5fb1ba2fe1af06001770d93c_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d93c_mounted,
+  name='Knights',
+  min=3,
+  max=7,
+  description='Caballarii\nDeployment dismounting as Heavy Foot',
+  points=4,
+  dismount_as=g_5fb1ba2fe1af06001770d93c_dismounted,
+}
 g_str_5fb1ba2fe1af06001770d93f='5fb1ba2fe1af06001770d93f'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d93f]={
   id=g_str_5fb1ba2fe1af06001770d93f,
@@ -22,6 +42,26 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d93f]={
   max=3,
   description='Swabian or Bavarian caballarii',
 }
+g_str_5fb1ba2fe1af06001770d93f_dismounted='5fb1ba2fe1af06001770d93f_dismounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d93f_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba2fe1af06001770d93f_dismounted=g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_dismounted]
+g_str_5fb1ba2fe1af06001770d93f_mounted='5fb1ba2fe1af06001770d93f_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d93f_mounted,
+  name='Knights',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba2fe1af06001770d93f_dismounted,
+}
 g_str_5fb1ba2fe1af06001770d940='5fb1ba2fe1af06001770d940'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d940]={
   id=g_str_5fb1ba2fe1af06001770d940,
@@ -29,6 +69,26 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d940]={
   min=0,
   max=3,
   description='Swabian or Bavarian caballarii',
+}
+g_str_5fb1ba2fe1af06001770d940_dismounted='5fb1ba2fe1af06001770d940_dismounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d940_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d940_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii\nDeployment dismounted from Bad Horse',
+  points=4,
+}
+g_5fb1ba2fe1af06001770d940_dismounted=g_base_definitions[g_str_5fb1ba2fe1af06001770d940_dismounted]
+g_str_5fb1ba2fe1af06001770d940_mounted='5fb1ba2fe1af06001770d940_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d940_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d940_mounted,
+  name='Bad Horse',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba2fe1af06001770d940_dismounted,
 }
 g_str_5fb1ba2fe1af06001770d944='5fb1ba2fe1af06001770d944'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d944]={
@@ -99,8 +159,14 @@ army['5fb1b9e4e1af060017709a44']={
   g_base_definitions[g_str_5fb1b9e4e1af060017709a44_camp],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d951],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d93c],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_dismounted],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d93f],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_dismounted],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d940],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_dismounted],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d944],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d946],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d948],
