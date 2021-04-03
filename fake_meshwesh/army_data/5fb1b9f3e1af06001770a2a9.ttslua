@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f9ce]={
   max=2,
   description='Tangut Iron Sparrowhawk  horsemen',
 }
+g_str_5fb1ba40e1af06001770f9ce_dismounted='5fb1ba40e1af06001770f9ce_dismounted'
+g_base_definitions[g_str_5fb1ba40e1af06001770f9ce_dismounted]={
+  id=g_str_5fb1ba40e1af06001770f9ce_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=2,
+  description='Tangut Iron Sparrowhawk  horsemen\nDeployment dismounted from Cataphracts',
+  points=4,
+}
+g_5fb1ba40e1af06001770f9ce_dismounted=g_base_definitions[g_str_5fb1ba40e1af06001770f9ce_dismounted]
+g_str_5fb1ba40e1af06001770f9ce_mounted='5fb1ba40e1af06001770f9ce_mounted'
+g_base_definitions[g_str_5fb1ba40e1af06001770f9ce_mounted]={
+  id=g_str_5fb1ba40e1af06001770f9ce_mounted,
+  name='Cataphracts',
+  min=0,
+  max=2,
+  description='Tangut Iron Sparrowhawk  horsemen\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba40e1af06001770f9ce_dismounted,
+}
 g_str_5fb1ba40e1af06001770f9d1='5fb1ba40e1af06001770f9d1'
 g_base_definitions[g_str_5fb1ba40e1af06001770f9d1]={
   id=g_str_5fb1ba40e1af06001770f9d1,
@@ -21,6 +41,26 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f9d1]={
   min=4,
   max=8,
   description='Tangut nomad horsemen',
+}
+g_str_5fb1ba40e1af06001770f9d1_dismounted='5fb1ba40e1af06001770f9d1_dismounted'
+g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_dismounted]={
+  id=g_str_5fb1ba40e1af06001770f9d1_dismounted,
+  name='Archer',
+  min=4,
+  max=8,
+  description='Tangut nomad horsemen\nDeployment dismounted from Elite Cavalary',
+  points=4,
+}
+g_5fb1ba40e1af06001770f9d1_dismounted=g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_dismounted]
+g_str_5fb1ba40e1af06001770f9d1_mounted='5fb1ba40e1af06001770f9d1_mounted'
+g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_mounted]={
+  id=g_str_5fb1ba40e1af06001770f9d1_mounted,
+  name='Elite Cavalary',
+  min=4,
+  max=8,
+  description='Tangut nomad horsemen\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba40e1af06001770f9d1_dismounted,
 }
 g_str_5fb1ba40e1af06001770f9d4='5fb1ba40e1af06001770f9d4'
 g_base_definitions[g_str_5fb1ba40e1af06001770f9d4]={
@@ -51,7 +91,11 @@ army['5fb1b9f3e1af06001770a2a9']={
   g_base_definitions[g_str_5fb1b9f3e1af06001770a2a9_camp],
   g_base_definitions[g_str_5fb1ba40e1af06001770f9d6],
   g_base_definitions[g_str_5fb1ba40e1af06001770f9ce],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f9ce_mounted],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f9ce_dismounted],
   g_base_definitions[g_str_5fb1ba40e1af06001770f9d1],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_mounted],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_dismounted],
   g_base_definitions[g_str_5fb1ba40e1af06001770f9d4],
 }
 if nil == armies["Meshwesh id"] then

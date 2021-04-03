@@ -30,6 +30,26 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e616]={
   max=6,
   description='Czeladz',
 }
+g_str_5fb1ba36e1af06001770e616_dismounted='5fb1ba36e1af06001770e616_dismounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e616_dismounted]={
+  id=g_str_5fb1ba36e1af06001770e616_dismounted,
+  name='Archer',
+  min=3,
+  max=6,
+  description='Czeladz\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba36e1af06001770e616_dismounted=g_base_definitions[g_str_5fb1ba36e1af06001770e616_dismounted]
+g_str_5fb1ba36e1af06001770e616_mounted='5fb1ba36e1af06001770e616_mounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e616_mounted]={
+  id=g_str_5fb1ba36e1af06001770e616_mounted,
+  name='Javelin Cavalry',
+  min=3,
+  max=6,
+  description='Czeladz\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba36e1af06001770e616_dismounted,
+}
 g_str_5fb1ba36e1af06001770e619='5fb1ba36e1af06001770e619'
 g_base_definitions[g_str_5fb1ba36e1af06001770e619]={
   id=g_str_5fb1ba36e1af06001770e619,
@@ -53,6 +73,26 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e61d]={
   min=0,
   max=1,
   description='Lithuanian horsemen',
+}
+g_str_5fb1ba36e1af06001770e61d_dismounted='5fb1ba36e1af06001770e61d_dismounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e61d_dismounted]={
+  id=g_str_5fb1ba36e1af06001770e61d_dismounted,
+  name='Archer',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba36e1af06001770e61d_dismounted=g_base_definitions[g_str_5fb1ba36e1af06001770e61d_dismounted]
+g_str_5fb1ba36e1af06001770e61d_mounted='5fb1ba36e1af06001770e61d_mounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e61d_mounted]={
+  id=g_str_5fb1ba36e1af06001770e61d_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba36e1af06001770e61d_dismounted,
 }
 g_str_5fb1ba36e1af06001770e620='5fb1ba36e1af06001770e620'
 g_base_definitions[g_str_5fb1ba36e1af06001770e620]={
@@ -101,9 +141,13 @@ army['5fb1b9eae1af060017709d9b']={
   g_base_definitions[g_str_5fb1ba36e1af06001770e611],
   g_base_definitions[g_str_5fb1ba36e1af06001770e614],
   g_base_definitions[g_str_5fb1ba36e1af06001770e616],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e616_mounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e616_dismounted],
   g_base_definitions[g_str_5fb1ba36e1af06001770e619],
   g_base_definitions[g_str_5fb1ba36e1af06001770e61b],
   g_base_definitions[g_str_5fb1ba36e1af06001770e61d],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e61d_mounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e61d_dismounted],
   g_base_definitions[g_str_5fb1ba36e1af06001770e620],
   g_base_definitions[g_str_5fb1ba36e1af06001770e623],
   g_base_definitions[g_str_5fb1ba36e1af06001770e626],

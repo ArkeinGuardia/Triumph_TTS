@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbba]={
   max=1,
   description='Scottish men-at-arms',
 }
+g_str_5fb1ba31e1af06001770dbba_dismounted='5fb1ba31e1af06001770dbba_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dbba_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dbba_dismounted,
+  name='Pikes',
+  min=0,
+  max=1,
+  description='Scottish men-at-arms\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba31e1af06001770dbba_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dbba_dismounted]
+g_str_5fb1ba31e1af06001770dbba_mounted='5fb1ba31e1af06001770dbba_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dbba_mounted]={
+  id=g_str_5fb1ba31e1af06001770dbba_mounted,
+  name='Knights',
+  min=0,
+  max=1,
+  description='Scottish men-at-arms\nDeployment dismounting as Pikes',
+  points=4,
+  dismount_as=g_5fb1ba31e1af06001770dbba_dismounted,
+}
 g_str_5fb1ba31e1af06001770dbbd='5fb1ba31e1af06001770dbbd'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbbd]={
   id=g_str_5fb1ba31e1af06001770dbbd,
@@ -91,6 +111,8 @@ army['5fb1b9e5e1af060017709aef']={
   g_base_definitions[g_str_5fb1ba31e1af06001770dbca],
   g_base_definitions[g_str_5fb1ba31e1af06001770dbcb],
   g_base_definitions[g_str_5fb1ba31e1af06001770dbba],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dbba_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dbba_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dbbd],
   g_base_definitions[g_str_5fb1ba31e1af06001770dbbf],
   g_base_definitions[g_str_5fb1ba31e1af06001770dbc2],

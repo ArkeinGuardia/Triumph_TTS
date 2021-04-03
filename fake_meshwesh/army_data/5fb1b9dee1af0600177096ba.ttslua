@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ccfb]={
   max=2,
   description='Horsemen',
 }
+g_str_5fb1ba29e1af06001770ccfb_dismounted='5fb1ba29e1af06001770ccfb_dismounted'
+g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_dismounted]={
+  id=g_str_5fb1ba29e1af06001770ccfb_dismounted,
+  name='Warrior',
+  min=1,
+  max=2,
+  description='Horsemen\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba29e1af06001770ccfb_dismounted=g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_dismounted]
+g_str_5fb1ba29e1af06001770ccfb_mounted='5fb1ba29e1af06001770ccfb_mounted'
+g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_mounted]={
+  id=g_str_5fb1ba29e1af06001770ccfb_mounted,
+  name='Javelin Cavalry',
+  min=1,
+  max=2,
+  description='Horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba29e1af06001770ccfb_dismounted,
+}
 g_str_5fb1ba29e1af06001770ccfe='5fb1ba29e1af06001770ccfe'
 g_base_definitions[g_str_5fb1ba29e1af06001770ccfe]={
   id=g_str_5fb1ba29e1af06001770ccfe,
@@ -75,6 +95,8 @@ army['5fb1b9dee1af0600177096ba']={
   g_base_definitions[g_str_5fb1ba29e1af06001770cd07],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd08],
   g_base_definitions[g_str_5fb1ba29e1af06001770ccfb],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_mounted],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_dismounted],
   g_base_definitions[g_str_5fb1ba29e1af06001770ccfe],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd00],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd02],

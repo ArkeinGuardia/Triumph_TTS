@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e667]={
   max=5,
   description='Ritterbrüder and adventurer men-at-arms',
 }
+g_str_5fb1ba36e1af06001770e667_dismounted='5fb1ba36e1af06001770e667_dismounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e667_dismounted]={
+  id=g_str_5fb1ba36e1af06001770e667_dismounted,
+  name='Elite Foot',
+  min=2,
+  max=5,
+  description='Ritterbrüder and adventurer men-at-arms\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba36e1af06001770e667_dismounted=g_base_definitions[g_str_5fb1ba36e1af06001770e667_dismounted]
+g_str_5fb1ba36e1af06001770e667_mounted='5fb1ba36e1af06001770e667_mounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e667_mounted]={
+  id=g_str_5fb1ba36e1af06001770e667_mounted,
+  name='Knights',
+  min=2,
+  max=5,
+  description='Ritterbrüder and adventurer men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba36e1af06001770e667_dismounted,
+}
 g_str_5fb1ba36e1af06001770e66b='5fb1ba36e1af06001770e66b'
 g_base_definitions[g_str_5fb1ba36e1af06001770e66b]={
   id=g_str_5fb1ba36e1af06001770e66b,
@@ -139,6 +159,8 @@ army['5fb1b9eae1af060017709db9']={
   g_base_definitions[g_str_5fb1b9eae1af060017709db9_camp],
   g_base_definitions[g_str_5fb1ba36e1af06001770e68a],
   g_base_definitions[g_str_5fb1ba36e1af06001770e667],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e667_mounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e667_dismounted],
   g_base_definitions[g_str_5fb1ba36e1af06001770e66b],
   g_base_definitions[g_str_5fb1ba36e1af06001770e66e],
   g_base_definitions[g_str_5fb1ba36e1af06001770e670],

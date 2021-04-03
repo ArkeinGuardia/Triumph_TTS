@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d78b]={
   max=2,
   description='Frankish and Alamannic noble horsemen',
 }
+g_str_5fb1ba2ee1af06001770d78b_dismounted='5fb1ba2ee1af06001770d78b_dismounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_dismounted]={
+  id=g_str_5fb1ba2ee1af06001770d78b_dismounted,
+  name='Warrior',
+  min=1,
+  max=2,
+  description='Frankish and Alamannic noble horsemen\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba2ee1af06001770d78b_dismounted=g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_dismounted]
+g_str_5fb1ba2ee1af06001770d78b_mounted='5fb1ba2ee1af06001770d78b_mounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_mounted]={
+  id=g_str_5fb1ba2ee1af06001770d78b_mounted,
+  name='Knights',
+  min=1,
+  max=2,
+  description='Frankish and Alamannic noble horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba2ee1af06001770d78b_dismounted,
+}
 g_str_5fb1ba2ee1af06001770d78e='5fb1ba2ee1af06001770d78e'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d78e]={
   id=g_str_5fb1ba2ee1af06001770d78e,
@@ -67,6 +87,8 @@ army['5fb1b9e3e1af0600177099aa']={
   g_base_definitions[g_str_5fb1b9e3e1af0600177099aa_camp],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d795],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d78b],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_mounted],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_dismounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d78e],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d790],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d792],

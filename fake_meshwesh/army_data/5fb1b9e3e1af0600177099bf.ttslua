@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf]={
   max=3,
   description='Frankish noble horsemen',
 }
+g_str_5fb1ba2ee1af06001770d7bf_dismounted='5fb1ba2ee1af06001770d7bf_dismounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_dismounted]={
+  id=g_str_5fb1ba2ee1af06001770d7bf_dismounted,
+  name='Warrior',
+  min=1,
+  max=3,
+  description='Frankish noble horsemen\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba2ee1af06001770d7bf_dismounted=g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_dismounted]
+g_str_5fb1ba2ee1af06001770d7bf_mounted='5fb1ba2ee1af06001770d7bf_mounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_mounted]={
+  id=g_str_5fb1ba2ee1af06001770d7bf_mounted,
+  name='Knights',
+  min=1,
+  max=3,
+  description='Frankish noble horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba2ee1af06001770d7bf_dismounted,
+}
 g_str_5fb1ba2ee1af06001770d7c2='5fb1ba2ee1af06001770d7c2'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2]={
   id=g_str_5fb1ba2ee1af06001770d7c2,
@@ -22,6 +42,26 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2]={
   max=1,
   description='Gallo-Roman noble horsemen',
 }
+g_str_5fb1ba2ee1af06001770d7c2_dismounted='5fb1ba2ee1af06001770d7c2_dismounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_dismounted]={
+  id=g_str_5fb1ba2ee1af06001770d7c2_dismounted,
+  name='Warrior',
+  min=0,
+  max=1,
+  description='Gallo-Roman noble horsemen\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba2ee1af06001770d7c2_dismounted=g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_dismounted]
+g_str_5fb1ba2ee1af06001770d7c2_mounted='5fb1ba2ee1af06001770d7c2_mounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_mounted]={
+  id=g_str_5fb1ba2ee1af06001770d7c2_mounted,
+  name='Knights',
+  min=0,
+  max=1,
+  description='Gallo-Roman noble horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba2ee1af06001770d7c2_dismounted,
+}
 g_str_5fb1ba2ee1af06001770d7c3='5fb1ba2ee1af06001770d7c3'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7c3]={
   id=g_str_5fb1ba2ee1af06001770d7c3,
@@ -29,6 +69,26 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7c3]={
   min=0,
   max=1,
   description='Gallo-Roman noble horsemen',
+}
+g_str_5fb1ba2ee1af06001770d7c3_dismounted='5fb1ba2ee1af06001770d7c3_dismounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7c3_dismounted]={
+  id=g_str_5fb1ba2ee1af06001770d7c3_dismounted,
+  name='Warrior',
+  min=0,
+  max=1,
+  description='Gallo-Roman noble horsemen\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba2ee1af06001770d7c3_dismounted=g_base_definitions[g_str_5fb1ba2ee1af06001770d7c3_dismounted]
+g_str_5fb1ba2ee1af06001770d7c3_mounted='5fb1ba2ee1af06001770d7c3_mounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7c3_mounted]={
+  id=g_str_5fb1ba2ee1af06001770d7c3_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Gallo-Roman noble horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba2ee1af06001770d7c3_dismounted,
 }
 g_str_5fb1ba2ee1af06001770d7c6='5fb1ba2ee1af06001770d7c6'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7c6]={
@@ -107,8 +167,14 @@ army['5fb1b9e3e1af0600177099bf']={
   g_base_definitions[g_str_5fb1b9e3e1af0600177099bf_camp],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7d3],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_mounted],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_dismounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_mounted],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_dismounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7c3],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7c3_mounted],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7c3_dismounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7c6],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7c8],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7ca],

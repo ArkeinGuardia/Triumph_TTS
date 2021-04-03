@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d9b4]={
   max=8,
   description='Milites, or (if Javelin Cavalry) Swabian or Bavarian milites',
 }
+g_str_5fb1ba2fe1af06001770d9b4_dismounted='5fb1ba2fe1af06001770d9b4_dismounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d9b4_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d9b4_dismounted,
+  name='Elite Foot',
+  min=4,
+  max=8,
+  description='Milites, or (if Javelin Cavalry) Swabian or Bavarian milites\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba2fe1af06001770d9b4_dismounted=g_base_definitions[g_str_5fb1ba2fe1af06001770d9b4_dismounted]
+g_str_5fb1ba2fe1af06001770d9b4_mounted='5fb1ba2fe1af06001770d9b4_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d9b4_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d9b4_mounted,
+  name='Knights',
+  min=4,
+  max=8,
+  description='Milites, or (if Javelin Cavalry) Swabian or Bavarian milites\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba2fe1af06001770d9b4_dismounted,
+}
 g_str_5fb1ba2fe1af06001770d9b5='5fb1ba2fe1af06001770d9b5'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d9b5]={
   id=g_str_5fb1ba2fe1af06001770d9b5,
@@ -21,6 +41,26 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d9b5]={
   min=4,
   max=8,
   description='Milites, or (if Javelin Cavalry) Swabian or Bavarian milites',
+}
+g_str_5fb1ba2fe1af06001770d9b5_dismounted='5fb1ba2fe1af06001770d9b5_dismounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d9b5_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d9b5_dismounted,
+  name='Elite Foot',
+  min=4,
+  max=8,
+  description='Milites, or (if Javelin Cavalry) Swabian or Bavarian milites\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba2fe1af06001770d9b5_dismounted=g_base_definitions[g_str_5fb1ba2fe1af06001770d9b5_dismounted]
+g_str_5fb1ba2fe1af06001770d9b5_mounted='5fb1ba2fe1af06001770d9b5_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d9b5_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d9b5_mounted,
+  name='Javelin Cavalry',
+  min=4,
+  max=8,
+  description='Milites, or (if Javelin Cavalry) Swabian or Bavarian milites\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba2fe1af06001770d9b5_dismounted,
 }
 g_str_5fb1ba2fe1af06001770d9b9='5fb1ba2fe1af06001770d9b9'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d9b9]={
@@ -91,7 +131,11 @@ army['5fb1b9e4e1af060017709a5f']={
   g_base_definitions[g_str_5fb1ba2fe1af06001770d9c3],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d9c4],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d9b4],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d9b4_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d9b4_dismounted],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d9b5],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d9b5_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d9b5_dismounted],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d9b9],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d9bb],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d9bd],

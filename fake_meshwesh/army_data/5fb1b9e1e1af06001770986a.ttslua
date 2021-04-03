@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f]={
   max=4,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
 }
+g_str_5fb1ba2be1af06001770d30f_dismounted='5fb1ba2be1af06001770d30f_dismounted'
+g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted]={
+  id=g_str_5fb1ba2be1af06001770d30f_dismounted,
+  name='Warrior',
+  min=0,
+  max=4,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounted from Battle Taxi',
+  points=3,
+}
+g_5fb1ba2be1af06001770d30f_dismounted=g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted]
+g_str_5fb1ba2be1af06001770d30f_mounted='5fb1ba2be1af06001770d30f_mounted'
+g_base_definitions[g_str_5fb1ba2be1af06001770d30f_mounted]={
+  id=g_str_5fb1ba2be1af06001770d30f_mounted,
+  name='Battle Taxi',
+  min=0,
+  max=4,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounting as Warrior',
+  points=3,
+  dismount_as=g_5fb1ba2be1af06001770d30f_dismounted,
+}
 g_str_5fb1ba2be1af06001770d312='5fb1ba2be1af06001770d312'
 g_base_definitions[g_str_5fb1ba2be1af06001770d312]={
   id=g_str_5fb1ba2be1af06001770d312,
@@ -83,6 +103,8 @@ army['5fb1b9e1e1af06001770986a']={
   g_base_definitions[g_str_5fb1ba2be1af06001770d31b],
   g_base_definitions[g_str_5fb1ba2be1af06001770d31c],
   g_base_definitions[g_str_5fb1ba2be1af06001770d30f],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d30f_mounted],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted],
   g_base_definitions[g_str_5fb1ba2be1af06001770d312],
   g_base_definitions[g_str_5fb1ba2be1af06001770d314],
   g_base_definitions[g_str_5fb1ba2be1af06001770d316],

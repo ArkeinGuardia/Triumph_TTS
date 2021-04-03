@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ce5b]={
   max=1,
   description='Xystophoroi',
 }
+g_str_5fb1ba29e1af06001770ce5b_dismounted='5fb1ba29e1af06001770ce5b_dismounted'
+g_base_definitions[g_str_5fb1ba29e1af06001770ce5b_dismounted]={
+  id=g_str_5fb1ba29e1af06001770ce5b_dismounted,
+  name='Pikes',
+  min=0,
+  max=1,
+  description='Xystophoroi\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba29e1af06001770ce5b_dismounted=g_base_definitions[g_str_5fb1ba29e1af06001770ce5b_dismounted]
+g_str_5fb1ba29e1af06001770ce5b_mounted='5fb1ba29e1af06001770ce5b_mounted'
+g_base_definitions[g_str_5fb1ba29e1af06001770ce5b_mounted]={
+  id=g_str_5fb1ba29e1af06001770ce5b_mounted,
+  name='Knights',
+  min=0,
+  max=1,
+  description='Xystophoroi\nDeployment dismounting as Pikes',
+  points=4,
+  dismount_as=g_5fb1ba29e1af06001770ce5b_dismounted,
+}
 g_str_5fb1ba29e1af06001770ce5e='5fb1ba29e1af06001770ce5e'
 g_base_definitions[g_str_5fb1ba29e1af06001770ce5e]={
   id=g_str_5fb1ba29e1af06001770ce5e,
@@ -123,6 +143,8 @@ army['5fb1b9dfe1af06001770970f']={
   g_base_definitions[g_str_5fb1ba29e1af06001770ce75],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce76],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce5b],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ce5b_mounted],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ce5b_dismounted],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce5e],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce60],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce63],

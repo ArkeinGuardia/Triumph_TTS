@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69b]={
   max=2,
   description='Fraelse and Smaasvenner',
 }
+g_str_5fb1ba36e1af06001770e69b_dismounted='5fb1ba36e1af06001770e69b_dismounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e69b_dismounted]={
+  id=g_str_5fb1ba36e1af06001770e69b_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=2,
+  description='Fraelse and Smaasvenner\nDeployment dismounted from Bad Horse',
+  points=4,
+}
+g_5fb1ba36e1af06001770e69b_dismounted=g_base_definitions[g_str_5fb1ba36e1af06001770e69b_dismounted]
+g_str_5fb1ba36e1af06001770e69b_mounted='5fb1ba36e1af06001770e69b_mounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e69b_mounted]={
+  id=g_str_5fb1ba36e1af06001770e69b_mounted,
+  name='Bad Horse',
+  min=0,
+  max=2,
+  description='Fraelse and Smaasvenner\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba36e1af06001770e69b_dismounted,
+}
 g_str_5fb1ba36e1af06001770e69e='5fb1ba36e1af06001770e69e'
 g_base_definitions[g_str_5fb1ba36e1af06001770e69e]={
   id=g_str_5fb1ba36e1af06001770e69e,
@@ -75,6 +95,8 @@ army['5fb1b9eae1af060017709dc2']={
   g_base_definitions[g_str_5fb1ba36e1af06001770e6a7],
   g_base_definitions[g_str_5fb1ba36e1af06001770e6a8],
   g_base_definitions[g_str_5fb1ba36e1af06001770e69b],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e69b_mounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e69b_dismounted],
   g_base_definitions[g_str_5fb1ba36e1af06001770e69e],
   g_base_definitions[g_str_5fb1ba36e1af06001770e6a0],
   g_base_definitions[g_str_5fb1ba36e1af06001770e6a3],

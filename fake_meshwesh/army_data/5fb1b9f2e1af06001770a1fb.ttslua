@@ -22,6 +22,26 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f73a]={
   max=4,
   description='Heavy horsemen armed with spears and crossbows',
 }
+g_str_5fb1ba3fe1af06001770f73a_dismounted='5fb1ba3fe1af06001770f73a_dismounted'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f73a_dismounted]={
+  id=g_str_5fb1ba3fe1af06001770f73a_dismounted,
+  name='Light Foot',
+  min=2,
+  max=4,
+  description='Heavy horsemen armed with spears and crossbows\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba3fe1af06001770f73a_dismounted=g_base_definitions[g_str_5fb1ba3fe1af06001770f73a_dismounted]
+g_str_5fb1ba3fe1af06001770f73a_mounted='5fb1ba3fe1af06001770f73a_mounted'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f73a_mounted]={
+  id=g_str_5fb1ba3fe1af06001770f73a_mounted,
+  name='Javelin Cavalry',
+  min=2,
+  max=4,
+  description='Heavy horsemen armed with spears and crossbows\nDeployment dismounting as Light Foot',
+  points=4,
+  dismount_as=g_5fb1ba3fe1af06001770f73a_dismounted,
+}
 g_str_5fb1ba3fe1af06001770f73d='5fb1ba3fe1af06001770f73d'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f73d]={
   id=g_str_5fb1ba3fe1af06001770f73d,
@@ -92,6 +112,8 @@ army['5fb1b9f2e1af06001770a1fb']={
   g_base_definitions[g_str_5fb1ba3fe1af06001770f746],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f738],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f73a],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f73a_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f73a_dismounted],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f73d],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f73f],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f741],

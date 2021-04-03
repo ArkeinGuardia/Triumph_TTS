@@ -171,7 +171,7 @@ end
 -- Appendix A
 -- @param troop_type, e.g. archers
 -- @return Number of figures that should be on the base,
-function figures_per_base(troop_type) 
+function figures_per_base(troop_type)
   if troop_type == "Archers" then
     return 4
   end
@@ -420,8 +420,14 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
         end
     end
 
+    local base_definition_name = base_definition['id']
+    if base_definition_name == nil then
+        -- LEGACY
+        base_definition_name = base_definition['base_definition_name']
+    end
+
     g_decorations[base_obj.getGUID()] = {
-      base_definition_name = base_definition['base_definition_name'],
+      base_definition_name = base_definition_name,
       command_color = command_color,
       is_red_player = is_red_player
     }
@@ -550,17 +556,24 @@ function get_base_definition_from_base_obj(base_obj)
   if nil == decoration then
     return nil
   end
+
   local base_definition_name = decoration.base_definition_name
   if nil == base_definition_name then
     return nil
   end
-  local base_definition = _G[base_definition_name]
-  if nil == base_definition_name then
-    print_error("base definition missing: " .. tostring(base_definition_name))
-    return nil
+  local base_definition = g_base_definitions[base_definition_name]
+  if nil ~= base_definition_name then
+      return base_definition
   end
 
-  return base_definition
+  base_definition = _G[base_definition_name]
+  if nil ~= base_definition_name then
+      return base_definition
+    end
+
+  print_error("base definition missing: " .. tostring(base_definition_name))
+  table_print(base_obj)
+  return nil
 end
 
 

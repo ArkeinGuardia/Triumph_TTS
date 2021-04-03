@@ -14,6 +14,26 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c87f]={
   max=3,
   description='2-horse battle platforms with champions who dismount to fight on foot',
 }
+g_str_5fb1ba27e1af06001770c87f_dismounted='5fb1ba27e1af06001770c87f_dismounted'
+g_base_definitions[g_str_5fb1ba27e1af06001770c87f_dismounted]={
+  id=g_str_5fb1ba27e1af06001770c87f_dismounted,
+  name='Warrior',
+  min=1,
+  max=3,
+  description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounted from Battle Taxi',
+  points=3,
+}
+g_5fb1ba27e1af06001770c87f_dismounted=g_base_definitions[g_str_5fb1ba27e1af06001770c87f_dismounted]
+g_str_5fb1ba27e1af06001770c87f_mounted='5fb1ba27e1af06001770c87f_mounted'
+g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted]={
+  id=g_str_5fb1ba27e1af06001770c87f_mounted,
+  name='Battle Taxi',
+  min=1,
+  max=3,
+  description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounting as Warrior',
+  points=3,
+  dismount_as=g_5fb1ba27e1af06001770c87f_dismounted,
+}
 g_str_5fb1ba27e1af06001770c883='5fb1ba27e1af06001770c883'
 g_base_definitions[g_str_5fb1ba27e1af06001770c883]={
   id=g_str_5fb1ba27e1af06001770c883,
@@ -21,6 +41,26 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c883]={
   min=0,
   max=1,
   description='2-horse battle platforms with champions who dismount to fight on foot',
+}
+g_str_5fb1ba27e1af06001770c883_dismounted='5fb1ba27e1af06001770c883_dismounted'
+g_base_definitions[g_str_5fb1ba27e1af06001770c883_dismounted]={
+  id=g_str_5fb1ba27e1af06001770c883_dismounted,
+  name='Warrior',
+  min=0,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounted from Battle Taxi',
+  points=3,
+}
+g_5fb1ba27e1af06001770c883_dismounted=g_base_definitions[g_str_5fb1ba27e1af06001770c883_dismounted]
+g_str_5fb1ba27e1af06001770c883_mounted='5fb1ba27e1af06001770c883_mounted'
+g_base_definitions[g_str_5fb1ba27e1af06001770c883_mounted]={
+  id=g_str_5fb1ba27e1af06001770c883_mounted,
+  name='Battle Taxi',
+  min=0,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounting as Warrior',
+  points=3,
+  dismount_as=g_5fb1ba27e1af06001770c883_dismounted,
 }
 g_str_5fb1ba27e1af06001770c887='5fb1ba27e1af06001770c887'
 g_base_definitions[g_str_5fb1ba27e1af06001770c887]={
@@ -99,7 +139,11 @@ army['5fb1b9dce1af06001770959d']={
   g_base_definitions[g_str_5fb1ba27e1af06001770c892],
   g_base_definitions[g_str_5fb1ba27e1af06001770c893],
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_dismounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c883],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_mounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_dismounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c887],
   g_base_definitions[g_str_5fb1ba27e1af06001770c889],
   g_base_definitions[g_str_5fb1ba27e1af06001770c88b],

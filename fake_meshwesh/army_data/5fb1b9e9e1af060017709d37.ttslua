@@ -30,6 +30,26 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e40b]={
   max=1,
   description='Swabian German mercenary men-at-arms',
 }
+g_str_5fb1ba35e1af06001770e40b_dismounted='5fb1ba35e1af06001770e40b_dismounted'
+g_base_definitions[g_str_5fb1ba35e1af06001770e40b_dismounted]={
+  id=g_str_5fb1ba35e1af06001770e40b_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Swabian German mercenary men-at-arms\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba35e1af06001770e40b_dismounted=g_base_definitions[g_str_5fb1ba35e1af06001770e40b_dismounted]
+g_str_5fb1ba35e1af06001770e40b_mounted='5fb1ba35e1af06001770e40b_mounted'
+g_base_definitions[g_str_5fb1ba35e1af06001770e40b_mounted]={
+  id=g_str_5fb1ba35e1af06001770e40b_mounted,
+  name='Knights',
+  min=0,
+  max=1,
+  description='Swabian German mercenary men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba35e1af06001770e40b_dismounted,
+}
 g_str_5fb1ba35e1af06001770e40f='5fb1ba35e1af06001770e40f'
 g_base_definitions[g_str_5fb1ba35e1af06001770e40f]={
   id=g_str_5fb1ba35e1af06001770e40f,
@@ -149,6 +169,8 @@ army['5fb1b9e9e1af060017709d37']={
   g_base_definitions[g_str_5fb1ba35e1af06001770e405],
   g_base_definitions[g_str_5fb1ba35e1af06001770e408],
   g_base_definitions[g_str_5fb1ba35e1af06001770e40b],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e40b_mounted],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e40b_dismounted],
   g_base_definitions[g_str_5fb1ba35e1af06001770e40f],
   g_base_definitions[g_str_5fb1ba35e1af06001770e411],
   g_base_definitions[g_str_5fb1ba35e1af06001770e413],
