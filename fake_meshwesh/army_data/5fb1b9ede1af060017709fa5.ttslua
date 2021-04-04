@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba3ae1af06001770ee91_general='5fb1ba3ae1af06001770ee91_general'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ee91_general]={
+  id=g_str_5fb1ba3ae1af06001770ee91_general,
+  name='Javelin Cavalry General',
+  min=4,
+  max=1,
+  description='Syrian, Kurdish, or Armenian horsemen',
+  general=true,
+}
 g_str_5fb1ba3ae1af06001770ee91='5fb1ba3ae1af06001770ee91'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ee91]={
   id=g_str_5fb1ba3ae1af06001770ee91,
@@ -13,6 +22,15 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ee91]={
   min=4,
   max=8,
   description='Syrian, Kurdish, or Armenian horsemen',
+}
+g_str_5fb1ba3ae1af06001770ee93_general='5fb1ba3ae1af06001770ee93_general'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ee93_general]={
+  id=g_str_5fb1ba3ae1af06001770ee93_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Bedouin Arab horsemen',
+  general=true,
 }
 g_str_5fb1ba3ae1af06001770ee93='5fb1ba3ae1af06001770ee93'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ee93]={
@@ -62,13 +80,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ee9d]={
   max=1,
   description='Armored spearmen',
 }
-g_str_5fb1ba3ae1af06001770ee9f='5fb1ba3ae1af06001770ee9f'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee9f]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba3ae1af06001770ee9f,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9ede1af060017709fa5_camp='5fb1b9ede1af060017709fa5_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709fa5_camp]={
   name='Camp',
@@ -82,7 +93,9 @@ army['5fb1b9ede1af060017709fa5']={
   },
   g_base_definitions[g_str_5fb1b9ede1af060017709fa5_camp],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee9f],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee91_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee91],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee93_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee93],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee95],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee97],

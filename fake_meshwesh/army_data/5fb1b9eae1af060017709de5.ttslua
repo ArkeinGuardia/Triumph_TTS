@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba37e1af06001770e718_general='5fb1ba37e1af06001770e718_general'
+g_base_definitions[g_str_5fb1ba37e1af06001770e718_general]={
+  id=g_str_5fb1ba37e1af06001770e718_general,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Malaia Druzhina horsemen',
+  general=true,
+}
 g_str_5fb1ba37e1af06001770e718='5fb1ba37e1af06001770e718'
 g_base_definitions[g_str_5fb1ba37e1af06001770e718]={
   id=g_str_5fb1ba37e1af06001770e718,
@@ -78,13 +87,64 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e72b]={
   max=4,
   description='Chorni Klobuki {settled Turkic horsemen} sometimes brigaded with poorer Russian nobles fighting in steppe style',
 }
+g_str_5fb1ba37e1af06001770e72d_general='5fb1ba37e1af06001770e72d_general'
+g_base_definitions[g_str_5fb1ba37e1af06001770e72d_general]={
+  id=g_str_5fb1ba37e1af06001770e72d_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='German or Polish men-at-arms',
+  general=true,
+}
+g_str_5fb1ba37e1af06001770e72d_general_dismounted='5fb1ba37e1af06001770e72d_general_dismounted'
+g_base_definitions[g_str_5fb1ba37e1af06001770e72d_general_dismounted]={
+  id=g_str_5fb1ba37e1af06001770e72d_general_dismounted,
+  name='Elite Foot General',
+  min=0,
+  max=1,
+  description='German or Polish men-at-arms\nDeployment dismounted from Knights General',
+  points=4,
+  general=true,
+}
+g_5fb1ba37e1af06001770e72d_general_dismounted=g_base_definitions[g_str_5fb1ba37e1af06001770e72d_general_dismounted]
+g_str_5fb1ba37e1af06001770e72d_general_mounted='5fb1ba37e1af06001770e72d_general_mounted'
+g_base_definitions[g_str_5fb1ba37e1af06001770e72d_general_mounted]={
+  id=g_str_5fb1ba37e1af06001770e72d_general_mounted,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='German or Polish men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba37e1af06001770e72d_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba37e1af06001770e72d='5fb1ba37e1af06001770e72d'
 g_base_definitions[g_str_5fb1ba37e1af06001770e72d]={
   id=g_str_5fb1ba37e1af06001770e72d,
   name='Knights',
   min=0,
   max=1,
-  description='Germans or Polish men-at-arms, or Lithuanian horsemen',
+  description='German or Polish men-at-arms',
+}
+g_str_5fb1ba37e1af06001770e72d_dismounted='5fb1ba37e1af06001770e72d_dismounted'
+g_base_definitions[g_str_5fb1ba37e1af06001770e72d_dismounted]={
+  id=g_str_5fb1ba37e1af06001770e72d_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='German or Polish men-at-arms\nDeployment dismounted from Knights',
+  points=4,
+}
+g_5fb1ba37e1af06001770e72d_dismounted=g_base_definitions[g_str_5fb1ba37e1af06001770e72d_dismounted]
+g_str_5fb1ba37e1af06001770e72d_mounted='5fb1ba37e1af06001770e72d_mounted'
+g_base_definitions[g_str_5fb1ba37e1af06001770e72d_mounted]={
+  id=g_str_5fb1ba37e1af06001770e72d_mounted,
+  name='Knights',
+  min=0,
+  max=1,
+  description='German or Polish men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba37e1af06001770e72d_dismounted,
 }
 g_str_5fb1ba37e1af06001770e72e='5fb1ba37e1af06001770e72e'
 g_base_definitions[g_str_5fb1ba37e1af06001770e72e]={
@@ -92,7 +152,27 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e72e]={
   name='Javelin Cavalry',
   min=0,
   max=1,
-  description='Germans or Polish men-at-arms, or Lithuanian horsemen',
+  description='Lithuanian horsemen',
+}
+g_str_5fb1ba37e1af06001770e72e_dismounted='5fb1ba37e1af06001770e72e_dismounted'
+g_base_definitions[g_str_5fb1ba37e1af06001770e72e_dismounted]={
+  id=g_str_5fb1ba37e1af06001770e72e_dismounted,
+  name='Archers',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+}
+g_5fb1ba37e1af06001770e72e_dismounted=g_base_definitions[g_str_5fb1ba37e1af06001770e72e_dismounted]
+g_str_5fb1ba37e1af06001770e72e_mounted='5fb1ba37e1af06001770e72e_mounted'
+g_base_definitions[g_str_5fb1ba37e1af06001770e72e_mounted]={
+  id=g_str_5fb1ba37e1af06001770e72e_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen\nDeployment dismounting as Archers',
+  points=4,
+  dismount_as=g_5fb1ba37e1af06001770e72e_dismounted,
 }
 g_str_5fb1ba37e1af06001770e731='5fb1ba37e1af06001770e731'
 g_base_definitions[g_str_5fb1ba37e1af06001770e731]={
@@ -101,13 +181,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e731]={
   min=0,
   max=1,
   description='Hungarian horse archers',
-}
-g_str_5fb1ba37e1af06001770e733='5fb1ba37e1af06001770e733'
-g_base_definitions[g_str_5fb1ba37e1af06001770e733]={
-  name='Knights General',
-  id=g_str_5fb1ba37e1af06001770e733,
-  min=1,
-  max=1,
 }
 g_str_5fb1b9eae1af060017709de5_camp='5fb1b9eae1af060017709de5_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709de5_camp]={
@@ -122,6 +195,7 @@ army['5fb1b9eae1af060017709de5']={
   },
   g_base_definitions[g_str_5fb1b9eae1af060017709de5_camp],
   g_base_definitions[g_str_5fb1ba37e1af06001770e733],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e718_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e718],
   g_base_definitions[g_str_5fb1ba37e1af06001770e71a],
   g_base_definitions[g_str_5fb1ba37e1af06001770e71c],
@@ -131,8 +205,15 @@ army['5fb1b9eae1af060017709de5']={
   g_base_definitions[g_str_5fb1ba37e1af06001770e727],
   g_base_definitions[g_str_5fb1ba37e1af06001770e729],
   g_base_definitions[g_str_5fb1ba37e1af06001770e72b],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e72d_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e72d_general_mounted],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e72d_general_dismounted],
   g_base_definitions[g_str_5fb1ba37e1af06001770e72d],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e72d_mounted],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e72d_dismounted],
   g_base_definitions[g_str_5fb1ba37e1af06001770e72e],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e72e_mounted],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e72e_dismounted],
   g_base_definitions[g_str_5fb1ba37e1af06001770e731],
 }
 if nil == armies["Meshwesh id"] then

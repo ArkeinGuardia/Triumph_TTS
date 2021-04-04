@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba22e1af06001770c33f_general='5fb1ba22e1af06001770c33f_general'
+g_base_definitions[g_str_5fb1ba22e1af06001770c33f_general]={
+  id=g_str_5fb1ba22e1af06001770c33f_general,
+  name='Chariots General',
+  min=1,
+  max=1,
+  description='4-horse chariots with three crewmen or 2-horse chariots with two crewmen',
+  general=true,
+}
 g_str_5fb1ba22e1af06001770c33f='5fb1ba22e1af06001770c33f'
 g_base_definitions[g_str_5fb1ba22e1af06001770c33f]={
   id=g_str_5fb1ba22e1af06001770c33f,
@@ -38,13 +47,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c345]={
   max=20,
   description='Bowmen',
 }
-g_str_5fb1ba22e1af06001770c347='5fb1ba22e1af06001770c347'
-g_base_definitions[g_str_5fb1ba22e1af06001770c347]={
-  name='Chariots General',
-  id=g_str_5fb1ba22e1af06001770c347,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9dae1af060017709438_camp='5fb1b9dae1af060017709438_camp'
 g_base_definitions[g_str_5fb1b9dae1af060017709438_camp]={
   name='Camp',
@@ -58,6 +60,7 @@ army['5fb1b9dae1af060017709438']={
   },
   g_base_definitions[g_str_5fb1b9dae1af060017709438_camp],
   g_base_definitions[g_str_5fb1ba22e1af06001770c347],
+  g_base_definitions[g_str_5fb1ba22e1af06001770c33f_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c33f],
   g_base_definitions[g_str_5fb1ba22e1af06001770c341],
   g_base_definitions[g_str_5fb1ba22e1af06001770c343],

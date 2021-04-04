@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba44e1af06001770fdfe_general='5fb1ba44e1af06001770fdfe_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fdfe_general]={
+  id=g_str_5fb1ba44e1af06001770fdfe_general,
+  name='Raiders General',
+  min=1,
+  max=1,
+  description='Suit-wearers',
+  general=true,
+}
 g_str_5fb1ba44e1af06001770fdfe='5fb1ba44e1af06001770fdfe'
 g_base_definitions[g_str_5fb1ba44e1af06001770fdfe]={
   id=g_str_5fb1ba44e1af06001770fdfe,
@@ -13,6 +22,15 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fdfe]={
   min=1,
   max=3,
   description='Suit-wearers',
+}
+g_str_5fb1ba44e1af06001770fe00_general='5fb1ba44e1af06001770fe00_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe00_general]={
+  id=g_str_5fb1ba44e1af06001770fe00_general,
+  name='Archers General',
+  min=0,
+  max=1,
+  description='Bowmen protected by shield-bearers',
+  general=true,
 }
 g_str_5fb1ba44e1af06001770fe00='5fb1ba44e1af06001770fe00'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe00]={
@@ -46,20 +64,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe06]={
   max=2,
   description='Scouts',
 }
-g_str_5fb1ba44e1af06001770fe08='5fb1ba44e1af06001770fe08'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe08]={
-  name='Archers General',
-  id=g_str_5fb1ba44e1af06001770fe08,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba44e1af06001770fe09='5fb1ba44e1af06001770fe09'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe09]={
-  name='Raiders General',
-  id=g_str_5fb1ba44e1af06001770fe09,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9f5e1af06001770a423_camp='5fb1b9f5e1af06001770a423_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a423_camp]={
   name='Camp',
@@ -74,7 +78,9 @@ army['5fb1b9f5e1af06001770a423']={
   g_base_definitions[g_str_5fb1b9f5e1af06001770a423_camp],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe08],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe09],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fdfe_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fdfe],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe00_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe00],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe02],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe04],

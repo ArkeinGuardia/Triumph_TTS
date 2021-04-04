@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba37e1af06001770e799_general='5fb1ba37e1af06001770e799_general'
+g_base_definitions[g_str_5fb1ba37e1af06001770e799_general]={
+  id=g_str_5fb1ba37e1af06001770e799_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Noble horsemen',
+  general=true,
+}
 g_str_5fb1ba37e1af06001770e799='5fb1ba37e1af06001770e799'
 g_base_definitions[g_str_5fb1ba37e1af06001770e799]={
   id=g_str_5fb1ba37e1af06001770e799,
@@ -21,6 +30,15 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e79b]={
   min=0,
   max=1,
   description='Guard spearmen',
+}
+g_str_5fb1ba37e1af06001770e79e_general='5fb1ba37e1af06001770e79e_general'
+g_base_definitions[g_str_5fb1ba37e1af06001770e79e_general]={
+  id=g_str_5fb1ba37e1af06001770e79e_general,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Royal Army horsemen',
+  general=true,
 }
 g_str_5fb1ba37e1af06001770e79e='5fb1ba37e1af06001770e79e'
 g_base_definitions[g_str_5fb1ba37e1af06001770e79e]={
@@ -78,20 +96,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7ab]={
   max=4,
   description='Slavic light infantry',
 }
-g_str_5fb1ba37e1af06001770e7ad='5fb1ba37e1af06001770e7ad'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7ad]={
-  name='Knights General',
-  id=g_str_5fb1ba37e1af06001770e7ad,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba37e1af06001770e7af='5fb1ba37e1af06001770e7af'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7af]={
-  name='Elite Cavalary General',
-  id=g_str_5fb1ba37e1af06001770e7af,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9eae1af060017709e02_camp='5fb1b9eae1af060017709e02_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709e02_camp]={
   name='Camp',
@@ -106,8 +110,10 @@ army['5fb1b9eae1af060017709e02']={
   g_base_definitions[g_str_5fb1b9eae1af060017709e02_camp],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7ad],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7af],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e799_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e799],
   g_base_definitions[g_str_5fb1ba37e1af06001770e79b],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e79e_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e79e],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7a0],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7a2],

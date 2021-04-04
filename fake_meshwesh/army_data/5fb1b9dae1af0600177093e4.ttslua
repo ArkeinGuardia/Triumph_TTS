@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba21e1af06001770c1b4_general='5fb1ba21e1af06001770c1b4_general'
+g_base_definitions[g_str_5fb1ba21e1af06001770c1b4_general]={
+  id=g_str_5fb1ba21e1af06001770c1b4_general,
+  name='Chariots General',
+  min=2,
+  max=1,
+  description='2-horse chariots with two crewmen, or 3- or 4-horse chariots with three crewmen',
+  general=true,
+}
 g_str_5fb1ba21e1af06001770c1b4='5fb1ba21e1af06001770c1b4'
 g_base_definitions[g_str_5fb1ba21e1af06001770c1b4]={
   id=g_str_5fb1ba21e1af06001770c1b4,
@@ -62,13 +71,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1c0]={
   max=1,
   description='Aramaean or Arab camelry',
 }
-g_str_5fb1ba21e1af06001770c1c3='5fb1ba21e1af06001770c1c3'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1c3]={
-  name='Chariots General',
-  id=g_str_5fb1ba21e1af06001770c1c3,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9dae1af0600177093e4_camp='5fb1b9dae1af0600177093e4_camp'
 g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp]={
   name='Camp',
@@ -82,6 +84,7 @@ army['5fb1b9dae1af0600177093e4']={
   },
   g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1c3],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c1b4_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1b4],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1b6],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1b8],

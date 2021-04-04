@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba44e1af06001770fe82_general='5fb1ba44e1af06001770fe82_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe82_general]={
+  id=g_str_5fb1ba44e1af06001770fe82_general,
+  name='Raiders General',
+  min=1,
+  max=1,
+  description='Inca noble bodyguard',
+  general=true,
+}
 g_str_5fb1ba44e1af06001770fe82='5fb1ba44e1af06001770fe82'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe82]={
   id=g_str_5fb1ba44e1af06001770fe82,
@@ -38,6 +47,15 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe89]={
   max=12,
   description='Quechua and Aymara military mita',
 }
+g_str_5fb1ba44e1af06001770fe8c_general='5fb1ba44e1af06001770fe8c_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe8c_general]={
+  id=g_str_5fb1ba44e1af06001770fe8c_general,
+  name='Raiders General',
+  min=0,
+  max=1,
+  description='Coastal Peruvian nobles',
+  general=true,
+}
 g_str_5fb1ba44e1af06001770fe8c='5fb1ba44e1af06001770fe8c'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe8c]={
   id=g_str_5fb1ba44e1af06001770fe8c,
@@ -45,13 +63,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe8c]={
   min=0,
   max=1,
   description='Coastal Peruvian nobles',
-}
-g_str_5fb1ba44e1af06001770fe8e='5fb1ba44e1af06001770fe8e'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe8e]={
-  name='Raiders General',
-  id=g_str_5fb1ba44e1af06001770fe8e,
-  min=1,
-  max=1,
 }
 g_str_5fb1b9f6e1af06001770a47d_camp='5fb1b9f6e1af06001770a47d_camp'
 g_base_definitions[g_str_5fb1b9f6e1af06001770a47d_camp]={
@@ -66,10 +77,12 @@ army['5fb1b9f6e1af06001770a47d']={
   },
   g_base_definitions[g_str_5fb1b9f6e1af06001770a47d_camp],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe8e],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe82_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe82],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe84],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe86],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe89],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe8c_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe8c],
 }
 if nil == armies["Meshwesh id"] then

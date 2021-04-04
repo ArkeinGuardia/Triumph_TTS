@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba39e1af06001770ec0b_general='5fb1ba39e1af06001770ec0b_general'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_general]={
+  id=g_str_5fb1ba39e1af06001770ec0b_general,
+  name='Javelin Cavalry General',
+  min=2,
+  max=1,
+  description='Ahl Khurasan Arab lancers',
+  general=true,
+}
+g_str_5fb1ba39e1af06001770ec0b_general_dismounted='5fb1ba39e1af06001770ec0b_general_dismounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_general_dismounted]={
+  id=g_str_5fb1ba39e1af06001770ec0b_general_dismounted,
+  name='Spears General',
+  min=2,
+  max=1,
+  description='Ahl Khurasan Arab lancers\nDeployment dismounted from Javelin Cavalry General',
+  points=4,
+  general=true,
+}
+g_5fb1ba39e1af06001770ec0b_general_dismounted=g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_general_dismounted]
+g_str_5fb1ba39e1af06001770ec0b_general_mounted='5fb1ba39e1af06001770ec0b_general_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_general_mounted]={
+  id=g_str_5fb1ba39e1af06001770ec0b_general_mounted,
+  name='Javelin Cavalry General',
+  min=2,
+  max=1,
+  description='Ahl Khurasan Arab lancers\nDeployment dismounting as Spears',
+  points=4,
+  dismount_as=g_5fb1ba39e1af06001770ec0b_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba39e1af06001770ec0b='5fb1ba39e1af06001770ec0b'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec0b]={
   id=g_str_5fb1ba39e1af06001770ec0b,
@@ -134,6 +165,15 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec26]={
   max=1,
   description='Mutatawwi\'a volunteers',
 }
+g_str_5fb1ba39e1af06001770ec28_general='5fb1ba39e1af06001770ec28_general'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec28_general]={
+  id=g_str_5fb1ba39e1af06001770ec28_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Mutatawwi\'a volunteers or tribal Arab auxiliary horsemen',
+  general=true,
+}
 g_str_5fb1ba39e1af06001770ec28='5fb1ba39e1af06001770ec28'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec28]={
   id=g_str_5fb1ba39e1af06001770ec28,
@@ -166,13 +206,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec2d]={
   max=1,
   description='Manjaniq rope-pull stone throwers and \'Arrada "kickers"',
 }
-g_str_5fb1ba39e1af06001770ec2f='5fb1ba39e1af06001770ec2f'
-g_base_definitions[g_str_5fb1ba39e1af06001770ec2f]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba39e1af06001770ec2f,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9ede1af060017709f14_camp='5fb1b9ede1af060017709f14_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709f14_camp]={
   name='Camp',
@@ -186,6 +219,9 @@ army['5fb1b9ede1af060017709f14']={
   },
   g_base_definitions[g_str_5fb1b9ede1af060017709f14_camp],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec2f],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_general_dismounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec0b],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_mounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec0b_dismounted],
@@ -201,6 +237,7 @@ army['5fb1b9ede1af060017709f14']={
   g_base_definitions[g_str_5fb1ba39e1af06001770ec22],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec24],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec26],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec28_general],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec28],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec2a],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec2b],

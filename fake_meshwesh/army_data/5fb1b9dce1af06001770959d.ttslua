@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba27e1af06001770c87f_general='5fb1ba27e1af06001770c87f_general'
+g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general]={
+  id=g_str_5fb1ba27e1af06001770c87f_general,
+  name='Battle Taxi General',
+  min=1,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot',
+  general=true,
+}
+g_str_5fb1ba27e1af06001770c87f_general_dismounted='5fb1ba27e1af06001770c87f_general_dismounted'
+g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_dismounted]={
+  id=g_str_5fb1ba27e1af06001770c87f_general_dismounted,
+  name='Warrior General',
+  min=1,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounted from Battle Taxi General',
+  points=3,
+  general=true,
+}
+g_5fb1ba27e1af06001770c87f_general_dismounted=g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_dismounted]
+g_str_5fb1ba27e1af06001770c87f_general_mounted='5fb1ba27e1af06001770c87f_general_mounted'
+g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_mounted]={
+  id=g_str_5fb1ba27e1af06001770c87f_general_mounted,
+  name='Battle Taxi General',
+  min=1,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounting as Warrior',
+  points=3,
+  dismount_as=g_5fb1ba27e1af06001770c87f_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba27e1af06001770c87f='5fb1ba27e1af06001770c87f'
 g_base_definitions[g_str_5fb1ba27e1af06001770c87f]={
   id=g_str_5fb1ba27e1af06001770c87f,
@@ -33,6 +64,37 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted]={
   description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounting as Warrior',
   points=3,
   dismount_as=g_5fb1ba27e1af06001770c87f_dismounted,
+}
+g_str_5fb1ba27e1af06001770c883_general='5fb1ba27e1af06001770c883_general'
+g_base_definitions[g_str_5fb1ba27e1af06001770c883_general]={
+  id=g_str_5fb1ba27e1af06001770c883_general,
+  name='Battle Taxi General',
+  min=0,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot',
+  general=true,
+}
+g_str_5fb1ba27e1af06001770c883_general_dismounted='5fb1ba27e1af06001770c883_general_dismounted'
+g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_dismounted]={
+  id=g_str_5fb1ba27e1af06001770c883_general_dismounted,
+  name='Warrior General',
+  min=0,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounted from Battle Taxi General',
+  points=3,
+  general=true,
+}
+g_5fb1ba27e1af06001770c883_general_dismounted=g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_dismounted]
+g_str_5fb1ba27e1af06001770c883_general_mounted='5fb1ba27e1af06001770c883_general_mounted'
+g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_mounted]={
+  id=g_str_5fb1ba27e1af06001770c883_general_mounted,
+  name='Battle Taxi General',
+  min=0,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot\nDeployment dismounting as Warrior',
+  points=3,
+  dismount_as=g_5fb1ba27e1af06001770c883_general_dismounted,
+  general=true,
 }
 g_str_5fb1ba27e1af06001770c883='5fb1ba27e1af06001770c883'
 g_base_definitions[g_str_5fb1ba27e1af06001770c883]={
@@ -62,6 +124,15 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c883_mounted]={
   points=3,
   dismount_as=g_5fb1ba27e1af06001770c883_dismounted,
 }
+g_str_5fb1ba27e1af06001770c887_general='5fb1ba27e1af06001770c887_general'
+g_base_definitions[g_str_5fb1ba27e1af06001770c887_general]={
+  id=g_str_5fb1ba27e1af06001770c887_general,
+  name='Javelin Cavalry General',
+  min=1,
+  max=1,
+  description='Noble horsemen',
+  general=true,
+}
 g_str_5fb1ba27e1af06001770c887='5fb1ba27e1af06001770c887'
 g_base_definitions[g_str_5fb1ba27e1af06001770c887]={
   id=g_str_5fb1ba27e1af06001770c887,
@@ -77,6 +148,15 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c889]={
   min=0,
   max=3,
   description='Horsemen',
+}
+g_str_5fb1ba27e1af06001770c88b_general='5fb1ba27e1af06001770c88b_general'
+g_base_definitions[g_str_5fb1ba27e1af06001770c88b_general]={
+  id=g_str_5fb1ba27e1af06001770c88b_general,
+  name='Warriors General',
+  min=8,
+  max=1,
+  description='Fierce fighters',
+  general=true,
 }
 g_str_5fb1ba27e1af06001770c88b='5fb1ba27e1af06001770c88b'
 g_base_definitions[g_str_5fb1ba27e1af06001770c88b]={
@@ -102,27 +182,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c88f]={
   max=3,
   description='Gaesati naked fighters',
 }
-g_str_5fb1ba27e1af06001770c891='5fb1ba27e1af06001770c891'
-g_base_definitions[g_str_5fb1ba27e1af06001770c891]={
-  name='Warriors General',
-  id=g_str_5fb1ba27e1af06001770c891,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba27e1af06001770c892='5fb1ba27e1af06001770c892'
-g_base_definitions[g_str_5fb1ba27e1af06001770c892]={
-  name='Battle Taxi General',
-  id=g_str_5fb1ba27e1af06001770c892,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba27e1af06001770c893='5fb1ba27e1af06001770c893'
-g_base_definitions[g_str_5fb1ba27e1af06001770c893]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba27e1af06001770c893,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9dce1af06001770959d_camp='5fb1b9dce1af06001770959d_camp'
 g_base_definitions[g_str_5fb1b9dce1af06001770959d_camp]={
   name='Camp',
@@ -138,14 +197,22 @@ army['5fb1b9dce1af06001770959d']={
   g_base_definitions[g_str_5fb1ba27e1af06001770c891],
   g_base_definitions[g_str_5fb1ba27e1af06001770c892],
   g_base_definitions[g_str_5fb1ba27e1af06001770c893],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_mounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_dismounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f],
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f_dismounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_mounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_dismounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c883],
   g_base_definitions[g_str_5fb1ba27e1af06001770c883_mounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c883_dismounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c887_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c887],
   g_base_definitions[g_str_5fb1ba27e1af06001770c889],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c88b_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c88b],
   g_base_definitions[g_str_5fb1ba27e1af06001770c88d],
   g_base_definitions[g_str_5fb1ba27e1af06001770c88f],

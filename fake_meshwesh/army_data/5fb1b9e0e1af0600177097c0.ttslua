@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba2ae1af06001770d0cc_general='5fb1ba2ae1af06001770d0cc_general'
+g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc_general]={
+  id=g_str_5fb1ba2ae1af06001770d0cc_general,
+  name='Cataphracts General',
+  min=1,
+  max=1,
+  description='Cataphracts',
+  general=true,
+}
 g_str_5fb1ba2ae1af06001770d0cc='5fb1ba2ae1af06001770d0cc'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc]={
   id=g_str_5fb1ba2ae1af06001770d0cc,
@@ -46,13 +55,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0d4]={
   max=5,
   description='City dwellers skirmishing with javelins, bows or slings',
 }
-g_str_5fb1ba2ae1af06001770d0d6='5fb1ba2ae1af06001770d0d6'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0d6]={
-  name='Cataphracts General',
-  id=g_str_5fb1ba2ae1af06001770d0d6,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e0e1af0600177097c0_camp='5fb1b9e0e1af0600177097c0_camp'
 g_base_definitions[g_str_5fb1b9e0e1af0600177097c0_camp]={
   name='Camp',
@@ -66,6 +68,7 @@ army['5fb1b9e0e1af0600177097c0']={
   },
   g_base_definitions[g_str_5fb1b9e0e1af0600177097c0_camp],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0d6],
+  g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0cf],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0d1],

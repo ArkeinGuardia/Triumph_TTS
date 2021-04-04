@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba33e1af06001770e060_general='5fb1ba33e1af06001770e060_general'
+g_base_definitions[g_str_5fb1ba33e1af06001770e060_general]={
+  id=g_str_5fb1ba33e1af06001770e060_general,
+  name='Knights General',
+  min=3,
+  max=1,
+  description='Chevaliers',
+  general=true,
+}
+g_str_5fb1ba33e1af06001770e060_general_dismounted='5fb1ba33e1af06001770e060_general_dismounted'
+g_base_definitions[g_str_5fb1ba33e1af06001770e060_general_dismounted]={
+  id=g_str_5fb1ba33e1af06001770e060_general_dismounted,
+  name='Elite Foot General',
+  min=3,
+  max=1,
+  description='Chevaliers\nDeployment dismounted from Knights General',
+  points=4,
+  general=true,
+}
+g_5fb1ba33e1af06001770e060_general_dismounted=g_base_definitions[g_str_5fb1ba33e1af06001770e060_general_dismounted]
+g_str_5fb1ba33e1af06001770e060_general_mounted='5fb1ba33e1af06001770e060_general_mounted'
+g_base_definitions[g_str_5fb1ba33e1af06001770e060_general_mounted]={
+  id=g_str_5fb1ba33e1af06001770e060_general_mounted,
+  name='Knights General',
+  min=3,
+  max=1,
+  description='Chevaliers\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba33e1af06001770e060_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba33e1af06001770e060='5fb1ba33e1af06001770e060'
 g_base_definitions[g_str_5fb1ba33e1af06001770e060]={
   id=g_str_5fb1ba33e1af06001770e060,
@@ -106,13 +137,6 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e078]={
   max=1,
   description='Bombards or culverins',
 }
-g_str_5fb1ba33e1af06001770e07a='5fb1ba33e1af06001770e07a'
-g_base_definitions[g_str_5fb1ba33e1af06001770e07a]={
-  name='Knights General',
-  id=g_str_5fb1ba33e1af06001770e07a,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e7e1af060017709c4b_camp='5fb1b9e7e1af060017709c4b_camp'
 g_base_definitions[g_str_5fb1b9e7e1af060017709c4b_camp]={
   name='Camp',
@@ -126,6 +150,9 @@ army['5fb1b9e7e1af060017709c4b']={
   },
   g_base_definitions[g_str_5fb1b9e7e1af060017709c4b_camp],
   g_base_definitions[g_str_5fb1ba33e1af06001770e07a],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e060_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e060_general_mounted],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e060_general_dismounted],
   g_base_definitions[g_str_5fb1ba33e1af06001770e060],
   g_base_definitions[g_str_5fb1ba33e1af06001770e060_mounted],
   g_base_definitions[g_str_5fb1ba33e1af06001770e060_dismounted],

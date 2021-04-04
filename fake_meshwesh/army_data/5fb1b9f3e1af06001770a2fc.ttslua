@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba41e1af06001770fb3f_general='5fb1ba41e1af06001770fb3f_general'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb3f_general]={
+  id=g_str_5fb1ba41e1af06001770fb3f_general,
+  name='Elite Cavalary General',
+  min=0,
+  max=1,
+  description='Mongol horsemen armed with lance and bow, riding armored horses',
+  general=true,
+}
 g_str_5fb1ba41e1af06001770fb3f='5fb1ba41e1af06001770fb3f'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb3f]={
   id=g_str_5fb1ba41e1af06001770fb3f,
@@ -13,6 +22,15 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb3f]={
   min=0,
   max=2,
   description='Mongol horsemen armed with lance and bow, riding armored horses',
+}
+g_str_5fb1ba41e1af06001770fb41_general='5fb1ba41e1af06001770fb41_general'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb41_general]={
+  id=g_str_5fb1ba41e1af06001770fb41_general,
+  name='Horse Bow General',
+  min=6,
+  max=1,
+  description='Mongol horse archers',
+  general=true,
 }
 g_str_5fb1ba41e1af06001770fb41='5fb1ba41e1af06001770fb41'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb41]={
@@ -38,6 +56,15 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb46]={
   max=3,
   description='Transoxus Tajik levies',
 }
+g_str_5fb1ba41e1af06001770fb49_general='5fb1ba41e1af06001770fb49_general'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb49_general]={
+  id=g_str_5fb1ba41e1af06001770fb49_general,
+  name='Horse Bow General',
+  min=0,
+  max=1,
+  description='Transoxus Turkoman horse archers',
+  general=true,
+}
 g_str_5fb1ba41e1af06001770fb49='5fb1ba41e1af06001770fb49'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb49]={
   id=g_str_5fb1ba41e1af06001770fb49,
@@ -45,20 +72,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb49]={
   min=0,
   max=1,
   description='Transoxus Turkoman horse archers',
-}
-g_str_5fb1ba41e1af06001770fb4b='5fb1ba41e1af06001770fb4b'
-g_base_definitions[g_str_5fb1ba41e1af06001770fb4b]={
-  name='Elite Cavalary General',
-  id=g_str_5fb1ba41e1af06001770fb4b,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba41e1af06001770fb4c='5fb1ba41e1af06001770fb4c'
-g_base_definitions[g_str_5fb1ba41e1af06001770fb4c]={
-  name='Horse Bow General',
-  id=g_str_5fb1ba41e1af06001770fb4c,
-  min=1,
-  max=1,
 }
 g_str_5fb1b9f3e1af06001770a2fc_camp='5fb1b9f3e1af06001770a2fc_camp'
 g_base_definitions[g_str_5fb1b9f3e1af06001770a2fc_camp]={
@@ -74,10 +87,13 @@ army['5fb1b9f3e1af06001770a2fc']={
   g_base_definitions[g_str_5fb1b9f3e1af06001770a2fc_camp],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb4b],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb4c],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb3f_general],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb3f],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb41_general],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb41],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb43],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb46],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb49_general],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb49],
 }
 if nil == armies["Meshwesh id"] then

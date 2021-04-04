@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba2ae1af06001770d091_general='5fb1ba2ae1af06001770d091_general'
+g_base_definitions[g_str_5fb1ba2ae1af06001770d091_general]={
+  id=g_str_5fb1ba2ae1af06001770d091_general,
+  name='Elephants General',
+  min=2,
+  max=1,
+  description='War elephants',
+  general=true,
+}
 g_str_5fb1ba2ae1af06001770d091='5fb1ba2ae1af06001770d091'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d091]={
   id=g_str_5fb1ba2ae1af06001770d091,
@@ -62,13 +71,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a0]={
   max=4,
   description='Poor quality infantry',
 }
-g_str_5fb1ba2ae1af06001770d0a2='5fb1ba2ae1af06001770d0a2'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0a2]={
-  name='Elephants General',
-  id=g_str_5fb1ba2ae1af06001770d0a2,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e0e1af0600177097ab_camp='5fb1b9e0e1af0600177097ab_camp'
 g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp]={
   name='Camp',
@@ -82,6 +84,7 @@ army['5fb1b9e0e1af0600177097ab']={
   },
   g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0a2],
+  g_base_definitions[g_str_5fb1ba2ae1af06001770d091_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d091],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d094],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d096],

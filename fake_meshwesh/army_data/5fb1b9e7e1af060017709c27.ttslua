@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba33e1af06001770dfd3_general='5fb1ba33e1af06001770dfd3_general'
+g_base_definitions[g_str_5fb1ba33e1af06001770dfd3_general]={
+  id=g_str_5fb1ba33e1af06001770dfd3_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Mesnaderos',
+  general=true,
+}
 g_str_5fb1ba33e1af06001770dfd3='5fb1ba33e1af06001770dfd3'
 g_base_definitions[g_str_5fb1ba33e1af06001770dfd3]={
   id=g_str_5fb1ba33e1af06001770dfd3,
@@ -14,6 +23,15 @@ g_base_definitions[g_str_5fb1ba33e1af06001770dfd3]={
   max=1,
   description='Mesnaderos',
 }
+g_str_5fb1ba33e1af06001770dfd6_general='5fb1ba33e1af06001770dfd6_general'
+g_base_definitions[g_str_5fb1ba33e1af06001770dfd6_general]={
+  id=g_str_5fb1ba33e1af06001770dfd6_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Norman men-at-arms',
+  general=true,
+}
 g_str_5fb1ba33e1af06001770dfd6='5fb1ba33e1af06001770dfd6'
 g_base_definitions[g_str_5fb1ba33e1af06001770dfd6]={
   id=g_str_5fb1ba33e1af06001770dfd6,
@@ -21,6 +39,37 @@ g_base_definitions[g_str_5fb1ba33e1af06001770dfd6]={
   min=0,
   max=1,
   description='Norman men-at-arms',
+}
+g_str_5fb1ba33e1af06001770dfd9_general='5fb1ba33e1af06001770dfd9_general'
+g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general]={
+  id=g_str_5fb1ba33e1af06001770dfd9_general,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Free company Gascon or English men-at-arms',
+  general=true,
+}
+g_str_5fb1ba33e1af06001770dfd9_general_dismounted='5fb1ba33e1af06001770dfd9_general_dismounted'
+g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general_dismounted]={
+  id=g_str_5fb1ba33e1af06001770dfd9_general_dismounted,
+  name='Elite Foot General',
+  min=1,
+  max=1,
+  description='Free company Gascon or English men-at-arms\nDeployment dismounted from Knights General',
+  points=4,
+  general=true,
+}
+g_5fb1ba33e1af06001770dfd9_general_dismounted=g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general_dismounted]
+g_str_5fb1ba33e1af06001770dfd9_general_mounted='5fb1ba33e1af06001770dfd9_general_mounted'
+g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general_mounted]={
+  id=g_str_5fb1ba33e1af06001770dfd9_general_mounted,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Free company Gascon or English men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba33e1af06001770dfd9_general_dismounted,
+  general=true,
 }
 g_str_5fb1ba33e1af06001770dfd9='5fb1ba33e1af06001770dfd9'
 g_base_definitions[g_str_5fb1ba33e1af06001770dfd9]={
@@ -50,6 +99,15 @@ g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_mounted]={
   points=4,
   dismount_as=g_5fb1ba33e1af06001770dfd9_dismounted,
 }
+g_str_5fb1ba33e1af06001770dfdd_general='5fb1ba33e1af06001770dfdd_general'
+g_base_definitions[g_str_5fb1ba33e1af06001770dfdd_general]={
+  id=g_str_5fb1ba33e1af06001770dfdd_general,
+  name='Spears General',
+  min=0,
+  max=1,
+  description='Gascon brigans armed with spear and pavise',
+  general=true,
+}
 g_str_5fb1ba33e1af06001770dfdd='5fb1ba33e1af06001770dfdd'
 g_base_definitions[g_str_5fb1ba33e1af06001770dfdd]={
   id=g_str_5fb1ba33e1af06001770dfdd,
@@ -65,6 +123,15 @@ g_base_definitions[g_str_5fb1ba33e1af06001770dfe0]={
   min=0,
   max=2,
   description='Free company English longbowmen',
+}
+g_str_5fb1ba33e1af06001770dfe3_general='5fb1ba33e1af06001770dfe3_general'
+g_base_definitions[g_str_5fb1ba33e1af06001770dfe3_general]={
+  id=g_str_5fb1ba33e1af06001770dfe3_general,
+  name='Light Foot General',
+  min=4,
+  max=1,
+  description='Navarrese javelinmen or Gascon bidets',
+  general=true,
 }
 g_str_5fb1ba33e1af06001770dfe3='5fb1ba33e1af06001770dfe3'
 g_base_definitions[g_str_5fb1ba33e1af06001770dfe3]={
@@ -90,27 +157,6 @@ g_base_definitions[g_str_5fb1ba33e1af06001770dfe7]={
   max=2,
   description='Gascon crossbowmen',
 }
-g_str_5fb1ba33e1af06001770dfe9='5fb1ba33e1af06001770dfe9'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfe9]={
-  name='Knights General',
-  id=g_str_5fb1ba33e1af06001770dfe9,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba33e1af06001770dfeb='5fb1ba33e1af06001770dfeb'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfeb]={
-  name='Spears General',
-  id=g_str_5fb1ba33e1af06001770dfeb,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba33e1af06001770dfed='5fb1ba33e1af06001770dfed'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfed]={
-  name='Light Foot General',
-  id=g_str_5fb1ba33e1af06001770dfed,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e7e1af060017709c27_camp='5fb1b9e7e1af060017709c27_camp'
 g_base_definitions[g_str_5fb1b9e7e1af060017709c27_camp]={
   name='Camp',
@@ -126,13 +172,20 @@ army['5fb1b9e7e1af060017709c27']={
   g_base_definitions[g_str_5fb1ba33e1af06001770dfe9],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfeb],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfed],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd3_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfd3],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd6_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfd6],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general_mounted],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general_dismounted],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfd9],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_mounted],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_dismounted],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfdd_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfdd],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfe0],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe3_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfe3],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfe5],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfe7],

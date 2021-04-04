@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba37e1af06001770e6e0_general='5fb1ba37e1af06001770e6e0_general'
+g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general]={
+  id=g_str_5fb1ba37e1af06001770e6e0_general,
+  name='Bad Horse General',
+  min=0,
+  max=1,
+  description='Fraelse and Smaasvenner',
+  general=true,
+}
+g_str_5fb1ba37e1af06001770e6e0_general_dismounted='5fb1ba37e1af06001770e6e0_general_dismounted'
+g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general_dismounted]={
+  id=g_str_5fb1ba37e1af06001770e6e0_general_dismounted,
+  name='Elite Foot General',
+  min=0,
+  max=1,
+  description='Fraelse and Smaasvenner\nDeployment dismounted from Bad Horse General',
+  points=4,
+  general=true,
+}
+g_5fb1ba37e1af06001770e6e0_general_dismounted=g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general_dismounted]
+g_str_5fb1ba37e1af06001770e6e0_general_mounted='5fb1ba37e1af06001770e6e0_general_mounted'
+g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general_mounted]={
+  id=g_str_5fb1ba37e1af06001770e6e0_general_mounted,
+  name='Bad Horse General',
+  min=0,
+  max=1,
+  description='Fraelse and Smaasvenner\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba37e1af06001770e6e0_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba37e1af06001770e6e0='5fb1ba37e1af06001770e6e0'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e0]={
   id=g_str_5fb1ba37e1af06001770e6e0,
@@ -34,6 +65,15 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_mounted]={
   points=4,
   dismount_as=g_5fb1ba37e1af06001770e6e0_dismounted,
 }
+g_str_5fb1ba37e1af06001770e6e3_general='5fb1ba37e1af06001770e6e3_general'
+g_base_definitions[g_str_5fb1ba37e1af06001770e6e3_general]={
+  id=g_str_5fb1ba37e1af06001770e6e3_general,
+  name='Bad Horse General',
+  min=0,
+  max=1,
+  description='Skyttar armored crossbowmen on horses',
+  general=true,
+}
 g_str_5fb1ba37e1af06001770e6e3='5fb1ba37e1af06001770e6e3'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e3]={
   id=g_str_5fb1ba37e1af06001770e6e3,
@@ -41,6 +81,15 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e3]={
   min=0,
   max=1,
   description='Skyttar armored crossbowmen on horses',
+}
+g_str_5fb1ba37e1af06001770e6e5_general='5fb1ba37e1af06001770e6e5_general'
+g_base_definitions[g_str_5fb1ba37e1af06001770e6e5_general]={
+  id=g_str_5fb1ba37e1af06001770e6e5_general,
+  name='Elite Foot General',
+  min=3,
+  max=1,
+  description='Allmoge peasant infantry armed with mixed polearms',
+  general=true,
 }
 g_str_5fb1ba37e1af06001770e6e5='5fb1ba37e1af06001770e6e5'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e5]={
@@ -74,20 +123,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6ed]={
   max=1,
   description='Finnish infantry',
 }
-g_str_5fb1ba37e1af06001770e6ef='5fb1ba37e1af06001770e6ef'
-g_base_definitions[g_str_5fb1ba37e1af06001770e6ef]={
-  name='Bad Horse General',
-  id=g_str_5fb1ba37e1af06001770e6ef,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba37e1af06001770e6f0='5fb1ba37e1af06001770e6f0'
-g_base_definitions[g_str_5fb1ba37e1af06001770e6f0]={
-  name='Elite Foot General',
-  id=g_str_5fb1ba37e1af06001770e6f0,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9eae1af060017709dd4_camp='5fb1b9eae1af060017709dd4_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709dd4_camp]={
   name='Camp',
@@ -102,10 +137,15 @@ army['5fb1b9eae1af060017709dd4']={
   g_base_definitions[g_str_5fb1b9eae1af060017709dd4_camp],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6ef],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6f0],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general_mounted],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general_dismounted],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6e0],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_mounted],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_dismounted],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6e3_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6e3],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6e5_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6e5],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6e8],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6eb],

@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba29e1af06001770ce7a_general='5fb1ba29e1af06001770ce7a_general'
+g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_general]={
+  id=g_str_5fb1ba29e1af06001770ce7a_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Xystophoroi',
+  general=true,
+}
+g_str_5fb1ba29e1af06001770ce7a_general_dismounted='5fb1ba29e1af06001770ce7a_general_dismounted'
+g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_general_dismounted]={
+  id=g_str_5fb1ba29e1af06001770ce7a_general_dismounted,
+  name='Pikes General',
+  min=0,
+  max=1,
+  description='Xystophoroi\nDeployment dismounted from Knights General',
+  points=4,
+  general=true,
+}
+g_5fb1ba29e1af06001770ce7a_general_dismounted=g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_general_dismounted]
+g_str_5fb1ba29e1af06001770ce7a_general_mounted='5fb1ba29e1af06001770ce7a_general_mounted'
+g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_general_mounted]={
+  id=g_str_5fb1ba29e1af06001770ce7a_general_mounted,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Xystophoroi\nDeployment dismounting as Pikes',
+  points=4,
+  dismount_as=g_5fb1ba29e1af06001770ce7a_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba29e1af06001770ce7a='5fb1ba29e1af06001770ce7a'
 g_base_definitions[g_str_5fb1ba29e1af06001770ce7a]={
   id=g_str_5fb1ba29e1af06001770ce7a,
@@ -34,6 +65,15 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_mounted]={
   points=4,
   dismount_as=g_5fb1ba29e1af06001770ce7a_dismounted,
 }
+g_str_5fb1ba29e1af06001770ce7d_general='5fb1ba29e1af06001770ce7d_general'
+g_base_definitions[g_str_5fb1ba29e1af06001770ce7d_general]={
+  id=g_str_5fb1ba29e1af06001770ce7d_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Greek mercenaries, Tarentines, or similar horsemen',
+  general=true,
+}
 g_str_5fb1ba29e1af06001770ce7d='5fb1ba29e1af06001770ce7d'
 g_base_definitions[g_str_5fb1ba29e1af06001770ce7d]={
   id=g_str_5fb1ba29e1af06001770ce7d,
@@ -49,6 +89,15 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ce7f]={
   min=6,
   max=12,
   description='Phalanx',
+}
+g_str_5fb1ba29e1af06001770ce82_general='5fb1ba29e1af06001770ce82_general'
+g_base_definitions[g_str_5fb1ba29e1af06001770ce82_general]={
+  id=g_str_5fb1ba29e1af06001770ce82_general,
+  name='Raiders General',
+  min=2,
+  max=1,
+  description='Thureophoroi',
+  general=true,
 }
 g_str_5fb1ba29e1af06001770ce82='5fb1ba29e1af06001770ce82'
 g_base_definitions[g_str_5fb1ba29e1af06001770ce82]={
@@ -138,6 +187,15 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ce9b]={
   max=1,
   description='Imitation legionaries',
 }
+g_str_5fb1ba29e1af06001770ce9e_general='5fb1ba29e1af06001770ce9e_general'
+g_base_definitions[g_str_5fb1ba29e1af06001770ce9e_general]={
+  id=g_str_5fb1ba29e1af06001770ce9e_general,
+  name='Raiders General',
+  min=0,
+  max=1,
+  description='Nubian axemen',
+  general=true,
+}
 g_str_5fb1ba29e1af06001770ce9e='5fb1ba29e1af06001770ce9e'
 g_base_definitions[g_str_5fb1ba29e1af06001770ce9e]={
   id=g_str_5fb1ba29e1af06001770ce9e,
@@ -145,27 +203,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ce9e]={
   min=0,
   max=1,
   description='Nubian axemen',
-}
-g_str_5fb1ba29e1af06001770cea0='5fb1ba29e1af06001770cea0'
-g_base_definitions[g_str_5fb1ba29e1af06001770cea0]={
-  name='Knights General',
-  id=g_str_5fb1ba29e1af06001770cea0,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba29e1af06001770cea2='5fb1ba29e1af06001770cea2'
-g_base_definitions[g_str_5fb1ba29e1af06001770cea2]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba29e1af06001770cea2,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba29e1af06001770cea4='5fb1ba29e1af06001770cea4'
-g_base_definitions[g_str_5fb1ba29e1af06001770cea4]={
-  name='Raiders General',
-  id=g_str_5fb1ba29e1af06001770cea4,
-  min=1,
-  max=1,
 }
 g_str_5fb1b9dfe1af060017709715_camp='5fb1b9dfe1af060017709715_camp'
 g_base_definitions[g_str_5fb1b9dfe1af060017709715_camp]={
@@ -182,11 +219,16 @@ army['5fb1b9dfe1af060017709715']={
   g_base_definitions[g_str_5fb1ba29e1af06001770cea0],
   g_base_definitions[g_str_5fb1ba29e1af06001770cea2],
   g_base_definitions[g_str_5fb1ba29e1af06001770cea4],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_general],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_general_mounted],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_general_dismounted],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce7a],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_mounted],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce7a_dismounted],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ce7d_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce7d],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce7f],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ce82_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce82],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce85],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce88],
@@ -198,6 +240,7 @@ army['5fb1b9dfe1af060017709715']={
   g_base_definitions[g_str_5fb1ba29e1af06001770ce95],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce98],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce9b],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ce9e_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce9e],
 }
 if nil == armies["Meshwesh id"] then

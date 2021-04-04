@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba44e1af06001770fe2a_general='5fb1ba44e1af06001770fe2a_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2a_general]={
+  id=g_str_5fb1ba44e1af06001770fe2a_general,
+  name='Warriors General',
+  min=0,
+  max=1,
+  description='Heroes',
+  general=true,
+}
 g_str_5fb1ba44e1af06001770fe2a='5fb1ba44e1af06001770fe2a'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe2a]={
   id=g_str_5fb1ba44e1af06001770fe2a,
@@ -13,6 +22,15 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe2a]={
   min=0,
   max=1,
   description='Heroes',
+}
+g_str_5fb1ba44e1af06001770fe2c_general='5fb1ba44e1af06001770fe2c_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2c_general]={
+  id=g_str_5fb1ba44e1af06001770fe2c_general,
+  name='Bow Levy General',
+  min=8,
+  max=1,
+  description='Formed foot armed with fast-shooting short range bows, some wearing wooden armor and/or cane or hide shields',
+  general=true,
 }
 g_str_5fb1ba44e1af06001770fe2c='5fb1ba44e1af06001770fe2c'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe2c]={
@@ -22,6 +40,15 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe2c]={
   max=21,
   description='Formed foot armed with fast-shooting short range bows, some wearing wooden armor and/or cane or hide shields',
 }
+g_str_5fb1ba44e1af06001770fe2e_general='5fb1ba44e1af06001770fe2e_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2e_general]={
+  id=g_str_5fb1ba44e1af06001770fe2e_general,
+  name='Skirmishers General',
+  min=2,
+  max=1,
+  description='Ambushers, scouts, or other skirmishing bowmen',
+  general=true,
+}
 g_str_5fb1ba44e1af06001770fe2e='5fb1ba44e1af06001770fe2e'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe2e]={
   id=g_str_5fb1ba44e1af06001770fe2e,
@@ -29,27 +56,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe2e]={
   min=2,
   max=10,
   description='Ambushers, scouts, or other skirmishing bowmen',
-}
-g_str_5fb1ba44e1af06001770fe30='5fb1ba44e1af06001770fe30'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe30]={
-  name='Warriors General',
-  id=g_str_5fb1ba44e1af06001770fe30,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba44e1af06001770fe31='5fb1ba44e1af06001770fe31'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe31]={
-  name='Bow Levy General',
-  id=g_str_5fb1ba44e1af06001770fe31,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba44e1af06001770fe32='5fb1ba44e1af06001770fe32'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe32]={
-  name='Skirmishers General',
-  id=g_str_5fb1ba44e1af06001770fe32,
-  min=1,
-  max=1,
 }
 g_str_5fb1b9f5e1af06001770a438_camp='5fb1b9f5e1af06001770a438_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a438_camp]={
@@ -66,8 +72,11 @@ army['5fb1b9f5e1af06001770a438']={
   g_base_definitions[g_str_5fb1ba44e1af06001770fe30],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe31],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe32],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2a_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe2a],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2c_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe2c],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2e_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe2e],
 }
 if nil == armies["Meshwesh id"] then

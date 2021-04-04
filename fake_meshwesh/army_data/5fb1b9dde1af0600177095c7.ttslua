@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba27e1af06001770c910_general='5fb1ba27e1af06001770c910_general'
+g_base_definitions[g_str_5fb1ba27e1af06001770c910_general]={
+  id=g_str_5fb1ba27e1af06001770c910_general,
+  name='Javelin Cavalry General',
+  min=2,
+  max=1,
+  description='Persian or Median horsemen',
+  general=true,
+}
 g_str_5fb1ba27e1af06001770c910='5fb1ba27e1af06001770c910'
 g_base_definitions[g_str_5fb1ba27e1af06001770c910]={
   id=g_str_5fb1ba27e1af06001770c910,
@@ -29,6 +38,15 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c914]={
   min=0,
   max=3,
   description='Colonist horsemen or hastily mounted levies',
+}
+g_str_5fb1ba27e1af06001770c916_general='5fb1ba27e1af06001770c916_general'
+g_base_definitions[g_str_5fb1ba27e1af06001770c916_general]={
+  id=g_str_5fb1ba27e1af06001770c916_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Bactrians, Paphlagonians, Arachosians or similar horsemen',
+  general=true,
 }
 g_str_5fb1ba27e1af06001770c916='5fb1ba27e1af06001770c916'
 g_base_definitions[g_str_5fb1ba27e1af06001770c916]={
@@ -102,13 +120,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c92a]={
   max=2,
   description='Chalybes',
 }
-g_str_5fb1ba27e1af06001770c92c='5fb1ba27e1af06001770c92c'
-g_base_definitions[g_str_5fb1ba27e1af06001770c92c]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba27e1af06001770c92c,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9dde1af0600177095c7_camp='5fb1b9dde1af0600177095c7_camp'
 g_base_definitions[g_str_5fb1b9dde1af0600177095c7_camp]={
   name='Camp',
@@ -122,9 +133,11 @@ army['5fb1b9dde1af0600177095c7']={
   },
   g_base_definitions[g_str_5fb1b9dde1af0600177095c7_camp],
   g_base_definitions[g_str_5fb1ba27e1af06001770c92c],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c910_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c910],
   g_base_definitions[g_str_5fb1ba27e1af06001770c912],
   g_base_definitions[g_str_5fb1ba27e1af06001770c914],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c916_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c916],
   g_base_definitions[g_str_5fb1ba27e1af06001770c918],
   g_base_definitions[g_str_5fb1ba27e1af06001770c91a],

@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba44e1af06001770fe56_general='5fb1ba44e1af06001770fe56_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe56_general]={
+  id=g_str_5fb1ba44e1af06001770fe56_general,
+  name='Light Foot General',
+  min=13,
+  max=1,
+  description='Tribesmen',
+  general=true,
+}
 g_str_5fb1ba44e1af06001770fe56='5fb1ba44e1af06001770fe56'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe56]={
   id=g_str_5fb1ba44e1af06001770fe56,
@@ -22,13 +31,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe58]={
   max=3,
   description='Skirmishing bowmen and slingers',
 }
-g_str_5fb1ba44e1af06001770fe5a='5fb1ba44e1af06001770fe5a'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe5a]={
-  name='Light Foot General',
-  id=g_str_5fb1ba44e1af06001770fe5a,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9f6e1af06001770a45e_camp='5fb1b9f6e1af06001770a45e_camp'
 g_base_definitions[g_str_5fb1b9f6e1af06001770a45e_camp]={
   name='Camp',
@@ -42,6 +44,7 @@ army['5fb1b9f6e1af06001770a45e']={
   },
   g_base_definitions[g_str_5fb1b9f6e1af06001770a45e_camp],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe5a],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe56_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe56],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe58],
 }

@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba34e1af06001770e1d0_general='5fb1ba34e1af06001770e1d0_general'
+g_base_definitions[g_str_5fb1ba34e1af06001770e1d0_general]={
+  id=g_str_5fb1ba34e1af06001770e1d0_general,
+  name='Knights General',
+  min=2,
+  max=1,
+  description='Men-at-arms and ministeriales',
+  general=true,
+}
 g_str_5fb1ba34e1af06001770e1d0='5fb1ba34e1af06001770e1d0'
 g_base_definitions[g_str_5fb1ba34e1af06001770e1d0]={
   id=g_str_5fb1ba34e1af06001770e1d0,
@@ -13,6 +22,15 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e1d0]={
   min=2,
   max=4,
   description='Men-at-arms and ministeriales',
+}
+g_str_5fb1ba34e1af06001770e1d4_general='5fb1ba34e1af06001770e1d4_general'
+g_base_definitions[g_str_5fb1ba34e1af06001770e1d4_general]={
+  id=g_str_5fb1ba34e1af06001770e1d4_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Mercenary men-at-arms',
+  general=true,
 }
 g_str_5fb1ba34e1af06001770e1d4='5fb1ba34e1af06001770e1d4'
 g_base_definitions[g_str_5fb1ba34e1af06001770e1d4]={
@@ -110,13 +128,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e1ef]={
   max=1,
   description='City militia bowmen',
 }
-g_str_5fb1ba34e1af06001770e1f1='5fb1ba34e1af06001770e1f1'
-g_base_definitions[g_str_5fb1ba34e1af06001770e1f1]={
-  name='Knights General',
-  id=g_str_5fb1ba34e1af06001770e1f1,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e8e1af060017709cac_camp='5fb1b9e8e1af060017709cac_camp'
 g_base_definitions[g_str_5fb1b9e8e1af060017709cac_camp]={
   name='Camp',
@@ -130,7 +141,9 @@ army['5fb1b9e8e1af060017709cac']={
   },
   g_base_definitions[g_str_5fb1b9e8e1af060017709cac_camp],
   g_base_definitions[g_str_5fb1ba34e1af06001770e1f1],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e1d0_general],
   g_base_definitions[g_str_5fb1ba34e1af06001770e1d0],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e1d4_general],
   g_base_definitions[g_str_5fb1ba34e1af06001770e1d4],
   g_base_definitions[g_str_5fb1ba34e1af06001770e1d7],
   g_base_definitions[g_str_5fb1ba34e1af06001770e1d9],

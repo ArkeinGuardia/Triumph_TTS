@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba39e1af06001770ec34_general='5fb1ba39e1af06001770ec34_general'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec34_general]={
+  id=g_str_5fb1ba39e1af06001770ec34_general,
+  name='Elite Cavalary General',
+  min=2,
+  max=1,
+  description='Turkish ghulams',
+  general=true,
+}
+g_str_5fb1ba39e1af06001770ec34_general_dismounted='5fb1ba39e1af06001770ec34_general_dismounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec34_general_dismounted]={
+  id=g_str_5fb1ba39e1af06001770ec34_general_dismounted,
+  name='Archer General',
+  min=2,
+  max=1,
+  description='Turkish ghulams\nDeployment dismounted from Elite Cavalary General',
+  points=4,
+  general=true,
+}
+g_5fb1ba39e1af06001770ec34_general_dismounted=g_base_definitions[g_str_5fb1ba39e1af06001770ec34_general_dismounted]
+g_str_5fb1ba39e1af06001770ec34_general_mounted='5fb1ba39e1af06001770ec34_general_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec34_general_mounted]={
+  id=g_str_5fb1ba39e1af06001770ec34_general_mounted,
+  name='Elite Cavalary General',
+  min=2,
+  max=1,
+  description='Turkish ghulams\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba39e1af06001770ec34_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba39e1af06001770ec34='5fb1ba39e1af06001770ec34'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec34]={
   id=g_str_5fb1ba39e1af06001770ec34,
@@ -89,6 +120,15 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec3b_mounted]={
   description='Ahl al-Sham\nDeployment dismounting as Heavy Foot',
   points=3,
   dismount_as=g_5fb1ba39e1af06001770ec3b_dismounted,
+}
+g_str_5fb1ba39e1af06001770ec3e_general='5fb1ba39e1af06001770ec3e_general'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec3e_general]={
+  id=g_str_5fb1ba39e1af06001770ec3e_general,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Abbasiya or other native Khurasani horsemen',
+  general=true,
 }
 g_str_5fb1ba39e1af06001770ec3e='5fb1ba39e1af06001770ec3e'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec3e]={
@@ -194,13 +234,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec57]={
   max=1,
   description='Manjaniq rope-pull stone throwers and \'Arrada "kickers"',
 }
-g_str_5fb1ba39e1af06001770ec59='5fb1ba39e1af06001770ec59'
-g_base_definitions[g_str_5fb1ba39e1af06001770ec59]={
-  name='Elite Cavalary General',
-  id=g_str_5fb1ba39e1af06001770ec59,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9ede1af060017709f1b_camp='5fb1b9ede1af060017709f1b_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709f1b_camp]={
   name='Camp',
@@ -214,6 +247,9 @@ army['5fb1b9ede1af060017709f1b']={
   },
   g_base_definitions[g_str_5fb1b9ede1af060017709f1b_camp],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec59],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec34_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec34_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec34_general_dismounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec34],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec34_mounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec34_dismounted],
@@ -223,6 +259,7 @@ army['5fb1b9ede1af060017709f1b']={
   g_base_definitions[g_str_5fb1ba39e1af06001770ec3b],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec3b_mounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec3b_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec3e_general],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec3e],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec40],
   g_base_definitions[g_str_5fb1ba39e1af06001770ec42],

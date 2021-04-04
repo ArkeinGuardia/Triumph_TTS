@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba2ee1af06001770d70c_general='5fb1ba2ee1af06001770d70c_general'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d70c_general]={
+  id=g_str_5fb1ba2ee1af06001770d70c_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Germanic or Alan lancers',
+  general=true,
+}
 g_str_5fb1ba2ee1af06001770d70c='5fb1ba2ee1af06001770d70c'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d70c]={
   id=g_str_5fb1ba2ee1af06001770d70c,
@@ -22,6 +31,15 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d70e]={
   max=1,
   description='Clibanarii',
 }
+g_str_5fb1ba2ee1af06001770d710_general='5fb1ba2ee1af06001770d710_general'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d710_general]={
+  id=g_str_5fb1ba2ee1af06001770d710_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Unreformed javelin-armed equites',
+  general=true,
+}
 g_str_5fb1ba2ee1af06001770d710='5fb1ba2ee1af06001770d710'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d710]={
   id=g_str_5fb1ba2ee1af06001770d710,
@@ -29,6 +47,15 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d710]={
   min=0,
   max=2,
   description='Unreformed javelin-armed equites',
+}
+g_str_5fb1ba2ee1af06001770d712_general='5fb1ba2ee1af06001770d712_general'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d712_general]={
+  id=g_str_5fb1ba2ee1af06001770d712_general,
+  name='Horse Bow General',
+  min=1,
+  max=1,
+  description='Equites reequipped in Hunnish style, or equites sagittarii',
+  general=true,
 }
 g_str_5fb1ba2ee1af06001770d712='5fb1ba2ee1af06001770d712'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d712]={
@@ -86,6 +113,15 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d722]={
   max=1,
   description='Auxilia sagittaria',
 }
+g_str_5fb1ba2ee1af06001770d724_general='5fb1ba2ee1af06001770d724_general'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d724_general]={
+  id=g_str_5fb1ba2ee1af06001770d724_general,
+  name='Horse Bow General',
+  min=0,
+  max=1,
+  description='Alan or Hun horse archers',
+  general=true,
+}
 g_str_5fb1ba2ee1af06001770d724='5fb1ba2ee1af06001770d724'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d724]={
   id=g_str_5fb1ba2ee1af06001770d724,
@@ -102,27 +138,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d726]={
   max=1,
   description='Bolt-shooters',
 }
-g_str_5fb1ba2ee1af06001770d728='5fb1ba2ee1af06001770d728'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d728]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba2ee1af06001770d728,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba2ee1af06001770d729='5fb1ba2ee1af06001770d729'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d729]={
-  name='Knights General',
-  id=g_str_5fb1ba2ee1af06001770d729,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba2ee1af06001770d72a='5fb1ba2ee1af06001770d72a'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d72a]={
-  name='Horse Bow General',
-  id=g_str_5fb1ba2ee1af06001770d72a,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e3e1af060017709986_camp='5fb1b9e3e1af060017709986_camp'
 g_base_definitions[g_str_5fb1b9e3e1af060017709986_camp]={
   name='Camp',
@@ -138,9 +153,12 @@ army['5fb1b9e3e1af060017709986']={
   g_base_definitions[g_str_5fb1ba2ee1af06001770d728],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d729],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d72a],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d70c_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d70c],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d70e],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d710_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d710],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d712_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d712],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d714],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d718],
@@ -148,6 +166,7 @@ army['5fb1b9e3e1af060017709986']={
   g_base_definitions[g_str_5fb1ba2ee1af06001770d71e],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d720],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d722],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d724_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d724],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d726],
 }

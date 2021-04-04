@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba2ee1af06001770d7bf_general='5fb1ba2ee1af06001770d7bf_general'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_general]={
+  id=g_str_5fb1ba2ee1af06001770d7bf_general,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Frankish noble horsemen',
+  general=true,
+}
+g_str_5fb1ba2ee1af06001770d7bf_general_dismounted='5fb1ba2ee1af06001770d7bf_general_dismounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_general_dismounted]={
+  id=g_str_5fb1ba2ee1af06001770d7bf_general_dismounted,
+  name='Warrior General',
+  min=1,
+  max=1,
+  description='Frankish noble horsemen\nDeployment dismounted from Knights General',
+  points=4,
+  general=true,
+}
+g_5fb1ba2ee1af06001770d7bf_general_dismounted=g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_general_dismounted]
+g_str_5fb1ba2ee1af06001770d7bf_general_mounted='5fb1ba2ee1af06001770d7bf_general_mounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_general_mounted]={
+  id=g_str_5fb1ba2ee1af06001770d7bf_general_mounted,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Frankish noble horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba2ee1af06001770d7bf_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba2ee1af06001770d7bf='5fb1ba2ee1af06001770d7bf'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf]={
   id=g_str_5fb1ba2ee1af06001770d7bf,
@@ -33,6 +64,37 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_mounted]={
   description='Frankish noble horsemen\nDeployment dismounting as Warrior',
   points=4,
   dismount_as=g_5fb1ba2ee1af06001770d7bf_dismounted,
+}
+g_str_5fb1ba2ee1af06001770d7c2_general='5fb1ba2ee1af06001770d7c2_general'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_general]={
+  id=g_str_5fb1ba2ee1af06001770d7c2_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Gallo-Roman noble horsemen',
+  general=true,
+}
+g_str_5fb1ba2ee1af06001770d7c2_general_dismounted='5fb1ba2ee1af06001770d7c2_general_dismounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_general_dismounted]={
+  id=g_str_5fb1ba2ee1af06001770d7c2_general_dismounted,
+  name='Warrior General',
+  min=0,
+  max=1,
+  description='Gallo-Roman noble horsemen\nDeployment dismounted from Knights General',
+  points=4,
+  general=true,
+}
+g_5fb1ba2ee1af06001770d7c2_general_dismounted=g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_general_dismounted]
+g_str_5fb1ba2ee1af06001770d7c2_general_mounted='5fb1ba2ee1af06001770d7c2_general_mounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_general_mounted]={
+  id=g_str_5fb1ba2ee1af06001770d7c2_general_mounted,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Gallo-Roman noble horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba2ee1af06001770d7c2_general_dismounted,
+  general=true,
 }
 g_str_5fb1ba2ee1af06001770d7c2='5fb1ba2ee1af06001770d7c2'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2]={
@@ -146,13 +208,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7d1]={
   max=2,
   description='Basque javelinmen or skirmishing slingers',
 }
-g_str_5fb1ba2ee1af06001770d7d3='5fb1ba2ee1af06001770d7d3'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7d3]={
-  name='Knights General',
-  id=g_str_5fb1ba2ee1af06001770d7d3,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e3e1af0600177099bf_camp='5fb1b9e3e1af0600177099bf_camp'
 g_base_definitions[g_str_5fb1b9e3e1af0600177099bf_camp]={
   name='Camp',
@@ -166,9 +221,15 @@ army['5fb1b9e3e1af0600177099bf']={
   },
   g_base_definitions[g_str_5fb1b9e3e1af0600177099bf_camp],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7d3],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_general],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_general_dismounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_mounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_dismounted],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_general],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_general_dismounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_mounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7c2_dismounted],

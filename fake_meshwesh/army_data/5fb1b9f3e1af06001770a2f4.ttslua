@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba41e1af06001770fb1c_general='5fb1ba41e1af06001770fb1c_general'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_general]={
+  id=g_str_5fb1ba41e1af06001770fb1c_general,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Guard horsemen',
+  general=true,
+}
+g_str_5fb1ba41e1af06001770fb1c_general_dismounted='5fb1ba41e1af06001770fb1c_general_dismounted'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_general_dismounted]={
+  id=g_str_5fb1ba41e1af06001770fb1c_general_dismounted,
+  name='Archer General',
+  min=1,
+  max=1,
+  description='Guard horsemen\nDeployment dismounted from Elite Cavalary General',
+  points=4,
+  general=true,
+}
+g_5fb1ba41e1af06001770fb1c_general_dismounted=g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_general_dismounted]
+g_str_5fb1ba41e1af06001770fb1c_general_mounted='5fb1ba41e1af06001770fb1c_general_mounted'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_general_mounted]={
+  id=g_str_5fb1ba41e1af06001770fb1c_general_mounted,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Guard horsemen\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba41e1af06001770fb1c_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba41e1af06001770fb1c='5fb1ba41e1af06001770fb1c'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb1c]={
   id=g_str_5fb1ba41e1af06001770fb1c,
@@ -41,6 +72,37 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb1f]={
   min=0,
   max=1,
   description='Chinese guards',
+}
+g_str_5fb1ba41e1af06001770fb22_general='5fb1ba41e1af06001770fb22_general'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb22_general]={
+  id=g_str_5fb1ba41e1af06001770fb22_general,
+  name='Horse Bow General',
+  min=2,
+  max=1,
+  description='Menggu jun (Mongol army) horse archers',
+  general=true,
+}
+g_str_5fb1ba41e1af06001770fb22_general_dismounted='5fb1ba41e1af06001770fb22_general_dismounted'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb22_general_dismounted]={
+  id=g_str_5fb1ba41e1af06001770fb22_general_dismounted,
+  name='Archer General',
+  min=2,
+  max=1,
+  description='Menggu jun (Mongol army) horse archers\nDeployment dismounted from Horse Bow General',
+  points=4,
+  general=true,
+}
+g_5fb1ba41e1af06001770fb22_general_dismounted=g_base_definitions[g_str_5fb1ba41e1af06001770fb22_general_dismounted]
+g_str_5fb1ba41e1af06001770fb22_general_mounted='5fb1ba41e1af06001770fb22_general_mounted'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb22_general_mounted]={
+  id=g_str_5fb1ba41e1af06001770fb22_general_mounted,
+  name='Horse Bow General',
+  min=2,
+  max=1,
+  description='Menggu jun (Mongol army) horse archers\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba41e1af06001770fb22_general_dismounted,
+  general=true,
 }
 g_str_5fb1ba41e1af06001770fb22='5fb1ba41e1af06001770fb22'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb22]={
@@ -97,6 +159,37 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb26_mounted]={
   description='Menggu jun (Mongol army) settled Mongol horse archers with inferior mounts and training\nDeployment dismounting as Archer',
   points=4,
   dismount_as=g_5fb1ba41e1af06001770fb26_dismounted,
+}
+g_str_5fb1ba41e1af06001770fb2a_general='5fb1ba41e1af06001770fb2a_general'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_general]={
+  id=g_str_5fb1ba41e1af06001770fb2a_general,
+  name='Horse Bow General',
+  min=0,
+  max=1,
+  description='Mongol horse archers who retained their steppe skills; or Mengkuchun settled Mongol horse archers with inferior mounts and training',
+  general=true,
+}
+g_str_5fb1ba41e1af06001770fb2a_general_dismounted='5fb1ba41e1af06001770fb2a_general_dismounted'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_general_dismounted]={
+  id=g_str_5fb1ba41e1af06001770fb2a_general_dismounted,
+  name='Archer General',
+  min=0,
+  max=1,
+  description='Mongol horse archers who retained their steppe skills; or Mengkuchun settled Mongol horse archers with inferior mounts and training\nDeployment dismounted from Horse Bow General',
+  points=4,
+  general=true,
+}
+g_5fb1ba41e1af06001770fb2a_general_dismounted=g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_general_dismounted]
+g_str_5fb1ba41e1af06001770fb2a_general_mounted='5fb1ba41e1af06001770fb2a_general_mounted'
+g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_general_mounted]={
+  id=g_str_5fb1ba41e1af06001770fb2a_general_mounted,
+  name='Horse Bow General',
+  min=0,
+  max=1,
+  description='Mongol horse archers who retained their steppe skills; or Mengkuchun settled Mongol horse archers with inferior mounts and training\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba41e1af06001770fb2a_general_dismounted,
+  general=true,
 }
 g_str_5fb1ba41e1af06001770fb2a='5fb1ba41e1af06001770fb2a'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb2a]={
@@ -186,20 +279,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb34]={
   max=1,
   description='Bolt shooters and counterweight stone-throwers',
 }
-g_str_5fb1ba41e1af06001770fb36='5fb1ba41e1af06001770fb36'
-g_base_definitions[g_str_5fb1ba41e1af06001770fb36]={
-  name='Elite Cavalary General',
-  id=g_str_5fb1ba41e1af06001770fb36,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba41e1af06001770fb37='5fb1ba41e1af06001770fb37'
-g_base_definitions[g_str_5fb1ba41e1af06001770fb37]={
-  name='Horse Bow General',
-  id=g_str_5fb1ba41e1af06001770fb37,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9f3e1af06001770a2f4_camp='5fb1b9f3e1af06001770a2f4_camp'
 g_base_definitions[g_str_5fb1b9f3e1af06001770a2f4_camp]={
   name='Camp',
@@ -214,16 +293,25 @@ army['5fb1b9f3e1af06001770a2f4']={
   g_base_definitions[g_str_5fb1b9f3e1af06001770a2f4_camp],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb36],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb37],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_general],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_general_mounted],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_general_dismounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb1c],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_mounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb1c_dismounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb1f],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb22_general],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb22_general_mounted],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb22_general_dismounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb22],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb22_mounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb22_dismounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb26],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb26_mounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb26_dismounted],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_general],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_general_mounted],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_general_dismounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb2a],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_mounted],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb2a_dismounted],

@@ -6,6 +6,37 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba36e1af06001770e667_general='5fb1ba36e1af06001770e667_general'
+g_base_definitions[g_str_5fb1ba36e1af06001770e667_general]={
+  id=g_str_5fb1ba36e1af06001770e667_general,
+  name='Knights General',
+  min=2,
+  max=1,
+  description='Ritterbrüder and adventurer men-at-arms',
+  general=true,
+}
+g_str_5fb1ba36e1af06001770e667_general_dismounted='5fb1ba36e1af06001770e667_general_dismounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e667_general_dismounted]={
+  id=g_str_5fb1ba36e1af06001770e667_general_dismounted,
+  name='Elite Foot General',
+  min=2,
+  max=1,
+  description='Ritterbrüder and adventurer men-at-arms\nDeployment dismounted from Knights General',
+  points=4,
+  general=true,
+}
+g_5fb1ba36e1af06001770e667_general_dismounted=g_base_definitions[g_str_5fb1ba36e1af06001770e667_general_dismounted]
+g_str_5fb1ba36e1af06001770e667_general_mounted='5fb1ba36e1af06001770e667_general_mounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e667_general_mounted]={
+  id=g_str_5fb1ba36e1af06001770e667_general_mounted,
+  name='Knights General',
+  min=2,
+  max=1,
+  description='Ritterbrüder and adventurer men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba36e1af06001770e667_general_dismounted,
+  general=true,
+}
 g_str_5fb1ba36e1af06001770e667='5fb1ba36e1af06001770e667'
 g_base_definitions[g_str_5fb1ba36e1af06001770e667]={
   id=g_str_5fb1ba36e1af06001770e667,
@@ -33,6 +64,15 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e667_mounted]={
   description='Ritterbrüder and adventurer men-at-arms\nDeployment dismounting as Elite Foot',
   points=4,
   dismount_as=g_5fb1ba36e1af06001770e667_dismounted,
+}
+g_str_5fb1ba36e1af06001770e66b_general='5fb1ba36e1af06001770e66b_general'
+g_base_definitions[g_str_5fb1ba36e1af06001770e66b_general]={
+  id=g_str_5fb1ba36e1af06001770e66b_general,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Ritterbrüder and adventurer men-at-arms',
+  general=true,
 }
 g_str_5fb1ba36e1af06001770e66b='5fb1ba36e1af06001770e66b'
 g_base_definitions[g_str_5fb1ba36e1af06001770e66b]={
@@ -138,13 +178,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e688]={
   max=1,
   description='Bombards',
 }
-g_str_5fb1ba36e1af06001770e68a='5fb1ba36e1af06001770e68a'
-g_base_definitions[g_str_5fb1ba36e1af06001770e68a]={
-  name='Knights General',
-  id=g_str_5fb1ba36e1af06001770e68a,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9eae1af060017709db9_camp='5fb1b9eae1af060017709db9_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709db9_camp]={
   name='Camp',
@@ -158,9 +191,13 @@ army['5fb1b9eae1af060017709db9']={
   },
   g_base_definitions[g_str_5fb1b9eae1af060017709db9_camp],
   g_base_definitions[g_str_5fb1ba36e1af06001770e68a],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e667_general],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e667_general_mounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e667_general_dismounted],
   g_base_definitions[g_str_5fb1ba36e1af06001770e667],
   g_base_definitions[g_str_5fb1ba36e1af06001770e667_mounted],
   g_base_definitions[g_str_5fb1ba36e1af06001770e667_dismounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e66b_general],
   g_base_definitions[g_str_5fb1ba36e1af06001770e66b],
   g_base_definitions[g_str_5fb1ba36e1af06001770e66e],
   g_base_definitions[g_str_5fb1ba36e1af06001770e670],

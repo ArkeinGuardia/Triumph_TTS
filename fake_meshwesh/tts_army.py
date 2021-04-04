@@ -171,6 +171,9 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type) :
 
   dismounted['troop_type'] = dismount_type
   dismounted['name'] = dismount_type
+  if 'general' in dismounted:
+    dismounted['name'] = dismounted['name'] + " General"
+
 
   # Calculate the points for being able to dismount 
   mounted_points = get_points_for_troop_type(base_definition['troop_type'])
@@ -208,9 +211,14 @@ def create_base_definition(troop_option, troop_entry) :
   min = troop_option['min']
   max = troop_option['max']
 
-  description = troop_option['description']
-
   id = troop_entry['_id']
+  if id == '5fb1ba37e1af06001770e72d' :
+    description = "German or Polish men-at-arms"
+  elif id ==  "5fb1ba37e1af06001770e72e" :
+    description = "Lithuanian horsemen"
+  else :
+    description = troop_option['description']
+  
 
   troop_type = troop_entry['troopTypeCode']
   name = troop_type_to_name(troop_type)
@@ -242,35 +250,72 @@ def write_base_definition(file, base_definition) :
     file.write("  points=%d,\n" % (base_definition['points']))
   if 'dismount_as' in base_definition :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
+  if 'general' in base_definition  and base_definition['general'] == True :
+    file.write("  general=true,\n")
   file.write("}\n")
- 
 
-def base_definitions(file, troop_option) :
+def get_general_troop_type_codes(army) :
+  codes = {}
+  for troop_entry_for_general in army['troopEntriesForGeneral'] :
+    for troop_entry in troop_entry_for_general['troopEntries'] :
+      troop_type = troop_entry['troopTypeCode']
+      codes[troop_type] = 1
+  return codes
+
+
+def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  :
+  """Return the base definitions of the bases created due to battle cards."""
+  result = []
+  write_base_definition(file, base_definition)
+  for battle_card in troop_entry['battleCardEntries'] :
+    code = battle_card['battleCardCode']
+    note = battle_card['note']
+    if code == "DD" :        
+      id = troop_entry['_id']
+      if id == '5fb1ba37e1af06001770e72d' :
+        # "German or Polish men-at-arms"
+        extra = write_deployment_dismounting_as(file, base_definition, "Elite Foot")
+        result.extend(extra)
+      elif id ==  "5fb1ba37e1af06001770e72e" :
+        #"Lithuanian horsemen"
+        extra = write_deployment_dismounting_as(file, base_definition, "Archers")
+        result.extend(extra)
+      elif battle_card['_id'] == "5fb1ba34e1af06001770e1a0" :
+        extra = write_deployment_dismounting_as(file, base_definition, "Pikes")
+        result.extend(extra)
+      else:
+        extra = write_deployment_dismounting(file, base_definition, battle_card)
+        result.extend(extra)
+  return result
+
+
+def base_definitions(file, army, troop_option) :
   """
     @return List of base definitions
   """
   result = []
+  generals = get_general_troop_type_codes(army)
 
   for troop_entry in troop_option['troopEntries'] :
     # Push down the battle cards 
     troop_entry['battleCardEntries'] = troop_option['battleCardEntries']
 
-    base_definition = create_base_definition(troop_option, troop_entry)
+    if troop_entry['troopTypeCode'] in generals :
+      generals.pop( troop_entry['troopTypeCode'] )
+      base_definition = create_base_definition(troop_option, troop_entry)    
+      base_definition['max'] = 1
+      base_definition['general'] = True
+      base_definition['name'] = base_definition['name'] + " General"
+      base_definition['id'] = base_definition['id'] + "_general"
+      result.append(base_definition)
+      extra = write_battle_cards(file, army, troop_option, troop_entry, base_definition)
+      result.extend(extra)
+    
+    base_definition = create_base_definition(troop_option, troop_entry)    
     result.append(base_definition)
-    write_base_definition(file, base_definition)
-    for battle_card in troop_entry['battleCardEntries'] :
-      code = battle_card['battleCardCode']
-      if code == "DD" :
-        note = battle_card['note']
-        if note == "General only; as Pike" :
-          # TODO
-          pass
-        elif note == "German Knights as Elite Foot; Lithuanian Javelin Cavalry as Archers" :
-          # TODO
-          pass
-        else:
-          extra = write_deployment_dismounting(file, base_definition, battle_card)
-          result.extend(extra)
+    extra = write_battle_cards(file, army, troop_option, troop_entry, base_definition)
+    result.extend(extra)
+
 
   return result
 
@@ -285,24 +330,6 @@ def find_troop_entry_for_troop_type(army_json, troop_type) :
         return troop_entry['_id']
   return None
 
-# Write out the base defintions for the general
-# @param file File to write to
-# @param army Army we are generating the base definitions for
-def generals(file, army) :
-  for troop_entry_for_general in army['troopEntriesForGeneral'] :
-    for troop_entry in troop_entry_for_general['troopEntries'] :
-      troop_type = troop_entry['troopTypeCode']
-      name = troop_type_to_name(troop_type) + " General"
-      # TODO dismount
-      # TODO note
-      id = troop_entry['_id']
-      file.write("g_str_%s='%s'\n" % (id,id))
-      file.write("g_base_definitions[g_str_%s]={\n" % (id))
-      file.write("  name='%s',\n" % (name))
-      file.write("  id=g_str_%s,\n" % (id))
-      file.write("  min=1,\n")
-      file.write("  max=1,\n")
-      file.write("}\n")
 
 # Write out the base definition for a camp
 def camp(file, army_id) :
@@ -337,9 +364,8 @@ def generate_army(army_id) :
 
     troop_options = army_json['troopOptions']
     for troop_option in  troop_options :
-      defs = base_definitions(army_data, troop_option)
+      defs = base_definitions(army_data, army_json, troop_option)
       definitions.extend(defs)
-    generals(army_data, army_json)
     camp(army_data, army_id)
 
 

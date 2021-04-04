@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba38e1af06001770e982_general='5fb1ba38e1af06001770e982_general'
+g_base_definitions[g_str_5fb1ba38e1af06001770e982_general]={
+  id=g_str_5fb1ba38e1af06001770e982_general,
+  name='Knights General',
+  min=3,
+  max=1,
+  description='Serbian vlastela',
+  general=true,
+}
 g_str_5fb1ba38e1af06001770e982='5fb1ba38e1af06001770e982'
 g_base_definitions[g_str_5fb1ba38e1af06001770e982]={
   id=g_str_5fb1ba38e1af06001770e982,
@@ -13,6 +22,15 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e982]={
   min=3,
   max=6,
   description='Serbian vlastela',
+}
+g_str_5fb1ba38e1af06001770e984_general='5fb1ba38e1af06001770e984_general'
+g_base_definitions[g_str_5fb1ba38e1af06001770e984_general]={
+  id=g_str_5fb1ba38e1af06001770e984_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='German, Bohemian, Spanish or other mercenary men-at-arms',
+  general=true,
 }
 g_str_5fb1ba38e1af06001770e984='5fb1ba38e1af06001770e984'
 g_base_definitions[g_str_5fb1ba38e1af06001770e984]={
@@ -94,13 +112,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e997]={
   max=1,
   description='Bombards',
 }
-g_str_5fb1ba38e1af06001770e999='5fb1ba38e1af06001770e999'
-g_base_definitions[g_str_5fb1ba38e1af06001770e999]={
-  name='Knights General',
-  id=g_str_5fb1ba38e1af06001770e999,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9ebe1af060017709e7f_camp='5fb1b9ebe1af060017709e7f_camp'
 g_base_definitions[g_str_5fb1b9ebe1af060017709e7f_camp]={
   name='Camp',
@@ -114,7 +125,9 @@ army['5fb1b9ebe1af060017709e7f']={
   },
   g_base_definitions[g_str_5fb1b9ebe1af060017709e7f_camp],
   g_base_definitions[g_str_5fb1ba38e1af06001770e999],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e982_general],
   g_base_definitions[g_str_5fb1ba38e1af06001770e982],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e984_general],
   g_base_definitions[g_str_5fb1ba38e1af06001770e984],
   g_base_definitions[g_str_5fb1ba38e1af06001770e986],
   g_base_definitions[g_str_5fb1ba38e1af06001770e987],

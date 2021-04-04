@@ -6,6 +6,15 @@ end
 if army == nil then
   army = {}
 end
+g_str_5fb1ba33e1af06001770e00d_general='5fb1ba33e1af06001770e00d_general'
+g_base_definitions[g_str_5fb1ba33e1af06001770e00d_general]={
+  id=g_str_5fb1ba33e1af06001770e00d_general,
+  name='Knights General',
+  min=3,
+  max=1,
+  description='Feudal or mercenary chevaliers and sergeants',
+  general=true,
+}
 g_str_5fb1ba33e1af06001770e00d='5fb1ba33e1af06001770e00d'
 g_base_definitions[g_str_5fb1ba33e1af06001770e00d]={
   id=g_str_5fb1ba33e1af06001770e00d,
@@ -37,6 +46,15 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e014]={
   min=2,
   max=6,
   description='Spearmen and communal French militia',
+}
+g_str_5fb1ba33e1af06001770e016_general='5fb1ba33e1af06001770e016_general'
+g_base_definitions[g_str_5fb1ba33e1af06001770e016_general]={
+  id=g_str_5fb1ba33e1af06001770e016_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Brabancon mercenary horsemen',
+  general=true,
 }
 g_str_5fb1ba33e1af06001770e016='5fb1ba33e1af06001770e016'
 g_base_definitions[g_str_5fb1ba33e1af06001770e016]={
@@ -70,13 +88,6 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e01c]={
   max=2,
   description='Peasant levies',
 }
-g_str_5fb1ba33e1af06001770e01e='5fb1ba33e1af06001770e01e'
-g_base_definitions[g_str_5fb1ba33e1af06001770e01e]={
-  name='Knights General',
-  id=g_str_5fb1ba33e1af06001770e01e,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e7e1af060017709c33_camp='5fb1b9e7e1af060017709c33_camp'
 g_base_definitions[g_str_5fb1b9e7e1af060017709c33_camp]={
   name='Camp',
@@ -90,10 +101,12 @@ army['5fb1b9e7e1af060017709c33']={
   },
   g_base_definitions[g_str_5fb1b9e7e1af060017709c33_camp],
   g_base_definitions[g_str_5fb1ba33e1af06001770e01e],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e00d_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770e00d],
   g_base_definitions[g_str_5fb1ba33e1af06001770e00f],
   g_base_definitions[g_str_5fb1ba33e1af06001770e011],
   g_base_definitions[g_str_5fb1ba33e1af06001770e014],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e016_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770e016],
   g_base_definitions[g_str_5fb1ba33e1af06001770e018],
   g_base_definitions[g_str_5fb1ba33e1af06001770e01a],
