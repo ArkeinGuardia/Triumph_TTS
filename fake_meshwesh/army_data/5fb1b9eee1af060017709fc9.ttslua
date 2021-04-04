@@ -6,18 +6,18 @@ end
 if army == nil then
   army = {}
 end
-g_str_5fb1ba3be1af06001770ef28='5fb1ba3be1af06001770ef28'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef28]={
-  id=g_str_5fb1ba3be1af06001770ef28,
+g_str_5fb1ba3be1af06001770ef28_general='5fb1ba3be1af06001770ef28_general'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general]={
+  id=g_str_5fb1ba3be1af06001770ef28_general,
   name='Elite Cavalary General',
   min=2,
   max=1,
   description='Toassin, halqa or Kipchak mamluks armed with bow and lance, possibly with horse armor',
   general=true,
 }
-g_str_5fb1ba3be1af06001770ef28_dismounted='5fb1ba3be1af06001770ef28_dismounted'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted]={
-  id=g_str_5fb1ba3be1af06001770ef28_dismounted,
+g_str_5fb1ba3be1af06001770ef28_general_dismounted='5fb1ba3be1af06001770ef28_general_dismounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_dismounted]={
+  id=g_str_5fb1ba3be1af06001770ef28_general_dismounted,
   name='Archer',
   min=2,
   max=1,
@@ -25,16 +25,16 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted]={
   points=4,
   general=true,
 }
-g_5fb1ba3be1af06001770ef28_dismounted=g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted]
-g_str_5fb1ba3be1af06001770ef28_mounted='5fb1ba3be1af06001770ef28_mounted'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef28_mounted]={
-  id=g_str_5fb1ba3be1af06001770ef28_mounted,
+g_5fb1ba3be1af06001770ef28_general_dismounted=g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_dismounted]
+g_str_5fb1ba3be1af06001770ef28_general_mounted='5fb1ba3be1af06001770ef28_general_mounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_mounted]={
+  id=g_str_5fb1ba3be1af06001770ef28_general_mounted,
   name='Elite Cavalary General',
   min=2,
   max=1,
   description='Toassin, halqa or Kipchak mamluks armed with bow and lance, possibly with horse armor\nDeployment dismounting as Archer',
   points=4,
-  dismount_as=g_5fb1ba3be1af06001770ef28_dismounted,
+  dismount_as=g_5fb1ba3be1af06001770ef28_general_dismounted,
   general=true,
 }
 g_str_5fb1ba3be1af06001770ef28='5fb1ba3be1af06001770ef28'
@@ -158,9 +158,9 @@ army['5fb1b9eee1af060017709fc9']={
   },
   g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef42],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef28],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_mounted],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_dismounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef28],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef28_mounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted],

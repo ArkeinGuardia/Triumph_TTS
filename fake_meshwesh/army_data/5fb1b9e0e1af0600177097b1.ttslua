@@ -6,9 +6,9 @@ end
 if army == nil then
   army = {}
 end
-g_str_5fb1ba2ae1af06001770d0a6='5fb1ba2ae1af06001770d0a6'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6]={
-  id=g_str_5fb1ba2ae1af06001770d0a6,
+g_str_5fb1ba2ae1af06001770d0a6_general='5fb1ba2ae1af06001770d0a6_general'
+g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6_general]={
+  id=g_str_5fb1ba2ae1af06001770d0a6_general,
   name='Elephants General',
   min=0,
   max=1,
@@ -23,18 +23,18 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6]={
   max=1,
   description='War elephants',
 }
-g_str_5fb1ba2ae1af06001770d0a9='5fb1ba2ae1af06001770d0a9'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9]={
-  id=g_str_5fb1ba2ae1af06001770d0a9,
+g_str_5fb1ba2ae1af06001770d0a9_general='5fb1ba2ae1af06001770d0a9_general'
+g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general]={
+  id=g_str_5fb1ba2ae1af06001770d0a9_general,
   name='Chariots General',
   min=0,
   max=1,
   description='4-horse chariots with three crew',
   general=true,
 }
-g_str_5fb1ba2ae1af06001770d0a9_dismounted='5fb1ba2ae1af06001770d0a9_dismounted'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_dismounted]={
-  id=g_str_5fb1ba2ae1af06001770d0a9_dismounted,
+g_str_5fb1ba2ae1af06001770d0a9_general_dismounted='5fb1ba2ae1af06001770d0a9_general_dismounted'
+g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_dismounted]={
+  id=g_str_5fb1ba2ae1af06001770d0a9_general_dismounted,
   name='Raider',
   min=0,
   max=1,
@@ -42,16 +42,16 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_dismounted]={
   points=4,
   general=true,
 }
-g_5fb1ba2ae1af06001770d0a9_dismounted=g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_dismounted]
-g_str_5fb1ba2ae1af06001770d0a9_mounted='5fb1ba2ae1af06001770d0a9_mounted'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_mounted]={
-  id=g_str_5fb1ba2ae1af06001770d0a9_mounted,
+g_5fb1ba2ae1af06001770d0a9_general_dismounted=g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_dismounted]
+g_str_5fb1ba2ae1af06001770d0a9_general_mounted='5fb1ba2ae1af06001770d0a9_general_mounted'
+g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_mounted]={
+  id=g_str_5fb1ba2ae1af06001770d0a9_general_mounted,
   name='Chariots General',
   min=0,
   max=1,
   description='4-horse chariots with three crew\nDeployment dismounting as Raider',
   points=4,
-  dismount_as=g_5fb1ba2ae1af06001770d0a9_dismounted,
+  dismount_as=g_5fb1ba2ae1af06001770d0a9_general_dismounted,
   general=true,
 }
 g_str_5fb1ba2ae1af06001770d0a9='5fb1ba2ae1af06001770d0a9'
@@ -98,9 +98,9 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0ae]={
   max=21,
   description='Citizen bowmen',
 }
-g_str_5fb1ba2ae1af06001770d0b0='5fb1ba2ae1af06001770d0b0'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0]={
-  id=g_str_5fb1ba2ae1af06001770d0b0,
+g_str_5fb1ba2ae1af06001770d0b0_general='5fb1ba2ae1af06001770d0b0_general'
+g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0_general]={
+  id=g_str_5fb1ba2ae1af06001770d0b0_general,
   name='Heavy Foot General',
   min=1,
   max=1,
@@ -130,17 +130,17 @@ army['5fb1b9e0e1af0600177097b1']={
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0b3],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0b5],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0b6],
+  g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_mounted],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_dismounted],
+  g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general],
+  g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_dismounted],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_mounted],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_dismounted],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0ac],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0ae],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0],
+  g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0],
 }
 if nil == armies["Meshwesh id"] then
