@@ -9,6 +9,34 @@ end
 g_str_5fb1ba2be1af06001770d30f='5fb1ba2be1af06001770d30f'
 g_base_definitions[g_str_5fb1ba2be1af06001770d30f]={
   id=g_str_5fb1ba2be1af06001770d30f,
+  name='Battle Taxi General',
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+}
+g_str_5fb1ba2be1af06001770d30f_dismounted='5fb1ba2be1af06001770d30f_dismounted'
+g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted]={
+  id=g_str_5fb1ba2be1af06001770d30f_dismounted,
+  name='Warrior',
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounted from Battle Taxi General',
+  points=3,
+}
+g_5fb1ba2be1af06001770d30f_dismounted=g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted]
+g_str_5fb1ba2be1af06001770d30f_mounted='5fb1ba2be1af06001770d30f_mounted'
+g_base_definitions[g_str_5fb1ba2be1af06001770d30f_mounted]={
+  id=g_str_5fb1ba2be1af06001770d30f_mounted,
+  name='Battle Taxi General',
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounting as Warrior',
+  points=3,
+  dismount_as=g_5fb1ba2be1af06001770d30f_dismounted,
+}
+g_str_5fb1ba2be1af06001770d30f='5fb1ba2be1af06001770d30f'
+g_base_definitions[g_str_5fb1ba2be1af06001770d30f]={
+  id=g_str_5fb1ba2be1af06001770d30f,
   name='Battle Taxi',
   min=0,
   max=4,
@@ -45,6 +73,14 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d312]={
 g_str_5fb1ba2be1af06001770d314='5fb1ba2be1af06001770d314'
 g_base_definitions[g_str_5fb1ba2be1af06001770d314]={
   id=g_str_5fb1ba2be1af06001770d314,
+  name='Warband General',
+  min=5,
+  max=1,
+  description='Fierce fighters',
+}
+g_str_5fb1ba2be1af06001770d314='5fb1ba2be1af06001770d314'
+g_base_definitions[g_str_5fb1ba2be1af06001770d314]={
+  id=g_str_5fb1ba2be1af06001770d314,
   name='Warband',
   min=5,
   max=13,
@@ -74,20 +110,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d319]={
   max=1,
   description='Adolescents armed with javelins',
 }
-g_str_5fb1ba2be1af06001770d31b='5fb1ba2be1af06001770d31b'
-g_base_definitions[g_str_5fb1ba2be1af06001770d31b]={
-  name='Battle Taxi General',
-  id=g_str_5fb1ba2be1af06001770d31b,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba2be1af06001770d31c='5fb1ba2be1af06001770d31c'
-g_base_definitions[g_str_5fb1ba2be1af06001770d31c]={
-  name='Warband General',
-  id=g_str_5fb1ba2be1af06001770d31c,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e1e1af06001770986a_camp='5fb1b9e1e1af06001770986a_camp'
 g_base_definitions[g_str_5fb1b9e1e1af06001770986a_camp]={
   name='Camp',
@@ -105,7 +127,11 @@ army['5fb1b9e1e1af06001770986a']={
   g_base_definitions[g_str_5fb1ba2be1af06001770d30f],
   g_base_definitions[g_str_5fb1ba2be1af06001770d30f_mounted],
   g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d30f],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d30f_mounted],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted],
   g_base_definitions[g_str_5fb1ba2be1af06001770d312],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d314],
   g_base_definitions[g_str_5fb1ba2be1af06001770d314],
   g_base_definitions[g_str_5fb1ba2be1af06001770d316],
   g_base_definitions[g_str_5fb1ba2be1af06001770d317],

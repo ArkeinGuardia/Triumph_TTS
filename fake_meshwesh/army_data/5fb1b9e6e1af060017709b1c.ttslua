@@ -9,6 +9,34 @@ end
 g_str_5fb1ba31e1af06001770dc6c='5fb1ba31e1af06001770dc6c'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc6c]={
   id=g_str_5fb1ba31e1af06001770dc6c,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='North Welsh highborn',
+}
+g_str_5fb1ba31e1af06001770dc6c_dismounted='5fb1ba31e1af06001770dc6c_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dc6c_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='North Welsh highborn\nDeployment dismounted from Knights General',
+  points=4,
+}
+g_5fb1ba31e1af06001770dc6c_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_dismounted]
+g_str_5fb1ba31e1af06001770dc6c_mounted='5fb1ba31e1af06001770dc6c_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_mounted]={
+  id=g_str_5fb1ba31e1af06001770dc6c_mounted,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='North Welsh highborn\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba31e1af06001770dc6c_dismounted,
+}
+g_str_5fb1ba31e1af06001770dc6c='5fb1ba31e1af06001770dc6c'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc6c]={
+  id=g_str_5fb1ba31e1af06001770dc6c,
   name='Knights',
   min=0,
   max=1,
@@ -33,6 +61,34 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_mounted]={
   description='North Welsh highborn\nDeployment dismounting as Elite Foot',
   points=4,
   dismount_as=g_5fb1ba31e1af06001770dc6c_dismounted,
+}
+g_str_5fb1ba31e1af06001770dc6f='5fb1ba31e1af06001770dc6f'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc6f]={
+  id=g_str_5fb1ba31e1af06001770dc6f,
+  name='Javelin Cavalry General',
+  min=1,
+  max=1,
+  description='North Welsh uchelwyr',
+}
+g_str_5fb1ba31e1af06001770dc6f_dismounted='5fb1ba31e1af06001770dc6f_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dc6f_dismounted,
+  name='Elite Foot',
+  min=1,
+  max=1,
+  description='North Welsh uchelwyr\nDeployment dismounted from Javelin Cavalry General',
+  points=4,
+}
+g_5fb1ba31e1af06001770dc6f_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_dismounted]
+g_str_5fb1ba31e1af06001770dc6f_mounted='5fb1ba31e1af06001770dc6f_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_mounted]={
+  id=g_str_5fb1ba31e1af06001770dc6f_mounted,
+  name='Javelin Cavalry General',
+  min=1,
+  max=1,
+  description='North Welsh uchelwyr\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba31e1af06001770dc6f_dismounted,
 }
 g_str_5fb1ba31e1af06001770dc6f='5fb1ba31e1af06001770dc6f'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc6f]={
@@ -86,20 +142,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc76]={
   max=2,
   description='North Welsh javelinmen',
 }
-g_str_5fb1ba31e1af06001770dc78='5fb1ba31e1af06001770dc78'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc78]={
-  name='Knights General',
-  id=g_str_5fb1ba31e1af06001770dc78,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba31e1af06001770dc79='5fb1ba31e1af06001770dc79'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc79]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba31e1af06001770dc79,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e6e1af060017709b1c_camp='5fb1b9e6e1af060017709b1c_camp'
 g_base_definitions[g_str_5fb1b9e6e1af060017709b1c_camp]={
   name='Camp',
@@ -117,6 +159,12 @@ army['5fb1b9e6e1af060017709b1c']={
   g_base_definitions[g_str_5fb1ba31e1af06001770dc6c],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_mounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc6c],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc6f],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc6f],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_mounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_dismounted],

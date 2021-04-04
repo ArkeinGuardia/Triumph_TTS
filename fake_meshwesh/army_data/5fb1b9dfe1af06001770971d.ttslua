@@ -9,6 +9,34 @@ end
 g_str_5fb1ba29e1af06001770cea8='5fb1ba29e1af06001770cea8'
 g_base_definitions[g_str_5fb1ba29e1af06001770cea8]={
   id=g_str_5fb1ba29e1af06001770cea8,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Xystophoroi',
+}
+g_str_5fb1ba29e1af06001770cea8_dismounted='5fb1ba29e1af06001770cea8_dismounted'
+g_base_definitions[g_str_5fb1ba29e1af06001770cea8_dismounted]={
+  id=g_str_5fb1ba29e1af06001770cea8_dismounted,
+  name='Pikes',
+  min=0,
+  max=1,
+  description='Xystophoroi\nDeployment dismounted from Knights General',
+  points=4,
+}
+g_5fb1ba29e1af06001770cea8_dismounted=g_base_definitions[g_str_5fb1ba29e1af06001770cea8_dismounted]
+g_str_5fb1ba29e1af06001770cea8_mounted='5fb1ba29e1af06001770cea8_mounted'
+g_base_definitions[g_str_5fb1ba29e1af06001770cea8_mounted]={
+  id=g_str_5fb1ba29e1af06001770cea8_mounted,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Xystophoroi\nDeployment dismounting as Pikes',
+  points=4,
+  dismount_as=g_5fb1ba29e1af06001770cea8_dismounted,
+}
+g_str_5fb1ba29e1af06001770cea8='5fb1ba29e1af06001770cea8'
+g_base_definitions[g_str_5fb1ba29e1af06001770cea8]={
+  id=g_str_5fb1ba29e1af06001770cea8,
   name='Knights',
   min=0,
   max=1,
@@ -33,6 +61,14 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cea8_mounted]={
   description='Xystophoroi\nDeployment dismounting as Pikes',
   points=4,
   dismount_as=g_5fb1ba29e1af06001770cea8_dismounted,
+}
+g_str_5fb1ba29e1af06001770ceab='5fb1ba29e1af06001770ceab'
+g_base_definitions[g_str_5fb1ba29e1af06001770ceab]={
+  id=g_str_5fb1ba29e1af06001770ceab,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Mercenary Greek or Tarentine horsemen',
 }
 g_str_5fb1ba29e1af06001770ceab='5fb1ba29e1af06001770ceab'
 g_base_definitions[g_str_5fb1ba29e1af06001770ceab]={
@@ -93,6 +129,14 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ceb7]={
 g_str_5fb1ba29e1af06001770ceb9='5fb1ba29e1af06001770ceb9'
 g_base_definitions[g_str_5fb1ba29e1af06001770ceb9]={
   id=g_str_5fb1ba29e1af06001770ceb9,
+  name='Heavy Foot General',
+  min=2,
+  max=1,
+  description='Imitation legionaries',
+}
+g_str_5fb1ba29e1af06001770ceb9='5fb1ba29e1af06001770ceb9'
+g_base_definitions[g_str_5fb1ba29e1af06001770ceb9]={
+  id=g_str_5fb1ba29e1af06001770ceb9,
   name='Heavy Foot',
   min=2,
   max=4,
@@ -122,27 +166,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cebf]={
   max=6,
   description='Rioting Alexandrian mob',
 }
-g_str_5fb1ba29e1af06001770cec1='5fb1ba29e1af06001770cec1'
-g_base_definitions[g_str_5fb1ba29e1af06001770cec1]={
-  name='Knights General',
-  id=g_str_5fb1ba29e1af06001770cec1,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba29e1af06001770cec3='5fb1ba29e1af06001770cec3'
-g_base_definitions[g_str_5fb1ba29e1af06001770cec3]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba29e1af06001770cec3,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba29e1af06001770cec5='5fb1ba29e1af06001770cec5'
-g_base_definitions[g_str_5fb1ba29e1af06001770cec5]={
-  name='Heavy Foot General',
-  id=g_str_5fb1ba29e1af06001770cec5,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9dfe1af06001770971d_camp='5fb1b9dfe1af06001770971d_camp'
 g_base_definitions[g_str_5fb1b9dfe1af06001770971d_camp]={
   name='Camp',
@@ -161,6 +184,10 @@ army['5fb1b9dfe1af06001770971d']={
   g_base_definitions[g_str_5fb1ba29e1af06001770cea8],
   g_base_definitions[g_str_5fb1ba29e1af06001770cea8_mounted],
   g_base_definitions[g_str_5fb1ba29e1af06001770cea8_dismounted],
+  g_base_definitions[g_str_5fb1ba29e1af06001770cea8],
+  g_base_definitions[g_str_5fb1ba29e1af06001770cea8_mounted],
+  g_base_definitions[g_str_5fb1ba29e1af06001770cea8_dismounted],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ceab],
   g_base_definitions[g_str_5fb1ba29e1af06001770ceab],
   g_base_definitions[g_str_5fb1ba29e1af06001770cead],
   g_base_definitions[g_str_5fb1ba29e1af06001770ceaf],
@@ -168,6 +195,7 @@ army['5fb1b9dfe1af06001770971d']={
   g_base_definitions[g_str_5fb1ba29e1af06001770ceb3],
   g_base_definitions[g_str_5fb1ba29e1af06001770ceb5],
   g_base_definitions[g_str_5fb1ba29e1af06001770ceb7],
+  g_base_definitions[g_str_5fb1ba29e1af06001770ceb9],
   g_base_definitions[g_str_5fb1ba29e1af06001770ceb9],
   g_base_definitions[g_str_5fb1ba29e1af06001770cebb],
   g_base_definitions[g_str_5fb1ba29e1af06001770cebd],

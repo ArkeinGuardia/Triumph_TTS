@@ -9,6 +9,34 @@ end
 g_str_5fb1ba34e1af06001770e183='5fb1ba34e1af06001770e183'
 g_base_definitions[g_str_5fb1ba34e1af06001770e183]={
   id=g_str_5fb1ba34e1af06001770e183,
+  name='Knights General',
+  min=2,
+  max=1,
+  description='Ordonnance gendarmes and their coustilliers',
+}
+g_str_5fb1ba34e1af06001770e183_dismounted='5fb1ba34e1af06001770e183_dismounted'
+g_base_definitions[g_str_5fb1ba34e1af06001770e183_dismounted]={
+  id=g_str_5fb1ba34e1af06001770e183_dismounted,
+  name='Elite Foot',
+  min=2,
+  max=1,
+  description='Ordonnance gendarmes and their coustilliers\nDeployment dismounted from Knights General',
+  points=4,
+}
+g_5fb1ba34e1af06001770e183_dismounted=g_base_definitions[g_str_5fb1ba34e1af06001770e183_dismounted]
+g_str_5fb1ba34e1af06001770e183_mounted='5fb1ba34e1af06001770e183_mounted'
+g_base_definitions[g_str_5fb1ba34e1af06001770e183_mounted]={
+  id=g_str_5fb1ba34e1af06001770e183_mounted,
+  name='Knights General',
+  min=2,
+  max=1,
+  description='Ordonnance gendarmes and their coustilliers\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba34e1af06001770e183_dismounted,
+}
+g_str_5fb1ba34e1af06001770e183='5fb1ba34e1af06001770e183'
+g_base_definitions[g_str_5fb1ba34e1af06001770e183]={
+  id=g_str_5fb1ba34e1af06001770e183,
   name='Knights',
   min=2,
   max=4,
@@ -77,6 +105,14 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e18e]={
 g_str_5fb1ba34e1af06001770e190='5fb1ba34e1af06001770e190'
 g_base_definitions[g_str_5fb1ba34e1af06001770e190]={
   id=g_str_5fb1ba34e1af06001770e190,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Italian men-at-arms',
+}
+g_str_5fb1ba34e1af06001770e190='5fb1ba34e1af06001770e190'
+g_base_definitions[g_str_5fb1ba34e1af06001770e190]={
+  id=g_str_5fb1ba34e1af06001770e190,
   name='Knights',
   min=0,
   max=2,
@@ -106,13 +142,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e196]={
   max=4,
   description='Low Countries pikemen',
 }
-g_str_5fb1ba34e1af06001770e198='5fb1ba34e1af06001770e198'
-g_base_definitions[g_str_5fb1ba34e1af06001770e198]={
-  name='Knights General',
-  id=g_str_5fb1ba34e1af06001770e198,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e8e1af060017709c95_camp='5fb1b9e8e1af060017709c95_camp'
 g_base_definitions[g_str_5fb1b9e8e1af060017709c95_camp]={
   name='Camp',
@@ -129,11 +158,15 @@ army['5fb1b9e8e1af060017709c95']={
   g_base_definitions[g_str_5fb1ba34e1af06001770e183],
   g_base_definitions[g_str_5fb1ba34e1af06001770e183_mounted],
   g_base_definitions[g_str_5fb1ba34e1af06001770e183_dismounted],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e183],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e183_mounted],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e183_dismounted],
   g_base_definitions[g_str_5fb1ba34e1af06001770e186],
   g_base_definitions[g_str_5fb1ba34e1af06001770e188],
   g_base_definitions[g_str_5fb1ba34e1af06001770e18b],
   g_base_definitions[g_str_5fb1ba34e1af06001770e18c],
   g_base_definitions[g_str_5fb1ba34e1af06001770e18e],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e190],
   g_base_definitions[g_str_5fb1ba34e1af06001770e190],
   g_base_definitions[g_str_5fb1ba34e1af06001770e192],
   g_base_definitions[g_str_5fb1ba34e1af06001770e194],

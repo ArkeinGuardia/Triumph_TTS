@@ -9,6 +9,34 @@ end
 g_str_5fb1ba24e1af06001770c50f='5fb1ba24e1af06001770c50f'
 g_base_definitions[g_str_5fb1ba24e1af06001770c50f]={
   id=g_str_5fb1ba24e1af06001770c50f,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Horsemen',
+}
+g_str_5fb1ba24e1af06001770c50f_dismounted='5fb1ba24e1af06001770c50f_dismounted'
+g_base_definitions[g_str_5fb1ba24e1af06001770c50f_dismounted]={
+  id=g_str_5fb1ba24e1af06001770c50f_dismounted,
+  name='Warrior',
+  min=0,
+  max=1,
+  description='Horsemen\nDeployment dismounted from Javelin Cavalry General',
+  points=4,
+}
+g_5fb1ba24e1af06001770c50f_dismounted=g_base_definitions[g_str_5fb1ba24e1af06001770c50f_dismounted]
+g_str_5fb1ba24e1af06001770c50f_mounted='5fb1ba24e1af06001770c50f_mounted'
+g_base_definitions[g_str_5fb1ba24e1af06001770c50f_mounted]={
+  id=g_str_5fb1ba24e1af06001770c50f_mounted,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba24e1af06001770c50f_dismounted,
+}
+g_str_5fb1ba24e1af06001770c50f='5fb1ba24e1af06001770c50f'
+g_base_definitions[g_str_5fb1ba24e1af06001770c50f]={
+  id=g_str_5fb1ba24e1af06001770c50f,
   name='Javelin Cavalry',
   min=0,
   max=1,
@@ -37,6 +65,14 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c50f_mounted]={
 g_str_5fb1ba24e1af06001770c512='5fb1ba24e1af06001770c512'
 g_base_definitions[g_str_5fb1ba24e1af06001770c512]={
   id=g_str_5fb1ba24e1af06001770c512,
+  name='Light Foot General',
+  min=6,
+  max=1,
+  description='Light infantry',
+}
+g_str_5fb1ba24e1af06001770c512='5fb1ba24e1af06001770c512'
+g_base_definitions[g_str_5fb1ba24e1af06001770c512]={
+  id=g_str_5fb1ba24e1af06001770c512,
   name='Light Foot',
   min=6,
   max=16,
@@ -58,20 +94,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c516]={
   max=2,
   description='Javelinmen',
 }
-g_str_5fb1ba24e1af06001770c518='5fb1ba24e1af06001770c518'
-g_base_definitions[g_str_5fb1ba24e1af06001770c518]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba24e1af06001770c518,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba24e1af06001770c519='5fb1ba24e1af06001770c519'
-g_base_definitions[g_str_5fb1ba24e1af06001770c519]={
-  name='Light Foot General',
-  id=g_str_5fb1ba24e1af06001770c519,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9dbe1af0600177094b7_camp='5fb1b9dbe1af0600177094b7_camp'
 g_base_definitions[g_str_5fb1b9dbe1af0600177094b7_camp]={
   name='Camp',
@@ -89,6 +111,10 @@ army['5fb1b9dbe1af0600177094b7']={
   g_base_definitions[g_str_5fb1ba24e1af06001770c50f],
   g_base_definitions[g_str_5fb1ba24e1af06001770c50f_mounted],
   g_base_definitions[g_str_5fb1ba24e1af06001770c50f_dismounted],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c50f],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c50f_mounted],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c50f_dismounted],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c512],
   g_base_definitions[g_str_5fb1ba24e1af06001770c512],
   g_base_definitions[g_str_5fb1ba24e1af06001770c514],
   g_base_definitions[g_str_5fb1ba24e1af06001770c516],

@@ -9,6 +9,34 @@ end
 g_str_5fb1ba31e1af06001770dbff='5fb1ba31e1af06001770dbff'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbff]={
   id=g_str_5fb1ba31e1af06001770dbff,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Men-at-arms (English 1328 AD and later)',
+}
+g_str_5fb1ba31e1af06001770dbff_dismounted='5fb1ba31e1af06001770dbff_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dbff_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dbff_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Men-at-arms (English 1328 AD and later)\nDeployment dismounted from Knights General',
+  points=4,
+}
+g_5fb1ba31e1af06001770dbff_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dbff_dismounted]
+g_str_5fb1ba31e1af06001770dbff_mounted='5fb1ba31e1af06001770dbff_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dbff_mounted]={
+  id=g_str_5fb1ba31e1af06001770dbff_mounted,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Men-at-arms (English 1328 AD and later)\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba31e1af06001770dbff_dismounted,
+}
+g_str_5fb1ba31e1af06001770dbff='5fb1ba31e1af06001770dbff'
+g_base_definitions[g_str_5fb1ba31e1af06001770dbff]={
+  id=g_str_5fb1ba31e1af06001770dbff,
   name='Knights',
   min=0,
   max=1,
@@ -65,6 +93,34 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc03_mounted]={
 g_str_5fb1ba31e1af06001770dc07='5fb1ba31e1af06001770dc07'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc07]={
   id=g_str_5fb1ba31e1af06001770dc07,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Horsemen armed with spears',
+}
+g_str_5fb1ba31e1af06001770dc07_dismounted='5fb1ba31e1af06001770dc07_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc07_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dc07_dismounted,
+  name='Raider',
+  min=0,
+  max=1,
+  description='Horsemen armed with spears\nDeployment dismounted from Javelin Cavalry General',
+  points=4,
+}
+g_5fb1ba31e1af06001770dc07_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc07_dismounted]
+g_str_5fb1ba31e1af06001770dc07_mounted='5fb1ba31e1af06001770dc07_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc07_mounted]={
+  id=g_str_5fb1ba31e1af06001770dc07_mounted,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Horsemen armed with spears\nDeployment dismounting as Raider',
+  points=4,
+  dismount_as=g_5fb1ba31e1af06001770dc07_dismounted,
+}
+g_str_5fb1ba31e1af06001770dc07='5fb1ba31e1af06001770dc07'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc07]={
+  id=g_str_5fb1ba31e1af06001770dc07,
   name='Javelin Cavalry',
   min=0,
   max=2,
@@ -93,6 +149,14 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc07_mounted]={
 g_str_5fb1ba31e1af06001770dc0a='5fb1ba31e1af06001770dc0a'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc0a]={
   id=g_str_5fb1ba31e1af06001770dc0a,
+  name='Archers General',
+  min=2,
+  max=1,
+  description='Colonist bowmen',
+}
+g_str_5fb1ba31e1af06001770dc0a='5fb1ba31e1af06001770dc0a'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc0a]={
+  id=g_str_5fb1ba31e1af06001770dc0a,
   name='Archers',
   min=2,
   max=4,
@@ -101,10 +165,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc0a]={
 g_str_5fb1ba31e1af06001770dc0c='5fb1ba31e1af06001770dc0c'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc0c]={
   id=g_str_5fb1ba31e1af06001770dc0c,
+  name='Archers General',
+  min=0,
+  max=1,
+  description='English bowmen',
+}
+g_str_5fb1ba31e1af06001770dc0c='5fb1ba31e1af06001770dc0c'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc0c]={
+  id=g_str_5fb1ba31e1af06001770dc0c,
   name='Archers',
   min=0,
   max=2,
   description='English bowmen',
+}
+g_str_5fb1ba31e1af06001770dc0f='5fb1ba31e1af06001770dc0f'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc0f]={
+  id=g_str_5fb1ba31e1af06001770dc0f,
+  name='Heavy Foot General',
+  min=1,
+  max=1,
+  description='Colonist foot sergeants (billmen after 1403)',
 }
 g_str_5fb1ba31e1af06001770dc0f='5fb1ba31e1af06001770dc0f'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc0f]={
@@ -146,34 +226,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc18]={
   max=3,
   description='Galloglaich',
 }
-g_str_5fb1ba31e1af06001770dc1a='5fb1ba31e1af06001770dc1a'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc1a]={
-  name='Knights General',
-  id=g_str_5fb1ba31e1af06001770dc1a,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba31e1af06001770dc1b='5fb1ba31e1af06001770dc1b'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc1b]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba31e1af06001770dc1b,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba31e1af06001770dc1d='5fb1ba31e1af06001770dc1d'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc1d]={
-  name='Archers General',
-  id=g_str_5fb1ba31e1af06001770dc1d,
-  min=1,
-  max=1,
-}
-g_str_5fb1ba31e1af06001770dc1e='5fb1ba31e1af06001770dc1e'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc1e]={
-  name='Heavy Foot General',
-  id=g_str_5fb1ba31e1af06001770dc1e,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e5e1af060017709b02_camp='5fb1b9e5e1af060017709b02_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709b02_camp]={
   name='Camp',
@@ -193,14 +245,23 @@ army['5fb1b9e5e1af060017709b02']={
   g_base_definitions[g_str_5fb1ba31e1af06001770dbff],
   g_base_definitions[g_str_5fb1ba31e1af06001770dbff_mounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dbff_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dbff],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dbff_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dbff_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc03],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc03_mounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc03_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc07],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc07_mounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc07_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc07],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc07_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc07_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc0a],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc0a],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc0c],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc0c],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc0f],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc0f],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc11],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc13],

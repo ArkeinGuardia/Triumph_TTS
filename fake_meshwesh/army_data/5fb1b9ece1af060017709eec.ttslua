@@ -9,6 +9,34 @@ end
 g_str_5fb1ba39e1af06001770eb7a='5fb1ba39e1af06001770eb7a'
 g_base_definitions[g_str_5fb1ba39e1af06001770eb7a]={
   id=g_str_5fb1ba39e1af06001770eb7a,
+  name='Javelin Cavalry General',
+  min=1,
+  max=1,
+  description='Horsemen',
+}
+g_str_5fb1ba39e1af06001770eb7a_dismounted='5fb1ba39e1af06001770eb7a_dismounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_dismounted]={
+  id=g_str_5fb1ba39e1af06001770eb7a_dismounted,
+  name='Elite Foot',
+  min=1,
+  max=1,
+  description='Horsemen\nDeployment dismounted from Javelin Cavalry General',
+  points=4,
+}
+g_5fb1ba39e1af06001770eb7a_dismounted=g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_dismounted]
+g_str_5fb1ba39e1af06001770eb7a_mounted='5fb1ba39e1af06001770eb7a_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_mounted]={
+  id=g_str_5fb1ba39e1af06001770eb7a_mounted,
+  name='Javelin Cavalry General',
+  min=1,
+  max=1,
+  description='Horsemen\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba39e1af06001770eb7a_dismounted,
+}
+g_str_5fb1ba39e1af06001770eb7a='5fb1ba39e1af06001770eb7a'
+g_base_definitions[g_str_5fb1ba39e1af06001770eb7a]={
+  id=g_str_5fb1ba39e1af06001770eb7a,
   name='Javelin Cavalry',
   min=1,
   max=2,
@@ -41,6 +69,34 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb7d]={
   min=0,
   max=1,
   description='Dailami',
+}
+g_str_5fb1ba39e1af06001770eb81='5fb1ba39e1af06001770eb81'
+g_base_definitions[g_str_5fb1ba39e1af06001770eb81]={
+  id=g_str_5fb1ba39e1af06001770eb81,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Syrian or Jund horsemen',
+}
+g_str_5fb1ba39e1af06001770eb81_dismounted='5fb1ba39e1af06001770eb81_dismounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770eb81_dismounted]={
+  id=g_str_5fb1ba39e1af06001770eb81_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Syrian or Jund horsemen\nDeployment dismounted from Javelin Cavalry General',
+  points=4,
+}
+g_5fb1ba39e1af06001770eb81_dismounted=g_base_definitions[g_str_5fb1ba39e1af06001770eb81_dismounted]
+g_str_5fb1ba39e1af06001770eb81_mounted='5fb1ba39e1af06001770eb81_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770eb81_mounted]={
+  id=g_str_5fb1ba39e1af06001770eb81_mounted,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Syrian or Jund horsemen\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_5fb1ba39e1af06001770eb81_dismounted,
 }
 g_str_5fb1ba39e1af06001770eb81='5fb1ba39e1af06001770eb81'
 g_base_definitions[g_str_5fb1ba39e1af06001770eb81]={
@@ -126,13 +182,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb98]={
   max=1,
   description='Skirmishing slingers',
 }
-g_str_5fb1ba39e1af06001770eb9b='5fb1ba39e1af06001770eb9b'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb9b]={
-  name='Javelin Cavalry General',
-  id=g_str_5fb1ba39e1af06001770eb9b,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9ece1af060017709eec_camp='5fb1b9ece1af060017709eec_camp'
 g_base_definitions[g_str_5fb1b9ece1af060017709eec_camp]={
   name='Camp',
@@ -149,7 +198,13 @@ army['5fb1b9ece1af060017709eec']={
   g_base_definitions[g_str_5fb1ba39e1af06001770eb7a],
   g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_mounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_dismounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770eb7d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81_dismounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770eb81],
   g_base_definitions[g_str_5fb1ba39e1af06001770eb81_mounted],
   g_base_definitions[g_str_5fb1ba39e1af06001770eb81_dismounted],

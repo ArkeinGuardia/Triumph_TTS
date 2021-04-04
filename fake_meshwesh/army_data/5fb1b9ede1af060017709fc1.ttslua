@@ -9,6 +9,34 @@ end
 g_str_5fb1ba3be1af06001770ef07='5fb1ba3be1af06001770ef07'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef07]={
   id=g_str_5fb1ba3be1af06001770ef07,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Khwarizmian lancers',
+}
+g_str_5fb1ba3be1af06001770ef07_dismounted='5fb1ba3be1af06001770ef07_dismounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted]={
+  id=g_str_5fb1ba3be1af06001770ef07_dismounted,
+  name='Archer',
+  min=1,
+  max=1,
+  description='Khwarizmian lancers\nDeployment dismounted from Elite Cavalary General',
+  points=4,
+}
+g_5fb1ba3be1af06001770ef07_dismounted=g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted]
+g_str_5fb1ba3be1af06001770ef07_mounted='5fb1ba3be1af06001770ef07_mounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted]={
+  id=g_str_5fb1ba3be1af06001770ef07_mounted,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Khwarizmian lancers\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_5fb1ba3be1af06001770ef07_dismounted,
+}
+g_str_5fb1ba3be1af06001770ef07='5fb1ba3be1af06001770ef07'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef07]={
+  id=g_str_5fb1ba3be1af06001770ef07,
   name='Elite Cavalary',
   min=1,
   max=3,
@@ -65,6 +93,14 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted]={
 g_str_5fb1ba3be1af06001770ef0f='5fb1ba3be1af06001770ef0f'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef0f]={
   id=g_str_5fb1ba3be1af06001770ef0f,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Kurdish horsemen',
+}
+g_str_5fb1ba3be1af06001770ef0f='5fb1ba3be1af06001770ef0f'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef0f]={
+  id=g_str_5fb1ba3be1af06001770ef0f,
   name='Elite Cavalary',
   min=1,
   max=1,
@@ -102,13 +138,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef1a]={
   max=2,
   description='Qangli foot',
 }
-g_str_5fb1ba3be1af06001770ef1c='5fb1ba3be1af06001770ef1c'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef1c]={
-  name='Elite Cavalary General',
-  id=g_str_5fb1ba3be1af06001770ef1c,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9ede1af060017709fc1_camp='5fb1b9ede1af060017709fc1_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp]={
   name='Camp',
@@ -125,9 +154,13 @@ army['5fb1b9ede1af060017709fc1']={
   g_base_definitions[g_str_5fb1ba3be1af06001770ef07],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0b],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0f],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0f],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef12],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef15],

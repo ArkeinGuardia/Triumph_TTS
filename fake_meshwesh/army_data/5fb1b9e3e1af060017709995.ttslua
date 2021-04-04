@@ -9,6 +9,34 @@ end
 g_str_5fb1ba2ee1af06001770d751='5fb1ba2ee1af06001770d751'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d751]={
   id=g_str_5fb1ba2ee1af06001770d751,
+  name='Knights General',
+  min=3,
+  max=1,
+  description='Noble horsemen',
+}
+g_str_5fb1ba2ee1af06001770d751_dismounted='5fb1ba2ee1af06001770d751_dismounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d751_dismounted]={
+  id=g_str_5fb1ba2ee1af06001770d751_dismounted,
+  name='Warrior',
+  min=3,
+  max=1,
+  description='Noble horsemen\nDeployment dismounted from Knights General',
+  points=4,
+}
+g_5fb1ba2ee1af06001770d751_dismounted=g_base_definitions[g_str_5fb1ba2ee1af06001770d751_dismounted]
+g_str_5fb1ba2ee1af06001770d751_mounted='5fb1ba2ee1af06001770d751_mounted'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d751_mounted]={
+  id=g_str_5fb1ba2ee1af06001770d751_mounted,
+  name='Knights General',
+  min=3,
+  max=1,
+  description='Noble horsemen\nDeployment dismounting as Warrior',
+  points=4,
+  dismount_as=g_5fb1ba2ee1af06001770d751_dismounted,
+}
+g_str_5fb1ba2ee1af06001770d751='5fb1ba2ee1af06001770d751'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d751]={
+  id=g_str_5fb1ba2ee1af06001770d751,
   name='Knights',
   min=3,
   max=5,
@@ -58,13 +86,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d758]={
   max=6,
   description='Bowmen',
 }
-g_str_5fb1ba2ee1af06001770d75a='5fb1ba2ee1af06001770d75a'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d75a]={
-  name='Knights General',
-  id=g_str_5fb1ba2ee1af06001770d75a,
-  min=1,
-  max=1,
-}
 g_str_5fb1b9e3e1af060017709995_camp='5fb1b9e3e1af060017709995_camp'
 g_base_definitions[g_str_5fb1b9e3e1af060017709995_camp]={
   name='Camp',
@@ -78,6 +99,9 @@ army['5fb1b9e3e1af060017709995']={
   },
   g_base_definitions[g_str_5fb1b9e3e1af060017709995_camp],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d75a],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d751],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d751_mounted],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d751_dismounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d751],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d751_mounted],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d751_dismounted],
