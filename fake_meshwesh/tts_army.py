@@ -247,6 +247,8 @@ def write_base_definition(file, base_definition) :
     file.write("  points=%d,\n" % (base_definition['points']))
   if 'dismount_as' in base_definition :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
+  if 'general' in base_definition  and base_definition['general'] == True :
+    file.write("  general=true,\n")
   file.write("}\n")
 
 def get_general_troop_type_codes(army) :
