@@ -208,9 +208,14 @@ def create_base_definition(troop_option, troop_entry) :
   min = troop_option['min']
   max = troop_option['max']
 
-  description = troop_option['description']
-
   id = troop_entry['_id']
+  if id == '5fb1ba37e1af06001770e72d' :
+    description = "German or Polish men-at-arms"
+  elif id ==  "5fb1ba37e1af06001770e72e"
+    description = "Lithuanian horsemen"
+  else
+    description = troop_option['description']
+  
 
   troop_type = troop_entry['troopTypeCode']
   name = troop_type_to_name(troop_type)
