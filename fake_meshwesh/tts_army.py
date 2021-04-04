@@ -211,9 +211,9 @@ def create_base_definition(troop_option, troop_entry) :
   id = troop_entry['_id']
   if id == '5fb1ba37e1af06001770e72d' :
     description = "German or Polish men-at-arms"
-  elif id ==  "5fb1ba37e1af06001770e72e"
+  elif id ==  "5fb1ba37e1af06001770e72e" :
     description = "Lithuanian horsemen"
-  else
+  else :
     description = troop_option['description']
   
 
@@ -265,12 +265,16 @@ def base_definitions(file, troop_option) :
     write_base_definition(file, base_definition)
     for battle_card in troop_entry['battleCardEntries'] :
       code = battle_card['battleCardCode']
-      if code == "DD" :
-        note = battle_card['note']
-        if note == "General only; as Pike" :
-          # TODO
-          pass
-        elif note == "German Knights as Elite Foot; Lithuanian Javelin Cavalry as Archers" :
+      note = battle_card['note']
+      if code == "DD" :        
+        id = troop_entry['_id']
+        if id == '5fb1ba37e1af06001770e72d' :
+          # "German or Polish men-at-arms"
+          write_deployment_dismounting_as(file, base_definition, "Elite Foot")
+        elif id ==  "5fb1ba37e1af06001770e72e" :
+          #"Lithuanian horsemen"
+          write_deployment_dismounting_as(file, base_definition, "Archers")
+        elif note == "General only; as Pike" :
           # TODO
           pass
         else:
