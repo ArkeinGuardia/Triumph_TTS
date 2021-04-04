@@ -277,11 +277,9 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
         #"Lithuanian horsemen"
         extra = write_deployment_dismounting_as(file, base_definition, "Archers")
         result.extend(extra)
-      elif note == "General only; as Pike" :
-        #-elif battle_card['_id'] == "5fb1ba34e1af06001770e1a0" :
-        #extra = write_deployment_dismounting_as(file, base_definition, "Pikes")
-        #result.extend(extra)
-        pass
+      elif battle_card['_id'] == "5fb1ba34e1af06001770e1a0" :
+        extra = write_deployment_dismounting_as(file, base_definition, "Pikes")
+        result.extend(extra)
       else:
         extra = write_deployment_dismounting(file, base_definition, battle_card)
         result.extend(extra)
