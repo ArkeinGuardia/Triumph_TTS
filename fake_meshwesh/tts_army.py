@@ -171,6 +171,9 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type) :
 
   dismounted['troop_type'] = dismount_type
   dismounted['name'] = dismount_type
+  if 'general' in dismounted:
+    dismounted['name'] = dismounted['name'] + " General"
+
 
   # Calculate the points for being able to dismount 
   mounted_points = get_points_for_troop_type(base_definition['troop_type'])
