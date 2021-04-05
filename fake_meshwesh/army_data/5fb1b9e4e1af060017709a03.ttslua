@@ -43,6 +43,26 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d898]={
   description='Slav javelinmen',
   troop_type="Light Foot",
 }
+g_str_5fb1ba2fe1af06001770d898_mounted_mobile_infantry='5fb1ba2fe1af06001770d898_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d898_mounted_mobile_infantry]={
+  id=g_str_5fb1ba2fe1af06001770d898_mounted_mobile_infantry,
+  name='Light Foot Mounted mobile infantry',
+  min=2,
+  max=10,
+  description='Slav javelinmen\nmounted mobile infantry',
+  dismount_as=g_5fb1ba2fe1af06001770d898_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Light Foot",
+}
+g_str_5fb1ba2fe1af06001770d898_dismounted_mobile_infantry='5fb1ba2fe1af06001770d898_dismounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d898_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba2fe1af06001770d898_dismounted_mobile_infantry,
+  name='Light Foot',
+  min=2,
+  max=10,
+  description='Slav javelinmen\nDismounted mobile infantry',
+  troop_type="Light Foot",
+}
 g_str_5fb1ba2fe1af06001770d899='5fb1ba2fe1af06001770d899'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d899]={
   id=g_str_5fb1ba2fe1af06001770d899,
@@ -50,6 +70,26 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d899]={
   min=2,
   max=10,
   description='Slav javelinmen',
+  troop_type="Rabble",
+}
+g_str_5fb1ba2fe1af06001770d899_mounted_mobile_infantry='5fb1ba2fe1af06001770d899_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d899_mounted_mobile_infantry]={
+  id=g_str_5fb1ba2fe1af06001770d899_mounted_mobile_infantry,
+  name='Rabble Mounted mobile infantry',
+  min=2,
+  max=10,
+  description='Slav javelinmen\nmounted mobile infantry',
+  dismount_as=g_5fb1ba2fe1af06001770d899_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Rabble",
+}
+g_str_5fb1ba2fe1af06001770d899_dismounted_mobile_infantry='5fb1ba2fe1af06001770d899_dismounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d899_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba2fe1af06001770d899_dismounted_mobile_infantry,
+  name='Rabble',
+  min=2,
+  max=10,
+  description='Slav javelinmen\nDismounted mobile infantry',
   troop_type="Rabble",
 }
 g_str_5fb1ba2fe1af06001770d89c='5fb1ba2fe1af06001770d89c'
@@ -77,7 +117,11 @@ army['5fb1b9e4e1af060017709a03']={
   g_base_definitions[g_str_5fb1ba2fe1af06001770d894],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d896],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d898],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d898_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d898_dismounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d899],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d899_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d899_dismounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d89c],
 }
 if nil == armies["Meshwesh id"] then

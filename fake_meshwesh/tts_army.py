@@ -207,6 +207,42 @@ def write_deployment_dismounting(file, base_definition, battle_card) :
   dismount_type = get_dismounting_type(base_definition, note)
   return write_deployment_dismounting_as(file, base_definition, dismount_type)
 
+
+def write_mobile_infantry(file, base_definition, battle_card):
+  """
+     @param file Open file to write the definitions to.
+     @param base_definition Defintinition of the base the battle card is being applied to.
+     @param battle_card Battle card being applied.
+     @return the extra base definitions for the mounted and dismounted infantry.
+  """
+  mounted = base_definition.copy()
+  dismounted = base_definition.copy()
+
+  mounted['id'] = mounted['id'] + "_mounted_mobile_infantry"
+  dismounted['id'] = dismounted['id'] + "_dismounted_mobile_infantry"
+
+  if 'description' not in mounted :
+    mounted['description'] = ""
+  else:
+    mounted['description'] += "\\n"
+  if 'description' not in dismounted :
+    dismounted['description'] = ""
+  else:
+    dismounted['description'] += "\\n"
+  dismounted['description'] += "Dismounted mobile infantry"
+  mounted['description'] += "mounted mobile infantry"
+
+  mounted['name'] = base_definition['name'] + " Mounted mobile infantry"
+
+  mounted['dismount_as'] = ("g_" + dismounted['id'])
+  mounted['mobile_infantry'] = True
+
+
+  write_base_definition(file, mounted) 
+  write_base_definition(file, dismounted) 
+  return [ mounted, dismounted]
+
+
 def create_base_definition(troop_option, troop_entry) :
   min = troop_option['min']
   max = troop_option['max']
@@ -249,6 +285,8 @@ def write_base_definition(file, base_definition) :
     file.write("  points=%d,\n" % (base_definition['points']))
   if 'dismount_as' in base_definition :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
+  if 'mobile_infantry' in base_definition  and base_definition['mobile_infantry'] == True :
+    file.write("  mobile_infantry=true,\n")
   if 'general' in base_definition  and base_definition['general'] == True :
     file.write("  general=true,\n")
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
@@ -287,6 +325,13 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
       else:
         extra = write_deployment_dismounting(file, base_definition, battle_card)
         result.extend(extra)
+    elif code == "MI" :
+        extra = write_mobile_infantry(file, base_definition, battle_card)
+        result.extend(extra)
+    else:
+      pass
+#      print("Unknown battle card ", code)
+
   return result
 
 

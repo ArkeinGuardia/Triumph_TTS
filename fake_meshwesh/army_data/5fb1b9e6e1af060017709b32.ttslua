@@ -89,6 +89,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcd4]={
   description='English longbowmen',
   troop_type="Archers",
 }
+g_str_5fb1ba31e1af06001770dcd4_mounted_mobile_infantry='5fb1ba31e1af06001770dcd4_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcd4_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dcd4_mounted_mobile_infantry,
+  name='Archers Mounted mobile infantry',
+  min=4,
+  max=10,
+  description='English longbowmen\nmounted mobile infantry',
+  dismount_as=g_5fb1ba31e1af06001770dcd4_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Archers",
+}
+g_str_5fb1ba31e1af06001770dcd4_dismounted_mobile_infantry='5fb1ba31e1af06001770dcd4_dismounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcd4_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dcd4_dismounted_mobile_infantry,
+  name='Archers',
+  min=4,
+  max=10,
+  description='English longbowmen\nDismounted mobile infantry',
+  troop_type="Archers",
+}
 g_str_5fb1ba31e1af06001770dcd7='5fb1ba31e1af06001770dcd7'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcd7]={
   id=g_str_5fb1ba31e1af06001770dcd7,
@@ -116,6 +136,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcdb]={
   description='Gascon and False-French town militia',
   troop_type="Heavy Foot",
 }
+g_str_5fb1ba31e1af06001770dcdb_mounted_mobile_infantry='5fb1ba31e1af06001770dcdb_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcdb_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dcdb_mounted_mobile_infantry,
+  name='Heavy Foot Mounted mobile infantry',
+  min=0,
+  max=1,
+  description='Gascon and False-French town militia\nmounted mobile infantry',
+  dismount_as=g_5fb1ba31e1af06001770dcdb_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Heavy Foot",
+}
+g_str_5fb1ba31e1af06001770dcdb_dismounted_mobile_infantry='5fb1ba31e1af06001770dcdb_dismounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcdb_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dcdb_dismounted_mobile_infantry,
+  name='Heavy Foot',
+  min=0,
+  max=1,
+  description='Gascon and False-French town militia\nDismounted mobile infantry',
+  troop_type="Heavy Foot",
+}
 g_str_5fb1b9e6e1af060017709b32_camp='5fb1b9e6e1af060017709b32_camp'
 g_base_definitions[g_str_5fb1b9e6e1af060017709b32_camp]={
   name='Camp',
@@ -136,9 +176,13 @@ army['5fb1b9e6e1af060017709b32']={
   g_base_definitions[g_str_5fb1ba31e1af06001770dccf_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dcd2],
   g_base_definitions[g_str_5fb1ba31e1af06001770dcd4],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcd4_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcd4_dismounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba31e1af06001770dcd7],
   g_base_definitions[g_str_5fb1ba31e1af06001770dcd9],
   g_base_definitions[g_str_5fb1ba31e1af06001770dcdb],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcdb_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcdb_dismounted_mobile_infantry],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
