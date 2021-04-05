@@ -158,13 +158,23 @@ def get_dismounting_type(base_definition, battle_card_note) :
     assert False
 
 
-def write_deployment_dismounting_as(file, base_definition, dismount_type) :
+def write_deployment_dismounting_as(file, base_definition, dismount_type, battle_card) :
   """
   @return list of base defintions for mounted and dismounted.
   """
   assert dismount_type is not None
   mounted = base_definition.copy()
   dismounted = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    mounted["min"] = battle_card["min"]
+    dismounted["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    mounted["max"] = battle_card["max"]
+    dismounted["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    mounted["max"] = 1
+    dismounted["max"] = 1
 
   mounted['id'] += "_mounted"
   dismounted['id'] += "_dismounted"
@@ -205,7 +215,7 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type) :
 def write_deployment_dismounting(file, base_definition, battle_card) :
   note = battle_card['note']
   dismount_type = get_dismounting_type(base_definition, note)
-  return write_deployment_dismounting_as(file, base_definition, dismount_type)
+  return write_deployment_dismounting_as(file, base_definition, dismount_type, battle_card)
 
 
 def write_mobile_infantry(file, base_definition, battle_card):
@@ -217,6 +227,16 @@ def write_mobile_infantry(file, base_definition, battle_card):
   """
   mounted = base_definition.copy()
   dismounted = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    mounted["min"] = battle_card["min"]
+    dismounted["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    mounted["max"] = battle_card["max"]
+    dismounted["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    mounted["max"] = 1
+    dismounted["max"] = 1
 
   mounted['id'] = mounted['id'] + "_mounted_mobile_infantry"
   dismounted['id'] = dismounted['id'] + "_dismounted_mobile_infantry"
@@ -313,14 +333,14 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
       id = troop_entry['_id']
       if id == '5fb1ba37e1af06001770e72d' :
         # "German or Polish men-at-arms"
-        extra = write_deployment_dismounting_as(file, base_definition, "Elite Foot")
+        extra = write_deployment_dismounting_as(file, base_definition, "Elite Foot", battle_card)
         result.extend(extra)
       elif id ==  "5fb1ba37e1af06001770e72e" :
         #"Lithuanian horsemen"
-        extra = write_deployment_dismounting_as(file, base_definition, "Archers")
+        extra = write_deployment_dismounting_as(file, base_definition, "Archers", battle_card)
         result.extend(extra)
       elif battle_card['_id'] == "5fb1ba34e1af06001770e1a0" :
-        extra = write_deployment_dismounting_as(file, base_definition, "Pikes")
+        extra = write_deployment_dismounting_as(file, base_definition, "Pikes", battle_card)
         result.extend(extra)
       else:
         extra = write_deployment_dismounting(file, base_definition, battle_card)
