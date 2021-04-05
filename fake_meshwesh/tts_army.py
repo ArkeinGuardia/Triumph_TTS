@@ -397,7 +397,7 @@ def write_elephant_screen(file, base_definition, battle_card) :
   if ("min" in battle_card)  and (battle_card["min"] is not None):
     elephants["min"] = battle_card["min"]
   if ("max" in battle_card)  and (battle_card["max"] is not None):
-    write_eelephantslephant_screen["max"] = battle_card["max"]
+    elephants["max"] = battle_card["max"]
   if ('general' in base_definition) and (base_definition['general'] == True) :
     elephants["max"] = 1
 
@@ -413,6 +413,30 @@ def write_elephant_screen(file, base_definition, battle_card) :
   elephants['name'] += " Elephant Screen"
   write_base_definition(file, elephants) 
   return [ elephants ]
+
+def write_plaustrella(file, base_definition, battle_card) :
+  plaustrella = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    plaustrella["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    plaustrella["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    plaustrella["max"] = 1
+
+  plaustrella['id'] = plaustrella['id'] + "_plaustrella"
+
+  if 'description' not in plaustrella :
+    elephaplaustrellants['description'] = ""
+  else:
+    plaustrella['description'] += "\\n"
+  plaustrella['description'] += "Plaustrella"
+
+  plaustrella['plaustrella'] = True
+  plaustrella['name'] += " Plaustrella"
+  write_base_definition(file, plaustrella) 
+  return [ plaustrella ]
+
 
 def write_fortified_camp(file, camp_definition, battle_card) :
   fort = camp_definition.copy()
@@ -481,6 +505,7 @@ def write_base_definition(file, base_definition) :
   if 'dismount_as' in base_definition :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
   for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry', 'elephant_screen',
+    'plaustrella',
     'fortifed_camp', 'pack_train'] :
     if k in base_definition  and base_definition[k] == True :
       file.write("  %s=true,\n" % (k))
@@ -537,6 +562,9 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
         result.extend(extra)
     elif code == "ET" :
         extra = write_elephant_screen(file, base_definition, battle_card)
+        result.extend(extra)
+    elif code == "PL" :
+        extra = write_plaustrella(file, base_definition, battle_card)
         result.extend(extra)
     else:
       pass
