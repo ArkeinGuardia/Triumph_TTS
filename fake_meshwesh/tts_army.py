@@ -334,6 +334,29 @@ def write_charging_camelry(file, base_definition, battle_card) :
   write_base_definition(file, camels) 
   return [ camels ]
 
+def write_elephant_screen(file, base_definition, battle_card) :
+  elephants = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    elephants["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    write_eelephantslephant_screen["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    elephants["max"] = 1
+
+  elephants['id'] = elephants['id'] + "_elephant_screen"
+
+  if 'description' not in elephants :
+    elephants['description'] = ""
+  else:
+    elephants['description'] += "\\n"
+  elephants['description'] += "Elephant Screen"
+
+  elephants['elephant_screen'] = True
+  elephants['name'] += " Elephant Screen"
+  write_base_definition(file, elephants) 
+  return [ elephants ]
+
 
 
 def create_base_definition(troop_option, troop_entry) :
@@ -378,7 +401,7 @@ def write_base_definition(file, base_definition) :
     file.write("  points=%d,\n" % (base_definition['points']))
   if 'dismount_as' in base_definition :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
-  for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry'] :
+  for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry', 'elephant_screen'] :
     if k in base_definition  and base_definition[k] == True :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
@@ -428,6 +451,9 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
         result.extend(extra)
     elif code == "CC" :
         extra = write_charging_camelry(file, base_definition, battle_card)
+        result.extend(extra)
+    elif code == "ET" :
+        extra = write_elephant_screen(file, base_definition, battle_card)
         result.extend(extra)
     else:
       pass
