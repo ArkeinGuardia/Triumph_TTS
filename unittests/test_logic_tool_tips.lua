@@ -60,6 +60,35 @@ function test_build_tool_tip_target_close_combat_vs_mounted_missing()
     lu.assertTrue(actual)
 end
 
+function test_general_gets_combat_factor()
+    -- setup
+    local old_decorations = g_decorations
+    g_decorations = {}
+
+    local base = {
+        getName = function() return "mounted" end,
+        getGUID = function() return "ABCDE" end,
+        base_definition_name = g_str_5fb1ba24e1af06001770c50f_general
+    }
+    g_decorations[ base.getGUID() ] = {base_definition_name =  base.base_definition_name}
+
+    -- Exercise
+    local tip = get_tool_tip_for_base(base)
+
+    -- Verify
+    local expected = "close combat:"
+    local actual = str_has_substr(tip, expected)
+    if not actual then
+        print("expected: ", expected)
+        print("tip: ", tip)
+    end
+    lu.assertTrue(actual)
+
+    -- Cleanup
+    g_decorations = old_decorations
+end
+
+
 function test_build_tool_tip_battle_card_added()
     -- setup
     local old_decorations = g_decorations
@@ -119,13 +148,14 @@ function test_get_tool_tip_returns_tool_tip_if_tool_tips_enabled()
     g_tool_tips_enabled = orig
 end
 
-function test_get_tool_tip_returns_empty_string_for_proxy()
+-- Proxy bases have no base definition
+function test_get_tool_tip_returns_empty_string_nil_base_definition()
     -- setup
     local orig = g_tool_tips_enabled
     g_tool_tips_enabled = true
 
     -- exercise
-    local actual = get_tool_tip_for_base_name("base Proxy 40x15 # 1")
+    local actual = get_tool_tip_for_base_definition(nil)
 
     -- validate
     lu.assertEquals(actual, "")

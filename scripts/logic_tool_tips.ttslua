@@ -77,17 +77,17 @@ function get_tool_tip_for_base(base_obj)
   end
 
   local tip =
-    get_tool_tip_for_base_name(base_name) ..
+    get_tool_tip_for_base_definition(base_definition) ..
     get_battle_card_for_base_obj(base_obj) ..
     description
   return tip
 end
 
-function get_tool_tip_for_base_name(base_name)
-  if base_name == nil then
+function get_tool_tip_for_base_definition(base_definition)
+  if base_definition == nil then
     return ""
   end
-  local type = get_base_type_from_name(base_name)
+  local type = base_definition.troop_type
   if type == nil then
     return ""
   end
