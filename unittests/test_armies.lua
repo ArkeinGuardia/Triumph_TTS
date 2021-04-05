@@ -170,38 +170,6 @@ function test_base_definitions_have_names()
 end
 
 
-function assert_base_definitions_have_depth(army_obj)
-  for base_id,base_data  in pairs(army_obj) do
-    if base_id ~= 'data' then
-      local base_definition = get_base_definition(base_data)
-      lu.assertTrue(nil ~= base_definition)
-      local name = base_definition['name']
-      lu.assertTrue(nil ~= name)
-      local depth = get_base_depth(name)
-      lu.assertTrue(nil ~= depth)
-    end
-  end
-end
-
-function test_base_definitions_have_depth()
-  -- Setup
-  local old_print_error = print_error
-  print_error = function(message)
-    print(message)
-    assert(false)
-  end
-
-  -- Exercise
-  for themes,armies_in_theme in pairs(armies) do
-    for _,army_obj in pairs(armies_in_theme) do
-      assert_base_definitions_have_depth(army_obj)
-    end
-  end
-
-  -- Cleanup
-  print_error = old_print_error
-end
-
 
 
 -- Any base whose name is "_Mobile" is on a square base.
@@ -215,7 +183,7 @@ function test_get_base_depth_mobile()
   end
 
   -- Exercise
-  local actual = get_base_depth('Archers_Mobile')
+  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantry])
   lu.assertEquals(actual, 40)
 
   -- Cleanup
@@ -233,7 +201,9 @@ function test_get_base_depth_camp()
   end
 
   -- Exercise
-  local actual = get_base_depth('Camp')
+  local a_camp = g_base_definitions[g_str_5fb1b9dae1af06001770942a_camp]
+  lu.assertTrue(nil ~= a_camp)
+  local actual = get_base_depth_from_base_definition(a_camp)
   lu.assertEquals(actual, 40)
 
   -- Cleanup
@@ -249,7 +219,7 @@ function test_get_base_depth_elite_foot()
   end
 
   -- Exercise
-  local actual = get_base_depth('Elite Foot')
+  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba20e1af06001770c0c3])
   lu.assertEquals(actual, 15)
 
   -- Cleanup
@@ -265,30 +235,13 @@ function test_get_base_depth_elite_foot_general()
   end
 
   -- Exercise
-  local actual = get_base_depth('Elite Foot General')
+  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba21e1af06001770c110_general])
   lu.assertEquals(actual, 15)
 
   -- Cleanup
   print_error = old_print_error
 end
 
--- A base that has important information in the tool top
--- gets an asterix in its name.
-function test_get_base_depth_with_notes()
-  -- Exercise
-  local old_print_error = print_error
-  print_error = function(message)
-    print(message)
-    assert(false)
-  end
-
-  -- Exercise
-  local actual = get_base_depth('Elite Foot General*')
-  lu.assertEquals(actual, 15)
-
-  -- Cleanup
-  print_error = old_print_error
-end
 
 -- Check that the armies could be spawned
 function test_spawn_army(army_name)
