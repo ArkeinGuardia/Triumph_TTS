@@ -187,16 +187,27 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770cf8e]={
 }
 g_str_5fb1b9dfe1af060017709752_camp='5fb1b9dfe1af060017709752_camp'
 g_base_definitions[g_str_5fb1b9dfe1af060017709752_camp]={
-  name='Camp',
   id=g_str_5fb1b9dfe1af060017709752_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dfe1af060017709752_camp_pack_train='5fb1b9dfe1af060017709752_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dfe1af060017709752_camp_pack_train]={
+  id=g_str_5fb1b9dfe1af060017709752_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dfe1af060017709752']={
   data={
     name='Arabo-Aramaean Hatra  150 BC to 240 AD'
   },
-  g_base_definitions[g_str_5fb1b9dfe1af060017709752_camp],
   g_base_definitions[g_str_5fb1ba2ae1af06001770cf75_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770cf75],
   g_base_definitions[g_str_5fb1ba2ae1af06001770cf76_general],
@@ -216,6 +227,8 @@ army['5fb1b9dfe1af060017709752']={
   g_base_definitions[g_str_5fb1ba2ae1af06001770cf87_armored_camelry],
   g_base_definitions[g_str_5fb1ba2ae1af06001770cf8b],
   g_base_definitions[g_str_5fb1ba2ae1af06001770cf8e],
+  g_base_definitions[g_str_5fb1b9dfe1af060017709752_camp],
+  g_base_definitions[g_str_5fb1b9dfe1af060017709752_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

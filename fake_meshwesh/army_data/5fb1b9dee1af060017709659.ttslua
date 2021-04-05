@@ -187,16 +187,26 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cb78]={
 }
 g_str_5fb1b9dee1af060017709659_camp='5fb1b9dee1af060017709659_camp'
 g_base_definitions[g_str_5fb1b9dee1af060017709659_camp]={
-  name='Camp',
   id=g_str_5fb1b9dee1af060017709659_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dee1af060017709659_camp_fortified='5fb1b9dee1af060017709659_camp_fortified'
+g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified]={
+  id=g_str_5fb1b9dee1af060017709659_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9dee1af060017709659']={
   data={
     name='Diadachoii in Macedon  320 to 279 BC'
   },
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb60],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb62_general],
@@ -216,6 +226,8 @@ army['5fb1b9dee1af060017709659']={
   g_base_definitions[g_str_5fb1ba28e1af06001770cb76_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb76],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb78],
+  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp],
+  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

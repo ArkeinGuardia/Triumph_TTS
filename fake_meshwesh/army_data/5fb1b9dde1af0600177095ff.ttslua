@@ -119,16 +119,27 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca26]={
 }
 g_str_5fb1b9dde1af0600177095ff_camp='5fb1b9dde1af0600177095ff_camp'
 g_base_definitions[g_str_5fb1b9dde1af0600177095ff_camp]={
-  name='Camp',
   id=g_str_5fb1b9dde1af0600177095ff_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dde1af0600177095ff_camp_pack_train='5fb1b9dde1af0600177095ff_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dde1af0600177095ff_camp_pack_train]={
+  id=g_str_5fb1b9dde1af0600177095ff_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dde1af0600177095ff']={
   data={
     name='Sacred War Phokian  357 to 347 BC'
   },
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ff_camp],
   g_base_definitions[g_str_5fb1ba27e1af06001770ca15_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770ca15],
   g_base_definitions[g_str_5fb1ba27e1af06001770ca18],
@@ -141,6 +152,8 @@ army['5fb1b9dde1af0600177095ff']={
   g_base_definitions[g_str_5fb1ba27e1af06001770ca22],
   g_base_definitions[g_str_5fb1ba27e1af06001770ca24],
   g_base_definitions[g_str_5fb1ba27e1af06001770ca26],
+  g_base_definitions[g_str_5fb1b9dde1af0600177095ff_camp],
+  g_base_definitions[g_str_5fb1b9dde1af0600177095ff_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

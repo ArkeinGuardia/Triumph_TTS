@@ -181,16 +181,26 @@ g_base_definitions[g_str_5fb1ba27e1af06001770cae8]={
 }
 g_str_5fb1b9dde1af06001770962a_camp='5fb1b9dde1af06001770962a_camp'
 g_base_definitions[g_str_5fb1b9dde1af06001770962a_camp]={
-  name='Camp',
   id=g_str_5fb1b9dde1af06001770962a_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dde1af06001770962a_camp_fortified='5fb1b9dde1af06001770962a_camp_fortified'
+g_base_definitions[g_str_5fb1b9dde1af06001770962a_camp_fortified]={
+  id=g_str_5fb1b9dde1af06001770962a_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9dde1af06001770962a']={
   data={
     name='Alexander Imperial  328 to 320 BC'
   },
-  g_base_definitions[g_str_5fb1b9dde1af06001770962a_camp],
   g_base_definitions[g_str_5fb1ba27e1af06001770cac3_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770cac3],
   g_base_definitions[g_str_5fb1ba27e1af06001770cac5],
@@ -210,6 +220,8 @@ army['5fb1b9dde1af06001770962a']={
   g_base_definitions[g_str_5fb1ba27e1af06001770cae4],
   g_base_definitions[g_str_5fb1ba27e1af06001770cae6],
   g_base_definitions[g_str_5fb1ba27e1af06001770cae8],
+  g_base_definitions[g_str_5fb1b9dde1af06001770962a_camp],
+  g_base_definitions[g_str_5fb1b9dde1af06001770962a_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

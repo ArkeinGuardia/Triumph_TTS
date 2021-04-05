@@ -112,16 +112,26 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7c1]={
 }
 g_str_5fb1b9eae1af060017709e09_camp='5fb1b9eae1af060017709e09_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709e09_camp]={
-  name='Camp',
   id=g_str_5fb1b9eae1af060017709e09_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9eae1af060017709e09_camp_fortified='5fb1b9eae1af060017709e09_camp_fortified'
+g_base_definitions[g_str_5fb1b9eae1af060017709e09_camp_fortified]={
+  id=g_str_5fb1b9eae1af060017709e09_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9eae1af060017709e09']={
   data={
     name='Khazar Decline  966 to 1083 AD'
   },
-  g_base_definitions[g_str_5fb1b9eae1af060017709e09_camp],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7b5_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7b5],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7b7],
@@ -133,6 +143,8 @@ army['5fb1b9eae1af060017709e09']={
   g_base_definitions[g_str_5fb1ba37e1af06001770e7bc_dismounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7bf],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7c1],
+  g_base_definitions[g_str_5fb1b9eae1af060017709e09_camp],
+  g_base_definitions[g_str_5fb1b9eae1af060017709e09_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

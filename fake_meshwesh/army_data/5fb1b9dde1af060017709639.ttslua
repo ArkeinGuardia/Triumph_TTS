@@ -83,16 +83,27 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cb0f]={
 }
 g_str_5fb1b9dde1af060017709639_camp='5fb1b9dde1af060017709639_camp'
 g_base_definitions[g_str_5fb1b9dde1af060017709639_camp]={
-  name='Camp',
   id=g_str_5fb1b9dde1af060017709639_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dde1af060017709639_camp_pack_train='5fb1b9dde1af060017709639_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dde1af060017709639_camp_pack_train]={
+  id=g_str_5fb1b9dde1af060017709639_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dde1af060017709639']={
   data={
     name='Paionian  512 to 284 BC'
   },
-  g_base_definitions[g_str_5fb1b9dde1af060017709639_camp],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb07_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb07],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb09_general],
@@ -101,6 +112,8 @@ army['5fb1b9dde1af060017709639']={
   g_base_definitions[g_str_5fb1ba28e1af06001770cb0b],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb0d],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb0f],
+  g_base_definitions[g_str_5fb1b9dde1af060017709639_camp],
+  g_base_definitions[g_str_5fb1b9dde1af060017709639_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

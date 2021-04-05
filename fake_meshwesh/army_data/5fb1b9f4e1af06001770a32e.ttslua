@@ -117,16 +117,26 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbfd]={
 }
 g_str_5fb1b9f4e1af06001770a32e_camp='5fb1b9f4e1af06001770a32e_camp'
 g_base_definitions[g_str_5fb1b9f4e1af06001770a32e_camp]={
-  name='Camp',
   id=g_str_5fb1b9f4e1af06001770a32e_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f4e1af06001770a32e_camp_fortified='5fb1b9f4e1af06001770a32e_camp_fortified'
+g_base_definitions[g_str_5fb1b9f4e1af06001770a32e_camp_fortified]={
+  id=g_str_5fb1b9f4e1af06001770a32e_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9f4e1af06001770a32e']={
   data={
     name='Koguryo Korean  300 to 668 AD'
   },
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a32e_camp],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbea_general],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbea],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbec],
@@ -139,6 +149,8 @@ army['5fb1b9f4e1af06001770a32e']={
   g_base_definitions[g_str_5fb1ba42e1af06001770fbfa],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbfc],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbfd],
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a32e_camp],
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a32e_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

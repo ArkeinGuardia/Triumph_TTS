@@ -127,16 +127,27 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dae8]={
 }
 g_str_5fb1b9e5e1af060017709abd_camp='5fb1b9e5e1af060017709abd_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp]={
-  name='Camp',
   id=g_str_5fb1b9e5e1af060017709abd_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e5e1af060017709abd_camp_pack_train='5fb1b9e5e1af060017709abd_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp_pack_train]={
+  id=g_str_5fb1b9e5e1af060017709abd_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e5e1af060017709abd']={
   data={
     name='Dark Ages Welsh  580 to 1149 AD'
   },
-  g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp],
   g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general],
   g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_mounted],
   g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_dismounted],
@@ -149,6 +160,8 @@ army['5fb1b9e5e1af060017709abd']={
   g_base_definitions[g_str_5fb1ba30e1af06001770dae0],
   g_base_definitions[g_str_5fb1ba30e1af06001770dae4],
   g_base_definitions[g_str_5fb1ba30e1af06001770dae8],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

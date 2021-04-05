@@ -193,16 +193,26 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c6d7]={
 }
 g_str_5fb1b9dbe1af060017709528_camp='5fb1b9dbe1af060017709528_camp'
 g_base_definitions[g_str_5fb1b9dbe1af060017709528_camp]={
-  name='Camp',
   id=g_str_5fb1b9dbe1af060017709528_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dbe1af060017709528_camp_fortified='5fb1b9dbe1af060017709528_camp_fortified'
+g_base_definitions[g_str_5fb1b9dbe1af060017709528_camp_fortified]={
+  id=g_str_5fb1b9dbe1af060017709528_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9dbe1af060017709528']={
   data={
     name='Early Carthaginian  550 to 275 BC'
   },
-  g_base_definitions[g_str_5fb1b9dbe1af060017709528_camp],
   g_base_definitions[g_str_5fb1ba25e1af06001770c6b8_general],
   g_base_definitions[g_str_5fb1ba25e1af06001770c6b8],
   g_base_definitions[g_str_5fb1ba25e1af06001770c6ba],
@@ -223,6 +233,8 @@ army['5fb1b9dbe1af060017709528']={
   g_base_definitions[g_str_5fb1ba25e1af06001770c6d4_general],
   g_base_definitions[g_str_5fb1ba25e1af06001770c6d4],
   g_base_definitions[g_str_5fb1ba25e1af06001770c6d7],
+  g_base_definitions[g_str_5fb1b9dbe1af060017709528_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af060017709528_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

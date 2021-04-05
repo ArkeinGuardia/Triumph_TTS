@@ -82,16 +82,27 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6ab]={
 }
 g_str_5fb1b9f1e1af06001770a1d0_camp='5fb1b9f1e1af06001770a1d0_camp'
 g_base_definitions[g_str_5fb1b9f1e1af06001770a1d0_camp]={
-  name='Camp',
   id=g_str_5fb1b9f1e1af06001770a1d0_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f1e1af06001770a1d0_camp_pack_train='5fb1b9f1e1af06001770a1d0_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f1e1af06001770a1d0_camp_pack_train]={
+  id=g_str_5fb1b9f1e1af06001770a1d0_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9f1e1af06001770a1d0']={
   data={
     name='Southern Xiongnu  304 to 439 AD'
   },
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1d0_camp],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6a3_general],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6a3],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6a4_general],
@@ -100,6 +111,8 @@ army['5fb1b9f1e1af06001770a1d0']={
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6a8],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6aa],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6ab],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a1d0_camp],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a1d0_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

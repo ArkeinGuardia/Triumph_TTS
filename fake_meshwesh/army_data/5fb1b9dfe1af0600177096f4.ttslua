@@ -54,21 +54,33 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cdc8]={
 }
 g_str_5fb1b9dfe1af0600177096f4_camp='5fb1b9dfe1af0600177096f4_camp'
 g_base_definitions[g_str_5fb1b9dfe1af0600177096f4_camp]={
-  name='Camp',
   id=g_str_5fb1b9dfe1af0600177096f4_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dfe1af0600177096f4_camp_fortified='5fb1b9dfe1af0600177096f4_camp_fortified'
+g_base_definitions[g_str_5fb1b9dfe1af0600177096f4_camp_fortified]={
+  id=g_str_5fb1b9dfe1af0600177096f4_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9dfe1af0600177096f4']={
   data={
     name='Siracae, Iazyges, Later Rhoxolani Sarmatian  310 BC to 375 AD'
   },
-  g_base_definitions[g_str_5fb1b9dfe1af0600177096f4_camp],
   g_base_definitions[g_str_5fb1ba29e1af06001770cdc2_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770cdc2],
   g_base_definitions[g_str_5fb1ba29e1af06001770cdc4],
   g_base_definitions[g_str_5fb1ba29e1af06001770cdc6],
   g_base_definitions[g_str_5fb1ba29e1af06001770cdc8],
+  g_base_definitions[g_str_5fb1b9dfe1af0600177096f4_camp],
+  g_base_definitions[g_str_5fb1b9dfe1af0600177096f4_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

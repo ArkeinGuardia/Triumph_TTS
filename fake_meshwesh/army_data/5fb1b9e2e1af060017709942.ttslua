@@ -137,16 +137,27 @@ g_base_definitions[g_str_5fb1ba2de1af06001770d61b]={
 }
 g_str_5fb1b9e2e1af060017709942_camp='5fb1b9e2e1af060017709942_camp'
 g_base_definitions[g_str_5fb1b9e2e1af060017709942_camp]={
-  name='Camp',
   id=g_str_5fb1b9e2e1af060017709942_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e2e1af060017709942_camp_pack_train='5fb1b9e2e1af060017709942_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e2e1af060017709942_camp_pack_train]={
+  id=g_str_5fb1b9e2e1af060017709942_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e2e1af060017709942']={
   data={
     name='Palmyran  260 to 273 AD'
   },
-  g_base_definitions[g_str_5fb1b9e2e1af060017709942_camp],
   g_base_definitions[g_str_5fb1ba2de1af06001770d600_general],
   g_base_definitions[g_str_5fb1ba2de1af06001770d600],
   g_base_definitions[g_str_5fb1ba2de1af06001770d602_general],
@@ -161,6 +172,8 @@ army['5fb1b9e2e1af060017709942']={
   g_base_definitions[g_str_5fb1ba2de1af06001770d614],
   g_base_definitions[g_str_5fb1ba2de1af06001770d617],
   g_base_definitions[g_str_5fb1ba2de1af06001770d61b],
+  g_base_definitions[g_str_5fb1b9e2e1af060017709942_camp],
+  g_base_definitions[g_str_5fb1b9e2e1af060017709942_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

@@ -72,16 +72,26 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d43a]={
 }
 g_str_5fb1b9e2e1af0600177098bb_camp='5fb1b9e2e1af0600177098bb_camp'
 g_base_definitions[g_str_5fb1b9e2e1af0600177098bb_camp]={
-  name='Camp',
   id=g_str_5fb1b9e2e1af0600177098bb_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e2e1af0600177098bb_camp_fortified='5fb1b9e2e1af0600177098bb_camp_fortified'
+g_base_definitions[g_str_5fb1b9e2e1af0600177098bb_camp_fortified]={
+  id=g_str_5fb1b9e2e1af0600177098bb_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9e2e1af0600177098bb']={
   data={
     name='Visigoths under Alaric as Magister Militum  395 to 407 AD'
   },
-  g_base_definitions[g_str_5fb1b9e2e1af0600177098bb_camp],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d430_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d430],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d432],
@@ -89,6 +99,8 @@ army['5fb1b9e2e1af0600177098bb']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d436],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d438],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d43a],
+  g_base_definitions[g_str_5fb1b9e2e1af0600177098bb_camp],
+  g_base_definitions[g_str_5fb1b9e2e1af0600177098bb_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

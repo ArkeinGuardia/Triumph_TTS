@@ -141,16 +141,27 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed46]={
 }
 g_str_5fb1b9ede1af060017709f4e_camp='5fb1b9ede1af060017709f4e_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709f4e_camp]={
-  name='Camp',
   id=g_str_5fb1b9ede1af060017709f4e_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f4e_camp_pack_train='5fb1b9ede1af060017709f4e_camp_pack_train'
+g_base_definitions[g_str_5fb1b9ede1af060017709f4e_camp_pack_train]={
+  id=g_str_5fb1b9ede1af060017709f4e_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9ede1af060017709f4e']={
   data={
     name='Qaramita  897 to 1078 AD'
   },
-  g_base_definitions[g_str_5fb1b9ede1af060017709f4e_camp],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed37_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed37],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed39],
@@ -165,6 +176,8 @@ army['5fb1b9ede1af060017709f4e']={
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed43],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed43_light_camelry],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed46],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f4e_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f4e_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

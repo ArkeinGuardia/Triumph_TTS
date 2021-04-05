@@ -45,20 +45,33 @@ g_base_definitions[g_str_5fb1ba30e1af06001770da9f]={
 }
 g_str_5fb1b9e5e1af060017709aa8_camp='5fb1b9e5e1af060017709aa8_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709aa8_camp]={
-  name='Camp',
   id=g_str_5fb1b9e5e1af060017709aa8_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e5e1af060017709aa8_camp_pack_train='5fb1b9e5e1af060017709aa8_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e5e1af060017709aa8_camp_pack_train]={
+  id=g_str_5fb1b9e5e1af060017709aa8_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e5e1af060017709aa8']={
   data={
     name='Viking Raiders  790 to 849 AD'
   },
-  g_base_definitions[g_str_5fb1b9e5e1af060017709aa8_camp],
   g_base_definitions[g_str_5fb1ba30e1af06001770da9b_general],
   g_base_definitions[g_str_5fb1ba30e1af06001770da9b],
   g_base_definitions[g_str_5fb1ba30e1af06001770da9d],
   g_base_definitions[g_str_5fb1ba30e1af06001770da9f],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709aa8_camp],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709aa8_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

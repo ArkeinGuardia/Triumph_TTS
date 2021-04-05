@@ -91,16 +91,36 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d831]={
 }
 g_str_5fb1b9e4e1af0600177099de_camp='5fb1b9e4e1af0600177099de_camp'
 g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp]={
-  name='Camp',
   id=g_str_5fb1b9e4e1af0600177099de_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e4e1af0600177099de_camp_fortified='5fb1b9e4e1af0600177099de_camp_fortified'
+g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp_fortified]={
+  id=g_str_5fb1b9e4e1af0600177099de_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e4e1af0600177099de_camp_pack_train='5fb1b9e4e1af0600177099de_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp_pack_train]={
+  id=g_str_5fb1b9e4e1af0600177099de_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e4e1af0600177099de']={
   data={
     name='Justinian Decline  560 to 578 AD'
   },
-  g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d823_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d823],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d826_general],
@@ -110,6 +130,9 @@ army['5fb1b9e4e1af0600177099de']={
   g_base_definitions[g_str_5fb1ba2ee1af06001770d82c],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d82f],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d831],
+  g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp],
+  g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp_fortified],
+  g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

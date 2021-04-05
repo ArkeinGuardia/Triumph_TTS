@@ -63,22 +63,35 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f143]={
 }
 g_str_5fb1b9efe1af06001770a04a_camp='5fb1b9efe1af06001770a04a_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a04a_camp]={
-  name='Camp',
   id=g_str_5fb1b9efe1af06001770a04a_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9efe1af06001770a04a_camp_pack_train='5fb1b9efe1af06001770a04a_camp_pack_train'
+g_base_definitions[g_str_5fb1b9efe1af06001770a04a_camp_pack_train]={
+  id=g_str_5fb1b9efe1af06001770a04a_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9efe1af06001770a04a']={
   data={
     name='Safavids  1499 to 1520 AD'
   },
-  g_base_definitions[g_str_5fb1b9efe1af06001770a04a_camp],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f13a_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f13a],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f13d],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f13f],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f141],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f143],
+  g_base_definitions[g_str_5fb1b9efe1af06001770a04a_camp],
+  g_base_definitions[g_str_5fb1b9efe1af06001770a04a_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

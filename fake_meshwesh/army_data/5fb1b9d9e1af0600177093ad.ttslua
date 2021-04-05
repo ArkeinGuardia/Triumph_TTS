@@ -99,16 +99,27 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c103]={
 }
 g_str_5fb1b9d9e1af0600177093ad_camp='5fb1b9d9e1af0600177093ad_camp'
 g_base_definitions[g_str_5fb1b9d9e1af0600177093ad_camp]={
-  name='Camp',
   id=g_str_5fb1b9d9e1af0600177093ad_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9d9e1af0600177093ad_camp_pack_train='5fb1b9d9e1af0600177093ad_camp_pack_train'
+g_base_definitions[g_str_5fb1b9d9e1af0600177093ad_camp_pack_train]={
+  id=g_str_5fb1b9d9e1af0600177093ad_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9d9e1af0600177093ad']={
   data={
     name='Hittite Empire  1380 to 1180 BC'
   },
-  g_base_definitions[g_str_5fb1b9d9e1af0600177093ad_camp],
   g_base_definitions[g_str_5fb1ba20e1af06001770c0f3_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770c0f3],
   g_base_definitions[g_str_5fb1ba20e1af06001770c0f5],
@@ -119,6 +130,8 @@ army['5fb1b9d9e1af0600177093ad']={
   g_base_definitions[g_str_5fb1ba20e1af06001770c0ff],
   g_base_definitions[g_str_5fb1ba20e1af06001770c102],
   g_base_definitions[g_str_5fb1ba20e1af06001770c103],
+  g_base_definitions[g_str_5fb1b9d9e1af0600177093ad_camp],
+  g_base_definitions[g_str_5fb1b9d9e1af0600177093ad_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

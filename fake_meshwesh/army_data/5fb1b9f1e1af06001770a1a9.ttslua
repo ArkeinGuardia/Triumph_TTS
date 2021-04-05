@@ -109,16 +109,27 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f630]={
 }
 g_str_5fb1b9f1e1af06001770a1a9_camp='5fb1b9f1e1af06001770a1a9_camp'
 g_base_definitions[g_str_5fb1b9f1e1af06001770a1a9_camp]={
-  name='Camp',
   id=g_str_5fb1b9f1e1af06001770a1a9_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f1e1af06001770a1a9_camp_pack_train='5fb1b9f1e1af06001770a1a9_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f1e1af06001770a1a9_camp_pack_train]={
+  id=g_str_5fb1b9f1e1af06001770a1a9_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9f1e1af06001770a1a9']={
   data={
     name='Dian and Kunming  295 BC to 45 AD'
   },
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1a9_camp],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f621_general],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f621],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f623_general],
@@ -130,6 +141,8 @@ army['5fb1b9f1e1af06001770a1a9']={
   g_base_definitions[g_str_5fb1ba3fe1af06001770f62c],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f62e],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f630],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a1a9_camp],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a1a9_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

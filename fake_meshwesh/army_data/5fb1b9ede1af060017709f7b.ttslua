@@ -149,16 +149,27 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ee23]={
 }
 g_str_5fb1b9ede1af060017709f7b_camp='5fb1b9ede1af060017709f7b_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp]={
-  name='Camp',
   id=g_str_5fb1b9ede1af060017709f7b_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f7b_camp_pack_train='5fb1b9ede1af060017709f7b_camp_pack_train'
+g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp_pack_train]={
+  id=g_str_5fb1b9ede1af060017709f7b_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9ede1af060017709f7b']={
   data={
     name='Seljuq Sultanates of Merv or Hamadan  1092 to 1194 AD'
   },
-  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee10_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee10],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee13_general],
@@ -174,6 +185,8 @@ army['5fb1b9ede1af060017709f7b']={
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee21],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee23],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

@@ -81,16 +81,27 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfe8]={
 }
 g_str_5fb1b9d9e1af060017709357_camp='5fb1b9d9e1af060017709357_camp'
 g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp]={
-  name='Camp',
   id=g_str_5fb1b9d9e1af060017709357_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9d9e1af060017709357_camp_pack_train='5fb1b9d9e1af060017709357_camp_pack_train'
+g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp_pack_train]={
+  id=g_str_5fb1b9d9e1af060017709357_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9d9e1af060017709357']={
   data={
     name='Later Nine Bows Libyan  1213 to 665 BC'
   },
-  g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfdc_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfdc],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfde],
@@ -99,6 +110,8 @@ army['5fb1b9d9e1af060017709357']={
   g_base_definitions[g_str_5fb1ba20e1af06001770bfe5],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfe6],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfe8],
+  g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp],
+  g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

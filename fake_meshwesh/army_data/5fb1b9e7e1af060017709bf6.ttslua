@@ -154,16 +154,27 @@ g_base_definitions[g_str_5fb1ba32e1af06001770df3d]={
 }
 g_str_5fb1b9e7e1af060017709bf6_camp='5fb1b9e7e1af060017709bf6_camp'
 g_base_definitions[g_str_5fb1b9e7e1af060017709bf6_camp]={
-  name='Camp',
   id=g_str_5fb1b9e7e1af060017709bf6_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e7e1af060017709bf6_camp_pack_train='5fb1b9e7e1af060017709bf6_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e7e1af060017709bf6_camp_pack_train]={
+  id=g_str_5fb1b9e7e1af060017709bf6_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e7e1af060017709bf6']={
   data={
     name='Feudal Spanish  1201 to 1340 AD'
   },
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bf6_camp],
   g_base_definitions[g_str_5fb1ba32e1af06001770df22_general],
   g_base_definitions[g_str_5fb1ba32e1af06001770df22],
   g_base_definitions[g_str_5fb1ba32e1af06001770df24_general],
@@ -180,6 +191,8 @@ army['5fb1b9e7e1af060017709bf6']={
   g_base_definitions[g_str_5fb1ba32e1af06001770df39],
   g_base_definitions[g_str_5fb1ba32e1af06001770df3c],
   g_base_definitions[g_str_5fb1ba32e1af06001770df3d],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709bf6_camp],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709bf6_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

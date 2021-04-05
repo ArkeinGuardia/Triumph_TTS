@@ -135,16 +135,26 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f878]={
 }
 g_str_5fb1b9f2e1af06001770a255_camp='5fb1b9f2e1af06001770a255_camp'
 g_base_definitions[g_str_5fb1b9f2e1af06001770a255_camp]={
-  name='Camp',
   id=g_str_5fb1b9f2e1af06001770a255_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f2e1af06001770a255_camp_fortified='5fb1b9f2e1af06001770a255_camp_fortified'
+g_base_definitions[g_str_5fb1b9f2e1af06001770a255_camp_fortified]={
+  id=g_str_5fb1b9f2e1af06001770a255_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9f2e1af06001770a255']={
   data={
     name='Sui Chinese  581 to 623 AD'
   },
-  g_base_definitions[g_str_5fb1b9f2e1af06001770a255_camp],
   g_base_definitions[g_str_5fb1ba40e1af06001770f863_general],
   g_base_definitions[g_str_5fb1ba40e1af06001770f863],
   g_base_definitions[g_str_5fb1ba40e1af06001770f865],
@@ -159,6 +169,8 @@ army['5fb1b9f2e1af06001770a255']={
   g_base_definitions[g_str_5fb1ba40e1af06001770f874],
   g_base_definitions[g_str_5fb1ba40e1af06001770f876],
   g_base_definitions[g_str_5fb1ba40e1af06001770f878],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a255_camp],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a255_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

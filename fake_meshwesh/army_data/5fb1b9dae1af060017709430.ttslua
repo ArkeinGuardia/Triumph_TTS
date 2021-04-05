@@ -46,20 +46,43 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c326]={
 }
 g_str_5fb1b9dae1af060017709430_camp='5fb1b9dae1af060017709430_camp'
 g_base_definitions[g_str_5fb1b9dae1af060017709430_camp]={
-  name='Camp',
   id=g_str_5fb1b9dae1af060017709430_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dae1af060017709430_camp_fortified='5fb1b9dae1af060017709430_camp_fortified'
+g_base_definitions[g_str_5fb1b9dae1af060017709430_camp_fortified]={
+  id=g_str_5fb1b9dae1af060017709430_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dae1af060017709430_camp_pack_train='5fb1b9dae1af060017709430_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dae1af060017709430_camp_pack_train]={
+  id=g_str_5fb1b9dae1af060017709430_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dae1af060017709430']={
   data={
     name='Kimmerian and Skythian  722 to 300 BC'
   },
-  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp],
   g_base_definitions[g_str_5fb1ba22e1af06001770c324_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c324],
   g_base_definitions[g_str_5fb1ba22e1af06001770c326_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c326],
+  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp],
+  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

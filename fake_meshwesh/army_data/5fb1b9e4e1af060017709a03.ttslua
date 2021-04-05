@@ -103,16 +103,27 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d89c]={
 }
 g_str_5fb1b9e4e1af060017709a03_camp='5fb1b9e4e1af060017709a03_camp'
 g_base_definitions[g_str_5fb1b9e4e1af060017709a03_camp]={
-  name='Camp',
   id=g_str_5fb1b9e4e1af060017709a03_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e4e1af060017709a03_camp_pack_train='5fb1b9e4e1af060017709a03_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e4e1af060017709a03_camp_pack_train]={
+  id=g_str_5fb1b9e4e1af060017709a03_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e4e1af060017709a03']={
   data={
     name='Early Danube Bulgar  675 to 802 AD'
   },
-  g_base_definitions[g_str_5fb1b9e4e1af060017709a03_camp],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d894_general],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d894],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d896],
@@ -123,6 +134,8 @@ army['5fb1b9e4e1af060017709a03']={
   g_base_definitions[g_str_5fb1ba2fe1af06001770d899_mounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d899_dismounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d89c],
+  g_base_definitions[g_str_5fb1b9e4e1af060017709a03_camp],
+  g_base_definitions[g_str_5fb1b9e4e1af060017709a03_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

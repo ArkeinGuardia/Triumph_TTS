@@ -135,16 +135,36 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c809]={
 }
 g_str_5fb1b9dce1af06001770956c_camp='5fb1b9dce1af06001770956c_camp'
 g_base_definitions[g_str_5fb1b9dce1af06001770956c_camp]={
-  name='Camp',
   id=g_str_5fb1b9dce1af06001770956c_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dce1af06001770956c_camp_fortified='5fb1b9dce1af06001770956c_camp_fortified'
+g_base_definitions[g_str_5fb1b9dce1af06001770956c_camp_fortified]={
+  id=g_str_5fb1b9dce1af06001770956c_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dce1af06001770956c_camp_pack_train='5fb1b9dce1af06001770956c_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dce1af06001770956c_camp_pack_train]={
+  id=g_str_5fb1b9dce1af06001770956c_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dce1af06001770956c']={
   data={
     name='Hannibal in Italy  218 to 203 BC'
   },
-  g_base_definitions[g_str_5fb1b9dce1af06001770956c_camp],
   g_base_definitions[g_str_5fb1ba26e1af06001770c7ea_general],
   g_base_definitions[g_str_5fb1ba26e1af06001770c7ea],
   g_base_definitions[g_str_5fb1ba26e1af06001770c7ed],
@@ -159,6 +179,9 @@ army['5fb1b9dce1af06001770956c']={
   g_base_definitions[g_str_5fb1ba26e1af06001770c804],
   g_base_definitions[g_str_5fb1ba26e1af06001770c807],
   g_base_definitions[g_str_5fb1ba26e1af06001770c809],
+  g_base_definitions[g_str_5fb1b9dce1af06001770956c_camp],
+  g_base_definitions[g_str_5fb1b9dce1af06001770956c_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dce1af06001770956c_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

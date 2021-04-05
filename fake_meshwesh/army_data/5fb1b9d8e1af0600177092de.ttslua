@@ -118,16 +118,27 @@ g_base_definitions[g_str_5fb1ba1ee1af06001770be58]={
 }
 g_str_5fb1b9d8e1af0600177092de_camp='5fb1b9d8e1af0600177092de_camp'
 g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp]={
-  name='Camp',
   id=g_str_5fb1b9d8e1af0600177092de_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9d8e1af0600177092de_camp_pack_train='5fb1b9d8e1af0600177092de_camp_pack_train'
+g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp_pack_train]={
+  id=g_str_5fb1b9d8e1af0600177092de_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9d8e1af0600177092de']={
   data={
     name='Sumerian Successor States  2028 to 1460 BC'
   },
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be48_general],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be48],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be49_general],
@@ -140,6 +151,8 @@ army['5fb1b9d8e1af0600177092de']={
   g_base_definitions[g_str_5fb1ba1ee1af06001770be53],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be55],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be58],
+  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp],
+  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

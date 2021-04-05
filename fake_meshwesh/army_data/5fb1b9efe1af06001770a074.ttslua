@@ -54,21 +54,34 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f221]={
 }
 g_str_5fb1b9efe1af06001770a074_camp='5fb1b9efe1af06001770a074_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a074_camp]={
-  name='Camp',
   id=g_str_5fb1b9efe1af06001770a074_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9efe1af06001770a074_camp_pack_train='5fb1b9efe1af06001770a074_camp_pack_train'
+g_base_definitions[g_str_5fb1b9efe1af06001770a074_camp_pack_train]={
+  id=g_str_5fb1b9efe1af06001770a074_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9efe1af06001770a074']={
   data={
     name='Tarim Basin Citystates  500 to 1000 AD'
   },
-  g_base_definitions[g_str_5fb1b9efe1af06001770a074_camp],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f21b_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f21b],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f21d],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f21f],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f221],
+  g_base_definitions[g_str_5fb1b9efe1af06001770a074_camp],
+  g_base_definitions[g_str_5fb1b9efe1af06001770a074_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

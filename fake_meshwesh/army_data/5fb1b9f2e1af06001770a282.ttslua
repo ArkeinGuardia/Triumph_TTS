@@ -45,20 +45,33 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f92f]={
 }
 g_str_5fb1b9f2e1af06001770a282_camp='5fb1b9f2e1af06001770a282_camp'
 g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp]={
-  name='Camp',
   id=g_str_5fb1b9f2e1af06001770a282_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f2e1af06001770a282_camp_pack_train='5fb1b9f2e1af06001770a282_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp_pack_train]={
+  id=g_str_5fb1b9f2e1af06001770a282_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9f2e1af06001770a282']={
   data={
     name='Tribal Shatuo Turkish  808 to 883 AD'
   },
-  g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp],
   g_base_definitions[g_str_5fb1ba40e1af06001770f92b_general],
   g_base_definitions[g_str_5fb1ba40e1af06001770f92b],
   g_base_definitions[g_str_5fb1ba40e1af06001770f92d],
   g_base_definitions[g_str_5fb1ba40e1af06001770f92f],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

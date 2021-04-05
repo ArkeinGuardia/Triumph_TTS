@@ -193,16 +193,27 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d39f]={
 }
 g_str_5fb1b9e1e1af06001770988c_camp='5fb1b9e1e1af06001770988c_camp'
 g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp]={
-  name='Camp',
   id=g_str_5fb1b9e1e1af06001770988c_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e1e1af06001770988c_camp_pack_train='5fb1b9e1e1af06001770988c_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train]={
+  id=g_str_5fb1b9e1e1af06001770988c_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e1e1af06001770988c']={
   data={
     name='Scots-Irish  55 BC to 841 AD'
   },
-  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
@@ -222,6 +233,8 @@ army['5fb1b9e1e1af06001770988c']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

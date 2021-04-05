@@ -73,6 +73,8 @@ def troop_type_to_name(troop_type) :
     return "Pikes"
   if troop_type == "LSP" :
     return 'Light Spear'
+  if troop_type == "Camp" :
+    return 'Camp'
   raise Exception("troop_type not understood: " + troop_type)
 
 def get_points_for_troop_type(troop_type) :
@@ -357,7 +359,26 @@ def write_elephant_screen(file, base_definition, battle_card) :
   write_base_definition(file, elephants) 
   return [ elephants ]
 
+def write_fortified_camp(file, camp_definition, battle_card) :
+  fort = camp_definition.copy()
 
+  fort['id'] = fort['id'] + "_fortified"
+
+  fort['fortified_camp'] = True
+  fort['name'] = "Fortified Camp"
+  write_base_definition(file, fort) 
+  return [ fort ]
+
+def write_pack_train_and_herds(file, camp_definition, battle_card) :
+  pack_train = camp_definition.copy()
+
+  pack_train['id'] = pack_train['id'] + "_pack_train"
+
+  pack_train['pack_train'] = True
+  pack_train['name'] = "Pack Train"
+  pack_train['description'] = "Pack Train"
+  write_base_definition(file, pack_train) 
+  return [ pack_train ]
 
 def create_base_definition(troop_option, troop_entry) :
   min = troop_option['min']
@@ -384,9 +405,12 @@ def create_base_definition(troop_option, troop_entry) :
 
 
 def write_base_definition(file, base_definition) :
-  #escape quotes
-  description = base_definition['description']
-  description = description.replace("'", "\\'")
+  if 'description' not in base_definition:
+    description = ""
+  else:
+    #escape quotes
+    description = base_definition['description']
+    description = description.replace("'", "\\'")
 
   id = base_definition['id']
   file.write("g_str_%s='%s'\n" % (id,id))
@@ -401,7 +425,8 @@ def write_base_definition(file, base_definition) :
     file.write("  points=%d,\n" % (base_definition['points']))
   if 'dismount_as' in base_definition :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
-  for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry', 'elephant_screen'] :
+  for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry', 'elephant_screen',
+    'fortifed_camp', 'pack_train'] :
     if k in base_definition  and base_definition[k] == True :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
@@ -504,16 +529,17 @@ def find_troop_entry_for_troop_type(army_json, troop_type) :
 
 
 # Write out the base definition for a camp
-def camp(file, army_id) :
-  var = army_id + "_camp"
-  file.write("g_str_%s='%s'\n" % (var,var))
-  file.write("g_base_definitions[g_str_%s]={\n" % (var))
-  file.write("  name='Camp',\n")
-  file.write("  id=g_str_%s,\n" % (var))
-  file.write("  min=1,\n")
-  file.write("  max=1,\n")
-  file.write("}\n")
-  return [ var ]
+def write_camp(file, army_id) :
+  camp_def = {
+    'id' : army_id + "_camp",
+    'name' : 'Camp',
+    'troop_type' : 'Camp',
+    'min': 0,
+    'max': 1,
+    'description': 'Camp'
+  }
+  write_base_definition(file, camp_def)
+  return [camp_def]
 
 # Generate the LUA for an army
 # @param army_id Identifier for the army in Meshwesh
@@ -521,28 +547,39 @@ def generate_army(army_id) :
   army_json = read_army_json(army_id)
   army_theme_json = read_army_theme_json(army_id)
   file_name = os.path.join("army_data", army_id + ".ttslua")
-  with open(file_name, "w") as army_data :
+  with open(file_name, "w") as file :
 
     army_name =  army_json['derivedData']['extendedName']
-    army_data.write("-- %s %s\n\n" % (army_id, army_name))
-    army_data.write("if g_base_definitions == nil then\n")
-    army_data.write("  g_base_definitions = {}\n")
-    army_data.write("end\n")
-    army_data.write("if army == nil then\n")
-    army_data.write("  army = {}\n")
-    army_data.write("end\n")
+    file.write("-- %s %s\n\n" % (army_id, army_name))
+    file.write("if g_base_definitions == nil then\n")
+    file.write("  g_base_definitions = {}\n")
+    file.write("end\n")
+    file.write("if army == nil then\n")
+    file.write("  army = {}\n")
+    file.write("end\n")
 
     definitions = []
 
     troop_options = army_json['troopOptions']
     for troop_option in  troop_options :
-      defs = base_definitions(army_data, army_json, troop_option)
+      defs = base_definitions(file, army_json, troop_option)
       definitions.extend(defs)
-    camp(army_data, army_id)
+
+    camp_definitions = write_camp(file, army_id)
+    definitions.extend(camp_definitions)
+    if 'battleCardEntries' in army_json :
+      for camp_definition in camp_definitions :
+        for battle_card in army_json['battleCardEntries'] :
+          if battle_card['battleCardCode'] == "FC" :
+            extra = write_fortified_camp(file, camp_definition, battle_card)
+            definitions.extend(extra)
+          elif battle_card['battleCardCode'] == "PT" :
+            extra = write_pack_train_and_herds(file, camp_definition, battle_card)
+            definitions.extend(extra)
 
 
-    army_data.write("army['%s']={\n" % (army_id))
-    army_data.write("  data={\n")
+    file.write("army['%s']={\n" % (army_id))
+    file.write("  data={\n")
     # TODO Invasion
     # TODO maneuver
     # TODO terrain
@@ -551,34 +588,33 @@ def generate_army(army_id) :
     #escape quotes
     name = army_name.replace("'", "\\'")
 
-    army_data.write("    name='%s'\n" %(name))
-    army_data.write("  },\n")
+    file.write("    name='%s'\n" %(name))
+    file.write("  },\n")
 
     # Bases that make up the army
-    army_data.write("  g_base_definitions[g_str_%s_camp],\n" %(army_id))
     for definition in definitions  :
       id = definition['id']
-      army_data.write("  g_base_definitions[g_str_%s],\n" %(id))
-    army_data.write("}\n")
+      file.write("  g_base_definitions[g_str_%s],\n" %(id))
+    file.write("}\n")
 
     # Meshwesh is in front so it will be the first entry in the 
     # dialog otherwise it will be the second which just looks weird.
-    army_data.write('if nil == armies[\"Meshwesh id\"] then\n')
-    army_data.write('  armies[\"Meshwesh id\"] ={}\n')
-    army_data.write('end\n')
-    army_data.write('armies[\"Meshwesh id\"][\"%s\"] = army[\"%s\"]\n' % 
+    file.write('if nil == armies[\"Meshwesh id\"] then\n')
+    file.write('  armies[\"Meshwesh id\"] ={}\n')
+    file.write('end\n')
+    file.write('armies[\"Meshwesh id\"][\"%s\"] = army[\"%s\"]\n' % 
       (army_id, army_id))
 
 
     for army_theme in army_theme_json :
       theme_name = army_theme["name"]
 
-      army_data.write('if nil == armies[\"%s\"] then\n' % 
+      file.write('if nil == armies[\"%s\"] then\n' % 
         (theme_name))
-      army_data.write('  armies[\"%s\"] ={}\n' % 
+      file.write('  armies[\"%s\"] ={}\n' % 
         (theme_name))
-      army_data.write('end\n')
-      army_data.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' % 
+      file.write('end\n')
+      file.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' % 
         (theme_name, name, army_id))
 summary = read_json("armyLists/summary")
 

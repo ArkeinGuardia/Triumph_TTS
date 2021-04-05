@@ -54,21 +54,34 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fea0]={
 }
 g_str_5fb1b9f6e1af06001770a484_camp='5fb1b9f6e1af06001770a484_camp'
 g_base_definitions[g_str_5fb1b9f6e1af06001770a484_camp]={
-  name='Camp',
   id=g_str_5fb1b9f6e1af06001770a484_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f6e1af06001770a484_camp_pack_train='5fb1b9f6e1af06001770a484_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f6e1af06001770a484_camp_pack_train]={
+  id=g_str_5fb1b9f6e1af06001770a484_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9f6e1af06001770a484']={
   data={
     name='Vilcabamba Neo-Inca Empire  1535 to 1572 AD'
   },
-  g_base_definitions[g_str_5fb1b9f6e1af06001770a484_camp],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe9a_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe9a],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe9c],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe9e],
   g_base_definitions[g_str_5fb1ba44e1af06001770fea0],
+  g_base_definitions[g_str_5fb1b9f6e1af06001770a484_camp],
+  g_base_definitions[g_str_5fb1b9f6e1af06001770a484_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

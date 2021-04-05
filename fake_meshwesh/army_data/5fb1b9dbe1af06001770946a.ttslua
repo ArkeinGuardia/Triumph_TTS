@@ -99,16 +99,27 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c450]={
 }
 g_str_5fb1b9dbe1af06001770946a_camp='5fb1b9dbe1af06001770946a_camp'
 g_base_definitions[g_str_5fb1b9dbe1af06001770946a_camp]={
-  name='Camp',
   id=g_str_5fb1b9dbe1af06001770946a_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dbe1af06001770946a_camp_pack_train='5fb1b9dbe1af06001770946a_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dbe1af06001770946a_camp_pack_train]={
+  id=g_str_5fb1b9dbe1af06001770946a_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dbe1af06001770946a']={
   data={
     name='Libyan Egyptian  946 to 712 BC'
   },
-  g_base_definitions[g_str_5fb1b9dbe1af06001770946a_camp],
   g_base_definitions[g_str_5fb1ba23e1af06001770c440_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c440],
   g_base_definitions[g_str_5fb1ba23e1af06001770c442],
@@ -119,6 +130,8 @@ army['5fb1b9dbe1af06001770946a']={
   g_base_definitions[g_str_5fb1ba23e1af06001770c44c],
   g_base_definitions[g_str_5fb1ba23e1af06001770c44e],
   g_base_definitions[g_str_5fb1ba23e1af06001770c450],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770946a_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770946a_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

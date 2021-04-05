@@ -196,16 +196,27 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f2ce]={
 }
 g_str_5fb1b9efe1af06001770a09b_camp='5fb1b9efe1af06001770a09b_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a09b_camp]={
-  name='Camp',
   id=g_str_5fb1b9efe1af06001770a09b_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9efe1af06001770a09b_camp_pack_train='5fb1b9efe1af06001770a09b_camp_pack_train'
+g_base_definitions[g_str_5fb1b9efe1af06001770a09b_camp_pack_train]={
+  id=g_str_5fb1b9efe1af06001770a09b_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9efe1af06001770a09b']={
   data={
     name='Sultanate of Delhi  1296 to 1526 AD'
   },
-  g_base_definitions[g_str_5fb1b9efe1af06001770a09b_camp],
   g_base_definitions[g_str_5fb1ba3de1af06001770f2ae_general],
   g_base_definitions[g_str_5fb1ba3de1af06001770f2ae],
   g_base_definitions[g_str_5fb1ba3de1af06001770f2b1_general],
@@ -226,6 +237,8 @@ army['5fb1b9efe1af06001770a09b']={
   g_base_definitions[g_str_5fb1ba3de1af06001770f2c8_elephant_screen],
   g_base_definitions[g_str_5fb1ba3de1af06001770f2cb],
   g_base_definitions[g_str_5fb1ba3de1af06001770f2ce],
+  g_base_definitions[g_str_5fb1b9efe1af06001770a09b_camp],
+  g_base_definitions[g_str_5fb1b9efe1af06001770a09b_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

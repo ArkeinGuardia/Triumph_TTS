@@ -72,16 +72,27 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d189]={
 }
 g_str_5fb1b9e0e1af0600177097f6_camp='5fb1b9e0e1af0600177097f6_camp'
 g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp]={
-  name='Camp',
   id=g_str_5fb1b9e0e1af0600177097f6_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e0e1af0600177097f6_camp_pack_train='5fb1b9e0e1af0600177097f6_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp_pack_train]={
+  id=g_str_5fb1b9e0e1af0600177097f6_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e0e1af0600177097f6']={
   data={
     name='Early Armenian and Gordyene  300 BC to 244 AD'
   },
-  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp],
   g_base_definitions[g_str_5fb1ba2be1af06001770d17e_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d17e],
   g_base_definitions[g_str_5fb1ba2be1af06001770d180],
@@ -89,6 +100,8 @@ army['5fb1b9e0e1af0600177097f6']={
   g_base_definitions[g_str_5fb1ba2be1af06001770d184],
   g_base_definitions[g_str_5fb1ba2be1af06001770d186],
   g_base_definitions[g_str_5fb1ba2be1af06001770d189],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

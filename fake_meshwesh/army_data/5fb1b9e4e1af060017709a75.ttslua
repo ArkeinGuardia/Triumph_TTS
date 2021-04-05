@@ -72,16 +72,26 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770da1b]={
 }
 g_str_5fb1b9e4e1af060017709a75_camp='5fb1b9e4e1af060017709a75_camp'
 g_base_definitions[g_str_5fb1b9e4e1af060017709a75_camp]={
-  name='Camp',
   id=g_str_5fb1b9e4e1af060017709a75_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e4e1af060017709a75_camp_fortified='5fb1b9e4e1af060017709a75_camp_fortified'
+g_base_definitions[g_str_5fb1b9e4e1af060017709a75_camp_fortified]={
+  id=g_str_5fb1b9e4e1af060017709a75_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9e4e1af060017709a75']={
   data={
     name='Viking West Frisia  840 to 885 AD'
   },
-  g_base_definitions[g_str_5fb1b9e4e1af060017709a75_camp],
   g_base_definitions[g_str_5fb1ba2fe1af06001770da12_general],
   g_base_definitions[g_str_5fb1ba2fe1af06001770da12],
   g_base_definitions[g_str_5fb1ba2fe1af06001770da14],
@@ -89,6 +99,8 @@ army['5fb1b9e4e1af060017709a75']={
   g_base_definitions[g_str_5fb1ba2fe1af06001770da17],
   g_base_definitions[g_str_5fb1ba2fe1af06001770da19],
   g_base_definitions[g_str_5fb1ba2fe1af06001770da1b],
+  g_base_definitions[g_str_5fb1b9e4e1af060017709a75_camp],
+  g_base_definitions[g_str_5fb1b9e4e1af060017709a75_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

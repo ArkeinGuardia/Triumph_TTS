@@ -148,16 +148,26 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cef9]={
 }
 g_str_5fb1b9dfe1af060017709730_camp='5fb1b9dfe1af060017709730_camp'
 g_base_definitions[g_str_5fb1b9dfe1af060017709730_camp]={
-  name='Camp',
   id=g_str_5fb1b9dfe1af060017709730_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dfe1af060017709730_camp_fortified='5fb1b9dfe1af060017709730_camp_fortified'
+g_base_definitions[g_str_5fb1b9dfe1af060017709730_camp_fortified]={
+  id=g_str_5fb1b9dfe1af060017709730_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9dfe1af060017709730']={
   data={
     name='Hasmonean Jewish  103 to 63 BC'
   },
-  g_base_definitions[g_str_5fb1b9dfe1af060017709730_camp],
   g_base_definitions[g_str_5fb1ba29e1af06001770cee8_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770cee8],
   g_base_definitions[g_str_5fb1ba29e1af06001770ceea_general],
@@ -173,6 +183,8 @@ army['5fb1b9dfe1af060017709730']={
   g_base_definitions[g_str_5fb1ba29e1af06001770cef5],
   g_base_definitions[g_str_5fb1ba29e1af06001770cef7],
   g_base_definitions[g_str_5fb1ba29e1af06001770cef9],
+  g_base_definitions[g_str_5fb1b9dfe1af060017709730_camp],
+  g_base_definitions[g_str_5fb1b9dfe1af060017709730_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

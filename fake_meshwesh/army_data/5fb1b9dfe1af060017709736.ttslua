@@ -90,16 +90,26 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cf13]={
 }
 g_str_5fb1b9dfe1af060017709736_camp='5fb1b9dfe1af060017709736_camp'
 g_base_definitions[g_str_5fb1b9dfe1af060017709736_camp]={
-  name='Camp',
   id=g_str_5fb1b9dfe1af060017709736_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dfe1af060017709736_camp_fortified='5fb1b9dfe1af060017709736_camp_fortified'
+g_base_definitions[g_str_5fb1b9dfe1af060017709736_camp_fortified]={
+  id=g_str_5fb1b9dfe1af060017709736_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9dfe1af060017709736']={
   data={
     name='Early Pontic  302 to 111 BC'
   },
-  g_base_definitions[g_str_5fb1b9dfe1af060017709736_camp],
   g_base_definitions[g_str_5fb1ba29e1af06001770cf05_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770cf05],
   g_base_definitions[g_str_5fb1ba29e1af06001770cf07],
@@ -109,6 +119,8 @@ army['5fb1b9dfe1af060017709736']={
   g_base_definitions[g_str_5fb1ba29e1af06001770cf0f],
   g_base_definitions[g_str_5fb1ba29e1af06001770cf11],
   g_base_definitions[g_str_5fb1ba29e1af06001770cf13],
+  g_base_definitions[g_str_5fb1b9dfe1af060017709736_camp],
+  g_base_definitions[g_str_5fb1b9dfe1af060017709736_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

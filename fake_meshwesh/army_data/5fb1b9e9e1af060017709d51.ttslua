@@ -254,16 +254,26 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e4d2]={
 }
 g_str_5fb1b9e9e1af060017709d51_camp='5fb1b9e9e1af060017709d51_camp'
 g_base_definitions[g_str_5fb1b9e9e1af060017709d51_camp]={
-  name='Camp',
   id=g_str_5fb1b9e9e1af060017709d51_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e9e1af060017709d51_camp_fortified='5fb1b9e9e1af060017709d51_camp_fortified'
+g_base_definitions[g_str_5fb1b9e9e1af060017709d51_camp_fortified]={
+  id=g_str_5fb1b9e9e1af060017709d51_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9e9e1af060017709d51']={
   data={
     name='Later Italian Condotta  1363 to 1495 AD'
   },
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d51_camp],
   g_base_definitions[g_str_5fb1ba35e1af06001770e4a4_general],
   g_base_definitions[g_str_5fb1ba35e1af06001770e4a4_general_mounted],
   g_base_definitions[g_str_5fb1ba35e1af06001770e4a4_general_dismounted],
@@ -290,6 +300,8 @@ army['5fb1b9e9e1af060017709d51']={
   g_base_definitions[g_str_5fb1ba35e1af06001770e4cc],
   g_base_definitions[g_str_5fb1ba35e1af06001770e4cf],
   g_base_definitions[g_str_5fb1ba35e1af06001770e4d2],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d51_camp],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d51_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

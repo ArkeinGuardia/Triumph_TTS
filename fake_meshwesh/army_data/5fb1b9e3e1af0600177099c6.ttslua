@@ -36,19 +36,31 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7dc]={
 }
 g_str_5fb1b9e3e1af0600177099c6_camp='5fb1b9e3e1af0600177099c6_camp'
 g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp]={
-  name='Camp',
   id=g_str_5fb1b9e3e1af0600177099c6_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e3e1af0600177099c6_camp_fortified='5fb1b9e3e1af0600177099c6_camp_fortified'
+g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp_fortified]={
+  id=g_str_5fb1b9e3e1af0600177099c6_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9e3e1af0600177099c6']={
   data={
     name='African Vandal  442 to 535 AD'
   },
-  g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7dc],
+  g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp],
+  g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

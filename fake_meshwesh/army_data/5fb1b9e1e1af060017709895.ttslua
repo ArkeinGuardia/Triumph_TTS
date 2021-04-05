@@ -101,16 +101,27 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3b6]={
 }
 g_str_5fb1b9e1e1af060017709895_camp='5fb1b9e1e1af060017709895_camp'
 g_base_definitions[g_str_5fb1b9e1e1af060017709895_camp]={
-  name='Camp',
   id=g_str_5fb1b9e1e1af060017709895_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e1e1af060017709895_camp_pack_train='5fb1b9e1e1af060017709895_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e1e1af060017709895_camp_pack_train]={
+  id=g_str_5fb1b9e1e1af060017709895_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e1e1af060017709895']={
   data={
     name='Pictish  211 to 842 AD'
   },
-  g_base_definitions[g_str_5fb1b9e1e1af060017709895_camp],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3a8_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3a8],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3aa_general],
@@ -121,6 +132,8 @@ army['5fb1b9e1e1af060017709895']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3b0],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3b3],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3b6],
+  g_base_definitions[g_str_5fb1b9e1e1af060017709895_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af060017709895_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

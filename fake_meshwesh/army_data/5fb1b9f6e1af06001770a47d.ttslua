@@ -73,16 +73,27 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe8c]={
 }
 g_str_5fb1b9f6e1af06001770a47d_camp='5fb1b9f6e1af06001770a47d_camp'
 g_base_definitions[g_str_5fb1b9f6e1af06001770a47d_camp]={
-  name='Camp',
   id=g_str_5fb1b9f6e1af06001770a47d_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f6e1af06001770a47d_camp_pack_train='5fb1b9f6e1af06001770a47d_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f6e1af06001770a47d_camp_pack_train]={
+  id=g_str_5fb1b9f6e1af06001770a47d_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9f6e1af06001770a47d']={
   data={
     name='Inca  1438 to 1534 AD'
   },
-  g_base_definitions[g_str_5fb1b9f6e1af06001770a47d_camp],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe82_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe82],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe84],
@@ -90,6 +101,8 @@ army['5fb1b9f6e1af06001770a47d']={
   g_base_definitions[g_str_5fb1ba44e1af06001770fe89],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe8c_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe8c],
+  g_base_definitions[g_str_5fb1b9f6e1af06001770a47d_camp],
+  g_base_definitions[g_str_5fb1b9f6e1af06001770a47d_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

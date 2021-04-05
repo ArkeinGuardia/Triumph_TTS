@@ -108,16 +108,26 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c130]={
 }
 g_str_5fb1b9dae1af0600177093bb_camp='5fb1b9dae1af0600177093bb_camp'
 g_base_definitions[g_str_5fb1b9dae1af0600177093bb_camp]={
-  name='Camp',
   id=g_str_5fb1b9dae1af0600177093bb_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dae1af0600177093bb_camp_fortified='5fb1b9dae1af0600177093bb_camp_fortified'
+g_base_definitions[g_str_5fb1b9dae1af0600177093bb_camp_fortified]={
+  id=g_str_5fb1b9dae1af0600177093bb_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9dae1af0600177093bb']={
   data={
     name='Later Mycenaean and Trojan War  1250 to 1190 BC'
   },
-  g_base_definitions[g_str_5fb1b9dae1af0600177093bb_camp],
   g_base_definitions[g_str_5fb1ba21e1af06001770c120_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c120],
   g_base_definitions[g_str_5fb1ba21e1af06001770c122],
@@ -129,6 +139,8 @@ army['5fb1b9dae1af0600177093bb']={
   g_base_definitions[g_str_5fb1ba21e1af06001770c12d],
   g_base_definitions[g_str_5fb1ba21e1af06001770c12e],
   g_base_definitions[g_str_5fb1ba21e1af06001770c130],
+  g_base_definitions[g_str_5fb1b9dae1af0600177093bb_camp],
+  g_base_definitions[g_str_5fb1b9dae1af0600177093bb_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

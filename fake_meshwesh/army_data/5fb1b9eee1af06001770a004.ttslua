@@ -117,16 +117,27 @@ g_base_definitions[g_str_5fb1ba3be1af06001770f02a]={
 }
 g_str_5fb1b9eee1af06001770a004_camp='5fb1b9eee1af06001770a004_camp'
 g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp]={
-  name='Camp',
   id=g_str_5fb1b9eee1af06001770a004_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9eee1af06001770a004_camp_pack_train='5fb1b9eee1af06001770a004_camp_pack_train'
+g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp_pack_train]={
+  id=g_str_5fb1b9eee1af06001770a004_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9eee1af06001770a004']={
   data={
     name='Mamluk Egyptian  1250 to 1517 AD'
   },
-  g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp],
   g_base_definitions[g_str_5fb1ba3be1af06001770f015_general],
   g_base_definitions[g_str_5fb1ba3be1af06001770f015],
   g_base_definitions[g_str_5fb1ba3be1af06001770f018],
@@ -139,6 +150,8 @@ army['5fb1b9eee1af06001770a004']={
   g_base_definitions[g_str_5fb1ba3be1af06001770f026],
   g_base_definitions[g_str_5fb1ba3be1af06001770f028],
   g_base_definitions[g_str_5fb1ba3be1af06001770f02a],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

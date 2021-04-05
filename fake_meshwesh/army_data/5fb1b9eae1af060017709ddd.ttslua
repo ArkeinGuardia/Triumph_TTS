@@ -218,16 +218,27 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e701]={
 }
 g_str_5fb1b9eae1af060017709ddd_camp='5fb1b9eae1af060017709ddd_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp]={
-  name='Camp',
   id=g_str_5fb1b9eae1af060017709ddd_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9eae1af060017709ddd_camp_pack_train='5fb1b9eae1af060017709ddd_camp_pack_train'
+g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp_pack_train]={
+  id=g_str_5fb1b9eae1af060017709ddd_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9eae1af060017709ddd']={
   data={
     name='Rus  860 to 1054 AD'
   },
-  g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general_mounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general_dismounted_mobile_infantry],
@@ -249,6 +260,8 @@ army['5fb1b9eae1af060017709ddd']={
   g_base_definitions[g_str_5fb1ba37e1af06001770e6fb],
   g_base_definitions[g_str_5fb1ba37e1af06001770e6fe],
   g_base_definitions[g_str_5fb1ba37e1af06001770e701],
+  g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp],
+  g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

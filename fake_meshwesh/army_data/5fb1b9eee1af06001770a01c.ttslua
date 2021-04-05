@@ -111,16 +111,36 @@ g_base_definitions[g_str_5fb1ba3be1af06001770f07d]={
 }
 g_str_5fb1b9eee1af06001770a01c_camp='5fb1b9eee1af06001770a01c_camp'
 g_base_definitions[g_str_5fb1b9eee1af06001770a01c_camp]={
-  name='Camp',
   id=g_str_5fb1b9eee1af06001770a01c_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9eee1af06001770a01c_camp_fortified='5fb1b9eee1af06001770a01c_camp_fortified'
+g_base_definitions[g_str_5fb1b9eee1af06001770a01c_camp_fortified]={
+  id=g_str_5fb1b9eee1af06001770a01c_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9eee1af06001770a01c_camp_pack_train='5fb1b9eee1af06001770a01c_camp_pack_train'
+g_base_definitions[g_str_5fb1b9eee1af06001770a01c_camp_pack_train]={
+  id=g_str_5fb1b9eee1af06001770a01c_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9eee1af06001770a01c']={
   data={
     name='Golden Horde and Successors  1251 to 1556 AD'
   },
-  g_base_definitions[g_str_5fb1b9eee1af06001770a01c_camp],
   g_base_definitions[g_str_5fb1ba3be1af06001770f071_general],
   g_base_definitions[g_str_5fb1ba3be1af06001770f071],
   g_base_definitions[g_str_5fb1ba3be1af06001770f073_general],
@@ -132,6 +152,9 @@ army['5fb1b9eee1af06001770a01c']={
   g_base_definitions[g_str_5fb1ba3be1af06001770f079],
   g_base_definitions[g_str_5fb1ba3be1af06001770f07b],
   g_base_definitions[g_str_5fb1ba3be1af06001770f07d],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a01c_camp],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a01c_camp_fortified],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a01c_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

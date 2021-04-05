@@ -108,16 +108,27 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c435]={
 }
 g_str_5fb1b9dbe1af060017709463_camp='5fb1b9dbe1af060017709463_camp'
 g_base_definitions[g_str_5fb1b9dbe1af060017709463_camp]={
-  name='Camp',
   id=g_str_5fb1b9dbe1af060017709463_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dbe1af060017709463_camp_pack_train='5fb1b9dbe1af060017709463_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dbe1af060017709463_camp_pack_train]={
+  id=g_str_5fb1b9dbe1af060017709463_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dbe1af060017709463']={
   data={
     name='Nile Princes  1080 to 725 BC'
   },
-  g_base_definitions[g_str_5fb1b9dbe1af060017709463_camp],
   g_base_definitions[g_str_5fb1ba23e1af06001770c423_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c423],
   g_base_definitions[g_str_5fb1ba23e1af06001770c426],
@@ -129,6 +140,8 @@ army['5fb1b9dbe1af060017709463']={
   g_base_definitions[g_str_5fb1ba23e1af06001770c431],
   g_base_definitions[g_str_5fb1ba23e1af06001770c433],
   g_base_definitions[g_str_5fb1ba23e1af06001770c435],
+  g_base_definitions[g_str_5fb1b9dbe1af060017709463_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af060017709463_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

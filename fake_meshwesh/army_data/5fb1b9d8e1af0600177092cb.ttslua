@@ -104,16 +104,27 @@ g_base_definitions[g_str_5fb1ba1ee1af06001770be12]={
 }
 g_str_5fb1b9d8e1af0600177092cb_camp='5fb1b9d8e1af0600177092cb_camp'
 g_base_definitions[g_str_5fb1b9d8e1af0600177092cb_camp]={
-  name='Camp',
   id=g_str_5fb1b9d8e1af0600177092cb_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9d8e1af0600177092cb_camp_pack_train='5fb1b9d8e1af0600177092cb_camp_pack_train'
+g_base_definitions[g_str_5fb1b9d8e1af0600177092cb_camp_pack_train]={
+  id=g_str_5fb1b9d8e1af0600177092cb_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9d8e1af0600177092cb']={
   data={
     name='Dilmun, Yemeni Kingdoms, and Makkan before 1300 BC  2800 to 312 BC'
   },
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092cb_camp],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be08_general],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be08],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be0b_general],
@@ -124,6 +135,8 @@ army['5fb1b9d8e1af0600177092cb']={
   g_base_definitions[g_str_5fb1ba1ee1af06001770be0e],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be10],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be12],
+  g_base_definitions[g_str_5fb1b9d8e1af0600177092cb_camp],
+  g_base_definitions[g_str_5fb1b9d8e1af0600177092cb_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

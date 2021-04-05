@@ -143,16 +143,27 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c314]={
 }
 g_str_5fb1b9dae1af06001770942a_camp='5fb1b9dae1af06001770942a_camp'
 g_base_definitions[g_str_5fb1b9dae1af06001770942a_camp]={
-  name='Camp',
   id=g_str_5fb1b9dae1af06001770942a_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dae1af06001770942a_camp_pack_train='5fb1b9dae1af06001770942a_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dae1af06001770942a_camp_pack_train]={
+  id=g_str_5fb1b9dae1af06001770942a_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dae1af06001770942a']={
   data={
     name='Neo-Elamite  800 to 639 BC'
   },
-  g_base_definitions[g_str_5fb1b9dae1af06001770942a_camp],
   g_base_definitions[g_str_5fb1ba22e1af06001770c307_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c307],
   g_base_definitions[g_str_5fb1ba22e1af06001770c309],
@@ -167,6 +178,8 @@ army['5fb1b9dae1af06001770942a']={
   g_base_definitions[g_str_5fb1ba22e1af06001770c312_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c312],
   g_base_definitions[g_str_5fb1ba22e1af06001770c314],
+  g_base_definitions[g_str_5fb1b9dae1af06001770942a_camp],
+  g_base_definitions[g_str_5fb1b9dae1af06001770942a_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

@@ -146,16 +146,26 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e35b]={
 }
 g_str_5fb1b9e9e1af060017709cfa_camp='5fb1b9e9e1af060017709cfa_camp'
 g_base_definitions[g_str_5fb1b9e9e1af060017709cfa_camp]={
-  name='Camp',
   id=g_str_5fb1b9e9e1af060017709cfa_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e9e1af060017709cfa_camp_fortified='5fb1b9e9e1af060017709cfa_camp_fortified'
+g_base_definitions[g_str_5fb1b9e9e1af060017709cfa_camp_fortified]={
+  id=g_str_5fb1b9e9e1af060017709cfa_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9e9e1af060017709cfa']={
   data={
     name='Early Renaissance German Princes  1494 to 1518 AD'
   },
-  g_base_definitions[g_str_5fb1b9e9e1af060017709cfa_camp],
   g_base_definitions[g_str_5fb1ba34e1af06001770e342_general],
   g_base_definitions[g_str_5fb1ba34e1af06001770e342],
   g_base_definitions[g_str_5fb1ba34e1af06001770e344],
@@ -171,6 +181,8 @@ army['5fb1b9e9e1af060017709cfa']={
   g_base_definitions[g_str_5fb1ba34e1af06001770e359_general],
   g_base_definitions[g_str_5fb1ba34e1af06001770e359],
   g_base_definitions[g_str_5fb1ba34e1af06001770e35b],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709cfa_camp],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709cfa_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

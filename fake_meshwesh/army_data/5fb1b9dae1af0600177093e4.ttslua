@@ -91,16 +91,27 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1c0_light_camelry]={
 }
 g_str_5fb1b9dae1af0600177093e4_camp='5fb1b9dae1af0600177093e4_camp'
 g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp]={
-  name='Camp',
   id=g_str_5fb1b9dae1af0600177093e4_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dae1af0600177093e4_camp_pack_train='5fb1b9dae1af0600177093e4_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp_pack_train]={
+  id=g_str_5fb1b9dae1af0600177093e4_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dae1af0600177093e4']={
   data={
     name='Later Syro-Hittite  900 to 710 BC'
   },
-  g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1b4_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1b4],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1b6],
@@ -110,6 +121,8 @@ army['5fb1b9dae1af0600177093e4']={
   g_base_definitions[g_str_5fb1ba21e1af06001770c1be],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1c0],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1c0_light_camelry],
+  g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp],
+  g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

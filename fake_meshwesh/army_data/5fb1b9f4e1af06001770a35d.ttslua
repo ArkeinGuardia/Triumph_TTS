@@ -63,22 +63,34 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fc8b]={
 }
 g_str_5fb1b9f4e1af06001770a35d_camp='5fb1b9f4e1af06001770a35d_camp'
 g_base_definitions[g_str_5fb1b9f4e1af06001770a35d_camp]={
-  name='Camp',
   id=g_str_5fb1b9f4e1af06001770a35d_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f4e1af06001770a35d_camp_fortified='5fb1b9f4e1af06001770a35d_camp_fortified'
+g_base_definitions[g_str_5fb1b9f4e1af06001770a35d_camp_fortified]={
+  id=g_str_5fb1b9f4e1af06001770a35d_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9f4e1af06001770a35d']={
   data={
     name='Later Heian and Kamakura Samurai  1020 to 1300 AD'
   },
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a35d_camp],
   g_base_definitions[g_str_5fb1ba43e1af06001770fc83_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fc83],
   g_base_definitions[g_str_5fb1ba43e1af06001770fc85],
   g_base_definitions[g_str_5fb1ba43e1af06001770fc87],
   g_base_definitions[g_str_5fb1ba43e1af06001770fc89],
   g_base_definitions[g_str_5fb1ba43e1af06001770fc8b],
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a35d_camp],
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a35d_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

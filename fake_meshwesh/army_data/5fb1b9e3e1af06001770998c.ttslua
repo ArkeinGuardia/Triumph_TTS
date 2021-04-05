@@ -90,16 +90,27 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d740]={
 }
 g_str_5fb1b9e3e1af06001770998c_camp='5fb1b9e3e1af06001770998c_camp'
 g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp]={
-  name='Camp',
   id=g_str_5fb1b9e3e1af06001770998c_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e3e1af06001770998c_camp_pack_train='5fb1b9e3e1af06001770998c_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp_pack_train]={
+  id=g_str_5fb1b9e3e1af06001770998c_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e3e1af06001770998c']={
   data={
     name='Later Visigoth  419 to 720 AD'
   },
-  g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d732_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d732],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d734],
@@ -109,6 +120,8 @@ army['5fb1b9e3e1af06001770998c']={
   g_base_definitions[g_str_5fb1ba2ee1af06001770d73c],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d73f],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d740],
+  g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp],
+  g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

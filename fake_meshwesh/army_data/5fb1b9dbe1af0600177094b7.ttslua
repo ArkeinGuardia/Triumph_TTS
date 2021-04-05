@@ -110,16 +110,36 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c516]={
 }
 g_str_5fb1b9dbe1af0600177094b7_camp='5fb1b9dbe1af0600177094b7_camp'
 g_base_definitions[g_str_5fb1b9dbe1af0600177094b7_camp]={
-  name='Camp',
   id=g_str_5fb1b9dbe1af0600177094b7_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dbe1af0600177094b7_camp_fortified='5fb1b9dbe1af0600177094b7_camp_fortified'
+g_base_definitions[g_str_5fb1b9dbe1af0600177094b7_camp_fortified]={
+  id=g_str_5fb1b9dbe1af0600177094b7_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dbe1af0600177094b7_camp_pack_train='5fb1b9dbe1af0600177094b7_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dbe1af0600177094b7_camp_pack_train]={
+  id=g_str_5fb1b9dbe1af0600177094b7_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dbe1af0600177094b7']={
   data={
     name='Sikel  479 to 380 BC'
   },
-  g_base_definitions[g_str_5fb1b9dbe1af0600177094b7_camp],
   g_base_definitions[g_str_5fb1ba24e1af06001770c50f_general],
   g_base_definitions[g_str_5fb1ba24e1af06001770c50f_general_mounted],
   g_base_definitions[g_str_5fb1ba24e1af06001770c50f_general_dismounted],
@@ -130,6 +150,9 @@ army['5fb1b9dbe1af0600177094b7']={
   g_base_definitions[g_str_5fb1ba24e1af06001770c512],
   g_base_definitions[g_str_5fb1ba24e1af06001770c514],
   g_base_definitions[g_str_5fb1ba24e1af06001770c516],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b7_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b7_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b7_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

@@ -184,16 +184,27 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f0f0]={
 }
 g_str_5fb1b9efe1af06001770a035_camp='5fb1b9efe1af06001770a035_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a035_camp]={
-  name='Camp',
   id=g_str_5fb1b9efe1af06001770a035_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9efe1af06001770a035_camp_pack_train='5fb1b9efe1af06001770a035_camp_pack_train'
+g_base_definitions[g_str_5fb1b9efe1af06001770a035_camp_pack_train]={
+  id=g_str_5fb1b9efe1af06001770a035_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9efe1af06001770a035']={
   data={
     name='Ilkhanid  1251 to 1355 AD'
   },
-  g_base_definitions[g_str_5fb1b9efe1af06001770a035_camp],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f0e3_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f0e3_general_mounted],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f0e3_general_dismounted],
@@ -211,6 +222,8 @@ army['5fb1b9efe1af06001770a035']={
   g_base_definitions[g_str_5fb1ba3ce1af06001770f0eb],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f0ed],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f0f0],
+  g_base_definitions[g_str_5fb1b9efe1af06001770a035_camp],
+  g_base_definitions[g_str_5fb1b9efe1af06001770a035_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

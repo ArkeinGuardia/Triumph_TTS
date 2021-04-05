@@ -101,16 +101,36 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a0]={
 }
 g_str_5fb1b9e0e1af0600177097ab_camp='5fb1b9e0e1af0600177097ab_camp'
 g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp]={
-  name='Camp',
   id=g_str_5fb1b9e0e1af0600177097ab_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e0e1af0600177097ab_camp_fortified='5fb1b9e0e1af0600177097ab_camp_fortified'
+g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp_fortified]={
+  id=g_str_5fb1b9e0e1af0600177097ab_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e0e1af0600177097ab_camp_pack_train='5fb1b9e0e1af0600177097ab_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp_pack_train]={
+  id=g_str_5fb1b9e0e1af0600177097ab_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e0e1af0600177097ab']={
   data={
     name='Guptas  321 to 545 AD'
   },
-  g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d091_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d091],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d094],
@@ -121,6 +141,9 @@ army['5fb1b9e0e1af0600177097ab']={
   g_base_definitions[g_str_5fb1ba2ae1af06001770d09d],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d09d_elephant_screen],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0a0],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp_fortified],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

@@ -112,16 +112,27 @@ g_base_definitions[g_str_5fb1ba32e1af06001770dea8]={
 }
 g_str_5fb1b9e7e1af060017709bd2_camp='5fb1b9e7e1af060017709bd2_camp'
 g_base_definitions[g_str_5fb1b9e7e1af060017709bd2_camp]={
-  name='Camp',
   id=g_str_5fb1b9e7e1af060017709bd2_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e7e1af060017709bd2_camp_pack_train='5fb1b9e7e1af060017709bd2_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e7e1af060017709bd2_camp_pack_train]={
+  id=g_str_5fb1b9e7e1af060017709bd2_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9e7e1af060017709bd2']={
   data={
     name='Andalusian Invasions  710 to 764 AD'
   },
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bd2_camp],
   g_base_definitions[g_str_5fb1ba32e1af06001770de9e_general],
   g_base_definitions[g_str_5fb1ba32e1af06001770de9e],
   g_base_definitions[g_str_5fb1ba32e1af06001770dea0_general],
@@ -133,6 +144,8 @@ army['5fb1b9e7e1af060017709bd2']={
   g_base_definitions[g_str_5fb1ba32e1af06001770dea5],
   g_base_definitions[g_str_5fb1ba32e1af06001770dea8_general],
   g_base_definitions[g_str_5fb1ba32e1af06001770dea8],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709bd2_camp],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709bd2_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

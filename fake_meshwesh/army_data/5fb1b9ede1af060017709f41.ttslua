@@ -102,16 +102,27 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed1e]={
 }
 g_str_5fb1b9ede1af060017709f41_camp='5fb1b9ede1af060017709f41_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709f41_camp]={
-  name='Camp',
   id=g_str_5fb1b9ede1af060017709f41_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f41_camp_pack_train='5fb1b9ede1af060017709f41_camp_pack_train'
+g_base_definitions[g_str_5fb1b9ede1af060017709f41_camp_pack_train]={
+  id=g_str_5fb1b9ede1af060017709f41_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9ede1af060017709f41']={
   data={
     name='Hamdanids of Mosul or Later Hamdanids of Aleppo   890 to 1008 AD'
   },
-  g_base_definitions[g_str_5fb1b9ede1af060017709f41_camp],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed12_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed12],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed14_general],
@@ -122,6 +133,8 @@ army['5fb1b9ede1af060017709f41']={
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed1b],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed1b_light_camelry],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed1e],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f41_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f41_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

@@ -64,22 +64,35 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed52]={
 }
 g_str_5fb1b9ede1af060017709f54_camp='5fb1b9ede1af060017709f54_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp]={
-  name='Camp',
   id=g_str_5fb1b9ede1af060017709f54_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f54_camp_pack_train='5fb1b9ede1af060017709f54_camp_pack_train'
+g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp_pack_train]={
+  id=g_str_5fb1b9ede1af060017709f54_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9ede1af060017709f54']={
   data={
     name='Dynastic Kurdish  950 to 1085 AD'
   },
-  g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed4b_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed4b],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed4e_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed4e],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed50],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed52],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

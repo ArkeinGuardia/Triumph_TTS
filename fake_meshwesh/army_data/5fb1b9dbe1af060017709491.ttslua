@@ -63,22 +63,34 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4bf]={
 }
 g_str_5fb1b9dbe1af060017709491_camp='5fb1b9dbe1af060017709491_camp'
 g_base_definitions[g_str_5fb1b9dbe1af060017709491_camp]={
-  name='Camp',
   id=g_str_5fb1b9dbe1af060017709491_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dbe1af060017709491_camp_fortified='5fb1b9dbe1af060017709491_camp_fortified'
+g_base_definitions[g_str_5fb1b9dbe1af060017709491_camp_fortified]={
+  id=g_str_5fb1b9dbe1af060017709491_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9dbe1af060017709491']={
   data={
     name='Urnfield Culture North Europe  1400 to 700 BC'
   },
-  g_base_definitions[g_str_5fb1b9dbe1af060017709491_camp],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4b7_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4b7],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4b9],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4bb],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4bd],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4bf],
+  g_base_definitions[g_str_5fb1b9dbe1af060017709491_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af060017709491_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

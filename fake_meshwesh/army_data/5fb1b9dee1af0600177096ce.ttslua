@@ -91,16 +91,27 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cd55]={
 }
 g_str_5fb1b9dee1af0600177096ce_camp='5fb1b9dee1af0600177096ce_camp'
 g_base_definitions[g_str_5fb1b9dee1af0600177096ce_camp]={
-  name='Camp',
   id=g_str_5fb1b9dee1af0600177096ce_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dee1af0600177096ce_camp_pack_train='5fb1b9dee1af0600177096ce_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dee1af0600177096ce_camp_pack_train]={
+  id=g_str_5fb1b9dee1af0600177096ce_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dee1af0600177096ce']={
   data={
     name='Ariariathid Kappadokian  330 BC to 17 AD'
   },
-  g_base_definitions[g_str_5fb1b9dee1af0600177096ce_camp],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd46_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd46],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd48_general],
@@ -110,6 +121,8 @@ army['5fb1b9dee1af0600177096ce']={
   g_base_definitions[g_str_5fb1ba29e1af06001770cd4f],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd52],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd55],
+  g_base_definitions[g_str_5fb1b9dee1af0600177096ce_camp],
+  g_base_definitions[g_str_5fb1b9dee1af0600177096ce_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

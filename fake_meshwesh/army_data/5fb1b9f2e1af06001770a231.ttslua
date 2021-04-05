@@ -175,16 +175,26 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7ef]={
 }
 g_str_5fb1b9f2e1af06001770a231_camp='5fb1b9f2e1af06001770a231_camp'
 g_base_definitions[g_str_5fb1b9f2e1af06001770a231_camp]={
-  name='Camp',
   id=g_str_5fb1b9f2e1af06001770a231_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f2e1af06001770a231_camp_fortified='5fb1b9f2e1af06001770a231_camp_fortified'
+g_base_definitions[g_str_5fb1b9f2e1af06001770a231_camp_fortified]={
+  id=g_str_5fb1b9f2e1af06001770a231_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
 }
 army['5fb1b9f2e1af06001770a231']={
   data={
     name='Liang rebels under Ma Teng or Ma Chao  192 to 221 AD'
   },
-  g_base_definitions[g_str_5fb1b9f2e1af06001770a231_camp],
   g_base_definitions[g_str_5fb1ba40e1af06001770f7d9_general],
   g_base_definitions[g_str_5fb1ba40e1af06001770f7d9],
   g_base_definitions[g_str_5fb1ba40e1af06001770f7da_general],
@@ -203,6 +213,8 @@ army['5fb1b9f2e1af06001770a231']={
   g_base_definitions[g_str_5fb1ba40e1af06001770f7ec],
   g_base_definitions[g_str_5fb1ba40e1af06001770f7ee],
   g_base_definitions[g_str_5fb1ba40e1af06001770f7ef],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a231_camp],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a231_camp_fortified],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

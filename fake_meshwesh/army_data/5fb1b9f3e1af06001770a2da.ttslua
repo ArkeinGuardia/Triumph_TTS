@@ -129,16 +129,27 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa9a]={
 }
 g_str_5fb1b9f3e1af06001770a2da_camp='5fb1b9f3e1af06001770a2da_camp'
 g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp]={
-  name='Camp',
   id=g_str_5fb1b9f3e1af06001770a2da_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f3e1af06001770a2da_camp_pack_train='5fb1b9f3e1af06001770a2da_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp_pack_train]={
+  id=g_str_5fb1b9f3e1af06001770a2da_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9f3e1af06001770a2da']={
   data={
     name='Later Jurchen Jin  1200 to 1234 AD'
   },
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa88_general],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa88],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa89_general],
@@ -152,6 +163,8 @@ army['5fb1b9f3e1af06001770a2da']={
   g_base_definitions[g_str_5fb1ba41e1af06001770fa94],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa97],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa9a],
+  g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp],
+  g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

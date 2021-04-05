@@ -145,16 +145,36 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c3ae]={
 }
 g_str_5fb1b9dae1af060017709450_camp='5fb1b9dae1af060017709450_camp'
 g_base_definitions[g_str_5fb1b9dae1af060017709450_camp]={
-  name='Camp',
   id=g_str_5fb1b9dae1af060017709450_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dae1af060017709450_camp_fortified='5fb1b9dae1af060017709450_camp_fortified'
+g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_fortified]={
+  id=g_str_5fb1b9dae1af060017709450_camp_fortified,
+  name='Fortified Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dae1af060017709450_camp_pack_train='5fb1b9dae1af060017709450_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_pack_train]={
+  id=g_str_5fb1b9dae1af060017709450_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9dae1af060017709450']={
   data={
     name='Neo-Assyrian Empire  745 to 681 BC'
   },
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp],
   g_base_definitions[g_str_5fb1ba22e1af06001770c38d_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c38d],
   g_base_definitions[g_str_5fb1ba22e1af06001770c390],
@@ -170,6 +190,9 @@ army['5fb1b9dae1af060017709450']={
   g_base_definitions[g_str_5fb1ba22e1af06001770c3aa],
   g_base_definitions[g_str_5fb1ba22e1af06001770c3ac],
   g_base_definitions[g_str_5fb1ba22e1af06001770c3ae],
+  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp],
+  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}

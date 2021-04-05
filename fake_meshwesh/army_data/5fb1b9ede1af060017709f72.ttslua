@@ -139,16 +139,27 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770edfe]={
 }
 g_str_5fb1b9ede1af060017709f72_camp='5fb1b9ede1af060017709f72_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709f72_camp]={
-  name='Camp',
   id=g_str_5fb1b9ede1af060017709f72_camp,
-  min=1,
+  name='Camp',
+  min=0,
   max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f72_camp_pack_train='5fb1b9ede1af060017709f72_camp_pack_train'
+g_base_definitions[g_str_5fb1b9ede1af060017709f72_camp_pack_train]={
+  id=g_str_5fb1b9ede1af060017709f72_camp_pack_train,
+  name='Pack Train',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
 }
 army['5fb1b9ede1af060017709f72']={
   data={
     name='Great Seljuq or Seljuq Sultanate of Rum  1037 to 1276 AD'
   },
-  g_base_definitions[g_str_5fb1b9ede1af060017709f72_camp],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ede9_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ede9],
   g_base_definitions[g_str_5fb1ba3ae1af06001770edec_general],
@@ -163,6 +174,8 @@ army['5fb1b9ede1af060017709f72']={
   g_base_definitions[g_str_5fb1ba3ae1af06001770edf8],
   g_base_definitions[g_str_5fb1ba3ae1af06001770edfb],
   g_base_definitions[g_str_5fb1ba3ae1af06001770edfe],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f72_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f72_camp_pack_train],
 }
 if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
