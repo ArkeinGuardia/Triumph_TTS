@@ -285,7 +285,9 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
   -- If the element has multiple nonfixed element, select randomly without
   -- repeating
   if model_name ~= nil then
+    if nil ~= _G[model_name]['mesh'] then
       meshes = calculate_random_meshes(n, _G[model_name]['mesh'])
+    end
   end
 
   local figure_iter -- iterator of next figure to add
@@ -300,6 +302,8 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
     return nil
   end
 
+
+  print ("305 ")
 
   for i=1,n do
       local column = (i - 1) % columns + 1
@@ -326,9 +330,13 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
       local this_model_name = figure_iter()
       local soldier_obj = nil
       if this_model_name ~= nil then
+        if _G[this_model_name]['customasset'] ~= nil then
+            soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
+        else
           -- The object has non-fixed models, so we use any of the
           -- randomly selected meshes
           soldier_obj = spawn_model(this_model_name, relative_pos, random_rotation, minimal_collider, is_red_player, nil, meshes[i])
+        end
       else
           -- Now we have fixed models, so we use the corresponding one
           -- Except that fixed models may use assets instead of meshes!
@@ -344,6 +352,7 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
 
       base_obj.addAttachment(soldier_obj)
   end
+  print ("357 ")
 
   base_obj.setRotation({0, y_rotation, 0})
   base_obj.auto_raise = false
