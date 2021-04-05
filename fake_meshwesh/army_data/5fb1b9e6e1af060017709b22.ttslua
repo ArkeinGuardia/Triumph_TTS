@@ -34,6 +34,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc8f]={
   description='Marcher muntatores',
   troop_type="Javelin Cavalry",
 }
+g_str_5fb1ba31e1af06001770dc8f_dismounted='5fb1ba31e1af06001770dc8f_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc8f_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dc8f_dismounted,
+  name='Light Spear',
+  min=0,
+  max=1,
+  description='Marcher muntatores\nMid-battle dismounted from Javelin Cavalry',
+  troop_type="Light Spear",
+}
+g_5fb1ba31e1af06001770dc8f_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc8f_dismounted]
+g_str_5fb1ba31e1af06001770dc8f_mounted='5fb1ba31e1af06001770dc8f_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc8f_mounted]={
+  id=g_str_5fb1ba31e1af06001770dc8f_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Marcher muntatores\nMid-battle dismounting as Light Spear',
+  dismount_as=g_5fb1ba31e1af06001770dc8f_dismounted,
+  troop_type="Javelin Cavalry",
+}
 g_str_5fb1ba31e1af06001770dc93='5fb1ba31e1af06001770dc93'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc93]={
   id=g_str_5fb1ba31e1af06001770dc93,
@@ -41,6 +61,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc93]={
   min=0,
   max=1,
   description='Hobilars',
+  troop_type="Bad Horse",
+}
+g_str_5fb1ba31e1af06001770dc93_dismounted='5fb1ba31e1af06001770dc93_dismounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc93_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dc93_dismounted,
+  name='Light Spear',
+  min=0,
+  max=1,
+  description='Hobilars\nMid-battle dismounted from Bad Horse',
+  troop_type="Light Spear",
+}
+g_5fb1ba31e1af06001770dc93_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc93_dismounted]
+g_str_5fb1ba31e1af06001770dc93_mounted='5fb1ba31e1af06001770dc93_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dc93_mounted]={
+  id=g_str_5fb1ba31e1af06001770dc93_mounted,
+  name='Bad Horse',
+  min=0,
+  max=1,
+  description='Hobilars\nMid-battle dismounting as Light Spear',
+  dismount_as=g_5fb1ba31e1af06001770dc93_dismounted,
   troop_type="Bad Horse",
 }
 g_str_5fb1ba31e1af06001770dc96='5fb1ba31e1af06001770dc96'
@@ -169,7 +209,11 @@ army['5fb1b9e6e1af060017709b22']={
   g_base_definitions[g_str_5fb1ba31e1af06001770dc8c_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc8c],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc8f],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc8f_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc8f_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc93],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc93_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc93_dismounted],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc96],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc97],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc99],

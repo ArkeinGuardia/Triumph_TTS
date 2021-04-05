@@ -35,6 +35,28 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_general]={
   general=true,
   troop_type="Javelin Cavalry",
 }
+g_str_5fb1ba3ee1af06001770f5c7_general_dismounted='5fb1ba3ee1af06001770f5c7_general_dismounted'
+g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_general_dismounted]={
+  id=g_str_5fb1ba3ee1af06001770f5c7_general_dismounted,
+  name='Light Foot General',
+  min=0,
+  max=1,
+  description='Heavy horsemen armed with spear and crossbow\nMid-battle dismounted from Javelin Cavalry General',
+  general=true,
+  troop_type="Light Foot",
+}
+g_5fb1ba3ee1af06001770f5c7_general_dismounted=g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_general_dismounted]
+g_str_5fb1ba3ee1af06001770f5c7_general_mounted='5fb1ba3ee1af06001770f5c7_general_mounted'
+g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_general_mounted]={
+  id=g_str_5fb1ba3ee1af06001770f5c7_general_mounted,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Heavy horsemen armed with spear and crossbow\nMid-battle dismounting as Light Foot',
+  dismount_as=g_5fb1ba3ee1af06001770f5c7_general_dismounted,
+  general=true,
+  troop_type="Javelin Cavalry",
+}
 g_str_5fb1ba3ee1af06001770f5c7='5fb1ba3ee1af06001770f5c7'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7]={
   id=g_str_5fb1ba3ee1af06001770f5c7,
@@ -42,6 +64,26 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7]={
   min=0,
   max=1,
   description='Heavy horsemen armed with spear and crossbow',
+  troop_type="Javelin Cavalry",
+}
+g_str_5fb1ba3ee1af06001770f5c7_dismounted='5fb1ba3ee1af06001770f5c7_dismounted'
+g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_dismounted]={
+  id=g_str_5fb1ba3ee1af06001770f5c7_dismounted,
+  name='Light Foot',
+  min=0,
+  max=1,
+  description='Heavy horsemen armed with spear and crossbow\nMid-battle dismounted from Javelin Cavalry',
+  troop_type="Light Foot",
+}
+g_5fb1ba3ee1af06001770f5c7_dismounted=g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_dismounted]
+g_str_5fb1ba3ee1af06001770f5c7_mounted='5fb1ba3ee1af06001770f5c7_mounted'
+g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_mounted]={
+  id=g_str_5fb1ba3ee1af06001770f5c7_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Heavy horsemen armed with spear and crossbow\nMid-battle dismounting as Light Foot',
+  dismount_as=g_5fb1ba3ee1af06001770f5c7_dismounted,
   troop_type="Javelin Cavalry",
 }
 g_str_5fb1ba3ee1af06001770f5ca='5fb1ba3ee1af06001770f5ca'
@@ -168,7 +210,11 @@ army['5fb1b9f1e1af06001770a18e']={
   g_base_definitions[g_str_5fb1ba3ee1af06001770f5c5_general],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f5c5],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_general],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_general_mounted],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_general_dismounted],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_mounted],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f5c7_dismounted],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f5ca],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f5cc],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f5ce],

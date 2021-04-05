@@ -47,7 +47,7 @@ def troop_type_to_name(troop_type) :
     return "Battle Taxi"
   if troop_type == "BAD" :
     return "Bad Horse"
-  if troop_type == "WBD" :
+  if troop_type == "WBD" or troop_type == "Warband":
     return "Warband"
   if troop_type == "ARC" or troop_type == "Archer" or troop_type == "Archers":
     return "Archers"
@@ -59,7 +59,7 @@ def troop_type_to_name(troop_type) :
     return "Rabble"
   if troop_type == "HRD" :
     return "Horde"
-  if troop_type == "SKM" :
+  if troop_type == "SKM" or troop_type == "Skirmisher" or troop_type == "Skirmishers" :
     return "Skirmishers"
   if troop_type == "CHT" :
     return "Chariots"
@@ -71,7 +71,7 @@ def troop_type_to_name(troop_type) :
     return "Elite Foot"
   if troop_type == "PIK" or troop_type == "Pike" or troop_type == "Pikes":
     return "Pikes"
-  if troop_type == "LSP" :
+  if troop_type == "LSP" or troop_type == "Light Spear" or troop_type == "Light Spears" :
     return 'Light Spear'
   if troop_type == "Camp" :
     return 'Camp'
@@ -116,7 +116,7 @@ def get_points_for_troop_type(troop_type) :
     return 2
   if troop_type == "HRD" or troop_type ==  "Horde":
     return 2
-  if troop_type == "SKM" or troop_type ==  "Skirmishers":
+  if troop_type == "SKM" or troop_type ==  "Skirmisher" or troop_type ==  "Skirmishers":
     return 3
   if troop_type == "CHT" or troop_type ==  "Chariots":
     return 4
@@ -156,7 +156,7 @@ def get_dismounting_type(base_definition, battle_card_note) :
       dismount = "Spears"
     return dismount
   else:
-    print("DD Unable to decode battle card note ", battle_card_note)
+    print("Unable to decode battle card note ", battle_card_note)
     assert False
 
 
@@ -219,6 +219,61 @@ def write_deployment_dismounting(file, base_definition, battle_card) :
   dismount_type = get_dismounting_type(base_definition, note)
   return write_deployment_dismounting_as(file, base_definition, dismount_type, battle_card)
 
+def write_mid_battle_dismounting_as(file, base_definition, dismount_type, battle_card) :
+  """
+  @return list of base defintions for mounted and dismounted.
+  """
+  assert dismount_type is not None
+  mounted = base_definition.copy()
+  dismounted = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    mounted["min"] = battle_card["min"]
+    dismounted["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    mounted["max"] = battle_card["max"]
+    dismounted["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    mounted["max"] = 1
+    dismounted["max"] = 1
+
+  mounted['id'] += "_mounted"
+  dismounted['id'] += "_dismounted"
+
+  dismounted['troop_type'] = troop_type_to_name(dismount_type)
+  dismounted['name'] = troop_type_to_name(dismount_type)
+  if 'general' in dismounted:
+    dismounted['name'] = troop_type_to_name(dismounted['name']) + " General"
+
+  if 'description' not in mounted :
+    mounted['description'] = ""
+  else:   
+    mounted['description'] += "\\n"
+  
+  if 'description' not in dismounted :
+    dismounted['description'] = ""
+  else:
+    dismounted['description'] += "\\n"
+  
+  mounted['description'] += "Mid-battle dismounting as " + dismount_type
+  dismounted['description'] += "Mid-battle dismounted from " + mounted['name']
+
+  write_base_definition(file, dismounted) 
+  file.write("g_%s=g_base_definitions[g_str_%s]\n" % (dismounted['id'], dismounted['id']))
+  mounted['dismount_as'] = ("g_" + dismounted['id'])
+  write_base_definition(file, mounted) 
+
+  return (mounted, dismounted)
+
+
+def write_mid_battle_dismounting(file, base_definition, battle_card) :
+  note = battle_card['note']
+  if note is None:
+    # Feudal German Kings or Emperors is missing dismount type
+    return []
+  else:  
+    dismount_type = get_dismounting_type(base_definition, note)
+    return write_mid_battle_dismounting_as(file, base_definition, dismount_type, battle_card)
 
 def write_mobile_infantry(file, base_definition, battle_card):
   """
@@ -464,6 +519,9 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
         result.extend(extra)
       else:
         extra = write_deployment_dismounting(file, base_definition, battle_card)
+        result.extend(extra)
+    elif code == "MD" :
+        extra = write_mid_battle_dismounting(file, base_definition, battle_card)
         result.extend(extra)
     elif code == "MI" :
         extra = write_mobile_infantry(file, base_definition, battle_card)
