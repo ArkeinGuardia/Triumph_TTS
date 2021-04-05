@@ -459,6 +459,17 @@ def write_pack_train_and_herds(file, camp_definition, battle_card) :
   write_base_definition(file, pack_train) 
   return [ pack_train ]
 
+def write_standard_wagon(file, camp_definition, battle_card) :
+  wagon = camp_definition.copy()
+
+  wagon['id'] = wagon['id'] + "_standard_wagon"
+
+  wagon['standard_wagon'] = True
+  wagon['name'] = "Standard Wagon"
+  wagon['description'] = "Standard Wagon"
+  write_base_definition(file, wagon) 
+  return [ wagon ]
+
 def create_base_definition(troop_option, troop_entry) :
   min = troop_option['min']
   max = troop_option['max']
@@ -506,7 +517,7 @@ def write_base_definition(file, base_definition) :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
   for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry', 'elephant_screen',
     'plaustrella',
-    'fortifed_camp', 'pack_train'] :
+    'fortifed_camp', 'pack_train', 'standard_wagon'] :
     if k in base_definition  and base_definition[k] == True :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
@@ -661,6 +672,9 @@ def generate_army(army_id) :
             definitions.extend(extra)
           elif battle_card['battleCardCode'] == "PT" :
             extra = write_pack_train_and_herds(file, camp_definition, battle_card)
+            definitions.extend(extra)
+          elif battle_card['battleCardCode'] == "SW" :
+            extra = write_standard_wagon(file, camp_definition, battle_card)
             definitions.extend(extra)
 
 
