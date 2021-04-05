@@ -169,10 +169,10 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type) :
   mounted['id'] += "_mounted"
   dismounted['id'] += "_dismounted"
 
-  dismounted['troop_type'] = dismount_type
-  dismounted['name'] = dismount_type
+  dismounted['troop_type'] = troop_type_to_name(dismount_type)
+  dismounted['name'] = troop_type_to_name(dismount_type)
   if 'general' in dismounted:
-    dismounted['name'] = dismounted['name'] + " General"
+    dismounted['name'] = troop_type_to_name(dismounted['name']) + " General"
 
 
   # Calculate the points for being able to dismount 
@@ -302,7 +302,6 @@ def base_definitions(file, army, troop_option) :
     troop_entry['battleCardEntries'] = troop_option['battleCardEntries']
 
     if troop_entry['troopTypeCode'] in generals :
-      generals.pop( troop_entry['troopTypeCode'] )
       base_definition = create_base_definition(troop_option, troop_entry)    
       base_definition['max'] = 1
       base_definition['general'] = True
@@ -385,11 +384,6 @@ def generate_army(army_id) :
 
     # Bases that make up the army
     army_data.write("  g_base_definitions[g_str_%s_camp],\n" %(army_id))
-    for troop_entry_for_general in army_json['troopEntriesForGeneral'] :
-      for troop_entry in troop_entry_for_general['troopEntries'] :
-        troop_type = troop_entry['troopTypeCode']
-        id = troop_entry['_id']
-        army_data.write("  g_base_definitions[g_str_%s],\n" %(id))
     for definition in definitions  :
       id = definition['id']
       army_data.write("  g_base_definitions[g_str_%s],\n" %(id))
