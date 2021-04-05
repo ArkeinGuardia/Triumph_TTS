@@ -1,13 +1,5 @@
 lu = require('externals/luaunit/luaunit')
-armies = {}
-require('scripts/data/data_armies_Medieval_Era')
-require('scripts/utilities_lua')
-require('scripts/utilities')
-require('scripts/logic_spawn_army')
-require('scripts/logic_tool_tips')
-require('scripts/data/data_troops')
-require('scripts/data/data_cheat_sheet')
-
+require('flatten')
 
 function test_build_tool_tip_returns_empty_string_for_bad_type()
     local actual = build_tool_tip("Children")
@@ -74,18 +66,17 @@ function test_build_tool_tip_battle_card_added()
     g_decorations = {}
 
     local base = {
-        getName = function() return "Archers_Mobile" end,
+        getName = function() return "mounted" end,
         getGUID = function() return "ABCDE" end,
-        base_definition_name = "burgundian_ordannances_1471_to_1477_ad_knights_dd_mounted"
+        base_definition_name = g_str_5fb1ba24e1af06001770c50f_mounted
     }
-    assert(_G[base.base_definition_name] ~= nil)
     g_decorations[ base.getGUID() ] = {base_definition_name =  base.base_definition_name}
 
     -- Exercise
     local tip = get_tool_tip_for_base(base)
 
     -- Verify
-    local expected = "Deployment Dismounting"
+    local expected = "Deployment dismounting"
     local actual = str_has_substr(tip, expected)
     if not actual then
         print("expected: ", expected)
