@@ -309,8 +309,6 @@ def write_mobile_infantry(file, base_definition, battle_card):
   dismounted['description'] += "Dismounted mobile infantry"
   mounted['description'] += "mounted mobile infantry"
 
-  mounted['name'] = base_definition['name'] + " Mounted mobile infantry"
-
   mounted['dismount_as'] = ("g_" + dismounted['id'])
   mounted['mobile_infantry'] = True
 
@@ -339,7 +337,6 @@ def write_armored_camelry(file, base_definition, battle_card) :
   camels['description'] += "Armored Camelry"
 
   camels['armored_camelry'] = True
-  camels['name'] += " Armored camelry"
   write_base_definition(file, camels) 
   return [ camels ]
 
@@ -363,7 +360,6 @@ def write_light_camelry(file, base_definition, battle_card) :
   camels['description'] += "Light Camelry"
 
   camels['light_camelry'] = True
-  camels['name'] += " Light camelry"
   write_base_definition(file, camels) 
   return [ camels ]
 
@@ -387,7 +383,6 @@ def write_charging_camelry(file, base_definition, battle_card) :
   camels['description'] += "Charging Camelry"
 
   camels['charging_camelry'] = True
-  camels['name'] += " Charging camelry"
   write_base_definition(file, camels) 
   return [ camels ]
 
@@ -410,7 +405,6 @@ def write_elephant_screen(file, base_definition, battle_card) :
   elephants['description'] += "Elephant Screen"
 
   elephants['elephant_screen'] = True
-  elephants['name'] += " Elephant Screen"
   write_base_definition(file, elephants) 
   return [ elephants ]
 
@@ -433,7 +427,6 @@ def write_plaustrella(file, base_definition, battle_card) :
   plaustrella['description'] += "Plaustrella"
 
   plaustrella['plaustrella'] = True
-  plaustrella['name'] += " Plaustrella"
   write_base_definition(file, plaustrella) 
   return [ plaustrella ]
 
@@ -444,7 +437,6 @@ def write_fortified_camp(file, camp_definition, battle_card) :
   fort['id'] = fort['id'] + "_fortified"
 
   fort['fortified_camp'] = True
-  fort['name'] = "Fortified Camp"
   write_base_definition(file, fort) 
   return [ fort ]
 
@@ -454,7 +446,6 @@ def write_pack_train_and_herds(file, camp_definition, battle_card) :
   pack_train['id'] = pack_train['id'] + "_pack_train"
 
   pack_train['pack_train'] = True
-  pack_train['name'] = "Pack Train"
   pack_train['description'] = "Pack Train"
   write_base_definition(file, pack_train) 
   return [ pack_train ]
@@ -465,7 +456,6 @@ def write_standard_wagon(file, camp_definition, battle_card) :
   wagon['id'] = wagon['id'] + "_standard_wagon"
 
   wagon['standard_wagon'] = True
-  wagon['name'] = "Standard Wagon"
   wagon['description'] = "Standard Wagon"
   write_base_definition(file, wagon) 
   return [ wagon ]
