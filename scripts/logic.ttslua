@@ -1079,26 +1079,29 @@ base_depth_by_troop_type['Cataphracts']=40
 base_depth_by_troop_type['Elephants']=40
 base_depth_by_troop_type['Camp']=40
 
--- @param troop_type: e.g. 'Archers'
 -- @return Depth in millimeters
-function get_base_depth(troop_type)
-  -- Special information in the tool tip
-  troop_type = str_remove_suffix(troop_type, "*")
+function get_base_depth_from_base_definition(base_definition)
+  if base_definition == nil then
+    print_error('base definition is nil')
+    return 40
+  end
 
-  if str_has_substr(troop_type, "_Mobile") then
+  if nil ~= base_definition['mobile_infantry'] then
     -- Battle card Mobile Infanty.  Always on square base.
     return 40
   end
-  
-  local tt = str_remove_suffix(troop_type, " General")
-
-  if tt == 'Elite Foot' then
+  local troop_type = base_definition['troop_type']
+  if troop_type == nil then
+    print_error('troop type missing from base definition.')
+    return 40 -- dummy value
+  end
+  if troop_type == 'Elite Foot' then
     return 15
   end
-  local depth = base_depth_by_troop_type[tt]
+  local depth = base_depth_by_troop_type[troop_type]
   if depth == nil then
-    print_error("No depth for : '" .. tostring(tt) .. "'" .. " '" .. troop_type .. "'")
-    assert(false)
+    print_error("No depth for : '" .. tostring(troop_type))
+    return 40 -- dummy value
   end
   return depth
 end
