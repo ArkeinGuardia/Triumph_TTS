@@ -311,6 +311,31 @@ def write_light_camelry(file, base_definition, battle_card) :
   return [ camels ]
 
 
+def write_charging_camelry(file, base_definition, battle_card) :
+  camels = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    camels["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    camels["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    camels["max"] = 1
+
+  camels['id'] = camels['id'] + "_charging_camelry"
+
+  if 'description' not in camels :
+    camels['description'] = ""
+  else:
+    camels['description'] += "\\n"
+  camels['description'] += "Charging Camelry"
+
+  camels['charging_camelry'] = True
+  camels['name'] += " Charging camelry"
+  write_base_definition(file, camels) 
+  return [ camels ]
+
+
+
 def create_base_definition(troop_option, troop_entry) :
   min = troop_option['min']
   max = troop_option['max']
@@ -400,6 +425,9 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
         result.extend(extra)
     elif code == "LC" :
         extra = write_light_camelry(file, base_definition, battle_card)
+        result.extend(extra)
+    elif code == "CC" :
+        extra = write_charging_camelry(file, base_definition, battle_card)
         result.extend(extra)
     else:
       pass
