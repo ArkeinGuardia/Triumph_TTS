@@ -37,11 +37,11 @@ def troop_type_to_name(troop_type) :
     return "Artillery"
   if troop_type == "JCV" :
     return "Javelin Cavalry"
-  if troop_type == "SPR" :
+  if troop_type == "SPR" or troop_type == "Spear" or troop_type == "Spears":
     return "Spears"
   if troop_type == "ELE" :
     return "Elephants"
-  if troop_type == "WRR" :
+  if troop_type == "WRR" or troop_type == "Warrior" or troop_type == "Warriors":
     return "Warriors"
   if troop_type == "BTX" :
     return "Battle Taxi"
@@ -49,9 +49,9 @@ def troop_type_to_name(troop_type) :
     return "Bad Horse"
   if troop_type == "WBD" :
     return "Warband"
-  if troop_type == "ARC" :
+  if troop_type == "ARC" or troop_type == "Archer" or troop_type == "Archers":
     return "Archers"
-  if troop_type == "RDR" :
+  if troop_type == "RDR" or troop_type == "Raider" or troop_type == "Raiders":
     return "Raiders"
   if troop_type == "BLV" :
     return "Bow Levy"
@@ -63,13 +63,13 @@ def troop_type_to_name(troop_type) :
     return "Skirmishers"
   if troop_type == "CHT" :
     return "Chariots"
-  if troop_type == "LFT" :
+  if troop_type == "LFT" or troop_type == "Light Foot" :
     return "Light Foot"
-  if troop_type == "HFT" :
+  if troop_type == "HFT" or troop_type == "Heavy Foot" :
     return "Heavy Foot"
-  if troop_type == "EFT" :
+  if troop_type == "EFT" or troop_type == "Elite Foot" :
     return "Elite Foot"
-  if troop_type == "PIK" :
+  if troop_type == "PIK" or troop_type == "Pike" or troop_type == "Pikes":
     return "Pikes"
   if troop_type == "LSP" :
     return 'Light Spear'
@@ -169,10 +169,10 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type) :
   mounted['id'] += "_mounted"
   dismounted['id'] += "_dismounted"
 
-  dismounted['troop_type'] = dismount_type
-  dismounted['name'] = dismount_type
+  dismounted['troop_type'] = troop_type_to_name(dismount_type)
+  dismounted['name'] = troop_type_to_name(dismount_type)
   if 'general' in dismounted:
-    dismounted['name'] = dismounted['name'] + " General"
+    dismounted['name'] = troop_type_to_name(dismounted['name']) + " General"
 
 
   # Calculate the points for being able to dismount 
@@ -223,7 +223,6 @@ def create_base_definition(troop_option, troop_entry) :
   troop_type = troop_entry['troopTypeCode']
   name = troop_type_to_name(troop_type)
 
-  name = troop_type_to_name(troop_type)
   base_definition = {
     'id': id, 'name':name, 'troop_type':troop_type, 
     'min':min, 'max':max, 
@@ -252,6 +251,8 @@ def write_base_definition(file, base_definition) :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
   if 'general' in base_definition  and base_definition['general'] == True :
     file.write("  general=true,\n")
+  troop_type_name = troop_type_to_name( base_definition['troop_type'])
+  file.write("  troop_type=\"%s\",\n" %(troop_type_name))
   file.write("}\n")
 
 def get_general_troop_type_codes(army) :
@@ -301,7 +302,6 @@ def base_definitions(file, army, troop_option) :
     troop_entry['battleCardEntries'] = troop_option['battleCardEntries']
 
     if troop_entry['troopTypeCode'] in generals :
-      generals.pop( troop_entry['troopTypeCode'] )
       base_definition = create_base_definition(troop_option, troop_entry)    
       base_definition['max'] = 1
       base_definition['general'] = True
@@ -384,11 +384,6 @@ def generate_army(army_id) :
 
     # Bases that make up the army
     army_data.write("  g_base_definitions[g_str_%s_camp],\n" %(army_id))
-    for troop_entry_for_general in army_json['troopEntriesForGeneral'] :
-      for troop_entry in troop_entry_for_general['troopEntries'] :
-        troop_type = troop_entry['troopTypeCode']
-        id = troop_entry['_id']
-        army_data.write("  g_base_definitions[g_str_%s],\n" %(id))
     for definition in definitions  :
       id = definition['id']
       army_data.write("  g_base_definitions[g_str_%s],\n" %(id))

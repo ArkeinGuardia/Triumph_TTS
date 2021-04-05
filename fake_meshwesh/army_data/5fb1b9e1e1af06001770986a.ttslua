@@ -14,16 +14,18 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general]={
   max=1,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
   general=true,
+  troop_type="Battle Taxi",
 }
 g_str_5fb1ba2be1af06001770d30f_general_dismounted='5fb1ba2be1af06001770d30f_general_dismounted'
 g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general_dismounted]={
   id=g_str_5fb1ba2be1af06001770d30f_general_dismounted,
-  name='Warrior General',
+  name='Warriors General',
   min=0,
   max=1,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounted from Battle Taxi General',
   points=3,
   general=true,
+  troop_type="Warriors",
 }
 g_5fb1ba2be1af06001770d30f_general_dismounted=g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general_dismounted]
 g_str_5fb1ba2be1af06001770d30f_general_mounted='5fb1ba2be1af06001770d30f_general_mounted'
@@ -36,6 +38,7 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general_mounted]={
   points=3,
   dismount_as=g_5fb1ba2be1af06001770d30f_general_dismounted,
   general=true,
+  troop_type="Battle Taxi",
 }
 g_str_5fb1ba2be1af06001770d30f='5fb1ba2be1af06001770d30f'
 g_base_definitions[g_str_5fb1ba2be1af06001770d30f]={
@@ -44,15 +47,17 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f]={
   min=0,
   max=4,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  troop_type="Battle Taxi",
 }
 g_str_5fb1ba2be1af06001770d30f_dismounted='5fb1ba2be1af06001770d30f_dismounted'
 g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted]={
   id=g_str_5fb1ba2be1af06001770d30f_dismounted,
-  name='Warrior',
+  name='Warriors',
   min=0,
   max=4,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounted from Battle Taxi',
   points=3,
+  troop_type="Warriors",
 }
 g_5fb1ba2be1af06001770d30f_dismounted=g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted]
 g_str_5fb1ba2be1af06001770d30f_mounted='5fb1ba2be1af06001770d30f_mounted'
@@ -64,6 +69,7 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f_mounted]={
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounting as Warrior',
   points=3,
   dismount_as=g_5fb1ba2be1af06001770d30f_dismounted,
+  troop_type="Battle Taxi",
 }
 g_str_5fb1ba2be1af06001770d312='5fb1ba2be1af06001770d312'
 g_base_definitions[g_str_5fb1ba2be1af06001770d312]={
@@ -72,6 +78,7 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d312]={
   min=2,
   max=3,
   description='Pony-riding horsemen armed with javelins but no melee weapons',
+  troop_type="Bad Horse",
 }
 g_str_5fb1ba2be1af06001770d314_general='5fb1ba2be1af06001770d314_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d314_general]={
@@ -81,6 +88,7 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d314_general]={
   max=1,
   description='Fierce fighters',
   general=true,
+  troop_type="Warband",
 }
 g_str_5fb1ba2be1af06001770d314='5fb1ba2be1af06001770d314'
 g_base_definitions[g_str_5fb1ba2be1af06001770d314]={
@@ -89,6 +97,7 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d314]={
   min=5,
   max=13,
   description='Fierce fighters',
+  troop_type="Warband",
 }
 g_str_5fb1ba2be1af06001770d316='5fb1ba2be1af06001770d316'
 g_base_definitions[g_str_5fb1ba2be1af06001770d316]={
@@ -97,6 +106,7 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d316]={
   min=0,
   max=6,
   description='Skirmishing slingers',
+  troop_type="Skirmishers",
 }
 g_str_5fb1ba2be1af06001770d317='5fb1ba2be1af06001770d317'
 g_base_definitions[g_str_5fb1ba2be1af06001770d317]={
@@ -105,6 +115,7 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d317]={
   min=0,
   max=6,
   description='Skirmishing slingers',
+  troop_type="Rabble",
 }
 g_str_5fb1ba2be1af06001770d319='5fb1ba2be1af06001770d319'
 g_base_definitions[g_str_5fb1ba2be1af06001770d319]={
@@ -113,6 +124,7 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d319]={
   min=0,
   max=1,
   description='Adolescents armed with javelins',
+  troop_type="Rabble",
 }
 g_str_5fb1b9e1e1af06001770986a_camp='5fb1b9e1e1af06001770986a_camp'
 g_base_definitions[g_str_5fb1b9e1e1af06001770986a_camp]={
@@ -126,8 +138,6 @@ army['5fb1b9e1e1af06001770986a']={
     name='Ancient British  55 BC to 75 AD'
   },
   g_base_definitions[g_str_5fb1b9e1e1af06001770986a_camp],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d31b],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d31c],
   g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general_mounted],
   g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general_dismounted],
