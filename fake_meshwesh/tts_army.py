@@ -263,6 +263,54 @@ def write_mobile_infantry(file, base_definition, battle_card):
   return [ mounted, dismounted]
 
 
+def write_armored_camelry(file, base_definition, battle_card) :
+  camels = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    camels["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    camels["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    camels["max"] = 1
+
+  camels['id'] = camels['id'] + "_armored_camelry"
+
+  if 'description' not in camels :
+    camels['description'] = ""
+  else:
+    camels['description'] += "\\n"
+  camels['description'] += "Armored Camelry"
+
+  camels['armored_camelry'] = True
+  camels['name'] += " Armored camelry"
+  write_base_definition(file, camels) 
+  return [ camels ]
+
+
+def write_light_camelry(file, base_definition, battle_card) :
+  camels = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    camels["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    camels["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    camels["max"] = 1
+
+  camels['id'] = camels['id'] + "_light_camelry"
+
+  if 'description' not in camels :
+    camels['description'] = ""
+  else:
+    camels['description'] += "\\n"
+  camels['description'] += "Light Camelry"
+
+  camels['light_camelry'] = True
+  camels['name'] += " Light camelry"
+  write_base_definition(file, camels) 
+  return [ camels ]
+
+
 def create_base_definition(troop_option, troop_entry) :
   min = troop_option['min']
   max = troop_option['max']
@@ -305,10 +353,9 @@ def write_base_definition(file, base_definition) :
     file.write("  points=%d,\n" % (base_definition['points']))
   if 'dismount_as' in base_definition :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
-  if 'mobile_infantry' in base_definition  and base_definition['mobile_infantry'] == True :
-    file.write("  mobile_infantry=true,\n")
-  if 'general' in base_definition  and base_definition['general'] == True :
-    file.write("  general=true,\n")
+  for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry'] :
+    if k in base_definition  and base_definition[k] == True :
+      file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
   file.write("  troop_type=\"%s\",\n" %(troop_type_name))
   file.write("}\n")
@@ -347,6 +394,12 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
         result.extend(extra)
     elif code == "MI" :
         extra = write_mobile_infantry(file, base_definition, battle_card)
+        result.extend(extra)
+    elif code == "AC" :
+        extra = write_armored_camelry(file, base_definition, battle_card)
+        result.extend(extra)
+    elif code == "LC" :
+        extra = write_light_camelry(file, base_definition, battle_card)
         result.extend(extra)
     else:
       pass
