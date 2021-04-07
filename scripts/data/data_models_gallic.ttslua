@@ -8,12 +8,14 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
 -- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af06001770959d/explore
 -- As of: 20210404
 
-    -- 2-horse battle platforms with champions who dismount to fight on foot - General
+    --2-horse battle platforms with champions who dismount to fight on foot - General
     g_models[g_str_5fb1ba27e1af06001770c87f_general] = {
       {
         base = 'tile_grass_40x40',
         n_models = 1,
-        model_data = 'troop_gallic_lch_gen'
+        fixed_models = {
+          [1] = 'troop_gallic_lch_gen'
+        }
       }
     }
     g_models[g_str_5fb1ba27e1af06001770c87f_general_mounted] = g_models[g_str_5fb1ba27e1af06001770c87f_general]
@@ -32,7 +34,9 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
       {
         base = 'tile_grass_40x40',
         n_models = 1,
-        model_data = 'troop_gallic_lch'
+        fixed_models = {
+          [1] = 'troop_gallic_lch'
+        }
       }
     } 
     g_models[g_str_5fb1ba27e1af06001770c87f_mounted] = g_models[g_str_5fb1ba27e1af06001770c87f]
@@ -85,7 +89,7 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
     g_models[g_str_5fb1ba27e1af06001770c88b] = g_models[g_str_5fb1ba27e1af06001770c87f_dismounted]
 
     --Poorly equipped and trained bowmen, slingers, and unshielded javelinmen - Rabble
-    g_models[g_str_5fb1ba27e1af06001770c889] = {
+    g_models[g_str_5fb1ba27e1af06001770c88d] = {
       {
         base = 'tile_grass_40x30',
         model_data = 'troop_gallic_ps'
@@ -93,7 +97,7 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
     }
     
     --Gaesati naked fighters - Warband
-    g_models[g_str_5fb1ba27e1af06001770c889] = {
+    g_models[g_str_5fb1ba27e1af06001770c88f] = {
       {
         base = 'tile_grass_40x20',
         model_data = 'troop_gallic_warband'
