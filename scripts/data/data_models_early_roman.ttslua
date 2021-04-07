@@ -213,12 +213,7 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
     }
 
     -- Skirmishing bowmen and slingers
-    g_models[g_str_5fb1ba27e1af06001770c8f6] = {
-      {
-        base = 'tile_grass_40x20',
-        model_data = 'troop_ancient_spanish_slingers'
-      }
-    }
+    g_models[g_str_5fb1ba27e1af06001770c8f6] = g_models[g_str_5fb1ba27e1af06001770c8b5]
 
     -- Spanish or Illyrian light infantry
     g_models[g_str_5fb1ba27e1af06001770c8f8] = {
@@ -232,12 +227,15 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
       }
     }
 
-    -- Gallic tribesmen
+    -- Gallic tribesmen - Warriors
     g_models[g_str_5fb1ba27e1af06001770c8fb] = {
       {
         base = 'tile_grass_40x15',
-        model_data = 'troop_gallic_warriors'
-      },
+        random_models = {
+          'troop_gallic_warriors',
+          'troop_gallic_warriors_2'
+        }
+      }
     }
 
     -- Roman, Gallic, Spanish, and effective allied horsemen - JavCav General
