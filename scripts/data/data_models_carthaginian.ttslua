@@ -5,6 +5,8 @@
 
 -- Early Carthaginian
 army['5fb1b9dbe1af060017709528'].data.has_models = true
+-- Later Carthaginian in Spain
+army['5fb1b9dce1af06001770955e'].data.has_models = true
 
 --data = {
 --  Invasion = 3,
@@ -31,7 +33,7 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
         n_models = 1,
         model_data = 'troop_carthaginian_chariot'
       }
-    } 
+    }
 
     --Sacred Band spearmen - Spears
     g_models[g_str_5fb1ba25e1af06001770c6ba] = {
@@ -39,7 +41,7 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
         base = 'tile_grass_40x15',
         model_data = 'troop_carthaginian_sacred_band'
       }
-    } 
+    }
 
     --Poeni horsemen - Bad Horse
     g_models[g_str_5fb1ba25e1af06001770c6bd] = {
@@ -47,7 +49,7 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
         base = 'tile_grass_40x30',
         model_data = 'troop_carthaginian_cavalry'
       }
-    } 
+    }
 
     --Mercenary horsemen - JavCav General
     g_models[g_str_5fb1ba25e1af06001770c6c0_general] = {
@@ -59,7 +61,7 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
           [2] = 'troop_carthaginian_cavalry_gen'
         }
       }
-    } 
+    }
 
     --Mercenary horsemen - JavCav
     g_models[g_str_5fb1ba25e1af06001770c6c0] = g_models[g_str_5fb1ba27e1af06001770c8ae]
@@ -76,7 +78,7 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
           [4] = 'troop_carthaginian_psiloi'
         }
       }
-    } 
+    }
 
     --Poeni citizen infantry - HF
     g_models[g_str_5fb1ba25e1af06001770c6c2] = {
@@ -106,7 +108,7 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
           [4] = 'troop_carthaginian_spearmen_aspis'
         }
       }
-    } 
+    }
 
     --African foot armed with spears - HF
     g_models[g_str_5fb1ba25e1af06001770c6c5] = {
@@ -122,7 +124,7 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
     --Spanish foot - Raiders
     g_models[g_str_5fb1ba25e1af06001770c6c8] = g_models[g_str_5fb1ba27e1af06001770c8b7]
 
-    --Spanish foot - LF
+    --Ligurians, Sardinians, Corsicans, or Sicel light infantry - LF
     g_models[g_str_5fb1ba25e1af06001770c6ca] = g_models[g_str_5fb1ba27e1af06001770c8ae_dismounted]
 
     --Balearic slingers - SK
@@ -133,7 +135,7 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
       }
     }
 
-    --Libyan or Moorish mercenary javelinmen - Rabble 
+    --Libyan or Moorish mercenary javelinmen - Rabble
     g_models[g_str_5fb1ba25e1af06001770c6ce] = {
       {
         base = 'tile_grass_40x30',
@@ -180,3 +182,124 @@ army['5fb1b9dbe1af060017709528'].data.has_models = true
         model_data = 'troop_carthaginian_camp'
       }
     }
+
+    --Carthaginian Camp Fortified NOT YET
+    g_models[g_str_5fb1b9dbe1af060017709528_camp_fortified] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_carthaginian_camp'
+      }
+    }
+
+-- Later Carthaginian in Spain
+-- 275 BC to 203 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af06001770955e/explore
+-- As of: 20210408
+
+    --Numidian, Spanish, Poeni or Libyan horsemen - JavCav General
+    g_models[g_str_5fb1ba26e1af06001770c797_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_ancient_spanish_lh',
+          [2] = 'troop_carthaginian_cavalry_gen'
+        }
+      },
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_carthaginian_cavalry',
+          [2] = 'troop_carthaginian_cavalry_gen'
+        }
+      },
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_carthaginian_cavalry_gen',
+          [2] = 'troop_carthaginian_lightcav'
+        }
+      }
+    }
+
+    --Numidian, Spanish, Poeni or Libyan horsemen - JavCav General
+    g_models[g_str_5fb1ba26e1af06001770c797] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_ancient_spanish_lh'
+      },
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_carthaginian_cavalry'
+      },
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_carthaginian_lightcav'
+      }
+    }
+
+    --Libyan heavy infantry armed with spears - HF
+    g_models[g_str_5fb1ba26e1af06001770c799] = g_models[g_str_5fb1ba25e1af06001770c6c5]
+
+
+    --Poeni settlers - HF
+    g_models[g_str_5fb1ba26e1af06001770c79b] = g_models[g_str_5fb1ba25e1af06001770c6c2]
+
+    --Libyan, Moorish or Numidian javelinmen - LF
+    g_models[g_str_5fb1ba26e1af06001770c79d] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_carthaginian_psiloi_new'
+      }
+    }
+
+    --Bolt-shooters - Artillery
+    g_models[g_str_5fb1ba26e1af06001770c79f] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+      }
+    }
+
+    --Spanish mercenary light infantry - LF
+    g_models[g_str_5fb1ba26e1af06001770c7a1] = g_models[g_str_5fb1ba27e1af06001770c8ae_dismounted]
+
+    --Mercenary Celtiberian scutarii - Raiders
+    g_models[g_str_5fb1ba26e1af06001770c7a3] = g_models[g_str_5fb1ba27e1af06001770c8b7]
+
+    --Balearic Slingers - Sk
+    g_models[g_str_5fb1ba26e1af06001770c7a5] = g_models[g_str_5fb1ba25e1af06001770c6cc]
+
+    --African Elephants
+    g_models[g_str_5fb1ba26e1af06001770c7a7] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_carthaginian_elephant'
+      },
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_carthaginian_elephant_2'
+      }
+    }
+
+    --Greek hoplite mercenaries - HF
+    g_models[g_str_5fb1ba26e1af06001770c7aa] = g_models[g_str_5fb1ba25e1af06001770c6d7]
+
+    --Greek mercenary thureophoroi - Raiders
+    --NOT YET
+    --g_models[g_str_5fb1ba26e1af06001770c79b] =
+
+    --Italian mercenary light infantry - HF
+    g_models[g_str_5fb1ba26e1af06001770c7b1] = g_models[g_str_5fb1ba27e1af06001770c8f4]
+
+    -- Carthaginian Camp
+    g_models[g_str_5fb1b9dce1af06001770955e_camp] = g_models[g_str_5fb1b9dbe1af060017709528_camp]
+
+    -- Carthaginian Camp Fortified
+    g_models[g_str_5fb1b9dce1af06001770955e_camp_fortified] = g_models[g_str_5fb1b9dbe1af060017709528_camp_fortified]
