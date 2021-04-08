@@ -11,15 +11,19 @@ function check_figure(figure)
   if figure.author ~= nil then
     lu.assertEquals(type(figure.author), 'string')
   end
-  lu.assertFalse(figure.mesh == nil)
-  lu.assertTrue(tlen(figure.mesh) > 0)
-  for _,mesh in pairs(figure.mesh) do
-    lu.assertEquals(type(mesh), "string")
+  if figure['customasset'] ~= nil then
+    lu.assertEquals("string", type(figure['customasset']))
+  else
+    lu.assertFalse(figure.mesh == nil)
+    lu.assertTrue(tlen(figure.mesh) > 0)
+    for _,mesh in pairs(figure.mesh) do
+      lu.assertEquals(type(mesh), "string")
+    end
+    lu.assertFalse(figure.player_red_tex == nil)
+    lu.assertEquals(type(figure.player_red_tex), "string")
+    lu.assertFalse(figure.player_blue_tex == nil)
+    lu.assertEquals(type(figure.player_blue_tex), "string")
   end
-  lu.assertFalse(figure.player_red_tex == nil)
-  lu.assertEquals(type(figure.player_red_tex), "string")
-  lu.assertFalse(figure.player_blue_tex == nil)
-  lu.assertEquals(type(figure.player_blue_tex), "string")
 end
 
 
