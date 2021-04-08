@@ -303,8 +303,6 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
   end
 
 
-  print ("305 ")
-
   for i=1,n do
       local column = (i - 1) % columns + 1
       local row = math.floor((i - 1) / columns) + 1
@@ -352,7 +350,6 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
 
       base_obj.addAttachment(soldier_obj)
   end
-  print ("357 ")
 
   base_obj.setRotation({0, y_rotation, 0})
   base_obj.auto_raise = false
@@ -445,21 +442,6 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
         is_red_player, pos, y_rotation)
     update_tool_tip(base_obj)
     add_context_menu_base(base_obj)
-
--- How to use object level load and save
---    base_obj.setTable("decorations", {id="1234"})
---base_obj.setLuaScript([[
---function onLoad(save_state)
---  if save_state ~= nil then
---    print("Calling onLoad for object "..self.getGUID())
---    print("save_state=", save_state)
---  end
---end
---function onSave()
---  print("Calling onSave for object "..self.getGUID())
---  return JSON.encode(self.getTable("decorations"))
---end
---]])
 
     return base_obj
 end
