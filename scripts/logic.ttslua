@@ -1135,8 +1135,8 @@ function is_base_red_player(base_name)
     return g_bases[base_name]['is_red_player']
 end
 
-function is_base_blue_player(base_name)
-    return not is_base_red_player(base_name)
+function is_base_blue_player(base_obj)
+    return not is_base_red_player(base_obj.getName())
 end
 
 function max_distance_between_bases(base1_corners, base2_corners)
