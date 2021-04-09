@@ -11,8 +11,6 @@
 -- Armies that are considered to have models.
 --
 
--- Post-Zama Carthaginian
-army['5fb1b9dce1af06001770957a'].data.has_models = true
 -- Burgundian Ordonnance
 army['5fb1b9e8e1af060017709c95'].data.has_models = true
 
@@ -34,23 +32,6 @@ g_models = {}
 #include data_models_early_roman
 #include data_models_carthaginian
 #include data_models_thracians
-
--- Post-Zama Carthaginian
--- 201 BC to 146 BC
--- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af06001770957a/explore
--- As of: 20210331
-
--- 'Libyan heavy infantry armed with spears'
-g_models[g_str_5fb1ba26e1af06001770c82a] = {
-  {
-    base = 'tile_grass_40x15',
-    n_models = 4,
-    random_models = {
-      'troop_carthaginian_spearmen_aspis',
-      'troop_carthaginian_spearmen_imitation'
-    }
-  }
-}
 
 -- Burgundian Ordonnance
 -- 1471 AD to 1477 AD
