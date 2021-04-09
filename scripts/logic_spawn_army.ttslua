@@ -432,16 +432,23 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
         base_definition_name = base_definition['base_definition_name']
     end
 
-    g_decorations[base_obj.getGUID()] = {
-      base_definition_name = base_definition_name,
-      command_color = command_color,
-      is_red_player = is_red_player
-    }
 
     add_models(base_name, model_definition, base_definition, base_obj,
         is_red_player, pos, y_rotation)
     update_tool_tip(base_obj)
     add_context_menu_base(base_obj)
+
+
+
+    local player_color
+    if is_red_player then
+      player_color = "RED"
+    else
+      player_color = "BLUE"
+    end
+    set_decoration_for_obj(base_obj, "base_definition_name", base_definition_name)
+    set_decoration_for_obj(base_obj, "command_color", command_color)
+    set_decoration_for_obj(base_obj, "player_color", player_color)
 
     return base_obj
 end
@@ -1020,7 +1027,6 @@ end
 g_ignore_next_delete = {}
 
 function onObjectDestroy(dying_object)
-    remove_decorations_for_obj(dying_object)
     local name = dying_object.getName()
     if g_ignore_next_delete[name] ~= nil then
         g_ignore_next_delete[name] = nil
@@ -1033,6 +1039,7 @@ function onObjectDestroy(dying_object)
     elseif g_bases[name] ~= nil then
         print_info('Base ' .. name .. ' removed from play')
         g_bases[name] = nil
+    remove_decorations_for_obj(dying_object)
     end
 end
 
