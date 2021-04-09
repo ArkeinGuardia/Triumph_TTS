@@ -141,6 +141,10 @@ function move_base(obj, how_much_movement, ignore_history)
 end
 
 function make_general (obj)
+    if is_base_army_general(obj) then 
+      return
+    end
+    
     local name = obj.getName()
     local pos = string.find(name, " #")
     if pos == nil then
