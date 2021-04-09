@@ -32,12 +32,10 @@ function set_decoration_for_guid(guid, key, value)
     print_error("GUID is nil")
     return false
   end
- local decorations = g_decorations[guid]
- if decorations == nil then
+ if g_decorations[guid] == nil then
    g_decorations[guid] = {}
-   return set_decoration_for_guid(guid, key, value)
  end
- decorations[key] = value
+ g_decorations[guid][key] = value
  return true
 end
 
@@ -53,6 +51,8 @@ function add_to_decoration_list_guid(guid, key, new_item)
     set_decoration_for_guid(guid, key, list)
   end
   table.insert(list, new_item)
+ print("decorations ", guid)
+ table_print(g_decorations[guid])
 end
 
 
