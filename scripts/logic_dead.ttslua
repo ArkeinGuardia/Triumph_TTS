@@ -403,7 +403,7 @@ function base_killed(base)
     end
     local base_name = base.getName()
     local dead_zone
-    if is_base_red_player(base_name) then
+    if is_base_red_player(base) then
       print_info("killed red ", base_name)
       dead_zone = get_red_dead_zone()
     else

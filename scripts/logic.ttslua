@@ -1131,12 +1131,14 @@ function get_size(base_name)
   }
 end
 
-function is_base_red_player(base_name)
-    return g_bases[base_name]['is_red_player']
+function is_base_red_player(base_obj)
+  local color = get_decoration_for_obj(base_obj, "player_color")
+  return color == "RED"
 end
 
-function is_base_blue_player(base_name)
-    return not is_base_red_player(base_name)
+function is_base_blue_player(base_obj)
+  local color = get_decoration_for_obj(base_obj, "player_color")
+  return color == "BLUE"
 end
 
 function max_distance_between_bases(base1_corners, base2_corners)
