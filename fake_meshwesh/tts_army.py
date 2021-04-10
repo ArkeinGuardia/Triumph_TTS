@@ -476,10 +476,13 @@ def create_base_definition(troop_option, troop_entry) :
   troop_type = troop_entry['troopTypeCode']
   name = troop_type_to_name(troop_type)
 
+  troop_option_id = troop_option['_id']
+
   base_definition = {
     'id': id, 'name':name, 'troop_type':troop_type, 
     'min':min, 'max':max, 
-    'description':description }
+    'description':description,
+    'troop_option_id': troop_option_id }
 
   return base_definition
 
@@ -512,6 +515,9 @@ def write_base_definition(file, base_definition) :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
   file.write("  troop_type=\"%s\",\n" %(troop_type_name))
+  if 'troop_option_id' in base_definition :
+    troop_option_id = base_definition['troop_option_id']
+    file.write("  troop_option_id=\"%s\",\n" %(troop_option_id))
   file.write("}\n")
 
 def get_general_troop_type_codes(army) :

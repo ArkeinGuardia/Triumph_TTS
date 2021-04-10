@@ -21,24 +21,6 @@ function get_blue_dead_zone()
 end
 
 
--- Create a scripting zone
--- name: Name of the zone
--- position: Center point of the zone
--- size: size of the zone
--- return: Newly created scripting zone.
-function create_zone(name, position, size)
-    local zone_spawn = {
-        position = position,
-        scale = size,
-        type = 'ScriptingTrigger',
-        callback = 'callback_zone'
-    }
-    local obj = spawnObject(zone_spawn)
-    obj.setName(name)
-    return obj
-end
-
-
 
 local g_updating_zone = {}
 

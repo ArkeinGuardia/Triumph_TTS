@@ -649,20 +649,19 @@ function get_note_text(army)
     return text
 end
 
+function get_note_location(is_red_player)
+  if is_red_player then
+    return { x=10, y=1.07, z=-26.5}
+  else
+    return { x=10, y=1.07, z=26.5}
+  end
+end
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
 -- validate
 function spawn_army(army_name, army, is_red_player, command_color)
     math.randomseed(os.time())
-    local n_bases = tlen(army) - 1
-    local rows = 1
-    if n_bases > g_max_bases_row then
-        n_bases = g_max_bases_row
-        rows = math.ceil(n_bases / g_max_bases_row)
-    end
-
-    local width_army = n_bases * g_base_width_in_inches
 
     local z_pos_0 = g_spawn_from_center_in
     local y_rotation = 180
@@ -675,44 +674,66 @@ function spawn_army(army_name, army, is_red_player, command_color)
     if is_red_player then
         z_pos = z_pos * -1
     end
+
+    local z_pos_modifier = - -1
+    if is_red_player then
+        z_pos_modifier = -1 * z_pos_modifier
+    end
+
     local i = 0
+    local column = 0
+    local row = 0
+    local last_troop_option = nil
+    local row_wrap_bonus = 0
     for base_id,base_data  in pairs(army) do
         if base_id ~= 'data' then
             local base_definition = get_base_definition(base_data)
             if nil ~= base_definition then
+              if base_definition['min'] == nil then
+                base_definition['min'] = 0
+              end
               if base_definition['max'] == nil then
                 base_definition['max'] = 1
               end
 
+              if base_definition['troop_option_id'] ~= last_troop_option then
+                row = row + row_wrap_bonus
+                row = row + 1
+                column = 0
+                row_wrap_bonus = 0
+              else
+                column = column + 0.5
+              end
+              if 0 == base_definition['min'] then
+                column = column + 0.5
+              end
               for copy=1,base_definition['max'] do
-                local z_pos_modifier = -1 * get_depth_base(get_plain_model_tile_name(base_definition)) / 2
-                if is_red_player then
-                    z_pos_modifier = -1 * z_pos_modifier
-                end
 
-                local column = i % g_max_bases_row
-                local row = math.floor(i / g_max_bases_row)
-
-                local row_z_pos = z_pos * (1 + row) + z_pos_0
+                local row_z_pos = (g_base_width_in_inches + 0.75) * (1 + row) * z_pos_modifier + z_pos_0
 
                 local location = {
-                    x = g_offset_deployment_x + column * g_base_width_in_inches - width_army / 2,
+                    x = g_offset_deployment_x + column * g_base_width_in_inches,
                     y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
-                    z = row_z_pos - z_pos_modifier
+                    z = row_z_pos
                 }
                 local base_obj = spawn_base(base_definition, location, y_rotation, is_red_player, command_color)
                 i = i + 1
+                last_troop_option = base_definition['troop_option_id']
+                if copy == base_definition['min'] then
+                  column = column + 0.5
+                end
+                column = column + 1
+                if column >= g_max_bases_row then
+                  column = 0
+                  row = row + 1
+                  row_wrap_bonus = 0.5
+                end
               end
             end
         end
     end
 
-    local note_row = math.floor(i / g_max_bases_row) + 1
-    local note_pos = {
-        x = g_offset_deployment_x,
-        y = g_base_height_tabletop + g_table_thickness + 1,
-        z = z_pos * (1 + note_row) + z_pos_0
-    }
+    local note_pos = get_note_location(is_red_player)
 
     local angle = 180
     if is_red_player then
