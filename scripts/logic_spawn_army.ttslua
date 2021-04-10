@@ -2,6 +2,8 @@
 g_base_index = 1
 g_bases = {}
 
+
+
 -- If the base is dismountable add a menu item to dismount
 -- the base
 function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
@@ -432,14 +434,6 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
         base_definition_name = base_definition['base_definition_name']
     end
 
-
-    add_models(base_name, model_definition, base_definition, base_obj,
-        is_red_player, pos, y_rotation)
-    update_tool_tip(base_obj)
-    add_context_menu_base(base_obj)
-
-
-
     local player_color
     if is_red_player then
       player_color = "RED"
@@ -449,6 +443,11 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     set_decoration_for_obj(base_obj, "base_definition_name", base_definition_name)
     set_decoration_for_obj(base_obj, "command_color", command_color)
     set_decoration_for_obj(base_obj, "player_color", player_color)
+
+    add_models(base_name, model_definition, base_definition, base_obj,
+        is_red_player, pos, y_rotation)
+    update_tool_tip(base_obj)
+    add_context_menu_base(base_obj)
 
     return base_obj
 end
@@ -583,10 +582,8 @@ function get_base_definition_from_base_obj(base_obj)
   base_definition = _G[base_definition_name]
   if nil ~= base_definition_name then
       return base_definition
-    end
+  end
 
-  print_error("base definition missing: " .. tostring(base_definition_name))
-  table_print(base_obj)
   return nil
 end
 
@@ -599,14 +596,23 @@ function get_base_definition(base_data)
   if type(base_data) ~= "string" then
     return base_data
   end
+
+  local definition = g_base_definitions[base_data]
+  if definition ~= nil then
+    return definition
+  end
+
+  -- Legacy
   -- The string refers to the name of the variable that
   -- defines the base.
-  local definition = _G[base_data]
-  if nil == definition then
-    print_error("base definition missing: " .. tostring(base_data))
+  definition = _G[base_data]
+  if nil ~= definition then
+    definition.base_definition_name = base_data
+    return definition
   end
-  definition.base_definition_name = base_data
-  return definition
+
+  print_error("base definition missing: " .. tostring(base_data))
+  return nil
 end
 
 function get_note_text(army)
