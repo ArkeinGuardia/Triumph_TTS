@@ -657,6 +657,25 @@ function get_note_location(is_red_player)
   end
 end
 
+function get_undeployed_bag(is_red_player)
+  if is_red_player then
+    return getObjectFromGUID("c65217")
+  else
+    return getObjectFromGUID("05dac2")
+  end
+end
+
+function move_base_to_undeployed(base_obj)
+  local is_red =  is_base_red_player(base_obj) 
+  local bag = get_undeployed_bag(is_red)
+  if bag == nil then
+    print_error("bag is nil")
+    return
+  end
+  bag.putObject(base_obj)
+end
+    
+
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
 -- validate
@@ -680,7 +699,6 @@ function spawn_army(army_name, army, is_red_player, command_color)
         z_pos_modifier = -1 * z_pos_modifier
     end
 
-    local i = 0
     local column = 0
     local row = 0
     local last_troop_option = nil
@@ -717,16 +735,21 @@ function spawn_army(army_name, army, is_red_player, command_color)
                     z = row_z_pos
                 }
                 local base_obj = spawn_base(base_definition, location, y_rotation, is_red_player, command_color)
-                i = i + 1
                 last_troop_option = base_definition['troop_option_id']
-                if copy == base_definition['min'] then
-                  column = column + 0.5
-                end
-                column = column + 1
-                if column >= g_max_bases_row then
-                  column = 0
-                  row = row + 1
-                  row_wrap_bonus = 0.5
+                if base_definition['dismounted_from'] ~= nil then
+                  -- Move the base into the undeployed bag 
+                  move_base_to_undeployed(base_obj)
+                else
+                  -- calculate the position for the next base.
+                  if copy == base_definition['min'] then
+                    column = column + 0.5
+                  end
+                  column = column + 1
+                  if column >= g_max_bases_row then
+                    column = 0
+                    row = row + 1
+                    row_wrap_bonus = 0.5
+                  end
                 end
               end
             end
