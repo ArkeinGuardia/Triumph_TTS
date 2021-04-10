@@ -69,26 +69,26 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general]={
   troop_type="Warriors",
   troop_option_id="5fb1ba31e1af06001770db6a",
 }
-g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry='5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry]={
-  id=g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry,
-  name='Warriors General',
-  min=0,
-  max=1,
-  description='Thegns\nmounted mobile infantry',
-  dismount_as=g_5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry,
-  general=true,
-  mobile_infantry=true,
-  troop_type="Warriors",
-  troop_option_id="5fb1ba31e1af06001770db6a",
-}
 g_str_5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry='5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry'
+g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry='5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry,
   name='Warriors General',
   min=0,
   max=1,
   description='Thegns\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry,
+  general=true,
+  troop_type="Warriors",
+  troop_option_id="5fb1ba31e1af06001770db6a",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry,
+  name='Warriors General',
+  min=0,
+  max=1,
+  description='Thegns\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry,
   general=true,
   troop_type="Warriors",
   troop_option_id="5fb1ba31e1af06001770db6a",
@@ -103,25 +103,25 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db6b]={
   troop_type="Warriors",
   troop_option_id="5fb1ba31e1af06001770db6a",
 }
-g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry='5fb1ba31e1af06001770db6b_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry]={
-  id=g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry,
-  name='Warriors',
-  min=0,
-  max=1,
-  description='Thegns\nmounted mobile infantry',
-  dismount_as=g_5fb1ba31e1af06001770db6b_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Warriors",
-  troop_option_id="5fb1ba31e1af06001770db6a",
-}
 g_str_5fb1ba31e1af06001770db6b_dismounted_mobile_infantry='5fb1ba31e1af06001770db6b_dismounted_mobile_infantry'
+g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry='5fb1ba31e1af06001770db6b_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba31e1af06001770db6b_dismounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770db6b_dismounted_mobile_infantry,
   name='Warriors',
   min=0,
   max=1,
   description='Thegns\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry,
+  troop_type="Warriors",
+  troop_option_id="5fb1ba31e1af06001770db6a",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry,
+  name='Warriors',
+  min=0,
+  max=1,
+  description='Thegns\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba31e1af06001770db6b_dismounted_mobile_infantry,
   troop_type="Warriors",
   troop_option_id="5fb1ba31e1af06001770db6a",
 }
@@ -135,25 +135,25 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db6e]={
   troop_type="Light Spear",
   troop_option_id="5fb1ba31e1af06001770db6d",
 }
-g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry='5fb1ba31e1af06001770db6e_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry]={
-  id=g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry,
-  name='Light Spear',
-  min=0,
-  max=6,
-  description='Spearmen\nmounted mobile infantry',
-  dismount_as=g_5fb1ba31e1af06001770db6e_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Light Spear",
-  troop_option_id="5fb1ba31e1af06001770db6d",
-}
 g_str_5fb1ba31e1af06001770db6e_dismounted_mobile_infantry='5fb1ba31e1af06001770db6e_dismounted_mobile_infantry'
+g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry='5fb1ba31e1af06001770db6e_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba31e1af06001770db6e_dismounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770db6e_dismounted_mobile_infantry,
   name='Light Spear',
   min=0,
   max=6,
   description='Spearmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry,
+  troop_type="Light Spear",
+  troop_option_id="5fb1ba31e1af06001770db6d",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry,
+  name='Light Spear',
+  min=0,
+  max=6,
+  description='Spearmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba31e1af06001770db6e_dismounted_mobile_infantry,
   troop_type="Light Spear",
   troop_option_id="5fb1ba31e1af06001770db6d",
 }

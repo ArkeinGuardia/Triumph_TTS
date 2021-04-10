@@ -38,26 +38,26 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e643_general]={
   troop_type="Warriors",
   troop_option_id="5fb1ba36e1af06001770e642",
 }
-g_str_5fb1ba36e1af06001770e643_general_mounted_mobile_infantry='5fb1ba36e1af06001770e643_general_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba36e1af06001770e643_general_mounted_mobile_infantry]={
-  id=g_str_5fb1ba36e1af06001770e643_general_mounted_mobile_infantry,
-  name='Warriors General',
-  min=0,
-  max=1,
-  description='Nobles and their retinue\nmounted mobile infantry',
-  dismount_as=g_5fb1ba36e1af06001770e643_general_dismounted_mobile_infantry,
-  general=true,
-  mobile_infantry=true,
-  troop_type="Warriors",
-  troop_option_id="5fb1ba36e1af06001770e642",
-}
 g_str_5fb1ba36e1af06001770e643_general_dismounted_mobile_infantry='5fb1ba36e1af06001770e643_general_dismounted_mobile_infantry'
+g_str_5fb1ba36e1af06001770e643_general_mounted_mobile_infantry='5fb1ba36e1af06001770e643_general_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba36e1af06001770e643_general_dismounted_mobile_infantry]={
   id=g_str_5fb1ba36e1af06001770e643_general_dismounted_mobile_infantry,
   name='Warriors General',
   min=0,
   max=1,
   description='Nobles and their retinue\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba36e1af06001770e643_general_mounted_mobile_infantry,
+  general=true,
+  troop_type="Warriors",
+  troop_option_id="5fb1ba36e1af06001770e642",
+}
+g_base_definitions[g_str_5fb1ba36e1af06001770e643_general_mounted_mobile_infantry]={
+  id=g_str_5fb1ba36e1af06001770e643_general_mounted_mobile_infantry,
+  name='Warriors General',
+  min=0,
+  max=1,
+  description='Nobles and their retinue\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba36e1af06001770e643_general_dismounted_mobile_infantry,
   general=true,
   troop_type="Warriors",
   troop_option_id="5fb1ba36e1af06001770e642",
@@ -72,25 +72,25 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e643]={
   troop_type="Warriors",
   troop_option_id="5fb1ba36e1af06001770e642",
 }
-g_str_5fb1ba36e1af06001770e643_mounted_mobile_infantry='5fb1ba36e1af06001770e643_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba36e1af06001770e643_mounted_mobile_infantry]={
-  id=g_str_5fb1ba36e1af06001770e643_mounted_mobile_infantry,
-  name='Warriors',
-  min=0,
-  max=2,
-  description='Nobles and their retinue\nmounted mobile infantry',
-  dismount_as=g_5fb1ba36e1af06001770e643_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Warriors",
-  troop_option_id="5fb1ba36e1af06001770e642",
-}
 g_str_5fb1ba36e1af06001770e643_dismounted_mobile_infantry='5fb1ba36e1af06001770e643_dismounted_mobile_infantry'
+g_str_5fb1ba36e1af06001770e643_mounted_mobile_infantry='5fb1ba36e1af06001770e643_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba36e1af06001770e643_dismounted_mobile_infantry]={
   id=g_str_5fb1ba36e1af06001770e643_dismounted_mobile_infantry,
   name='Warriors',
   min=0,
   max=2,
   description='Nobles and their retinue\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba36e1af06001770e643_mounted_mobile_infantry,
+  troop_type="Warriors",
+  troop_option_id="5fb1ba36e1af06001770e642",
+}
+g_base_definitions[g_str_5fb1ba36e1af06001770e643_mounted_mobile_infantry]={
+  id=g_str_5fb1ba36e1af06001770e643_mounted_mobile_infantry,
+  name='Warriors',
+  min=0,
+  max=2,
+  description='Nobles and their retinue\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba36e1af06001770e643_dismounted_mobile_infantry,
   troop_type="Warriors",
   troop_option_id="5fb1ba36e1af06001770e642",
 }

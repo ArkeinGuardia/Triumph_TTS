@@ -67,25 +67,25 @@ g_base_definitions[g_str_5fb1ba3be1af06001770eeda]={
   troop_type="Archers",
   troop_option_id="5fb1ba3be1af06001770eed8",
 }
-g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry='5fb1ba3be1af06001770eeda_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry]={
-  id=g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Crossbowmen\nmounted mobile infantry',
-  dismount_as=g_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
-  troop_option_id="5fb1ba3be1af06001770eed8",
-}
 g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry='5fb1ba3be1af06001770eeda_dismounted_mobile_infantry'
+g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry='5fb1ba3be1af06001770eeda_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry]={
   id=g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry,
   name='Archers',
   min=0,
   max=1,
   description='Crossbowmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry,
+  troop_type="Archers",
+  troop_option_id="5fb1ba3be1af06001770eed8",
+}
+g_base_definitions[g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry]={
+  id=g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry,
+  name='Archers',
+  min=0,
+  max=1,
+  description='Crossbowmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry,
   troop_type="Archers",
   troop_option_id="5fb1ba3be1af06001770eed8",
 }

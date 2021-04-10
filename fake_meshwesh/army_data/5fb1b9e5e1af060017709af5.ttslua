@@ -18,25 +18,25 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_general]={
   troop_option_id="5fb1ba31e1af06001770dbcf",
 }
 g_str_5fb1ba31e1af06001770dbd0_general_dismounted='5fb1ba31e1af06001770dbd0_general_dismounted'
+g_str_5fb1ba31e1af06001770dbd0_general_mounted='5fb1ba31e1af06001770dbd0_general_mounted'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_general_dismounted]={
   id=g_str_5fb1ba31e1af06001770dbd0_general_dismounted,
   name='Light Foot General',
   min=1,
   max=1,
   description='Irish horsemen armed with javelins\nMid-battle dismounted from Javelin Cavalry General',
+  dismounted_from=g_str_5fb1ba31e1af06001770dbd0_general_mounted,
   general=true,
   troop_type="Light Foot",
   troop_option_id="5fb1ba31e1af06001770dbcf",
 }
-g_5fb1ba31e1af06001770dbd0_general_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_general_dismounted]
-g_str_5fb1ba31e1af06001770dbd0_general_mounted='5fb1ba31e1af06001770dbd0_general_mounted'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_general_mounted]={
   id=g_str_5fb1ba31e1af06001770dbd0_general_mounted,
   name='Javelin Cavalry General',
   min=1,
   max=1,
   description='Irish horsemen armed with javelins\nMid-battle dismounting as Light Foot',
-  dismount_as=g_5fb1ba31e1af06001770dbd0_general_dismounted,
+  dismount_as=g_str_5fb1ba31e1af06001770dbd0_general_dismounted,
   general=true,
   troop_type="Javelin Cavalry",
   troop_option_id="5fb1ba31e1af06001770dbcf",
@@ -52,24 +52,24 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbd0]={
   troop_option_id="5fb1ba31e1af06001770dbcf",
 }
 g_str_5fb1ba31e1af06001770dbd0_dismounted='5fb1ba31e1af06001770dbd0_dismounted'
+g_str_5fb1ba31e1af06001770dbd0_mounted='5fb1ba31e1af06001770dbd0_mounted'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_dismounted]={
   id=g_str_5fb1ba31e1af06001770dbd0_dismounted,
   name='Light Foot',
   min=1,
   max=3,
   description='Irish horsemen armed with javelins\nMid-battle dismounted from Javelin Cavalry',
+  dismounted_from=g_str_5fb1ba31e1af06001770dbd0_mounted,
   troop_type="Light Foot",
   troop_option_id="5fb1ba31e1af06001770dbcf",
 }
-g_5fb1ba31e1af06001770dbd0_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_dismounted]
-g_str_5fb1ba31e1af06001770dbd0_mounted='5fb1ba31e1af06001770dbd0_mounted'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_mounted]={
   id=g_str_5fb1ba31e1af06001770dbd0_mounted,
   name='Javelin Cavalry',
   min=1,
   max=3,
   description='Irish horsemen armed with javelins\nMid-battle dismounting as Light Foot',
-  dismount_as=g_5fb1ba31e1af06001770dbd0_dismounted,
+  dismount_as=g_str_5fb1ba31e1af06001770dbd0_dismounted,
   troop_type="Javelin Cavalry",
   troop_option_id="5fb1ba31e1af06001770dbcf",
 }

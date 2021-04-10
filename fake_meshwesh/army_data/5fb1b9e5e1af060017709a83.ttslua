@@ -38,6 +38,7 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770da35]={
   troop_option_id="5fb1ba2fe1af06001770da34",
 }
 g_str_5fb1ba2fe1af06001770da35_dismounted='5fb1ba2fe1af06001770da35_dismounted'
+g_str_5fb1ba2fe1af06001770da35_mounted='5fb1ba2fe1af06001770da35_mounted'
 g_base_definitions[g_str_5fb1ba2fe1af06001770da35_dismounted]={
   id=g_str_5fb1ba2fe1af06001770da35_dismounted,
   name='Elite Foot',
@@ -45,11 +46,10 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770da35_dismounted]={
   max=1,
   description='Swabian knights, other Frankish knights, or horse archers\nDeployment dismounted from Knights',
   points=4,
+  dismounted_from=g_str_5fb1ba2fe1af06001770da35_mounted,
   troop_type="Elite Foot",
   troop_option_id="5fb1ba2fe1af06001770da34",
 }
-g_5fb1ba2fe1af06001770da35_dismounted=g_base_definitions[g_str_5fb1ba2fe1af06001770da35_dismounted]
-g_str_5fb1ba2fe1af06001770da35_mounted='5fb1ba2fe1af06001770da35_mounted'
 g_base_definitions[g_str_5fb1ba2fe1af06001770da35_mounted]={
   id=g_str_5fb1ba2fe1af06001770da35_mounted,
   name='Knights',
@@ -57,7 +57,7 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770da35_mounted]={
   max=1,
   description='Swabian knights, other Frankish knights, or horse archers\nDeployment dismounting as Elite Foot',
   points=4,
-  dismount_as=g_5fb1ba2fe1af06001770da35_dismounted,
+  dismount_as=g_str_5fb1ba2fe1af06001770da35_dismounted,
   troop_type="Knights",
   troop_option_id="5fb1ba2fe1af06001770da34",
 }
@@ -72,6 +72,7 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770da36]={
   troop_option_id="5fb1ba2fe1af06001770da34",
 }
 g_str_5fb1ba2fe1af06001770da36_dismounted='5fb1ba2fe1af06001770da36_dismounted'
+g_str_5fb1ba2fe1af06001770da36_mounted='5fb1ba2fe1af06001770da36_mounted'
 g_base_definitions[g_str_5fb1ba2fe1af06001770da36_dismounted]={
   id=g_str_5fb1ba2fe1af06001770da36_dismounted,
   name='Elite Foot',
@@ -79,11 +80,10 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770da36_dismounted]={
   max=1,
   description='Swabian knights, other Frankish knights, or horse archers\nDeployment dismounted from Horse Bow',
   points=4,
+  dismounted_from=g_str_5fb1ba2fe1af06001770da36_mounted,
   troop_type="Elite Foot",
   troop_option_id="5fb1ba2fe1af06001770da34",
 }
-g_5fb1ba2fe1af06001770da36_dismounted=g_base_definitions[g_str_5fb1ba2fe1af06001770da36_dismounted]
-g_str_5fb1ba2fe1af06001770da36_mounted='5fb1ba2fe1af06001770da36_mounted'
 g_base_definitions[g_str_5fb1ba2fe1af06001770da36_mounted]={
   id=g_str_5fb1ba2fe1af06001770da36_mounted,
   name='Horse Bow',
@@ -91,7 +91,7 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770da36_mounted]={
   max=1,
   description='Swabian knights, other Frankish knights, or horse archers\nDeployment dismounting as Elite Foot',
   points=4,
-  dismount_as=g_5fb1ba2fe1af06001770da36_dismounted,
+  dismount_as=g_str_5fb1ba2fe1af06001770da36_dismounted,
   troop_type="Horse Bow",
   troop_option_id="5fb1ba2fe1af06001770da34",
 }

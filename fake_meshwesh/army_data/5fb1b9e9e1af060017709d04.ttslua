@@ -38,24 +38,24 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e368]={
   troop_option_id="5fb1ba34e1af06001770e367",
 }
 g_str_5fb1ba34e1af06001770e368_dismounted='5fb1ba34e1af06001770e368_dismounted'
+g_str_5fb1ba34e1af06001770e368_mounted='5fb1ba34e1af06001770e368_mounted'
 g_base_definitions[g_str_5fb1ba34e1af06001770e368_dismounted]={
   id=g_str_5fb1ba34e1af06001770e368_dismounted,
   name='Skirmishers',
   min=0,
   max=1,
   description='Crossbowmen on horses\nMid-battle dismounted from Bad Horse',
+  dismounted_from=g_str_5fb1ba34e1af06001770e368_mounted,
   troop_type="Skirmishers",
   troop_option_id="5fb1ba34e1af06001770e367",
 }
-g_5fb1ba34e1af06001770e368_dismounted=g_base_definitions[g_str_5fb1ba34e1af06001770e368_dismounted]
-g_str_5fb1ba34e1af06001770e368_mounted='5fb1ba34e1af06001770e368_mounted'
 g_base_definitions[g_str_5fb1ba34e1af06001770e368_mounted]={
   id=g_str_5fb1ba34e1af06001770e368_mounted,
   name='Bad Horse',
   min=0,
   max=1,
   description='Crossbowmen on horses\nMid-battle dismounting as Skirmisher',
-  dismount_as=g_5fb1ba34e1af06001770e368_dismounted,
+  dismount_as=g_str_5fb1ba34e1af06001770e368_dismounted,
   troop_type="Bad Horse",
   troop_option_id="5fb1ba34e1af06001770e367",
 }

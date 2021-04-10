@@ -18,25 +18,25 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e656_general]={
   troop_option_id="5fb1ba36e1af06001770e655",
 }
 g_str_5fb1ba36e1af06001770e656_general_dismounted='5fb1ba36e1af06001770e656_general_dismounted'
+g_str_5fb1ba36e1af06001770e656_general_mounted='5fb1ba36e1af06001770e656_general_mounted'
 g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_dismounted]={
   id=g_str_5fb1ba36e1af06001770e656_general_dismounted,
   name='Warband General',
   min=0,
   max=1,
   description='Noble horsemen\nMid-battle dismounted from Javelin Cavalry General',
+  dismounted_from=g_str_5fb1ba36e1af06001770e656_general_mounted,
   general=true,
   troop_type="Warband",
   troop_option_id="5fb1ba36e1af06001770e655",
 }
-g_5fb1ba36e1af06001770e656_general_dismounted=g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_dismounted]
-g_str_5fb1ba36e1af06001770e656_general_mounted='5fb1ba36e1af06001770e656_general_mounted'
 g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_mounted]={
   id=g_str_5fb1ba36e1af06001770e656_general_mounted,
   name='Javelin Cavalry General',
   min=0,
   max=1,
   description='Noble horsemen\nMid-battle dismounting as Warband',
-  dismount_as=g_5fb1ba36e1af06001770e656_general_dismounted,
+  dismount_as=g_str_5fb1ba36e1af06001770e656_general_dismounted,
   general=true,
   troop_type="Javelin Cavalry",
   troop_option_id="5fb1ba36e1af06001770e655",
@@ -52,24 +52,24 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e656]={
   troop_option_id="5fb1ba36e1af06001770e655",
 }
 g_str_5fb1ba36e1af06001770e656_dismounted='5fb1ba36e1af06001770e656_dismounted'
+g_str_5fb1ba36e1af06001770e656_mounted='5fb1ba36e1af06001770e656_mounted'
 g_base_definitions[g_str_5fb1ba36e1af06001770e656_dismounted]={
   id=g_str_5fb1ba36e1af06001770e656_dismounted,
   name='Warband',
   min=0,
   max=2,
   description='Noble horsemen\nMid-battle dismounted from Javelin Cavalry',
+  dismounted_from=g_str_5fb1ba36e1af06001770e656_mounted,
   troop_type="Warband",
   troop_option_id="5fb1ba36e1af06001770e655",
 }
-g_5fb1ba36e1af06001770e656_dismounted=g_base_definitions[g_str_5fb1ba36e1af06001770e656_dismounted]
-g_str_5fb1ba36e1af06001770e656_mounted='5fb1ba36e1af06001770e656_mounted'
 g_base_definitions[g_str_5fb1ba36e1af06001770e656_mounted]={
   id=g_str_5fb1ba36e1af06001770e656_mounted,
   name='Javelin Cavalry',
   min=0,
   max=2,
   description='Noble horsemen\nMid-battle dismounting as Warband',
-  dismount_as=g_5fb1ba36e1af06001770e656_dismounted,
+  dismount_as=g_str_5fb1ba36e1af06001770e656_dismounted,
   troop_type="Javelin Cavalry",
   troop_option_id="5fb1ba36e1af06001770e655",
 }

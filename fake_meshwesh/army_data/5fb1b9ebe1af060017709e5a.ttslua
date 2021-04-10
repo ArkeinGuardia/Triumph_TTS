@@ -120,25 +120,25 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e8fa]={
   troop_type="Elite Foot",
   troop_option_id="5fb1ba38e1af06001770e8f8",
 }
-g_str_5fb1ba38e1af06001770e8fa_mounted_mobile_infantry='5fb1ba38e1af06001770e8fa_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba38e1af06001770e8fa_mounted_mobile_infantry]={
-  id=g_str_5fb1ba38e1af06001770e8fa_mounted_mobile_infantry,
-  name='Elite Foot',
-  min=0,
-  max=1,
-  description='Varangian guard\nmounted mobile infantry',
-  dismount_as=g_5fb1ba38e1af06001770e8fa_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Elite Foot",
-  troop_option_id="5fb1ba38e1af06001770e8f8",
-}
 g_str_5fb1ba38e1af06001770e8fa_dismounted_mobile_infantry='5fb1ba38e1af06001770e8fa_dismounted_mobile_infantry'
+g_str_5fb1ba38e1af06001770e8fa_mounted_mobile_infantry='5fb1ba38e1af06001770e8fa_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba38e1af06001770e8fa_dismounted_mobile_infantry]={
   id=g_str_5fb1ba38e1af06001770e8fa_dismounted_mobile_infantry,
   name='Elite Foot',
   min=0,
   max=1,
   description='Varangian guard\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba38e1af06001770e8fa_mounted_mobile_infantry,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba38e1af06001770e8f8",
+}
+g_base_definitions[g_str_5fb1ba38e1af06001770e8fa_mounted_mobile_infantry]={
+  id=g_str_5fb1ba38e1af06001770e8fa_mounted_mobile_infantry,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Varangian guard\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba38e1af06001770e8fa_dismounted_mobile_infantry,
   troop_type="Elite Foot",
   troop_option_id="5fb1ba38e1af06001770e8f8",
 }

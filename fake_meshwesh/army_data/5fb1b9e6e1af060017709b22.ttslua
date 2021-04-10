@@ -38,24 +38,24 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc8f]={
   troop_option_id="5fb1ba31e1af06001770dc8d",
 }
 g_str_5fb1ba31e1af06001770dc8f_dismounted='5fb1ba31e1af06001770dc8f_dismounted'
+g_str_5fb1ba31e1af06001770dc8f_mounted='5fb1ba31e1af06001770dc8f_mounted'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc8f_dismounted]={
   id=g_str_5fb1ba31e1af06001770dc8f_dismounted,
   name='Light Spear',
   min=0,
   max=1,
   description='Marcher muntatores\nMid-battle dismounted from Javelin Cavalry',
+  dismounted_from=g_str_5fb1ba31e1af06001770dc8f_mounted,
   troop_type="Light Spear",
   troop_option_id="5fb1ba31e1af06001770dc8d",
 }
-g_5fb1ba31e1af06001770dc8f_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc8f_dismounted]
-g_str_5fb1ba31e1af06001770dc8f_mounted='5fb1ba31e1af06001770dc8f_mounted'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc8f_mounted]={
   id=g_str_5fb1ba31e1af06001770dc8f_mounted,
   name='Javelin Cavalry',
   min=0,
   max=1,
   description='Marcher muntatores\nMid-battle dismounting as Light Spear',
-  dismount_as=g_5fb1ba31e1af06001770dc8f_dismounted,
+  dismount_as=g_str_5fb1ba31e1af06001770dc8f_dismounted,
   troop_type="Javelin Cavalry",
   troop_option_id="5fb1ba31e1af06001770dc8d",
 }
@@ -70,24 +70,24 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc93]={
   troop_option_id="5fb1ba31e1af06001770dc91",
 }
 g_str_5fb1ba31e1af06001770dc93_dismounted='5fb1ba31e1af06001770dc93_dismounted'
+g_str_5fb1ba31e1af06001770dc93_mounted='5fb1ba31e1af06001770dc93_mounted'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc93_dismounted]={
   id=g_str_5fb1ba31e1af06001770dc93_dismounted,
   name='Light Spear',
   min=0,
   max=1,
   description='Hobilars\nMid-battle dismounted from Bad Horse',
+  dismounted_from=g_str_5fb1ba31e1af06001770dc93_mounted,
   troop_type="Light Spear",
   troop_option_id="5fb1ba31e1af06001770dc91",
 }
-g_5fb1ba31e1af06001770dc93_dismounted=g_base_definitions[g_str_5fb1ba31e1af06001770dc93_dismounted]
-g_str_5fb1ba31e1af06001770dc93_mounted='5fb1ba31e1af06001770dc93_mounted'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc93_mounted]={
   id=g_str_5fb1ba31e1af06001770dc93_mounted,
   name='Bad Horse',
   min=0,
   max=1,
   description='Hobilars\nMid-battle dismounting as Light Spear',
-  dismount_as=g_5fb1ba31e1af06001770dc93_dismounted,
+  dismount_as=g_str_5fb1ba31e1af06001770dc93_dismounted,
   troop_type="Bad Horse",
   troop_option_id="5fb1ba31e1af06001770dc91",
 }
@@ -121,25 +121,25 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc99]={
   troop_type="Archers",
   troop_option_id="5fb1ba31e1af06001770dc98",
 }
-g_str_5fb1ba31e1af06001770dc99_mounted_mobile_infantry='5fb1ba31e1af06001770dc99_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc99_mounted_mobile_infantry]={
-  id=g_str_5fb1ba31e1af06001770dc99_mounted_mobile_infantry,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Mercenary crossbowmen\nmounted mobile infantry',
-  dismount_as=g_5fb1ba31e1af06001770dc99_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
-  troop_option_id="5fb1ba31e1af06001770dc98",
-}
 g_str_5fb1ba31e1af06001770dc99_dismounted_mobile_infantry='5fb1ba31e1af06001770dc99_dismounted_mobile_infantry'
+g_str_5fb1ba31e1af06001770dc99_mounted_mobile_infantry='5fb1ba31e1af06001770dc99_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc99_dismounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770dc99_dismounted_mobile_infantry,
   name='Archers',
   min=0,
   max=1,
   description='Mercenary crossbowmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba31e1af06001770dc99_mounted_mobile_infantry,
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dc98",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dc99_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dc99_mounted_mobile_infantry,
+  name='Archers',
+  min=0,
+  max=1,
+  description='Mercenary crossbowmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba31e1af06001770dc99_dismounted_mobile_infantry,
   troop_type="Archers",
   troop_option_id="5fb1ba31e1af06001770dc98",
 }
