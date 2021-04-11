@@ -1,0 +1,160 @@
+-- Rise of Macedon
+-- 359 BC to 336 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dde1af06001770961d/explore
+-- As of: 20210411
+
+-- Rise of Macedon
+army['5fb1b9dde1af06001770961d'].data.has_models = true
+-- Alexandrian Macedonian
+--army['5fb1b9dce1af06001770955e'].data.has_models = true
+
+    --Companions - Kn General
+    g_models[g_str_5fb1ba27e1af06001770ca7c_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_cavalry_bodyguard',
+            [2] = 'troop_successors_cavalry_general_yellow',
+            [3] = 'troop_successors_cavalry_bodyguard'
+        }
+      }
+    }
+
+    --Companions - Kn
+    g_models[g_str_5fb1ba27e1af06001770ca7c] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_cavalry_bodyguard'
+      }
+    }
+
+    --Prodomoi - JavCav
+    g_models[g_str_5fb1ba27e1af06001770ca7e] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_cav'
+      }
+    }
+
+    --Thessalian Horsemen - JavCav
+    g_models[g_str_5fb1ba27e1af06001770ca80] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_lh_blue'
+      }
+    }
+
+    --Hypaspists - Raiders
+    g_models[g_str_5fb1ba27e1af06001770ca82] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_successors_hypaspist_black'
+      }
+    }
+
+    --Hypaspists - Pikes General
+    g_models[g_str_5fb1ba27e1af06001770ca83_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_successors_pike2_black',
+          [2] = 'troop_successors_pike2_black',
+          [3] = 'troop_successors_cavalry_general',
+          [4] = 'troop_successors_pike2_black'
+      }
+      }
+    }
+
+    --Hypaspists - Pikes
+    g_models[g_str_5fb1ba27e1af06001770ca83] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_successors_pike2_black'
+      }
+    }
+
+    --Phalanx - Pikes General
+    g_models[g_str_5fb1ba27e1af06001770ca86_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_successors_pike1',
+          [2] = 'troop_successors_pike1',
+          [3] = 'troop_successors_cavalry_general',
+          [4] = 'troop_successors_pike1'
+      }
+      }
+    }
+
+    --Phalanx - Pikes
+    g_models[g_str_5fb1ba27e1af06001770ca86] = {
+      {
+        base = 'tile_grass_40x15',
+        random_models = {
+          'troop_successors_pike1',
+          'troop_successors_pike2'
+        }
+      }
+    }
+
+    --Macedonian light infantry not yet trained with pike - LF
+    g_models[g_str_5fb1ba27e1af06001770ca89] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_successors_ax'
+      }
+    }
+
+    --Cretan or Macedonian skirmishing bowmen - Sk
+    g_models[g_str_5fb1ba27e1af06001770ca8b] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_successors_skirmishers_archers'
+      }
+    }
+
+    --Greek allied hoplites - HF
+    g_models[g_str_5fb1ba27e1af06001770ca8d] = {
+      {
+        base = 'tile_grass_40x15',
+        random_models = {
+          'troop_successors_spear2',
+          'troop_successors_spear1'
+      }
+      }
+    }
+
+    --Greek mercenary peltasts - LF
+    g_models[g_str_5fb1ba27e1af06001770ca91] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_successors_psiloi'
+      }
+    }
+
+    --Bolt-shooters - Art
+    g_models[g_str_5fb1ba27e1af06001770ca94] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_art'
+      }
+    }
+
+    --Macedonian Camp
+    g_models[g_str_5fb1b9dde1af06001770961d_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
+
+    --Macedonian Camp Fort
+    g_models[g_str_5fb1b9dde1af06001770961d_camp_fortified] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_carthaginian_camp'
+      }
+    }
+
+    -- Carthaginian Camp Trains and Herds - NOT YET
+    --g_models[g_str_5fb1b9dde1af06001770961d_camp_pack_train] =
