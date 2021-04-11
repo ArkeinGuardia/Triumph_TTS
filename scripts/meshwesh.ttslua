@@ -1,19 +1,27 @@
 
--- g_meshwesh_api="https://meshwesh.wgcwar.com/api/v1/"
-g_meshwesh_api="http://localhost:8000/"
-
-function spawn_meshesh_army(player, id)
-  local url = g_meshwesh_api .. "armyLists/" .. id
-  print(url)
-  WebRequest.get(url,
-    function(webReturn)
-      if webReturn.is_error then
-        print_error(webReturn.error)
-        return
-      end
-      on_meshwesh_army_request_completed(webReturn.text, player)
-    end)
+-- Spawn an army based on the army Identifier
+-- army_id: Meshwesh ID for the army.
+-- player: either "red" or "blue"
+-- command_color
+function spawn_meshesh_army(army_id, player, command_color)
+print(6)
+  local army_definition = army[army_id]
+print(9)
+  if army_definition == nil then
+    print_error("No army available with ID " .. tostring(army_id))
+    return
+  end
+print(14)
+  local army_name = army_definition['data']['name']
+  local is_red_player = (player == "red")
+  if command_color == nil then
+    command_color = player
+  end
+  print("BEFORE spawn army")
+  spawn_army(army_name, army_definition, is_red_player, command_color)
+  print("AFTER spawn army")
 end
+
 
 function has_one_option(data_point)
   return tlen(data_point) ==1 and (nil == data_point[1]['note'] )
@@ -294,24 +302,3 @@ function meshwesh_to_lua_army(json)
   return army
 end
 
-function on_meshwesh_army_request_completed(json_text, player)
-  local json
-  local ok,result = pcall(
-        function()
-          json = JSON.decode(json_text)
-        end)
-  if not ok then
-    print_error("Could not decode as json :" .. tostring(json_text))
-    return
-  end
-
-  print("BEFORE meshwesh_to_lua_army")
-  local army = meshwesh_to_lua_army(json)
-  print("AFTER meshwesh_to_lua_army")
-  local army_name = army['data']['name']
-  local is_red_player = (player == "red")
-  command_color = player -- TODO
-  print("BEFORE spawn_army")
-  spawn_army(army_name, army, is_red_player, command_color)
-  print("AFTER spawn_army")
-end

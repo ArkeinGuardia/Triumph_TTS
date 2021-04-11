@@ -630,6 +630,7 @@ function on_roll_pips_red(player, value, id)
     if g_roll_lock['red'] then
         print_debug('Ignoring roll because this dice was rolled less than a second ago')
     else
+        create_history_event_snapshot()
         g_roll_lock['red'] = true
         local red = roll_dice('red')
         if red == nil then return end
@@ -649,6 +650,7 @@ function on_roll_pips_blue(player, value, id)
     if g_roll_lock['blue'] then
         print_debug('Ignoring roll because this dice was rolled less than a second ago')
     else
+        create_history_event_snapshot()
         g_roll_lock['blue'] = true
         local blue = roll_dice('blue')
         local green = roll_dice('green')

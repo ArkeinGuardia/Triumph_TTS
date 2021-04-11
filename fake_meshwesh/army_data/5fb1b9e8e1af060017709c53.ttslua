@@ -15,8 +15,10 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e07f_general]={
   description='Ordonnance gendarmes',
   general=true,
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e07e",
 }
 g_str_5fb1ba33e1af06001770e07f_general_dismounted='5fb1ba33e1af06001770e07f_general_dismounted'
+g_str_5fb1ba33e1af06001770e07f_general_mounted='5fb1ba33e1af06001770e07f_general_mounted'
 g_base_definitions[g_str_5fb1ba33e1af06001770e07f_general_dismounted]={
   id=g_str_5fb1ba33e1af06001770e07f_general_dismounted,
   name='Elite Foot General',
@@ -24,11 +26,11 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e07f_general_dismounted]={
   max=1,
   description='Ordonnance gendarmes\nDeployment dismounted from Knights General',
   points=4,
+  dismounted_from=g_str_5fb1ba33e1af06001770e07f_general_mounted,
   general=true,
   troop_type="Elite Foot",
+  troop_option_id="5fb1ba33e1af06001770e07e",
 }
-g_5fb1ba33e1af06001770e07f_general_dismounted=g_base_definitions[g_str_5fb1ba33e1af06001770e07f_general_dismounted]
-g_str_5fb1ba33e1af06001770e07f_general_mounted='5fb1ba33e1af06001770e07f_general_mounted'
 g_base_definitions[g_str_5fb1ba33e1af06001770e07f_general_mounted]={
   id=g_str_5fb1ba33e1af06001770e07f_general_mounted,
   name='Knights General',
@@ -36,9 +38,10 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e07f_general_mounted]={
   max=1,
   description='Ordonnance gendarmes\nDeployment dismounting as Elite Foot',
   points=4,
-  dismount_as=g_5fb1ba33e1af06001770e07f_general_dismounted,
+  dismount_as=g_str_5fb1ba33e1af06001770e07f_general_dismounted,
   general=true,
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e07e",
 }
 g_str_5fb1ba33e1af06001770e07f='5fb1ba33e1af06001770e07f'
 g_base_definitions[g_str_5fb1ba33e1af06001770e07f]={
@@ -48,8 +51,10 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e07f]={
   max=3,
   description='Ordonnance gendarmes',
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e07e",
 }
 g_str_5fb1ba33e1af06001770e07f_dismounted='5fb1ba33e1af06001770e07f_dismounted'
+g_str_5fb1ba33e1af06001770e07f_mounted='5fb1ba33e1af06001770e07f_mounted'
 g_base_definitions[g_str_5fb1ba33e1af06001770e07f_dismounted]={
   id=g_str_5fb1ba33e1af06001770e07f_dismounted,
   name='Elite Foot',
@@ -57,10 +62,10 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e07f_dismounted]={
   max=3,
   description='Ordonnance gendarmes\nDeployment dismounted from Knights',
   points=4,
+  dismounted_from=g_str_5fb1ba33e1af06001770e07f_mounted,
   troop_type="Elite Foot",
+  troop_option_id="5fb1ba33e1af06001770e07e",
 }
-g_5fb1ba33e1af06001770e07f_dismounted=g_base_definitions[g_str_5fb1ba33e1af06001770e07f_dismounted]
-g_str_5fb1ba33e1af06001770e07f_mounted='5fb1ba33e1af06001770e07f_mounted'
 g_base_definitions[g_str_5fb1ba33e1af06001770e07f_mounted]={
   id=g_str_5fb1ba33e1af06001770e07f_mounted,
   name='Knights',
@@ -68,8 +73,9 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e07f_mounted]={
   max=3,
   description='Ordonnance gendarmes\nDeployment dismounting as Elite Foot',
   points=4,
-  dismount_as=g_5fb1ba33e1af06001770e07f_dismounted,
+  dismount_as=g_str_5fb1ba33e1af06001770e07f_dismounted,
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e07e",
 }
 g_str_5fb1ba33e1af06001770e082='5fb1ba33e1af06001770e082'
 g_base_definitions[g_str_5fb1ba33e1af06001770e082]={
@@ -79,26 +85,29 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e082]={
   max=3,
   description='Ordonnance bowmen: mostly equipped with longbows, but some crossbows',
   troop_type="Archers",
-}
-g_str_5fb1ba33e1af06001770e082_mounted_mobile_infantry='5fb1ba33e1af06001770e082_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba33e1af06001770e082_mounted_mobile_infantry]={
-  id=g_str_5fb1ba33e1af06001770e082_mounted_mobile_infantry,
-  name='Archers',
-  min=2,
-  max=3,
-  description='Ordonnance bowmen: mostly equipped with longbows, but some crossbows\nmounted mobile infantry',
-  dismount_as=g_5fb1ba33e1af06001770e082_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e081",
 }
 g_str_5fb1ba33e1af06001770e082_dismounted_mobile_infantry='5fb1ba33e1af06001770e082_dismounted_mobile_infantry'
+g_str_5fb1ba33e1af06001770e082_mounted_mobile_infantry='5fb1ba33e1af06001770e082_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba33e1af06001770e082_dismounted_mobile_infantry]={
   id=g_str_5fb1ba33e1af06001770e082_dismounted_mobile_infantry,
   name='Archers',
   min=2,
   max=3,
   description='Ordonnance bowmen: mostly equipped with longbows, but some crossbows\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba33e1af06001770e082_mounted_mobile_infantry,
   troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e081",
+}
+g_base_definitions[g_str_5fb1ba33e1af06001770e082_mounted_mobile_infantry]={
+  id=g_str_5fb1ba33e1af06001770e082_mounted_mobile_infantry,
+  name='Archers',
+  min=2,
+  max=3,
+  description='Ordonnance bowmen: mostly equipped with longbows, but some crossbows\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba33e1af06001770e082_dismounted_mobile_infantry,
+  troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e081",
 }
 g_str_5fb1ba33e1af06001770e085_general='5fb1ba33e1af06001770e085_general'
 g_base_definitions[g_str_5fb1ba33e1af06001770e085_general]={
@@ -109,6 +118,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e085_general]={
   description='Savoyard, Italian, or Arriere-ban men-at-arms',
   general=true,
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e084",
 }
 g_str_5fb1ba33e1af06001770e085='5fb1ba33e1af06001770e085'
 g_base_definitions[g_str_5fb1ba33e1af06001770e085]={
@@ -118,6 +128,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e085]={
   max=2,
   description='Savoyard, Italian, or Arriere-ban men-at-arms',
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e084",
 }
 g_str_5fb1ba33e1af06001770e087='5fb1ba33e1af06001770e087'
 g_base_definitions[g_str_5fb1ba33e1af06001770e087]={
@@ -127,26 +138,29 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e087]={
   max=2,
   description='Arriere-ban, garrison, or militia voulgiers',
   troop_type="Heavy Foot",
-}
-g_str_5fb1ba33e1af06001770e087_mounted_mobile_infantry='5fb1ba33e1af06001770e087_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba33e1af06001770e087_mounted_mobile_infantry]={
-  id=g_str_5fb1ba33e1af06001770e087_mounted_mobile_infantry,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Arriere-ban, garrison, or militia voulgiers\nmounted mobile infantry',
-  dismount_as=g_5fb1ba33e1af06001770e087_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba33e1af06001770e086",
 }
 g_str_5fb1ba33e1af06001770e087_dismounted_mobile_infantry='5fb1ba33e1af06001770e087_dismounted_mobile_infantry'
+g_str_5fb1ba33e1af06001770e087_mounted_mobile_infantry='5fb1ba33e1af06001770e087_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba33e1af06001770e087_dismounted_mobile_infantry]={
   id=g_str_5fb1ba33e1af06001770e087_dismounted_mobile_infantry,
   name='Heavy Foot',
   min=0,
   max=2,
   description='Arriere-ban, garrison, or militia voulgiers\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba33e1af06001770e087_mounted_mobile_infantry,
   troop_type="Heavy Foot",
+  troop_option_id="5fb1ba33e1af06001770e086",
+}
+g_base_definitions[g_str_5fb1ba33e1af06001770e087_mounted_mobile_infantry]={
+  id=g_str_5fb1ba33e1af06001770e087_mounted_mobile_infantry,
+  name='Heavy Foot',
+  min=0,
+  max=2,
+  description='Arriere-ban, garrison, or militia voulgiers\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba33e1af06001770e087_dismounted_mobile_infantry,
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba33e1af06001770e086",
 }
 g_str_5fb1ba33e1af06001770e08a='5fb1ba33e1af06001770e08a'
 g_base_definitions[g_str_5fb1ba33e1af06001770e08a]={
@@ -156,26 +170,29 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e08a]={
   max=8,
   description='Francs bowmen with some arriere-ban, garrison, or militia bowmen or crossbowmen',
   troop_type="Bow Levy",
-}
-g_str_5fb1ba33e1af06001770e08a_mounted_mobile_infantry='5fb1ba33e1af06001770e08a_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba33e1af06001770e08a_mounted_mobile_infantry]={
-  id=g_str_5fb1ba33e1af06001770e08a_mounted_mobile_infantry,
-  name='Bow Levy',
-  min=0,
-  max=1,
-  description='Francs bowmen with some arriere-ban, garrison, or militia bowmen or crossbowmen\nmounted mobile infantry',
-  dismount_as=g_5fb1ba33e1af06001770e08a_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Bow Levy",
+  troop_option_id="5fb1ba33e1af06001770e089",
 }
 g_str_5fb1ba33e1af06001770e08a_dismounted_mobile_infantry='5fb1ba33e1af06001770e08a_dismounted_mobile_infantry'
+g_str_5fb1ba33e1af06001770e08a_mounted_mobile_infantry='5fb1ba33e1af06001770e08a_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba33e1af06001770e08a_dismounted_mobile_infantry]={
   id=g_str_5fb1ba33e1af06001770e08a_dismounted_mobile_infantry,
   name='Bow Levy',
   min=0,
   max=1,
   description='Francs bowmen with some arriere-ban, garrison, or militia bowmen or crossbowmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba33e1af06001770e08a_mounted_mobile_infantry,
   troop_type="Bow Levy",
+  troop_option_id="5fb1ba33e1af06001770e089",
+}
+g_base_definitions[g_str_5fb1ba33e1af06001770e08a_mounted_mobile_infantry]={
+  id=g_str_5fb1ba33e1af06001770e08a_mounted_mobile_infantry,
+  name='Bow Levy',
+  min=0,
+  max=1,
+  description='Francs bowmen with some arriere-ban, garrison, or militia bowmen or crossbowmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba33e1af06001770e08a_dismounted_mobile_infantry,
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba33e1af06001770e089",
 }
 g_str_5fb1ba33e1af06001770e08d='5fb1ba33e1af06001770e08d'
 g_base_definitions[g_str_5fb1ba33e1af06001770e08d]={
@@ -185,26 +202,29 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e08d]={
   max=1,
   description='Mercenary crossbowmen',
   troop_type="Archers",
-}
-g_str_5fb1ba33e1af06001770e08d_mounted_mobile_infantry='5fb1ba33e1af06001770e08d_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba33e1af06001770e08d_mounted_mobile_infantry]={
-  id=g_str_5fb1ba33e1af06001770e08d_mounted_mobile_infantry,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Mercenary crossbowmen\nmounted mobile infantry',
-  dismount_as=g_5fb1ba33e1af06001770e08d_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e08c",
 }
 g_str_5fb1ba33e1af06001770e08d_dismounted_mobile_infantry='5fb1ba33e1af06001770e08d_dismounted_mobile_infantry'
+g_str_5fb1ba33e1af06001770e08d_mounted_mobile_infantry='5fb1ba33e1af06001770e08d_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba33e1af06001770e08d_dismounted_mobile_infantry]={
   id=g_str_5fb1ba33e1af06001770e08d_dismounted_mobile_infantry,
   name='Archers',
   min=0,
   max=1,
   description='Mercenary crossbowmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba33e1af06001770e08d_mounted_mobile_infantry,
   troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e08c",
+}
+g_base_definitions[g_str_5fb1ba33e1af06001770e08d_mounted_mobile_infantry]={
+  id=g_str_5fb1ba33e1af06001770e08d_mounted_mobile_infantry,
+  name='Archers',
+  min=0,
+  max=1,
+  description='Mercenary crossbowmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba33e1af06001770e08d_dismounted_mobile_infantry,
+  troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e08c",
 }
 g_str_5fb1ba33e1af06001770e090='5fb1ba33e1af06001770e090'
 g_base_definitions[g_str_5fb1ba33e1af06001770e090]={
@@ -214,6 +234,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e090]={
   max=1,
   description='Gascon bidets or Bretons',
   troop_type="Light Foot",
+  troop_option_id="5fb1ba33e1af06001770e08f",
 }
 g_str_5fb1ba33e1af06001770e092='5fb1ba33e1af06001770e092'
 g_base_definitions[g_str_5fb1ba33e1af06001770e092]={
@@ -223,6 +244,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e092]={
   max=1,
   description='Handgunners',
   troop_type="Skirmishers",
+  troop_option_id="5fb1ba33e1af06001770e091",
 }
 g_str_5fb1ba33e1af06001770e094='5fb1ba33e1af06001770e094'
 g_base_definitions[g_str_5fb1ba33e1af06001770e094]={
@@ -232,6 +254,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e094]={
   max=2,
   description='Bombards and other big guns',
   troop_type="Artillery",
+  troop_option_id="5fb1ba33e1af06001770e093",
 }
 g_str_5fb1b9e8e1af060017709c53_camp='5fb1b9e8e1af060017709c53_camp'
 g_base_definitions[g_str_5fb1b9e8e1af060017709c53_camp]={

@@ -15,8 +15,10 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_general]={
   description='Men-at-arms of various nationalities',
   general=true,
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e0d0",
 }
 g_str_5fb1ba33e1af06001770e0d1_general_dismounted='5fb1ba33e1af06001770e0d1_general_dismounted'
+g_str_5fb1ba33e1af06001770e0d1_general_mounted='5fb1ba33e1af06001770e0d1_general_mounted'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_general_dismounted]={
   id=g_str_5fb1ba33e1af06001770e0d1_general_dismounted,
   name='Elite Foot General',
@@ -24,11 +26,11 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_general_dismounted]={
   max=1,
   description='Men-at-arms of various nationalities\nDeployment dismounted from Knights General',
   points=4,
+  dismounted_from=g_str_5fb1ba33e1af06001770e0d1_general_mounted,
   general=true,
   troop_type="Elite Foot",
+  troop_option_id="5fb1ba33e1af06001770e0d0",
 }
-g_5fb1ba33e1af06001770e0d1_general_dismounted=g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_general_dismounted]
-g_str_5fb1ba33e1af06001770e0d1_general_mounted='5fb1ba33e1af06001770e0d1_general_mounted'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_general_mounted]={
   id=g_str_5fb1ba33e1af06001770e0d1_general_mounted,
   name='Knights General',
@@ -36,9 +38,10 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_general_mounted]={
   max=1,
   description='Men-at-arms of various nationalities\nDeployment dismounting as Elite Foot',
   points=4,
-  dismount_as=g_5fb1ba33e1af06001770e0d1_general_dismounted,
+  dismount_as=g_str_5fb1ba33e1af06001770e0d1_general_dismounted,
   general=true,
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e0d0",
 }
 g_str_5fb1ba33e1af06001770e0d1='5fb1ba33e1af06001770e0d1'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d1]={
@@ -48,8 +51,10 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d1]={
   max=12,
   description='Men-at-arms of various nationalities',
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e0d0",
 }
 g_str_5fb1ba33e1af06001770e0d1_dismounted='5fb1ba33e1af06001770e0d1_dismounted'
+g_str_5fb1ba33e1af06001770e0d1_mounted='5fb1ba33e1af06001770e0d1_mounted'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_dismounted]={
   id=g_str_5fb1ba33e1af06001770e0d1_dismounted,
   name='Elite Foot',
@@ -57,10 +62,10 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_dismounted]={
   max=12,
   description='Men-at-arms of various nationalities\nDeployment dismounted from Knights',
   points=4,
+  dismounted_from=g_str_5fb1ba33e1af06001770e0d1_mounted,
   troop_type="Elite Foot",
+  troop_option_id="5fb1ba33e1af06001770e0d0",
 }
-g_5fb1ba33e1af06001770e0d1_dismounted=g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_dismounted]
-g_str_5fb1ba33e1af06001770e0d1_mounted='5fb1ba33e1af06001770e0d1_mounted'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_mounted]={
   id=g_str_5fb1ba33e1af06001770e0d1_mounted,
   name='Knights',
@@ -68,8 +73,9 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d1_mounted]={
   max=12,
   description='Men-at-arms of various nationalities\nDeployment dismounting as Elite Foot',
   points=4,
-  dismount_as=g_5fb1ba33e1af06001770e0d1_dismounted,
+  dismount_as=g_str_5fb1ba33e1af06001770e0d1_dismounted,
   troop_type="Knights",
+  troop_option_id="5fb1ba33e1af06001770e0d0",
 }
 g_str_5fb1ba33e1af06001770e0d4='5fb1ba33e1af06001770e0d4'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d4]={
@@ -79,6 +85,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d4]={
   max=2,
   description='Crossbowmen',
   troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e0d3",
 }
 g_str_5fb1ba33e1af06001770e0d6='5fb1ba33e1af06001770e0d6'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d6]={
@@ -88,26 +95,29 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d6]={
   max=2,
   description='English longbowmen',
   troop_type="Archers",
-}
-g_str_5fb1ba33e1af06001770e0d6_mounted_mobile_infantry='5fb1ba33e1af06001770e0d6_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba33e1af06001770e0d6_mounted_mobile_infantry]={
-  id=g_str_5fb1ba33e1af06001770e0d6_mounted_mobile_infantry,
-  name='Archers',
-  min=0,
-  max=2,
-  description='English longbowmen\nmounted mobile infantry',
-  dismount_as=g_5fb1ba33e1af06001770e0d6_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e0d5",
 }
 g_str_5fb1ba33e1af06001770e0d6_dismounted_mobile_infantry='5fb1ba33e1af06001770e0d6_dismounted_mobile_infantry'
+g_str_5fb1ba33e1af06001770e0d6_mounted_mobile_infantry='5fb1ba33e1af06001770e0d6_mounted_mobile_infantry'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d6_dismounted_mobile_infantry]={
   id=g_str_5fb1ba33e1af06001770e0d6_dismounted_mobile_infantry,
   name='Archers',
   min=0,
   max=2,
   description='English longbowmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba33e1af06001770e0d6_mounted_mobile_infantry,
   troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e0d5",
+}
+g_base_definitions[g_str_5fb1ba33e1af06001770e0d6_mounted_mobile_infantry]={
+  id=g_str_5fb1ba33e1af06001770e0d6_mounted_mobile_infantry,
+  name='Archers',
+  min=0,
+  max=2,
+  description='English longbowmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba33e1af06001770e0d6_dismounted_mobile_infantry,
+  troop_type="Archers",
+  troop_option_id="5fb1ba33e1af06001770e0d5",
 }
 g_str_5fb1ba33e1af06001770e0d9='5fb1ba33e1af06001770e0d9'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0d9]={
@@ -117,6 +127,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0d9]={
   max=1,
   description='Breton javelinmen',
   troop_type="Light Foot",
+  troop_option_id="5fb1ba33e1af06001770e0d8",
 }
 g_str_5fb1ba33e1af06001770e0dc='5fb1ba33e1af06001770e0dc'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0dc]={
@@ -126,6 +137,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0dc]={
   max=1,
   description='Hungarian horse archers',
   troop_type="Horse Bow",
+  troop_option_id="5fb1ba33e1af06001770e0da",
 }
 g_str_5fb1b9e8e1af060017709c6a_camp='5fb1b9e8e1af060017709c6a_camp'
 g_base_definitions[g_str_5fb1b9e8e1af060017709c6a_camp]={

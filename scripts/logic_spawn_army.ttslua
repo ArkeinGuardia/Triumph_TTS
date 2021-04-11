@@ -2,6 +2,8 @@
 g_base_index = 1
 g_bases = {}
 
+
+
 -- If the base is dismountable add a menu item to dismount
 -- the base
 function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
@@ -49,10 +51,10 @@ function add_context_menu_base(base_obj)
         local moved_mus = move_base(base_obj, -from_mu_to_in(g_mu_movement))
         print_info(base_obj.getName() .. ' ' .. from_in_to_mu(moved_mus) .. ' MU backwards')
     end)
-    base_obj.addContextMenuItem("Push forward", function()
+    base_obj.addContextMenuItem("Persue", function()
         push_forward(base_obj)
     end)
-    base_obj.addContextMenuItem("Push back", function()
+    base_obj.addContextMenuItem("Fall back", function()
         push_back(base_obj)
     end)
     base_obj.addContextMenuItem("Turn around", function()
@@ -432,14 +434,6 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
         base_definition_name = base_definition['base_definition_name']
     end
 
-
-    add_models(base_name, model_definition, base_definition, base_obj,
-        is_red_player, pos, y_rotation)
-    update_tool_tip(base_obj)
-    add_context_menu_base(base_obj)
-
-
-
     local player_color
     if is_red_player then
       player_color = "RED"
@@ -449,6 +443,11 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     set_decoration_for_obj(base_obj, "base_definition_name", base_definition_name)
     set_decoration_for_obj(base_obj, "command_color", command_color)
     set_decoration_for_obj(base_obj, "player_color", player_color)
+
+    add_models(base_name, model_definition, base_definition, base_obj,
+        is_red_player, pos, y_rotation)
+    update_tool_tip(base_obj)
+    add_context_menu_base(base_obj)
 
     return base_obj
 end
@@ -583,10 +582,8 @@ function get_base_definition_from_base_obj(base_obj)
   base_definition = _G[base_definition_name]
   if nil ~= base_definition_name then
       return base_definition
-    end
+  end
 
-  print_error("base definition missing: " .. tostring(base_definition_name))
-  table_print(base_obj)
   return nil
 end
 
@@ -599,14 +596,23 @@ function get_base_definition(base_data)
   if type(base_data) ~= "string" then
     return base_data
   end
+
+  local definition = g_base_definitions[base_data]
+  if definition ~= nil then
+    return definition
+  end
+
+  -- Legacy
   -- The string refers to the name of the variable that
   -- defines the base.
-  local definition = _G[base_data]
-  if nil == definition then
-    print_error("base definition missing: " .. tostring(base_data))
+  definition = _G[base_data]
+  if nil ~= definition then
+    definition.base_definition_name = base_data
+    return definition
   end
-  definition.base_definition_name = base_data
-  return definition
+
+  print_error("base definition missing: " .. tostring(base_data))
+  return nil
 end
 
 function get_note_text(army)
@@ -649,20 +655,38 @@ function get_note_text(army)
     return text
 end
 
+function get_note_location(is_red_player)
+  if is_red_player then
+    return { x=10, y=1.07, z=-26.5}
+  else
+    return { x=10, y=1.07, z=26.5}
+  end
+end
+
+function get_undeployed_bag(is_red_player)
+  if is_red_player then
+    return getObjectFromGUID("c65217")
+  else
+    return getObjectFromGUID("05dac2")
+  end
+end
+
+function move_base_to_undeployed(base_obj)
+  local is_red =  is_base_red_player(base_obj) 
+  local bag = get_undeployed_bag(is_red)
+  if bag == nil then
+    print_error("bag is nil")
+    return
+  end
+  bag.putObject(base_obj)
+end
+    
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
 -- validate
 function spawn_army(army_name, army, is_red_player, command_color)
     math.randomseed(os.time())
-    local n_bases = tlen(army) - 1
-    local rows = 1
-    if n_bases > g_max_bases_row then
-        n_bases = g_max_bases_row
-        rows = math.ceil(n_bases / g_max_bases_row)
-    end
-
-    local width_army = n_bases * g_base_width_in_inches
 
     local z_pos_0 = g_spawn_from_center_in
     local y_rotation = 180
@@ -675,44 +699,70 @@ function spawn_army(army_name, army, is_red_player, command_color)
     if is_red_player then
         z_pos = z_pos * -1
     end
-    local i = 0
+
+    local z_pos_modifier = - -1
+    if is_red_player then
+        z_pos_modifier = -1 * z_pos_modifier
+    end
+
+    local column = 0
+    local row = 0
+    local last_troop_option = nil
+    local row_wrap_bonus = 0
     for base_id,base_data  in pairs(army) do
         if base_id ~= 'data' then
             local base_definition = get_base_definition(base_data)
             if nil ~= base_definition then
+              if base_definition['min'] == nil then
+                base_definition['min'] = 0
+              end
               if base_definition['max'] == nil then
                 base_definition['max'] = 1
               end
 
+              if base_definition['troop_option_id'] ~= last_troop_option then
+                row = row + row_wrap_bonus
+                row = row + 1
+                column = 0
+                row_wrap_bonus = 0
+              else
+                column = column + 0.5
+              end
+              if 0 == base_definition['min'] then
+                column = column + 0.5
+              end
               for copy=1,base_definition['max'] do
-                local z_pos_modifier = -1 * get_depth_base(get_plain_model_tile_name(base_definition)) / 2
-                if is_red_player then
-                    z_pos_modifier = -1 * z_pos_modifier
-                end
 
-                local column = i % g_max_bases_row
-                local row = math.floor(i / g_max_bases_row)
-
-                local row_z_pos = z_pos * (1 + row) + z_pos_0
+                local row_z_pos = (g_base_width_in_inches + 0.75) * (1 + row) * z_pos_modifier + z_pos_0
 
                 local location = {
-                    x = g_offset_deployment_x + column * g_base_width_in_inches - width_army / 2,
+                    x = g_offset_deployment_x + column * g_base_width_in_inches,
                     y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
-                    z = row_z_pos - z_pos_modifier
+                    z = row_z_pos
                 }
                 local base_obj = spawn_base(base_definition, location, y_rotation, is_red_player, command_color)
-                i = i + 1
+                last_troop_option = base_definition['troop_option_id']
+                if base_definition['dismounted_from'] ~= nil then
+                  -- Move the base into the undeployed bag 
+                  move_base_to_undeployed(base_obj)
+                else
+                  -- calculate the position for the next base.
+                  if copy == base_definition['min'] then
+                    column = column + 0.5
+                  end
+                  column = column + 1
+                  if column >= g_max_bases_row then
+                    column = 0
+                    row = row + 1
+                    row_wrap_bonus = 0.5
+                  end
+                end
               end
             end
         end
     end
 
-    local note_row = math.floor(i / g_max_bases_row) + 1
-    local note_pos = {
-        x = g_offset_deployment_x,
-        y = g_base_height_tabletop + g_table_thickness + 1,
-        z = z_pos * (1 + note_row) + z_pos_0
-    }
+    local note_pos = get_note_location(is_red_player)
 
     local angle = 180
     if is_red_player then

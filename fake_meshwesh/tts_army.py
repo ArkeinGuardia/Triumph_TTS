@@ -207,10 +207,12 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type, battle
   mounted['description'] += "Deployment dismounting as " + dismount_type
   dismounted['description'] += "Deployment dismounted from " + mounted['name']
 
-  write_base_definition(file, dismounted) 
-  file.write("g_%s=g_base_definitions[g_str_%s]\n" % (dismounted['id'], dismounted['id']))
-  mounted['dismount_as'] = ("g_" + dismounted['id'])
-  write_base_definition(file, mounted) 
+  mounted['dismount_as'] = "g_str_" + dismounted['id']
+  dismounted['dismounted_from'] = "g_str_" + mounted['id']
+  write_base_definition_id(file, dismounted) 
+  write_base_definition_id(file, mounted) 
+  write_base_definition_details(file, dismounted) 
+  write_base_definition_details(file, mounted) 
 
   return (mounted, dismounted)
 
@@ -258,10 +260,12 @@ def write_mid_battle_dismounting_as(file, base_definition, dismount_type, battle
   mounted['description'] += "Mid-battle dismounting as " + dismount_type
   dismounted['description'] += "Mid-battle dismounted from " + mounted['name']
 
-  write_base_definition(file, dismounted) 
-  file.write("g_%s=g_base_definitions[g_str_%s]\n" % (dismounted['id'], dismounted['id']))
-  mounted['dismount_as'] = ("g_" + dismounted['id'])
-  write_base_definition(file, mounted) 
+  mounted['dismount_as'] = "g_str_" + dismounted['id']
+  dismounted['dismounted_from'] = "g_str_" + mounted['id']
+  write_base_definition_id(file, dismounted) 
+  write_base_definition_id(file, mounted) 
+  write_base_definition_details(file, dismounted) 
+  write_base_definition_details(file, mounted) 
 
   return (mounted, dismounted)
 
@@ -309,12 +313,13 @@ def write_mobile_infantry(file, base_definition, battle_card):
   dismounted['description'] += "Dismounted mobile infantry"
   mounted['description'] += "mounted mobile infantry"
 
-  mounted['dismount_as'] = ("g_" + dismounted['id'])
-  mounted['mobile_infantry'] = True
-
-
-  write_base_definition(file, mounted) 
-  write_base_definition(file, dismounted) 
+  mounted['dismount_as'] = "g_str_" + dismounted['id']
+  dismounted['dismounted_from'] = "g_str_" + mounted['id']
+  write_base_definition_id(file, dismounted) 
+  write_base_definition_id(file, mounted) 
+  write_base_definition_details(file, dismounted) 
+  write_base_definition_details(file, mounted) 
+  
   return [ mounted, dismounted]
 
 
@@ -476,15 +481,21 @@ def create_base_definition(troop_option, troop_entry) :
   troop_type = troop_entry['troopTypeCode']
   name = troop_type_to_name(troop_type)
 
+  troop_option_id = troop_option['_id']
+
   base_definition = {
     'id': id, 'name':name, 'troop_type':troop_type, 
     'min':min, 'max':max, 
-    'description':description }
+    'description':description,
+    'troop_option_id': troop_option_id }
 
   return base_definition
 
+def write_base_definition_id(file, base_definition) :
+  id = base_definition['id']
+  file.write("g_str_%s='%s'\n" % (id,id))
 
-def write_base_definition(file, base_definition) :
+def write_base_definition_details(file, base_definition) :
   if 'description' not in base_definition:
     description = ""
   else:
@@ -493,7 +504,6 @@ def write_base_definition(file, base_definition) :
     description = description.replace("'", "\\'")
 
   id = base_definition['id']
-  file.write("g_str_%s='%s'\n" % (id,id))
 
   file.write("g_base_definitions[g_str_%s]={\n" % (id))
   file.write("  id=g_str_%s,\n" % (id))
@@ -505,6 +515,8 @@ def write_base_definition(file, base_definition) :
     file.write("  points=%d,\n" % (base_definition['points']))
   if 'dismount_as' in base_definition :
     file.write("  dismount_as=%s,\n" % (base_definition['dismount_as']))
+  if 'dismounted_from' in base_definition :
+    file.write("  dismounted_from=%s,\n" % (base_definition['dismounted_from']))
   for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry', 'elephant_screen',
     'plaustrella',
     'fortifed_camp', 'pack_train', 'standard_wagon'] :
@@ -512,7 +524,14 @@ def write_base_definition(file, base_definition) :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
   file.write("  troop_type=\"%s\",\n" %(troop_type_name))
+  if 'troop_option_id' in base_definition :
+    troop_option_id = base_definition['troop_option_id']
+    file.write("  troop_option_id=\"%s\",\n" %(troop_option_id))
   file.write("}\n")
+
+def write_base_definition(file, base_definition) :
+  write_base_definition_id(file, base_definition)
+  write_base_definition_details(file, base_definition)
 
 def get_general_troop_type_codes(army) :
   codes = {}

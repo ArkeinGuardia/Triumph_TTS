@@ -15,6 +15,7 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6_general]={
   description='War elephants',
   general=true,
   troop_type="Elephants",
+  troop_option_id="5fb1ba2ae1af06001770d0a5",
 }
 g_str_5fb1ba2ae1af06001770d0a6='5fb1ba2ae1af06001770d0a6'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6]={
@@ -24,6 +25,7 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a6]={
   max=1,
   description='War elephants',
   troop_type="Elephants",
+  troop_option_id="5fb1ba2ae1af06001770d0a5",
 }
 g_str_5fb1ba2ae1af06001770d0a9_general='5fb1ba2ae1af06001770d0a9_general'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general]={
@@ -34,8 +36,10 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general]={
   description='4-horse chariots with three crew',
   general=true,
   troop_type="Chariots",
+  troop_option_id="5fb1ba2ae1af06001770d0a8",
 }
 g_str_5fb1ba2ae1af06001770d0a9_general_dismounted='5fb1ba2ae1af06001770d0a9_general_dismounted'
+g_str_5fb1ba2ae1af06001770d0a9_general_mounted='5fb1ba2ae1af06001770d0a9_general_mounted'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_dismounted]={
   id=g_str_5fb1ba2ae1af06001770d0a9_general_dismounted,
   name='Raiders General',
@@ -43,11 +47,11 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_dismounted]={
   max=1,
   description='4-horse chariots with three crew\nDeployment dismounted from Chariots General',
   points=4,
+  dismounted_from=g_str_5fb1ba2ae1af06001770d0a9_general_mounted,
   general=true,
   troop_type="Raiders",
+  troop_option_id="5fb1ba2ae1af06001770d0a8",
 }
-g_5fb1ba2ae1af06001770d0a9_general_dismounted=g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_dismounted]
-g_str_5fb1ba2ae1af06001770d0a9_general_mounted='5fb1ba2ae1af06001770d0a9_general_mounted'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_mounted]={
   id=g_str_5fb1ba2ae1af06001770d0a9_general_mounted,
   name='Chariots General',
@@ -55,9 +59,10 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_general_mounted]={
   max=1,
   description='4-horse chariots with three crew\nDeployment dismounting as Raider',
   points=4,
-  dismount_as=g_5fb1ba2ae1af06001770d0a9_general_dismounted,
+  dismount_as=g_str_5fb1ba2ae1af06001770d0a9_general_dismounted,
   general=true,
   troop_type="Chariots",
+  troop_option_id="5fb1ba2ae1af06001770d0a8",
 }
 g_str_5fb1ba2ae1af06001770d0a9='5fb1ba2ae1af06001770d0a9'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9]={
@@ -67,8 +72,10 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9]={
   max=1,
   description='4-horse chariots with three crew',
   troop_type="Chariots",
+  troop_option_id="5fb1ba2ae1af06001770d0a8",
 }
 g_str_5fb1ba2ae1af06001770d0a9_dismounted='5fb1ba2ae1af06001770d0a9_dismounted'
+g_str_5fb1ba2ae1af06001770d0a9_mounted='5fb1ba2ae1af06001770d0a9_mounted'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_dismounted]={
   id=g_str_5fb1ba2ae1af06001770d0a9_dismounted,
   name='Raiders',
@@ -76,10 +83,10 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_dismounted]={
   max=1,
   description='4-horse chariots with three crew\nDeployment dismounted from Chariots',
   points=4,
+  dismounted_from=g_str_5fb1ba2ae1af06001770d0a9_mounted,
   troop_type="Raiders",
+  troop_option_id="5fb1ba2ae1af06001770d0a8",
 }
-g_5fb1ba2ae1af06001770d0a9_dismounted=g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_dismounted]
-g_str_5fb1ba2ae1af06001770d0a9_mounted='5fb1ba2ae1af06001770d0a9_mounted'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_mounted]={
   id=g_str_5fb1ba2ae1af06001770d0a9_mounted,
   name='Chariots',
@@ -87,8 +94,9 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a9_mounted]={
   max=1,
   description='4-horse chariots with three crew\nDeployment dismounting as Raider',
   points=4,
-  dismount_as=g_5fb1ba2ae1af06001770d0a9_dismounted,
+  dismount_as=g_str_5fb1ba2ae1af06001770d0a9_dismounted,
   troop_type="Chariots",
+  troop_option_id="5fb1ba2ae1af06001770d0a8",
 }
 g_str_5fb1ba2ae1af06001770d0ac='5fb1ba2ae1af06001770d0ac'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0ac]={
@@ -98,6 +106,7 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0ac]={
   max=3,
   description='Horsemen',
   troop_type="Bad Horse",
+  troop_option_id="5fb1ba2ae1af06001770d0ab",
 }
 g_str_5fb1ba2ae1af06001770d0ae='5fb1ba2ae1af06001770d0ae'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0ae]={
@@ -107,6 +116,7 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0ae]={
   max=21,
   description='Citizen bowmen',
   troop_type="Bow Levy",
+  troop_option_id="5fb1ba2ae1af06001770d0ad",
 }
 g_str_5fb1ba2ae1af06001770d0b0_general='5fb1ba2ae1af06001770d0b0_general'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0_general]={
@@ -117,6 +127,7 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0_general]={
   description='Javelinmen',
   general=true,
   troop_type="Heavy Foot",
+  troop_option_id="5fb1ba2ae1af06001770d0af",
 }
 g_str_5fb1ba2ae1af06001770d0b0_general_elephant_screen='5fb1ba2ae1af06001770d0b0_general_elephant_screen'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0_general_elephant_screen]={
@@ -128,6 +139,7 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0_general_elephant_screen]={
   general=true,
   elephant_screen=true,
   troop_type="Heavy Foot",
+  troop_option_id="5fb1ba2ae1af06001770d0af",
 }
 g_str_5fb1ba2ae1af06001770d0b0='5fb1ba2ae1af06001770d0b0'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0]={
@@ -137,6 +149,7 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0]={
   max=3,
   description='Javelinmen',
   troop_type="Heavy Foot",
+  troop_option_id="5fb1ba2ae1af06001770d0af",
 }
 g_str_5fb1ba2ae1af06001770d0b0_elephant_screen='5fb1ba2ae1af06001770d0b0_elephant_screen'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0_elephant_screen]={
@@ -147,6 +160,7 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0b0_elephant_screen]={
   description='Javelinmen\nElephant Screen',
   elephant_screen=true,
   troop_type="Heavy Foot",
+  troop_option_id="5fb1ba2ae1af06001770d0af",
 }
 g_str_5fb1b9e0e1af0600177097b1_camp='5fb1b9e0e1af0600177097b1_camp'
 g_base_definitions[g_str_5fb1b9e0e1af0600177097b1_camp]={

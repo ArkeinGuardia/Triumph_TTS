@@ -120,12 +120,10 @@ Available commands:
 
 !triumph_reset: Recalculates the bases and tables using heuristics on the existing objects
 
-== Experimental
-
-!triumph_load_army <player> <id>
-player is one of 'red' or 'blue'
+!triumph_load_army  <id> <player>
 id is the identifier on Meshwesh.  e.g. 5fb1b9f1e1af06001770a195
-Example: !triumph_load_army red 5fb1b9f1e1af06001770a195
+player is one of 'red' or 'blue'
+Example: !triumph_load_army  5fb1b9f1e1af06001770a195 red
 ]])
 end
 
@@ -133,11 +131,8 @@ end
 function triumph_load_army_command(message)
   local ok, error = pcall( function()
     local match = message:split(' ')
-    print("match= ", match)
-    local player = match[2]
-    print("player=", player)
-    local id = match[3]
-    print("id=", id)
+    local player = match[3]
+    local id = match[2]
     if (player == nil)  or (player ~= 'red' and player ~= 'blue') then
       print_error("player must be read or blue")
       return false
@@ -146,7 +141,7 @@ function triumph_load_army_command(message)
       print_error("army identifier must be set.")
       return false
     end
-    spawn_meshesh_army(player, id)
+    spawn_meshesh_army(id, player)
   end)
   if not ok then
     print_error(error)
