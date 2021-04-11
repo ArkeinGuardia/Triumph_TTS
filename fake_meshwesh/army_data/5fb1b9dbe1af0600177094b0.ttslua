@@ -1,10 +1,10 @@
 -- 5fb1b9dbe1af0600177094b0 Sardinian  1000 to 124 BC
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba24e1af06001770c4fe_general='5fb1ba24e1af06001770c4fe_general'
 g_base_definitions[g_str_5fb1ba24e1af06001770c4fe_general]={
@@ -114,6 +114,44 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dbe1af0600177094b0"] = army["5fb1b9dbe1af0600177094b0"]
+army['5fb1b9dbe1af0600177094b0_-1000_-701']={
+  data={
+    name='Sardinian 1000 BC to 701 BC'
+  },
+  g_base_definitions[g_str_5fb1ba24e1af06001770c500_general],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c500],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c502],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c504],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp_pack_train],
+}
+army['5fb1b9dbe1af0600177094b0_-700_-300']={
+  data={
+    name='Sardinian 700 BC to 300 BC'
+  },
+  g_base_definitions[g_str_5fb1ba24e1af06001770c4fe_general],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c4fe],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c500_general],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c500],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c502],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c504],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp_pack_train],
+}
+army['5fb1b9dbe1af0600177094b0_-299_-124']={
+  data={
+    name='Sardinian 299 BC to 124 BC'
+  },
+  g_base_definitions[g_str_5fb1ba24e1af06001770c500_general],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c500],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c502],
+  g_base_definitions[g_str_5fb1ba24e1af06001770c504],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094b0_camp_pack_train],
+}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -122,3 +160,11 @@ if nil == armies["Rise of Rome"] then
   armies["Rise of Rome"] ={}
 end
 armies["Rise of Rome"]["Sardinian  1000 to 124 BC"] = army["5fb1b9dbe1af0600177094b0"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dbe1af0600177094b0"] = {}
+army_dates["5fb1b9dbe1af0600177094b0"]["1000 BC to 124 BC"] ="5fb1b9dbe1af0600177094b0"
+army_dates["5fb1b9dbe1af0600177094b0"]["1000 BC to 701 BC"] ="5fb1b9dbe1af0600177094b0_-1000_-701"
+army_dates["5fb1b9dbe1af0600177094b0"]["700 BC to 300 BC"] ="5fb1b9dbe1af0600177094b0_-700_-300"
+army_dates["5fb1b9dbe1af0600177094b0"]["299 BC to 124 BC"] ="5fb1b9dbe1af0600177094b0_-299_-124"

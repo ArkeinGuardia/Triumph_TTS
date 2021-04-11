@@ -1,10 +1,10 @@
 -- 5fb1b9f4e1af06001770a325 Paekche and Kaya Korean  300 to 663 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba42e1af06001770fbc3_general='5fb1ba42e1af06001770fbc3_general'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbc3_general]={
@@ -147,6 +147,35 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f4e1af06001770a325"] = army["5fb1b9f4e1af06001770a325"]
+army['5fb1b9f4e1af06001770a325_300_405']={
+  data={
+    name='Paekche and Kaya Korean 300 AD to 405 AD'
+  },
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc3_general],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc3],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbcb],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbcd],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbcf],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbd1],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbd3],
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a325_camp],
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a325_camp_fortified],
+}
+army['5fb1b9f4e1af06001770a325_406_663']={
+  data={
+    name='Paekche and Kaya Korean 406 AD to 663 AD'
+  },
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc6],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc9_general],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc9],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbcb],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbcd],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbcf],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbd1],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbd3],
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a325_camp],
+  g_base_definitions[g_str_5fb1b9f4e1af06001770a325_camp_fortified],
+}
 if nil == armies["Korea and Japan"] then
   armies["Korea and Japan"] ={}
 end
@@ -159,3 +188,10 @@ if nil == armies["Middle Kingdom"] then
   armies["Middle Kingdom"] ={}
 end
 armies["Middle Kingdom"]["Paekche and Kaya Korean  300 to 663 AD"] = army["5fb1b9f4e1af06001770a325"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f4e1af06001770a325"] = {}
+army_dates["5fb1b9f4e1af06001770a325"]["300 AD to 663 AD"] ="5fb1b9f4e1af06001770a325"
+army_dates["5fb1b9f4e1af06001770a325"]["300 AD to 405 AD"] ="5fb1b9f4e1af06001770a325_300_405"
+army_dates["5fb1b9f4e1af06001770a325"]["406 AD to 663 AD"] ="5fb1b9f4e1af06001770a325_406_663"

@@ -1,10 +1,10 @@
 -- 5fb1b9e6e1af060017709ba2 Tuareg  1000 to 1880 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba32e1af06001770dded_general='5fb1ba32e1af06001770dded_general'
 g_base_definitions[g_str_5fb1ba32e1af06001770dded_general]={
@@ -142,3 +142,8 @@ if nil == armies["Sahel Africa"] then
   armies["Sahel Africa"] ={}
 end
 armies["Sahel Africa"]["Tuareg  1000 to 1880 AD"] = army["5fb1b9e6e1af060017709ba2"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e6e1af060017709ba2"] = {}
+army_dates["5fb1b9e6e1af060017709ba2"]["1000 AD to 1880 AD"] ="5fb1b9e6e1af060017709ba2"

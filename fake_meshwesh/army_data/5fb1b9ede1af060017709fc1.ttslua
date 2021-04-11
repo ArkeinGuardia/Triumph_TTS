@@ -1,10 +1,10 @@
 -- 5fb1b9ede1af060017709fc1 Khwarizmian  1186 to 1246 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba3be1af06001770ef07_general='5fb1ba3be1af06001770ef07_general'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general]={
@@ -161,6 +161,7 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry]={
   max=2,
   description='Militia bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba3be1af06001770ef12_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Bow Levy",
   troop_option_id="5fb1ba3be1af06001770ef11",
 }
@@ -241,6 +242,51 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709fc1"] = army["5fb1b9ede1af060017709fc1"]
+army['5fb1b9ede1af060017709fc1_1186_1225']={
+  data={
+    name='Khwarizmian 1186 AD to 1225 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0b],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef12],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef12_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef15],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef17],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef1a],
+  g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp_pack_train],
+}
+army['5fb1b9ede1af060017709fc1_1226_1246']={
+  data={
+    name='Khwarizmian 1226 AD to 1246 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0b],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0f_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0f],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef12],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef12_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef15],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef17],
+  g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp_pack_train],
+}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -253,3 +299,10 @@ if nil == armies["Crusader Kingdoms"] then
   armies["Crusader Kingdoms"] ={}
 end
 armies["Crusader Kingdoms"]["Khwarizmian  1186 to 1246 AD"] = army["5fb1b9ede1af060017709fc1"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ede1af060017709fc1"] = {}
+army_dates["5fb1b9ede1af060017709fc1"]["1186 AD to 1246 AD"] ="5fb1b9ede1af060017709fc1"
+army_dates["5fb1b9ede1af060017709fc1"]["1186 AD to 1225 AD"] ="5fb1b9ede1af060017709fc1_1186_1225"
+army_dates["5fb1b9ede1af060017709fc1"]["1226 AD to 1246 AD"] ="5fb1b9ede1af060017709fc1_1226_1246"

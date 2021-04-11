@@ -1,10 +1,10 @@
 -- 5fb1b9e0e1af0600177097f6 Early Armenian and Gordyene  300 BC to 244 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba2be1af06001770d17e_general='5fb1ba2be1af06001770d17e_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d17e_general]={
@@ -114,6 +114,46 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e0e1af0600177097f6"] = army["5fb1b9e0e1af0600177097f6"]
+army['5fb1b9e0e1af0600177097f6_-300_-148']={
+  data={
+    name='Early Armenian and Gordyene 300 BC to 148 BC'
+  },
+  g_base_definitions[g_str_5fb1ba2be1af06001770d17e_general],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d17e],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d180],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d182],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d184],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d186],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp_pack_train],
+}
+army['5fb1b9e0e1af0600177097f6_-147_225']={
+  data={
+    name='Early Armenian and Gordyene 147 BC to 225 AD'
+  },
+  g_base_definitions[g_str_5fb1ba2be1af06001770d17e_general],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d17e],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d180],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d182],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d184],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d186],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d189],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp_pack_train],
+}
+army['5fb1b9e0e1af0600177097f6_226_244']={
+  data={
+    name='Early Armenian and Gordyene 226 AD to 244 AD'
+  },
+  g_base_definitions[g_str_5fb1ba2be1af06001770d17e_general],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d17e],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d180],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d182],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d184],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d186],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp],
+  g_base_definitions[g_str_5fb1b9e0e1af0600177097f6_camp_pack_train],
+}
 if nil == armies["Rise of Rome"] then
   armies["Rise of Rome"] ={}
 end
@@ -130,3 +170,11 @@ if nil == armies["Hellenistic World"] then
   armies["Hellenistic World"] ={}
 end
 armies["Hellenistic World"]["Early Armenian and Gordyene  300 BC to 244 AD"] = army["5fb1b9e0e1af0600177097f6"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e0e1af0600177097f6"] = {}
+army_dates["5fb1b9e0e1af0600177097f6"]["300 BC to 244 AD"] ="5fb1b9e0e1af0600177097f6"
+army_dates["5fb1b9e0e1af0600177097f6"]["300 BC to 148 BC"] ="5fb1b9e0e1af0600177097f6_-300_-148"
+army_dates["5fb1b9e0e1af0600177097f6"]["147 BC to 225 AD"] ="5fb1b9e0e1af0600177097f6_-147_225"
+army_dates["5fb1b9e0e1af0600177097f6"]["226 AD to 244 AD"] ="5fb1b9e0e1af0600177097f6_226_244"

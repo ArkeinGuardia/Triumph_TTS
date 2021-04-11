@@ -1,10 +1,10 @@
 -- 5fb1b9e6e1af060017709b50 Lambert Simnel's Rebellion  1487 to 1487 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba31e1af06001770dd35_general='5fb1ba31e1af06001770dd35_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general]={
@@ -106,6 +106,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry]={
   max=1,
   description='Retinue billmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Elite Foot",
   troop_option_id="5fb1ba31e1af06001770dd37",
 }
@@ -138,6 +139,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry]={
   max=2,
   description='Retinue bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba31e1af06001770dd3b",
 }
@@ -235,3 +237,8 @@ if nil == armies["Plate and Handgonne"] then
   armies["Plate and Handgonne"] ={}
 end
 armies["Plate and Handgonne"]["Lambert Simnel\'s Rebellion  1487 to 1487 AD"] = army["5fb1b9e6e1af060017709b50"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e6e1af060017709b50"] = {}
+army_dates["5fb1b9e6e1af060017709b50"]["1487 AD"] ="5fb1b9e6e1af060017709b50"

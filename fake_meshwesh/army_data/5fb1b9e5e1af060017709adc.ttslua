@@ -1,10 +1,10 @@
 -- 5fb1b9e5e1af060017709adc Pre-Feudal Scots  842 to 1124 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba31e1af06001770db65_general='5fb1ba31e1af06001770db65_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db65_general]={
@@ -90,6 +90,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantr
   description='Thegns\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Warriors",
   troop_option_id="5fb1ba31e1af06001770db6a",
 }
@@ -122,6 +123,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry]={
   max=1,
   description='Thegns\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770db6b_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Warriors",
   troop_option_id="5fb1ba31e1af06001770db6a",
 }
@@ -154,6 +156,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry]={
   max=6,
   description='Spearmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770db6e_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Light Spear",
   troop_option_id="5fb1ba31e1af06001770db6d",
 }
@@ -234,7 +237,60 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e5e1af060017709adc"] = army["5fb1b9e5e1af060017709adc"]
+army['5fb1b9e5e1af060017709adc_842_1052']={
+  data={
+    name='Pre-Feudal Scots 842 AD to 1052 AD'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770db65_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db65],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db66],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6e],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6e_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db71],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db73],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db75],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709adc_camp],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709adc_camp_pack_train],
+}
+army['5fb1b9e5e1af060017709adc_1053_1124']={
+  data={
+    name='Pre-Feudal Scots 1053 AD to 1124 AD'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770db65_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db65],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db66],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db69_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db69],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6b_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6e],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6e_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db6e_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db71],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db73],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db75],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709adc_camp],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709adc_camp_pack_train],
+}
 if nil == armies["Viking Seas"] then
   armies["Viking Seas"] ={}
 end
 armies["Viking Seas"]["Pre-Feudal Scots  842 to 1124 AD"] = army["5fb1b9e5e1af060017709adc"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e5e1af060017709adc"] = {}
+army_dates["5fb1b9e5e1af060017709adc"]["842 AD to 1124 AD"] ="5fb1b9e5e1af060017709adc"
+army_dates["5fb1b9e5e1af060017709adc"]["842 AD to 1052 AD"] ="5fb1b9e5e1af060017709adc_842_1052"
+army_dates["5fb1b9e5e1af060017709adc"]["1053 AD to 1124 AD"] ="5fb1b9e5e1af060017709adc_1053_1124"

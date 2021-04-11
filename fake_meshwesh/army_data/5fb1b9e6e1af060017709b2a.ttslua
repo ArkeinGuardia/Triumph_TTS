@@ -1,10 +1,10 @@
 -- 5fb1b9e6e1af060017709b2a Early Hundred-Years War English  1322 to 1349 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba31e1af06001770dcb3_general='5fb1ba31e1af06001770dcb3_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_general]={
@@ -148,6 +148,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcbb_mounted_mobile_infantry]={
   max=8,
   description='English longbowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770dcbb_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba31e1af06001770dcba",
 }
@@ -200,6 +201,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcc2_mounted_mobile_infantry]={
   max=1,
   description='Gascon town militia and levied infantry\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770dcc2_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba31e1af06001770dcc1",
 }
@@ -262,3 +264,8 @@ if nil == armies["Flower of Chivalry"] then
   armies["Flower of Chivalry"] ={}
 end
 armies["Flower of Chivalry"]["Early Hundred-Years War English  1322 to 1349 AD"] = army["5fb1b9e6e1af060017709b2a"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e6e1af060017709b2a"] = {}
+army_dates["5fb1b9e6e1af060017709b2a"]["1322 AD to 1349 AD"] ="5fb1b9e6e1af060017709b2a"

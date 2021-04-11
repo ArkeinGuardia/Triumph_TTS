@@ -1,10 +1,10 @@
 -- 5fb1b9eae1af060017709ddd Rus  860 to 1054 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba37e1af06001770e6f3_general='5fb1ba37e1af06001770e6f3_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general]={
@@ -38,6 +38,7 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general_mounted_mobile_infantr
   description='Druzhina\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba37e1af06001770e6f3_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Elite Foot",
   troop_option_id="5fb1ba37e1af06001770e6f2",
 }
@@ -70,6 +71,7 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_mounted_mobile_infantry]={
   max=1,
   description='Druzhina\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba37e1af06001770e6f3_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Elite Foot",
   troop_option_id="5fb1ba37e1af06001770e6f2",
 }
@@ -105,6 +107,7 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_general_mounted_mobile_infantr
   description='Druzhina\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba37e1af06001770e6f4_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Bad Horse",
   troop_option_id="5fb1ba37e1af06001770e6f2",
 }
@@ -137,6 +140,7 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_mounted_mobile_infantry]={
   max=1,
   description='Druzhina\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba37e1af06001770e6f4_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Bad Horse",
   troop_option_id="5fb1ba37e1af06001770e6f2",
 }
@@ -172,6 +176,7 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_general_mounted_mobile_infantr
   description='Spearmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba37e1af06001770e6f7_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Spears",
   troop_option_id="5fb1ba37e1af06001770e6f6",
 }
@@ -204,6 +209,7 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_mounted_mobile_infantry]={
   max=5,
   description='Spearmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba37e1af06001770e6f7_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Spears",
   troop_option_id="5fb1ba37e1af06001770e6f6",
 }
@@ -288,6 +294,61 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9eae1af060017709ddd"] = army["5fb1b9eae1af060017709ddd"]
+army['5fb1b9eae1af060017709ddd_860_960']={
+  data={
+    name='Rus 860 AD to 960 AD'
+  },
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6fb],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6fe],
+  g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp],
+  g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp_pack_train],
+}
+army['5fb1b9eae1af060017709ddd_961_1054']={
+  data={
+    name='Rus 961 AD to 1054 AD'
+  },
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f3_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f4_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6f7_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6fb],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e6fe],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e701],
+  g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp],
+  g_base_definitions[g_str_5fb1b9eae1af060017709ddd_camp_pack_train],
+}
 if nil == armies["Russian Princes"] then
   armies["Russian Princes"] ={}
 end
@@ -300,3 +361,10 @@ if nil == armies["Glorious Byzantium"] then
   armies["Glorious Byzantium"] ={}
 end
 armies["Glorious Byzantium"]["Rus  860 to 1054 AD"] = army["5fb1b9eae1af060017709ddd"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9eae1af060017709ddd"] = {}
+army_dates["5fb1b9eae1af060017709ddd"]["860 AD to 1054 AD"] ="5fb1b9eae1af060017709ddd"
+army_dates["5fb1b9eae1af060017709ddd"]["860 AD to 960 AD"] ="5fb1b9eae1af060017709ddd_860_960"
+army_dates["5fb1b9eae1af060017709ddd"]["961 AD to 1054 AD"] ="5fb1b9eae1af060017709ddd_961_1054"

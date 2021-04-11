@@ -1,10 +1,10 @@
 -- 5fb1b9dae1af06001770942a Neo-Elamite  800 to 639 BC
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba22e1af06001770c307_general='5fb1ba22e1af06001770c307_general'
 g_base_definitions[g_str_5fb1ba22e1af06001770c307_general]={
@@ -69,6 +69,7 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantr
   description='Kallapani\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba22e1af06001770c30b_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Bow Levy",
   troop_option_id="5fb1ba22e1af06001770c30a",
 }
@@ -101,6 +102,7 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry]={
   max=6,
   description='Kallapani\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba22e1af06001770c30b_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Bow Levy",
   troop_option_id="5fb1ba22e1af06001770c30a",
 }
@@ -203,3 +205,8 @@ if nil == armies["Assyrian Empire"] then
   armies["Assyrian Empire"] ={}
 end
 armies["Assyrian Empire"]["Neo-Elamite  800 to 639 BC"] = army["5fb1b9dae1af06001770942a"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dae1af06001770942a"] = {}
+army_dates["5fb1b9dae1af06001770942a"]["800 BC to 639 BC"] ="5fb1b9dae1af06001770942a"

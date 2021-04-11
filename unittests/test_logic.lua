@@ -1244,8 +1244,13 @@ function test_inches_to_mu_display_string_1_decimal_digit()
 end
 
 function test_mu_display_string_rounds_up()
-  local actual = inches_to_mu_display_string(4.81 * g_movement_unit_in_inches)
+  local actual = inches_to_mu_display_string(4.86 * g_movement_unit_in_inches)
   lu.assertEquals(actual, "4.9 MU")
+end
+
+function test_mu_display_string_rounds_down()
+  local actual = inches_to_mu_display_string(4.82 * g_movement_unit_in_inches)
+  lu.assertEquals(actual, "4.8 MU")
 end
 
 os.exit( lu.LuaUnit.run() )

@@ -1,10 +1,10 @@
 -- 5fb1b9e5e1af060017709aae Viking  850 to 1280 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba30e1af06001770daa4_general='5fb1ba30e1af06001770daa4_general'
 g_base_definitions[g_str_5fb1ba30e1af06001770daa4_general]={
@@ -56,6 +56,7 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daa7_mounted_mobile_infantry]={
   max=14,
   description='Hird\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba30e1af06001770daa7_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba30e1af06001770daa6",
 }
@@ -88,6 +89,7 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daaa_mounted_mobile_infantry]={
   max=2,
   description='Freelance marauders\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba30e1af06001770daaa_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Raiders",
   troop_option_id="5fb1ba30e1af06001770daa9",
 }
@@ -174,3 +176,8 @@ if nil == armies["Baltic Powers"] then
   armies["Baltic Powers"] ={}
 end
 armies["Baltic Powers"]["Viking  850 to 1280 AD"] = army["5fb1b9e5e1af060017709aae"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e5e1af060017709aae"] = {}
+army_dates["5fb1b9e5e1af060017709aae"]["850 AD to 1280 AD"] ="5fb1b9e5e1af060017709aae"

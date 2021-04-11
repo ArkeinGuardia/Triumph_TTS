@@ -246,6 +246,14 @@ end
 -- Check that the armies could be spawned
 function test_spawn_army(army_name)
   -- setup
+  
+  -- Test double
+  get_undeployed_bag = function()
+	  return {
+		  putObject = function () 
+		  end
+	  }
+  end
   local old_spawn_base = spawn_base
   local old_spawn_note = spawn_note
   local old_print_error = print_error

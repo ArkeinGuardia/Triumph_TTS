@@ -1,10 +1,10 @@
 -- 5fb1b9e9e1af060017709d76 Later Hungarian  1245 to 1441 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba35e1af06001770e54d_general='5fb1ba35e1af06001770e54d_general'
 g_base_definitions[g_str_5fb1ba35e1af06001770e54d_general]={
@@ -125,6 +125,34 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e9e1af060017709d76"] = army["5fb1b9e9e1af060017709d76"]
+army['5fb1b9e9e1af060017709d76_1245_1394']={
+  data={
+    name='Later Hungarian 1245 AD to 1394 AD'
+  },
+  g_base_definitions[g_str_5fb1ba35e1af06001770e54d_general],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e54d],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e552],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e554],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e557],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e558],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d76_camp],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d76_camp_fortified],
+}
+army['5fb1b9e9e1af060017709d76_1395_1441']={
+  data={
+    name='Later Hungarian 1395 AD to 1441 AD'
+  },
+  g_base_definitions[g_str_5fb1ba35e1af06001770e54d_general],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e54d],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e550_general],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e550],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e552],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e554],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e557],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e558],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d76_camp],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d76_camp_fortified],
+}
 if nil == armies["Italy and Balkans"] then
   armies["Italy and Balkans"] ={}
 end
@@ -133,3 +161,10 @@ if nil == armies["Holy Roman Empire"] then
   armies["Holy Roman Empire"] ={}
 end
 armies["Holy Roman Empire"]["Later Hungarian  1245 to 1441 AD"] = army["5fb1b9e9e1af060017709d76"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e9e1af060017709d76"] = {}
+army_dates["5fb1b9e9e1af060017709d76"]["1245 AD to 1441 AD"] ="5fb1b9e9e1af060017709d76"
+army_dates["5fb1b9e9e1af060017709d76"]["1245 AD to 1394 AD"] ="5fb1b9e9e1af060017709d76_1245_1394"
+army_dates["5fb1b9e9e1af060017709d76"]["1395 AD to 1441 AD"] ="5fb1b9e9e1af060017709d76_1395_1441"

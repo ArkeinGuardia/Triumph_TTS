@@ -1,10 +1,10 @@
 -- 5fb1b9eae1af060017709dab St. George's Night Uprising  1343 to 1345 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba36e1af06001770e641_general='5fb1ba36e1af06001770e641_general'
 g_base_definitions[g_str_5fb1ba36e1af06001770e641_general]={
@@ -59,6 +59,7 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e643_general_mounted_mobile_infantr
   description='Nobles and their retinue\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba36e1af06001770e643_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Warriors",
   troop_option_id="5fb1ba36e1af06001770e642",
 }
@@ -91,6 +92,7 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e643_mounted_mobile_infantry]={
   max=2,
   description='Nobles and their retinue\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba36e1af06001770e643_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Warriors",
   troop_option_id="5fb1ba36e1af06001770e642",
 }
@@ -174,3 +176,8 @@ if nil == armies["Baltic Powers"] then
   armies["Baltic Powers"] ={}
 end
 armies["Baltic Powers"]["St. George\'s Night Uprising  1343 to 1345 AD"] = army["5fb1b9eae1af060017709dab"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9eae1af060017709dab"] = {}
+army_dates["5fb1b9eae1af060017709dab"]["1343 AD to 1345 AD"] ="5fb1b9eae1af060017709dab"

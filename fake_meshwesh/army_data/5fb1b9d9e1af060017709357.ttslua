@@ -1,10 +1,10 @@
 -- 5fb1b9d9e1af060017709357 Later Nine Bows Libyan  1213 to 665 BC
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba20e1af06001770bfdc_general='5fb1ba20e1af06001770bfdc_general'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfdc_general]={
@@ -125,6 +125,35 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9d9e1af060017709357"] = army["5fb1b9d9e1af060017709357"]
+army['5fb1b9d9e1af060017709357_-1213_-1001']={
+  data={
+    name='Later Nine Bows Libyan 1213 BC to 1001 BC'
+  },
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfdc_general],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfdc],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfde],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe0],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe5],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe6],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe8],
+  g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp],
+  g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp_pack_train],
+}
+army['5fb1b9d9e1af060017709357_-1000_-665']={
+  data={
+    name='Later Nine Bows Libyan 1000 BC to 665 BC'
+  },
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfdc_general],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfdc],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfde],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe0],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe3],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe5],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe6],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfe8],
+  g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp],
+  g_base_definitions[g_str_5fb1b9d9e1af060017709357_camp_pack_train],
+}
 if nil == armies["Chariot Supremacy"] then
   armies["Chariot Supremacy"] ={}
 end
@@ -137,3 +166,10 @@ if nil == armies["Sea Peoples Invasions"] then
   armies["Sea Peoples Invasions"] ={}
 end
 armies["Sea Peoples Invasions"]["Later Nine Bows Libyan  1213 to 665 BC"] = army["5fb1b9d9e1af060017709357"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9d9e1af060017709357"] = {}
+army_dates["5fb1b9d9e1af060017709357"]["1213 BC to 665 BC"] ="5fb1b9d9e1af060017709357"
+army_dates["5fb1b9d9e1af060017709357"]["1213 BC to 1001 BC"] ="5fb1b9d9e1af060017709357_-1213_-1001"
+army_dates["5fb1b9d9e1af060017709357"]["1000 BC to 665 BC"] ="5fb1b9d9e1af060017709357_-1000_-665"

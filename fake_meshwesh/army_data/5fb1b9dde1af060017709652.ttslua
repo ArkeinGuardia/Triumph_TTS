@@ -1,10 +1,10 @@
 -- 5fb1b9dde1af060017709652 Bithynian  435 to 74 BC
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba28e1af06001770cb4a_general='5fb1ba28e1af06001770cb4a_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770cb4a_general]={
@@ -92,6 +92,29 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dde1af060017709652"] = army["5fb1b9dde1af060017709652"]
+army['5fb1b9dde1af060017709652_-435_-265']={
+  data={
+    name='Bithynian 435 BC to 265 BC'
+  },
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb4a_general],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb4a],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb4c],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb4e],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb50],
+  g_base_definitions[g_str_5fb1b9dde1af060017709652_camp],
+}
+army['5fb1b9dde1af060017709652_-264_-74']={
+  data={
+    name='Bithynian 264 BC to 74 BC'
+  },
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb4a_general],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb4a],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb4c],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb4e],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb50],
+  g_base_definitions[g_str_5fb1ba28e1af06001770cb53],
+  g_base_definitions[g_str_5fb1b9dde1af060017709652_camp],
+}
 if nil == armies["Alexander and Successors"] then
   armies["Alexander and Successors"] ={}
 end
@@ -100,3 +123,10 @@ if nil == armies["Hellenistic World"] then
   armies["Hellenistic World"] ={}
 end
 armies["Hellenistic World"]["Bithynian  435 to 74 BC"] = army["5fb1b9dde1af060017709652"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dde1af060017709652"] = {}
+army_dates["5fb1b9dde1af060017709652"]["435 BC to 74 BC"] ="5fb1b9dde1af060017709652"
+army_dates["5fb1b9dde1af060017709652"]["435 BC to 265 BC"] ="5fb1b9dde1af060017709652_-435_-265"
+army_dates["5fb1b9dde1af060017709652"]["264 BC to 74 BC"] ="5fb1b9dde1af060017709652_-264_-74"

@@ -1,10 +1,10 @@
 -- 5fb1b9e7e1af060017709c3a Feudal French  1086 to 1330 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba33e1af06001770e020_general='5fb1ba33e1af06001770e020_general'
 g_base_definitions[g_str_5fb1ba33e1af06001770e020_general]={
@@ -107,6 +107,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry]={
   max=1,
   description='Bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Bow Levy",
   troop_option_id="5fb1ba33e1af06001770e027",
 }
@@ -237,6 +238,53 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e7e1af060017709c3a"] = army["5fb1b9e7e1af060017709c3a"]
+army['5fb1b9e7e1af060017709c3a_1086_1149']={
+  data={
+    name='Feudal French 1086 AD to 1149 AD'
+  },
+  g_base_definitions[g_str_5fb1ba33e1af06001770e020_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e020],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e022_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e022],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e023],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e025],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e026],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e028],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e02b],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e02d],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e02f],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e031],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e033],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp_fortified],
+}
+army['5fb1b9e7e1af060017709c3a_1150_1330']={
+  data={
+    name='Feudal French 1150 AD to 1330 AD'
+  },
+  g_base_definitions[g_str_5fb1ba33e1af06001770e020_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e020],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e022_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e022],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e023],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e025],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e026],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e028],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e02b],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e02d],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e02f],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e031],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e033],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e036],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e039],
+  g_base_definitions[g_str_5fb1ba33e1af06001770e03c],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp_fortified],
+}
 if nil == armies["Medieval Western Europe"] then
   armies["Medieval Western Europe"] ={}
 end
@@ -245,3 +293,10 @@ if nil == armies["Flower of Chivalry"] then
   armies["Flower of Chivalry"] ={}
 end
 armies["Flower of Chivalry"]["Feudal French  1086 to 1330 AD"] = army["5fb1b9e7e1af060017709c3a"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e7e1af060017709c3a"] = {}
+army_dates["5fb1b9e7e1af060017709c3a"]["1086 AD to 1330 AD"] ="5fb1b9e7e1af060017709c3a"
+army_dates["5fb1b9e7e1af060017709c3a"]["1086 AD to 1149 AD"] ="5fb1b9e7e1af060017709c3a_1086_1149"
+army_dates["5fb1b9e7e1af060017709c3a"]["1150 AD to 1330 AD"] ="5fb1b9e7e1af060017709c3a_1150_1330"

@@ -1,10 +1,10 @@
 -- 5fb1b9ebe1af060017709e85 Nikaian Byzantine  1204 to 1261 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba38e1af06001770e9a1='5fb1ba38e1af06001770e9a1'
 g_base_definitions[g_str_5fb1ba38e1af06001770e9a1]={
@@ -136,6 +136,37 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ebe1af060017709e85"] = army["5fb1b9ebe1af060017709e85"]
+army['5fb1b9ebe1af060017709e85_1204_1242']={
+  data={
+    name='Nikaian Byzantine 1204 AD to 1242 AD'
+  },
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a1],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a3],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a5_general],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a5],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a7],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9ac],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9ae],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9b0],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9b2],
+  g_base_definitions[g_str_5fb1b9ebe1af060017709e85_camp],
+}
+army['5fb1b9ebe1af060017709e85_1243_1261']={
+  data={
+    name='Nikaian Byzantine 1243 AD to 1261 AD'
+  },
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a1],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a3],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a5_general],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a5],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9a7],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9aa],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9ac],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9ae],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9b0],
+  g_base_definitions[g_str_5fb1ba38e1af06001770e9b2],
+  g_base_definitions[g_str_5fb1b9ebe1af060017709e85_camp],
+}
 if nil == armies["Byzantium in Decay"] then
   armies["Byzantium in Decay"] ={}
 end
@@ -144,3 +175,10 @@ if nil == armies["Crusader Kingdoms"] then
   armies["Crusader Kingdoms"] ={}
 end
 armies["Crusader Kingdoms"]["Nikaian Byzantine  1204 to 1261 AD"] = army["5fb1b9ebe1af060017709e85"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ebe1af060017709e85"] = {}
+army_dates["5fb1b9ebe1af060017709e85"]["1204 AD to 1261 AD"] ="5fb1b9ebe1af060017709e85"
+army_dates["5fb1b9ebe1af060017709e85"]["1204 AD to 1242 AD"] ="5fb1b9ebe1af060017709e85_1204_1242"
+army_dates["5fb1b9ebe1af060017709e85"]["1243 AD to 1261 AD"] ="5fb1b9ebe1af060017709e85_1243_1261"

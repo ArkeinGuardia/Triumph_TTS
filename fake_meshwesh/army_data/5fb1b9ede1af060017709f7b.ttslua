@@ -1,10 +1,10 @@
 -- 5fb1b9ede1af060017709f7b Seljuq Sultanates of Merv or Hamadan  1092 to 1194 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba3ae1af06001770ee10_general='5fb1ba3ae1af06001770ee10_general'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ee10_general]={
@@ -139,6 +139,7 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry]={
   max=2,
   description='Dailami zupin-men\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Raiders",
   troop_option_id="5fb1ba3ae1af06001770ee1c",
 }
@@ -207,6 +208,47 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709f7b"] = army["5fb1b9ede1af060017709f7b"]
+army['5fb1b9ede1af060017709f7b_1092_1157']={
+  data={
+    name='Seljuq Sultanates of Merv or Hamadan 1092 AD to 1157 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee10_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee10],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee13_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee13],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee14_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee14],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee17_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee17],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee19],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1b],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee21],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee23],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp_pack_train],
+}
+army['5fb1b9ede1af060017709f7b_1158_1194']={
+  data={
+    name='Seljuq Sultanates of Merv or Hamadan 1158 AD to 1194 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee10_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee10],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee13_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee13],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee14_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee14],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee17_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee17],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee19],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1b],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee21],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee23],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp_pack_train],
+}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -219,3 +261,10 @@ if nil == armies["Crusader Kingdoms"] then
   armies["Crusader Kingdoms"] ={}
 end
 armies["Crusader Kingdoms"]["Seljuq Sultanates of Merv or Hamadan  1092 to 1194 AD"] = army["5fb1b9ede1af060017709f7b"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ede1af060017709f7b"] = {}
+army_dates["5fb1b9ede1af060017709f7b"]["1092 AD to 1194 AD"] ="5fb1b9ede1af060017709f7b"
+army_dates["5fb1b9ede1af060017709f7b"]["1092 AD to 1157 AD"] ="5fb1b9ede1af060017709f7b_1092_1157"
+army_dates["5fb1b9ede1af060017709f7b"]["1158 AD to 1194 AD"] ="5fb1b9ede1af060017709f7b_1158_1194"

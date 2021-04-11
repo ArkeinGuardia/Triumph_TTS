@@ -1,10 +1,10 @@
 -- 5fb1b9eee1af06001770a004 Mamluk Egyptian  1250 to 1517 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba3be1af06001770f015_general='5fb1ba3be1af06001770f015_general'
 g_base_definitions[g_str_5fb1ba3be1af06001770f015_general]={
@@ -169,6 +169,43 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9eee1af06001770a004"] = army["5fb1b9eee1af06001770a004"]
+army['5fb1b9eee1af06001770a004_1250_1315']={
+  data={
+    name='Mamluk Egyptian 1250 AD to 1315 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3be1af06001770f015_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f015],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f018],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f01d],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f01f],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f021],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f022],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f024],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f026],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f028],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f02a],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp_pack_train],
+}
+army['5fb1b9eee1af06001770a004_1316_1517']={
+  data={
+    name='Mamluk Egyptian 1316 AD to 1517 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3be1af06001770f015_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f015],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f018],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f01b],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f01d],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f01f],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f021],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f022],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f024],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f026],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f028],
+  g_base_definitions[g_str_5fb1ba3be1af06001770f02a],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp],
+  g_base_definitions[g_str_5fb1b9eee1af06001770a004_camp_pack_train],
+}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -177,3 +214,10 @@ if nil == armies["Crusader Kingdoms"] then
   armies["Crusader Kingdoms"] ={}
 end
 armies["Crusader Kingdoms"]["Mamluk Egyptian  1250 to 1517 AD"] = army["5fb1b9eee1af06001770a004"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9eee1af06001770a004"] = {}
+army_dates["5fb1b9eee1af06001770a004"]["1250 AD to 1517 AD"] ="5fb1b9eee1af06001770a004"
+army_dates["5fb1b9eee1af06001770a004"]["1250 AD to 1315 AD"] ="5fb1b9eee1af06001770a004_1250_1315"
+army_dates["5fb1b9eee1af06001770a004"]["1316 AD to 1517 AD"] ="5fb1b9eee1af06001770a004_1316_1517"

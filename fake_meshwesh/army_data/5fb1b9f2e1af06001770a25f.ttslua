@@ -1,10 +1,10 @@
 -- 5fb1b9f2e1af06001770a25f Early Tang Chinese  618 to 755 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba40e1af06001770f882='5fb1ba40e1af06001770f882'
 g_base_definitions[g_str_5fb1ba40e1af06001770f882]={
@@ -86,6 +86,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f88a_mounted_mobile_infantry]={
   max=4,
   description='Pu-ping infantry\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f88a_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba40e1af06001770f889",
 }
@@ -118,6 +119,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f88b_mounted_mobile_infantry]={
   max=4,
   description='Pu-ping infantry\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f88b_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Light Spear",
   troop_option_id="5fb1ba40e1af06001770f889",
 }
@@ -150,6 +152,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f88c_mounted_mobile_infantry]={
   max=4,
   description='Pu-ping infantry\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f88c_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Pavisiers",
   troop_option_id="5fb1ba40e1af06001770f889",
 }
@@ -182,6 +185,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f88f_mounted_mobile_infantry]={
   max=3,
   description='Pu-she bowmen, possibly disaffected or poorly trained\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f88f_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba40e1af06001770f88e",
 }
@@ -214,6 +218,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f890_mounted_mobile_infantry]={
   max=3,
   description='Pu-she bowmen, possibly disaffected or poorly trained\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f890_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Bow Levy",
   troop_option_id="5fb1ba40e1af06001770f88e",
 }
@@ -246,6 +251,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f893_mounted_mobile_infantry]={
   max=1,
   description='Specialist crossbowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f893_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba40e1af06001770f892",
 }
@@ -336,3 +342,8 @@ if nil == armies["Korea and Japan"] then
   armies["Korea and Japan"] ={}
 end
 armies["Korea and Japan"]["Early Tang Chinese  618 to 755 AD"] = army["5fb1b9f2e1af06001770a25f"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f2e1af06001770a25f"] = {}
+army_dates["5fb1b9f2e1af06001770a25f"]["618 AD to 755 AD"] ="5fb1b9f2e1af06001770a25f"

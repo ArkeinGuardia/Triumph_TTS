@@ -1,10 +1,10 @@
 -- 5fb1b9eae1af060017709e02 Khazar Empire  896 to 965 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba37e1af06001770e799_general='5fb1ba37e1af06001770e799_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e799_general]={
@@ -56,6 +56,7 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e79b_mounted_mobile_infantry]={
   max=1,
   description='Guard spearmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba37e1af06001770e79b_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Spears",
   troop_option_id="5fb1ba37e1af06001770e79a",
 }
@@ -129,6 +130,7 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7a4_mounted_mobile_infantry]={
   max=1,
   description='Levy spearmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba37e1af06001770e7a4_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Horde",
   troop_option_id="5fb1ba37e1af06001770e7a3",
 }
@@ -225,3 +227,8 @@ if nil == armies["Glorious Byzantium"] then
   armies["Glorious Byzantium"] ={}
 end
 armies["Glorious Byzantium"]["Khazar Empire  896 to 965 AD"] = army["5fb1b9eae1af060017709e02"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9eae1af060017709e02"] = {}
+army_dates["5fb1b9eae1af060017709e02"]["896 AD to 965 AD"] ="5fb1b9eae1af060017709e02"

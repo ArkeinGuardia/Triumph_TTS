@@ -1,10 +1,10 @@
 -- 5fb1b9ede1af060017709f35 Iqshidid Egyptian  935 to 969 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba3ae1af06001770ecdc_general='5fb1ba3ae1af06001770ecdc_general'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ecdc_general]={
@@ -197,6 +197,7 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ecf0_mounted_mobile_infantry]={
   max=2,
   description='Dailami zupin-men\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba3ae1af06001770ecf0_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Raiders",
   troop_option_id="5fb1ba3ae1af06001770ecef",
 }
@@ -262,3 +263,8 @@ if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
 armies["Scimitar and Crescent"]["Iqshidid Egyptian  935 to 969 AD"] = army["5fb1b9ede1af060017709f35"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ede1af060017709f35"] = {}
+army_dates["5fb1b9ede1af060017709f35"]["935 AD to 969 AD"] ="5fb1b9ede1af060017709f35"
