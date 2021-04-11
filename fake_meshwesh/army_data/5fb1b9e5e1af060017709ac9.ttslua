@@ -1,10 +1,10 @@
 -- 5fb1b9e5e1af060017709ac9 Middle Anglo-Saxon: Northumbria or Mercia  617 to 700 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba31e1af06001770db0e_general='5fb1ba31e1af06001770db0e_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db0e_general]={
@@ -150,7 +150,46 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e5e1af060017709ac9"] = army["5fb1b9e5e1af060017709ac9"]
+army['5fb1b9e5e1af060017709ac9_617_685']={
+  data={
+    name='Middle Anglo-Saxon: Northumbria or Mercia 617 AD to 685 AD'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770db0e_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db0e],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db10_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db10],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db11_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db11],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db13_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db13],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db15],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db17],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db19],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709ac9_camp],
+}
+army['5fb1b9e5e1af060017709ac9_686_700']={
+  data={
+    name='Middle Anglo-Saxon: Northumbria or Mercia 686 AD to 700 AD'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770db10_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db10],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db11_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db11],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db13_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db13],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db15],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db17],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db19],
+  g_base_definitions[g_str_5fb1b9e5e1af060017709ac9_camp],
+}
 if nil == armies["Viking Seas"] then
   armies["Viking Seas"] ={}
 end
 armies["Viking Seas"]["Middle Anglo-Saxon: Northumbria or Mercia  617 to 700 AD"] = army["5fb1b9e5e1af060017709ac9"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e5e1af060017709ac9"] = {}
+army_dates["5fb1b9e5e1af060017709ac9"]["617 AD to 700 AD"] ="5fb1b9e5e1af060017709ac9"
+army_dates["5fb1b9e5e1af060017709ac9"]["617 AD to 685 AD"] ="5fb1b9e5e1af060017709ac9_617_685"
+army_dates["5fb1b9e5e1af060017709ac9"]["686 AD to 700 AD"] ="5fb1b9e5e1af060017709ac9_686_700"

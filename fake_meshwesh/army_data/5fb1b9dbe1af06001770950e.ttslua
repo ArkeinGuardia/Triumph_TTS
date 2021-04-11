@@ -1,10 +1,10 @@
 -- 5fb1b9dbe1af06001770950e Kyrenean Greek  630 to 308 BC
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba25e1af06001770c626_general='5fb1ba25e1af06001770c626_general'
 g_base_definitions[g_str_5fb1ba25e1af06001770c626_general]={
@@ -89,6 +89,7 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantr
   description='Kyrenean hoplites\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba25e1af06001770c62c",
 }
@@ -121,6 +122,7 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry]={
   max=15,
   description='Kyrenean hoplites\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba25e1af06001770c62c",
 }
@@ -264,6 +266,54 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dbe1af06001770950e"] = army["5fb1b9dbe1af06001770950e"]
+army['5fb1b9dbe1af06001770950e_-630_-314']={
+  data={
+    name='Kyrenean Greek 630 BC to 314 BC'
+  },
+  g_base_definitions[g_str_5fb1ba25e1af06001770c626_general],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c626],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c628],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62a],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62b],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c631],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c633],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_pack_train],
+}
+army['5fb1b9dbe1af06001770950e_-313_-308']={
+  data={
+    name='Kyrenean Greek 313 BC to 308 BC'
+  },
+  g_base_definitions[g_str_5fb1ba25e1af06001770c626_general],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c626],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c628],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62a],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62b],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c631],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c633],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c636],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c639],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c63c],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c63f_general],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c63f],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c640],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_fortified],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_pack_train],
+}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -272,3 +322,10 @@ if nil == armies["Assyrian Empire"] then
   armies["Assyrian Empire"] ={}
 end
 armies["Assyrian Empire"]["Kyrenean Greek  630 to 308 BC"] = army["5fb1b9dbe1af06001770950e"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dbe1af06001770950e"] = {}
+army_dates["5fb1b9dbe1af06001770950e"]["630 BC to 308 BC"] ="5fb1b9dbe1af06001770950e"
+army_dates["5fb1b9dbe1af06001770950e"]["630 BC to 314 BC"] ="5fb1b9dbe1af06001770950e_-630_-314"
+army_dates["5fb1b9dbe1af06001770950e"]["313 BC to 308 BC"] ="5fb1b9dbe1af06001770950e_-313_-308"

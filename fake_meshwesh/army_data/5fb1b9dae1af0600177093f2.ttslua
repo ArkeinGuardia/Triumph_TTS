@@ -1,10 +1,10 @@
 -- 5fb1b9dae1af0600177093f2 Early Cypriot and Phoenician  1000 to 665 BC
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba21e1af06001770c20b_general='5fb1ba21e1af06001770c20b_general'
 g_base_definitions[g_str_5fb1ba21e1af06001770c20b_general]={
@@ -126,6 +126,34 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dae1af0600177093f2"] = army["5fb1b9dae1af0600177093f2"]
+army['5fb1b9dae1af0600177093f2_-1000_-901']={
+  data={
+    name='Early Cypriot and Phoenician 1000 BC to 901 BC'
+  },
+  g_base_definitions[g_str_5fb1ba21e1af06001770c20b_general],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c20b],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c210],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c212],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c214],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c216],
+  g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp],
+  g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp_pack_train],
+}
+army['5fb1b9dae1af0600177093f2_-900_-665']={
+  data={
+    name='Early Cypriot and Phoenician 900 BC to 665 BC'
+  },
+  g_base_definitions[g_str_5fb1ba21e1af06001770c20b_general],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c20b],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c20e_general],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c20e],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c210],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c212],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c214],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c216],
+  g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp],
+  g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp_pack_train],
+}
 if nil == armies["Assyrian Empire"] then
   armies["Assyrian Empire"] ={}
 end
@@ -134,3 +162,10 @@ if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
 armies["Birth of the West"]["Early Cypriot and Phoenician  1000 to 665 BC"] = army["5fb1b9dae1af0600177093f2"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dae1af0600177093f2"] = {}
+army_dates["5fb1b9dae1af0600177093f2"]["1000 BC to 665 BC"] ="5fb1b9dae1af0600177093f2"
+army_dates["5fb1b9dae1af0600177093f2"]["1000 BC to 901 BC"] ="5fb1b9dae1af0600177093f2_-1000_-901"
+army_dates["5fb1b9dae1af0600177093f2"]["900 BC to 665 BC"] ="5fb1b9dae1af0600177093f2_-900_-665"

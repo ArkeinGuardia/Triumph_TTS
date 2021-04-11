@@ -1,10 +1,10 @@
 -- 5fb1b9e1e1af06001770989f Early Vandal  200 to 442 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba2ce1af06001770d3ca_general='5fb1ba2ce1af06001770d3ca_general'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca_general]={
@@ -126,6 +126,35 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e1e1af06001770989f"] = army["5fb1b9e1e1af06001770989f"]
+army['5fb1b9e1e1af06001770989f_200_427']={
+  data={
+    name='Early Vandal 200 AD to 427 AD'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cb_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cb],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cf],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770989f_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770989f_camp_fortified],
+}
+army['5fb1b9e1e1af06001770989f_428_442']={
+  data={
+    name='Early Vandal 428 AD to 442 AD'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cb_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cb],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3cf],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3d2],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770989f_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770989f_camp_fortified],
+}
 if nil == armies["Pax Romana"] then
   armies["Pax Romana"] ={}
 end
@@ -134,3 +163,10 @@ if nil == armies["Fall of Rome"] then
   armies["Fall of Rome"] ={}
 end
 armies["Fall of Rome"]["Early Vandal  200 to 442 AD"] = army["5fb1b9e1e1af06001770989f"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e1e1af06001770989f"] = {}
+army_dates["5fb1b9e1e1af06001770989f"]["200 AD to 442 AD"] ="5fb1b9e1e1af06001770989f"
+army_dates["5fb1b9e1e1af06001770989f"]["200 AD to 427 AD"] ="5fb1b9e1e1af06001770989f_200_427"
+army_dates["5fb1b9e1e1af06001770989f"]["428 AD to 442 AD"] ="5fb1b9e1e1af06001770989f_428_442"

@@ -1,10 +1,10 @@
 -- 5fb1b9e8e1af060017709c53 French Ordonnance  1445 to 1480 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba33e1af06001770e07f_general='5fb1ba33e1af06001770e07f_general'
 g_base_definitions[g_str_5fb1ba33e1af06001770e07f_general]={
@@ -106,6 +106,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e082_mounted_mobile_infantry]={
   max=3,
   description='Ordonnance bowmen: mostly equipped with longbows, but some crossbows\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770e082_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba33e1af06001770e081",
 }
@@ -159,6 +160,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e087_mounted_mobile_infantry]={
   max=2,
   description='Arriere-ban, garrison, or militia voulgiers\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770e087_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba33e1af06001770e086",
 }
@@ -191,6 +193,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e08a_mounted_mobile_infantry]={
   max=1,
   description='Francs bowmen with some arriere-ban, garrison, or militia bowmen or crossbowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770e08a_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Bow Levy",
   troop_option_id="5fb1ba33e1af06001770e089",
 }
@@ -223,6 +226,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e08d_mounted_mobile_infantry]={
   max=1,
   description='Mercenary crossbowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770e08d_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba33e1af06001770e08c",
 }
@@ -310,3 +314,8 @@ if nil == armies["Plate and Handgonne"] then
   armies["Plate and Handgonne"] ={}
 end
 armies["Plate and Handgonne"]["French Ordonnance  1445 to 1480 AD"] = army["5fb1b9e8e1af060017709c53"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e8e1af060017709c53"] = {}
+army_dates["5fb1b9e8e1af060017709c53"]["1445 AD to 1480 AD"] ="5fb1b9e8e1af060017709c53"

@@ -1,10 +1,10 @@
 -- 5fb1b9ece1af060017709eec Early Arab Conquest  631 to 638 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba39e1af06001770eb7a_general='5fb1ba39e1af06001770eb7a_general'
 g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general]={
@@ -106,6 +106,7 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb7d_mounted_mobile_infantry]={
   max=1,
   description='Dailami\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba39e1af06001770eb7d_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Raiders",
   troop_option_id="5fb1ba39e1af06001770eb7c",
 }
@@ -230,6 +231,7 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb87_mounted_mobile_infantry]={
   max=10,
   description='Muslim swordsmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba39e1af06001770eb87_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Elite Foot",
   troop_option_id="5fb1ba39e1af06001770eb86",
 }
@@ -262,6 +264,7 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb8a_mounted_mobile_infantry]={
   max=2,
   description='Muslim bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba39e1af06001770eb8a_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba39e1af06001770eb89",
 }
@@ -294,6 +297,7 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb8e_mounted_mobile_infantry]={
   max=8,
   description='Reconquered nomad swordsmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba39e1af06001770eb8e_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba39e1af06001770eb8c",
 }
@@ -326,6 +330,7 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb92_mounted_mobile_infantry]={
   max=2,
   description='Reconquered nomad bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba39e1af06001770eb92_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba39e1af06001770eb90",
 }
@@ -358,6 +363,7 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb95_mounted_mobile_infantry]={
   max=2,
   description='Javelinmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba39e1af06001770eb95_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Light Foot",
   troop_option_id="5fb1ba39e1af06001770eb94",
 }
@@ -390,6 +396,7 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eb98_mounted_mobile_infantry]={
   max=1,
   description='Skirmishing slingers\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba39e1af06001770eb98_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Skirmishers",
   troop_option_id="5fb1ba39e1af06001770eb97",
 }
@@ -458,6 +465,114 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ece1af060017709eec"] = army["5fb1b9ece1af060017709eec"]
+army['5fb1b9ece1af060017709eec_631_633']={
+  data={
+    name='Early Arab Conquest 631 AD to 633 AD'
+  },
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb84],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb84_light_camelry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1b9ece1af060017709eec_camp],
+  g_base_definitions[g_str_5fb1b9ece1af060017709eec_camp_pack_train],
+}
+army['5fb1b9ece1af060017709eec_634_635']={
+  data={
+    name='Early Arab Conquest 634 AD to 635 AD'
+  },
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb84],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb84_light_camelry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8e_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8e_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb92],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb92_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb92_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1b9ece1af060017709eec_camp],
+  g_base_definitions[g_str_5fb1b9ece1af060017709eec_camp_pack_train],
+}
+army['5fb1b9ece1af060017709eec_636_638']={
+  data={
+    name='Early Arab Conquest 636 AD to 638 AD'
+  },
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_general_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7a_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb7d_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81_general_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb81_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb84],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb84_light_camelry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb87_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8a_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8e_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb8e_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb92],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb92_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb92_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb95_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770eb98_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1b9ece1af060017709eec_camp],
+  g_base_definitions[g_str_5fb1b9ece1af060017709eec_camp_pack_train],
+}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -470,3 +585,11 @@ if nil == armies["Spread of Islam"] then
   armies["Spread of Islam"] ={}
 end
 armies["Spread of Islam"]["Early Arab Conquest  631 to 638 AD"] = army["5fb1b9ece1af060017709eec"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ece1af060017709eec"] = {}
+army_dates["5fb1b9ece1af060017709eec"]["631 AD to 638 AD"] ="5fb1b9ece1af060017709eec"
+army_dates["5fb1b9ece1af060017709eec"]["631 AD to 633 AD"] ="5fb1b9ece1af060017709eec_631_633"
+army_dates["5fb1b9ece1af060017709eec"]["634 AD to 635 AD"] ="5fb1b9ece1af060017709eec_634_635"
+army_dates["5fb1b9ece1af060017709eec"]["636 AD to 638 AD"] ="5fb1b9ece1af060017709eec_636_638"

@@ -1,10 +1,10 @@
 -- 5fb1b9ede1af060017709f2f Tulunid Egyptian  868 to 905 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba3ae1af06001770eca8_general='5fb1ba3ae1af06001770eca8_general'
 g_base_definitions[g_str_5fb1ba3ae1af06001770eca8_general]={
@@ -297,6 +297,7 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ecd4_mounted_mobile_infantry]={
   max=2,
   description='Dailami zupin-men\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba3ae1af06001770ecd4_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Raiders",
   troop_option_id="5fb1ba3ae1af06001770ecd3",
 }
@@ -372,3 +373,8 @@ if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
 armies["Scimitar and Crescent"]["Tulunid Egyptian  868 to 905 AD"] = army["5fb1b9ede1af060017709f2f"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ede1af060017709f2f"] = {}
+army_dates["5fb1b9ede1af060017709f2f"]["868 AD to 905 AD"] ="5fb1b9ede1af060017709f2f"

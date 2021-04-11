@@ -1,10 +1,10 @@
 -- 5fb1b9e5e1af060017709ab6 Dublin or Manx Vikings  842 to 1229 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba30e1af06001770dabf_general='5fb1ba30e1af06001770dabf_general'
 g_base_definitions[g_str_5fb1ba30e1af06001770dabf_general]={
@@ -56,6 +56,7 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dac2_mounted_mobile_infantry]={
   max=10,
   description='Hird\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba30e1af06001770dac2_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba30e1af06001770dac1",
 }
@@ -88,6 +89,7 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dac5_mounted_mobile_infantry]={
   max=2,
   description='Freelance marauders\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba30e1af06001770dac5_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Raiders",
   troop_option_id="5fb1ba30e1af06001770dac4",
 }
@@ -140,6 +142,7 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dacc_mounted_mobile_infantry]={
   max=2,
   description='Irish mercenaries\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba30e1af06001770dacc_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Light Foot",
   troop_option_id="5fb1ba30e1af06001770dacb",
 }
@@ -205,3 +208,8 @@ if nil == armies["Embattled Isle"] then
   armies["Embattled Isle"] ={}
 end
 armies["Embattled Isle"]["Dublin or Manx Vikings  842 to 1229 AD"] = army["5fb1b9e5e1af060017709ab6"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e5e1af060017709ab6"] = {}
+army_dates["5fb1b9e5e1af060017709ab6"]["842 AD to 1229 AD"] ="5fb1b9e5e1af060017709ab6"

@@ -1,10 +1,10 @@
 -- 5fb1b9e6e1af060017709b16 South Welsh  1100 to 1197 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba31e1af06001770dc5d_general='5fb1ba31e1af06001770dc5d_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_general]={
@@ -106,6 +106,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dc60_mounted_mobile_infantry]={
   max=1,
   description='South Welsh bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770dc60_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba31e1af06001770dc5f",
 }
@@ -170,7 +171,49 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e6e1af060017709b16"] = army["5fb1b9e6e1af060017709b16"]
+army['5fb1b9e6e1af060017709b16_1100_1144']={
+  data={
+    name='South Welsh 1100 AD to 1144 AD'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_general_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_general_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc60],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc60_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc60_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc63],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc66],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b16_camp],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b16_camp_pack_train],
+}
+army['5fb1b9e6e1af060017709b16_1145_1197']={
+  data={
+    name='South Welsh 1145 AD to 1197 AD'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_general_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_general_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc5d_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc60],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc60_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc60_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dc63],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b16_camp],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b16_camp_pack_train],
+}
 if nil == armies["Embattled Isle"] then
   armies["Embattled Isle"] ={}
 end
 armies["Embattled Isle"]["South Welsh  1100 to 1197 AD"] = army["5fb1b9e6e1af060017709b16"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e6e1af060017709b16"] = {}
+army_dates["5fb1b9e6e1af060017709b16"]["1100 AD to 1197 AD"] ="5fb1b9e6e1af060017709b16"
+army_dates["5fb1b9e6e1af060017709b16"]["1100 AD to 1144 AD"] ="5fb1b9e6e1af060017709b16_1100_1144"
+army_dates["5fb1b9e6e1af060017709b16"]["1145 AD to 1197 AD"] ="5fb1b9e6e1af060017709b16_1145_1197"

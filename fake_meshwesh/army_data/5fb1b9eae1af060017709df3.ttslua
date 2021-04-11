@@ -1,10 +1,10 @@
 -- 5fb1b9eae1af060017709df3 Post Mongol Russian  1246 to 1533 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba37e1af06001770e766_general='5fb1ba37e1af06001770e766_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e766_general]={
@@ -114,6 +114,32 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9eae1af060017709df3"] = army["5fb1b9eae1af060017709df3"]
+army['5fb1b9eae1af060017709df3_1246_1379']={
+  data={
+    name='Post Mongol Russian 1246 AD to 1379 AD'
+  },
+  g_base_definitions[g_str_5fb1ba37e1af06001770e766_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e766],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e768],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e76a],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e76c],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e76e],
+  g_base_definitions[g_str_5fb1b9eae1af060017709df3_camp],
+}
+army['5fb1b9eae1af060017709df3_1380_1533']={
+  data={
+    name='Post Mongol Russian 1380 AD to 1533 AD'
+  },
+  g_base_definitions[g_str_5fb1ba37e1af06001770e766_general],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e766],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e768],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e76a],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e76c],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e76e],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e771],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e774],
+  g_base_definitions[g_str_5fb1b9eae1af060017709df3_camp],
+}
 if nil == armies["Russian Princes"] then
   armies["Russian Princes"] ={}
 end
@@ -122,3 +148,10 @@ if nil == armies["Baltic Powers"] then
   armies["Baltic Powers"] ={}
 end
 armies["Baltic Powers"]["Post Mongol Russian  1246 to 1533 AD"] = army["5fb1b9eae1af060017709df3"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9eae1af060017709df3"] = {}
+army_dates["5fb1b9eae1af060017709df3"]["1246 AD to 1533 AD"] ="5fb1b9eae1af060017709df3"
+army_dates["5fb1b9eae1af060017709df3"]["1246 AD to 1379 AD"] ="5fb1b9eae1af060017709df3_1246_1379"
+army_dates["5fb1b9eae1af060017709df3"]["1380 AD to 1533 AD"] ="5fb1b9eae1af060017709df3_1380_1533"

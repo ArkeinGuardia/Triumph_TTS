@@ -1,10 +1,10 @@
 -- 5fb1b9e7e1af060017709c27 Navarrese  1234 to 1378 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba33e1af06001770dfd3_general='5fb1ba33e1af06001770dfd3_general'
 g_base_definitions[g_str_5fb1ba33e1af06001770dfd3_general]={
@@ -169,6 +169,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770dfe0_mounted_mobile_infantry]={
   max=2,
   description='Free company English longbowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770dfe0_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba33e1af06001770dfde",
 }
@@ -262,7 +263,69 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e7e1af060017709c27"] = army["5fb1b9e7e1af060017709c27"]
+army['5fb1b9e7e1af060017709c27_1234_1327']={
+  data={
+    name='Navarrese 1234 AD to 1327 AD'
+  },
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd3_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd3],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe3_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe3],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe5],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe7],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c27_camp],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c27_camp_pack_train],
+}
+army['5fb1b9e7e1af060017709c27_1328_1349']={
+  data={
+    name='Navarrese 1328 AD to 1349 AD'
+  },
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd3_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd3],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd6_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd6],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe3_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe3],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe5],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe7],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c27_camp],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c27_camp_pack_train],
+}
+army['5fb1b9e7e1af060017709c27_1350_1378']={
+  data={
+    name='Navarrese 1350 AD to 1378 AD'
+  },
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd3_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd3],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd6_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd6],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general_mounted],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_general_dismounted],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_mounted],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfd9_dismounted],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfdd_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfdd],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe0],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe0_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe0_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe3_general],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe3],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe5],
+  g_base_definitions[g_str_5fb1ba33e1af06001770dfe7],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c27_camp],
+  g_base_definitions[g_str_5fb1b9e7e1af060017709c27_camp_pack_train],
+}
 if nil == armies["Medieval Western Europe"] then
   armies["Medieval Western Europe"] ={}
 end
 armies["Medieval Western Europe"]["Navarrese  1234 to 1378 AD"] = army["5fb1b9e7e1af060017709c27"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e7e1af060017709c27"] = {}
+army_dates["5fb1b9e7e1af060017709c27"]["1234 AD to 1378 AD"] ="5fb1b9e7e1af060017709c27"
+army_dates["5fb1b9e7e1af060017709c27"]["1234 AD to 1327 AD"] ="5fb1b9e7e1af060017709c27_1234_1327"
+army_dates["5fb1b9e7e1af060017709c27"]["1328 AD to 1349 AD"] ="5fb1b9e7e1af060017709c27_1328_1349"
+army_dates["5fb1b9e7e1af060017709c27"]["1350 AD to 1378 AD"] ="5fb1b9e7e1af060017709c27_1350_1378"

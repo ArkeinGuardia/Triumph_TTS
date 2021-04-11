@@ -1,10 +1,10 @@
 -- 5fb1b9e7e1af060017709be0 Andalusian  765 to 1172 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba32e1af06001770dec3_general='5fb1ba32e1af06001770dec3_general'
 g_base_definitions[g_str_5fb1ba32e1af06001770dec3_general]={
@@ -118,6 +118,7 @@ g_base_definitions[g_str_5fb1ba32e1af06001770decb_mounted_mobile_infantry]={
   max=1,
   description='Berber javelinmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba32e1af06001770decb_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Light Foot",
   troop_option_id="5fb1ba32e1af06001770deca",
 }
@@ -150,6 +151,7 @@ g_base_definitions[g_str_5fb1ba32e1af06001770decc_mounted_mobile_infantry]={
   max=1,
   description='Berber javelinmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba32e1af06001770decc_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Rabble",
   troop_option_id="5fb1ba32e1af06001770deca",
 }
@@ -238,3 +240,8 @@ if nil == armies["Spread of Islam"] then
   armies["Spread of Islam"] ={}
 end
 armies["Spread of Islam"]["Andalusian  765 to 1172 AD"] = army["5fb1b9e7e1af060017709be0"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e7e1af060017709be0"] = {}
+army_dates["5fb1b9e7e1af060017709be0"]["765 AD to 1172 AD"] ="5fb1b9e7e1af060017709be0"

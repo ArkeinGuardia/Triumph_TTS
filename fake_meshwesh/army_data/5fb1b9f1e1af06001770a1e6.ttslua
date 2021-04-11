@@ -1,10 +1,10 @@
 -- 5fb1b9f1e1af06001770a1e6 Chinese-Dominated Vietnamese  136 to 938 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba3fe1af06001770f6d6_general='5fb1ba3fe1af06001770f6d6_general'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6d6_general]={
@@ -138,6 +138,36 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f1e1af06001770a1e6"] = army["5fb1b9f1e1af06001770a1e6"]
+army['5fb1b9f1e1af06001770a1e6_136_247']={
+  data={
+    name='Chinese-Dominated Vietnamese 136 AD to 247 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6d8_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6d8],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6da_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6da],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6dd],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6e0],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6e2],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6e4],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a1e6_camp],
+}
+army['5fb1b9f1e1af06001770a1e6_248_938']={
+  data={
+    name='Chinese-Dominated Vietnamese 248 AD to 938 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6d6_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6d6],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6d8_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6d8],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6da_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6da],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6dd],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6e0],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6e2],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6e4],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a1e6_camp],
+}
 if nil == armies["Mandate of Heaven"] then
   armies["Mandate of Heaven"] ={}
 end
@@ -150,3 +180,10 @@ if nil == armies["Dark Ages China"] then
   armies["Dark Ages China"] ={}
 end
 armies["Dark Ages China"]["Chinese-Dominated Vietnamese  136 to 938 AD"] = army["5fb1b9f1e1af06001770a1e6"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f1e1af06001770a1e6"] = {}
+army_dates["5fb1b9f1e1af06001770a1e6"]["136 AD to 938 AD"] ="5fb1b9f1e1af06001770a1e6"
+army_dates["5fb1b9f1e1af06001770a1e6"]["136 AD to 247 AD"] ="5fb1b9f1e1af06001770a1e6_136_247"
+army_dates["5fb1b9f1e1af06001770a1e6"]["248 AD to 938 AD"] ="5fb1b9f1e1af06001770a1e6_248_938"

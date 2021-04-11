@@ -1,10 +1,10 @@
 -- 5fb1b9e8e1af060017709c78 Franco-Scottish  1419 to 1424 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba33e1af06001770e0f8_general='5fb1ba33e1af06001770e0f8_general'
 g_base_definitions[g_str_5fb1ba33e1af06001770e0f8_general]={
@@ -177,6 +177,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0fe_mounted_mobile_infantry]={
   max=2,
   description='Scots feudal bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770e0fe_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba33e1af06001770e0fd",
 }
@@ -321,3 +322,8 @@ if nil == armies["Flower of Chivalry"] then
   armies["Flower of Chivalry"] ={}
 end
 armies["Flower of Chivalry"]["Franco-Scottish  1419 to 1424 AD"] = army["5fb1b9e8e1af060017709c78"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e8e1af060017709c78"] = {}
+army_dates["5fb1b9e8e1af060017709c78"]["1419 AD to 1424 AD"] ="5fb1b9e8e1af060017709c78"

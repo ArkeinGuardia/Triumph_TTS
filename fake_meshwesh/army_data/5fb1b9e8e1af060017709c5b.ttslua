@@ -1,10 +1,10 @@
 -- 5fb1b9e8e1af060017709c5b Later French Ordonnance  1481 to 1494 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba33e1af06001770e09d_general='5fb1ba33e1af06001770e09d_general'
 g_base_definitions[g_str_5fb1ba33e1af06001770e09d_general]={
@@ -161,6 +161,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0a5_mounted_mobile_infantry]={
   max=2,
   description='Arriere-ban, garrison, or militia voulgiers\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770e0a5_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba33e1af06001770e0a4",
 }
@@ -233,6 +234,7 @@ g_base_definitions[g_str_5fb1ba33e1af06001770e0af_mounted_mobile_infantry]={
   max=1,
   description='Mercenary crossbowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba33e1af06001770e0af_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba33e1af06001770e0ae",
 }
@@ -321,3 +323,8 @@ if nil == armies["Plate and Handgonne"] then
   armies["Plate and Handgonne"] ={}
 end
 armies["Plate and Handgonne"]["Later French Ordonnance  1481 to 1494 AD"] = army["5fb1b9e8e1af060017709c5b"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e8e1af060017709c5b"] = {}
+army_dates["5fb1b9e8e1af060017709c5b"]["1481 AD to 1494 AD"] ="5fb1b9e8e1af060017709c5b"

@@ -1,10 +1,10 @@
 -- 5fb1b9ebe1af060017709eb9 Desert Blemmye or Beja  30 BC to 1500 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba39e1af06001770eab9_general='5fb1ba39e1af06001770eab9_general'
 g_base_definitions[g_str_5fb1ba39e1af06001770eab9_general]={
@@ -66,6 +66,7 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eabd_mounted_mobile_infantry]={
   max=2,
   description='Spearmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba39e1af06001770eabd_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Light Foot",
   troop_option_id="5fb1ba39e1af06001770eabc",
 }
@@ -144,3 +145,8 @@ if nil == armies["Spread of Islam"] then
   armies["Spread of Islam"] ={}
 end
 armies["Spread of Islam"]["Desert Blemmye or Beja  30 BC to 1500 AD"] = army["5fb1b9ebe1af060017709eb9"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ebe1af060017709eb9"] = {}
+army_dates["5fb1b9ebe1af060017709eb9"]["30 BC to 1500 AD"] ="5fb1b9ebe1af060017709eb9"

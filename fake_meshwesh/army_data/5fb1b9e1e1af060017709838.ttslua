@@ -1,10 +1,10 @@
 -- 5fb1b9e1e1af060017709838 Meroitic Kushite  592 BC to 350 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba2be1af06001770d286_general='5fb1ba2be1af06001770d286_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d286_general]={
@@ -127,6 +127,34 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e1e1af060017709838"] = army["5fb1b9e1e1af060017709838"]
+army['5fb1b9e1e1af060017709838_-592_-300']={
+  data={
+    name='Meroitic Kushite 592 BC to 300 BC'
+  },
+  g_base_definitions[g_str_5fb1ba2be1af06001770d288_general],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d288],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d28a_general],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d28a],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d28c],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d28e],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d290],
+  g_base_definitions[g_str_5fb1b9e1e1af060017709838_camp],
+}
+army['5fb1b9e1e1af060017709838_-299_350']={
+  data={
+    name='Meroitic Kushite 299 BC to 350 AD'
+  },
+  g_base_definitions[g_str_5fb1ba2be1af06001770d286_general],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d286],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d288_general],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d288],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d28a_general],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d28a],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d28c],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d28e],
+  g_base_definitions[g_str_5fb1ba2be1af06001770d290],
+  g_base_definitions[g_str_5fb1b9e1e1af060017709838_camp],
+}
 if nil == armies["Rise of Rome"] then
   armies["Rise of Rome"] ={}
 end
@@ -147,3 +175,10 @@ if nil == armies["Pax Romana"] then
   armies["Pax Romana"] ={}
 end
 armies["Pax Romana"]["Meroitic Kushite  592 BC to 350 AD"] = army["5fb1b9e1e1af060017709838"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e1e1af060017709838"] = {}
+army_dates["5fb1b9e1e1af060017709838"]["592 BC to 350 AD"] ="5fb1b9e1e1af060017709838"
+army_dates["5fb1b9e1e1af060017709838"]["592 BC to 300 BC"] ="5fb1b9e1e1af060017709838_-592_-300"
+army_dates["5fb1b9e1e1af060017709838"]["299 BC to 350 AD"] ="5fb1b9e1e1af060017709838_-299_350"

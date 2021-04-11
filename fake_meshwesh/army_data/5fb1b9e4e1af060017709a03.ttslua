@@ -1,10 +1,10 @@
 -- 5fb1b9e4e1af060017709a03 Early Danube Bulgar  675 to 802 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba2fe1af06001770d894_general='5fb1ba2fe1af06001770d894_general'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d894_general]={
@@ -66,6 +66,7 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d898_mounted_mobile_infantry]={
   max=3,
   description='Slav javelinmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba2fe1af06001770d898_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Light Foot",
   troop_option_id="5fb1ba2fe1af06001770d897",
 }
@@ -98,6 +99,7 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d899_mounted_mobile_infantry]={
   max=3,
   description='Slav javelinmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba2fe1af06001770d899_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Rabble",
   troop_option_id="5fb1ba2fe1af06001770d897",
 }
@@ -159,3 +161,8 @@ if nil == armies["Glorious Byzantium"] then
   armies["Glorious Byzantium"] ={}
 end
 armies["Glorious Byzantium"]["Early Danube Bulgar  675 to 802 AD"] = army["5fb1b9e4e1af060017709a03"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e4e1af060017709a03"] = {}
+army_dates["5fb1b9e4e1af060017709a03"]["675 AD to 802 AD"] ="5fb1b9e4e1af060017709a03"

@@ -1,10 +1,10 @@
 -- 5fb1b9f2e1af06001770a26d Post-Rebellion Tang and Southern Five Dynasties  755 to 979 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba40e1af06001770f8b7_general='5fb1ba40e1af06001770f8b7_general'
 g_base_definitions[g_str_5fb1ba40e1af06001770f8b7_general]={
@@ -69,6 +69,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general_mounted_mobile_infantr
   description='Crossbowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f8bc_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba40e1af06001770f8bb",
 }
@@ -101,6 +102,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_mounted_mobile_infantry]={
   max=2,
   description='Crossbowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f8bc_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba40e1af06001770f8bb",
 }
@@ -133,6 +135,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8bf_mounted_mobile_infantry]={
   max=2,
   description='Bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f8bf_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Bow Levy",
   troop_option_id="5fb1ba40e1af06001770f8be",
 }
@@ -165,6 +168,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8c2_mounted_mobile_infantry]={
   max=2,
   description='Spearmen, with or without shields\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f8c2_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Light Spear",
   troop_option_id="5fb1ba40e1af06001770f8c1",
 }
@@ -197,6 +201,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8c3_mounted_mobile_infantry]={
   max=2,
   description='Spearmen, with or without shields\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f8c3_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Heavy Foot",
   troop_option_id="5fb1ba40e1af06001770f8c1",
 }
@@ -232,6 +237,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general_mounted_mobile_infantr
   description='Vanguard swordsmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f8c6_general_dismounted_mobile_infantry,
   general=true,
+  mobile_infantry=true,
   troop_type="Raiders",
   troop_option_id="5fb1ba40e1af06001770f8c5",
 }
@@ -264,6 +270,7 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_mounted_mobile_infantry]={
   max=2,
   description='Vanguard swordsmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba40e1af06001770f8c6_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Raiders",
   troop_option_id="5fb1ba40e1af06001770f8c5",
 }
@@ -376,6 +383,110 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f2e1af06001770a26d"] = army["5fb1b9f2e1af06001770a26d"]
+army['5fb1b9f2e1af06001770a26d_755_906']={
+  data={
+    name='Post-Rebellion Tang and Southern Five Dynasties 755 AD to 906 AD'
+  },
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8b7_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8b7],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8ba],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c9],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8ca],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8cc],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8ce],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8cf],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a26d_camp],
+}
+army['5fb1b9f2e1af06001770a26d_907_971']={
+  data={
+    name='Post-Rebellion Tang and Southern Five Dynasties 907 AD to 971 AD'
+  },
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8b7_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8b7],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c9],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8ca],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8cc],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8ce],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8cf],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8d2],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a26d_camp],
+}
+army['5fb1b9f2e1af06001770a26d_972_979']={
+  data={
+    name='Post-Rebellion Tang and Southern Five Dynasties 972 AD to 979 AD'
+  },
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8b7_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8b7],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bc_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8bf_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c2_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c3_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_general_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c6_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8c9],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8ca],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8cc],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8ce],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f8cf],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a26d_camp],
+}
 if nil == armies["Middle Kingdom"] then
   armies["Middle Kingdom"] ={}
 end
@@ -384,3 +495,11 @@ if nil == armies["Southeast Asia"] then
   armies["Southeast Asia"] ={}
 end
 armies["Southeast Asia"]["Post-Rebellion Tang and Southern Five Dynasties  755 to 979 AD"] = army["5fb1b9f2e1af06001770a26d"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f2e1af06001770a26d"] = {}
+army_dates["5fb1b9f2e1af06001770a26d"]["755 AD to 979 AD"] ="5fb1b9f2e1af06001770a26d"
+army_dates["5fb1b9f2e1af06001770a26d"]["755 AD to 906 AD"] ="5fb1b9f2e1af06001770a26d_755_906"
+army_dates["5fb1b9f2e1af06001770a26d"]["907 AD to 971 AD"] ="5fb1b9f2e1af06001770a26d_907_971"
+army_dates["5fb1b9f2e1af06001770a26d"]["972 AD to 979 AD"] ="5fb1b9f2e1af06001770a26d_972_979"

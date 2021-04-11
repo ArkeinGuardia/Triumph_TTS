@@ -1,10 +1,10 @@
 -- 5fb1b9e6e1af060017709b49 Tudor English  1489 to 1515 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba31e1af06001770dd23_general='5fb1ba31e1af06001770dd23_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd23_general]={
@@ -106,6 +106,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd26_mounted_mobile_infantry]={
   max=1,
   description='Retinue billmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770dd26_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Elite Foot",
   troop_option_id="5fb1ba31e1af06001770dd25",
 }
@@ -138,6 +139,7 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd2a_mounted_mobile_infantry]={
   max=2,
   description='Retinue or shire levy bowmen\nmounted mobile infantry',
   dismount_as=g_str_5fb1ba31e1af06001770dd2a_dismounted_mobile_infantry,
+  mobile_infantry=true,
   troop_type="Archers",
   troop_option_id="5fb1ba31e1af06001770dd29",
 }
@@ -213,3 +215,8 @@ if nil == armies["Plate and Handgonne"] then
   armies["Plate and Handgonne"] ={}
 end
 armies["Plate and Handgonne"]["Tudor English  1489 to 1515 AD"] = army["5fb1b9e6e1af060017709b49"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e6e1af060017709b49"] = {}
+army_dates["5fb1b9e6e1af060017709b49"]["1489 AD to 1515 AD"] ="5fb1b9e6e1af060017709b49"

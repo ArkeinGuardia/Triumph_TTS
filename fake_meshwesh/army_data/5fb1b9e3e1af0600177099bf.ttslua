@@ -1,10 +1,10 @@
 -- 5fb1b9e3e1af0600177099bf Aquitanian (from 511 AD) or Neustrian (from 561 AD) Frankish  511 to 639 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba2ee1af06001770d7bf_general='5fb1ba2ee1af06001770d7bf_general'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7bf_general]={
@@ -301,3 +301,8 @@ if nil == armies["Dark Ages"] then
   armies["Dark Ages"] ={}
 end
 armies["Dark Ages"]["Aquitanian (from 511 AD) or Neustrian (from 561 AD) Frankish  511 to 639 AD"] = army["5fb1b9e3e1af0600177099bf"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e3e1af0600177099bf"] = {}
+army_dates["5fb1b9e3e1af0600177099bf"]["511 AD to 639 AD"] ="5fb1b9e3e1af0600177099bf"

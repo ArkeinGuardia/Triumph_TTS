@@ -1,10 +1,10 @@
 -- 5fb1b9f1e1af06001770a175 Early Hu  400 BC to 70 AD
 
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
 if army == nil then
   army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
 end
 g_str_5fb1ba3ee1af06001770f580_general='5fb1ba3ee1af06001770f580_general'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f580_general]={
@@ -103,6 +103,30 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f1e1af06001770a175"] = army["5fb1b9f1e1af06001770a175"]
+army['5fb1b9f1e1af06001770a175_-400_-11']={
+  data={
+    name='Early Hu 400 BC to 11 BC'
+  },
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f582_general],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f582],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f584],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a175_camp],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a175_camp_fortified],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a175_camp_pack_train],
+}
+army['5fb1b9f1e1af06001770a175_-10_70']={
+  data={
+    name='Early Hu 10 BC to 70 AD'
+  },
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f580_general],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f580],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f582_general],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f582],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f584],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a175_camp],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a175_camp_fortified],
+  g_base_definitions[g_str_5fb1b9f1e1af06001770a175_camp_pack_train],
+}
 if nil == armies["Mandate of Heaven"] then
   armies["Mandate of Heaven"] ={}
 end
@@ -111,3 +135,10 @@ if nil == armies["Warring States"] then
   armies["Warring States"] ={}
 end
 armies["Warring States"]["Early Hu  400 BC to 70 AD"] = army["5fb1b9f1e1af06001770a175"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f1e1af06001770a175"] = {}
+army_dates["5fb1b9f1e1af06001770a175"]["400 BC to 70 AD"] ="5fb1b9f1e1af06001770a175"
+army_dates["5fb1b9f1e1af06001770a175"]["400 BC to 11 BC"] ="5fb1b9f1e1af06001770a175_-400_-11"
+army_dates["5fb1b9f1e1af06001770a175"]["10 BC to 70 AD"] ="5fb1b9f1e1af06001770a175_-10_70"
