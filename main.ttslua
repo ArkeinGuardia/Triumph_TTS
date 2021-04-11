@@ -35,12 +35,6 @@
 #include fake_meshwesh/army_data/all_armies
 #include scripts/data/data_models
 
--- Add Meshwesh army definitions to armies so they can take part
--- in the menu
-armies["All"] = {}
-for _,mw_army in pairs(army) do
-  armies['All'][mw_army.data.name] = mw_army
-end
 
 function onSave()
   local saved_data = JSON.encode(g_decorations)

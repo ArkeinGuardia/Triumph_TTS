@@ -847,6 +847,12 @@ def generate_army(army_id) :
       file.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' % 
         (theme_name, name, army_id))
 
+    file.write('if nil == armies[\"All\"] then\n')
+    file.write('  armies[\"All\"] ={}\n')
+    file.write('end\n')
+    file.write('armies[\"All\"][\"%s\"] = army[\"%s\"]\n' % 
+        (name, army_id))
+
     file.write("if nil == army_dates then\n  army_dates={}\nend\n")
     file.write("army_dates[\"%s\"] = {}\n" % (army_id))
     for date_entry in date_map:
