@@ -97,7 +97,7 @@ function on_cancel_load_army(player, value, id)
 end
 
 function on_load_army(player, value, id)
-    spawn_army(g_army_selected, armies[g_book_selected][g_army_selected], g_color_spawn_army_selected == 'Red', g_command_spawn_army_selected)
+    spawn_army(army[g_army_id_selected], g_color_spawn_army_selected == 'Red', g_command_spawn_army_selected)
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
     UI.setAttribute('panel_dba_troop_selection_bg', 'active', false)
@@ -106,25 +106,22 @@ function on_load_army(player, value, id)
     UI.setAttribute('button_create_army', 'interactable', true)
 end
 
-function get_initial_army()
-    local book = nil
-    local army = nil
-
-    if g_filter_armies_models then
-        g_book_selected = get_first_book_with_models()
-        book = armies[g_book_selected]
-
-        g_army_selected = get_first_army_with_models(g_book_selected)
-        army = armies[g_book_selected][g_army_selected]
-    else
-        g_book_selected = first_key_table(armies)
-        book = armies[g_book_selected]
-
-        g_army_selected = first_key_table(book)
-        army = armies[g_book_selected][g_army_selected]
-    end
-    return book, army
+function is_army_with_models(army)
+  local result = (army ~= nil) and (army.data ~= nil) and (army.data.has_models == true)
+  return result
 end
+
+-- Should the army be displayed for deployment?
+-- Based on the army having enough models to match the users filter.
+function is_army_filtered_in(army)
+  if not g_filter_armies_models then
+    return true
+  end
+   return is_army_with_models(army)
+end
+
+
+
 
 g_use_plain_bases = false
 
@@ -134,19 +131,25 @@ function on_use_plain_bases(player, value, id)
     UI.setAttribute('toggle_use_plain_bases', 'isOn', g_use_plain_bases)
 end
 
-g_filter_armies_models = false
 function on_filter_models(player, value, id)
     g_filter_armies_models = value == "True"
+    on_next_frame(function()
+        update_deploy_army_dialog()
+    end)
+end
 
-    local book, army = get_initial_army()
-
-    print_debug('Selected army is ' .. g_army_selected)
+-- Update the dialog values for deploying an army based on
+-- the global variables.
+function update_deploy_army_dialog()
     on_next_frame(function()
         UI.setAttribute('toggle_filter_modes', 'isOn', g_filter_armies_models)
         on_next_frame(function()
-            update_book_menu(1)
+            update_theme_menu()
             on_next_frame(function()
-                update_armies_menu(book, 1)
+                update_armies_menu()
+                on_next_frame(function()
+                    update_years_menu()
+                end)
             end)
         end)
     end)
@@ -159,10 +162,6 @@ function create_army_options_menu(player, value, id)
         return
     end
 
-    local book, army = get_initial_army()
-
-    print_debug('Selected army is ' .. g_army_selected)
-    update_book_menu(1)
     on_next_frame(function()
         UI.setAttribute('panel_dba_troop_selection_bg', 'active', true)
         UI.setAttribute('panel_dba_troop_selection_bg', 'visibility', player.color)
@@ -170,100 +169,185 @@ function create_army_options_menu(player, value, id)
         UI.setAttribute('panel_dba_troop_selection', 'visibility', player.color)
         UI.setAttribute('button_create_army', 'interactable', false)
 
-        on_next_frame(function()
-            update_armies_menu(book, 1)
-            on_next_frame(function()
-                on_next_frame(function()
-                    update_player_color_menu(g_color_spawn_army_selected == 'Red')
-                end)
-            end)
-        end)
+        update_deploy_army_dialog()
     end)
 end
 
-g_book_selected = ''
-function on_book_selected(player, value, id)
-    g_book_selected = value
-    local i = 1
-    local selected_book_index = 1
-    for book_name, book_armies in pairs(armies) do
-        if not g_filter_armies_models then
-            if book_name == g_book_selected then
-                selected_book_index = i
-            end
-            i = i + 1
-        end
+-----------------------------------------------------------
+-- BEGIN global variables to indicte which army to deploy.
+-----------------------------------------------------------
 
-        if g_filter_armies_models
-            and book_has_an_army_with_models(book_name) then
+-- Should only armies with models be displayed as an option for deployment.
+-- Boolean
+g_filter_armies_models = false
 
-            if book_name == g_book_selected then
-                selected_book_index = i
-            end
-            i = i + 1
+-- Name of the selected theme. e.g. "Cradle of Civilization"
+g_theme_selected = nil
+
+-- Meshwesh ID of the army that is selected.
+-- Example: 5fb1b9f6e1af06001770a4aa
+g_army_id_selected = nil
+
+-- Year to show as selected in UI elements.
+-- Example: "1 AD to 5 AD"
+g_year_selected = nil
+
+
+-- Identifier of the army that should be spawned.
+-- May be the Meshwesh ID such as  "5fb1b9f6e1af06001770a4aa",
+--  or and augmented name  such as "5fb1b9f3e1af06001770a2fc_1266_1362"
+-- for a period specific army
+g_army_id_to_deploy = nil
+
+
+-----------------------------------------------------------
+-- END global variables to indicte which aremy to deploy.
+-----------------------------------------------------------
+
+
+
+-- Should the theme be displayed
+function is_theme_filtered_in(theme_name)
+    local themes_armies = armies[theme_name]
+    for army_name,army in pairs(themes_armies) do
+        if is_army_filtered_in(army) then
+            return true
         end
     end
+    return false
+end
 
-    -- Get the current army
-    if not g_filter_armies_models then
-        g_army_selected = first_key_table(armies[g_book_selected])
-    else
-        local book = armies[g_book_selected]
-        for army_name,army in pairs(book) do
-            if is_army_with_models(army) then
-                g_army_selected = army_name
-                break
+
+-- Update the menu item for all the themes that match the filter criteria.
+-- filtered on model availablity.
+-- Updates g_theme_selected
+function update_theme_menu()
+    local selected = nil
+    local selected_index = nil
+    local options = {}
+    local index = 0
+    for theme, army_name in pairs(armies) do
+        if is_theme_filtered_in(theme) then
+            index = index + 1
+            table.insert(options, theme)
+            if g_theme_selected == theme then
+              selected = theme
+              selected_index = index
             end
         end
     end
-    local army = armies[g_book_selected][g_army_selected]
+    if selected == nil then
+      selected = options[1]
+      selected_index = 1
+    end
+    g_theme_selected = selected
+    set_options_dropdown_by_id('dropdown_book', options, selected_index)
+end
 
-    print_debug('Selected army is ' .. g_army_selected)
+
+-- Update the UI element for selecting an army based on the current
+-- theme.
+-- Use g_theme_selected to filter the armies.
+-- Updates g_army_id_selected
+function update_armies_menu()
+    local selected_army_id = nil
+    local selected_index = nil
+    -- Sort by army name alphabetically
+    local options = {}
+    local index = 0
+    local armies_in_theme = armies[g_theme_selected]
+    for army_name, army_table in pairsByKeys(armies_in_theme) do
+        if is_army_filtered_in(army_table) then
+            index = index + 1
+            table.insert(options, army_name)
+            if g_army_id_selected == army_table.data.id then
+              selected_army_id = g_army_id_selected
+              selected_index = index
+            end
+        end
+    end
+    assert(index > 0)
+    if selected_army_id == nil then
+      selected_index = 1
+      local selected_army_name = options[1]
+      local selected_army = armies[g_theme_selected][selected_army_name]
+      selected_army_id = selected_army.data.id
+    end
+    g_army_id_selected = selected_army_id
+
+    set_options_dropdown_by_id('dropdown_army', options, selected_index)
+end
+
+
+-- Update the years menu based on the selction.
+-- The menu contents are filled based on the contents of the global variable
+-- g_army_id_selected.
+-- Sets the global variables g_army_to_deploy and g_year_selected
+function update_years_menu()
+    if g_army_id_selected == nil then
+      print_error("g_army_id_selected is nil")
+      return
+    end
+    local selected = nil
+    local selected_index = nil
+    local options = {}
+    index = 0
+    local dates_for_army = army_dates[g_army_id_selected]
+    assert(nil ~= dates_for_army)
+
+    -- skip the selected army?  If there are multiple time periods do 
+    -- not include the all encompassing period.
+    local skip = nil
+    if tlen(dates_for_army) > 1 then
+      skip = g_army_id_selected
+    end
+      
+    for year,army_id in pairs(dates_for_army) do
+        if skip ~= army_id then
+          index = index + 1
+          table.insert(options, year)
+          if year == g_year_selected then
+            selected = year
+            selected_index = index
+          end
+        end
+    end
+    if selected == nil then
+      selected = options[1]
+      selected_index = 1
+    end
+    g_year_selected = selected
+    set_options_dropdown_by_id('dropdown_year', options, selected_index)
+    g_army_to_deploy = dates_for_army[g_year_selected]
+end
+
+
+
+function on_theme_selected(player, value, id)
+    g_theme_selected = value
     on_next_frame(function()
-        update_book_menu(selected_book_index)
-        on_next_frame(function()
-            update_armies_menu(armies[g_book_selected], 1)
-            on_next_frame(function()
-                update_player_color_menu(g_color_spawn_army_selected == 'Red')
-            end)
-        end)
+        update_deploy_army_dialog()
     end)
 end
 
-function is_army_with_models(army)
-  local result = (army ~= nil) and (army.data ~= nil) and (army.data.has_models == true)
-  return result
+
+function on_army_selected(player, value, id)
+    local army = armies[g_theme_selected][value]
+    assert(army ~= nil)
+    assert(army.data ~= nil)
+    assert(army.data.id ~= nil)
+    g_army_id_selected = army.data.id
+    assert(nil ~= g_army_id_selected)
+    on_next_frame(function()
+        update_deploy_army_dialog()
+    end)
 end
 
-g_army_selected = ''
-function on_army_selected(player, value, id)
-    g_army_selected = value
-    local army = armies[g_book_selected][g_army_selected]
 
-    print_debug('Selected army is ' .. g_army_selected)
-
-    local text = ""
-    if nil ~= army['data']['Invasion'] then
-        text = 'Invasion: ' .. army['data']['Invasion']
-    end
-
-    if nil ~= army['data']['terrain'] then
-        if text ~= "" then
-          text = text .. ", "
-        end
-        text = text .. 'Terrain: ' .. army['data']['terrain']
-    end
-
-    if text ~= "" then
-      text = text .. ", "
-    end
-    if is_army_with_models(army) then
-        text = text .. "Bases with models"
-    else
-        text = text .. "Flat bases"
-    end
-
-    UI.setValue('text_ag_terr', text)
+-- Display value in UI for the year that has been chossen to deploy.
+function on_year_selected(player, value, id)
+    g_year_selected = value
+    update_deploy_army_dialog()
 end
 
 g_color_spawn_army_selected = 'Red'

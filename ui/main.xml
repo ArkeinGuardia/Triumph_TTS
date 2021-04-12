@@ -145,16 +145,11 @@
             </Cell>
         </Row>
         <Row preferredHeight="40">
-            <Cell columnSpan="20" dontUseTableCellBackground="true">
-                <Toggle id="toggle_use_plain_bases" onValueChanged="on_use_plain_bases" alignment="MiddleLeft" fontSize="16">Use plain bases</Toggle>
-            </Cell>
-        </Row>
-        <Row preferredHeight="40">
             <Cell columnSpan="3" dontUseTableCellBackground="true">
                 <Text fontSize="20" alignment="MiddleLeft">Theme:</Text>
             </Cell>
             <Cell columnSpan="17" dontUseTableCellBackground="true">
-                <Dropdown id="dropdown_book" onValueChanged="on_book_selected" fontSize="20">
+                <Dropdown id="dropdown_book" onValueChanged="on_theme_selected" fontSize="20">
                     <Option selected="true">Book I</Option>
                     <Option>Book II</Option>
                     <Option>Book III</Option>
@@ -172,6 +167,19 @@
                     <Option>Army 2</Option>
                     <Option>Army 3</Option>
                     <Option>Army 4</Option>
+                </Dropdown>
+            </Cell>
+        </Row>
+        <Row preferredHeight="40">
+            <Cell columnSpan="3" dontUseTableCellBackground="true">
+                <Text fontSize="20" alignment="MiddleLeft">Year:</Text>
+            </Cell>
+            <Cell columnSpan="17" dontUseTableCellBackground="true">
+                <Dropdown id="dropdown_year" onValueChanged="on_year_selected" fontSize="16" scrollSensitivity="20">
+                    <Option selected="true">40000 BCE to 3000 BCE</Option>
+                    <Option>3000 BCE to 1 BCE</Option>
+                    <Option>1 CE to 33 CE</Option>
+                    <Option>1939 CE to 1945 CE</Option>
                 </Dropdown>
             </Cell>
         </Row>
@@ -202,7 +210,7 @@
         </Row>
         <Row preferredHeight="40">
             <Cell columnSpan="20" dontUseTableCellBackground="true">
-                <Text id="text_ag_terr" fontSize="20">Invasion: 2, Terrain: Arable, Flat bases</Text>
+                <Toggle id="toggle_use_plain_bases" onValueChanged="on_use_plain_bases" alignment="MiddleLeft" fontSize="16">Use plain bases</Toggle>
             </Cell>
         </Row>
         <Row preferredHeight="40">
@@ -229,7 +237,7 @@
                 <Text fontSize="16">Orientation:</Text>
             </Cell>
             <Cell columnSpan="4" dontUseTableCellBackground="true">
-                <ToggleGroup id="togglegroup_orientation" 
+                <ToggleGroup id="togglegroup_orientation"
                     onValueChanged="on_change_orientation_wheel">
                     <HorizontalLayout>
                         <Toggle id="toggle_wheel_left">Left</Toggle>

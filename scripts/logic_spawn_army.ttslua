@@ -685,7 +685,10 @@ end
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
 -- validate
-function spawn_army(army_name, army, is_red_player, command_color)
+function spawn_army(army, is_red_player, command_color)
+    assert(nil ~= army)
+    local army_name = army.data.name
+    assert(nil ~= army_name)
     math.randomseed(os.time())
 
     local z_pos_0 = g_spawn_from_center_in
@@ -808,15 +811,6 @@ function get_author_base(base_definition)
     -- return get_author_model(model)
 end
 
-function book_has_an_army_with_models(book_dataname)
-    local book_armies = armies[book_dataname]
-    for army_name,army in pairs(book_armies) do
-        if is_army_with_models(army) then
-            return true
-        end
-    end
-    return false
-end
 
 function get_first_book_with_models()
     for book_name, book_armies in pairs(armies) do
@@ -827,30 +821,7 @@ function get_first_book_with_models()
     return nil
 end
 
-function get_first_army_with_models(book_dataname)
-    local book_armies = armies[book_dataname]
-    for army_name,army in pairs(book_armies) do
-        if is_army_with_models(army) then
-            return army_name
-        end
-    end
-    return nil
-end
 
-function update_book_menu(book_selected)
-    local options = {}
-    for book_name, book_armies in pairs(armies) do
-        if not g_filter_armies_models then
-            table.insert(options, dataname_to_friendlyname(book_name))
-        end
-
-        if g_filter_armies_models
-            and book_has_an_army_with_models(book_name) then
-            table.insert(options, dataname_to_friendlyname(book_name))
-        end
-    end
-    set_options_dropdown_by_id('dropdown_book', options, book_selected)
-end
 
 function update_player_color_menu(is_player_red)
     local selected = 2
@@ -863,7 +834,8 @@ end
 
 function pairsByKeys (t, f)
     local a = {}
-    for n in pairs(t) do table.insert(a, n)
+    for n in pairs(t) do 
+        table.insert(a, n)
     end
     table.sort(a, f)
     local i = 0      -- iterator variable
@@ -878,25 +850,6 @@ function pairsByKeys (t, f)
     return iter
 end
 
-function is_army_model_filtered_in(army)
-  if not g_filter_armies_models then
-    return true
-  end
-   return is_army_with_models(army)
-end
-
-function update_armies_menu(book, army_selected)
-    -- Sort by army name alphabetically
-    local options = {}
-    for army_name, army in pairsByKeys(book) do
-        if is_army_model_filtered_in(army) then
-            table.insert(options, army_name)
-        end
-    end
-
-    set_options_dropdown_by_id('dropdown_army', options, army_selected)
-    g_army_selected = options[army_selected]
-end
 
 g_current_table = nil
 function spawn_table_obj(model_url, texture_array_urls, is_large)

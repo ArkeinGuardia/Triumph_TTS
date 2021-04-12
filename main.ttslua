@@ -35,6 +35,34 @@
 #include fake_meshwesh/army_data/all_armies
 #include scripts/data/data_models
 
+-- Add missing data for the legacy armies
+for theme,armies_in_theme in pairs(armies) do
+  for army_id, army_table in pairs(armies_in_theme) do
+    if nil == army_table['data'] then
+      army_table['data'] = {}
+    end
+    if nil == army_table.data['id'] then
+      army_table.data['id'] = army_id
+    end
+    if nil == army_table.data['name'] then
+      army_table.data['name'] = army_id
+    end
+    if nil == army_dates[army_table.data.id] then
+      army_dates[army_table.data.id] = {}
+      army_dates[army_table.data.id]["all"] = army_table.data.id
+    end
+    if nil == army[army_table.data.id] then
+      army[army_table.data.id] = army_table
+    end
+  end
+end
+
+-- Add Meshwesh army definitions to armies so they can take part
+-- in the menu
+--armies["All"] = {}
+--for _,mw_army in pairs(army) do
+--  armies['All'][mw_army.data.name] = mw_army
+--end
 
 function onSave()
   local saved_data = JSON.encode(g_decorations)
