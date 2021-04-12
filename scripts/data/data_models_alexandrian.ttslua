@@ -7,6 +7,8 @@
 army['5fb1b9dde1af06001770961d'].data.has_models = true
 -- Alexandrian Macedonian
 army['5fb1b9dde1af060017709623'].data.has_models = true
+-- Diadachoii in Macedon
+army['5fb1b9dee1af060017709659'].data.has_models = true
 
     --Companions - Kn General
     g_models[g_str_5fb1ba27e1af06001770ca7c_general] = {
@@ -59,7 +61,7 @@ army['5fb1b9dde1af060017709623'].data.has_models = true
         base = 'tile_grass_40x15',
         n_models = 4,
         fixed_models = {
-          [1] = 'troop_successors_pike2_black',
+          [1] = 'troop_successors_pike1_black',
           [2] = 'troop_successors_pike2_black',
           [3] = 'troop_successors_cavalry_general',
           [4] = 'troop_successors_pike2_black'
@@ -82,7 +84,7 @@ army['5fb1b9dde1af060017709623'].data.has_models = true
         n_models = 4,
         fixed_models = {
           [1] = 'troop_successors_pike1',
-          [2] = 'troop_successors_pike1',
+          [2] = 'troop_successors_pike2',
           [3] = 'troop_successors_cavalry_general',
           [4] = 'troop_successors_pike1'
       }
@@ -140,7 +142,13 @@ army['5fb1b9dde1af060017709623'].data.has_models = true
     g_models[g_str_5fb1ba27e1af06001770ca91] = {
       {
         base = 'tile_grass_40x20',
-        model_data = 'troop_successors_psiloi'
+        random_models = {
+          'troop_successors_psiloi',
+          'troop_successors_psiloi_black',
+          'troop_successors_psiloi_red',
+          'troop_successors_psiloi_blue',
+          'troop_successors_psiloi_green'
+        }
       }
     }
 
@@ -186,15 +194,39 @@ army['5fb1b9dde1af060017709623'].data.has_models = true
     --Thessalian Horsemen - JavCav
     g_models[g_str_5fb1ba27e1af06001770caa3] = g_models[g_str_5fb1ba27e1af06001770ca80]
 
-    --Allied or mercenary Greek horsemen - BadHorse
+    --Allied or mercenary Greek horsemen - JavCav
     g_models[g_str_5fb1ba27e1af06001770caa5] = {
       {
         base = 'tile_grass_40x30',
-        model_data = 'troop_successors_lh_yellow'
+        fixed_models = {
+          [1] = 'troop_successors_cavalry_bodyguard',
+          [2] = 'troop_successors_cavalry_general_black',
+          [3] = 'troop_successors_cavalry_bodyguard'
+      }
       }
     }
 
     --Thracian or Paionian horsemen - JavCav
+    g_models[g_str_5fb1ba27e1af06001770caa7] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_thracian_lh'
+      }
+    }
+
+    --Thessalian horsemen - JavCav
+    g_models[g_str_5fb1ba27e1af06001770caa5] = {
+      {
+        base = 'tile_grass_40x30',
+        fixed_models = {
+          [1] = 'troop_successors_cavalry_bodyguard',
+          [2] = 'troop_successors_cavalry_general_black',
+          [3] = 'troop_successors_cavalry_bodyguard'
+      }
+      }
+    }
+
+    --Thessalian horsemen - JavCav
     g_models[g_str_5fb1ba27e1af06001770caa7] = {
       {
         base = 'tile_grass_40x30',
@@ -243,7 +275,7 @@ army['5fb1b9dde1af060017709623'].data.has_models = true
           model_data = 'troop_successors_el'
         }
     }
-    
+
     --Macedonian Camp
     g_models[g_str_5fb1b9dde1af060017709623_camp] = g_models[g_str_5fb1b9dde1af06001770961d_camp]
 
@@ -252,3 +284,222 @@ army['5fb1b9dde1af060017709623'].data.has_models = true
 
     --Macedonian Camp Trains and Herds - NOT YET
     --g_models[g_str_5fb1b9dde1af06001770961d_camp_pack_train] = g_models[g_str_5fb1b9dde1af06001770961d_camp_pack_train]
+
+
+-- Diadachoii in Macedon
+-- 320 BC to 279 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dee1af060017709659/explore
+-- As of: 20210412
+
+    --Xystophoroi - Kn General
+    g_models[g_str_5fb1ba28e1af06001770cb60_general] =  {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_cavalry_bodyguard_blue',
+            [2] = 'troop_successors_cavalry_general_red',
+            [3] = 'troop_successors_cavalry_bodyguard_blue'
+        }
+      }
+    }
+
+    --Xystophoroi - Kn
+    g_models[g_str_5fb1ba28e1af06001770cb60] =  {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_cavalry_bodyguard_blue'
+      }
+    }
+
+    --Greek mercenary horsemen - JavCav General
+    g_models[g_str_5fb1ba28e1af06001770cb62_general] ={
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_successors_lh_black',
+          [2] = 'troop_successors_cavalry_general_red'
+      }
+      }
+    }
+
+    --Greek mercenary horsemen - JavCav
+    g_models[g_str_5fb1ba28e1af06001770cb62] ={
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_lh_black'
+      }
+    }
+
+    --Thessalian Horsemen - JavCav General
+    g_models[g_str_5fb1ba28e1af06001770cb65_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_successors_cavalry_general_red',
+          [2] = 'troop_thracian_cv'
+      }
+      }
+    }
+
+    --Thessalian Horsemen - JavCav
+    g_models[g_str_5fb1ba28e1af06001770cb65] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_thracian_cv'
+      }
+    }
+
+    --Phalanx - Pikes General
+    g_models[g_str_5fb1ba28e1af06001770cb67_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_successors_pike1_blue',
+          [2] = 'troop_successors_pike2_blue',
+          [3] = 'troop_successors_cavalry_general',
+          [4] = 'troop_successors_pike1_blue'
+      }
+      }
+    }
+
+    --Phalanx - Pikes
+    g_models[g_str_5fb1ba28e1af06001770cb67] = {
+      {
+        base = 'tile_grass_40x15',
+        random_models = {
+          'troop_successors_pike1_blue',
+          'troop_successors_pike2_blue'
+        }
+      }
+    }
+
+    --Mercenary peltasts - LF General
+    g_models[g_str_5fb1ba28e1af06001770cb69_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_psiloi',
+            [2] = 'troop_successors_cavalry_general',
+            [3] = 'troop_successors_psiloi'
+        }
+      }
+    }
+
+    --Mercenary peltasts - LF
+    g_models[g_str_5fb1ba28e1af06001770cb69] = g_models[g_str_5fb1ba27e1af06001770ca91]
+
+    --Thracian, Illyrian, or Paionian light infantry - LF General
+    g_models[g_str_5fb1ba28e1af06001770cb6b_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_thracian_ax1',
+            [2] = 'troop_successors_cavalry_general',
+            [3] = 'troop_thracian_ax1'
+        }
+      },
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_thracian_axgen',
+            [2] = 'troop_successors_cavalry_general',
+            [3] = 'troop_thracian_axgen'
+        }
+      }
+    }
+
+    --Thracian, Illyrian, or Paionian light infantry - LF
+    g_models[g_str_5fb1ba28e1af06001770cb6b] = {
+      {
+        base = 'tile_grass_40x20',
+        random_models = {
+          'troop_thracian_ax1',
+          'troop_thracian_axgen'
+        }
+      }
+    }
+
+    --Epeirote allied light infantr - LF General
+    g_models[g_str_5fb1ba28e1af06001770cb6e_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_ax_green',
+            [2] = 'troop_successors_cavalry_general',
+            [3] = 'troop_successors_ax_red'
+        }
+      },
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_cavalry_general',
+            [2] = 'troop_successors_ax_blue',
+            [3] = 'troop_successors_ax'
+        }
+      },
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_ax_black',
+            [2] = 'troop_successors_ax',
+            [3] = 'troop_successors_cavalry_general'
+        }
+      }
+    }
+
+    --Epeirote allied light infantr - LF
+    g_models[g_str_5fb1ba28e1af06001770cb6e] = {
+      {
+        base = 'tile_grass_40x20',
+        random_models = {
+          'troop_successors_ax_red',
+          'troop_successors_ax_blue',
+          'troop_successors_ax_green',
+          'troop_successors_ax_black',
+          'troop_successors_ax',
+        }
+      }
+    }
+
+    --Greek subject hoplites - HF
+    g_models[g_str_5fb1ba28e1af06001770cb71] = g_models[g_str_5fb1ba27e1af06001770ca8d]
+
+    --Cretan or Macedonian skirmishing bowmen - Sk
+    g_models[g_str_5fb1ba28e1af06001770cb74] = g_models[g_str_5fb1ba27e1af06001770ca8b]
+
+    --War elephants
+    g_models[g_str_5fb1ba28e1af06001770cb76_general] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_el_red'
+      }
+  }
+
+    --War elephants
+    g_models[g_str_5fb1ba28e1af06001770cb76] = {
+        {
+          base = 'tile_grass_40x40',
+          n_models = 1,
+          model_data = 'troop_successors_el_blue'
+        }
+    }
+
+    --Bolt-shooters - Art
+    g_models[g_str_5fb1ba28e1af06001770cb78] = g_models[g_str_5fb1ba27e1af06001770ca94]
+
+    --Diadachoii Camp
+    g_models[g_str_5fb1b9dee1af060017709659_camp] = g_models[g_str_5fb1b9dde1af06001770961d_camp]
+
+    --Diadachoiin Camp Fort
+    g_models[g_str_5fb1b9dee1af060017709659_camp_fortified] = g_models[g_str_5fb1b9dde1af06001770961d_camp_fortified]
