@@ -294,12 +294,22 @@ function update_years_menu()
     index = 0
     local dates_for_army = army_dates[g_army_id_selected]
     assert(nil ~= dates_for_army)
-    for year,_ in pairs(dates_for_army) do
-        index = index + 1
-        table.insert(options, year)
-        if year == g_year_selected then
-          selected = year
-          selected_index = index
+
+    -- skip the selected army?  If there are multiple time periods do 
+    -- not include the all encompassing period.
+    local skip = nil
+    if tlen(dates_for_army) > 1 then
+      skip = g_army_id_selected
+    end
+      
+    for year,army_id in pairs(dates_for_army) do
+        if skip ~= army_id then
+          index = index + 1
+          table.insert(options, year)
+          if year == g_year_selected then
+            selected = year
+            selected_index = index
+          end
         end
     end
     if selected == nil then
