@@ -244,9 +244,9 @@ end
 
 
 -- Check that the armies could be spawned
-function test_spawn_army(army_name)
+function test_spawn_army()
   -- setup
-  
+
   -- Test double
   get_undeployed_bag = function()
 	  return {
@@ -272,7 +272,7 @@ function test_spawn_army(army_name)
 
   -- Exercise
   for id,army_obj in pairs(army) do
-    spawn_army(army_obj.data.name, army_obj, false, 'red')
+    spawn_army(army_obj, false, 'red')
   end
 
   -- Cleanup
