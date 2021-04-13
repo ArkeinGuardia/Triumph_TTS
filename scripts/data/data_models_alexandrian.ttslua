@@ -199,12 +199,17 @@ army['5fb1b9dfe1af06001770970f'].data.has_models = true
     g_models[g_str_5fb1ba27e1af06001770caa0] = g_models[g_str_5fb1ba27e1af06001770ca7e]
 
     --Thessalian Horsemen - JavCav
-    g_models[g_str_5fb1ba27e1af06001770caa3] = g_models[g_str_5fb1ba27e1af06001770ca80]
-
-    --Allied or mercenary Greek horsemen - JavCav
+    g_models[g_str_5fb1ba27e1af06001770caa3] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_thracian_cv'
+      }
+    }
+    --Allied or mercenary Greek horsemen - Bad Horse
     g_models[g_str_5fb1ba27e1af06001770caa5] = {
       {
         base = 'tile_grass_40x30',
+        n_models = 3,
         fixed_models = {
           [1] = 'troop_successors_cavalry_bodyguard',
           [2] = 'troop_successors_cavalry_general_black',
@@ -218,26 +223,6 @@ army['5fb1b9dfe1af06001770970f'].data.has_models = true
       {
         base = 'tile_grass_40x30',
         model_data = 'troop_thracian_lh'
-      }
-    }
-
-    --Thessalian horsemen - JavCav
-    g_models[g_str_5fb1ba27e1af06001770caa5] = {
-      {
-        base = 'tile_grass_40x30',
-        fixed_models = {
-          [1] = 'troop_successors_cavalry_bodyguard',
-          [2] = 'troop_successors_cavalry_general_black',
-          [3] = 'troop_successors_cavalry_bodyguard'
-      }
-      }
-    }
-
-    --Thessalian horsemen - JavCav
-    g_models[g_str_5fb1ba27e1af06001770caa7] = {
-      {
-        base = 'tile_grass_40x30',
-        model_data = 'troop_thracian_cv'
       }
     }
 
@@ -290,7 +275,7 @@ army['5fb1b9dfe1af06001770970f'].data.has_models = true
     g_models[g_str_5fb1b9dde1af060017709623_camp_fortified] = g_models[g_str_5fb1b9dde1af06001770961d_camp_fortified]
 
     --Macedonian Camp Trains and Herds - NOT YET
-    --g_models[g_str_5fb1b9dde1af06001770961d_camp_pack_train] = g_models[g_str_5fb1b9dde1af06001770961d_camp_pack_train]
+    --g_models[g_str_5fb1b9dde1af060017709623_camp_pack_train] = 
 
 
 -- Diadachoii in Macedon
@@ -359,12 +344,7 @@ army['5fb1b9dfe1af06001770970f'].data.has_models = true
     }
 
     --Thessalian Horsemen - JavCav
-    g_models[g_str_5fb1ba28e1af06001770cb65] = {
-      {
-        base = 'tile_grass_40x30',
-        model_data = 'troop_thracian_cv'
-      }
-    }
+    g_models[g_str_5fb1ba28e1af06001770cb65] = g_models[g_str_5fb1ba27e1af06001770ca80]
 
     --Phalanx - Pikes General
     g_models[g_str_5fb1ba28e1af06001770cb67_general] = {
@@ -498,7 +478,7 @@ army['5fb1b9dfe1af06001770970f'].data.has_models = true
         n_models = 1,
         model_data = 'troop_successors_el_red'
       }
-  }
+    }
 
     --War elephants
     g_models[g_str_5fb1ba28e1af06001770cb76] = {
@@ -727,7 +707,10 @@ army['5fb1b9dfe1af06001770970f'].data.has_models = true
     g_models[g_str_5fb1ba28e1af06001770cba4] = {
       {
         base = 'tile_grass_40x15',
-        model_data = 'troop_successors_pike1_black'
+        random_models = {
+          'troop_successors_pike1_black',
+          'troop_successors_pike2_black'
+        }
       }
     }
 
