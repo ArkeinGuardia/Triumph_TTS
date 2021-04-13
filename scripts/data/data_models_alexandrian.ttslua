@@ -1,9 +1,4 @@
 -- Rise of Macedon
--- 359 BC to 336 BC
--- https://meshwesh.wgcwar.com/armyList/5fb1b9dde1af06001770961d/explore
--- As of: 20210411
-
--- Rise of Macedon
 army['5fb1b9dde1af06001770961d'].data.has_models = true
 -- Alexandrian Macedonian
 army['5fb1b9dde1af060017709623'].data.has_models = true
@@ -15,7 +10,17 @@ army['5fb1b9dee1af060017709671'].data.has_models = true
 army['5fb1b9dee1af060017709665'].data.has_models = true
 -- Early Ptolemaic
 army['5fb1b9dfe1af06001770970f'].data.has_models = true
+-- Eumenes
+army['5fb1b9dee1af06001770966b'].data.has_models = true
+-- Alketas
+army['5fb1b9dee1af06001770965f'].data.has_models = true
+-- Phyrric
+army['5fb1b9dee1af060017709677'].data.has_models = true
 
+-- Rise of Macedon
+-- 359 BC to 336 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dde1af06001770961d/explore
+-- As of: 20210411
 
     --Companions - Kn General
     g_models[g_str_5fb1ba27e1af06001770ca7c_general] = {
@@ -974,3 +979,277 @@ army['5fb1b9dfe1af06001770970f'].data.has_models = true
 
     --Early Ptolemaic Camp  Trains
     --g_models[g_str_5fb1b9dfe1af06001770970f_camp_pack_train] =
+
+
+-- Eumenes
+-- 320 BC to 316 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dee1af06001770966b/explore
+-- As of: 20210414
+
+    --Xystophoroi - Kn General
+    g_models[g_str_5fb1ba28e1af06001770cbbf_general] =  {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_cavalry_bodyguard_green',
+            [2] = 'troop_successors_cavalry_general_red',
+            [3] = 'troop_successors_cavalry_bodyguard_green'
+        }
+      }
+    }
+
+    --Xystophoroi - Kn
+    g_models[g_str_5fb1ba28e1af06001770cbbf] =  {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_cavalry_bodyguard_green'
+      }
+    }
+
+    --Persian or Thracian horsemen armed with javelins - JavCav General
+    g_models[g_str_5fb1ba28e1af06001770cbc1_general] ={
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_successors_lh_green',
+          [2] = 'troop_successors_cavalry_general_red'
+      }
+      }
+    }
+
+    --Persian or Thracian horsemen armed with javelins - JavCav
+    g_models[g_str_5fb1ba28e1af06001770cbc1] = g_models[g_str_5fb1ba28e1af06001770cb62]
+
+
+    --Agyraspids and Hypaspists - Pikes
+    g_models[g_str_5fb1ba28e1af06001770cbc3] = {
+      {
+        base = 'tile_grass_40x15',
+        random_models = {
+          'troop_successors_pike1_blue',
+          'troop_successors_pike2_blue'
+        }
+      }
+    }
+
+    --Pantodapoi phalanx - Pikes
+    g_models[g_str_5fb1ba28e1af06001770cbc5] = {
+      {
+        base = 'tile_grass_40x15',
+        random_models = {
+          'troop_successors_pike1_green',
+          'troop_successors_pike2_green'
+        }
+      }
+    }
+
+    --Pantodapoi phalanx - Pikes with Elephant Screen
+    g_models[g_str_5fb1ba28e1af06001770cbc5_elephant_screen] = {
+      {
+        base = 'tile_plain_40x10_El_Screen',
+        n_models = 0
+      }
+    }
+
+    --Greek mercenary peltasts - LF
+    g_models[g_str_5fb1ba28e1af06001770cbc8] = g_models[g_str_5fb1ba27e1af06001770ca91]
+
+    --Greek mercenary hoplites - HF
+    g_models[g_str_5fb1ba28e1af06001770cbca] = g_models[g_str_5fb1ba27e1af06001770ca8d]
+
+    --Macedonian or mercenary skirmishing bowmen and slingers - Sk
+    g_models[g_str_5fb1ba28e1af06001770cbcd] = g_models[g_str_5fb1ba28e1af06001770cbea]
+
+    --Persian skirmising bowmen and slingers - Sk
+    g_models[g_str_5fb1ba28e1af06001770cbcf] = {
+      {
+        base = 'tile_grass_40x20',
+        loose = true,
+        model_data = 'troop_ancient_spanish_slingers'
+      }
+    }
+    --Akontistai - Rabble
+    g_models[g_str_5fb1ba28e1af06001770cbd1] = g_models[g_str_5fb1ba28e1af06001770cbae]
+
+    --Indian War elephants
+    g_models[g_str_5fb1ba28e1af06001770cbd4] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_successors_el_green'
+      },
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_carthaginian_elephant'
+      }
+   }
+    --Eumenes Camp
+    g_models[g_str_5fb1b9dee1af06001770966b_camp] = g_models[g_str_5fb1b9dde1af06001770961d_camp]
+
+    --Eumenes Camp Fort
+    g_models[g_str_5fb1b9dee1af06001770966b_camp_fortified] = g_models[g_str_5fb1b9dde1af06001770961d_camp_fortified]
+
+
+-- Alketas
+-- 320 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dee1af06001770965f/explore
+-- As of: 20210414
+
+    --Xystophoroi - Kn General
+    g_models[g_str_5fb1ba28e1af06001770cb86_general] =  {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_cavalry_bodyguard_green',
+            [2] = 'troop_successors_cavalry_general_yellow',
+            [3] = 'troop_successors_cavalry_bodyguard_green'
+        }
+      }
+    }
+
+    --Xystophoroi - Kn
+    g_models[g_str_5fb1ba28e1af06001770cb86] = g_models[g_str_5fb1ba28e1af06001770cbbf]
+
+    --Persian or Thracian horsemen armed with javelins - JavCav General
+    g_models[g_str_5fb1ba28e1af06001770cb88_general] ={
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_successors_lh_green',
+          [2] = 'troop_successors_cavalry_general_yellow'
+      }
+      }
+    }
+
+    --Persian or Thracian horsemen armed with javelins - JavCav
+    g_models[g_str_5fb1ba28e1af06001770cb88] = g_models[g_str_5fb1ba28e1af06001770cb62]
+
+    --Pantodapoi phalanx - Pikes
+    g_models[g_str_5fb1ba28e1af06001770cb8a] = {
+      {
+        base = 'tile_grass_40x15',
+        random_models = {
+          'troop_successors_pike1_green',
+          'troop_successors_pike2_green'
+        }
+      }
+    }
+
+    --Greek mercenary peltasts - LF
+    g_models[g_str_5fb1ba28e1af06001770cb8c] = g_models[g_str_5fb1ba27e1af06001770ca91]
+
+    --Greek mercenary hoplites - HF
+    g_models[g_str_5fb1ba28e1af06001770cb8e] = g_models[g_str_5fb1ba27e1af06001770ca8d]
+
+    --Macedonian or mercenary skirmishing bowmen and slingers - Sk
+    g_models[g_str_5fb1ba28e1af06001770cb91] = g_models[g_str_5fb1ba28e1af06001770cbea]
+
+    --Akontistai - Rabble
+    g_models[g_str_5fb1ba28e1af06001770cb93] = g_models[g_str_5fb1ba28e1af06001770cbae]
+
+    --Psidian peltasts - LF
+    g_models[g_str_5fb1ba28e1af06001770cb95] = g_models[g_str_5fb1ba28e1af06001770cbf4]
+
+    --Alketas Camp
+    g_models[g_str_5fb1b9dee1af06001770965f_camp] = g_models[g_str_5fb1b9dde1af06001770961d_camp]
+
+    --Alketas Camp Fort
+    g_models[g_str_5fb1b9dee1af06001770965f_camp_fortified] = g_models[g_str_5fb1b9dde1af06001770961d_camp_fortified]
+
+
+
+-- Phyrric
+-- 300 BC to 272 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dee1af060017709677/explore
+-- As of: 20210412
+
+    --Epeirot or Macedonian horsemen - Kn General
+    g_models[g_str_5fb1ba28e1af06001770cc01_general] = g_models[g_str_5fb1ba27e1af06001770ca7c_general]
+
+    --Epeirot or Macedonian horsemen - Kn
+    g_models[g_str_5fb1ba28e1af06001770cc01] = g_models[g_str_5fb1ba27e1af06001770ca7c]
+
+    --Thessalian, Oscan, or Greek ally horsemen - JavCav General
+    g_models[g_str_5fb1ba28e1af06001770cc04_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_successors_cavalry_general',
+          [2] = 'troop_thracian_cv'
+        }
+      }
+    }
+
+    --Thessalian, Oscan, or Greek ally horsemen - JavCav
+    g_models[g_str_5fb1ba28e1af06001770cc04] = g_models[g_str_5fb1ba27e1af06001770caa3]
+
+    --Thessalian, Oscan, or Greek ally horsemen - Bad Horse
+    g_models[g_str_5fb1ba28e1af06001770cc05] = g_models[g_str_5fb1ba27e1af06001770caa7]
+
+    --Horsemen with shields in Tarentine style - JavCav General
+    g_models[g_str_5fb1ba28e1af06001770cc08_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_successors_lh',
+          [2] = 'troop_successors_cavalry_general'
+        }
+      }
+    }
+
+    --Horsemen with shields in Tarentine style - JavCav
+    g_models[g_str_5fb1ba28e1af06001770cc08] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_lh'
+      }
+    }
+
+    --Phalanx - Pikes
+    g_models[g_str_5fb1ba28e1af06001770cc0a] = g_models[g_str_5fb1ba27e1af06001770ca86]
+
+    --Phalanx - Pikes with Elephant Screen
+    g_models[g_str_5fb1ba28e1af06001770cc0a_elephant_screen] = {
+      {
+        base = 'tile_plain_40x10_El_Screen',
+        n_models = 0
+      }
+    }
+
+    --Skirmishing bowmen and slingers - Sk
+    g_models[g_str_5fb1ba28e1af06001770cc0d] = g_models[g_str_5fb1ba28e1af06001770cbea]
+
+    --Greek, Italiote, or Oscan javelinmen - LF
+    g_models[g_str_5fb1ba28e1af06001770cc0f] = g_models[g_str_5fb1ba27e1af06001770ca91]
+
+    --War elephants
+    g_models[g_str_5fb1ba28e1af06001770cc12] = {
+        {
+          base = 'tile_grass_40x40',
+          n_models = 1,
+          model_data = 'troop_successors_el'
+        },
+        {
+          base = 'tile_grass_40x40',
+          n_models = 1,
+          model_data = 'troop_carthaginian_elephant'
+        }
+    }
+    --Galatian fierce fighters - Warriors
+    g_models[g_str_5fb1ba28e1af06001770cc16] = g_models[g_str_5fb1ba27e1af06001770c87f_dismounted]
+
+    --Phyrric Camp
+    g_models[g_str_5fb1b9dee1af060017709677_camp] = g_models[g_str_5fb1b9dde1af06001770961d_camp]
+
+    --Phyrric Camp Fort
+    g_models[g_str_5fb1b9dee1af060017709677_camp_fortified] = g_models[g_str_5fb1b9dde1af06001770961d_camp_fortified]
+
+    --Phyrric Camp Trains and Herds - NOT YET
+    --g_models[g_str_5fb1b9dee1af060017709677_camp_pack_train] = g_models[g_str_5fb1b9dde1af06001770961d_camp_pack_train]
