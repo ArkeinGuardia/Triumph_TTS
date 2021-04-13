@@ -13,6 +13,9 @@ army['5fb1b9dee1af060017709659'].data.has_models = true
 army['5fb1b9dee1af060017709671'].data.has_models = true
 -- Antigonid
 army['5fb1b9dee1af060017709665'].data.has_models = true
+-- Early Ptolemaic
+army['5fb1b9dfe1af06001770970f'].data.has_models = true
+
 
     --Companions - Kn General
     g_models[g_str_5fb1ba27e1af06001770ca7c_general] = {
@@ -803,3 +806,188 @@ army['5fb1b9dee1af060017709665'].data.has_models = true
 
     --Antigonid Camp Fort
     g_models[g_str_5fb1b9dee1af060017709665_camp_fortified] = g_models[g_str_5fb1b9dde1af06001770961d_camp_fortified]
+
+
+-- Early Ptolemaic
+-- 320 BC to 275 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dfe1af06001770970f/explore
+-- As of: 20210414
+
+    --Xystophoroi - Kn General
+    g_models[g_str_5fb1ba29e1af06001770ce5b_general] =  {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_cavalry_bodyguard_red',
+            [2] = 'troop_successors_cavalry_general_black',
+            [3] = 'troop_successors_cavalry_bodyguard_red'
+        }
+      }
+    }
+
+    --Xystophoroi\nDeployment dismounted from Knights General - Pikes General
+    g_models[g_str_5fb1ba29e1af06001770ce5b_general_dismounted] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_successors_pike1_red',
+          [2] = 'troop_successors_pike1_red',
+          [3] = 'troop_successors_cavalry_general_black',
+          [4] = 'troop_successors_pike1_red'
+        }
+      }
+    }
+
+    --Xystophoroi\nDeployment dismounting as Pikes - Kn General
+    g_models[g_str_5fb1ba29e1af06001770ce5b_general_mounted] =  {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_successors_cavalry_bodyguard_red',
+            [2] = 'troop_successors_cavalry_general_black',
+            [3] = 'troop_successors_cavalry_bodyguard_red'
+        }
+      }
+    }
+
+    --Xystophoroi - Kn
+    g_models[g_str_5fb1ba29e1af06001770ce5b] =  {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_cavalry_bodyguard_red'
+      }
+    }
+
+    --Xystophoroi\nDeployment dismounted from Knights - Pikes
+    g_models[g_str_5fb1ba29e1af06001770ce5b_dismounted] =  {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_successors_pike1_red'
+      }
+    }
+
+    --Xystophoroi\nDeployment dismounting as Pikes - Kn
+    g_models[g_str_5fb1ba29e1af06001770ce5b_mounted] =  {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_cavalry_bodyguard_red'
+      }
+    }
+
+    --Greek mercenaries, Tarentines, or similar horsemen - JavCav General
+    g_models[g_str_5fb1ba29e1af06001770ce5e_general] ={
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_successors_lh_red',
+          [2] = 'troop_successors_cavalry_general_black'
+       }
+      }
+    }
+
+    --Greek mercenaries, Tarentines, or similar horsemen - JavCav
+    g_models[g_str_5fb1ba29e1af06001770ce5e] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_successors_lh_red'
+      }
+    }
+
+    --Phalanx - Pikes General
+    g_models[g_str_5fb1ba29e1af06001770ce60_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_successors_pike1_black',
+          [2] = 'troop_successors_pike1_black',
+          [3] = 'troop_successors_cavalry_general_green',
+          [4] = 'troop_successors_pike1_black'
+        }
+      }
+    }
+
+    --Phalanx - Pikes General with Elephant Screen
+    g_models[g_str_5fb1ba29e1af06001770ce60_general_elephant_screen] = {
+      {
+        base = 'tile_plain_40x10_El_Screen',
+        n_models = 0
+      }
+    }
+
+    --Phalanx - Pikes
+    g_models[g_str_5fb1ba29e1af06001770ce60] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_successors_pike1_black'
+      }
+    }
+
+    --Phalanx - Pikes with Elephant Screen
+    g_models[g_str_5fb1ba29e1af06001770ce60_elephant_screen] = {
+      {
+        base = 'tile_plain_40x10_El_Screen',
+        n_models = 0
+      }
+    }
+
+    --Mercenary peltasts - LF General
+    g_models[g_str_5fb1ba29e1af06001770ce63_general] = g_models[g_str_5fb1ba28e1af06001770cb69_general]
+
+    --Greek mercenary peltasts - LF
+    g_models[g_str_5fb1ba29e1af06001770ce63] = g_models[g_str_5fb1ba27e1af06001770ca91]
+
+    --Thracian light infantry - LF
+    g_models[g_str_5fb1ba29e1af06001770ce65_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_thracian_ax1',
+            [2] = 'troop_successors_cavalry_general_black',
+            [3] = 'troop_thracian_ax1'
+        }
+      },
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_thracian_axgen',
+            [2] = 'troop_successors_cavalry_general_black',
+            [3] = 'troop_thracian_axgen'
+        }
+      }
+    }
+    --Thracian light infantry - LF
+    g_models[g_str_5fb1ba29e1af06001770ce65] = g_models[g_str_5fb1ba28e1af06001770cb6b]
+
+    --Indian war elephants
+    g_models[g_str_5fb1ba29e1af06001770ce68] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_carthaginian_elephant'
+      }
+    }
+
+    --Cretan skirmishing bowmen - Sk
+    g_models[g_str_5fb1ba29e1af06001770ce6b] = g_models[g_str_5fb1ba27e1af06001770ca8b]
+
+    --Akontistai - Rabble
+    g_models[g_str_5fb1ba29e1af06001770ce6d] = g_models[g_str_5fb1ba28e1af06001770cbae]
+
+    --Bolt-shooters - Art
+    g_models[g_str_5fb1ba29e1af06001770ce6f] = g_models[g_str_5fb1ba27e1af06001770ca94]
+
+    --Early Ptolemaic Camp
+    g_models[g_str_5fb1b9dfe1af06001770970f_camp] = g_models[g_str_5fb1b9dde1af06001770961d_camp]
+
+    --Early Ptolemaic Camp Fort
+    g_models[g_str_5fb1b9dfe1af06001770970f_camp_fortified] = g_models[g_str_5fb1b9dde1af06001770961d_camp_fortified]
+
+    --Early Ptolemaic Camp  Trains
+    --g_models[g_str_5fb1b9dfe1af06001770970f_camp_pack_train] =
