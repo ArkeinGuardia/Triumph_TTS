@@ -1,0 +1,87 @@
+@startuml
+' paste this file into https://www.planttext.com/
+
+title Relationships - Army Data Model
+
+class Armies {}
+
+class Armies_theme {
+}
+
+class BaseDefinition {
+  Id
+  min
+  max
+  description
+  boolean general
+  troop_type
+  troop_option_id
+}
+
+class Army {
+  name
+  id
+}
+
+class army_dates {
+  string date
+}
+
+class model {
+  Int n_models
+  Boolean loose
+ }
+
+class model_option {
+}
+
+class model_data {}
+class models {
+}
+
+class tile {
+  height_correction
+  scale
+  rotation
+  depth  
+  description
+  author
+  player_red_tex
+  player_blue_tex
+}
+
+
+class troop {
+  height_correction
+  scale
+  rotation
+  description
+  author
+  player_red_tex
+  player_blue_tex
+}
+
+class mesh {
+  String url
+}
+
+model "*" -> "1" "tile" : base
+
+troop "1" --> "+" mesh
+
+model_option "0" -> "1"  model_data : model_data
+model_option "0" -> "1"  models : fixed_models
+model_option "0" -> "1"  models : random_models
+models "*" --> "*" troop
+
+model "1" -down-> "*" model_option
+BaseDefinition "*" -right-> "*" model
+
+Army "*" -down-> "*"  BaseDefinition
+Armies_theme"*"  - "*" Army
+Armies "1" *- "*" Armies_theme : theme
+
+Army  "1" -> "*" army_dates
+army_dates "1" -> "1" Army
+
+@enduml
