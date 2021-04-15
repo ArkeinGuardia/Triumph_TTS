@@ -80,9 +80,6 @@ function add_context_menu_base(base_obj)
 end
 
 function add_context_menu_table(table_obj)
-    table_obj.addContextMenuItem('Rotate 180º', function()
-        rotate_table()
-    end)
     table_obj.addContextMenuItem('Fix terrain and lock', function()
         fix_terrain_and_lock()
     end)
@@ -925,12 +922,6 @@ function change_bases_to_terrain(terrain_type)
     end, 1)
 end
 
-function rotate_table()
-    local gametable = getObjectFromGUID(g_current_table)
-    local newrotation = gametable.getRotation()
-    newrotation['y'] = newrotation['y'] + 180
-    gametable.setRotation(newrotation)
-end
 
 function spawn_model(troop_name, pos, added_y_axis_rotation, collider, is_player_red, overridden_tex, overridden_mesh)
     -- Better pray that the input name actually exists! lol
