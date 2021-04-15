@@ -55,6 +55,8 @@ function get_valid_base_names_triumph()
   valid['Cataphracts']=true
   valid['Elephants']=true
   valid['Camp']=true
+
+  valid['Elephant Screen']=true
   return valid
  end
 
