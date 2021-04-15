@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Create the TTS army defintions.
 
 import json
@@ -75,6 +76,8 @@ def troop_type_to_name(troop_type) :
     return 'Light Spear'
   if troop_type == "Camp" :
     return 'Camp'
+  if troop_type == "Elephant Screen Counter" :
+    return  "Elephant Screen Counter"
   raise Exception("troop_type not understood: " + troop_type)
 
 def get_points_for_troop_type(troop_type) :
@@ -414,7 +417,24 @@ def write_elephant_screen(file, base_definition, battle_card) :
 
   elephants['elephant_screen'] = True
   write_base_definition(file, elephants) 
-  return [ elephants ]
+
+  elephant_screen_counter = {
+    'name' : 'Elephant Screen',
+    'troop_type' : 'Elephant Screen Counter',
+    'base_definition':'tile_plain_40x10_El_Screen'
+   }
+  elephant_screen_counter['id'] = elephants['id'] + "_elephant_screen_counter"
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    elephant_screen_counter["min"] = battle_card["min"]
+  else:
+    elephant_screen_counter["min"] = base_definition['min']
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    elephant_screen_counter["max"] = battle_card["max"]
+  else:
+    elephant_screen_counter["max"] = base_definition['max']
+  write_base_definition(file, elephant_screen_counter)
+
+  return [ elephants, elephant_screen_counter ]
 
 def write_plaustrella(file, base_definition, battle_card) :
   plaustrella = base_definition.copy()
