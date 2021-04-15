@@ -16,12 +16,37 @@ army['5fb1b9e8e1af060017709c95'].data.has_models = true
 
 g_models = {}
 
-    --Gallic Camp - We will use this for all unfortified camps
+    --Campfire - generic camp
+    --g_models[camp_campfire] = {
     g_models[g_str_5fb1b9dce1af06001770959d_camp] = {
       {
         base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_campfire'
+      }
+    }
+
+    --Horse + cart - Pack Trans camp generic
+    --g_models[camp_pack_trains_cart] = {
+    g_models[g_str_5fb1b9e1e1af060017709849_camp_pack_train] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 2,
+        fixed_models = {
+          'troop_camp_cart',
+          'troop_camp_horse'
+        }
+      }
+    }
+
+    --Camels - Pack Trans camp for armies with camels
+    --g_models[camp_pack_trains_camel] = {
+    g_models[g_str_5fb1b9d9e1af060017709335_camp_pack_train] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 2,
+        model_data = 'troop_camp_loaded_camel',
+        loose = true
       }
     }
 
@@ -36,6 +61,8 @@ g_models = {}
 
 --+sea people + hyksos
 #include data_models_early_egyptian
+
+
 
 -- Burgundian Ordonnance
 -- 1471 AD to 1477 AD
