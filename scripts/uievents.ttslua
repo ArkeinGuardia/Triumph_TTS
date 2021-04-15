@@ -97,7 +97,8 @@ function on_cancel_load_army(player, value, id)
 end
 
 function on_load_army(player, value, id)
-    spawn_army(army[g_army_id_selected], g_color_spawn_army_selected == 'Red', g_command_spawn_army_selected)
+print("spawning army ", g_army_id_to_deploy)
+    spawn_army(army[g_army_id_to_deploy], g_color_spawn_army_selected == 'Red', g_command_spawn_army_selected)
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
     UI.setAttribute('panel_dba_troop_selection_bg', 'active', false)
@@ -326,7 +327,7 @@ function update_years_menu()
     end
     g_year_selected = selected
     set_options_dropdown_by_id('dropdown_year', options, selected_index)
-    g_army_to_deploy = dates_for_army[g_year_selected]
+    g_army_id_to_deploy = dates_for_army[g_year_selected]
 end
 
 

@@ -287,5 +287,17 @@ function test_spawn_army()
 end
 
 
+-- Criteria for filtering out is one year more than the range of the army
+function test_base_definition_filtered_out_by_year_high_border()
+  for name,def in pairs(army['5fb1b9dde1af0600177095c0_-275_-226']) do
+    if name == "data" then
+      --ignore
+    else 
+      print(def.id)
+      lu.assertNotEquals( def.id, "5fb1ba27e1af06001770c8e8")
+    end 
+  end 
+end
+
 
 os.exit( lu.LuaUnit.run() )
