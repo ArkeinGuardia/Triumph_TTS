@@ -263,7 +263,7 @@ function meshes_from_model_name(model_name, how_many)
   local meshes = {}
   local model = model_from_model_name(model_name)
   if model == nil then
-    print_debug("No model: " .. tostring(model_name))
+    print_error("No model: " .. tostring(model_name))
     return meshes
   end
   local mesh = model['mesh']
