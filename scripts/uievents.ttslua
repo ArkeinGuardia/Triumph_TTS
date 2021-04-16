@@ -225,6 +225,43 @@ function is_theme_filtered_in(theme_name)
 end
 
 
+-- Comapre the names of two themes to indicate the display sort order.
+function theme_compare(a,b)
+  -- V1 goes to the top
+  local a_v1 = str_starts_with(a,"v1 ")
+  local b_v1 = str_starts_with(b,"v1 ")
+  if a_v1 and not b_v1 then
+    return true
+  end
+  if b_v1 and not a_v1 then
+    return false
+  end
+  if a_v1 and b_v1 then
+    return a < b
+  end
+
+  -- All should be last
+  local a_all = (a == "All")
+  if a_all then
+    return false
+  end
+  local b_all = (b == "All")
+  if b_all then
+    return true
+  end
+
+  -- Meshwesh special lists go at the end before all.
+  if str_starts_with(a, "Meshwesh") then
+    return false
+  end
+  if str_starts_with(b, "Meshwesh") then
+    return true
+  end
+
+  return a < b
+end
+
+
 -- Update the menu item for all the themes that match the filter criteria.
 -- filtered on model availablity.
 -- Updates g_theme_selected
@@ -233,7 +270,7 @@ function update_theme_menu()
     local selected_index = nil
     local options = {}
     local index = 0
-    for theme, army_name in pairs(armies) do
+    for theme, army_name in pairsByKeys(armies, theme_compare) do
         if is_theme_filtered_in(theme) then
             index = index + 1
             table.insert(options, theme)
@@ -302,15 +339,15 @@ function update_years_menu()
     local dates_for_army = army_dates[g_army_id_selected]
     assert(nil ~= dates_for_army)
 
-    -- skip the selected army?  If there are multiple time periods do 
+    -- skip the selected army?  If there are multiple time periods do
     -- not include the all encompassing period.
     local skip = nil
     if tlen(dates_for_army) > 1 then
 -- For development we will no longer skip any dates so we can see all the models
--- for all dates.    
+-- for all dates.
 --      skip = g_army_id_selected
     end
-      
+
     for year,army_id in pairs(dates_for_army) do
         if skip ~= army_id then
           index = index + 1
