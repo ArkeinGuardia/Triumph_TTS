@@ -152,7 +152,10 @@ function update_deploy_army_dialog()
                     on_next_frame(function()
                         update_years_menu()
                         on_next_frame(function()
+                          update_player_menu()
+                          on_next_frame(function()
                             UI.setAttribute('button_load_army', 'interactable', true)
+                          end)
                         end)
                     end)
                 end)
@@ -366,7 +369,14 @@ function update_years_menu()
     g_army_id_to_deploy = dates_for_army[g_year_selected]
 end
 
-
+function update_player_menu()
+  local options = {'Red', 'Blue'}
+  if g_color_spawn_army_selected == 'Red' then
+    set_options_dropdown_by_id('dropdown_playercolor', options, 1)
+  else
+    set_options_dropdown_by_id('dropdown_playercolor', options, 2)
+  end
+end
 
 function on_theme_selected(player, value, id)
     g_theme_selected = value
@@ -396,7 +406,7 @@ function on_year_selected(player, value, id)
 end
 
 g_color_spawn_army_selected = 'Red'
-function on_color_selected(player, value, id)
+function on_playercolor_selected(player, value, id)
     g_color_spawn_army_selected = value
 end
 
