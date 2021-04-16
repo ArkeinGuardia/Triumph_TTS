@@ -4,22 +4,17 @@
 -- player: either "red" or "blue"
 -- command_color
 function spawn_meshesh_army(army_id, player, command_color)
-print(6)
   local army_definition = army[army_id]
-print(9)
   if army_definition == nil then
     print_error("No army available with ID " .. tostring(army_id))
     return
   end
-print(14)
   local army_name = army_definition['data']['name']
   local is_red_player = (player == "red")
   if command_color == nil then
     command_color = player
   end
-  print("BEFORE spawn army")
   spawn_army(army_name, army_definition, is_red_player, command_color)
-  print("AFTER spawn army")
 end
 
 

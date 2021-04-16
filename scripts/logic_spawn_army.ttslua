@@ -244,6 +244,36 @@ function figures_per_base(troop_type)
 end
 
 
+function model_from_model_name(model_name)
+  if model_name == nil then
+    return nil
+  end
+  local model = _G[model_name]
+  if model == nil then
+    model = g_models[model_name]
+  end
+  return model
+end
+
+-- Randomly choose meshes
+-- model_name: Name of the model that determines the meshes that
+--   are available.
+-- how_many:  How many meshes to choose.
+function meshes_from_model_name(model_name, how_many)
+  local meshes = {}
+  local model = model_from_model_name(model_name)
+  if model == nil then
+    print_error("No model: " .. tostring(model_name))
+    return meshes
+  end
+  local mesh = model['mesh']
+  if nil == mesh then
+    return meshes
+  end
+  return calculate_random_meshes(how_many, mesh)
+end
+
+
 -- add models to base object
 -- base_name: Name of the base, e.g. "Camp"
 -- model_definition: definition of how the base should look like
@@ -279,15 +309,7 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
 
   local model_name = model_definition['model_data']
 
-  local meshes = {}
-
-  -- If the element has multiple nonfixed element, select randomly without
-  -- repeating
-  if model_name ~= nil then
-    if nil ~= _G[model_name]['mesh'] then
-      meshes = calculate_random_meshes(n, _G[model_name]['mesh'])
-    end
-  end
+  local meshes = meshes_from_model_name(model_name, n)
 
   local figure_iter -- iterator of next figure to add
   if model_name ~= nil then
@@ -300,7 +322,6 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
     print_error("model definition not understood")
     return nil
   end
-
 
   for i=1,n do
       local column = (i - 1) % columns + 1
@@ -420,7 +441,6 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     else
       texture_name = 'player_blue_tex'
     end
-
     local model_texture = model_base[texture_name]
     if (nil ~= model_texture) then
       overriden_tex = model_texture
@@ -452,7 +472,6 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
             base_obj.highlightOn({r=0.3,g=0,b=0.7}, 86400)
         end
     end
-
     local base_definition_name = base_definition['id']
     if base_definition_name == nil then
         -- LEGACY
@@ -773,7 +792,7 @@ function spawn_army(army, is_red_player, command_color)
                     x = g_offset_deployment_x + column * g_base_width_in_inches,
                     y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
                     z = row_z_pos
-                }
+}
                 local base_obj = spawn_base(base_definition, location, y_rotation, is_red_player, command_color)
                 last_troop_option = base_definition['troop_option_id']
                 if base_definition['dismounted_from'] ~= nil then
@@ -797,12 +816,10 @@ function spawn_army(army, is_red_player, command_color)
     end
 
     local note_pos = get_note_location(is_red_player)
-
     local angle = 180
     if is_red_player then
         angle = 0
     end
-
     local note_text = get_note_text(army)
 
     spawn_note(army_name, note_text,
@@ -816,6 +833,7 @@ function spawn_army(army, is_red_player, command_color)
       'Agressiveness: ' .. tostring(army['data']['Invasion']) .. "\n" ..
       'Terrain: ' .. tostring(army['data']['terrain']))
 end
+
 
 function get_author_tile(tilename)
     local tile = _G[tilename]
@@ -1021,6 +1039,10 @@ function spawn_asset(asset_name, pos, added_y_axis_rotation)
 end
 
 function calculate_random_meshes(how_many, meshes_available)
+    if type(how_many) ~= "number" then
+      print_error("how_many must be number not " .. type(how_many) .. ": ".. tostring(how_many))
+      return nil
+    end
     local aux = {}
     local meshes = {}
     for i = 1, how_many do
