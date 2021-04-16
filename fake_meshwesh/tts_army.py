@@ -465,6 +465,7 @@ def write_fortified_camp(file, camp_definition, battle_card) :
   fort['id'] = fort['id'] + "_fortified"
 
   fort['fortified_camp'] = True
+  fort['description'] = "Fortified camp"
   write_base_definition(file, fort) 
   return [ fort ]
 
