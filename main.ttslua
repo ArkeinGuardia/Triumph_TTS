@@ -79,6 +79,14 @@ function onload(saved_data)
     spawn_all_dice()
     print_tool_tip_status()
     restore_extra_data(saved_data)
+
+    -- Shuffle the terrain cards
+    local card =  getObjectFromGUID("f46bb5")
+    if card then
+      card.shuffle()
+    else
+      print_error("Unable to find card")
+    end
 end
 
 function restore_extra_data(saved_data)
