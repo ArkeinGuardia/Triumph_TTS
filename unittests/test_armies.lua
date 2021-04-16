@@ -172,6 +172,40 @@ function test_base_definitions_have_names()
 end
 
 
+function assert_base_definition_model_exist(base_definition)
+  local model_data = base_definition['model_data']
+  if "string" == type(model_data) then
+    local model = model_from_model_name(model_data)
+    if model == nil then
+      print("MODEL MISSING: ", model_data)
+    end
+    lu.assertTrue(nil ~= model)
+  end
+end
+
+
+function assert_base_definitions_models_exist(army_obj)
+  for base_id,base_data  in pairs(army_obj) do
+    if base_id ~= 'data' then
+      local base_definition = get_base_definition(base_data)
+      lu.assertTrue(nil ~= base_definition)
+      assert_base_definition_model_exist(base_definition)
+    end
+  end
+end
+
+
+function test_base_models_exist()
+  for themes,armies_in_theme in pairs(armies) do
+    for _,army_obj in pairs(armies_in_theme) do
+      assert_base_definitions_models_exist(army_obj)
+    end
+  end
+  for _,army_obj in pairs(army) do
+    assert_base_definitions_models_exist(army_obj)
+  end
+end
+
 
 
 -- Any base whose name is "_Mobile" is on a square base.
