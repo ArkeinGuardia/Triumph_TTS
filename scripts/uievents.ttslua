@@ -97,7 +97,6 @@ function on_cancel_load_army(player, value, id)
 end
 
 function on_load_army(player, value, id)
-print("spawning army ", g_army_id_to_deploy)
     spawn_army(army[g_army_id_to_deploy], g_color_spawn_army_selected == 'Red', g_command_spawn_army_selected)
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
