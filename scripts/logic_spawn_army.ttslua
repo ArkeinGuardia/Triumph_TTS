@@ -354,6 +354,34 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
   base_obj.auto_raise = false
 end
 
+-- Spawn the elephant screen counter and snap it to the top of the base.
+-- base_obj: base the counter will be on top of.
+-- base_definition: Definition for the base that the counter will be for.
+-- base_pos: Location of the base that the counter should be on top of.
+-- is_red_player: Is the player red or blue
+-- command_color: color of the command within the players army.
+function spawn_elephant_screen_counter(base_obj, base_definition, base_pos, is_red_player, command_color)
+  local counter_definition_id = base_definition['id'] .. "_elephant_screen_counter"
+  local counter_definition = g_base_definitions[counter_definition_id]
+  if counter_definition == nil then
+    print_err("No base definition for " .. tostring(counter_definition_id))
+    return nil
+  end
+  counter_definition['elephant_screen'] = nil
+
+  local counter = spawn_base(counter_definition, base_pos, 0, is_red_player, command_color)
+  if counter == nil then
+    print_err("spawn_elephant_screen_counter failed " .. tostring(counter_definition_id))
+    return nil
+  end
+
+  local transform_moving = calculate_transform(counter)
+  local transform_resting = calculate_transform(base_obj)
+
+  snap_to_base(counter, transform_moving, base_obj, transform_resting, 'infront')
+end
+
+
 -- base: base_definition base_definition
 -- pos: position where the base will be located
 -- y_rotation: in degrees
@@ -445,6 +473,10 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
         is_red_player, pos, y_rotation)
     update_tool_tip(base_obj)
     add_context_menu_base(base_obj)
+
+    if base_definition['elephant_screen'] then
+      spawn_elephant_screen_counter(base_obj, base_definition, pos, is_red_player, command_color)
+    end
 
     return base_obj
 end
@@ -671,7 +703,7 @@ function get_undeployed_bag(is_red_player)
 end
 
 function move_base_to_undeployed(base_obj)
-  local is_red =  is_base_red_player(base_obj) 
+  local is_red =  is_base_red_player(base_obj)
   local bag = get_undeployed_bag(is_red)
   if bag == nil then
     print_error("bag is nil")
@@ -679,7 +711,7 @@ function move_base_to_undeployed(base_obj)
   end
   bag.putObject(base_obj)
 end
-    
+
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
@@ -745,7 +777,7 @@ function spawn_army(army, is_red_player, command_color)
                 local base_obj = spawn_base(base_definition, location, y_rotation, is_red_player, command_color)
                 last_troop_option = base_definition['troop_option_id']
                 if base_definition['dismounted_from'] ~= nil then
-                  -- Move the base into the undeployed bag 
+                  -- Move the base into the undeployed bag
                   move_base_to_undeployed(base_obj)
                 else
                   -- calculate the position for the next base.
@@ -831,9 +863,12 @@ function update_player_color_menu(is_player_red)
 end
 
 
+-- Provide an iterator to walk through a sorted table
+-- t: Table to sort
+-- f: Function to use to sort.
 function pairsByKeys (t, f)
     local a = {}
-    for n in pairs(t) do 
+    for n in pairs(t) do
         table.insert(a, n)
     end
     table.sort(a, f)

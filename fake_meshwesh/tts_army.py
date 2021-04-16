@@ -398,32 +398,32 @@ def write_charging_camelry(file, base_definition, battle_card) :
   return [ camels ]
 
 def write_elephant_screen(file, base_definition, battle_card) :
-  elephants = base_definition.copy()
+  with_elephants = base_definition.copy()
 
   if ("min" in battle_card)  and (battle_card["min"] is not None):
-    elephants["min"] = battle_card["min"]
+    with_elephants["min"] = battle_card["min"]
   if ("max" in battle_card)  and (battle_card["max"] is not None):
-    elephants["max"] = battle_card["max"]
+    with_elephants["max"] = battle_card["max"]
   if ('general' in base_definition) and (base_definition['general'] == True) :
-    elephants["max"] = 1
+    with_elephants["max"] = 1
 
-  elephants['id'] = elephants['id'] + "_elephant_screen"
+  with_elephants['id'] = with_elephants['id'] + "_elephant_screen"
 
-  if 'description' not in elephants :
-    elephants['description'] = ""
+  if 'description' not in with_elephants :
+    with_elephants['description'] = ""
   else:
-    elephants['description'] += "\\n"
-  elephants['description'] += "Elephant Screen"
+    with_elephants['description'] += "\\n"
+  with_elephants['description'] += "Elephant Screen"
 
-  elephants['elephant_screen'] = True
-  write_base_definition(file, elephants) 
+  with_elephants['elephant_screen'] = True
+  write_base_definition(file, with_elephants) 
 
   elephant_screen_counter = {
     'name' : 'Elephant Screen',
     'troop_type' : 'Elephant Screen Counter',
-    'base_definition':'tile_plain_40x10_El_Screen'
+    'base_definition':'tile_plain_40x10_El_Screen',
    }
-  elephant_screen_counter['id'] = elephants['id'] + "_elephant_screen_counter"
+  elephant_screen_counter['id'] = with_elephants['id'] + "_elephant_screen_counter"
   if ("min" in battle_card)  and (battle_card["min"] is not None):
     elephant_screen_counter["min"] = battle_card["min"]
   else:
@@ -434,7 +434,7 @@ def write_elephant_screen(file, base_definition, battle_card) :
     elephant_screen_counter["max"] = base_definition['max']
   write_base_definition(file, elephant_screen_counter)
 
-  return [ elephants, elephant_screen_counter ]
+  return [ with_elephants ]
 
 def write_plaustrella(file, base_definition, battle_card) :
   plaustrella = base_definition.copy()
@@ -465,6 +465,7 @@ def write_fortified_camp(file, camp_definition, battle_card) :
   fort['id'] = fort['id'] + "_fortified"
 
   fort['fortified_camp'] = True
+  fort['description'] = "Fortified camp"
   write_base_definition(file, fort) 
   return [ fort ]
 
