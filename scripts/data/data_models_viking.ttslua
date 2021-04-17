@@ -245,3 +245,40 @@ army['5fb1b9e5e1af060017709a95'].data.has_models = true
         model_data = 'troop_campfire'
       }
     }
+
+
+
+-- Pre-Viking Scandinavian
+-- 450 AD to 789 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e5e1af060017709a95/explore
+-- As of: 20210417
+
+    -- Viking nobles and retainers - EF General
+    g_models[g_str_5fb1ba30e1af06001770da64_general] = g_models[g_str_5fb1ba30e1af06001770daa4_general]
+
+    -- Viking nobles and retainers - EF
+    g_models[g_str_5fb1ba30e1af06001770da64] = g_models[g_str_5fb1ba30e1af06001770daa4]
+
+    -- Hird - Heavy Foot
+    g_models[g_str_5fb1ba30e1af06001770da66] = g_models[g_str_5fb1ba30e1af06001770daa7]
+
+    -- Bowmen - Sk
+    g_models[g_str_5fb1ba30e1af06001770da68] = g_models[g_str_5fb1ba30e1af06001770daae]
+
+    -- Massed levy bowmen - Bow Levy
+    g_models[g_str_5fb1ba30e1af06001770da69] = g_models[g_str_5fb1ba2fe1af06001770da1b]
+
+    -- Thralls, levy, and dregs - Horde
+    g_models[g_str_5fb1ba30e1af06001770da6b] = {
+      {
+        base = 'tile_grass_40x30',
+        random_models = {
+          'troop_viking_hird_javelin',
+          'troop_viking_warrior',
+          'troop_viking_berserker'
+        }
+      }
+    }
+
+    --Pre-Viking Scandinavian Camp
+    g_models[g_str_5fb1b9e5e1af060017709a95_camp] = g_models[g_str_5fb1b9e5e1af060017709aae_camp]
