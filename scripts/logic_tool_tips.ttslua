@@ -68,7 +68,7 @@ function get_tool_tip_for_base(base_obj)
   local description = nil
   local base_definition = get_base_definition_from_base_obj(base_obj)
   if nil == base_definition then
-    print("no base definition for ", base_name)
+    print_debug("no base definition for ", base_name)
   else
     description = base_definition['description']  
   end
