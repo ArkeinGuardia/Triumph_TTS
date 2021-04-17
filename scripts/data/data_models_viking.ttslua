@@ -4,6 +4,11 @@ army['5fb1b9e5e1af060017709aae'].data.has_models = true
 army['5fb1b9e5e1af060017709aa8'].data.has_models = true
 -- Dublin or Manx Vikings
 army['5fb1b9e5e1af060017709ab6'].data.has_models = true
+-- Viking West Frisia
+army['5fb1b9e4e1af060017709a75'].data.has_models = true
+-- Pre-Viking Scandinavian
+army['5fb1b9e5e1af060017709a95'].data.has_models = true
+
 -- Viking
 -- 850 AD to 1280 AD
 -- https://meshwesh.wgcwar.com/armyList/5fb1b9e5e1af060017709aae/explore
@@ -180,3 +185,63 @@ army['5fb1b9e5e1af060017709ab6'].data.has_models = true
 
     --Dublin or Manx Vikings Trains
     g_models[g_str_5fb1b9e5e1af060017709ab6_camp_pack_train] = g_models[g_str_5fb1b9e5e1af060017709aae_camp_pack_train]
+
+
+
+-- Viking West Frisia
+-- 840 to 885 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e4e1af060017709a75/explore
+-- As of: 20210417
+
+    -- Viking nobles and retainers - EF General
+    g_models[g_str_5fb1ba2fe1af06001770da12_general] = g_models[g_str_5fb1ba30e1af06001770daa4_general]
+
+    -- Viking nobles and retainers - EF
+    g_models[g_str_5fb1ba2fe1af06001770da12] = g_models[g_str_5fb1ba30e1af06001770daa4]
+
+    -- Irish mercenaries - Light Spear
+    g_models[g_str_5fb1ba2fe1af06001770da14] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_viking_hird_spear'
+      }
+    }
+
+    -- Dardiers - Rabble
+    g_models[g_str_5fb1ba2fe1af06001770da16] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_viking_hird_javelin'
+      }
+    }
+
+    -- Dardiers - Light Foot
+    g_models[g_str_5fb1ba2fe1af06001770da17] = g_models[g_str_5fb1ba30e1af06001770dacc]
+
+    -- Javelinmen - Rabble
+    g_models[g_str_5fb1ba2fe1af06001770da19] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_viking_hird_javelin'
+      }
+    }
+
+    -- Massed levy bowmen - Bow Levy
+    g_models[g_str_5fb1ba2fe1af06001770da1b] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_viking_archers'
+      }
+    }
+
+    --Viking West Frisia Camp
+    g_models[g_str_5fb1b9e4e1af060017709a75_camp] = g_models[g_str_5fb1b9e5e1af060017709aae_camp]
+
+    --Viking West Frisia Trains
+    g_models[g_str_5fb1b9e4e1af060017709a75_camp_fortified] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_campfire'
+      }
+    }
