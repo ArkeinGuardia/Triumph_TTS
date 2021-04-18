@@ -395,3 +395,181 @@ army['5fb1b9d9e1af060017709349'].data.has_models = true
    
     --libyan Pack Trains
     g_models[g_str_5fb1b9d9e1af060017709349_camp_pack_train] = g_models[g_str_5fb1b9d9e1af060017709335_camp_pack_train]
+
+
+-- Hyksos
+-- 1645 BC to 1537 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9d9e1af060017709366/explore
+-- As of: 202104015
+
+    -- 2-horse chariots - Ch General
+    g_models[g_str_5fb1ba20e1af06001770c005_general] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        fixed_models = {
+            [1] = 'troop_hyksos_lch_gen'
+        }
+      }
+    }
+
+    -- 2-horse chariots - Ch
+    g_models[g_str_5fb1ba20e1af06001770c005] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        fixed_models = {
+            [1] = 'troop_hyksos_lch'
+        }
+      }
+    }
+
+    --Retainers armed with axe or sickle sword and javelins - Raiders
+    g_models[g_str_5fb1ba20e1af06001770c007] = g_models[g_str_5fb1ba1fe1af06001770bf84]
+
+    -- Retainers armed with bow - Archers
+    g_models[g_str_5fb1ba20e1af06001770c009] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_egyptian_bow'
+      }
+    }
+
+    --Light troops armed with javelin and shield - LF
+    g_models[g_str_5fb1ba20e1af06001770c00b] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_hyksos_bd1'
+      }
+    }
+
+    --Light troops armed with javelin - Rabble
+    g_models[g_str_5fb1ba20e1af06001770c00d] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_egyptian_skirmishers_javelin',
+            [2] = 'troop_egyptian_skirmishers_javelin_carrier',
+            [3] = 'troop_egyptian_skirmishers_javelin',
+        },
+        loose = true
+      }
+    }
+
+
+    --Light troops armed with bow or sling - Sk
+    g_models[g_str_5fb1ba20e1af06001770c00f] = g_models[g_str_5fb1ba1fe1af06001770bf90]
+
+    --Aamu nomads - Rabble
+    g_models[g_str_5fb1ba20e1af06001770c011] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_egyptian_horde_melee',
+        loose = true
+      }
+    }
+
+    --Egyptian levies - Horde
+    g_models[g_str_5fb1ba20e1af06001770c013] = g_models[g_str_5fb1ba1fe1af06001770bf87]
+
+    --Hyksos Camp
+    g_models[g_str_5fb1b9d9e1af060017709366_camp] = g_models[g_str_5fb1b9d9e1af060017709335_camp]
+   
+    --Hyksos Camp Pack Trains
+    g_models[g_str_5fb1b9d9e1af060017709366_camp_pack_train] = g_models[g_str_5fb1b9dde1af06001770961d_camp_pack_train]
+
+
+-- Sea Peoples
+-- 3000 BC to 2160 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9d9e1af0600177093b4/explore
+-- As of: 202104015
+
+    -- 2-wheeled battle platforms with teams of a driver and 2 javelinmen - Battle Taxi General
+    g_models[g_str_5fb1ba21e1af06001770c10e_general] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        fixed_models = {
+            [1] = 'troop_seapeople_hch_general'
+        }
+      }
+    }
+
+    -- 2-wheeled battle platforms with teams of a driver and 2 javelinmen - Battle Taxi
+    g_models[g_str_5fb1ba21e1af06001770c10e] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        fixed_models = {
+            [1] = 'troop_seapeople_lch_general'
+        }
+      }
+    }
+
+    -- Chieftains and their armored retinues - EF General
+    g_models[g_str_5fb1ba21e1af06001770c110_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_seapeople_bd_general'
+      }
+    }
+
+    -- Chieftains and their armored retinues - EF
+    g_models[g_str_5fb1ba21e1af06001770c110] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_seapeople_bd'
+      }
+    }
+
+    -- Common tribesmen of most Sea Peoples nations - Raiders General
+    g_models[g_str_5fb1ba21e1af06001770c112_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 4,
+        model_data = 'troop_seapeople_bd_general'
+      }
+    }
+
+    -- Common tribesmen of most Sea Peoples nations - Raiders
+    g_models[g_str_5fb1ba21e1af06001770c112] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_egyptian_bd3'
+      }
+    }
+
+    --Light troops armed with javelin - Rabble
+    g_models[g_str_5fb1ba21e1af06001770c114] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_seapeople_ax',
+        loose = true
+      }
+    }
+
+    --Light troops armed with bow or sling - Sk
+    g_models[g_str_5fb1ba21e1af06001770c116] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_seapeople_ps',
+        loose = true
+      }
+    }
+
+    --Egyptian levies - Horde
+    g_models[g_str_5fb1ba21e1af06001770c118] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_seapeople_ax',
+        loose = true
+      }
+    }
+    --Sea Peoples Camp
+    g_models[g_str_5fb1b9d9e1af0600177093b4_camp] = g_models[g_str_5fb1b9d9e1af060017709335_camp]
+   
+    --Sea Peoples Camp Fort
+    g_models[g_str_5fb1b9d9e1af0600177093b4_camp_fortified] = g_models[g_str_5fb1b9dde1af06001770961d_camp_pack_train]
+
