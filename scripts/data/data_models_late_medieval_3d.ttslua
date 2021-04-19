@@ -1,0 +1,157 @@
+--
+-- This file will include non-related armies that use
+-- the same base of 3D models, modified by Arkein.
+--
+-- Thses were the very first models and there are no
+-- differences besides colors and flags.
+-- We will replace 3D with Photogametry once we have
+-- The proper models
+--
+-- Early Renaissance Swiss
+army['5fb1b9e9e1af060017709d15'].data.has_models = true
+-- Later Swiss
+army['5fb1b9e9e1af060017709d0d'].data.has_models = true
+
+-- Early Renaissance Swiss
+-- 1478 AD to 1522 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e9e1af060017709d15/explore
+-- As of: 20210420
+
+
+    -- Pikemen mixed with some halberdiers - Pikes General
+    g_models[g_str_5fb1ba34e1af06001770e392_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_pikeman_swiss_inclined',
+          [2] = 'troop_pikeman_swiss_bannerman',
+          [3] = 'troop_pikeman_swiss_captain',
+          [4] = 'troop_halberdier_swiss'
+        }
+      }
+    }
+
+    -- Pikemen mixed with some halberdiers - Pikes
+    g_models[g_str_5fb1ba34e1af06001770e392] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_pikeman_swiss_inclined'
+      },
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_pikeman_swiss_straight'
+      }
+    }
+
+    --Separately deployed halberdiers, some with armor - Raiders
+    g_models[g_str_5fb1ba34e1af06001770e394] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_halberdier_swiss'
+      }
+    }
+
+    --Separately deployed halberdiers, some with armor - EF
+    g_models[g_str_5fb1ba34e1af06001770e395] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_halberdier_swiss'
+      }
+    }
+
+    -- Skirmishing handgunners - Sk
+    g_models[g_str_5fb1ba2fe1af06001770d988] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_handgunner_swiss'
+      }
+    }
+
+    -- Skirmishing handgunners - Sk
+    g_models[g_str_5fb1ba2fe1af06001770d988] = {
+      {
+        base = 'tile_grass_40x20',
+        random_models = {
+          'troop_handgunner_swiss',
+          'troop_crossbowman_swiss'
+        }
+      }
+    }
+
+    -- Early Renaissance Swiss Camp
+    g_models[g_str_5fb1b9e9e1af060017709d15_camp] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_camp_swiss'
+      }
+    }
+
+
+
+-- Later Swiss
+-- 1425 AD to 1477 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e9e1af060017709d0d/explore
+-- As of: 20210420
+
+
+    --Crossbowmen on horses - Bad Horse
+    g_models[g_str_5fb1ba34e1af06001770e37e] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_horse_rider_swiss'
+      }
+    }
+
+    --Crossbowmen on horses\nMid-battle dismounted from Bad Horse - Skirmishers
+    g_models[g_str_5fb1ba34e1af06001770e37e_dismounted] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_crossbowman_swiss'
+      }
+    }
+
+    --Crossbowmen on horses - Bad Horse
+    g_models[g_str_5fb1ba34e1af06001770e37e_mounted] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_horse_rider_swiss'
+      }
+    }
+
+    -- Pikemen mixed with some halberdiers - Pikes General
+    g_models[g_str_5fb1ba34e1af06001770e381_general] = g_models[g_str_5fb1ba34e1af06001770e392_general]
+
+    -- Pikemen mixed with some halberdiers - Pikes
+    g_models[g_str_5fb1ba34e1af06001770e381] = g_models[g_str_5fb1ba34e1af06001770e392]
+
+    --Separately deployed halberdiers, some with armor - Raiders
+    g_models[g_str_5fb1ba34e1af06001770e383] = g_models[g_str_5fb1ba34e1af06001770e394]
+
+    --Separately deployed halberdiers, some with armor - EF
+    g_models[g_str_5fb1ba34e1af06001770e384] = g_models[g_str_5fb1ba34e1af06001770e395]
+
+    -- Skirmishing handgunners - Sk
+    g_models[g_str_5fb1ba34e1af06001770e386] = g_models[g_str_5fb1ba2fe1af06001770d988]
+
+    -- Skirmishing handgunners - Sk
+    g_models[g_str_5fb1ba2fe1af06001770d988] = g_models[g_str_5fb1ba34e1af06001770e37e_dismounted]
+
+    -- Captured Burgundian artillery - Arty
+    g_models[g_str_5fb1ba34e1af06001770e38b] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_artillery_crew_swiss',
+            [2] = 'troop_artillery_pieces_swiss',
+            [3] = 'troop_artillery_crew_swiss'
+        }
+      }
+    }
+
+    -- Early Renaissance Swiss Camp
+    g_models[g_str_5fb1b9e9e1af060017709d0d_camp] = g_models[g_str_5fb1b9e9e1af060017709d15_camp]
+
+
