@@ -11,6 +11,10 @@
 army['5fb1b9e9e1af060017709d15'].data.has_models = true
 -- Later Swiss
 army['5fb1b9e9e1af060017709d0d'].data.has_models = true
+-- Burgundian Ordonnances
+army['5fb1b9e8e1af060017709c95'].data.has_models = true
+-- Hapsburg Burgundian
+army['5fb1b9e8e1af060017709c9d'].data.has_models = true
 
 -- Early Renaissance Swiss
 -- 1478 AD to 1522 AD
@@ -155,3 +159,290 @@ army['5fb1b9e9e1af060017709d0d'].data.has_models = true
     g_models[g_str_5fb1b9e9e1af060017709d0d_camp] = g_models[g_str_5fb1b9e9e1af060017709d15_camp]
 
 
+
+-- Burgundian Ordonnances
+-- 1471 AD to 1477 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e8e1af060017709c95/explore
+-- As of: 20210420
+
+
+    -- Ordonnance gendarmes and their coustilliers - Kn General
+    g_models[g_str_5fb1ba34e1af06001770e183_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_knight_burgundian_ordonnances',
+            [2] = 'troop_knight_burgundian_ordonnances_captain',
+            [3] = 'troop_knight_burgundian_ordonnances_bannerman'
+        },
+      }
+    }
+
+    -- Ordonnance gendarmes and their coustilliers\nDeployment dismounted from Knights General - EF General
+    g_models[g_str_5fb1ba34e1af06001770e183_general_dismounted] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+            [1] = 'troop_swordman_two_handed_burgundian_ordonnances',
+            [2] = 'troop_pikeman_burgundian_ordonnances_bannerman',
+            [3] = 'troop_pikeman_burgundian_ordonnances_captain',
+            [4] = 'troop_swordman_two_handed_burgundian_ordonnances'
+        },
+      }
+    }
+
+    -- Ordonnance gendarmes and their coustilliers - Kn General
+    g_models[g_str_5fb1ba34e1af06001770e183_general_mounted] = g_models[g_str_5fb1ba34e1af06001770e183_general]
+
+    -- Ordonnance gendarmes and their coustilliers - Kn
+    g_models[g_str_5fb1ba34e1af06001770e183] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_knight_burgundian_ordonnances'
+      }
+    }
+
+    -- Ordonnance gendarmes and their coustilliers\nDeployment dismounted from Knights General - EF
+    g_models[g_str_5fb1ba34e1af06001770e183_dismounted] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_swordman_two_handed_burgundian_ordonnances'
+      }
+    }
+
+    -- Ordonnance gendarmes and their coustilliers - Kn
+    g_models[g_str_5fb1ba34e1af06001770e183_mounted] = g_models[g_str_5fb1ba34e1af06001770e183]
+
+    -- Organ guns, bombards, and various other pieces - Arty
+    g_models[g_str_5fb1ba34e1af06001770e186] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_artillery_crew_burgundian_ordonnances',
+            [2] = 'troop_artillery_pieces_burgundian_ordonnances',
+            [3] = 'troop_artillery_crew_burgundian_ordonnances'
+        }
+      }
+    }
+
+    -- Ordonnance longbowmen and crossbowmen - Archers
+    g_models[g_str_5fb1ba34e1af06001770e188] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_crossbowman_burgundian_ordonnances'
+      },
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_longbowman_burgundian_ordonnances'
+      }
+    }
+
+    -- Ordonnance longbowmen and crossbowmen Dismounted- Archers
+    g_models[g_str_5fb1ba34e1af06001770e188_dismounted_mobile_infantry] = g_models[g_str_5fb1ba34e1af06001770e183]
+
+    -- Ordonnance longbowmen and crossbowmen Mounted- Archers
+    g_models[g_str_5fb1ba34e1af06001770e188_mounted_mobile_infantry] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 4,
+        model_data = 'troop_horse_rider_burgundian_ordonnances'
+      }
+    }
+
+    -- Ordonnance pikemen - Pikes
+    g_models[g_str_5fb1ba34e1af06001770e18b] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_pikeman_burgundian_ordonnances_inclined'
+      },
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_pikeman_burgundian_ordonnances_straight'
+      }
+    }
+
+    --mixed formations of pikemen and longbowmen - Pavisiers
+    g_models[g_str_5fb1ba34e1af06001770e18c] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 8,
+        fixed_models = {
+            [1] = 'troop_longbowman_burgundian_ordonnances',
+            [2] = 'troop_longbowman_burgundian_ordonnances',
+            [3] = 'troop_longbowman_burgundian_ordonnances',
+            [4] = 'troop_longbowman_burgundian_ordonnances',
+            [5] = 'troop_pikeman_burgundian_ordonnances_inclined',
+            [6] = 'troop_pikeman_burgundian_ordonnances_inclined',
+            [7] = 'troop_pikeman_burgundian_ordonnances_inclined',
+            [8] = 'troop_pikeman_burgundian_ordonnances_inclined'
+        },
+      }
+    }
+
+    -- Ordonnance handgunners - Sk
+    g_models[g_str_5fb1ba34e1af06001770e18e] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_handgunner_burgundian_ordonnances'
+      }
+    }
+
+    -- Italian men-at-arms - Kn General
+    g_models[g_str_5fb1ba34e1af06001770e190_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_knight_late_medieval',
+            [2] = 'troop_knight_late_medieval_captain',
+            [3] = 'troop_knight_italian_condotta_bannerman'
+        },
+      }
+    }
+
+    -- Italian men-at-arms - Kn
+    g_models[g_str_5fb1ba34e1af06001770e190] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_knight_late_medieval'
+      }
+    }
+
+    -- Italian Corssbowmen on horses
+    g_models[g_str_5fb1ba34e1af06001770e192] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_horse_rider_late_medieval'
+      }
+    }
+
+    -- Italian Corssbowmen
+    g_models[g_str_5fb1ba34e1af06001770e194] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_crossbowman_late_medieval'
+      }
+    }
+
+    -- Low Countries pikemen - Pikes
+    g_models[g_str_5fb1ba34e1af06001770e196] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_pikeman_late_medieval_inclined'
+      },
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_pikeman_late_medieval_straight'
+      }
+    }
+
+    -- Burgundian Ordonnance Camp
+    g_models[g_str_5fb1b9e8e1af060017709c95_camp] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_camp_burgundian_ordonnances'
+      }
+    }
+
+    -- Burgundian Ordonnance Camp Fort
+    g_models[g_str_5fb1b9e8e1af060017709c95_camp_fortified] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_camp_burgundian_ordonnances'
+      }
+    }
+
+
+-- Hapsburg Burgundian
+-- 1478 AD to 1506 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e8e1af060017709c9d/explore
+-- As of: 20210420
+
+
+    -- Ordonnance gendarmes and their coustilliers - Kn General
+    g_models[g_str_5fb1ba34e1af06001770e19f_general] = g_models[g_str_5fb1ba34e1af06001770e183_general]
+
+    -- Ordonnance gendarmes and their coustilliers\nDeployment dismounted from Knights General - EF General
+    g_models[g_str_5fb1ba34e1af06001770e19f_general_dismounted] = g_models[g_str_5fb1ba34e1af06001770e183_general_dismounted]
+
+    -- Ordonnance gendarmes and their coustilliers - Kn General
+    g_models[g_str_5fb1ba34e1af06001770e19f_general_mounted] = g_models[g_str_5fb1ba34e1af06001770e19f_general]
+
+    -- Ordonnance gendarmes and their coustilliers - Kn
+    g_models[g_str_5fb1ba34e1af06001770e19f] = g_models[g_str_5fb1ba34e1af06001770e183]
+
+    -- Ordonnance gendarmes and their coustilliers\nDeployment dismounted from Knights General - EF
+    g_models[g_str_5fb1ba34e1af06001770e19f_dismounted] = g_models[g_str_5fb1ba34e1af06001770e183_dismounted]
+
+    -- Ordonnance gendarmes and their coustilliers - Kn
+    g_models[g_str_5fb1ba34e1af06001770e19f_mounted] = g_models[g_str_5fb1ba34e1af06001770e19f]
+
+    -- Organ guns, bombards, and various other pieces - Arty
+    g_models[g_str_5fb1ba34e1af06001770e1a2] = g_models[g_str_5fb1ba34e1af06001770e186]
+
+    -- Ordonnance longbowmen and crossbowmen - Archers
+    g_models[g_str_5fb1ba34e1af06001770e1a4] = g_models[g_str_5fb1ba34e1af06001770e188]
+
+    -- Ordonnance longbowmen and crossbowmen Dismounted- Archers
+    g_models[g_str_5fb1ba34e1af06001770e1a4_dismounted_mobile_infantry] = g_models[g_str_5fb1ba34e1af06001770e1a4]
+
+    -- Ordonnance longbowmen and crossbowmen Mounted- Archers
+    g_models[g_str_5fb1ba34e1af06001770e1a4_mounted_mobile_infantry] = g_models[g_str_5fb1ba34e1af06001770e188_mounted_mobile_infantry]
+
+    -- Ordonnance pikemen - Pikes
+    g_models[g_str_5fb1ba34e1af06001770e1a7_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+            [1] = 'troop_pikeman_burgundian_ordonnances_straight',
+            [2] = 'troop_pikeman_burgundian_ordonnances_bannerman',
+            [3] = 'troop_pikeman_burgundian_ordonnances_captain',
+            [4] = 'troop_pikeman_burgundian_ordonnances_straight'
+        }
+      }
+    }
+
+    -- Ordonnance pikemen - Pikes
+    g_models[g_str_5fb1ba34e1af06001770e1a7] = g_models[g_str_5fb1ba34e1af06001770e18b]
+
+    -- Militia or mercenary crossbowmen - Archers
+    g_models[g_str_5fb1ba34e1af06001770e1a9] = {
+      {
+        base = 'tile_grass_40x20',
+        random_models = {
+          'troop_crossbowman_late_medieval',
+          'troop_crossbowman_burgundian_ordonnances'
+        }
+      }
+    }
+
+    -- Militia or mercenary handgunners - Sk
+    g_models[g_str_5fb1ba34e1af06001770e1ab] = {
+      {
+        base = 'tile_grass_40x20',
+        random_models = {
+          'troop_handgunner_late_medieval',
+          'troop_handgunner_burgundian_ordonnances'
+        }
+      }
+    }
+
+    -- English longbowmen - Archers
+    g_models[g_str_5fb1ba34e1af06001770e1ae] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_longbowman_late_medieval'
+      }
+    }
+
+    -- Burgundian Ordonnance Camp
+    g_models[g_str_5fb1b9e8e1af060017709c9d_camp] = g_models[g_str_5fb1b9e8e1af060017709c95_camp]
+
+    -- Burgundian Ordonnance Camp Fort
+    g_models[g_str_5fb1b9e8e1af060017709c9d_camp_fortified] = g_models[g_str_5fb1b9e8e1af060017709c95_camp_fortified]
