@@ -17,6 +17,8 @@ army['5fb1b9e8e1af060017709c95'].data.has_models = true
 army['5fb1b9e8e1af060017709c9d'].data.has_models = true
 -- Transitional Renaissance Spanish
 army['5fb1b9e7e1af060017709c19'].data.has_models = true
+-- Medieval Portuguese - latest representation
+army['5fb1b9e7e1af060017709bfd'].data.has_models = true
 
 -- Early Renaissance Swiss
 -- 1478 AD to 1522 AD
@@ -545,3 +547,132 @@ army['5fb1b9e7e1af060017709c19'].data.has_models = true
 
     -- Transitional Renaissance Spanish Camp Pack Train
     g_models[g_str_5fb1b9e7e1af060017709c19_camp_pack_train] = g_models[g_str_5fb1b9e1e1af060017709849_camp_pack_train]
+
+
+-- Medieval Portuguese
+-- 1340 AD to 1515 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e7e1af060017709bfd/explore 
+-- As of: 20210420
+
+
+    -- Men-at-arms - Kn General
+    g_models[g_str_5fb1ba32e1af06001770df47_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_knight_medieval_portuguese_bannerman',
+          [2] = 'troop_knight_late_medieval_captain',
+          [3] = 'troop_knight_late_medieval'
+        }
+      }
+    }
+
+
+    -- Men-at-arms\nDeployment dismounted from Knights General - EF General
+    g_models[g_str_5fb1ba32e1af06001770df47_general_dismounted] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+            [1] = 'troop_swordman_late_medieval',
+            [2] = 'troop_pikeman_medieval_portuguese_bannerman',
+            [3] = 'troop_pikeman_late_medieval_captain',
+            [4] = 'troop_halberdier_late_medieval'
+        }
+      }
+    }
+
+    -- Men-at-arms\nDeployment dismounted from Knights General- Kn
+    g_models[g_str_5fb1ba32e1af06001770df47_general_mounted] = g_models[g_str_5fb1ba32e1af06001770df47_general]
+
+
+    -- Men-at-arms - Kn
+    g_models[g_str_5fb1ba32e1af06001770df47] = g_models[g_str_5fb1ba33e1af06001770dfb1]
+
+    -- Men-at-arms\nDeployment dismounted from Knights - EF
+    g_models[g_str_5fb1ba32e1af06001770df47_dismounted] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_swordman_late_medieval'
+      }
+    }
+
+    -- Men-at-arms\nDeployment dismounted from Knights- Kn
+    g_models[g_str_5fb1ba32e1af06001770df47_mounted] = g_models[g_str_5fb1ba32e1af06001770df47]
+
+    -- Ginetes - Jav Cav
+    g_models[g_str_5fb1ba32e1af06001770df4a] = g_models[g_str_5fb1ba33e1af06001770dfb3]
+
+    -- Spearmen - Heavy Foot
+    g_models[g_str_5fb1ba32e1af06001770df4c] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_spearman_late_medieval'
+      }
+    }
+
+    -- Crossbow and bowmen - Bow Levy
+    g_models[g_str_5fb1ba32e1af06001770df4e] = {
+      {
+        base = 'tile_grass_40x30',
+        loose = true,
+        random_models = {
+          'troop_crossbowman_late_medieval',
+          'troop_bowman_late_medieval'
+        }
+      }
+    }
+
+    -- Crossbow and bowmen - Archers
+    g_models[g_str_5fb1ba32e1af06001770df4f] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_crossbowman_late_medieval'
+      },
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_bowman_late_medieval'
+      }
+    }
+
+    -- Skirmishing slingers - Sk [not precisely slingers yet]
+    g_models[g_str_5fb1ba32e1af06001770df51] = {
+      {
+        base = 'tile_grass_40x20',
+        loose = true,
+        model_data = 'troop_handgunner_late_medieval'
+      }
+    }
+
+    -- Grenadine mercenaries - Jav Cav [not even close to grenadine]
+    g_models[g_str_5fb1ba32e1af06001770df53] = g_models[g_str_5fb1ba33e1af06001770dfb3]
+
+    -- Javelinmen - LF
+    g_models[g_str_5fb1ba32e1af06001770df55] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_spearman_no_shield_late_medieval'
+      }
+    }
+
+    -- Peasants - Rabble
+    g_models[g_str_5fb1ba32e1af06001770df57] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_horde_late_medieval',
+        loose = true
+      }
+    }
+
+    -- Transitional Renaissance Spanish Camp
+    g_models[g_str_5fb1b9e7e1af060017709bfd_camp] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_camp_burgundian_ordonnances'
+      }
+    }
+
+    -- Medieval Portuguese Camp Pack Train
+    g_models[g_str_5fb1b9e7e1af060017709bfd_camp_pack_train] = g_models[g_str_5fb1b9e1e1af060017709849_camp_pack_train]
