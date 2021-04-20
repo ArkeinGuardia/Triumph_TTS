@@ -19,6 +19,8 @@ army['5fb1b9e8e1af060017709c9d'].data.has_models = true
 army['5fb1b9e7e1af060017709c19'].data.has_models = true
 -- Medieval Portuguese - latest representation
 army['5fb1b9e7e1af060017709bfd'].data.has_models = true
+-- Order of St. John
+army['5fb1b9eee1af06001770a00c'].data.has_models = true
 
 -- Early Renaissance Swiss
 -- 1478 AD to 1522 AD
@@ -676,3 +678,184 @@ army['5fb1b9e7e1af060017709bfd'].data.has_models = true
 
     -- Medieval Portuguese Camp Pack Train
     g_models[g_str_5fb1b9e7e1af060017709bfd_camp_pack_train] = g_models[g_str_5fb1b9e1e1af060017709849_camp_pack_train]
+
+
+-- Order of St. John
+-- 1291 AD to 1522 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9eee1af06001770a00c/explore
+-- As of: 20210420
+
+
+    -- Brother men-at-arms, sergeants, and turcopoles - Kn General
+    g_models[g_str_5fb1ba3be1af06001770f032_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_knight_saint_john_bannerman',
+          [2] = 'troop_knight_late_medieval_captain',
+          [3] = 'troop_knight_late_medieval'
+        }
+      }
+    }
+
+
+    -- Brother men-at-arms, sergeants, and turcopoles\nDeployment dismounted from Knights General - EF General
+    g_models[g_str_5fb1ba3be1af06001770f032_general_dismounted] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+            [1] = 'troop_swordman_late_medieval',
+            [2] = 'troop_pikeman_saint_john_bannerman',
+            [3] = 'troop_pikeman_late_medieval_captain',
+            [4] = 'troop_halberdier_late_medieval'
+        }
+      }
+    }
+
+    -- Brother men-at-arms, sergeants, and turcopoles\nDeployment dismounted from Knights General- Kn General
+    g_models[g_str_5fb1ba3be1af06001770f032_general_mounted] = g_models[g_str_5fb1ba3be1af06001770f032_general]
+
+    -- Men-at-arms - Kn
+    g_models[g_str_5fb1ba3be1af06001770f032] = g_models[g_str_5fb1ba33e1af06001770dfb1]
+
+    -- Men-at-arms\nDeployment dismounted from Knights - EF
+    g_models[g_str_5fb1ba3be1af06001770f032_dismounted] = g_models[g_str_5fb1ba32e1af06001770df47_dismounted]
+
+    -- Men-at-arms\nDeployment dismounted from Knights- Kn
+    g_models[g_str_5fb1ba3be1af06001770f032_mounted] = g_models[g_str_5fb1ba32e1af06001770df47]
+
+    -- Greek or colonist spearmen - HF General
+    g_models[g_str_5fb1ba3be1af06001770f035_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_spearman_late_medieval',
+          [2] = 'troop_pikeman_saint_john_bannerman',
+          [3] = 'troop_pikeman_late_medieval_captain',
+          [4] = 'troop_spearman_late_medieval'
+        }
+      }
+    }
+
+    -- Greek or colonist spearmen - Heavy Foot
+    g_models[g_str_5fb1ba3be1af06001770f035] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_spearman_late_medieval'
+      }
+    }
+
+    -- Greek bowmen and crossbowmen - Bow Levy
+    g_models[g_str_5fb1ba3be1af06001770f037_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        fixed_models = {
+            [1] = 'troop_crossbowman_late_medieval',
+            [2] = 'troop_pikeman_saint_john_bannerman',
+            [3] = 'troop_bowman_late_medieval'
+        },
+      }
+    }
+
+    -- Greek bowmen and crossbowmen - Bow Levy
+    g_models[g_str_5fb1ba3be1af06001770f037] = {
+      {
+        base = 'tile_grass_40x30',
+        loose = true,
+        random_models = {
+          'troop_crossbowman_late_medieval',
+          'troop_bowman_late_medieval'
+        }
+      }
+    }
+
+    -- Colonist crossbowmen - Archers General
+    g_models[g_str_5fb1ba3be1af06001770f039_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 4,
+        fixed_models = {
+            [1] = 'troop_crossbowman_late_medieval',
+            [2] = 'troop_pikeman_saint_john_bannerman',
+            [3] = 'troop_pikeman_late_medieval_captain',
+            [4] = 'troop_crossbowman_late_medieval'
+        }
+      }
+    }
+
+    -- Colonist crossbowmen - Archers
+    g_models[g_str_5fb1ba3be1af06001770f039] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_crossbowman_late_medieval'
+      }
+    }
+
+    -- Mercenary crossbowmen - Archers General
+    g_models[g_str_5fb1ba3be1af06001770f03b_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 4,
+        fixed_models = {
+            [1] = 'troop_crossbowman_swiss',
+            [2] = 'troop_pikeman_saint_john_bannerman',
+            [3] = 'troop_pikeman_swiss_captain',
+            [4] = 'troop_crossbowman_swiss'
+        }
+      }
+    }
+
+    -- Mercenary crossbowmen - Archers
+    g_models[g_str_5fb1ba3be1af06001770f03b] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_crossbowman_swiss'
+      }
+    }
+
+    -- Skirmishing Handgunners - Sk
+    g_models[g_str_5fb1ba3be1af06001770f03e] = {
+      {
+        base = 'tile_grass_40x20',
+        loose = true,
+        model_data = 'troop_handgunner_late_medieval'
+      }
+    }
+    
+    -- Mercenary halberdiers - EF General
+    g_models[g_str_5fb1ba3be1af06001770f041_general] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_halberdier_late_medieval',
+          [2] = 'troop_pikeman_saint_john_bannerman',
+          [3] = 'troop_pikeman_late_medieval_captain',
+          [4] = 'troop_halberdier_late_medieval'
+        }
+      }
+    }
+
+    -- Mercenary halberdiers - EF 
+    g_models[g_str_5fb1ba3be1af06001770f041] = {
+      {
+        base = 'tile_grass_40x15',
+        model_data = 'troop_halberdier_late_medieval'
+      }
+    }
+
+    -- Bombards and other guns - Arty 
+    g_models[g_str_5fb1ba3be1af06001770f044] = g_models[g_str_5fb1ba33e1af06001770dfbb]
+
+    -- Transitional Renaissance Spanish Camp
+    g_models[g_str_5fb1b9eee1af06001770a00c_camp] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_camp_burgundian_ordonnances'
+      }
+    }
