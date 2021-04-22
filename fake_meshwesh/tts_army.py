@@ -764,7 +764,8 @@ def generate_army_for_date(file, army_json, startDate, endDate, base_definitions
   name = army_name.replace("'", "\\'")
 
   file.write("    name='%s',\n" %(name))
-  file.write("    id='%s'\n" %(army_id))
+  file.write("    id='%s',\n" %(army_id))
+  file.write("    army_id='%s'\n" %(army_json['id']))
   file.write("  },\n")
 
   # Bases that make up the army
@@ -806,7 +807,8 @@ def generate_army(army_id) :
     name = army_name.replace("'", "\\'")
 
     file.write("    name='%s',\n" %(name))
-    file.write("    id='%s'\n" %(army_id))
+    file.write("    id='%s',\n" %(army_id))
+    file.write("    army_id='%s'\n" %(army_id))
     file.write("  },\n")
 
     # Bases that make up the army

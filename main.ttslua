@@ -10,10 +10,6 @@
 #include scripts/data/data_terrain
 #include scripts/data/data_troops
 #include scripts/data/data_troops_greek_successors
-#include scripts/data/data_armies_Biblical
-#include scripts/data/data_armies_Classical_Era
-#include scripts/data/data_armies_Dark_Ages
-#include scripts/data/data_armies_Medieval_Era
 #include scripts/data/data_cheat_sheet
 #include scripts/base_cache
 #include scripts/log
@@ -31,38 +27,9 @@
 #include scripts/logic_tool_tips
 #include scripts/logic
 #include scripts/uievents
-#include scripts/meshwesh
 #include fake_meshwesh/army_data/all_armies
 #include scripts/data/data_models
 
--- Add missing data for the legacy armies
-for theme,armies_in_theme in pairs(armies) do
-  for army_id, army_table in pairs(armies_in_theme) do
-    if nil == army_table['data'] then
-      army_table['data'] = {}
-    end
-    if nil == army_table.data['id'] then
-      army_table.data['id'] = army_id
-    end
-    if nil == army_table.data['name'] then
-      army_table.data['name'] = army_id
-    end
-    if nil == army_dates[army_table.data.id] then
-      army_dates[army_table.data.id] = {}
-      army_dates[army_table.data.id]["all"] = army_table.data.id
-    end
-    if nil == army[army_table.data.id] then
-      army[army_table.data.id] = army_table
-    end
-  end
-end
-
--- Add Meshwesh army definitions to armies so they can take part
--- in the menu
---armies["All"] = {}
---for _,mw_army in pairs(army) do
---  armies['All'][mw_army.data.name] = mw_army
---end
 
 function onSave()
   local saved_data = JSON.encode(g_decorations)
@@ -85,8 +52,20 @@ function onload(saved_data)
     if card then
       card.shuffle()
     else
-      print_error("Unable to find card")
+      print_error("Unable to find terraom card")
     end
+
+    set_tablet_homepage("red tablet")
+    set_tablet_homepage("blue tablet")
+end
+
+function set_tablet_homepage(tablet_name)
+  local tablet = get_object_by_name(tablet_name)
+  if tablet == nil then
+    print_error("Unable to find " .. tablet_name)
+  else
+    tablet.Browser.url = "https://meshwesh.wgcwar.com"
+  end
 end
 
 function restore_extra_data(saved_data)
