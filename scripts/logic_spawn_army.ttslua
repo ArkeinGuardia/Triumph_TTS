@@ -665,54 +665,6 @@ function get_base_definition(base_data)
   return nil
 end
 
-function get_note_text(army)
-    local invasion=""
-    if army['data']['Invasion'] ~= nil then
-        invasion = army['data']['Invasion']
-    end
-
-    local maneuver=""
-    if army['data']['maneuver'] ~= nil then
-        invasion = army['data']['maneuver']
-    end
-
-    local terrain=""
-    if army['data']['terrain'] ~= nil then
-        terrain = army['data']['terrain']
-    end
-
-    local list=""
-    if army['data']['list'] ~= nil then
-        list = army['data']['list']
-    end
-
-    local general=""
-    if army['data']['general'] ~= nil then
-        list = army['data']['general']
-    end
-
-    local maker = ''
-    if army['data']['manufacturer'] ~= nil then
-        maker = '\n\nMiniatures by: ' .. army['data']['manufacturer']
-    end
-
-    local text =
-        'Invasion: ' .. tostring(invasion) .. '. Maneuver: ' .. tostring(maneuver) .. '\n'
-        .. 'Terrain: ' .. tostring(terrain) .. '\n'
-        .. tostring(list) .. '\n'
-        .. tostring(general) .. '\n'
-        .. maker
-    return text
-end
-
-function get_note_location(is_red_player)
-  if is_red_player then
-    return { x=10, y=1.07, z=-26.5}
-  else
-    return { x=10, y=1.07, z=26.5}
-  end
-end
-
 function get_undeployed_bag(is_red_player)
   if is_red_player then
     return get_object_by_name("Red undeployed")
@@ -731,6 +683,23 @@ function move_base_to_undeployed(base_obj)
   bag.putObject(base_obj)
 end
 
+-- Have the tablet show the Meshwesh page for the army.
+function set_tablet(is_red_player, army)
+  local table_name
+  if is_red_player then
+    tablet_name = "red tablet"
+  else
+    tablet_name = "blue tablet"
+  end
+  local tablet = get_object_by_name(tablet_name)
+  if tablet == nil then
+    print_error("Unable to find tablet " .. tablet_name)
+    return
+  end
+
+  local url = "https://meshwesh.wgcwar.com/armyList/" ..  army['data']['army_id'] .. "/explore"
+  tablet.Browser.url = url
+end
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
@@ -815,23 +784,9 @@ function spawn_army(army, is_red_player, command_color)
         end
     end
 
-    local note_pos = get_note_location(is_red_player)
-    local angle = 180
-    if is_red_player then
-        angle = 0
-    end
-    local note_text = get_note_text(army)
-
-    spawn_note(army_name, note_text,
-        note_pos,
-        angle)
-
+    set_tablet(is_red_player, army)
     update_tool_tips()
-    print_important('Army deployed: ' .. army_name .. ', see chat for options')
-    print_info(
-      'List: ' .. tostring(army['data']['list']) .. "\n" ..
-      'Agressiveness: ' .. tostring(army['data']['Invasion']) .. "\n" ..
-      'Terrain: ' .. tostring(army['data']['terrain']))
+    print_important('Army deployed: ' .. army.data.name )
 end
 
 
