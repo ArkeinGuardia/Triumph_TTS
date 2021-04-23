@@ -1,0 +1,124 @@
+-- 5fb1b9e2e1af0600177098fa Burgundi or Limigantes  250 to 534 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba2de1af06001770d53b_general='5fb1ba2de1af06001770d53b_general'
+g_base_definitions[g_str_5fb1ba2de1af06001770d53b_general]={
+  id=g_str_5fb1ba2de1af06001770d53b_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Noble horsemen',
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba2de1af06001770d53a",
+}
+g_str_5fb1ba2de1af06001770d53b='5fb1ba2de1af06001770d53b'
+g_base_definitions[g_str_5fb1ba2de1af06001770d53b]={
+  id=g_str_5fb1ba2de1af06001770d53b,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Noble horsemen',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba2de1af06001770d53a",
+}
+g_str_5fb1ba2de1af06001770d53d_general='5fb1ba2de1af06001770d53d_general'
+g_base_definitions[g_str_5fb1ba2de1af06001770d53d_general]={
+  id=g_str_5fb1ba2de1af06001770d53d_general,
+  name='Warriors General',
+  min=10,
+  max=1,
+  description='Fierce fighters',
+  general=true,
+  troop_type="Warriors",
+  troop_option_id="5fb1ba2de1af06001770d53c",
+}
+g_str_5fb1ba2de1af06001770d53d='5fb1ba2de1af06001770d53d'
+g_base_definitions[g_str_5fb1ba2de1af06001770d53d]={
+  id=g_str_5fb1ba2de1af06001770d53d,
+  name='Warriors',
+  min=10,
+  max=16,
+  description='Fierce fighters',
+  troop_type="Warriors",
+  troop_option_id="5fb1ba2de1af06001770d53c",
+}
+g_str_5fb1ba2de1af06001770d53f='5fb1ba2de1af06001770d53f'
+g_base_definitions[g_str_5fb1ba2de1af06001770d53f]={
+  id=g_str_5fb1ba2de1af06001770d53f,
+  name='Skirmishers',
+  min=0,
+  max=2,
+  description='Skirmishing bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba2de1af06001770d53e",
+}
+g_str_5fb1ba2de1af06001770d541='5fb1ba2de1af06001770d541'
+g_base_definitions[g_str_5fb1ba2de1af06001770d541]={
+  id=g_str_5fb1ba2de1af06001770d541,
+  name='Rabble',
+  min=0,
+  max=3,
+  description='Javelinmen',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba2de1af06001770d540",
+}
+g_str_5fb1b9e2e1af0600177098fa_camp='5fb1b9e2e1af0600177098fa_camp'
+g_base_definitions[g_str_5fb1b9e2e1af0600177098fa_camp]={
+  id=g_str_5fb1b9e2e1af0600177098fa_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e2e1af0600177098fa_camp_fortified='5fb1b9e2e1af0600177098fa_camp_fortified'
+g_base_definitions[g_str_5fb1b9e2e1af0600177098fa_camp_fortified]={
+  id=g_str_5fb1b9e2e1af0600177098fa_camp_fortified,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Fortified camp',
+  troop_type="Camp",
+}
+army['5fb1b9e2e1af0600177098fa']={
+  data={
+    name='Burgundi or Limigantes  250 to 534 AD',
+    id='5fb1b9e2e1af0600177098fa',
+    army_id='5fb1b9e2e1af0600177098fa'
+  },
+  g_base_definitions[g_str_5fb1ba2de1af06001770d53b_general],
+  g_base_definitions[g_str_5fb1ba2de1af06001770d53b],
+  g_base_definitions[g_str_5fb1ba2de1af06001770d53d_general],
+  g_base_definitions[g_str_5fb1ba2de1af06001770d53d],
+  g_base_definitions[g_str_5fb1ba2de1af06001770d53f],
+  g_base_definitions[g_str_5fb1ba2de1af06001770d541],
+  g_base_definitions[g_str_5fb1b9e2e1af0600177098fa_camp],
+  g_base_definitions[g_str_5fb1b9e2e1af0600177098fa_camp_fortified],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9e2e1af0600177098fa"] = army["5fb1b9e2e1af0600177098fa"]
+if nil == armies["Pax Romana"] then
+  armies["Pax Romana"] ={}
+end
+armies["Pax Romana"]["Burgundi or Limigantes  250 to 534 AD"] = army["5fb1b9e2e1af0600177098fa"]
+if nil == armies["Fall of Rome"] then
+  armies["Fall of Rome"] ={}
+end
+armies["Fall of Rome"]["Burgundi or Limigantes  250 to 534 AD"] = army["5fb1b9e2e1af0600177098fa"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Burgundi or Limigantes  250 to 534 AD"] = army["5fb1b9e2e1af0600177098fa"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e2e1af0600177098fa"] = {}
+army_dates["5fb1b9e2e1af0600177098fa"]["250 AD to 534 AD"] ="5fb1b9e2e1af0600177098fa"

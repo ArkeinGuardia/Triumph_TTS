@@ -1,0 +1,123 @@
+-- 5fb1b9f3e1af06001770a2b0 Khitan Liao (all mounted)  907 to 1125 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba41e1af06001770f9df_general='5fb1ba41e1af06001770f9df_general'
+g_base_definitions[g_str_5fb1ba41e1af06001770f9df_general]={
+  id=g_str_5fb1ba41e1af06001770f9df_general,
+  name='Elite Cavalary General',
+  min=3,
+  max=1,
+  description='Khitan ordo soldiers riding armored horses and tribal noble horsemen',
+  general=true,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba41e1af06001770f9de",
+}
+g_str_5fb1ba41e1af06001770f9df='5fb1ba41e1af06001770f9df'
+g_base_definitions[g_str_5fb1ba41e1af06001770f9df]={
+  id=g_str_5fb1ba41e1af06001770f9df,
+  name='Elite Cavalary',
+  min=3,
+  max=6,
+  description='Khitan ordo soldiers riding armored horses and tribal noble horsemen',
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba41e1af06001770f9de",
+}
+g_str_5fb1ba41e1af06001770f9e1='5fb1ba41e1af06001770f9e1'
+g_base_definitions[g_str_5fb1ba41e1af06001770f9e1]={
+  id=g_str_5fb1ba41e1af06001770f9e1,
+  name='Horse Bow',
+  min=2,
+  max=7,
+  description='Khitan ordo foragers and orderlies',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba41e1af06001770f9e0",
+}
+g_str_5fb1ba41e1af06001770f9e3='5fb1ba41e1af06001770f9e3'
+g_base_definitions[g_str_5fb1ba41e1af06001770f9e3]={
+  id=g_str_5fb1ba41e1af06001770f9e3,
+  name='Horse Bow',
+  min=2,
+  max=4,
+  description='Khitan tribal horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba41e1af06001770f9e2",
+}
+g_str_5fb1ba41e1af06001770f9e5='5fb1ba41e1af06001770f9e5'
+g_base_definitions[g_str_5fb1ba41e1af06001770f9e5]={
+  id=g_str_5fb1ba41e1af06001770f9e5,
+  name='Horse Bow',
+  min=0,
+  max=2,
+  description='Jurchen prisoner fierce sacrificial vanguard horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba41e1af06001770f9e4",
+}
+g_str_5fb1b9f3e1af06001770a2b0_camp='5fb1b9f3e1af06001770a2b0_camp'
+g_base_definitions[g_str_5fb1b9f3e1af06001770a2b0_camp]={
+  id=g_str_5fb1b9f3e1af06001770a2b0_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f3e1af06001770a2b0_camp_fortified='5fb1b9f3e1af06001770a2b0_camp_fortified'
+g_base_definitions[g_str_5fb1b9f3e1af06001770a2b0_camp_fortified]={
+  id=g_str_5fb1b9f3e1af06001770a2b0_camp_fortified,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Fortified camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f3e1af06001770a2b0_camp_pack_train='5fb1b9f3e1af06001770a2b0_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f3e1af06001770a2b0_camp_pack_train]={
+  id=g_str_5fb1b9f3e1af06001770a2b0_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9f3e1af06001770a2b0']={
+  data={
+    name='Khitan Liao (all mounted)  907 to 1125 AD',
+    id='5fb1b9f3e1af06001770a2b0',
+    army_id='5fb1b9f3e1af06001770a2b0'
+  },
+  g_base_definitions[g_str_5fb1ba41e1af06001770f9df_general],
+  g_base_definitions[g_str_5fb1ba41e1af06001770f9df],
+  g_base_definitions[g_str_5fb1ba41e1af06001770f9e1],
+  g_base_definitions[g_str_5fb1ba41e1af06001770f9e3],
+  g_base_definitions[g_str_5fb1ba41e1af06001770f9e5],
+  g_base_definitions[g_str_5fb1b9f3e1af06001770a2b0_camp],
+  g_base_definitions[g_str_5fb1b9f3e1af06001770a2b0_camp_fortified],
+  g_base_definitions[g_str_5fb1b9f3e1af06001770a2b0_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9f3e1af06001770a2b0"] = army["5fb1b9f3e1af06001770a2b0"]
+if nil == armies["Middle Kingdom"] then
+  armies["Middle Kingdom"] ={}
+end
+armies["Middle Kingdom"]["Khitan Liao (all mounted)  907 to 1125 AD"] = army["5fb1b9f3e1af06001770a2b0"]
+if nil == armies["Korea and Japan"] then
+  armies["Korea and Japan"] ={}
+end
+armies["Korea and Japan"]["Khitan Liao (all mounted)  907 to 1125 AD"] = army["5fb1b9f3e1af06001770a2b0"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Khitan Liao (all mounted)  907 to 1125 AD"] = army["5fb1b9f3e1af06001770a2b0"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f3e1af06001770a2b0"] = {}
+army_dates["5fb1b9f3e1af06001770a2b0"]["907 AD to 1125 AD"] ="5fb1b9f3e1af06001770a2b0"

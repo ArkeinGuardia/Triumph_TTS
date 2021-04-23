@@ -10,10 +10,6 @@
 #include scripts/data/data_terrain
 #include scripts/data/data_troops
 #include scripts/data/data_troops_greek_successors
-#include scripts/data/data_armies_Biblical
-#include scripts/data/data_armies_Classical_Era
-#include scripts/data/data_armies_Dark_Ages
-#include scripts/data/data_armies_Medieval_Era
 #include scripts/data/data_cheat_sheet
 #include scripts/base_cache
 #include scripts/log
@@ -31,6 +27,8 @@
 #include scripts/logic_tool_tips
 #include scripts/logic
 #include scripts/uievents
+#include fake_meshwesh/army_data/all_armies
+#include scripts/data/data_models
 
 
 function onSave()
@@ -40,7 +38,7 @@ end
 
 
 function onload(saved_data)
-    print_info('\n---------------------------------\nTriumph! v 1.0 build 20210327 beta\n---------------------------------\n\nCheck the Notebook for instructions.')
+    print_info('\n---------------------------------\nTriumph! v 2.0 build 20210422 beta\n---------------------------------\n\nCheck the Notebook for instructions.')
     Wait.time(main_loop, g_seconds_main_loop, -1)
     make_scenery_non_interactable()
     reset_state()
@@ -48,6 +46,26 @@ function onload(saved_data)
     spawn_all_dice()
     print_tool_tip_status()
     restore_extra_data(saved_data)
+
+    -- Shuffle the terrain cards
+    local card =  getObjectFromGUID("f46bb5")
+    if card then
+      card.shuffle()
+    else
+      print_error("Unable to find terraom card")
+    end
+
+    set_tablet_homepage("red tablet")
+    set_tablet_homepage("blue tablet")
+end
+
+function set_tablet_homepage(tablet_name)
+  local tablet = get_object_by_name(tablet_name)
+  if tablet == nil then
+    print_error("Unable to find " .. tablet_name)
+  else
+    tablet.Browser.url = "https://meshwesh.wgcwar.com"
+  end
 end
 
 function restore_extra_data(saved_data)
@@ -101,13 +119,45 @@ function update()
 end
 
 function print_help()
-    print_info('Write commands in the chat by writting !command.')
-    print_info('A extended description can be found on the Notebook.')
-    print_info('Available commands:')
-    print_info('!triumph_help: Print this help')
-    print_info('!triumph_print_state: Prints the current global vars of bases and table')
-    print_info('!triumph_reset: Recalculates the bases and tables using heuristics on the existing objects')
+    print_info([[Write commands in the chat by writting !command.
+A extended description can be found on the Notebook.
+Available commands:
+
+!triumph_help: Print this help
+
+!triumph_print_state: Prints the current global vars of bases and table
+
+!triumph_reset: Recalculates the bases and tables using heuristics on the existing objects
+
+!triumph_load_army  <id> <player>
+id is the identifier on Meshwesh.  e.g. 5fb1b9f1e1af06001770a195
+player is one of 'red' or 'blue'
+Example: !triumph_load_army  5fb1b9f1e1af06001770a195 red
+]])
 end
+
+-- parse and execute the command '!triumph_load_army'
+function triumph_load_army_command(message)
+  local ok, error = pcall( function()
+    local match = message:split(' ')
+    local player = match[3]
+    local id = match[2]
+    if (player == nil)  or (player ~= 'red' and player ~= 'blue') then
+      print_error("player must be read or blue")
+      return false
+    end
+    if id == nil then
+      print_error("army identifier must be set.")
+      return false
+    end
+    spawn_meshesh_army(id, player)
+  end)
+  if not ok then
+    print_error(error)
+  end
+  return false
+end
+
 
 function onChat(message, player)
     if message == '!triumph_help' then
@@ -170,9 +220,14 @@ function onChat(message, player)
         return false
     end
 
-    if str_starts_with(message, '!dba') then
+    if str_starts_with(message, '!triumph_load_army') then
+      triumph_load_army_command(message)
+      return false
+    end
+
+    if str_starts_with(message, '!triumph') then
         print_info(player.get_steam_name() .. ': ' .. message)
-        print_error('Command not recognized. Please, use !triumph_help')
+        print_error('Command not recognized. Please, use !triumph_help: ', message)
     end
     return true
 end

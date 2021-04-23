@@ -1,0 +1,121 @@
+-- 5fb1b9ede1af060017709f54 Dynastic Kurdish  950 to 1085 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba3ae1af06001770ed4b_general='5fb1ba3ae1af06001770ed4b_general'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ed4b_general]={
+  id=g_str_5fb1ba3ae1af06001770ed4b_general,
+  name='Elite Cavalary General',
+  min=9,
+  max=1,
+  description='Kurdish horsemen',
+  general=true,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba3ae1af06001770ed4a",
+}
+g_str_5fb1ba3ae1af06001770ed4b='5fb1ba3ae1af06001770ed4b'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ed4b]={
+  id=g_str_5fb1ba3ae1af06001770ed4b,
+  name='Elite Cavalary',
+  min=9,
+  max=12,
+  description='Kurdish horsemen',
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba3ae1af06001770ed4a",
+}
+g_str_5fb1ba3ae1af06001770ed4e_general='5fb1ba3ae1af06001770ed4e_general'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ed4e_general]={
+  id=g_str_5fb1ba3ae1af06001770ed4e_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Kurdish mounted scouts',
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3ae1af06001770ed4d",
+}
+g_str_5fb1ba3ae1af06001770ed4e='5fb1ba3ae1af06001770ed4e'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ed4e]={
+  id=g_str_5fb1ba3ae1af06001770ed4e,
+  name='Javelin Cavalry',
+  min=0,
+  max=2,
+  description='Kurdish mounted scouts',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3ae1af06001770ed4d",
+}
+g_str_5fb1ba3ae1af06001770ed50='5fb1ba3ae1af06001770ed50'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ed50]={
+  id=g_str_5fb1ba3ae1af06001770ed50,
+  name='Bow Levy',
+  min=0,
+  max=2,
+  description='Kurdish bowmen',
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba3ae1af06001770ed4f",
+}
+g_str_5fb1ba3ae1af06001770ed52='5fb1ba3ae1af06001770ed52'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ed52]={
+  id=g_str_5fb1ba3ae1af06001770ed52,
+  name='Horde',
+  min=0,
+  max=2,
+  description='Town militia',
+  troop_type="Horde",
+  troop_option_id="5fb1ba3ae1af06001770ed51",
+}
+g_str_5fb1b9ede1af060017709f54_camp='5fb1b9ede1af060017709f54_camp'
+g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp]={
+  id=g_str_5fb1b9ede1af060017709f54_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f54_camp_pack_train='5fb1b9ede1af060017709f54_camp_pack_train'
+g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp_pack_train]={
+  id=g_str_5fb1b9ede1af060017709f54_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9ede1af060017709f54']={
+  data={
+    name='Dynastic Kurdish  950 to 1085 AD',
+    id='5fb1b9ede1af060017709f54',
+    army_id='5fb1b9ede1af060017709f54'
+  },
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ed4b_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ed4b],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ed4e_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ed4e],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ed50],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ed52],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f54_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9ede1af060017709f54"] = army["5fb1b9ede1af060017709f54"]
+if nil == armies["Scimitar and Crescent"] then
+  armies["Scimitar and Crescent"] ={}
+end
+armies["Scimitar and Crescent"]["Dynastic Kurdish  950 to 1085 AD"] = army["5fb1b9ede1af060017709f54"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Dynastic Kurdish  950 to 1085 AD"] = army["5fb1b9ede1af060017709f54"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ede1af060017709f54"] = {}
+army_dates["5fb1b9ede1af060017709f54"]["950 AD to 1085 AD"] ="5fb1b9ede1af060017709f54"

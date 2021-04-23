@@ -1,0 +1,109 @@
+-- 5fb1b9dbe1af06001770952e Campanian  420 to 341 BC
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba25e1af06001770c6eb_general='5fb1ba25e1af06001770c6eb_general'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6eb_general]={
+  id=g_str_5fb1ba25e1af06001770c6eb_general,
+  name='Javelin Cavalry General',
+  min=1,
+  max=1,
+  description='Horsemen',
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba25e1af06001770c6ea",
+}
+g_str_5fb1ba25e1af06001770c6eb='5fb1ba25e1af06001770c6eb'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6eb]={
+  id=g_str_5fb1ba25e1af06001770c6eb,
+  name='Javelin Cavalry',
+  min=1,
+  max=2,
+  description='Horsemen',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba25e1af06001770c6ea",
+}
+g_str_5fb1ba25e1af06001770c6ed='5fb1ba25e1af06001770c6ed'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6ed]={
+  id=g_str_5fb1ba25e1af06001770c6ed,
+  name='Light Foot',
+  min=4,
+  max=12,
+  description='Light infantry',
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba25e1af06001770c6ec",
+}
+g_str_5fb1ba25e1af06001770c6ef='5fb1ba25e1af06001770c6ef'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6ef]={
+  id=g_str_5fb1ba25e1af06001770c6ef,
+  name='Rabble',
+  min=0,
+  max=12,
+  description='Javelinmen without shields or disinterested foot',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba25e1af06001770c6ee",
+}
+g_str_5fb1ba25e1af06001770c6f1='5fb1ba25e1af06001770c6f1'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6f1]={
+  id=g_str_5fb1ba25e1af06001770c6f1,
+  name='Heavy Foot',
+  min=3,
+  max=8,
+  description='Hoplites',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba25e1af06001770c6f0",
+}
+g_str_5fb1b9dbe1af06001770952e_camp='5fb1b9dbe1af06001770952e_camp'
+g_base_definitions[g_str_5fb1b9dbe1af06001770952e_camp]={
+  id=g_str_5fb1b9dbe1af06001770952e_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dbe1af06001770952e_camp_pack_train='5fb1b9dbe1af06001770952e_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dbe1af06001770952e_camp_pack_train]={
+  id=g_str_5fb1b9dbe1af06001770952e_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9dbe1af06001770952e']={
+  data={
+    name='Campanian  420 to 341 BC',
+    id='5fb1b9dbe1af06001770952e',
+    army_id='5fb1b9dbe1af06001770952e'
+  },
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6eb_general],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6eb],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6ed],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6ef],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6f1],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770952e_camp],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770952e_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9dbe1af06001770952e"] = army["5fb1b9dbe1af06001770952e"]
+if nil == armies["Birth of the West"] then
+  armies["Birth of the West"] ={}
+end
+armies["Birth of the West"]["Campanian  420 to 341 BC"] = army["5fb1b9dbe1af06001770952e"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Campanian  420 to 341 BC"] = army["5fb1b9dbe1af06001770952e"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dbe1af06001770952e"] = {}
+army_dates["5fb1b9dbe1af06001770952e"]["420 BC to 341 BC"] ="5fb1b9dbe1af06001770952e"

@@ -1,0 +1,98 @@
+-- 5fb1b9f2e1af06001770a282 Tribal Shatuo Turkish  808 to 883 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba40e1af06001770f92b_general='5fb1ba40e1af06001770f92b_general'
+g_base_definitions[g_str_5fb1ba40e1af06001770f92b_general]={
+  id=g_str_5fb1ba40e1af06001770f92b_general,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Shatuo armored horsemen',
+  general=true,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba40e1af06001770f92a",
+}
+g_str_5fb1ba40e1af06001770f92b='5fb1ba40e1af06001770f92b'
+g_base_definitions[g_str_5fb1ba40e1af06001770f92b]={
+  id=g_str_5fb1ba40e1af06001770f92b,
+  name='Elite Cavalary',
+  min=1,
+  max=3,
+  description='Shatuo armored horsemen',
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba40e1af06001770f92a",
+}
+g_str_5fb1ba40e1af06001770f92d='5fb1ba40e1af06001770f92d'
+g_base_definitions[g_str_5fb1ba40e1af06001770f92d]={
+  id=g_str_5fb1ba40e1af06001770f92d,
+  name='Horse Bow',
+  min=4,
+  max=9,
+  description='Shatuo unarmored horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba40e1af06001770f92c",
+}
+g_str_5fb1ba40e1af06001770f92f='5fb1ba40e1af06001770f92f'
+g_base_definitions[g_str_5fb1ba40e1af06001770f92f]={
+  id=g_str_5fb1ba40e1af06001770f92f,
+  name='Bow Levy',
+  min=2,
+  max=4,
+  description='Shatuo tribal bowmen',
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba40e1af06001770f92e",
+}
+g_str_5fb1b9f2e1af06001770a282_camp='5fb1b9f2e1af06001770a282_camp'
+g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp]={
+  id=g_str_5fb1b9f2e1af06001770a282_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f2e1af06001770a282_camp_pack_train='5fb1b9f2e1af06001770a282_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp_pack_train]={
+  id=g_str_5fb1b9f2e1af06001770a282_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9f2e1af06001770a282']={
+  data={
+    name='Tribal Shatuo Turkish  808 to 883 AD',
+    id='5fb1b9f2e1af06001770a282',
+    army_id='5fb1b9f2e1af06001770a282'
+  },
+  g_base_definitions[g_str_5fb1ba40e1af06001770f92b_general],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f92b],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f92d],
+  g_base_definitions[g_str_5fb1ba40e1af06001770f92f],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a282_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9f2e1af06001770a282"] = army["5fb1b9f2e1af06001770a282"]
+if nil == armies["Middle Kingdom"] then
+  armies["Middle Kingdom"] ={}
+end
+armies["Middle Kingdom"]["Tribal Shatuo Turkish  808 to 883 AD"] = army["5fb1b9f2e1af06001770a282"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Tribal Shatuo Turkish  808 to 883 AD"] = army["5fb1b9f2e1af06001770a282"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f2e1af06001770a282"] = {}
+army_dates["5fb1b9f2e1af06001770a282"]["808 AD to 883 AD"] ="5fb1b9f2e1af06001770a282"

@@ -1,0 +1,559 @@
+-- 5fb1b9f2e1af06001770a1f5 Han Chinese  202 BC to 189 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba3fe1af06001770f6ff_general='5fb1ba3fe1af06001770f6ff_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f6ff_general]={
+  id=g_str_5fb1ba3fe1af06001770f6ff_general,
+  name='Chariots General',
+  min=0,
+  max=1,
+  description='4-horse chariots',
+  general=true,
+  troop_type="Chariots",
+  troop_option_id="5fb1ba3fe1af06001770f6fd",
+}
+g_str_5fb1ba3fe1af06001770f6ff='5fb1ba3fe1af06001770f6ff'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f6ff]={
+  id=g_str_5fb1ba3fe1af06001770f6ff,
+  name='Chariots',
+  min=0,
+  max=1,
+  description='4-horse chariots',
+  troop_type="Chariots",
+  troop_option_id="5fb1ba3fe1af06001770f6fd",
+}
+g_str_5fb1ba3fe1af06001770f701_general='5fb1ba3fe1af06001770f701_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general]={
+  id=g_str_5fb1ba3fe1af06001770f701_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Heavy horsemen armed with spears and crossbows',
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3fe1af06001770f700",
+}
+g_str_5fb1ba3fe1af06001770f701_general_dismounted='5fb1ba3fe1af06001770f701_general_dismounted'
+g_str_5fb1ba3fe1af06001770f701_general_mounted='5fb1ba3fe1af06001770f701_general_mounted'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_dismounted]={
+  id=g_str_5fb1ba3fe1af06001770f701_general_dismounted,
+  name='Light Foot General',
+  min=0,
+  max=1,
+  description='Heavy horsemen armed with spears and crossbows\nDeployment dismounted from Javelin Cavalry General',
+  points=4,
+  dismounted_from=g_str_5fb1ba3fe1af06001770f701_general_mounted,
+  general=true,
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba3fe1af06001770f700",
+}
+g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_mounted]={
+  id=g_str_5fb1ba3fe1af06001770f701_general_mounted,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Heavy horsemen armed with spears and crossbows\nDeployment dismounting as Light Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba3fe1af06001770f701_general_dismounted,
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3fe1af06001770f700",
+}
+g_str_5fb1ba3fe1af06001770f701='5fb1ba3fe1af06001770f701'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f701]={
+  id=g_str_5fb1ba3fe1af06001770f701,
+  name='Javelin Cavalry',
+  min=0,
+  max=3,
+  description='Heavy horsemen armed with spears and crossbows',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3fe1af06001770f700",
+}
+g_str_5fb1ba3fe1af06001770f701_dismounted='5fb1ba3fe1af06001770f701_dismounted'
+g_str_5fb1ba3fe1af06001770f701_mounted='5fb1ba3fe1af06001770f701_mounted'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f701_dismounted]={
+  id=g_str_5fb1ba3fe1af06001770f701_dismounted,
+  name='Light Foot',
+  min=0,
+  max=3,
+  description='Heavy horsemen armed with spears and crossbows\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+  dismounted_from=g_str_5fb1ba3fe1af06001770f701_mounted,
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba3fe1af06001770f700",
+}
+g_base_definitions[g_str_5fb1ba3fe1af06001770f701_mounted]={
+  id=g_str_5fb1ba3fe1af06001770f701_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=3,
+  description='Heavy horsemen armed with spears and crossbows\nDeployment dismounting as Light Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba3fe1af06001770f701_dismounted,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3fe1af06001770f700",
+}
+g_str_5fb1ba3fe1af06001770f704_general='5fb1ba3fe1af06001770f704_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f704_general]={
+  id=g_str_5fb1ba3fe1af06001770f704_general,
+  name='Horse Bow General',
+  min=0,
+  max=1,
+  description='Horse archers',
+  general=true,
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba3fe1af06001770f703",
+}
+g_str_5fb1ba3fe1af06001770f704='5fb1ba3fe1af06001770f704'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f704]={
+  id=g_str_5fb1ba3fe1af06001770f704,
+  name='Horse Bow',
+  min=0,
+  max=3,
+  description='Horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba3fe1af06001770f703",
+}
+g_str_5fb1ba3fe1af06001770f706_general='5fb1ba3fe1af06001770f706_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f706_general]={
+  id=g_str_5fb1ba3fe1af06001770f706_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Light horsemen armed with lance or halberd',
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3fe1af06001770f705",
+}
+g_str_5fb1ba3fe1af06001770f706='5fb1ba3fe1af06001770f706'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f706]={
+  id=g_str_5fb1ba3fe1af06001770f706,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Light horsemen armed with lance or halberd',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3fe1af06001770f705",
+}
+g_str_5fb1ba3fe1af06001770f708_general='5fb1ba3fe1af06001770f708_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f708_general]={
+  id=g_str_5fb1ba3fe1af06001770f708_general,
+  name='Horse Bow General',
+  min=0,
+  max=1,
+  description='Dependant state horsemen',
+  general=true,
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba3fe1af06001770f707",
+}
+g_str_5fb1ba3fe1af06001770f708='5fb1ba3fe1af06001770f708'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f708]={
+  id=g_str_5fb1ba3fe1af06001770f708,
+  name='Horse Bow',
+  min=0,
+  max=3,
+  description='Dependant state horsemen',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba3fe1af06001770f707",
+}
+g_str_5fb1ba3fe1af06001770f709_general='5fb1ba3fe1af06001770f709_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f709_general]={
+  id=g_str_5fb1ba3fe1af06001770f709_general,
+  name='Javelin Cavalry General',
+  min=0,
+  max=1,
+  description='Dependant state horsemen',
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3fe1af06001770f707",
+}
+g_str_5fb1ba3fe1af06001770f709='5fb1ba3fe1af06001770f709'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f709]={
+  id=g_str_5fb1ba3fe1af06001770f709,
+  name='Javelin Cavalry',
+  min=0,
+  max=3,
+  description='Dependant state horsemen',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3fe1af06001770f707",
+}
+g_str_5fb1ba3fe1af06001770f70b='5fb1ba3fe1af06001770f70b'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f70b]={
+  id=g_str_5fb1ba3fe1af06001770f70b,
+  name='Bow Levy',
+  min=2,
+  max=4,
+  description='Conscript or experienced crossbowmen',
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba3fe1af06001770f70a",
+}
+g_str_5fb1ba3fe1af06001770f70c_general='5fb1ba3fe1af06001770f70c_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f70c_general]={
+  id=g_str_5fb1ba3fe1af06001770f70c_general,
+  name='Archers General',
+  min=2,
+  max=1,
+  description='Conscript or experienced crossbowmen',
+  general=true,
+  troop_type="Archers",
+  troop_option_id="5fb1ba3fe1af06001770f70a",
+}
+g_str_5fb1ba3fe1af06001770f70c='5fb1ba3fe1af06001770f70c'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f70c]={
+  id=g_str_5fb1ba3fe1af06001770f70c,
+  name='Archers',
+  min=2,
+  max=4,
+  description='Conscript or experienced crossbowmen',
+  troop_type="Archers",
+  troop_option_id="5fb1ba3fe1af06001770f70a",
+}
+g_str_5fb1ba3fe1af06001770f70e_general='5fb1ba3fe1af06001770f70e_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f70e_general]={
+  id=g_str_5fb1ba3fe1af06001770f70e_general,
+  name='Heavy Foot General',
+  min=1,
+  max=1,
+  description='Conscript or experienced close-fighting foot armed with halberds, or re-equipped with shields and spears',
+  general=true,
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba3fe1af06001770f70d",
+}
+g_str_5fb1ba3fe1af06001770f70e='5fb1ba3fe1af06001770f70e'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f70e]={
+  id=g_str_5fb1ba3fe1af06001770f70e,
+  name='Heavy Foot',
+  min=1,
+  max=2,
+  description='Conscript or experienced close-fighting foot armed with halberds, or re-equipped with shields and spears',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba3fe1af06001770f70d",
+}
+g_str_5fb1ba3fe1af06001770f70f_general='5fb1ba3fe1af06001770f70f_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f70f_general]={
+  id=g_str_5fb1ba3fe1af06001770f70f_general,
+  name='Elite Foot General',
+  min=1,
+  max=1,
+  description='Conscript or experienced close-fighting foot armed with halberds, or re-equipped with shields and spears',
+  general=true,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba3fe1af06001770f70d",
+}
+g_str_5fb1ba3fe1af06001770f70f='5fb1ba3fe1af06001770f70f'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f70f]={
+  id=g_str_5fb1ba3fe1af06001770f70f,
+  name='Elite Foot',
+  min=1,
+  max=2,
+  description='Conscript or experienced close-fighting foot armed with halberds, or re-equipped with shields and spears',
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba3fe1af06001770f70d",
+}
+g_str_5fb1ba3fe1af06001770f710_general='5fb1ba3fe1af06001770f710_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f710_general]={
+  id=g_str_5fb1ba3fe1af06001770f710_general,
+  name='Light Foot General',
+  min=1,
+  max=1,
+  description='Conscript or experienced close-fighting foot armed with halberds, or re-equipped with shields and spears',
+  general=true,
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba3fe1af06001770f70d",
+}
+g_str_5fb1ba3fe1af06001770f710='5fb1ba3fe1af06001770f710'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f710]={
+  id=g_str_5fb1ba3fe1af06001770f710,
+  name='Light Foot',
+  min=1,
+  max=2,
+  description='Conscript or experienced close-fighting foot armed with halberds, or re-equipped with shields and spears',
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba3fe1af06001770f70d",
+}
+g_str_5fb1ba3fe1af06001770f713_general='5fb1ba3fe1af06001770f713_general'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f713_general]={
+  id=g_str_5fb1ba3fe1af06001770f713_general,
+  name='Pavisiers General',
+  min=0,
+  max=1,
+  description='Mixed formations of crossbowmen behind lines of halberdmen',
+  general=true,
+  troop_type="Pavisiers",
+  troop_option_id="5fb1ba3fe1af06001770f711",
+}
+g_str_5fb1ba3fe1af06001770f713='5fb1ba3fe1af06001770f713'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f713]={
+  id=g_str_5fb1ba3fe1af06001770f713,
+  name='Pavisiers',
+  min=0,
+  max=4,
+  description='Mixed formations of crossbowmen behind lines of halberdmen',
+  troop_type="Pavisiers",
+  troop_option_id="5fb1ba3fe1af06001770f711",
+}
+g_str_5fb1ba3fe1af06001770f715='5fb1ba3fe1af06001770f715'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f715]={
+  id=g_str_5fb1ba3fe1af06001770f715,
+  name='Skirmishers',
+  min=1,
+  max=1,
+  description='Skirmishing bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba3fe1af06001770f714",
+}
+g_str_5fb1ba3fe1af06001770f717='5fb1ba3fe1af06001770f717'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f717]={
+  id=g_str_5fb1ba3fe1af06001770f717,
+  name='Raiders',
+  min=0,
+  max=1,
+  description='Swordsmen armed with sword and parrying-weapon or shield, or with long sword',
+  troop_type="Raiders",
+  troop_option_id="5fb1ba3fe1af06001770f716",
+}
+g_str_5fb1ba3fe1af06001770f719='5fb1ba3fe1af06001770f719'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f719]={
+  id=g_str_5fb1ba3fe1af06001770f719,
+  name='Horde',
+  min=0,
+  max=1,
+  description='Convict laborers',
+  troop_type="Horde",
+  troop_option_id="5fb1ba3fe1af06001770f718",
+}
+g_str_5fb1ba3fe1af06001770f71b='5fb1ba3fe1af06001770f71b'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f71b]={
+  id=g_str_5fb1ba3fe1af06001770f71b,
+  name='Warband',
+  min=0,
+  max=1,
+  description='Southern fierce tribal fighters',
+  troop_type="Warband",
+  troop_option_id="5fb1ba3fe1af06001770f71a",
+}
+g_str_5fb1ba3fe1af06001770f71d='5fb1ba3fe1af06001770f71d'
+g_base_definitions[g_str_5fb1ba3fe1af06001770f71d]={
+  id=g_str_5fb1ba3fe1af06001770f71d,
+  name='Artillery',
+  min=0,
+  max=1,
+  description='Bolt-shooters',
+  troop_type="Artillery",
+  troop_option_id="5fb1ba3fe1af06001770f71c",
+}
+g_str_5fb1b9f2e1af06001770a1f5_camp='5fb1b9f2e1af06001770a1f5_camp'
+g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp]={
+  id=g_str_5fb1b9f2e1af06001770a1f5_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f2e1af06001770a1f5_camp_fortified='5fb1b9f2e1af06001770a1f5_camp_fortified'
+g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_fortified]={
+  id=g_str_5fb1b9f2e1af06001770a1f5_camp_fortified,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Fortified camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f2e1af06001770a1f5_camp_pack_train='5fb1b9f2e1af06001770a1f5_camp_pack_train'
+g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_pack_train]={
+  id=g_str_5fb1b9f2e1af06001770a1f5_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9f2e1af06001770a1f5']={
+  data={
+    name='Han Chinese  202 BC to 189 AD',
+    id='5fb1b9f2e1af06001770a1f5',
+    army_id='5fb1b9f2e1af06001770a1f5'
+  },
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6ff_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6ff],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_dismounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f704_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f704],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f706_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f706],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f708_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f708],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f709_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f709],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70b],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70c_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70c],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70e_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70e],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70f_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70f],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f710_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f710],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f713_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f713],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f715],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f717],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f719],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f71b],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f71d],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_fortified],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9f2e1af06001770a1f5"] = army["5fb1b9f2e1af06001770a1f5"]
+army['5fb1b9f2e1af06001770a1f5_-202_-113']={
+  data={
+    name='Han Chinese 202 BC to 113 BC',
+    id='5fb1b9f2e1af06001770a1f5_-202_-113',
+    army_id='5fb1b9f2e1af06001770a1f5'
+  },
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6ff_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f6ff],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_dismounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f704_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f704],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f706_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f706],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f708_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f708],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f709_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f709],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70b],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70c_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70c],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70e_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70e],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70f_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70f],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f710_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f710],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f713_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f713],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f715],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f717],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f719],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f71b],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f71d],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_fortified],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_pack_train],
+}
+army['5fb1b9f2e1af06001770a1f5_-112_9']={
+  data={
+    name='Han Chinese 112 BC to 9 AD',
+    id='5fb1b9f2e1af06001770a1f5_-112_9',
+    army_id='5fb1b9f2e1af06001770a1f5'
+  },
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_dismounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f704_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f704],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f706_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f706],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f708_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f708],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f709_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f709],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70b],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70c_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70c],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70e_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70e],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70f_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70f],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f710_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f710],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f713_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f713],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f715],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f717],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f719],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f71b],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f71d],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_fortified],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_pack_train],
+}
+army['5fb1b9f2e1af06001770a1f5_10_189']={
+  data={
+    name='Han Chinese 10 AD to 189 AD',
+    id='5fb1b9f2e1af06001770a1f5_10_189',
+    army_id='5fb1b9f2e1af06001770a1f5'
+  },
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_mounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f701_dismounted],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f704_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f704],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f706_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f706],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f708_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f708],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f709_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f709],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70b],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70c_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70c],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70e_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70e],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70f_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f70f],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f710_general],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f710],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f715],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f717],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f719],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f71b],
+  g_base_definitions[g_str_5fb1ba3fe1af06001770f71d],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_fortified],
+  g_base_definitions[g_str_5fb1b9f2e1af06001770a1f5_camp_pack_train],
+}
+if nil == armies["Mandate of Heaven"] then
+  armies["Mandate of Heaven"] ={}
+end
+armies["Mandate of Heaven"]["Han Chinese  202 BC to 189 AD"] = army["5fb1b9f2e1af06001770a1f5"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Han Chinese  202 BC to 189 AD"] = army["5fb1b9f2e1af06001770a1f5"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f2e1af06001770a1f5"] = {}
+army_dates["5fb1b9f2e1af06001770a1f5"]["202 BC to 189 AD"] ="5fb1b9f2e1af06001770a1f5"
+army_dates["5fb1b9f2e1af06001770a1f5"]["202 BC to 113 BC"] ="5fb1b9f2e1af06001770a1f5_-202_-113"
+army_dates["5fb1b9f2e1af06001770a1f5"]["112 BC to 9 AD"] ="5fb1b9f2e1af06001770a1f5_-112_9"
+army_dates["5fb1b9f2e1af06001770a1f5"]["10 AD to 189 AD"] ="5fb1b9f2e1af06001770a1f5_10_189"

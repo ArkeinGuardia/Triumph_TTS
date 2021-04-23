@@ -1,0 +1,455 @@
+-- 5fb1b9ede1af060017709f22 Later Abbasid  880 to 945 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba39e1af06001770ec5e_general='5fb1ba39e1af06001770ec5e_general'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general]={
+  id=g_str_5fb1ba39e1af06001770ec5e_general,
+  name='Elite Cavalary General',
+  min=2,
+  max=1,
+  description='Turkish ghulams',
+  general=true,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba39e1af06001770ec5d",
+}
+g_str_5fb1ba39e1af06001770ec5e_general_dismounted='5fb1ba39e1af06001770ec5e_general_dismounted'
+g_str_5fb1ba39e1af06001770ec5e_general_mounted='5fb1ba39e1af06001770ec5e_general_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_dismounted]={
+  id=g_str_5fb1ba39e1af06001770ec5e_general_dismounted,
+  name='Archers General',
+  min=2,
+  max=1,
+  description='Turkish ghulams\nDeployment dismounted from Elite Cavalary General',
+  points=4,
+  dismounted_from=g_str_5fb1ba39e1af06001770ec5e_general_mounted,
+  general=true,
+  troop_type="Archers",
+  troop_option_id="5fb1ba39e1af06001770ec5d",
+}
+g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_mounted]={
+  id=g_str_5fb1ba39e1af06001770ec5e_general_mounted,
+  name='Elite Cavalary General',
+  min=2,
+  max=1,
+  description='Turkish ghulams\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_str_5fb1ba39e1af06001770ec5e_general_dismounted,
+  general=true,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba39e1af06001770ec5d",
+}
+g_str_5fb1ba39e1af06001770ec5e='5fb1ba39e1af06001770ec5e'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec5e]={
+  id=g_str_5fb1ba39e1af06001770ec5e,
+  name='Elite Cavalary',
+  min=2,
+  max=4,
+  description='Turkish ghulams',
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba39e1af06001770ec5d",
+}
+g_str_5fb1ba39e1af06001770ec5e_dismounted='5fb1ba39e1af06001770ec5e_dismounted'
+g_str_5fb1ba39e1af06001770ec5e_mounted='5fb1ba39e1af06001770ec5e_mounted'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_dismounted]={
+  id=g_str_5fb1ba39e1af06001770ec5e_dismounted,
+  name='Archers',
+  min=2,
+  max=4,
+  description='Turkish ghulams\nDeployment dismounted from Elite Cavalary',
+  points=4,
+  dismounted_from=g_str_5fb1ba39e1af06001770ec5e_mounted,
+  troop_type="Archers",
+  troop_option_id="5fb1ba39e1af06001770ec5d",
+}
+g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_mounted]={
+  id=g_str_5fb1ba39e1af06001770ec5e_mounted,
+  name='Elite Cavalary',
+  min=2,
+  max=4,
+  description='Turkish ghulams\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_str_5fb1ba39e1af06001770ec5e_dismounted,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba39e1af06001770ec5d",
+}
+g_str_5fb1ba39e1af06001770ec62_general='5fb1ba39e1af06001770ec62_general'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec62_general]={
+  id=g_str_5fb1ba39e1af06001770ec62_general,
+  name='Elite Cavalary General',
+  min=1,
+  max=1,
+  description='Abbasiya or other native Khurasani horsemen',
+  general=true,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba39e1af06001770ec61",
+}
+g_str_5fb1ba39e1af06001770ec62='5fb1ba39e1af06001770ec62'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec62]={
+  id=g_str_5fb1ba39e1af06001770ec62,
+  name='Elite Cavalary',
+  min=1,
+  max=1,
+  description='Abbasiya or other native Khurasani horsemen',
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba39e1af06001770ec61",
+}
+g_str_5fb1ba39e1af06001770ec64='5fb1ba39e1af06001770ec64'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec64]={
+  id=g_str_5fb1ba39e1af06001770ec64,
+  name='Horse Bow',
+  min=0,
+  max=1,
+  description='Faraghina horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba39e1af06001770ec63",
+}
+g_str_5fb1ba39e1af06001770ec66='5fb1ba39e1af06001770ec66'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec66]={
+  id=g_str_5fb1ba39e1af06001770ec66,
+  name='Spears',
+  min=0,
+  max=1,
+  description='Maghariba foot guards',
+  troop_type="Spears",
+  troop_option_id="5fb1ba39e1af06001770ec65",
+}
+g_str_5fb1ba39e1af06001770ec6a='5fb1ba39e1af06001770ec6a'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec6a]={
+  id=g_str_5fb1ba39e1af06001770ec6a,
+  name='Heavy Foot',
+  min=0,
+  max=3,
+  description='Spearmen',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba39e1af06001770ec68",
+}
+g_str_5fb1ba39e1af06001770ec6d='5fb1ba39e1af06001770ec6d'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec6d]={
+  id=g_str_5fb1ba39e1af06001770ec6d,
+  name='Archers',
+  min=1,
+  max=2,
+  description='Bowmen',
+  troop_type="Archers",
+  troop_option_id="5fb1ba39e1af06001770ec6c",
+}
+g_str_5fb1ba39e1af06001770ec6e='5fb1ba39e1af06001770ec6e'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec6e]={
+  id=g_str_5fb1ba39e1af06001770ec6e,
+  name='Skirmishers',
+  min=1,
+  max=2,
+  description='Bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba39e1af06001770ec6c",
+}
+g_str_5fb1ba39e1af06001770ec72='5fb1ba39e1af06001770ec72'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec72]={
+  id=g_str_5fb1ba39e1af06001770ec72,
+  name='Raiders',
+  min=1,
+  max=2,
+  description='Dailami zupin-men',
+  troop_type="Raiders",
+  troop_option_id="5fb1ba39e1af06001770ec70",
+}
+g_str_5fb1ba39e1af06001770ec76='5fb1ba39e1af06001770ec76'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec76]={
+  id=g_str_5fb1ba39e1af06001770ec76,
+  name='Skirmishers',
+  min=0,
+  max=1,
+  description='Dailami skirmishing bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba39e1af06001770ec74",
+}
+g_str_5fb1ba39e1af06001770ec79='5fb1ba39e1af06001770ec79'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec79]={
+  id=g_str_5fb1ba39e1af06001770ec79,
+  name='Heavy Foot',
+  min=2,
+  max=6,
+  description='Zanj with sword, javelin and shield',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba39e1af06001770ec78",
+}
+g_str_5fb1ba39e1af06001770ec7b='5fb1ba39e1af06001770ec7b'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec7b]={
+  id=g_str_5fb1ba39e1af06001770ec7b,
+  name='Bow Levy',
+  min=0,
+  max=2,
+  description='Zanj bowmen',
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba39e1af06001770ec7a",
+}
+g_str_5fb1ba39e1af06001770ec7d='5fb1ba39e1af06001770ec7d'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec7d]={
+  id=g_str_5fb1ba39e1af06001770ec7d,
+  name='Warband',
+  min=0,
+  max=1,
+  description='Mutatawwi\'a volunteers',
+  troop_type="Warband",
+  troop_option_id="5fb1ba39e1af06001770ec7c",
+}
+g_str_5fb1ba39e1af06001770ec7f='5fb1ba39e1af06001770ec7f'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec7f]={
+  id=g_str_5fb1ba39e1af06001770ec7f,
+  name='Javelin Cavalry',
+  min=0,
+  max=2,
+  description='Mutatawwi\'a volunteers or tribal Arab auxiliary horsemen',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba39e1af06001770ec7e",
+}
+g_str_5fb1ba39e1af06001770ec81='5fb1ba39e1af06001770ec81'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec81]={
+  id=g_str_5fb1ba39e1af06001770ec81,
+  name='Rabble',
+  min=0,
+  max=1,
+  description='City militia',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba39e1af06001770ec80",
+}
+g_str_5fb1ba39e1af06001770ec82='5fb1ba39e1af06001770ec82'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec82]={
+  id=g_str_5fb1ba39e1af06001770ec82,
+  name='Horde',
+  min=0,
+  max=1,
+  description='City militia',
+  troop_type="Horde",
+  troop_option_id="5fb1ba39e1af06001770ec80",
+}
+g_str_5fb1ba39e1af06001770ec84='5fb1ba39e1af06001770ec84'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec84]={
+  id=g_str_5fb1ba39e1af06001770ec84,
+  name='Artillery',
+  min=0,
+  max=1,
+  description='Manjaniq rope-pull stone throwers and \'Arrada "kickers"',
+  troop_type="Artillery",
+  troop_option_id="5fb1ba39e1af06001770ec83",
+}
+g_str_5fb1ba39e1af06001770ec87='5fb1ba39e1af06001770ec87'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec87]={
+  id=g_str_5fb1ba39e1af06001770ec87,
+  name='Spears',
+  min=0,
+  max=1,
+  description='Qaramita camel-mounted mercenary spearmen',
+  troop_type="Spears",
+  troop_option_id="5fb1ba39e1af06001770ec85",
+}
+g_str_5fb1ba39e1af06001770ec87_dismounted_mobile_infantry='5fb1ba39e1af06001770ec87_dismounted_mobile_infantry'
+g_str_5fb1ba39e1af06001770ec87_mounted_mobile_infantry='5fb1ba39e1af06001770ec87_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba39e1af06001770ec87_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba39e1af06001770ec87_dismounted_mobile_infantry,
+  name='Spears',
+  min=0,
+  max=1,
+  description='Qaramita camel-mounted mercenary spearmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba39e1af06001770ec87_mounted_mobile_infantry,
+  troop_type="Spears",
+  troop_option_id="5fb1ba39e1af06001770ec85",
+}
+g_base_definitions[g_str_5fb1ba39e1af06001770ec87_mounted_mobile_infantry]={
+  id=g_str_5fb1ba39e1af06001770ec87_mounted_mobile_infantry,
+  name='Spears',
+  min=0,
+  max=1,
+  description='Qaramita camel-mounted mercenary spearmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba39e1af06001770ec87_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Spears",
+  troop_option_id="5fb1ba39e1af06001770ec85",
+}
+g_str_5fb1b9ede1af060017709f22_camp='5fb1b9ede1af060017709f22_camp'
+g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp]={
+  id=g_str_5fb1b9ede1af060017709f22_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f22_camp_fortified='5fb1b9ede1af060017709f22_camp_fortified'
+g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_fortified]={
+  id=g_str_5fb1b9ede1af060017709f22_camp_fortified,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Fortified camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f22_camp_pack_train='5fb1b9ede1af060017709f22_camp_pack_train'
+g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_pack_train]={
+  id=g_str_5fb1b9ede1af060017709f22_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9ede1af060017709f22']={
+  data={
+    name='Later Abbasid  880 to 945 AD',
+    id='5fb1b9ede1af060017709f22',
+    army_id='5fb1b9ede1af060017709f22'
+  },
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec62_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec62],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec64],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec66],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec72],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec76],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec79],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7b],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7f],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec81],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec82],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec84],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec87],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec87_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec87_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_fortified],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9ede1af060017709f22"] = army["5fb1b9ede1af060017709f22"]
+army['5fb1b9ede1af060017709f22_880_889']={
+  data={
+    name='Later Abbasid 880 AD to 889 AD',
+    id='5fb1b9ede1af060017709f22_880_889',
+    army_id='5fb1b9ede1af060017709f22'
+  },
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec62_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec62],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec64],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec66],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6a],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec79],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7b],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7f],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec81],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec82],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec84],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_fortified],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_pack_train],
+}
+army['5fb1b9ede1af060017709f22_890_931']={
+  data={
+    name='Later Abbasid 890 AD to 931 AD',
+    id='5fb1b9ede1af060017709f22_890_931',
+    army_id='5fb1b9ede1af060017709f22'
+  },
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec62_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec62],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec64],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec66],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec72],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec76],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec79],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7b],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7f],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec81],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec82],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec84],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_fortified],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_pack_train],
+}
+army['5fb1b9ede1af060017709f22_932_945']={
+  data={
+    name='Later Abbasid 932 AD to 945 AD',
+    id='5fb1b9ede1af060017709f22_932_945',
+    army_id='5fb1b9ede1af060017709f22'
+  },
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_general_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_mounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec5e_dismounted],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec62_general],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec62],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec64],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec66],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec6e],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec72],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec76],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec79],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7b],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7d],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec7f],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec81],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec82],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec84],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec87],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec87_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba39e1af06001770ec87_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_fortified],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f22_camp_pack_train],
+}
+if nil == armies["Scimitar and Crescent"] then
+  armies["Scimitar and Crescent"] ={}
+end
+armies["Scimitar and Crescent"]["Later Abbasid  880 to 945 AD"] = army["5fb1b9ede1af060017709f22"]
+if nil == armies["Glorious Byzantium"] then
+  armies["Glorious Byzantium"] ={}
+end
+armies["Glorious Byzantium"]["Later Abbasid  880 to 945 AD"] = army["5fb1b9ede1af060017709f22"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Later Abbasid  880 to 945 AD"] = army["5fb1b9ede1af060017709f22"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ede1af060017709f22"] = {}
+army_dates["5fb1b9ede1af060017709f22"]["880 AD to 945 AD"] ="5fb1b9ede1af060017709f22"
+army_dates["5fb1b9ede1af060017709f22"]["880 AD to 889 AD"] ="5fb1b9ede1af060017709f22_880_889"
+army_dates["5fb1b9ede1af060017709f22"]["890 AD to 931 AD"] ="5fb1b9ede1af060017709f22_890_931"
+army_dates["5fb1b9ede1af060017709f22"]["932 AD to 945 AD"] ="5fb1b9ede1af060017709f22_932_945"

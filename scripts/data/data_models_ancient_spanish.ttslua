@@ -1,0 +1,137 @@
+-- Iberians
+army['5fb1b9dce1af0600177095ab'].data.has_models = true
+-- Celtiberians
+army['5fb1b9dce1af0600177095b2'].data.has_models = true
+
+-- Iberians
+-- 240 to 20BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af0600177095ab/explore
+-- As of: 20210407
+
+    -- JavCav General
+    g_models[g_str_5fb1ba27e1af06001770c8ae_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_ancient_spanish_bearer',
+          [2] = 'troop_ancient_spanish_general'
+        }
+      }
+    }
+    g_models[g_str_5fb1ba27e1af06001770c8ae_general_mounted] = g_models[g_str_5fb1ba27e1af06001770c8ae_general]
+
+    -- Caetrati -  Light Foot General as dismounted javcav
+    g_models[g_str_5fb1ba27e1af06001770c8ae_general_dismounted] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_ancient_spanish_scutarii_banner',
+          [2] = 'troop_ancient_spanish_scutarii_chief',
+          [3] = 'troop_ancient_spanish_scutarii_musician'
+      }
+      }
+    }
+
+    -- JavCav
+    g_models[g_str_5fb1ba27e1af06001770c8ae] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_ancient_spanish_lh'
+      }
+    }
+    g_models[g_str_5fb1ba27e1af06001770c8ae_mounted] = g_models[g_str_5fb1ba27e1af06001770c8ae]
+
+    -- Caetrati -  Light Foot as dismounted javcav
+    g_models[g_str_5fb1ba27e1af06001770c8ae_dismounted] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_ancient_spanish_caetrati'
+      }
+    }
+
+    -- Scutarii - Light Foot
+    g_models[g_str_5fb1ba27e1af06001770c8b1] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_ancient_spanish_scutarii'
+      }
+    }
+
+    -- Caetrati - Light Foot
+    g_models[g_str_5fb1ba27e1af06001770c8b3] = g_models[g_str_5fb1ba27e1af06001770c8ae_dismounted]
+
+    -- Skirmishing Slingers
+    g_models[g_str_5fb1ba27e1af06001770c8b5] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_ancient_spanish_slingers',
+        loose = true
+      }
+    }
+
+    -- Mercenaries Celtiberian Scutarii - Raiders
+    g_models[g_str_5fb1ba27e1af06001770c8b7] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_ancient_spanish_scutarii'
+      }
+    }
+
+    --Ancient Spanish Camp
+    g_models[g_str_5fb1b9dce1af0600177095ab_camp] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_ancient_spanish_camp'
+      }
+    }
+
+    --Ancient Spanish Camp Pack Train
+    g_models[g_str_5fb1b9dce1af0600177095ab_camp_pack_train] = g_models[g_str_5fb1b9e1e1af060017709849_camp_pack_train]
+
+-- Celtiberians
+-- 240 to 20BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af0600177095b2/explore
+-- As of: 20210407
+
+    -- JavCav General
+    g_models[g_str_5fb1ba27e1af06001770c8be_general] = g_models[g_str_5fb1ba27e1af06001770c8ae_general]
+    g_models[g_str_5fb1ba27e1af06001770c8be_general_mounted] = g_models[g_str_5fb1ba27e1af06001770c8ae_general]
+
+    -- Scutarii -  Raider General as dismounted javcav
+    g_models[g_str_5fb1ba27e1af06001770c8be_general_dismounted] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 4,
+        fixed_models = {
+          [1] = 'troop_ancient_spanish_scutarii_banner',
+          [2] = 'troop_ancient_spanish_scutarii_chief',
+          [3] = 'troop_ancient_spanish_scutarii_musician',
+          [4] = 'troop_ancient_spanish_scutarii_variant',
+        }
+      }
+    }
+
+    -- JavCav
+    g_models[g_str_5fb1ba27e1af06001770c8be] = g_models[g_str_5fb1ba27e1af06001770c8ae]
+    g_models[g_str_5fb1ba27e1af06001770c8be_mounted] = g_models[g_str_5fb1ba27e1af06001770c8ae]
+
+    -- Scutarii -  Raider as dismounted javcav
+    g_models[g_str_5fb1ba27e1af06001770c8be_dismounted] = g_models[g_str_5fb1ba27e1af06001770c8b1]
+
+    -- Scutarii -  Raider
+    g_models[g_str_5fb1ba27e1af06001770c8c1] = g_models[g_str_5fb1ba27e1af06001770c8b1]
+
+    -- Caetrati - Light Foot
+    g_models[g_str_5fb1ba27e1af06001770c8c3] = g_models[g_str_5fb1ba27e1af06001770c8ae_dismounted]
+
+    -- Skirmishing Slingers
+    g_models[g_str_5fb1ba27e1af06001770c8c5] = g_models[g_str_5fb1ba27e1af06001770c8b5]
+
+    --Celtiberians Camp
+    g_models[g_str_5fb1b9dce1af0600177095b2_camp] = g_models[g_str_5fb1b9dce1af0600177095ab_camp]
+
+    --Celtiberians Camp Pack Train
+    g_models[g_str_5fb1b9dce1af0600177095b2_camp_pack_train] = g_models[g_str_5fb1b9dce1af0600177095ab_camp_pack_train]

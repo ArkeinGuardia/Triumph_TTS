@@ -1,0 +1,102 @@
+-- 5fb1b9dce1af060017709534 Romanized Campanian  340 to 203 BC
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba25e1af06001770c6f9_general='5fb1ba25e1af06001770c6f9_general'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6f9_general]={
+  id=g_str_5fb1ba25e1af06001770c6f9_general,
+  name='Javelin Cavalry General',
+  min=1,
+  max=1,
+  description='Horsemen',
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba25e1af06001770c6f8",
+}
+g_str_5fb1ba25e1af06001770c6f9='5fb1ba25e1af06001770c6f9'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6f9]={
+  id=g_str_5fb1ba25e1af06001770c6f9,
+  name='Javelin Cavalry',
+  min=1,
+  max=2,
+  description='Horsemen',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba25e1af06001770c6f8",
+}
+g_str_5fb1ba25e1af06001770c6fb='5fb1ba25e1af06001770c6fb'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6fb]={
+  id=g_str_5fb1ba25e1af06001770c6fb,
+  name='Heavy Foot',
+  min=6,
+  max=15,
+  description='Roman-style infantry',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba25e1af06001770c6fa",
+}
+g_str_5fb1ba25e1af06001770c6fd='5fb1ba25e1af06001770c6fd'
+g_base_definitions[g_str_5fb1ba25e1af06001770c6fd]={
+  id=g_str_5fb1ba25e1af06001770c6fd,
+  name='Rabble',
+  min=0,
+  max=4,
+  description='Javelinmen',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba25e1af06001770c6fc",
+}
+g_str_5fb1b9dce1af060017709534_camp='5fb1b9dce1af060017709534_camp'
+g_base_definitions[g_str_5fb1b9dce1af060017709534_camp]={
+  id=g_str_5fb1b9dce1af060017709534_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9dce1af060017709534_camp_pack_train='5fb1b9dce1af060017709534_camp_pack_train'
+g_base_definitions[g_str_5fb1b9dce1af060017709534_camp_pack_train]={
+  id=g_str_5fb1b9dce1af060017709534_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9dce1af060017709534']={
+  data={
+    name='Romanized Campanian  340 to 203 BC',
+    id='5fb1b9dce1af060017709534',
+    army_id='5fb1b9dce1af060017709534'
+  },
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6f9_general],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6f9],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6fb],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c6fd],
+  g_base_definitions[g_str_5fb1b9dce1af060017709534_camp],
+  g_base_definitions[g_str_5fb1b9dce1af060017709534_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9dce1af060017709534"] = army["5fb1b9dce1af060017709534"]
+if nil == armies["Birth of the West"] then
+  armies["Birth of the West"] ={}
+end
+armies["Birth of the West"]["Romanized Campanian  340 to 203 BC"] = army["5fb1b9dce1af060017709534"]
+if nil == armies["Rise of Rome"] then
+  armies["Rise of Rome"] ={}
+end
+armies["Rise of Rome"]["Romanized Campanian  340 to 203 BC"] = army["5fb1b9dce1af060017709534"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Romanized Campanian  340 to 203 BC"] = army["5fb1b9dce1af060017709534"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dce1af060017709534"] = {}
+army_dates["5fb1b9dce1af060017709534"]["340 BC to 203 BC"] ="5fb1b9dce1af060017709534"

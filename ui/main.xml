@@ -149,7 +149,7 @@
                 <Text fontSize="20" alignment="MiddleLeft">Theme:</Text>
             </Cell>
             <Cell columnSpan="17" dontUseTableCellBackground="true">
-                <Dropdown id="dropdown_book" onValueChanged="on_book_selected" fontSize="20">
+                <Dropdown id="dropdown_book" onValueChanged="on_theme_selected" fontSize="20">
                     <Option selected="true">Book I</Option>
                     <Option>Book II</Option>
                     <Option>Book III</Option>
@@ -172,10 +172,23 @@
         </Row>
         <Row preferredHeight="40">
             <Cell columnSpan="3" dontUseTableCellBackground="true">
+                <Text fontSize="20" alignment="MiddleLeft">Year:</Text>
+            </Cell>
+            <Cell columnSpan="17" dontUseTableCellBackground="true">
+                <Dropdown id="dropdown_year" onValueChanged="on_year_selected" fontSize="16" scrollSensitivity="20">
+                    <Option selected="true">40000 BCE to 3000 BCE</Option>
+                    <Option>3000 BCE to 1 BCE</Option>
+                    <Option>1 CE to 33 CE</Option>
+                    <Option>1939 CE to 1945 CE</Option>
+                </Dropdown>
+            </Cell>
+        </Row>
+        <Row preferredHeight="40">
+            <Cell columnSpan="3" dontUseTableCellBackground="true">
                 <Text fontSize="20" alignment="MiddleLeft">Player:</Text>
             </Cell>
             <Cell columnSpan="17" dontUseTableCellBackground="true">
-                <Dropdown id="dropdown_playercolor" onValueChanged="on_color_selected" fontSize="20">
+                <Dropdown id="dropdown_playercolor" onValueChanged="on_playercolor_selected" fontSize="20">
                     <Option selected="true">Red</Option>
                     <Option>Blue</Option>
                 </Dropdown>
@@ -197,28 +210,7 @@
         </Row>
         <Row preferredHeight="40">
             <Cell columnSpan="20" dontUseTableCellBackground="true">
-                <Text id="text_ag_terr" fontSize="20">Invasion: 2, Terrain: Arable, Flat bases</Text>
-            </Cell>
-        </Row>
-        <Row>
-            <Cell columnSpan="20" dontUseTableCellBackground="true">
-                <VerticalScrollView color="#00000000" verticalScrollbarVisibility="AutoHide">
-                    <Text id="text_authors" alignment="UpperLeft" fontSize="16" contentSizeFitter="vertical">
-                      The authors of the models are:
-                      - Empire Swordsmen by Veer
-                      - Whatever by Example
-                      - Base 3
-                      - Base 4
-                      - Base 5
-                      - Base 6
-                      - Base 7
-                      - Base 8
-                      - Base 9
-                      - Base 10
-                      - Base 11
-                      - Base 12
-                  </Text>
-                </VerticalScrollView>
+                <Toggle id="toggle_use_plain_bases" onValueChanged="on_use_plain_bases" alignment="MiddleLeft" fontSize="16">Use plain bases</Toggle>
             </Cell>
         </Row>
         <Row preferredHeight="40">
@@ -229,7 +221,7 @@
                 <!-- Filler -->
             </Cell>
             <Cell columnSpan="4" dontUseTableCellBackground="true">
-                <Button columnSpan="1" fontSize="20" onClick="on_load_army">Load</Button>
+                <Button id="button_load_army" columnSpan="1" fontSize="20" onClick="on_load_army">Load</Button>
             </Cell>
         </Row>
     </TableLayout>
@@ -245,7 +237,7 @@
                 <Text fontSize="16">Orientation:</Text>
             </Cell>
             <Cell columnSpan="4" dontUseTableCellBackground="true">
-                <ToggleGroup id="togglegroup_orientation" 
+                <ToggleGroup id="togglegroup_orientation"
                     onValueChanged="on_change_orientation_wheel">
                     <HorizontalLayout>
                         <Toggle id="toggle_wheel_left">Left</Toggle>

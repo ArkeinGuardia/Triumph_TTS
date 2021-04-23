@@ -57,24 +57,37 @@ function get_battle_card_for_base_obj(base_obj)
  end
 
 function get_tool_tip_for_base(base_obj)
-  if base_obj == nil then
-    return nil
-  end
   if not g_tool_tips_enabled then
     return nil
   end
+  if base_obj == nil then
+    return nil
+  end
   local base_name = base_obj.getName()
+
+  local description = nil
+  local base_definition = get_base_definition_from_base_obj(base_obj)
+  if nil == base_definition then
+    print_debug("no base definition for ", base_name)
+  else
+    description = base_definition['description']  
+  end
+  if description == nil then
+    description = ""
+  end
+
   local tip =
-    get_tool_tip_for_base_name(base_name) ..
-    get_battle_card_for_base_obj(base_obj)
+    get_tool_tip_for_base_definition(base_definition) ..
+    get_battle_card_for_base_obj(base_obj) ..
+    description
   return tip
 end
 
-function get_tool_tip_for_base_name(base_name)
-  if base_name == nil then
+function get_tool_tip_for_base_definition(base_definition)
+  if base_definition == nil then
     return ""
   end
-  local type = get_base_type_from_name(base_name)
+  local type = base_definition.troop_type
   if type == nil then
     return ""
   end

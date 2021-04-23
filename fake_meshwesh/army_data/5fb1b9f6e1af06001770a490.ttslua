@@ -1,0 +1,87 @@
+-- 5fb1b9f6e1af06001770a490 Araucanian  1461 to 1552 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba44e1af06001770fead_general='5fb1ba44e1af06001770fead_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fead_general]={
+  id=g_str_5fb1ba44e1af06001770fead_general,
+  name='Light Spear General',
+  min=8,
+  max=1,
+  description='Tribesmen armed with long spears',
+  general=true,
+  troop_type="Light Spear",
+  troop_option_id="5fb1ba44e1af06001770feac",
+}
+g_str_5fb1ba44e1af06001770fead='5fb1ba44e1af06001770fead'
+g_base_definitions[g_str_5fb1ba44e1af06001770fead]={
+  id=g_str_5fb1ba44e1af06001770fead,
+  name='Light Spear',
+  min=8,
+  max=16,
+  description='Tribesmen armed with long spears',
+  troop_type="Light Spear",
+  troop_option_id="5fb1ba44e1af06001770feac",
+}
+g_str_5fb1ba44e1af06001770feaf='5fb1ba44e1af06001770feaf'
+g_base_definitions[g_str_5fb1ba44e1af06001770feaf]={
+  id=g_str_5fb1ba44e1af06001770feaf,
+  name='Skirmishers',
+  min=0,
+  max=8,
+  description='Skirmishing bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba44e1af06001770feae",
+}
+g_str_5fb1ba44e1af06001770feb1='5fb1ba44e1af06001770feb1'
+g_base_definitions[g_str_5fb1ba44e1af06001770feb1]={
+  id=g_str_5fb1ba44e1af06001770feb1,
+  name='Skirmishers',
+  min=0,
+  max=2,
+  description='Skirmishing slingers',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba44e1af06001770feb0",
+}
+g_str_5fb1b9f6e1af06001770a490_camp='5fb1b9f6e1af06001770a490_camp'
+g_base_definitions[g_str_5fb1b9f6e1af06001770a490_camp]={
+  id=g_str_5fb1b9f6e1af06001770a490_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+army['5fb1b9f6e1af06001770a490']={
+  data={
+    name='Araucanian  1461 to 1552 AD',
+    id='5fb1b9f6e1af06001770a490',
+    army_id='5fb1b9f6e1af06001770a490'
+  },
+  g_base_definitions[g_str_5fb1ba44e1af06001770fead_general],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fead],
+  g_base_definitions[g_str_5fb1ba44e1af06001770feaf],
+  g_base_definitions[g_str_5fb1ba44e1af06001770feb1],
+  g_base_definitions[g_str_5fb1b9f6e1af06001770a490_camp],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9f6e1af06001770a490"] = army["5fb1b9f6e1af06001770a490"]
+if nil == armies["Andes and Amazon"] then
+  armies["Andes and Amazon"] ={}
+end
+armies["Andes and Amazon"]["Araucanian  1461 to 1552 AD"] = army["5fb1b9f6e1af06001770a490"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Araucanian  1461 to 1552 AD"] = army["5fb1b9f6e1af06001770a490"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f6e1af06001770a490"] = {}
+army_dates["5fb1b9f6e1af06001770a490"]["1461 AD to 1552 AD"] ="5fb1b9f6e1af06001770a490"

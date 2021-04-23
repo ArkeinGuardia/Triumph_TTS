@@ -1,0 +1,391 @@
+-- 5fb1b9e4e1af060017709a44 Carolingian Frankish  639 to 888 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba2fe1af06001770d93c_general='5fb1ba2fe1af06001770d93c_general'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general]={
+  id=g_str_5fb1ba2fe1af06001770d93c_general,
+  name='Knights General',
+  min=3,
+  max=1,
+  description='Caballarii',
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba2fe1af06001770d93b",
+}
+g_str_5fb1ba2fe1af06001770d93c_general_dismounted='5fb1ba2fe1af06001770d93c_general_dismounted'
+g_str_5fb1ba2fe1af06001770d93c_general_mounted='5fb1ba2fe1af06001770d93c_general_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d93c_general_dismounted,
+  name='Heavy Foot General',
+  min=3,
+  max=1,
+  description='Caballarii\nDeployment dismounted from Knights General',
+  points=4,
+  dismounted_from=g_str_5fb1ba2fe1af06001770d93c_general_mounted,
+  general=true,
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba2fe1af06001770d93b",
+}
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d93c_general_mounted,
+  name='Knights General',
+  min=3,
+  max=1,
+  description='Caballarii\nDeployment dismounting as Heavy Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba2fe1af06001770d93c_general_dismounted,
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba2fe1af06001770d93b",
+}
+g_str_5fb1ba2fe1af06001770d93c='5fb1ba2fe1af06001770d93c'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93c]={
+  id=g_str_5fb1ba2fe1af06001770d93c,
+  name='Knights',
+  min=3,
+  max=7,
+  description='Caballarii',
+  troop_type="Knights",
+  troop_option_id="5fb1ba2fe1af06001770d93b",
+}
+g_str_5fb1ba2fe1af06001770d93c_dismounted='5fb1ba2fe1af06001770d93c_dismounted'
+g_str_5fb1ba2fe1af06001770d93c_mounted='5fb1ba2fe1af06001770d93c_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d93c_dismounted,
+  name='Heavy Foot',
+  min=3,
+  max=7,
+  description='Caballarii\nDeployment dismounted from Knights',
+  points=4,
+  dismounted_from=g_str_5fb1ba2fe1af06001770d93c_mounted,
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba2fe1af06001770d93b",
+}
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d93c_mounted,
+  name='Knights',
+  min=3,
+  max=7,
+  description='Caballarii\nDeployment dismounting as Heavy Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba2fe1af06001770d93c_dismounted,
+  troop_type="Knights",
+  troop_option_id="5fb1ba2fe1af06001770d93b",
+}
+g_str_5fb1ba2fe1af06001770d93f_general='5fb1ba2fe1af06001770d93f_general'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general]={
+  id=g_str_5fb1ba2fe1af06001770d93f_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Swabian or Bavarian caballarii',
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_str_5fb1ba2fe1af06001770d93f_general_dismounted='5fb1ba2fe1af06001770d93f_general_dismounted'
+g_str_5fb1ba2fe1af06001770d93f_general_mounted='5fb1ba2fe1af06001770d93f_general_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d93f_general_dismounted,
+  name='Elite Foot General',
+  min=0,
+  max=1,
+  description='Swabian or Bavarian caballarii\nDeployment dismounted from Knights General',
+  points=4,
+  dismounted_from=g_str_5fb1ba2fe1af06001770d93f_general_mounted,
+  general=true,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d93f_general_mounted,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Swabian or Bavarian caballarii\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba2fe1af06001770d93f_general_dismounted,
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_str_5fb1ba2fe1af06001770d93f='5fb1ba2fe1af06001770d93f'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93f]={
+  id=g_str_5fb1ba2fe1af06001770d93f,
+  name='Knights',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii',
+  troop_type="Knights",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_str_5fb1ba2fe1af06001770d93f_dismounted='5fb1ba2fe1af06001770d93f_dismounted'
+g_str_5fb1ba2fe1af06001770d93f_mounted='5fb1ba2fe1af06001770d93f_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d93f_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii\nDeployment dismounted from Knights',
+  points=4,
+  dismounted_from=g_str_5fb1ba2fe1af06001770d93f_mounted,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d93f_mounted,
+  name='Knights',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba2fe1af06001770d93f_dismounted,
+  troop_type="Knights",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_str_5fb1ba2fe1af06001770d940='5fb1ba2fe1af06001770d940'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d940]={
+  id=g_str_5fb1ba2fe1af06001770d940,
+  name='Bad Horse',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii',
+  troop_type="Bad Horse",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_str_5fb1ba2fe1af06001770d940_dismounted='5fb1ba2fe1af06001770d940_dismounted'
+g_str_5fb1ba2fe1af06001770d940_mounted='5fb1ba2fe1af06001770d940_mounted'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d940_dismounted]={
+  id=g_str_5fb1ba2fe1af06001770d940_dismounted,
+  name='Elite Foot',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii\nDeployment dismounted from Bad Horse',
+  points=4,
+  dismounted_from=g_str_5fb1ba2fe1af06001770d940_mounted,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_base_definitions[g_str_5fb1ba2fe1af06001770d940_mounted]={
+  id=g_str_5fb1ba2fe1af06001770d940_mounted,
+  name='Bad Horse',
+  min=0,
+  max=3,
+  description='Swabian or Bavarian caballarii\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba2fe1af06001770d940_dismounted,
+  troop_type="Bad Horse",
+  troop_option_id="5fb1ba2fe1af06001770d93e",
+}
+g_str_5fb1ba2fe1af06001770d944='5fb1ba2fe1af06001770d944'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d944]={
+  id=g_str_5fb1ba2fe1af06001770d944,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Thuringians',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba2fe1af06001770d943",
+}
+g_str_5fb1ba2fe1af06001770d946='5fb1ba2fe1af06001770d946'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d946]={
+  id=g_str_5fb1ba2fe1af06001770d946,
+  name='Heavy Foot',
+  min=1,
+  max=5,
+  description='Select levies',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba2fe1af06001770d945",
+}
+g_str_5fb1ba2fe1af06001770d948='5fb1ba2fe1af06001770d948'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d948]={
+  id=g_str_5fb1ba2fe1af06001770d948,
+  name='Bow Levy',
+  min=0,
+  max=3,
+  description='Massed levy bowmen',
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba2fe1af06001770d947",
+}
+g_str_5fb1ba2fe1af06001770d94a='5fb1ba2fe1af06001770d94a'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d94a]={
+  id=g_str_5fb1ba2fe1af06001770d94a,
+  name='Skirmishers',
+  min=0,
+  max=1,
+  description='Skirmishing bowmen, crossbowmen, or staff slingers',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba2fe1af06001770d949",
+}
+g_str_5fb1ba2fe1af06001770d94c='5fb1ba2fe1af06001770d94c'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d94c]={
+  id=g_str_5fb1ba2fe1af06001770d94c,
+  name='Horde',
+  min=0,
+  max=2,
+  description='Lesser levy',
+  troop_type="Horde",
+  troop_option_id="5fb1ba2fe1af06001770d94b",
+}
+g_str_5fb1ba2fe1af06001770d94f='5fb1ba2fe1af06001770d94f'
+g_base_definitions[g_str_5fb1ba2fe1af06001770d94f]={
+  id=g_str_5fb1ba2fe1af06001770d94f,
+  name='Horde',
+  min=0,
+  max=2,
+  description='Additional lesser levy',
+  troop_type="Horde",
+  troop_option_id="5fb1ba2fe1af06001770d94d",
+}
+g_str_5fb1b9e4e1af060017709a44_camp='5fb1b9e4e1af060017709a44_camp'
+g_base_definitions[g_str_5fb1b9e4e1af060017709a44_camp]={
+  id=g_str_5fb1b9e4e1af060017709a44_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+army['5fb1b9e4e1af060017709a44']={
+  data={
+    name='Carolingian Frankish  639 to 888 AD',
+    id='5fb1b9e4e1af060017709a44',
+    army_id='5fb1b9e4e1af060017709a44'
+  },
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d944],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d946],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d948],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94a],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94c],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94f],
+  g_base_definitions[g_str_5fb1b9e4e1af060017709a44_camp],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9e4e1af060017709a44"] = army["5fb1b9e4e1af060017709a44"]
+army['5fb1b9e4e1af060017709a44_639_835']={
+  data={
+    name='Carolingian Frankish 639 AD to 835 AD',
+    id='5fb1b9e4e1af060017709a44_639_835',
+    army_id='5fb1b9e4e1af060017709a44'
+  },
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d944],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d946],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d948],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94a],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94c],
+  g_base_definitions[g_str_5fb1b9e4e1af060017709a44_camp],
+}
+army['5fb1b9e4e1af060017709a44_836_838']={
+  data={
+    name='Carolingian Frankish 836 AD to 838 AD',
+    id='5fb1b9e4e1af060017709a44_836_838',
+    army_id='5fb1b9e4e1af060017709a44'
+  },
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d944],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d946],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d948],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94a],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94c],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94f],
+  g_base_definitions[g_str_5fb1b9e4e1af060017709a44_camp],
+}
+army['5fb1b9e4e1af060017709a44_839_888']={
+  data={
+    name='Carolingian Frankish 839 AD to 888 AD',
+    id='5fb1b9e4e1af060017709a44_839_888',
+    army_id='5fb1b9e4e1af060017709a44'
+  },
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93c_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d93f_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_mounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d940_dismounted],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d944],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d946],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d948],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94a],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d94c],
+  g_base_definitions[g_str_5fb1b9e4e1af060017709a44_camp],
+}
+if nil == armies["Dark Ages"] then
+  armies["Dark Ages"] ={}
+end
+armies["Dark Ages"]["Carolingian Frankish  639 to 888 AD"] = army["5fb1b9e4e1af060017709a44"]
+if nil == armies["Viking Seas"] then
+  armies["Viking Seas"] ={}
+end
+armies["Viking Seas"]["Carolingian Frankish  639 to 888 AD"] = army["5fb1b9e4e1af060017709a44"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Carolingian Frankish  639 to 888 AD"] = army["5fb1b9e4e1af060017709a44"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e4e1af060017709a44"] = {}
+army_dates["5fb1b9e4e1af060017709a44"]["639 AD to 888 AD"] ="5fb1b9e4e1af060017709a44"
+army_dates["5fb1b9e4e1af060017709a44"]["639 AD to 835 AD"] ="5fb1b9e4e1af060017709a44_639_835"
+army_dates["5fb1b9e4e1af060017709a44"]["836 AD to 838 AD"] ="5fb1b9e4e1af060017709a44_836_838"
+army_dates["5fb1b9e4e1af060017709a44"]["839 AD to 888 AD"] ="5fb1b9e4e1af060017709a44_839_888"

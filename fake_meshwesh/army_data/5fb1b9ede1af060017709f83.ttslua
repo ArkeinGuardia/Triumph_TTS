@@ -1,0 +1,139 @@
+-- 5fb1b9ede1af060017709f83 Medieval Alan  920 to 1500 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba3ae1af06001770ee35_general='5fb1ba3ae1af06001770ee35_general'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ee35_general]={
+  id=g_str_5fb1ba3ae1af06001770ee35_general,
+  name='Knights General',
+  min=0,
+  max=1,
+  description='Noble horsemen',
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba3ae1af06001770ee34",
+}
+g_str_5fb1ba3ae1af06001770ee35='5fb1ba3ae1af06001770ee35'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ee35]={
+  id=g_str_5fb1ba3ae1af06001770ee35,
+  name='Knights',
+  min=0,
+  max=4,
+  description='Noble horsemen',
+  troop_type="Knights",
+  troop_option_id="5fb1ba3ae1af06001770ee34",
+}
+g_str_5fb1ba3ae1af06001770ee37_general='5fb1ba3ae1af06001770ee37_general'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ee37_general]={
+  id=g_str_5fb1ba3ae1af06001770ee37_general,
+  name='Horse Bow General',
+  min=6,
+  max=1,
+  description='Horse archers',
+  general=true,
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba3ae1af06001770ee36",
+}
+g_str_5fb1ba3ae1af06001770ee37='5fb1ba3ae1af06001770ee37'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ee37]={
+  id=g_str_5fb1ba3ae1af06001770ee37,
+  name='Horse Bow',
+  min=6,
+  max=12,
+  description='Horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba3ae1af06001770ee36",
+}
+g_str_5fb1ba3ae1af06001770ee39='5fb1ba3ae1af06001770ee39'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ee39]={
+  id=g_str_5fb1ba3ae1af06001770ee39,
+  name='Heavy Foot',
+  min=0,
+  max=4,
+  description='Peasants armed with axes',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba3ae1af06001770ee38",
+}
+g_str_5fb1ba3ae1af06001770ee3b='5fb1ba3ae1af06001770ee3b'
+g_base_definitions[g_str_5fb1ba3ae1af06001770ee3b]={
+  id=g_str_5fb1ba3ae1af06001770ee3b,
+  name='Skirmishers',
+  min=0,
+  max=2,
+  description='Peasant or camp follower skirmishing bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba3ae1af06001770ee3a",
+}
+g_str_5fb1b9ede1af060017709f83_camp='5fb1b9ede1af060017709f83_camp'
+g_base_definitions[g_str_5fb1b9ede1af060017709f83_camp]={
+  id=g_str_5fb1b9ede1af060017709f83_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f83_camp_fortified='5fb1b9ede1af060017709f83_camp_fortified'
+g_base_definitions[g_str_5fb1b9ede1af060017709f83_camp_fortified]={
+  id=g_str_5fb1b9ede1af060017709f83_camp_fortified,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Fortified camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9ede1af060017709f83_camp_pack_train='5fb1b9ede1af060017709f83_camp_pack_train'
+g_base_definitions[g_str_5fb1b9ede1af060017709f83_camp_pack_train]={
+  id=g_str_5fb1b9ede1af060017709f83_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9ede1af060017709f83']={
+  data={
+    name='Medieval Alan  920 to 1500 AD',
+    id='5fb1b9ede1af060017709f83',
+    army_id='5fb1b9ede1af060017709f83'
+  },
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee35_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee35],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee37_general],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee37],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee39],
+  g_base_definitions[g_str_5fb1ba3ae1af06001770ee3b],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f83_camp],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f83_camp_fortified],
+  g_base_definitions[g_str_5fb1b9ede1af060017709f83_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9ede1af060017709f83"] = army["5fb1b9ede1af060017709f83"]
+if nil == armies["Scimitar and Crescent"] then
+  armies["Scimitar and Crescent"] ={}
+end
+armies["Scimitar and Crescent"]["Medieval Alan  920 to 1500 AD"] = army["5fb1b9ede1af060017709f83"]
+if nil == armies["Glorious Byzantium"] then
+  armies["Glorious Byzantium"] ={}
+end
+armies["Glorious Byzantium"]["Medieval Alan  920 to 1500 AD"] = army["5fb1b9ede1af060017709f83"]
+if nil == armies["Byzantium in Decay"] then
+  armies["Byzantium in Decay"] ={}
+end
+armies["Byzantium in Decay"]["Medieval Alan  920 to 1500 AD"] = army["5fb1b9ede1af060017709f83"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Medieval Alan  920 to 1500 AD"] = army["5fb1b9ede1af060017709f83"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9ede1af060017709f83"] = {}
+army_dates["5fb1b9ede1af060017709f83"]["920 AD to 1500 AD"] ="5fb1b9ede1af060017709f83"

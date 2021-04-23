@@ -1,0 +1,469 @@
+-- 5fb1b9e1e1af06001770988c Scots-Irish  55 BC to 841 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba2ce1af06001770d386_general='5fb1ba2ce1af06001770d386_general'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general]={
+  id=g_str_5fb1ba2ce1af06001770d386_general,
+  name='Battle Taxi General',
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  general=true,
+  troop_type="Battle Taxi",
+  troop_option_id="5fb1ba2ce1af06001770d384",
+}
+g_str_5fb1ba2ce1af06001770d386_general_dismounted='5fb1ba2ce1af06001770d386_general_dismounted'
+g_str_5fb1ba2ce1af06001770d386_general_mounted='5fb1ba2ce1af06001770d386_general_mounted'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted]={
+  id=g_str_5fb1ba2ce1af06001770d386_general_dismounted,
+  name='Light Foot General',
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounted from Battle Taxi General',
+  points=3,
+  dismounted_from=g_str_5fb1ba2ce1af06001770d386_general_mounted,
+  general=true,
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba2ce1af06001770d384",
+}
+g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted]={
+  id=g_str_5fb1ba2ce1af06001770d386_general_mounted,
+  name='Battle Taxi General',
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounting as Light Foot',
+  points=3,
+  dismount_as=g_str_5fb1ba2ce1af06001770d386_general_dismounted,
+  general=true,
+  troop_type="Battle Taxi",
+  troop_option_id="5fb1ba2ce1af06001770d384",
+}
+g_str_5fb1ba2ce1af06001770d386='5fb1ba2ce1af06001770d386'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d386]={
+  id=g_str_5fb1ba2ce1af06001770d386,
+  name='Battle Taxi',
+  min=0,
+  max=4,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  troop_type="Battle Taxi",
+  troop_option_id="5fb1ba2ce1af06001770d384",
+}
+g_str_5fb1ba2ce1af06001770d386_dismounted='5fb1ba2ce1af06001770d386_dismounted'
+g_str_5fb1ba2ce1af06001770d386_mounted='5fb1ba2ce1af06001770d386_mounted'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted]={
+  id=g_str_5fb1ba2ce1af06001770d386_dismounted,
+  name='Light Foot',
+  min=0,
+  max=4,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounted from Battle Taxi',
+  points=3,
+  dismounted_from=g_str_5fb1ba2ce1af06001770d386_mounted,
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba2ce1af06001770d384",
+}
+g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted]={
+  id=g_str_5fb1ba2ce1af06001770d386_mounted,
+  name='Battle Taxi',
+  min=0,
+  max=4,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounting as Light Foot',
+  points=3,
+  dismount_as=g_str_5fb1ba2ce1af06001770d386_dismounted,
+  troop_type="Battle Taxi",
+  troop_option_id="5fb1ba2ce1af06001770d384",
+}
+g_str_5fb1ba2ce1af06001770d38a_general='5fb1ba2ce1af06001770d38a_general'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general]={
+  id=g_str_5fb1ba2ce1af06001770d38a_general,
+  name='Battle Taxi General',
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  general=true,
+  troop_type="Battle Taxi",
+  troop_option_id="5fb1ba2ce1af06001770d388",
+}
+g_str_5fb1ba2ce1af06001770d38a='5fb1ba2ce1af06001770d38a'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d38a]={
+  id=g_str_5fb1ba2ce1af06001770d38a,
+  name='Battle Taxi',
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  troop_type="Battle Taxi",
+  troop_option_id="5fb1ba2ce1af06001770d388",
+}
+g_str_5fb1ba2ce1af06001770d38c_general='5fb1ba2ce1af06001770d38c_general'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general]={
+  id=g_str_5fb1ba2ce1af06001770d38c_general,
+  name='Light Foot General',
+  min=5,
+  max=1,
+  description='Fighters',
+  general=true,
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba2ce1af06001770d38b",
+}
+g_str_5fb1ba2ce1af06001770d38c='5fb1ba2ce1af06001770d38c'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d38c]={
+  id=g_str_5fb1ba2ce1af06001770d38c,
+  name='Light Foot',
+  min=5,
+  max=15,
+  description='Fighters',
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba2ce1af06001770d38b",
+}
+g_str_5fb1ba2ce1af06001770d38e='5fb1ba2ce1af06001770d38e'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d38e]={
+  id=g_str_5fb1ba2ce1af06001770d38e,
+  name='Rabble',
+  min=0,
+  max=14,
+  description='Peasant levies',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba2ce1af06001770d38d",
+}
+g_str_5fb1ba2ce1af06001770d390='5fb1ba2ce1af06001770d390'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d390]={
+  id=g_str_5fb1ba2ce1af06001770d390,
+  name='Skirmishers',
+  min=1,
+  max=3,
+  description='Skirmishing peasant slingers',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba2ce1af06001770d38f",
+}
+g_str_5fb1ba2ce1af06001770d392_general='5fb1ba2ce1af06001770d392_general'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general]={
+  id=g_str_5fb1ba2ce1af06001770d392_general,
+  name='Warband General',
+  min=0,
+  max=1,
+  description='Fianna or diberga',
+  general=true,
+  troop_type="Warband",
+  troop_option_id="5fb1ba2ce1af06001770d391",
+}
+g_str_5fb1ba2ce1af06001770d392='5fb1ba2ce1af06001770d392'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d392]={
+  id=g_str_5fb1ba2ce1af06001770d392,
+  name='Warband',
+  min=0,
+  max=1,
+  description='Fianna or diberga',
+  troop_type="Warband",
+  troop_option_id="5fb1ba2ce1af06001770d391",
+}
+g_str_5fb1ba2ce1af06001770d395='5fb1ba2ce1af06001770d395'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d395]={
+  id=g_str_5fb1ba2ce1af06001770d395,
+  name='Raiders',
+  min=0,
+  max=1,
+  description='Roman allied Auxilia or Auxilia Palatina',
+  troop_type="Raiders",
+  troop_option_id="5fb1ba2ce1af06001770d393",
+}
+g_str_5fb1ba2ce1af06001770d398='5fb1ba2ce1af06001770d398'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d398]={
+  id=g_str_5fb1ba2ce1af06001770d398,
+  name='Warriors',
+  min=0,
+  max=2,
+  description='Atecotti fierce fighters',
+  troop_type="Warriors",
+  troop_option_id="5fb1ba2ce1af06001770d396",
+}
+g_str_5fb1ba2ce1af06001770d39b='5fb1ba2ce1af06001770d39b'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d39b]={
+  id=g_str_5fb1ba2ce1af06001770d39b,
+  name='Warriors',
+  min=0,
+  max=1,
+  description='Northumbrian exiles',
+  troop_type="Warriors",
+  troop_option_id="5fb1ba2ce1af06001770d399",
+}
+g_str_5fb1ba2ce1af06001770d39e='5fb1ba2ce1af06001770d39e'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d39e]={
+  id=g_str_5fb1ba2ce1af06001770d39e,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='British exiles',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba2ce1af06001770d39c",
+}
+g_str_5fb1ba2ce1af06001770d39f='5fb1ba2ce1af06001770d39f'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d39f]={
+  id=g_str_5fb1ba2ce1af06001770d39f,
+  name='Warriors',
+  min=0,
+  max=1,
+  description='British exiles',
+  troop_type="Warriors",
+  troop_option_id="5fb1ba2ce1af06001770d39c",
+}
+g_str_5fb1b9e1e1af06001770988c_camp='5fb1b9e1e1af06001770988c_camp'
+g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp]={
+  id=g_str_5fb1b9e1e1af06001770988c_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e1e1af06001770988c_camp_pack_train='5fb1b9e1e1af06001770988c_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train]={
+  id=g_str_5fb1b9e1e1af06001770988c_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9e1e1af06001770988c']={
+  data={
+    name='Scots-Irish  55 BC to 841 AD',
+    id='5fb1b9e1e1af06001770988c',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9e1e1af06001770988c"] = army["5fb1b9e1e1af06001770988c"]
+army['5fb1b9e1e1af06001770988c_-55_80']={
+  data={
+    name='Scots-Irish 55 BC to 80 AD',
+    id='5fb1b9e1e1af06001770988c_-55_80',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_81_192']={
+  data={
+    name='Scots-Irish 81 AD to 192 AD',
+    id='5fb1b9e1e1af06001770988c_81_192',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_193_299']={
+  data={
+    name='Scots-Irish 193 AD to 299 AD',
+    id='5fb1b9e1e1af06001770988c_193_299',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_300_406']={
+  data={
+    name='Scots-Irish 300 AD to 406 AD',
+    id='5fb1b9e1e1af06001770988c_300_406',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_407_499']={
+  data={
+    name='Scots-Irish 407 AD to 499 AD',
+    id='5fb1b9e1e1af06001770988c_407_499',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_500_628']={
+  data={
+    name='Scots-Irish 500 AD to 628 AD',
+    id='5fb1b9e1e1af06001770988c_500_628',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_629_629']={
+  data={
+    name='Scots-Irish 629 AD',
+    id='5fb1b9e1e1af06001770988c_629_629',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_630_636']={
+  data={
+    name='Scots-Irish 630 AD to 636 AD',
+    id='5fb1b9e1e1af06001770988c_630_636',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_637_637']={
+  data={
+    name='Scots-Irish 637 AD',
+    id='5fb1b9e1e1af06001770988c_637_637',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+army['5fb1b9e1e1af06001770988c_638_841']={
+  data={
+    name='Scots-Irish 638 AD to 841 AD',
+    id='5fb1b9e1e1af06001770988c_638_841',
+    army_id='5fb1b9e1e1af06001770988c'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
+}
+if nil == armies["Rise of Rome"] then
+  armies["Rise of Rome"] ={}
+end
+armies["Rise of Rome"]["Scots-Irish  55 BC to 841 AD"] = army["5fb1b9e1e1af06001770988c"]
+if nil == armies["Pax Romana"] then
+  armies["Pax Romana"] ={}
+end
+armies["Pax Romana"]["Scots-Irish  55 BC to 841 AD"] = army["5fb1b9e1e1af06001770988c"]
+if nil == armies["Fall of Rome"] then
+  armies["Fall of Rome"] ={}
+end
+armies["Fall of Rome"]["Scots-Irish  55 BC to 841 AD"] = army["5fb1b9e1e1af06001770988c"]
+if nil == armies["Dark Ages"] then
+  armies["Dark Ages"] ={}
+end
+armies["Dark Ages"]["Scots-Irish  55 BC to 841 AD"] = army["5fb1b9e1e1af06001770988c"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Scots-Irish  55 BC to 841 AD"] = army["5fb1b9e1e1af06001770988c"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e1e1af06001770988c"] = {}
+army_dates["5fb1b9e1e1af06001770988c"]["55 BC to 841 AD"] ="5fb1b9e1e1af06001770988c"
+army_dates["5fb1b9e1e1af06001770988c"]["55 BC to 80 AD"] ="5fb1b9e1e1af06001770988c_-55_80"
+army_dates["5fb1b9e1e1af06001770988c"]["81 AD to 192 AD"] ="5fb1b9e1e1af06001770988c_81_192"
+army_dates["5fb1b9e1e1af06001770988c"]["193 AD to 299 AD"] ="5fb1b9e1e1af06001770988c_193_299"
+army_dates["5fb1b9e1e1af06001770988c"]["300 AD to 406 AD"] ="5fb1b9e1e1af06001770988c_300_406"
+army_dates["5fb1b9e1e1af06001770988c"]["407 AD to 499 AD"] ="5fb1b9e1e1af06001770988c_407_499"
+army_dates["5fb1b9e1e1af06001770988c"]["500 AD to 628 AD"] ="5fb1b9e1e1af06001770988c_500_628"
+army_dates["5fb1b9e1e1af06001770988c"]["629 AD"] ="5fb1b9e1e1af06001770988c_629_629"
+army_dates["5fb1b9e1e1af06001770988c"]["630 AD to 636 AD"] ="5fb1b9e1e1af06001770988c_630_636"
+army_dates["5fb1b9e1e1af06001770988c"]["637 AD"] ="5fb1b9e1e1af06001770988c_637_637"
+army_dates["5fb1b9e1e1af06001770988c"]["638 AD to 841 AD"] ="5fb1b9e1e1af06001770988c_638_841"

@@ -1,0 +1,301 @@
+-- 5fb1b9eee1af060017709fc9 Ayyubid Egyptian  1171 to 1250 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba3be1af06001770ef28_general='5fb1ba3be1af06001770ef28_general'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general]={
+  id=g_str_5fb1ba3be1af06001770ef28_general,
+  name='Elite Cavalary General',
+  min=2,
+  max=1,
+  description='Toassin, halqa or Kipchak mamluks armed with bow and lance, possibly with horse armor',
+  general=true,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba3be1af06001770ef27",
+}
+g_str_5fb1ba3be1af06001770ef28_general_dismounted='5fb1ba3be1af06001770ef28_general_dismounted'
+g_str_5fb1ba3be1af06001770ef28_general_mounted='5fb1ba3be1af06001770ef28_general_mounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_dismounted]={
+  id=g_str_5fb1ba3be1af06001770ef28_general_dismounted,
+  name='Archers General',
+  min=2,
+  max=1,
+  description='Toassin, halqa or Kipchak mamluks armed with bow and lance, possibly with horse armor\nDeployment dismounted from Elite Cavalary General',
+  points=4,
+  dismounted_from=g_str_5fb1ba3be1af06001770ef28_general_mounted,
+  general=true,
+  troop_type="Archers",
+  troop_option_id="5fb1ba3be1af06001770ef27",
+}
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_mounted]={
+  id=g_str_5fb1ba3be1af06001770ef28_general_mounted,
+  name='Elite Cavalary General',
+  min=2,
+  max=1,
+  description='Toassin, halqa or Kipchak mamluks armed with bow and lance, possibly with horse armor\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_str_5fb1ba3be1af06001770ef28_general_dismounted,
+  general=true,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba3be1af06001770ef27",
+}
+g_str_5fb1ba3be1af06001770ef28='5fb1ba3be1af06001770ef28'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28]={
+  id=g_str_5fb1ba3be1af06001770ef28,
+  name='Elite Cavalary',
+  min=2,
+  max=4,
+  description='Toassin, halqa or Kipchak mamluks armed with bow and lance, possibly with horse armor',
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba3be1af06001770ef27",
+}
+g_str_5fb1ba3be1af06001770ef28_dismounted='5fb1ba3be1af06001770ef28_dismounted'
+g_str_5fb1ba3be1af06001770ef28_mounted='5fb1ba3be1af06001770ef28_mounted'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted]={
+  id=g_str_5fb1ba3be1af06001770ef28_dismounted,
+  name='Archers',
+  min=2,
+  max=4,
+  description='Toassin, halqa or Kipchak mamluks armed with bow and lance, possibly with horse armor\nDeployment dismounted from Elite Cavalary',
+  points=4,
+  dismounted_from=g_str_5fb1ba3be1af06001770ef28_mounted,
+  troop_type="Archers",
+  troop_option_id="5fb1ba3be1af06001770ef27",
+}
+g_base_definitions[g_str_5fb1ba3be1af06001770ef28_mounted]={
+  id=g_str_5fb1ba3be1af06001770ef28_mounted,
+  name='Elite Cavalary',
+  min=2,
+  max=4,
+  description='Toassin, halqa or Kipchak mamluks armed with bow and lance, possibly with horse armor\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_str_5fb1ba3be1af06001770ef28_dismounted,
+  troop_type="Elite Cavalary",
+  troop_option_id="5fb1ba3be1af06001770ef27",
+}
+g_str_5fb1ba3be1af06001770ef2d='5fb1ba3be1af06001770ef2d'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef2d]={
+  id=g_str_5fb1ba3be1af06001770ef2d,
+  name='Horse Bow',
+  min=2,
+  max=6,
+  description='Turkoman horse archers, or mamluks armed with bow but no lance or horse armor',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba3be1af06001770ef2b",
+}
+g_str_5fb1ba3be1af06001770ef30='5fb1ba3be1af06001770ef30'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef30]={
+  id=g_str_5fb1ba3be1af06001770ef30,
+  name='Horse Bow',
+  min=0,
+  max=2,
+  description='Mamluks armed with bow but no lance or horse armor',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba3be1af06001770ef2e",
+}
+g_str_5fb1ba3be1af06001770ef32='5fb1ba3be1af06001770ef32'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef32]={
+  id=g_str_5fb1ba3be1af06001770ef32,
+  name='Javelin Cavalry',
+  min=2,
+  max=4,
+  description='Qaraghulams, Kurds or Syrian askaris',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3be1af06001770ef31",
+}
+g_str_5fb1ba3be1af06001770ef34='5fb1ba3be1af06001770ef34'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef34]={
+  id=g_str_5fb1ba3be1af06001770ef34,
+  name='Javelin Cavalry',
+  min=0,
+  max=2,
+  description='Bedouin Arab horsemen',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba3be1af06001770ef33",
+}
+g_str_5fb1ba3be1af06001770ef36='5fb1ba3be1af06001770ef36'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef36]={
+  id=g_str_5fb1ba3be1af06001770ef36,
+  name='Light Foot',
+  min=0,
+  max=2,
+  description='Jabaliyya or Kurdish javelinmen',
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba3be1af06001770ef35",
+}
+g_str_5fb1ba3be1af06001770ef38='5fb1ba3be1af06001770ef38'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef38]={
+  id=g_str_5fb1ba3be1af06001770ef38,
+  name='Warband',
+  min=0,
+  max=2,
+  description='Ghazis',
+  troop_type="Warband",
+  troop_option_id="5fb1ba3be1af06001770ef37",
+}
+g_str_5fb1ba3be1af06001770ef3a='5fb1ba3be1af06001770ef3a'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef3a]={
+  id=g_str_5fb1ba3be1af06001770ef3a,
+  name='Horde',
+  min=0,
+  max=2,
+  description='Syrian ahdath or Egyptian city mob',
+  troop_type="Horde",
+  troop_option_id="5fb1ba3be1af06001770ef39",
+}
+g_str_5fb1ba3be1af06001770ef3b='5fb1ba3be1af06001770ef3b'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef3b]={
+  id=g_str_5fb1ba3be1af06001770ef3b,
+  name='Rabble',
+  min=0,
+  max=2,
+  description='Syrian ahdath or Egyptian city mob',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba3be1af06001770ef39",
+}
+g_str_5fb1ba3be1af06001770ef3d='5fb1ba3be1af06001770ef3d'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef3d]={
+  id=g_str_5fb1ba3be1af06001770ef3d,
+  name='Skirmishers',
+  min=0,
+  max=3,
+  description='Al-ashair armed with mixed sling, bow, and crossbow',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba3be1af06001770ef3c",
+}
+g_str_5fb1ba3be1af06001770ef40='5fb1ba3be1af06001770ef40'
+g_base_definitions[g_str_5fb1ba3be1af06001770ef40]={
+  id=g_str_5fb1ba3be1af06001770ef40,
+  name='Archers',
+  min=0,
+  max=3,
+  description='Sudanese bowmen',
+  troop_type="Archers",
+  troop_option_id="5fb1ba3be1af06001770ef3e",
+}
+g_str_5fb1b9eee1af060017709fc9_camp='5fb1b9eee1af060017709fc9_camp'
+g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp]={
+  id=g_str_5fb1b9eee1af060017709fc9_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9eee1af060017709fc9_camp_pack_train='5fb1b9eee1af060017709fc9_camp_pack_train'
+g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp_pack_train]={
+  id=g_str_5fb1b9eee1af060017709fc9_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9eee1af060017709fc9']={
+  data={
+    name='Ayyubid Egyptian  1171 to 1250 AD',
+    id='5fb1b9eee1af060017709fc9',
+    army_id='5fb1b9eee1af060017709fc9'
+  },
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef2d],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef30],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef32],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef34],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef36],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef38],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3a],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3b],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3d],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef40],
+  g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp],
+  g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9eee1af060017709fc9"] = army["5fb1b9eee1af060017709fc9"]
+army['5fb1b9eee1af060017709fc9_1171_1243']={
+  data={
+    name='Ayyubid Egyptian 1171 AD to 1243 AD',
+    id='5fb1b9eee1af060017709fc9_1171_1243',
+    army_id='5fb1b9eee1af060017709fc9'
+  },
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef2d],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef32],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef34],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef36],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef38],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3a],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3b],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3d],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef40],
+  g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp],
+  g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp_pack_train],
+}
+army['5fb1b9eee1af060017709fc9_1244_1250']={
+  data={
+    name='Ayyubid Egyptian 1244 AD to 1250 AD',
+    id='5fb1b9eee1af060017709fc9_1244_1250',
+    army_id='5fb1b9eee1af060017709fc9'
+  },
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_general_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_mounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef28_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef30],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef32],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef34],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef36],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef38],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3a],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3b],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef3d],
+  g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp],
+  g_base_definitions[g_str_5fb1b9eee1af060017709fc9_camp_pack_train],
+}
+if nil == armies["Scimitar and Crescent"] then
+  armies["Scimitar and Crescent"] ={}
+end
+armies["Scimitar and Crescent"]["Ayyubid Egyptian  1171 to 1250 AD"] = army["5fb1b9eee1af060017709fc9"]
+if nil == armies["Glorious Byzantium"] then
+  armies["Glorious Byzantium"] ={}
+end
+armies["Glorious Byzantium"]["Ayyubid Egyptian  1171 to 1250 AD"] = army["5fb1b9eee1af060017709fc9"]
+if nil == armies["Byzantium in Decay"] then
+  armies["Byzantium in Decay"] ={}
+end
+armies["Byzantium in Decay"]["Ayyubid Egyptian  1171 to 1250 AD"] = army["5fb1b9eee1af060017709fc9"]
+if nil == armies["Crusader Kingdoms"] then
+  armies["Crusader Kingdoms"] ={}
+end
+armies["Crusader Kingdoms"]["Ayyubid Egyptian  1171 to 1250 AD"] = army["5fb1b9eee1af060017709fc9"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Ayyubid Egyptian  1171 to 1250 AD"] = army["5fb1b9eee1af060017709fc9"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9eee1af060017709fc9"] = {}
+army_dates["5fb1b9eee1af060017709fc9"]["1171 AD to 1250 AD"] ="5fb1b9eee1af060017709fc9"
+army_dates["5fb1b9eee1af060017709fc9"]["1171 AD to 1243 AD"] ="5fb1b9eee1af060017709fc9_1171_1243"
+army_dates["5fb1b9eee1af060017709fc9"]["1244 AD to 1250 AD"] ="5fb1b9eee1af060017709fc9_1244_1250"

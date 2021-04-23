@@ -1,0 +1,125 @@
+-- 5fb1b9f5e1af06001770a438 Eastern Forest American  1100 to 1701 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba44e1af06001770fe2a_general='5fb1ba44e1af06001770fe2a_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2a_general]={
+  id=g_str_5fb1ba44e1af06001770fe2a_general,
+  name='Warriors General',
+  min=0,
+  max=1,
+  description='Heroes',
+  general=true,
+  troop_type="Warriors",
+  troop_option_id="5fb1ba44e1af06001770fe29",
+}
+g_str_5fb1ba44e1af06001770fe2a='5fb1ba44e1af06001770fe2a'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2a]={
+  id=g_str_5fb1ba44e1af06001770fe2a,
+  name='Warriors',
+  min=0,
+  max=1,
+  description='Heroes',
+  troop_type="Warriors",
+  troop_option_id="5fb1ba44e1af06001770fe29",
+}
+g_str_5fb1ba44e1af06001770fe2c_general='5fb1ba44e1af06001770fe2c_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2c_general]={
+  id=g_str_5fb1ba44e1af06001770fe2c_general,
+  name='Bow Levy General',
+  min=8,
+  max=1,
+  description='Formed foot armed with fast-shooting short range bows, some wearing wooden armor and/or cane or hide shields',
+  general=true,
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba44e1af06001770fe2b",
+}
+g_str_5fb1ba44e1af06001770fe2c='5fb1ba44e1af06001770fe2c'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2c]={
+  id=g_str_5fb1ba44e1af06001770fe2c,
+  name='Bow Levy',
+  min=8,
+  max=21,
+  description='Formed foot armed with fast-shooting short range bows, some wearing wooden armor and/or cane or hide shields',
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba44e1af06001770fe2b",
+}
+g_str_5fb1ba44e1af06001770fe2e_general='5fb1ba44e1af06001770fe2e_general'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2e_general]={
+  id=g_str_5fb1ba44e1af06001770fe2e_general,
+  name='Skirmishers General',
+  min=2,
+  max=1,
+  description='Ambushers, scouts, or other skirmishing bowmen',
+  general=true,
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba44e1af06001770fe2d",
+}
+g_str_5fb1ba44e1af06001770fe2e='5fb1ba44e1af06001770fe2e'
+g_base_definitions[g_str_5fb1ba44e1af06001770fe2e]={
+  id=g_str_5fb1ba44e1af06001770fe2e,
+  name='Skirmishers',
+  min=2,
+  max=10,
+  description='Ambushers, scouts, or other skirmishing bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba44e1af06001770fe2d",
+}
+g_str_5fb1b9f5e1af06001770a438_camp='5fb1b9f5e1af06001770a438_camp'
+g_base_definitions[g_str_5fb1b9f5e1af06001770a438_camp]={
+  id=g_str_5fb1b9f5e1af06001770a438_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9f5e1af06001770a438_camp_fortified='5fb1b9f5e1af06001770a438_camp_fortified'
+g_base_definitions[g_str_5fb1b9f5e1af06001770a438_camp_fortified]={
+  id=g_str_5fb1b9f5e1af06001770a438_camp_fortified,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Fortified camp',
+  troop_type="Camp",
+}
+army['5fb1b9f5e1af06001770a438']={
+  data={
+    name='Eastern Forest American  1100 to 1701 AD',
+    id='5fb1b9f5e1af06001770a438',
+    army_id='5fb1b9f5e1af06001770a438'
+  },
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2a_general],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2a],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2c_general],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2c],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2e_general],
+  g_base_definitions[g_str_5fb1ba44e1af06001770fe2e],
+  g_base_definitions[g_str_5fb1b9f5e1af06001770a438_camp],
+  g_base_definitions[g_str_5fb1b9f5e1af06001770a438_camp_fortified],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9f5e1af06001770a438"] = army["5fb1b9f5e1af06001770a438"]
+if nil == armies["New World"] then
+  armies["New World"] ={}
+end
+armies["New World"]["Eastern Forest American  1100 to 1701 AD"] = army["5fb1b9f5e1af06001770a438"]
+if nil == armies["North America"] then
+  armies["North America"] ={}
+end
+armies["North America"]["Eastern Forest American  1100 to 1701 AD"] = army["5fb1b9f5e1af06001770a438"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Eastern Forest American  1100 to 1701 AD"] = army["5fb1b9f5e1af06001770a438"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9f5e1af06001770a438"] = {}
+army_dates["5fb1b9f5e1af06001770a438"]["1100 AD to 1701 AD"] ="5fb1b9f5e1af06001770a438"

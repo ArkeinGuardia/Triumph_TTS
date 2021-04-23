@@ -2,8 +2,8 @@
 
 
 -- Format a distance in inches for displaying to the user.
-function inches_to_mu_display_string(distance)
-  local mu = math.ceil( 10 * from_in_to_mu(distance)) / 10
+function inches_to_mu_display_string(distance_inches)
+  local mu = from_in_to_mu(distance_inches)
   return  string.format('%.1f MU', mu)
 end
 
@@ -141,6 +141,10 @@ function move_base(obj, how_much_movement, ignore_history)
 end
 
 function make_general (obj)
+    if is_base_army_general(obj) then 
+      return
+    end
+    
     local name = obj.getName()
     local pos = string.find(name, " #")
     if pos == nil then
@@ -1047,11 +1051,79 @@ function distance_front_to_right(transformA, transformB)
     return corners_snapping_distance(transformA, transformB, matching_corners)
 end
 
--- tile_name: string.  e.g. 'tile_plain_WWg_40x80'  Name of the
+-- Appendix A: Troop Types
+base_depth_by_troop_type = {}
+base_depth_by_troop_type['Archers']=20
+base_depth_by_troop_type['Bow Levy']=30
+base_depth_by_troop_type['Light Foot']=20
+base_depth_by_troop_type['Light Spear']=20
+base_depth_by_troop_type['Rabble']=30
+base_depth_by_troop_type['Raiders']=20
+base_depth_by_troop_type['Skirmishers']=20
+base_depth_by_troop_type['Warband']=20
+base_depth_by_troop_type['Artillery']=40
+base_depth_by_troop_type['Elite Foot']=15
+base_depth_by_troop_type['Heavy Foot']=15
+base_depth_by_troop_type['Horde']=40
+base_depth_by_troop_type['Pavisiers']=40
+   -- Appendix A uses "Pike"
+base_depth_by_troop_type['Pikes']=15
+  -- Appendix A uses "Spear"
+base_depth_by_troop_type['Spears']=15
+base_depth_by_troop_type['War Wagons']=40
+base_depth_by_troop_type['Warriors']=15
+base_depth_by_troop_type['Bad Horse']=30
+base_depth_by_troop_type['Battle Taxi']=40
+base_depth_by_troop_type['Chariots']=40
+base_depth_by_troop_type['Elite Cavalary']=30
+base_depth_by_troop_type['Horse Bow']=30
+base_depth_by_troop_type['Javelin Cavalry']=30
+base_depth_by_troop_type['Knights']=30
+base_depth_by_troop_type['Cataphracts']=40
+base_depth_by_troop_type['Elephants']=40
+base_depth_by_troop_type['Camp']=40
+
+-- @return Depth in millimeters
+function get_base_depth_from_base_definition(base_definition)
+  if base_definition == nil then
+    print_error('base definition is nil')
+    return 40
+  end
+
+  if nil ~= base_definition['mobile_infantry'] then
+    -- Battle card Mobile Infanty.  Always on square base.
+    return 40
+  end
+  local troop_type = base_definition['troop_type']
+  if troop_type == nil then
+    print_error('troop type missing from base definition.')
+    return 40 -- dummy value
+  end
+  if troop_type == 'Elite Foot' then
+    return 15
+  end
+  local depth = base_depth_by_troop_type[troop_type]
+  if depth == nil then
+    print_error("No depth for : '" .. tostring(troop_type))
+    return 40 -- dummy value
+  end
+  return depth
+end
+
+-- tile_name: string.  e.g. 'tile_plain_40x40_War_Wagon'  Name of the
 -- variable that contains the information for a tile.
 function get_depth_base(tile_name)
     local base_data = _G[tile_name]
-    return from_mm_to_in(base_data['depth'])
+    if base_data == nil then
+      print_error("No variable " .. tostring(tile_name))
+      assert(false)
+    end
+    local depth = base_data['depth']
+    if depth == nil then
+      print_error("No depth for tile " .. tostring(tile_name))
+      assert(false)
+    end
+    return from_mm_to_in(depth)
 end
 
 function get_size(base_name)
@@ -1060,15 +1132,17 @@ function get_size(base_name)
         x = g_base_width_in_inches,
         y = g_base_height_inches,
         z = get_depth_base(tile)
-    }
+  }
 end
 
-function is_base_red_player(base_name)
-    return g_bases[base_name]['is_red_player']
+function is_base_red_player(base_obj)
+  local color = get_decoration_for_obj(base_obj, "player_color")
+  return color == "RED"
 end
 
-function is_base_blue_player(base_name)
-    return not is_base_red_player(base_name)
+function is_base_blue_player(base_obj)
+  local color = get_decoration_for_obj(base_obj, "player_color")
+  return color == "BLUE"
 end
 
 function max_distance_between_bases(base1_corners, base2_corners)
@@ -1697,9 +1771,8 @@ g_last_zoc_value = nil
 function check_picked_base()
     if g_picked_base_obj and g_bases[g_picked_base_obj.getName()] then
         local new_corners = compute_corners_base(g_picked_base_obj)
-        local distance = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
-        distance = from_in_to_mu(distance)
-        local mu = inches_to_mu_display_string(distance)
+        local distance_inches = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
+        local mu = inches_to_mu_display_string(distance_inches)
 
         UI.setAttribute('panel_current_movement', 'active', true)
         UI.setValue('text_current_movement_MUs',

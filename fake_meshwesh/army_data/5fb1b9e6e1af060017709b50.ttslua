@@ -1,0 +1,250 @@
+-- 5fb1b9e6e1af060017709b50 Lambert Simnel's Rebellion  1487 to 1487 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba31e1af06001770dd35_general='5fb1ba31e1af06001770dd35_general'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general]={
+  id=g_str_5fb1ba31e1af06001770dd35_general,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Men-at-arms',
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba31e1af06001770dd34",
+}
+g_str_5fb1ba31e1af06001770dd35_general_dismounted='5fb1ba31e1af06001770dd35_general_dismounted'
+g_str_5fb1ba31e1af06001770dd35_general_mounted='5fb1ba31e1af06001770dd35_general_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dd35_general_dismounted,
+  name='Elite Foot General',
+  min=1,
+  max=1,
+  description='Men-at-arms\nDeployment dismounted from Knights General',
+  points=4,
+  dismounted_from=g_str_5fb1ba31e1af06001770dd35_general_mounted,
+  general=true,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dd34",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general_mounted]={
+  id=g_str_5fb1ba31e1af06001770dd35_general_mounted,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba31e1af06001770dd35_general_dismounted,
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba31e1af06001770dd34",
+}
+g_str_5fb1ba31e1af06001770dd35='5fb1ba31e1af06001770dd35'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd35]={
+  id=g_str_5fb1ba31e1af06001770dd35,
+  name='Knights',
+  min=1,
+  max=2,
+  description='Men-at-arms',
+  troop_type="Knights",
+  troop_option_id="5fb1ba31e1af06001770dd34",
+}
+g_str_5fb1ba31e1af06001770dd35_dismounted='5fb1ba31e1af06001770dd35_dismounted'
+g_str_5fb1ba31e1af06001770dd35_mounted='5fb1ba31e1af06001770dd35_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd35_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dd35_dismounted,
+  name='Elite Foot',
+  min=1,
+  max=2,
+  description='Men-at-arms\nDeployment dismounted from Knights',
+  points=4,
+  dismounted_from=g_str_5fb1ba31e1af06001770dd35_mounted,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dd34",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dd35_mounted]={
+  id=g_str_5fb1ba31e1af06001770dd35_mounted,
+  name='Knights',
+  min=1,
+  max=2,
+  description='Men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba31e1af06001770dd35_dismounted,
+  troop_type="Knights",
+  troop_option_id="5fb1ba31e1af06001770dd34",
+}
+g_str_5fb1ba31e1af06001770dd38='5fb1ba31e1af06001770dd38'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd38]={
+  id=g_str_5fb1ba31e1af06001770dd38,
+  name='Elite Foot',
+  min=1,
+  max=2,
+  description='Retinue billmen',
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dd37",
+}
+g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry='5fb1ba31e1af06001770dd38_dismounted_mobile_infantry'
+g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry='5fb1ba31e1af06001770dd38_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Retinue billmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dd37",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Retinue billmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dd37",
+}
+g_str_5fb1ba31e1af06001770dd3c='5fb1ba31e1af06001770dd3c'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd3c]={
+  id=g_str_5fb1ba31e1af06001770dd3c,
+  name='Archers',
+  min=2,
+  max=4,
+  description='Retinue bowmen',
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dd3b",
+}
+g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry='5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry'
+g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry='5fb1ba31e1af06001770dd3c_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry,
+  name='Archers',
+  min=0,
+  max=2,
+  description='Retinue bowmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry,
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dd3b",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry,
+  name='Archers',
+  min=0,
+  max=2,
+  description='Retinue bowmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dd3b",
+}
+g_str_5fb1ba31e1af06001770dd3f='5fb1ba31e1af06001770dd3f'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd3f]={
+  id=g_str_5fb1ba31e1af06001770dd3f,
+  name='Pikes',
+  min=2,
+  max=4,
+  description='Foreign mercenary pikemen',
+  troop_type="Pikes",
+  troop_option_id="5fb1ba31e1af06001770dd3e",
+}
+g_str_5fb1ba31e1af06001770dd41='5fb1ba31e1af06001770dd41'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd41]={
+  id=g_str_5fb1ba31e1af06001770dd41,
+  name='Light Foot',
+  min=4,
+  max=8,
+  description='Irish kerns',
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba31e1af06001770dd40",
+}
+g_str_5fb1ba31e1af06001770dd43='5fb1ba31e1af06001770dd43'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd43]={
+  id=g_str_5fb1ba31e1af06001770dd43,
+  name='Skirmishers',
+  min=0,
+  max=1,
+  description='Continental handgunners',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba31e1af06001770dd42",
+}
+g_str_5fb1ba31e1af06001770dd45='5fb1ba31e1af06001770dd45'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd45]={
+  id=g_str_5fb1ba31e1af06001770dd45,
+  name='Light Foot',
+  min=0,
+  max=1,
+  description='Breton javelinmen',
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba31e1af06001770dd44",
+}
+g_str_5fb1ba31e1af06001770dd47='5fb1ba31e1af06001770dd47'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd47]={
+  id=g_str_5fb1ba31e1af06001770dd47,
+  name='Artillery',
+  min=0,
+  max=1,
+  description='Bombards',
+  troop_type="Artillery",
+  troop_option_id="5fb1ba31e1af06001770dd46",
+}
+g_str_5fb1b9e6e1af060017709b50_camp='5fb1b9e6e1af060017709b50_camp'
+g_base_definitions[g_str_5fb1b9e6e1af060017709b50_camp]={
+  id=g_str_5fb1b9e6e1af060017709b50_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+army['5fb1b9e6e1af060017709b50']={
+  data={
+    name='Lambert Simnel\'s Rebellion  1487 to 1487 AD',
+    id='5fb1b9e6e1af060017709b50',
+    army_id='5fb1b9e6e1af060017709b50'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd35],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd35_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd35_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd38],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd3c],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd3f],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd41],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd43],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd45],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd47],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b50_camp],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9e6e1af060017709b50"] = army["5fb1b9e6e1af060017709b50"]
+if nil == armies["Embattled Isle"] then
+  armies["Embattled Isle"] ={}
+end
+armies["Embattled Isle"]["Lambert Simnel\'s Rebellion  1487 to 1487 AD"] = army["5fb1b9e6e1af060017709b50"]
+if nil == armies["Plate and Handgonne"] then
+  armies["Plate and Handgonne"] ={}
+end
+armies["Plate and Handgonne"]["Lambert Simnel\'s Rebellion  1487 to 1487 AD"] = army["5fb1b9e6e1af060017709b50"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Lambert Simnel\'s Rebellion  1487 to 1487 AD"] = army["5fb1b9e6e1af060017709b50"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e6e1af060017709b50"] = {}
+army_dates["5fb1b9e6e1af060017709b50"]["1487 AD"] ="5fb1b9e6e1af060017709b50"

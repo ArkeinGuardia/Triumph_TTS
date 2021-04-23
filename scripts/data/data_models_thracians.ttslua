@@ -1,0 +1,102 @@
+-- Thracian Hill Tribes
+army['5fb1b9dde1af060017709640'].data.has_models = true
+
+-- Thracian Hill Tribes
+-- 700 BC to 46 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dde1af060017709640/explore
+-- As of: 20210408
+
+    -- Horsemen JavCav General
+    g_models[g_str_5fb1ba28e1af06001770cb1a_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+            [1] = 'troop_thracian_cv',
+            [2] = 'troop_thracian_cv_gen'
+        }
+      }
+    }
+
+    -- Horsemen JavCav
+    g_models[g_str_5fb1ba28e1af06001770cb1a] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_thracian_lh'
+      }
+    }
+
+    -- Peltasts LF General
+    g_models[g_str_5fb1ba28e1af06001770cb1c_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_thracian_axgen',
+          [2] = 'troop_thracian_cv_gen',
+          [3] = 'troop_thracian_ax1'
+        }
+      }
+    }
+
+    -- Peltasts LF
+    g_models[g_str_5fb1ba28e1af06001770cb1c] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_thracian_ax1'
+      }
+    }
+
+    -- Peltasts armed with long spear - Light Spear
+    g_models[g_str_5fb1ba28e1af06001770cb1e] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_thracian_axgen'
+      }
+    }
+
+
+    -- Skirmishing bowmen or slingers - General
+    g_models[g_str_5fb1ba28e1af06001770cb20_general] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 2,
+        fixed_models = {
+            [1] = 'troop_thracian_lh',
+            [2] = 'troop_successors_skirmishers'
+        }
+      }
+    }
+
+    -- Skirmishing bowmen or slingers
+    g_models[g_str_5fb1ba28e1af06001770cb20] = {
+      {
+        base = 'tile_grass_40x20',
+        loose = true,
+        random_models = {
+          'troop_successors_skirmishers',
+          'troop_successors_skirmishers_archers'
+        }
+      }
+    }
+
+    -- Gymnetes (naked men armed with javelins or stones) - Rabble
+    g_models[g_str_5fb1ba28e1af06001770cb22] = {
+      {
+        base = 'tile_grass_40x30',
+        loose = true,
+        model_data = 'troop_thracian_ps'
+      }
+    }
+
+    --Thracian Camp
+    g_models[g_str_5fb1b9dde1af060017709640_camp] = g_models[g_str_5fb1b9dce1af0600177095ab_camp]
+
+    --Thracian Camp Fortified
+    g_models[g_str_5fb1b9dde1af060017709640_camp_fortified] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_ancient_spanish_camp'
+      }
+    }

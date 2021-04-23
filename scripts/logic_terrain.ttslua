@@ -459,7 +459,6 @@ end
 -- terrain_rotation: float, y-axis rotation of BUA in radians
 -- options: Source of data for BUA for the table type
 function add_buildings(terrain_obj, terrain_rotation, options)
-  print("IN add_buildings")
   local lots = calc_bua_lots(terrain_obj)
   for _,lot in pairs(lots) do
     lot.model_name = random_element(options['objects'])

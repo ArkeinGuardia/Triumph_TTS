@@ -1,0 +1,157 @@
+-- Warlike Gallic
+army['5fb1b9dce1af06001770959d'].data.has_models = true
+-- Sedentary Gallic
+army['5fb1b9dce1af0600177095a5'].data.has_models = true
+
+-- Warlike Gallic
+-- 400 BC to 100 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af06001770959d/explore
+-- As of: 20210404
+
+    --2-horse battle platforms with champions who dismount to fight on foot - General
+    g_models[g_str_5fb1ba27e1af06001770c87f_general] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        fixed_models = {
+          [1] = 'troop_gallic_lch_gen'
+        }
+      }
+    }
+    g_models[g_str_5fb1ba27e1af06001770c87f_general_mounted] = g_models[g_str_5fb1ba27e1af06001770c87f_general]
+
+    -- Fierce fighters - Warriors General
+    g_models[g_str_5fb1ba27e1af06001770c87f_general_dismounted] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_gallic_warband_general'
+      }
+    }
+
+    --2-horse battle platforms with champions who dismount to fight on foot
+    g_models[g_str_5fb1ba27e1af06001770c87f] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        fixed_models = {
+          [1] = 'troop_gallic_lch'
+        }
+      }
+    } 
+    g_models[g_str_5fb1ba27e1af06001770c87f_mounted] = g_models[g_str_5fb1ba27e1af06001770c87f]
+
+    -- Fierce fighters - Warriors
+    g_models[g_str_5fb1ba27e1af06001770c87f_dismounted] = {
+      {
+        base = 'tile_grass_40x15',
+        n_models = 4,
+        model_data = 'troop_gallic_warriors_2'
+      }
+    }
+
+    g_models[g_str_5fb1ba27e1af06001770c883_general] = g_models[g_str_5fb1ba27e1af06001770c87f_general]
+    g_models[g_str_5fb1ba27e1af06001770c883_general_mounted] = g_models[g_str_5fb1ba27e1af06001770c87f_general]
+    g_models[g_str_5fb1ba27e1af06001770c883_general_dismounted] = g_models[g_str_5fb1ba27e1af06001770c87f_general_dismounted]
+    g_models[g_str_5fb1ba27e1af06001770c883] = g_models[g_str_5fb1ba27e1af06001770c87f]
+    g_models[g_str_5fb1ba27e1af06001770c883_mounted] = g_models[g_str_5fb1ba27e1af06001770c87f]
+    g_models[g_str_5fb1ba27e1af06001770c883_dismounted] = g_models[g_str_5fb1ba27e1af06001770c87f_dismounted]
+
+    --Noble horsemen - JavCav General
+    g_models[g_str_5fb1ba27e1af06001770c887_general] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 2,
+        fixed_models = {
+          [1] = 'troop_gallic_cav',
+          [2] = 'troop_gallic_cav_general'
+        }
+      }
+    } 
+
+    --Noble horsemen - JavCav
+    g_models[g_str_5fb1ba27e1af06001770c887] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_gallic_cav'
+      }
+    } 
+
+    --Horsemen - Bad Horse
+    g_models[g_str_5fb1ba27e1af06001770c889] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_gallic_cav_bodyguard'
+      }
+    }
+    -- Fierce fighters - Warriors and General
+    g_models[g_str_5fb1ba27e1af06001770c88b_general] = g_models[g_str_5fb1ba27e1af06001770c87f_general_dismounted]
+    g_models[g_str_5fb1ba27e1af06001770c88b] = g_models[g_str_5fb1ba27e1af06001770c87f_dismounted]
+
+    --Poorly equipped and trained bowmen, slingers, and unshielded javelinmen - Rabble
+    g_models[g_str_5fb1ba27e1af06001770c88d] = {
+      {
+        base = 'tile_grass_40x30',
+        model_data = 'troop_gallic_ps'
+      }
+    }
+    
+    --Gaesati naked fighters - Warband
+    g_models[g_str_5fb1ba27e1af06001770c88f] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_gallic_warband'
+      }
+    }
+
+    --Gallic Camp
+    --g_models[g_str_5fb1b9dce1af06001770959d_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
+
+    --Gallic Camp Fortified
+    -----------------
+    --We will have to change this
+    -----------------
+    g_models[g_str_5fb1b9dce1af06001770959d_camp_fortified] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 1,
+        model_data = 'troop_campfire'
+      }
+    }
+
+-- Sedentary Gallic
+-- 99 BC to 50 BC
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9dce1af0600177095a5/explore
+-- As of: 20210407
+
+    --Noble horsemen - JavCav General
+    g_models[g_str_5fb1ba27e1af06001770c89b_general] = g_models[g_str_5fb1ba27e1af06001770c887_general]
+
+    --Noble horsemen - JavCav
+    g_models[g_str_5fb1ba27e1af06001770c89b] = g_models[g_str_5fb1ba27e1af06001770c887]
+
+    --Unshielded (Not yet) Horsemen - Bad Horse
+    g_models[g_str_5fb1ba27e1af06001770c89d] = g_models[g_str_5fb1ba27e1af06001770c889]
+
+    -- Fierce fighters - Warriors General
+    g_models[g_str_5fb1ba27e1af06001770c89f_general] = g_models[g_str_5fb1ba27e1af06001770c87f_general_dismounted]
+
+    -- Fierce fighters - Warriors
+    g_models[g_str_5fb1ba27e1af06001770c89f] = g_models[g_str_5fb1ba27e1af06001770c87f_dismounted]
+
+    -- Sedentary infantry - Light Inf.
+    g_models[g_str_5fb1ba27e1af06001770c8a1] = {
+      {
+        base = 'tile_grass_40x20',
+        model_data = 'troop_gallic_warriors'
+      }
+    }
+
+    -- Fierce fighters - Warriors
+    g_models[g_str_5fb1ba27e1af06001770c8a3] = g_models[g_str_5fb1ba27e1af06001770c88d] 
+
+    -- Gallic Camp
+    g_models[g_str_5fb1b9dce1af0600177095a5_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
+
+    -- Gallic Camp Fortified
+    g_models[g_str_5fb1b9dce1af0600177095a5_camp_fortified] = g_models[g_str_5fb1b9dce1af06001770959d_camp_fortified] 

@@ -1,0 +1,200 @@
+-- 5fb1b9e9e1af060017709d0d Later Swiss  1425 to 1477 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba34e1af06001770e37e='5fb1ba34e1af06001770e37e'
+g_base_definitions[g_str_5fb1ba34e1af06001770e37e]={
+  id=g_str_5fb1ba34e1af06001770e37e,
+  name='Bad Horse',
+  min=0,
+  max=1,
+  description='Crossbowmen on horses',
+  troop_type="Bad Horse",
+  troop_option_id="5fb1ba34e1af06001770e37d",
+}
+g_str_5fb1ba34e1af06001770e37e_dismounted='5fb1ba34e1af06001770e37e_dismounted'
+g_str_5fb1ba34e1af06001770e37e_mounted='5fb1ba34e1af06001770e37e_mounted'
+g_base_definitions[g_str_5fb1ba34e1af06001770e37e_dismounted]={
+  id=g_str_5fb1ba34e1af06001770e37e_dismounted,
+  name='Skirmishers',
+  min=0,
+  max=1,
+  description='Crossbowmen on horses\nMid-battle dismounted from Bad Horse',
+  dismounted_from=g_str_5fb1ba34e1af06001770e37e_mounted,
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba34e1af06001770e37d",
+}
+g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted]={
+  id=g_str_5fb1ba34e1af06001770e37e_mounted,
+  name='Bad Horse',
+  min=0,
+  max=1,
+  description='Crossbowmen on horses\nMid-battle dismounting as Skirmisher',
+  dismount_as=g_str_5fb1ba34e1af06001770e37e_dismounted,
+  troop_type="Bad Horse",
+  troop_option_id="5fb1ba34e1af06001770e37d",
+}
+g_str_5fb1ba34e1af06001770e381_general='5fb1ba34e1af06001770e381_general'
+g_base_definitions[g_str_5fb1ba34e1af06001770e381_general]={
+  id=g_str_5fb1ba34e1af06001770e381_general,
+  name='Pikes General',
+  min=7,
+  max=1,
+  description='Pikemen mixed with some halberdiers',
+  general=true,
+  troop_type="Pikes",
+  troop_option_id="5fb1ba34e1af06001770e380",
+}
+g_str_5fb1ba34e1af06001770e381='5fb1ba34e1af06001770e381'
+g_base_definitions[g_str_5fb1ba34e1af06001770e381]={
+  id=g_str_5fb1ba34e1af06001770e381,
+  name='Pikes',
+  min=7,
+  max=15,
+  description='Pikemen mixed with some halberdiers',
+  troop_type="Pikes",
+  troop_option_id="5fb1ba34e1af06001770e380",
+}
+g_str_5fb1ba34e1af06001770e383='5fb1ba34e1af06001770e383'
+g_base_definitions[g_str_5fb1ba34e1af06001770e383]={
+  id=g_str_5fb1ba34e1af06001770e383,
+  name='Raiders',
+  min=0,
+  max=4,
+  description='Separately deployed halberdiers, some with armor',
+  troop_type="Raiders",
+  troop_option_id="5fb1ba34e1af06001770e382",
+}
+g_str_5fb1ba34e1af06001770e384='5fb1ba34e1af06001770e384'
+g_base_definitions[g_str_5fb1ba34e1af06001770e384]={
+  id=g_str_5fb1ba34e1af06001770e384,
+  name='Elite Foot',
+  min=0,
+  max=4,
+  description='Separately deployed halberdiers, some with armor',
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba34e1af06001770e382",
+}
+g_str_5fb1ba34e1af06001770e386='5fb1ba34e1af06001770e386'
+g_base_definitions[g_str_5fb1ba34e1af06001770e386]={
+  id=g_str_5fb1ba34e1af06001770e386,
+  name='Skirmishers',
+  min=0,
+  max=1,
+  description='Skirmishing handgunners',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba34e1af06001770e385",
+}
+g_str_5fb1ba34e1af06001770e388='5fb1ba34e1af06001770e388'
+g_base_definitions[g_str_5fb1ba34e1af06001770e388]={
+  id=g_str_5fb1ba34e1af06001770e388,
+  name='Skirmishers',
+  min=1,
+  max=2,
+  description='Skirmishing crossbowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba34e1af06001770e387",
+}
+g_str_5fb1ba34e1af06001770e38b='5fb1ba34e1af06001770e38b'
+g_base_definitions[g_str_5fb1ba34e1af06001770e38b]={
+  id=g_str_5fb1ba34e1af06001770e38b,
+  name='Artillery',
+  min=0,
+  max=1,
+  description='Captured Burgundian artillery',
+  troop_type="Artillery",
+  troop_option_id="5fb1ba34e1af06001770e389",
+}
+g_str_5fb1b9e9e1af060017709d0d_camp='5fb1b9e9e1af060017709d0d_camp'
+g_base_definitions[g_str_5fb1b9e9e1af060017709d0d_camp]={
+  id=g_str_5fb1b9e9e1af060017709d0d_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+army['5fb1b9e9e1af060017709d0d']={
+  data={
+    name='Later Swiss  1425 to 1477 AD',
+    id='5fb1b9e9e1af060017709d0d',
+    army_id='5fb1b9e9e1af060017709d0d'
+  },
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_dismounted],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e381_general],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e381],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e383],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e384],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e386],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e388],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e38b],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d0d_camp],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9e9e1af060017709d0d"] = army["5fb1b9e9e1af060017709d0d"]
+army['5fb1b9e9e1af060017709d0d_1425_1475']={
+  data={
+    name='Later Swiss 1425 AD to 1475 AD',
+    id='5fb1b9e9e1af060017709d0d_1425_1475',
+    army_id='5fb1b9e9e1af060017709d0d'
+  },
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_dismounted],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e381_general],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e381],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e383],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e384],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e386],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e388],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d0d_camp],
+}
+army['5fb1b9e9e1af060017709d0d_1476_1477']={
+  data={
+    name='Later Swiss 1476 AD to 1477 AD',
+    id='5fb1b9e9e1af060017709d0d_1476_1477',
+    army_id='5fb1b9e9e1af060017709d0d'
+  },
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_dismounted],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e381_general],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e381],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e383],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e384],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e386],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e388],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e38b],
+  g_base_definitions[g_str_5fb1b9e9e1af060017709d0d_camp],
+}
+if nil == armies["Holy Roman Empire"] then
+  armies["Holy Roman Empire"] ={}
+end
+armies["Holy Roman Empire"]["Later Swiss  1425 to 1477 AD"] = army["5fb1b9e9e1af060017709d0d"]
+if nil == armies["Italy and Balkans"] then
+  armies["Italy and Balkans"] ={}
+end
+armies["Italy and Balkans"]["Later Swiss  1425 to 1477 AD"] = army["5fb1b9e9e1af060017709d0d"]
+if nil == armies["Flower of Chivalry"] then
+  armies["Flower of Chivalry"] ={}
+end
+armies["Flower of Chivalry"]["Later Swiss  1425 to 1477 AD"] = army["5fb1b9e9e1af060017709d0d"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Later Swiss  1425 to 1477 AD"] = army["5fb1b9e9e1af060017709d0d"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e9e1af060017709d0d"] = {}
+army_dates["5fb1b9e9e1af060017709d0d"]["1425 AD to 1477 AD"] ="5fb1b9e9e1af060017709d0d"
+army_dates["5fb1b9e9e1af060017709d0d"]["1425 AD to 1475 AD"] ="5fb1b9e9e1af060017709d0d_1425_1475"
+army_dates["5fb1b9e9e1af060017709d0d"]["1476 AD to 1477 AD"] ="5fb1b9e9e1af060017709d0d_1476_1477"

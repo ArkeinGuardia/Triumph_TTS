@@ -1,0 +1,98 @@
+-- 5fb1b9dbe1af0600177094e9 Early Hoplite Greek: Thessalian  669 to 449 BC
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba25e1af06001770c5ad_general='5fb1ba25e1af06001770c5ad_general'
+g_base_definitions[g_str_5fb1ba25e1af06001770c5ad_general]={
+  id=g_str_5fb1ba25e1af06001770c5ad_general,
+  name='Javelin Cavalry General',
+  min=3,
+  max=1,
+  description='Horsemen',
+  general=true,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba25e1af06001770c5ac",
+}
+g_str_5fb1ba25e1af06001770c5ad='5fb1ba25e1af06001770c5ad'
+g_base_definitions[g_str_5fb1ba25e1af06001770c5ad]={
+  id=g_str_5fb1ba25e1af06001770c5ad,
+  name='Javelin Cavalry',
+  min=3,
+  max=6,
+  description='Horsemen',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba25e1af06001770c5ac",
+}
+g_str_5fb1ba25e1af06001770c5af='5fb1ba25e1af06001770c5af'
+g_base_definitions[g_str_5fb1ba25e1af06001770c5af]={
+  id=g_str_5fb1ba25e1af06001770c5af,
+  name='Heavy Foot',
+  min=6,
+  max=12,
+  description='Hoplites',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba25e1af06001770c5ae",
+}
+g_str_5fb1ba25e1af06001770c5b1='5fb1ba25e1af06001770c5b1'
+g_base_definitions[g_str_5fb1ba25e1af06001770c5b1]={
+  id=g_str_5fb1ba25e1af06001770c5b1,
+  name='Skirmishers',
+  min=0,
+  max=1,
+  description='Skirmishing bowmen and slingers',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba25e1af06001770c5b0",
+}
+g_str_5fb1ba25e1af06001770c5b3='5fb1ba25e1af06001770c5b3'
+g_base_definitions[g_str_5fb1ba25e1af06001770c5b3]={
+  id=g_str_5fb1ba25e1af06001770c5b3,
+  name='Rabble',
+  min=0,
+  max=8,
+  description='Javelinmen',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba25e1af06001770c5b2",
+}
+g_str_5fb1b9dbe1af0600177094e9_camp='5fb1b9dbe1af0600177094e9_camp'
+g_base_definitions[g_str_5fb1b9dbe1af0600177094e9_camp]={
+  id=g_str_5fb1b9dbe1af0600177094e9_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+army['5fb1b9dbe1af0600177094e9']={
+  data={
+    name='Early Hoplite Greek: Thessalian  669 to 449 BC',
+    id='5fb1b9dbe1af0600177094e9',
+    army_id='5fb1b9dbe1af0600177094e9'
+  },
+  g_base_definitions[g_str_5fb1ba25e1af06001770c5ad_general],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c5ad],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c5af],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c5b1],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c5b3],
+  g_base_definitions[g_str_5fb1b9dbe1af0600177094e9_camp],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9dbe1af0600177094e9"] = army["5fb1b9dbe1af0600177094e9"]
+if nil == armies["Birth of the West"] then
+  armies["Birth of the West"] ={}
+end
+armies["Birth of the West"]["Early Hoplite Greek: Thessalian  669 to 449 BC"] = army["5fb1b9dbe1af0600177094e9"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Early Hoplite Greek: Thessalian  669 to 449 BC"] = army["5fb1b9dbe1af0600177094e9"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dbe1af0600177094e9"] = {}
+army_dates["5fb1b9dbe1af0600177094e9"]["669 BC to 449 BC"] ="5fb1b9dbe1af0600177094e9"

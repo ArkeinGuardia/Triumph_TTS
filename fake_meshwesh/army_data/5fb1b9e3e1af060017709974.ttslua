@@ -1,0 +1,109 @@
+-- 5fb1b9e3e1af060017709974 Western Hunnic  374 to 561 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba2ee1af06001770d6c1_general='5fb1ba2ee1af06001770d6c1_general'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d6c1_general]={
+  id=g_str_5fb1ba2ee1af06001770d6c1_general,
+  name='Horse Bow General',
+  min=6,
+  max=1,
+  description='Hun horse archers',
+  general=true,
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba2ee1af06001770d6c0",
+}
+g_str_5fb1ba2ee1af06001770d6c1='5fb1ba2ee1af06001770d6c1'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d6c1]={
+  id=g_str_5fb1ba2ee1af06001770d6c1,
+  name='Horse Bow',
+  min=6,
+  max=12,
+  description='Hun horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba2ee1af06001770d6c0",
+}
+g_str_5fb1ba2ee1af06001770d6c3_general='5fb1ba2ee1af06001770d6c3_general'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d6c3_general]={
+  id=g_str_5fb1ba2ee1af06001770d6c3_general,
+  name='Horse Bow General',
+  min=0,
+  max=1,
+  description='Alan subject horse archers',
+  general=true,
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba2ee1af06001770d6c2",
+}
+g_str_5fb1ba2ee1af06001770d6c3='5fb1ba2ee1af06001770d6c3'
+g_base_definitions[g_str_5fb1ba2ee1af06001770d6c3]={
+  id=g_str_5fb1ba2ee1af06001770d6c3,
+  name='Horse Bow',
+  min=0,
+  max=1,
+  description='Alan subject horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba2ee1af06001770d6c2",
+}
+g_str_5fb1b9e3e1af060017709974_camp='5fb1b9e3e1af060017709974_camp'
+g_base_definitions[g_str_5fb1b9e3e1af060017709974_camp]={
+  id=g_str_5fb1b9e3e1af060017709974_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e3e1af060017709974_camp_fortified='5fb1b9e3e1af060017709974_camp_fortified'
+g_base_definitions[g_str_5fb1b9e3e1af060017709974_camp_fortified]={
+  id=g_str_5fb1b9e3e1af060017709974_camp_fortified,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Fortified camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e3e1af060017709974_camp_pack_train='5fb1b9e3e1af060017709974_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e3e1af060017709974_camp_pack_train]={
+  id=g_str_5fb1b9e3e1af060017709974_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9e3e1af060017709974']={
+  data={
+    name='Western Hunnic  374 to 561 AD',
+    id='5fb1b9e3e1af060017709974',
+    army_id='5fb1b9e3e1af060017709974'
+  },
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d6c1_general],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d6c1],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d6c3_general],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d6c3],
+  g_base_definitions[g_str_5fb1b9e3e1af060017709974_camp],
+  g_base_definitions[g_str_5fb1b9e3e1af060017709974_camp_fortified],
+  g_base_definitions[g_str_5fb1b9e3e1af060017709974_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9e3e1af060017709974"] = army["5fb1b9e3e1af060017709974"]
+if nil == armies["Fall of Rome"] then
+  armies["Fall of Rome"] ={}
+end
+armies["Fall of Rome"]["Western Hunnic  374 to 561 AD"] = army["5fb1b9e3e1af060017709974"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Western Hunnic  374 to 561 AD"] = army["5fb1b9e3e1af060017709974"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e3e1af060017709974"] = {}
+army_dates["5fb1b9e3e1af060017709974"]["374 AD to 561 AD"] ="5fb1b9e3e1af060017709974"

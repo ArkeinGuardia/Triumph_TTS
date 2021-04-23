@@ -1,0 +1,110 @@
+-- 5fb1b9d9e1af060017709349 Ancient Libyan  3000 to 2160 BC
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba20e1af06001770bfbf_general='5fb1ba20e1af06001770bfbf_general'
+g_base_definitions[g_str_5fb1ba20e1af06001770bfbf_general]={
+  id=g_str_5fb1ba20e1af06001770bfbf_general,
+  name='Warband General',
+  min=0,
+  max=1,
+  description='Bodyguard swordsmen',
+  general=true,
+  troop_type="Warband",
+  troop_option_id="5fb1ba20e1af06001770bfbe",
+}
+g_str_5fb1ba20e1af06001770bfbf='5fb1ba20e1af06001770bfbf'
+g_base_definitions[g_str_5fb1ba20e1af06001770bfbf]={
+  id=g_str_5fb1ba20e1af06001770bfbf,
+  name='Warband',
+  min=0,
+  max=1,
+  description='Bodyguard swordsmen',
+  troop_type="Warband",
+  troop_option_id="5fb1ba20e1af06001770bfbe",
+}
+g_str_5fb1ba20e1af06001770bfc1_general='5fb1ba20e1af06001770bfc1_general'
+g_base_definitions[g_str_5fb1ba20e1af06001770bfc1_general]={
+  id=g_str_5fb1ba20e1af06001770bfc1_general,
+  name='Rabble General',
+  min=19,
+  max=1,
+  description='Tribesmen armed with javelins, throwing sticks, and clubs',
+  general=true,
+  troop_type="Rabble",
+  troop_option_id="5fb1ba20e1af06001770bfc0",
+}
+g_str_5fb1ba20e1af06001770bfc1='5fb1ba20e1af06001770bfc1'
+g_base_definitions[g_str_5fb1ba20e1af06001770bfc1]={
+  id=g_str_5fb1ba20e1af06001770bfc1,
+  name='Rabble',
+  min=19,
+  max=24,
+  description='Tribesmen armed with javelins, throwing sticks, and clubs',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba20e1af06001770bfc0",
+}
+g_str_5fb1ba20e1af06001770bfc3='5fb1ba20e1af06001770bfc3'
+g_base_definitions[g_str_5fb1ba20e1af06001770bfc3]={
+  id=g_str_5fb1ba20e1af06001770bfc3,
+  name='Skirmishers',
+  min=0,
+  max=2,
+  description='Bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba20e1af06001770bfc2",
+}
+g_str_5fb1b9d9e1af060017709349_camp='5fb1b9d9e1af060017709349_camp'
+g_base_definitions[g_str_5fb1b9d9e1af060017709349_camp]={
+  id=g_str_5fb1b9d9e1af060017709349_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9d9e1af060017709349_camp_pack_train='5fb1b9d9e1af060017709349_camp_pack_train'
+g_base_definitions[g_str_5fb1b9d9e1af060017709349_camp_pack_train]={
+  id=g_str_5fb1b9d9e1af060017709349_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9d9e1af060017709349']={
+  data={
+    name='Ancient Libyan  3000 to 2160 BC',
+    id='5fb1b9d9e1af060017709349',
+    army_id='5fb1b9d9e1af060017709349'
+  },
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfbf_general],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfbf],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfc1_general],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfc1],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfc3],
+  g_base_definitions[g_str_5fb1b9d9e1af060017709349_camp],
+  g_base_definitions[g_str_5fb1b9d9e1af060017709349_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9d9e1af060017709349"] = army["5fb1b9d9e1af060017709349"]
+if nil == armies["Cradle of Civilization"] then
+  armies["Cradle of Civilization"] ={}
+end
+armies["Cradle of Civilization"]["Ancient Libyan  3000 to 2160 BC"] = army["5fb1b9d9e1af060017709349"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Ancient Libyan  3000 to 2160 BC"] = army["5fb1b9d9e1af060017709349"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9d9e1af060017709349"] = {}
+army_dates["5fb1b9d9e1af060017709349"]["3000 BC to 2160 BC"] ="5fb1b9d9e1af060017709349"

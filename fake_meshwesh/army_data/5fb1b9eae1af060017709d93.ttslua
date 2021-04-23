@@ -1,0 +1,285 @@
+-- 5fb1b9eae1af060017709d93 Early Polish  960 to 1335 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba36e1af06001770e5e0_general='5fb1ba36e1af06001770e5e0_general'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5e0_general]={
+  id=g_str_5fb1ba36e1af06001770e5e0_general,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Noble horsemen',
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba36e1af06001770e5df",
+}
+g_str_5fb1ba36e1af06001770e5e0='5fb1ba36e1af06001770e5e0'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5e0]={
+  id=g_str_5fb1ba36e1af06001770e5e0,
+  name='Knights',
+  min=1,
+  max=3,
+  description='Noble horsemen',
+  troop_type="Knights",
+  troop_option_id="5fb1ba36e1af06001770e5df",
+}
+g_str_5fb1ba36e1af06001770e5e2='5fb1ba36e1af06001770e5e2'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5e2]={
+  id=g_str_5fb1ba36e1af06001770e5e2,
+  name='Heavy Foot',
+  min=3,
+  max=7,
+  description='Spearmen',
+  troop_type="Heavy Foot",
+  troop_option_id="5fb1ba36e1af06001770e5e1",
+}
+g_str_5fb1ba36e1af06001770e5e4='5fb1ba36e1af06001770e5e4'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5e4]={
+  id=g_str_5fb1ba36e1af06001770e5e4,
+  name='Archers',
+  min=3,
+  max=8,
+  description='Bowmen',
+  troop_type="Archers",
+  troop_option_id="5fb1ba36e1af06001770e5e3",
+}
+g_str_5fb1ba36e1af06001770e5e5='5fb1ba36e1af06001770e5e5'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5e5]={
+  id=g_str_5fb1ba36e1af06001770e5e5,
+  name='Skirmishers',
+  min=3,
+  max=8,
+  description='Bowmen',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba36e1af06001770e5e3",
+}
+g_str_5fb1ba36e1af06001770e5e6='5fb1ba36e1af06001770e5e6'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5e6]={
+  id=g_str_5fb1ba36e1af06001770e5e6,
+  name='Bow Levy',
+  min=3,
+  max=8,
+  description='Bowmen',
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba36e1af06001770e5e3",
+}
+g_str_5fb1ba36e1af06001770e5e8='5fb1ba36e1af06001770e5e8'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5e8]={
+  id=g_str_5fb1ba36e1af06001770e5e8,
+  name='Skirmishers',
+  min=1,
+  max=2,
+  description='Skirmishing slingers',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba36e1af06001770e5e7",
+}
+g_str_5fb1ba36e1af06001770e5eb='5fb1ba36e1af06001770e5eb'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5eb]={
+  id=g_str_5fb1ba36e1af06001770e5eb,
+  name='Raiders',
+  min=0,
+  max=1,
+  description='Axemen and halberdiers',
+  troop_type="Raiders",
+  troop_option_id="5fb1ba36e1af06001770e5e9",
+}
+g_str_5fb1ba36e1af06001770e5ee='5fb1ba36e1af06001770e5ee'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5ee]={
+  id=g_str_5fb1ba36e1af06001770e5ee,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba36e1af06001770e5ec",
+}
+g_str_5fb1ba36e1af06001770e5ee_dismounted='5fb1ba36e1af06001770e5ee_dismounted'
+g_str_5fb1ba36e1af06001770e5ee_mounted='5fb1ba36e1af06001770e5ee_mounted'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_dismounted]={
+  id=g_str_5fb1ba36e1af06001770e5ee_dismounted,
+  name='Archers',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen\nDeployment dismounted from Javelin Cavalry',
+  points=4,
+  dismounted_from=g_str_5fb1ba36e1af06001770e5ee_mounted,
+  troop_type="Archers",
+  troop_option_id="5fb1ba36e1af06001770e5ec",
+}
+g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_mounted]={
+  id=g_str_5fb1ba36e1af06001770e5ee_mounted,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Lithuanian horsemen\nDeployment dismounting as Archer',
+  points=4,
+  dismount_as=g_str_5fb1ba36e1af06001770e5ee_dismounted,
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba36e1af06001770e5ec",
+}
+g_str_5fb1ba36e1af06001770e5f2='5fb1ba36e1af06001770e5f2'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5f2]={
+  id=g_str_5fb1ba36e1af06001770e5f2,
+  name='Horse Bow',
+  min=0,
+  max=1,
+  description='Russian, Hungarian, or Cuman horse archers',
+  troop_type="Horse Bow",
+  troop_option_id="5fb1ba36e1af06001770e5f0",
+}
+g_str_5fb1ba36e1af06001770e5f5='5fb1ba36e1af06001770e5f5'
+g_base_definitions[g_str_5fb1ba36e1af06001770e5f5]={
+  id=g_str_5fb1ba36e1af06001770e5f5,
+  name='Horde',
+  min=0,
+  max=4,
+  description='Conscripts, Moravians, and volunteer Bavarian miners armed with the tools of their trade',
+  troop_type="Horde",
+  troop_option_id="5fb1ba36e1af06001770e5f3",
+}
+g_str_5fb1b9eae1af060017709d93_camp='5fb1b9eae1af060017709d93_camp'
+g_base_definitions[g_str_5fb1b9eae1af060017709d93_camp]={
+  id=g_str_5fb1b9eae1af060017709d93_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+army['5fb1b9eae1af060017709d93']={
+  data={
+    name='Early Polish  960 to 1335 AD',
+    id='5fb1b9eae1af060017709d93',
+    army_id='5fb1b9eae1af060017709d93'
+  },
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0_general],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e2],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e4],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e5],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e6],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e8],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5eb],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5ee],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_mounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_dismounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5f2],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5f5],
+  g_base_definitions[g_str_5fb1b9eae1af060017709d93_camp],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9eae1af060017709d93"] = army["5fb1b9eae1af060017709d93"]
+army['5fb1b9eae1af060017709d93_960_1200']={
+  data={
+    name='Early Polish 960 AD to 1200 AD',
+    id='5fb1b9eae1af060017709d93_960_1200',
+    army_id='5fb1b9eae1af060017709d93'
+  },
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0_general],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e2],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e4],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e5],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e6],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e8],
+  g_base_definitions[g_str_5fb1b9eae1af060017709d93_camp],
+}
+army['5fb1b9eae1af060017709d93_1201_1240']={
+  data={
+    name='Early Polish 1201 AD to 1240 AD',
+    id='5fb1b9eae1af060017709d93_1201_1240',
+    army_id='5fb1b9eae1af060017709d93'
+  },
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0_general],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e2],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e4],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e5],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e6],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e8],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5eb],
+  g_base_definitions[g_str_5fb1b9eae1af060017709d93_camp],
+}
+army['5fb1b9eae1af060017709d93_1241_1241']={
+  data={
+    name='Early Polish 1241 AD',
+    id='5fb1b9eae1af060017709d93_1241_1241',
+    army_id='5fb1b9eae1af060017709d93'
+  },
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0_general],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e2],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e4],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e5],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e6],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e8],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5f5],
+  g_base_definitions[g_str_5fb1b9eae1af060017709d93_camp],
+}
+army['5fb1b9eae1af060017709d93_1242_1242']={
+  data={
+    name='Early Polish 1242 AD',
+    id='5fb1b9eae1af060017709d93_1242_1242',
+    army_id='5fb1b9eae1af060017709d93'
+  },
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0_general],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e2],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e4],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e5],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e6],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e8],
+  g_base_definitions[g_str_5fb1b9eae1af060017709d93_camp],
+}
+army['5fb1b9eae1af060017709d93_1243_1335']={
+  data={
+    name='Early Polish 1243 AD to 1335 AD',
+    id='5fb1b9eae1af060017709d93_1243_1335',
+    army_id='5fb1b9eae1af060017709d93'
+  },
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0_general],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e0],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e2],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e4],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e5],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e6],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5e8],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5eb],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5ee],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_mounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5ee_dismounted],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e5f2],
+  g_base_definitions[g_str_5fb1b9eae1af060017709d93_camp],
+}
+if nil == armies["Russian Princes"] then
+  armies["Russian Princes"] ={}
+end
+armies["Russian Princes"]["Early Polish  960 to 1335 AD"] = army["5fb1b9eae1af060017709d93"]
+if nil == armies["Baltic Powers"] then
+  armies["Baltic Powers"] ={}
+end
+armies["Baltic Powers"]["Early Polish  960 to 1335 AD"] = army["5fb1b9eae1af060017709d93"]
+if nil == armies["Holy Roman Empire"] then
+  armies["Holy Roman Empire"] ={}
+end
+armies["Holy Roman Empire"]["Early Polish  960 to 1335 AD"] = army["5fb1b9eae1af060017709d93"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Early Polish  960 to 1335 AD"] = army["5fb1b9eae1af060017709d93"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9eae1af060017709d93"] = {}
+army_dates["5fb1b9eae1af060017709d93"]["960 AD to 1335 AD"] ="5fb1b9eae1af060017709d93"
+army_dates["5fb1b9eae1af060017709d93"]["960 AD to 1200 AD"] ="5fb1b9eae1af060017709d93_960_1200"
+army_dates["5fb1b9eae1af060017709d93"]["1201 AD to 1240 AD"] ="5fb1b9eae1af060017709d93_1201_1240"
+army_dates["5fb1b9eae1af060017709d93"]["1241 AD"] ="5fb1b9eae1af060017709d93_1241_1241"
+army_dates["5fb1b9eae1af060017709d93"]["1242 AD"] ="5fb1b9eae1af060017709d93_1242_1242"
+army_dates["5fb1b9eae1af060017709d93"]["1243 AD to 1335 AD"] ="5fb1b9eae1af060017709d93_1243_1335"

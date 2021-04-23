@@ -1,15 +1,6 @@
 lu = require('externals/luaunit/luaunit')
-function dofile (filename)
-  local f = assert(loadfile(filename))
-  return f()
+require('flatten')
 
-end
-armies={}
-dofile("../scripts/data/data_armies_Biblical.ttslua")
-dofile("../scripts/data/data_armies_Classical_Era.ttslua")
-dofile("../scripts/data/data_armies_Dark_Ages.ttslua")
-dofile("../scripts/data/data_armies_Medieval_Era.ttslua")
-dofile("../scripts/logic_spawn_army.ttslua")
 
 local function starts_with(str, start)
    return str:sub(1, #start) == start
@@ -26,7 +17,7 @@ end
 
 function normalize_base_name(name)
   name = remove_suffix(name, "*")
-  name = remove_suffix(name, "  General")
+  name = remove_suffix(name, " General")
   name = remove_suffix(name, "_Mobile")
   return name
 end
@@ -64,6 +55,8 @@ function get_valid_base_names_triumph()
   valid['Cataphracts']=true
   valid['Elephants']=true
   valid['Camp']=true
+
+  valid['Elephant Screen']=true
   return valid
  end
 
@@ -155,5 +148,190 @@ function test_battle_cards_valid()
     end
   end
 end
+
+function assert_base_definitions_have_names(army_obj)
+  for base_id,base_data  in pairs(army_obj) do
+    if base_id ~= 'data' then
+      local base_definition = get_base_definition(base_data)
+      lu.assertTrue(nil ~= base_definition)
+      local name = base_definition['name']
+      lu.assertTrue(nil ~= name)
+    end
+  end
+end
+
+function test_base_definitions_have_names()
+  for themes,armies_in_theme in pairs(armies) do
+    for _,army_obj in pairs(armies_in_theme) do
+      assert_base_definitions_have_names(army_obj)
+    end
+  end
+  for _,army_obj in pairs(army) do
+    assert_base_definitions_have_names(army_obj)
+  end
+end
+
+
+function assert_base_definition_model_exist(base_definition)
+  local model_data = base_definition['model_data']
+  if "string" == type(model_data) then
+    local model = model_from_model_name(model_data)
+    if model == nil then
+      print("MODEL MISSING: ", model_data)
+    end
+    lu.assertTrue(nil ~= model)
+  end
+end
+
+
+function assert_base_definitions_models_exist(army_obj)
+  for base_id,base_data  in pairs(army_obj) do
+    if base_id ~= 'data' then
+      local base_definition = get_base_definition(base_data)
+      lu.assertTrue(nil ~= base_definition)
+      assert_base_definition_model_exist(base_definition)
+    end
+  end
+end
+
+
+function test_base_models_exist()
+  for themes,armies_in_theme in pairs(armies) do
+    for _,army_obj in pairs(armies_in_theme) do
+      assert_base_definitions_models_exist(army_obj)
+    end
+  end
+  for _,army_obj in pairs(army) do
+    assert_base_definitions_models_exist(army_obj)
+  end
+end
+
+
+
+-- Any base whose name is "_Mobile" is on a square base.
+-- See Battle Card "Mobile Infantry"
+function test_get_base_depth_mobile()
+  -- Setup
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantry])
+  lu.assertEquals(actual, 40)
+
+  -- Cleanup
+  print_error = old_print_error
+end
+
+
+
+function test_get_base_depth_camp()
+  -- Setup
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  local a_camp = g_base_definitions[g_str_5fb1b9dae1af06001770942a_camp]
+  lu.assertTrue(nil ~= a_camp)
+  local actual = get_base_depth_from_base_definition(a_camp)
+  lu.assertEquals(actual, 40)
+
+  -- Cleanup
+  print_error = old_print_error
+end
+
+function test_get_base_depth_elite_foot()
+  -- Exercise
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba20e1af06001770c0c3])
+  lu.assertEquals(actual, 15)
+
+  -- Cleanup
+  print_error = old_print_error
+end
+
+function test_get_base_depth_elite_foot_general()
+  -- Exercise
+  local old_print_error = print_error
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba21e1af06001770c110_general])
+  lu.assertEquals(actual, 15)
+
+  -- Cleanup
+  print_error = old_print_error
+end
+
+
+-- Check that the armies could be spawned
+function test_spawn_army()
+  -- setup
+
+  -- Test double
+  get_undeployed_bag = function()
+	  return {
+		  putObject = function () 
+		  end
+	  }
+  end
+  local old_spawn_base = spawn_base
+  local old_spawn_note = spawn_note
+  local old_print_error = print_error
+  local old_print_important = print_important
+  local old_print_info = print_info
+  local old_update_tool_tips = update_tool_tips
+  spawn_base = function() end
+  spawn_note = function() end
+  update_tool_tips = function() end
+  print_important = function() end
+  print_info = function() end
+  print_error = function(message)
+    print(message)
+    assert(false)
+  end
+
+  -- Exercise
+  for id,army_obj in pairs(army) do
+    spawn_army(army_obj, false, 'red')
+  end
+
+  -- Cleanup
+  update_tool_tips = old_update_tool_tips
+  print_info = old_print_info
+  print_important = old_print_important
+  print_error = old_print_error
+  spawn_note = old_spawn_note
+  spawn_base = old_spawn_base
+end
+
+
+-- Criteria for filtering out is one year more than the range of the army
+function test_base_definition_filtered_out_by_year_high_border()
+  for name,def in pairs(army['5fb1b9dde1af0600177095c0_-275_-226']) do
+    if name == "data" then
+      --ignore
+    else 
+      print(def.id)
+      lu.assertNotEquals( def.id, "5fb1ba27e1af06001770c8e8")
+    end 
+  end 
+end
+
 
 os.exit( lu.LuaUnit.run() )

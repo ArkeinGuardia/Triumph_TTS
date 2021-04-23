@@ -1,0 +1,136 @@
+-- 5fb1b9e1e1af060017709877 Caledonian  75 to 211 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba2ce1af06001770d32e_general='5fb1ba2ce1af06001770d32e_general'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d32e_general]={
+  id=g_str_5fb1ba2ce1af06001770d32e_general,
+  name='Battle Taxi General',
+  min=1,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  general=true,
+  troop_type="Battle Taxi",
+  troop_option_id="5fb1ba2ce1af06001770d32d",
+}
+g_str_5fb1ba2ce1af06001770d32e='5fb1ba2ce1af06001770d32e'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d32e]={
+  id=g_str_5fb1ba2ce1af06001770d32e,
+  name='Battle Taxi',
+  min=1,
+  max=3,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  troop_type="Battle Taxi",
+  troop_option_id="5fb1ba2ce1af06001770d32d",
+}
+g_str_5fb1ba2ce1af06001770d330='5fb1ba2ce1af06001770d330'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d330]={
+  id=g_str_5fb1ba2ce1af06001770d330,
+  name='Warriors',
+  min=1,
+  max=4,
+  description='Naked fanatics',
+  troop_type="Warriors",
+  troop_option_id="5fb1ba2ce1af06001770d32f",
+}
+g_str_5fb1ba2ce1af06001770d332='5fb1ba2ce1af06001770d332'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d332]={
+  id=g_str_5fb1ba2ce1af06001770d332,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Skirmishing horsemen armed with javelins',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba2ce1af06001770d331",
+}
+g_str_5fb1ba2ce1af06001770d334_general='5fb1ba2ce1af06001770d334_general'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d334_general]={
+  id=g_str_5fb1ba2ce1af06001770d334_general,
+  name='Warband General',
+  min=8,
+  max=1,
+  description='Fierce fighters',
+  general=true,
+  troop_type="Warband",
+  troop_option_id="5fb1ba2ce1af06001770d333",
+}
+g_str_5fb1ba2ce1af06001770d334='5fb1ba2ce1af06001770d334'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d334]={
+  id=g_str_5fb1ba2ce1af06001770d334,
+  name='Warband',
+  min=8,
+  max=13,
+  description='Fierce fighters',
+  troop_type="Warband",
+  troop_option_id="5fb1ba2ce1af06001770d333",
+}
+g_str_5fb1ba2ce1af06001770d336='5fb1ba2ce1af06001770d336'
+g_base_definitions[g_str_5fb1ba2ce1af06001770d336]={
+  id=g_str_5fb1ba2ce1af06001770d336,
+  name='Rabble',
+  min=0,
+  max=2,
+  description='Skirmishing infantry',
+  troop_type="Rabble",
+  troop_option_id="5fb1ba2ce1af06001770d335",
+}
+g_str_5fb1b9e1e1af060017709877_camp='5fb1b9e1e1af060017709877_camp'
+g_base_definitions[g_str_5fb1b9e1e1af060017709877_camp]={
+  id=g_str_5fb1b9e1e1af060017709877_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+g_str_5fb1b9e1e1af060017709877_camp_pack_train='5fb1b9e1e1af060017709877_camp_pack_train'
+g_base_definitions[g_str_5fb1b9e1e1af060017709877_camp_pack_train]={
+  id=g_str_5fb1b9e1e1af060017709877_camp_pack_train,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Pack Train',
+  pack_train=true,
+  troop_type="Camp",
+}
+army['5fb1b9e1e1af060017709877']={
+  data={
+    name='Caledonian  75 to 211 AD',
+    id='5fb1b9e1e1af060017709877',
+    army_id='5fb1b9e1e1af060017709877'
+  },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d32e_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d32e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d330],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d332],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d334_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d334],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d336],
+  g_base_definitions[g_str_5fb1b9e1e1af060017709877_camp],
+  g_base_definitions[g_str_5fb1b9e1e1af060017709877_camp_pack_train],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9e1e1af060017709877"] = army["5fb1b9e1e1af060017709877"]
+if nil == armies["Rise of Rome"] then
+  armies["Rise of Rome"] ={}
+end
+armies["Rise of Rome"]["Caledonian  75 to 211 AD"] = army["5fb1b9e1e1af060017709877"]
+if nil == armies["Pax Romana"] then
+  armies["Pax Romana"] ={}
+end
+armies["Pax Romana"]["Caledonian  75 to 211 AD"] = army["5fb1b9e1e1af060017709877"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Caledonian  75 to 211 AD"] = army["5fb1b9e1e1af060017709877"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e1e1af060017709877"] = {}
+army_dates["5fb1b9e1e1af060017709877"]["75 AD to 211 AD"] ="5fb1b9e1e1af060017709877"

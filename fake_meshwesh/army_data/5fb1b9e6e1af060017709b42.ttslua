@@ -1,0 +1,386 @@
+-- 5fb1b9e6e1af060017709b42 Wars of the Roses English  1455 to 1488 AD
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba31e1af06001770dcfc_general='5fb1ba31e1af06001770dcfc_general'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general]={
+  id=g_str_5fb1ba31e1af06001770dcfc_general,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Men-at-arms',
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba31e1af06001770dcfb",
+}
+g_str_5fb1ba31e1af06001770dcfc_general_dismounted='5fb1ba31e1af06001770dcfc_general_dismounted'
+g_str_5fb1ba31e1af06001770dcfc_general_mounted='5fb1ba31e1af06001770dcfc_general_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dcfc_general_dismounted,
+  name='Elite Foot General',
+  min=1,
+  max=1,
+  description='Men-at-arms\nDeployment dismounted from Knights General',
+  points=4,
+  dismounted_from=g_str_5fb1ba31e1af06001770dcfc_general_mounted,
+  general=true,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dcfb",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_mounted]={
+  id=g_str_5fb1ba31e1af06001770dcfc_general_mounted,
+  name='Knights General',
+  min=1,
+  max=1,
+  description='Men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba31e1af06001770dcfc_general_dismounted,
+  general=true,
+  troop_type="Knights",
+  troop_option_id="5fb1ba31e1af06001770dcfb",
+}
+g_str_5fb1ba31e1af06001770dcfc='5fb1ba31e1af06001770dcfc'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcfc]={
+  id=g_str_5fb1ba31e1af06001770dcfc,
+  name='Knights',
+  min=1,
+  max=2,
+  description='Men-at-arms',
+  troop_type="Knights",
+  troop_option_id="5fb1ba31e1af06001770dcfb",
+}
+g_str_5fb1ba31e1af06001770dcfc_dismounted='5fb1ba31e1af06001770dcfc_dismounted'
+g_str_5fb1ba31e1af06001770dcfc_mounted='5fb1ba31e1af06001770dcfc_mounted'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_dismounted]={
+  id=g_str_5fb1ba31e1af06001770dcfc_dismounted,
+  name='Elite Foot',
+  min=1,
+  max=2,
+  description='Men-at-arms\nDeployment dismounted from Knights',
+  points=4,
+  dismounted_from=g_str_5fb1ba31e1af06001770dcfc_mounted,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dcfb",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_mounted]={
+  id=g_str_5fb1ba31e1af06001770dcfc_mounted,
+  name='Knights',
+  min=1,
+  max=2,
+  description='Men-at-arms\nDeployment dismounting as Elite Foot',
+  points=4,
+  dismount_as=g_str_5fb1ba31e1af06001770dcfc_dismounted,
+  troop_type="Knights",
+  troop_option_id="5fb1ba31e1af06001770dcfb",
+}
+g_str_5fb1ba31e1af06001770dcff='5fb1ba31e1af06001770dcff'
+g_base_definitions[g_str_5fb1ba31e1af06001770dcff]={
+  id=g_str_5fb1ba31e1af06001770dcff,
+  name='Javelin Cavalry',
+  min=0,
+  max=1,
+  description='Currours',
+  troop_type="Javelin Cavalry",
+  troop_option_id="5fb1ba31e1af06001770dcfe",
+}
+g_str_5fb1ba31e1af06001770dd01='5fb1ba31e1af06001770dd01'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd01]={
+  id=g_str_5fb1ba31e1af06001770dd01,
+  name='Elite Foot',
+  min=1,
+  max=2,
+  description='Retinue billmen',
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dd00",
+}
+g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry='5fb1ba31e1af06001770dd01_dismounted_mobile_infantry'
+g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry='5fb1ba31e1af06001770dd01_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Retinue billmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dd00",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry,
+  name='Elite Foot',
+  min=0,
+  max=1,
+  description='Retinue billmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Elite Foot",
+  troop_option_id="5fb1ba31e1af06001770dd00",
+}
+g_str_5fb1ba31e1af06001770dd05='5fb1ba31e1af06001770dd05'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd05]={
+  id=g_str_5fb1ba31e1af06001770dd05,
+  name='Archers',
+  min=2,
+  max=4,
+  description='Retinue bowmen',
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dd04",
+}
+g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry='5fb1ba31e1af06001770dd05_dismounted_mobile_infantry'
+g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry='5fb1ba31e1af06001770dd05_mounted_mobile_infantry'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry,
+  name='Archers',
+  min=0,
+  max=2,
+  description='Retinue bowmen\nDismounted mobile infantry',
+  dismounted_from=g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry,
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dd04",
+}
+g_base_definitions[g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry]={
+  id=g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry,
+  name='Archers',
+  min=0,
+  max=2,
+  description='Retinue bowmen\nmounted mobile infantry',
+  dismount_as=g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry,
+  mobile_infantry=true,
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dd04",
+}
+g_str_5fb1ba31e1af06001770dd08='5fb1ba31e1af06001770dd08'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd08]={
+  id=g_str_5fb1ba31e1af06001770dd08,
+  name='Light Spear',
+  min=0,
+  max=2,
+  description='Welsh spearmen',
+  troop_type="Light Spear",
+  troop_option_id="5fb1ba31e1af06001770dd07",
+}
+g_str_5fb1ba31e1af06001770dd0b='5fb1ba31e1af06001770dd0b'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd0b]={
+  id=g_str_5fb1ba31e1af06001770dd0b,
+  name='Archers',
+  min=0,
+  max=2,
+  description='Welsh bowmen',
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dd09",
+}
+g_str_5fb1ba31e1af06001770dd0e='5fb1ba31e1af06001770dd0e'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd0e]={
+  id=g_str_5fb1ba31e1af06001770dd0e,
+  name='Light Foot',
+  min=2,
+  max=6,
+  description='Irish kerns',
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba31e1af06001770dd0c",
+}
+g_str_5fb1ba31e1af06001770dd11='5fb1ba31e1af06001770dd11'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd11]={
+  id=g_str_5fb1ba31e1af06001770dd11,
+  name='Skirmishers',
+  min=0,
+  max=1,
+  description='Continental handgunners',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba31e1af06001770dd0f",
+}
+g_str_5fb1ba31e1af06001770dd14='5fb1ba31e1af06001770dd14'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd14]={
+  id=g_str_5fb1ba31e1af06001770dd14,
+  name='Archers',
+  min=0,
+  max=1,
+  description='French crossbowmen',
+  troop_type="Archers",
+  troop_option_id="5fb1ba31e1af06001770dd12",
+}
+g_str_5fb1ba31e1af06001770dd17='5fb1ba31e1af06001770dd17'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd17]={
+  id=g_str_5fb1ba31e1af06001770dd17,
+  name='Light Foot',
+  min=0,
+  max=1,
+  description='Breton javelinmen',
+  troop_type="Light Foot",
+  troop_option_id="5fb1ba31e1af06001770dd15",
+}
+g_str_5fb1ba31e1af06001770dd19='5fb1ba31e1af06001770dd19'
+g_base_definitions[g_str_5fb1ba31e1af06001770dd19]={
+  id=g_str_5fb1ba31e1af06001770dd19,
+  name='Artillery',
+  min=0,
+  max=1,
+  description='Bombards',
+  troop_type="Artillery",
+  troop_option_id="5fb1ba31e1af06001770dd18",
+}
+g_str_5fb1b9e6e1af060017709b42_camp='5fb1b9e6e1af060017709b42_camp'
+g_base_definitions[g_str_5fb1b9e6e1af060017709b42_camp]={
+  id=g_str_5fb1b9e6e1af060017709b42_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+army['5fb1b9e6e1af060017709b42']={
+  data={
+    name='Wars of the Roses English  1455 to 1488 AD',
+    id='5fb1b9e6e1af060017709b42',
+    army_id='5fb1b9e6e1af060017709b42'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcff],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd08],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd0b],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd0e],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd11],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd14],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd17],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd19],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b42_camp],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9e6e1af060017709b42"] = army["5fb1b9e6e1af060017709b42"]
+army['5fb1b9e6e1af060017709b42_1455_1471']={
+  data={
+    name='Wars of the Roses English 1455 AD to 1471 AD',
+    id='5fb1b9e6e1af060017709b42_1455_1471',
+    army_id='5fb1b9e6e1af060017709b42'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcff],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd08],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd0b],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd0e],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd11],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd14],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd19],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b42_camp],
+}
+army['5fb1b9e6e1af060017709b42_1472_1482']={
+  data={
+    name='Wars of the Roses English 1472 AD to 1482 AD',
+    id='5fb1b9e6e1af060017709b42_1472_1482',
+    army_id='5fb1b9e6e1af060017709b42'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcff],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd08],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd19],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b42_camp],
+}
+army['5fb1b9e6e1af060017709b42_1483_1483']={
+  data={
+    name='Wars of the Roses English 1483 AD',
+    id='5fb1b9e6e1af060017709b42_1483_1483',
+    army_id='5fb1b9e6e1af060017709b42'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcff],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd08],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd11],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd17],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd19],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b42_camp],
+}
+army['5fb1b9e6e1af060017709b42_1484_1488']={
+  data={
+    name='Wars of the Roses English 1484 AD to 1488 AD',
+    id='5fb1b9e6e1af060017709b42_1484_1488',
+    army_id='5fb1b9e6e1af060017709b42'
+  },
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_general_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_mounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcfc_dismounted],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dcff],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd01_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd05_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd08],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd17],
+  g_base_definitions[g_str_5fb1ba31e1af06001770dd19],
+  g_base_definitions[g_str_5fb1b9e6e1af060017709b42_camp],
+}
+if nil == armies["Embattled Isle"] then
+  armies["Embattled Isle"] ={}
+end
+armies["Embattled Isle"]["Wars of the Roses English  1455 to 1488 AD"] = army["5fb1b9e6e1af060017709b42"]
+if nil == armies["Plate and Handgonne"] then
+  armies["Plate and Handgonne"] ={}
+end
+armies["Plate and Handgonne"]["Wars of the Roses English  1455 to 1488 AD"] = army["5fb1b9e6e1af060017709b42"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Wars of the Roses English  1455 to 1488 AD"] = army["5fb1b9e6e1af060017709b42"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9e6e1af060017709b42"] = {}
+army_dates["5fb1b9e6e1af060017709b42"]["1455 AD to 1488 AD"] ="5fb1b9e6e1af060017709b42"
+army_dates["5fb1b9e6e1af060017709b42"]["1455 AD to 1471 AD"] ="5fb1b9e6e1af060017709b42_1455_1471"
+army_dates["5fb1b9e6e1af060017709b42"]["1472 AD to 1482 AD"] ="5fb1b9e6e1af060017709b42_1472_1482"
+army_dates["5fb1b9e6e1af060017709b42"]["1483 AD"] ="5fb1b9e6e1af060017709b42_1483_1483"
+army_dates["5fb1b9e6e1af060017709b42"]["1484 AD to 1488 AD"] ="5fb1b9e6e1af060017709b42_1484_1488"

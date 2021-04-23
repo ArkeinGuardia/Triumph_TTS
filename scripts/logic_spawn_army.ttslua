@@ -2,6 +2,8 @@
 g_base_index = 1
 g_bases = {}
 
+
+
 -- If the base is dismountable add a menu item to dismount
 -- the base
 function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
@@ -49,10 +51,10 @@ function add_context_menu_base(base_obj)
         local moved_mus = move_base(base_obj, -from_mu_to_in(g_mu_movement))
         print_info(base_obj.getName() .. ' ' .. from_in_to_mu(moved_mus) .. ' MU backwards')
     end)
-    base_obj.addContextMenuItem("Push forward", function()
+    base_obj.addContextMenuItem("Pursue", function()
         push_forward(base_obj)
     end)
-    base_obj.addContextMenuItem("Push back", function()
+    base_obj.addContextMenuItem("Fall back", function()
         push_back(base_obj)
     end)
     base_obj.addContextMenuItem("Turn around", function()
@@ -78,9 +80,6 @@ function add_context_menu_base(base_obj)
 end
 
 function add_context_menu_table(table_obj)
-    table_obj.addContextMenuItem('Rotate 180º', function()
-        rotate_table()
-    end)
     table_obj.addContextMenuItem('Fix terrain and lock', function()
         fix_terrain_and_lock()
     end)
@@ -137,22 +136,164 @@ function onObjectSpawn(new_obj)
     end
 end
 
+
+-- Always return the same figure name
+function static_model_iterator(model_name)
+  return function ()
+    return model_name
+  end
+end
+
+-- Return the figures in sequence
+function fixed_model_iterator(fixed_models)
+  local i = 0
+  return function ()
+    i = i + 1
+    return fixed_models[i]
+  end
+end
+
+-- Return a random figure
+function random_model_iterator(random_models)
+  if random_models == nil then
+    print_error("random_models is nil")
+    return nil
+  end
+  local nb = tlen(random_models)
+  return function ()
+      local i = math.random(1, nb)
+      return random_models[i]
+  end
+end
+
+
+-- Appendix A
+-- @param troop_type, e.g. archers
+-- @return Number of figures that should be on the base,
+function figures_per_base(troop_type)
+  if troop_type == "Archers" then
+    return 4
+  end
+  if troop_type == "Bow Levy" then
+    return 3
+  end
+  if troop_type == "Light Foot" then
+    return 3
+  end
+  if troop_type == "Light Spear" then
+    return 3
+  end
+  if troop_type == "Rabble" then
+    return 3
+  end
+  if troop_type == "Raiders" then
+    return 4
+  end
+  if troop_type == "Skirmishers" then
+    return 2
+  end
+  if troop_type == "Warband" then
+    return 3
+  end
+
+  if troop_type == "Elite Foot" then
+    return 4
+  end
+  if troop_type == "Heavy Foot" then
+    return 4
+  end
+  if troop_type == "Horde" then
+    return 7
+  end
+  if troop_type == "Pavisiers" then
+    return 8
+  end
+  if troop_type == "Pikes" then
+    return 4
+  end
+  if troop_type == "Spears" then
+    return 4
+  end
+  if troop_type == "Warriors" then
+    return 4
+  end
+
+
+  if troop_type == "Bad Horse" then
+    return 3
+  end
+  if troop_type == "Elite Cavalary" then
+    return 3
+  end
+  if troop_type == "Horse Bow" then
+    return 2
+  end
+  if troop_type == "Javelin Cavalry" then
+    return 2
+  end
+  if troop_type == "Knights" then
+    return 3
+  end
+
+  if troop_type == "Cataphracts" then
+    return 4
+  end
+
+  print_error("No default number of figures for " .. troop_type)
+  return 0
+end
+
+
+function model_from_model_name(model_name)
+  if model_name == nil then
+    return nil
+  end
+  local model = _G[model_name]
+  if model == nil then
+    model = g_models[model_name]
+  end
+  return model
+end
+
+-- Randomly choose meshes
+-- model_name: Name of the model that determines the meshes that
+--   are available.
+-- how_many:  How many meshes to choose.
+function meshes_from_model_name(model_name, how_many)
+  local meshes = {}
+  local model = model_from_model_name(model_name)
+  if model == nil then
+    print_debug("No model: " .. tostring(model_name))
+    return meshes
+  end
+  local mesh = model['mesh']
+  if nil == mesh then
+    return meshes
+  end
+  return calculate_random_meshes(how_many, mesh)
+end
+
+
 -- add models to base object
 -- base_name: Name of the base, e.g. "Camp"
+-- model_definition: definition of how the base should look like
+-- base_definition: definition of base we are constructing
 -- base_obj: base object
--- base: definition of the base
 -- is_player_red: red or blue base
 -- pos Location of the base.
 -- y_rotation: rotation of the base
-function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
-  local n = base['n_models']
-  if n == 0 then
+function add_models(base_name, model_definition, base_definition, base_obj, is_red_player, pos, y_rotation)
+  local n = model_definition['n_models']
+  if n == nil then
+    n = figures_per_base(base_definition.name)
+  end
+  if (n == 0) then
       base_obj.setRotation({0, y_rotation, 0})
       base_obj.auto_raise = false
       return
   end
 
-  local depth = get_depth_base(base['base'])
+  local depth = get_depth_base(model_definition['base'])
   local half_depth = depth / 2
   local half_width = g_base_width_in_inches / 2
 
@@ -166,13 +307,20 @@ function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
   local column_width = g_base_width_in_inches / (columns + 1)
   local row_depth = depth / (rows + 1)
 
-  local model_name = base['model_data']
-  local meshes = {}
+  local model_name = model_definition['model_data']
 
-  -- If the element has multiple nonfixed element, select randomly without
-  -- repeating
+  local meshes = meshes_from_model_name(model_name, n)
+
+  local figure_iter -- iterator of next figure to add
   if model_name ~= nil then
-      meshes = calculate_random_meshes(n, _G[model_name]['mesh'])
+    figure_iter = static_model_iterator(model_name)
+  elseif model_definition['fixed_models'] ~= nil then
+    figure_iter = fixed_model_iterator(model_definition['fixed_models'])
+  elseif model_definition['random_models'] ~= nil then
+    figure_iter = random_model_iterator(model_definition['random_models'])
+  else
+    print_error("model definition not understood")
+    return nil
   end
 
   for i=1,n do
@@ -186,7 +334,7 @@ function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
 
       local random_x = 0
       local random_z = 0
-      if base['loose'] == true then
+      if base_definition['loose'] == true then
           random_x = random_float(-g_max_loose_spawn, g_max_loose_spawn)
           random_z = random_float(-g_max_loose_spawn, g_max_loose_spawn)
       end
@@ -197,16 +345,21 @@ function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
           z = pos['z'] + row * row_depth - half_depth + random_x
       }
 
-      local this_model_name = model_name
+      local this_model_name = figure_iter()
       local soldier_obj = nil
       if this_model_name ~= nil then
+        if _G[this_model_name]['customasset'] ~= nil then
+            soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
+        else
           -- The object has non-fixed models, so we use any of the
           -- randomly selected meshes
           soldier_obj = spawn_model(this_model_name, relative_pos, random_rotation, minimal_collider, is_red_player, nil, meshes[i])
+        end
       else
           -- Now we have fixed models, so we use the corresponding one
           -- Except that fixed models may use assets instead of meshes!
-          this_model_name = base['fixed_models'][i]
+          this_model_name = model_definition['fixed_models'][i]
+
           if _G[this_model_name]['customasset'] ~= nil then
               soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
           else
@@ -222,17 +375,44 @@ function add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
   base_obj.auto_raise = false
 end
 
--- base: base base_definition
+-- Spawn the elephant screen counter and snap it to the top of the base.
+-- base_obj: base the counter will be on top of.
+-- base_definition: Definition for the base that the counter will be for.
+-- base_pos: Location of the base that the counter should be on top of.
+-- is_red_player: Is the player red or blue
+-- command_color: color of the command within the players army.
+function spawn_elephant_screen_counter(base_obj, base_definition, base_pos, is_red_player, command_color)
+  local counter_definition_id = base_definition['id'] .. "_elephant_screen_counter"
+  local counter_definition = g_base_definitions[counter_definition_id]
+  if counter_definition == nil then
+    print_err("No base definition for " .. tostring(counter_definition_id))
+    return nil
+  end
+  counter_definition['elephant_screen'] = nil
+
+  local counter = spawn_base(counter_definition, base_pos, 0, is_red_player, command_color)
+  if counter == nil then
+    print_err("spawn_elephant_screen_counter failed " .. tostring(counter_definition_id))
+    return nil
+  end
+
+  local transform_moving = calculate_transform(counter)
+  local transform_resting = calculate_transform(base_obj)
+
+  snap_to_base(counter, transform_moving, base_obj, transform_resting, 'infront')
+end
+
+
+-- base: base_definition base_definition
 -- pos: position where the base will be located
 -- y_rotation: in degrees
 -- is_red_player: Will the base belong to the red player
 -- common_color: color of the base edge, who ows the base.
-function spawn_base(base, pos, y_rotation, is_red_player, command_color)
+function spawn_base(base_definition, pos, y_rotation, is_red_player, command_color)
     print_debug('Spawning base #' .. g_base_index)
     local overriden_tex = nil
-    if base['ignore_terrain'] == nil then
+    if base_definition['ignore_terrain'] == nil then
         local type = from_toggle_number_to_table_type(g_current_table_type)
-
         if tables[type] == nil then
             type = 'grass'
         end
@@ -244,18 +424,40 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
         end
     end
 
-    local base_obj = spawn_model(base['base'], pos, 0, nil, is_red_player, overriden_tex)
+    local model_definition = get_a_model_definition(base_definition)
+    local model_base_name = model_definition['base']
+    if model_base_name == nil then
+      print_error("no base for model definition")
+      return
+    end
+    local model_base = _G[model_base_name]
+    if model_base == nil then
+      print_error("No variable defined for " .. tostring(model_base_name))
+    end
+    -- model texture overides other textures
+    local texture_name
+    if is_red_player then
+      texture_name = 'player_red_tex'
+    else
+      texture_name = 'player_blue_tex'
+    end
+    local model_texture = model_base[texture_name]
+    if (nil ~= model_texture) then
+      overriden_tex = model_texture
+    end
 
-    if base['name'] == nil then
-        print_error('One of the bases of this army has no name! Please report to us so we can fix it asap')
+    local base_obj = spawn_model(model_base_name, pos, 0, nil, is_red_player, overriden_tex)
+
+    if base_definition['name'] == nil then
+        print_error('One of the base definitions of this army has no name! Please report to us so we can fix it asap')
         return
     end
-    local base_name = 'base ' .. base['name'] .. ' #' .. g_base_index
+    local base_name = 'base ' .. base_definition['name'] .. ' #' .. g_base_index
     base_obj.setName(base_name)
 
     g_base_index = g_base_index + 1
     g_bases[base_name] = {
-        tile = base['base'],
+        tile = model_definition['base'],
         is_red_player = is_red_player
     }
 
@@ -270,16 +472,143 @@ function spawn_base(base, pos, y_rotation, is_red_player, command_color)
             base_obj.highlightOn({r=0.3,g=0,b=0.7}, 86400)
         end
     end
+    local base_definition_name = base_definition['id']
+    if base_definition_name == nil then
+        -- LEGACY
+        base_definition_name = base_definition['base_definition_name']
+    end
 
-    g_decorations[base_obj.getGUID()] = {
-      base_definition_name = base['base_definition_name'],
-      command_color = command_color,
-      is_red_player = is_red_player
-    }
-    add_models(base_name, base, base_obj, is_red_player, pos, y_rotation)
+    local player_color
+    if is_red_player then
+      player_color = "RED"
+    else
+      player_color = "BLUE"
+    end
+    set_decoration_for_obj(base_obj, "base_definition_name", base_definition_name)
+    set_decoration_for_obj(base_obj, "command_color", command_color)
+    set_decoration_for_obj(base_obj, "player_color", player_color)
+
+    add_models(base_name, model_definition, base_definition, base_obj,
+        is_red_player, pos, y_rotation)
     update_tool_tip(base_obj)
     add_context_menu_base(base_obj)
+
+    if base_definition['elephant_screen'] then
+      spawn_elephant_screen_counter(base_obj, base_definition, pos, is_red_player, command_color)
+    end
+
     return base_obj
+end
+
+troop_type_to_plain_model_tile_name = {}
+troop_type_to_plain_model_tile_name['Archers']='tile_plain_40x20_Archers'
+troop_type_to_plain_model_tile_name['Bow Levy']='tile_plain_40x30_Bow_Levy'
+troop_type_to_plain_model_tile_name['Light Foot']='tile_plain_40x20_Light_Foot'
+troop_type_to_plain_model_tile_name['Light Spear']='tile_plain_40x20_Light_Spear'
+troop_type_to_plain_model_tile_name['Rabble']='tile_plain_40x30_Rabble'
+troop_type_to_plain_model_tile_name['Raiders']='tile_plain_40x20_Raiders'
+troop_type_to_plain_model_tile_name['Skirmishers']='tile_plain_40x20_Skirmishers'
+troop_type_to_plain_model_tile_name['Warband']='tile_plain_40x20_Warband'
+troop_type_to_plain_model_tile_name['Artillery']='tile_plain_40x40_Artillery'
+troop_type_to_plain_model_tile_name['Elite Foot']='tile_plain_40x15_Elite_Foot'
+troop_type_to_plain_model_tile_name['Heavy Foot']='tile_plain_40x15_Heavy_Foot'
+troop_type_to_plain_model_tile_name['Horde']='tile_plain_40x40_Horde'
+troop_type_to_plain_model_tile_name['Pavisiers']='tile_plain_40x40_Pavisiers'
+   -- Appendix A uses "Pike"
+troop_type_to_plain_model_tile_name['Pikes']='tile_plain_40x15_Pikes_Gen'
+  -- Appendix A uses "Spear"
+troop_type_to_plain_model_tile_name['Spears']='tile_plain_40x15_Spears'
+troop_type_to_plain_model_tile_name['War Wagons']='tile_plain_40x40_War_Wagon'
+troop_type_to_plain_model_tile_name['Warriors']='tile_plain_40x15_Warriors'
+troop_type_to_plain_model_tile_name['Bad Horse']='tile_plain_40x30_Bad_Horse'
+troop_type_to_plain_model_tile_name['Battle Taxi']='tile_plain_40x40_Battle_Taxi'
+troop_type_to_plain_model_tile_name['Chariots']='tile_plain_40x40_Chariots'
+troop_type_to_plain_model_tile_name['Elite Cavalary']='tile_plain_40x30_Elite_Cav'
+troop_type_to_plain_model_tile_name['Horse Bow']='tile_plain_40x30_Horse_Bow'
+troop_type_to_plain_model_tile_name['Javelin Cavalry']='tile_plain_40x30_Jav_Cav'
+troop_type_to_plain_model_tile_name['Knights']='tile_plain_40x30_Knights'
+troop_type_to_plain_model_tile_name['Cataphracts']='tile_plain_40x40_Cataphracts'
+troop_type_to_plain_model_tile_name['Elephants']='tile_plain_40x40_Elephants'
+troop_type_to_plain_model_tile_name['Camp']='tile_plain_40x40_Camp'
+
+troop_type_to_plain_model_tile_name['Archers General']='tile_plain_40x20_Archers_General'
+troop_type_to_plain_model_tile_name['Bow Levy General']='tile_plain_40x30_Bow_Levy_Gen'
+troop_type_to_plain_model_tile_name['Light Foot General']='tile_plain_40x20_Light_Foot_Gen'
+troop_type_to_plain_model_tile_name['Light Spear General']='tile_plain_40x20_Light_Spear_Gen'
+troop_type_to_plain_model_tile_name['Rabble General']='tile_plain_40x30_Rabble_Gen'
+troop_type_to_plain_model_tile_name['Raiders General']='tile_plain_40x20_Raiders_Gen'
+troop_type_to_plain_model_tile_name['Skirmishers General']='tile_plain_40x20_Skirmishers_Gen'
+troop_type_to_plain_model_tile_name['Warband General']='tile_plain_40x20_Warband_Gen'
+troop_type_to_plain_model_tile_name['Artillery General']='tile_plain_40x40_Artillery_Gen'
+troop_type_to_plain_model_tile_name['Elite Foot General']='tile_plain_40x15_Elite_Foot_Gen'
+troop_type_to_plain_model_tile_name['Heavy Foot General']='tile_plain_40x15_Heavy_Foot_Gen'
+troop_type_to_plain_model_tile_name['Horde General']='tile_plain_40x40_Horde_Gen'
+troop_type_to_plain_model_tile_name['Pavisiers General']='tile_plain_40x40_Pavisiers_Gen'
+   -- Appendix A uses "Pike"
+troop_type_to_plain_model_tile_name['Pikes General']='tile_plain_40x15_Pikes_Gen'
+  -- Appendix A uses "Spear"
+troop_type_to_plain_model_tile_name['Spears General']='tile_plain_40x15_Spears_Gen'
+troop_type_to_plain_model_tile_name['War Wagons General']='tile_plain_40x40_War_Wagon_Gen'
+troop_type_to_plain_model_tile_name['Warriors General']='tile_plain_40x15_Warriors_Gen'
+troop_type_to_plain_model_tile_name['Bad Horse General']='tile_plain_40x30_Bad_Horse_Gen'
+troop_type_to_plain_model_tile_name['Battle Taxi General']='tile_plain_40x40_Battle_Taxi_Gen'
+troop_type_to_plain_model_tile_name['Chariots General']='tile_plain_40x40_Chariots_Gen'
+troop_type_to_plain_model_tile_name['Elite Cavalary General']='tile_plain_40x30_Elite_Cav_Gen'
+troop_type_to_plain_model_tile_name['Horse Bow General']='tile_plain_40x30_Horse_Bow_Gen'
+troop_type_to_plain_model_tile_name['Javelin Cavalry General']='tile_plain_40x30_Jav_Cav_Gen'
+troop_type_to_plain_model_tile_name['Knights General']='tile_plain_40x30_Knights_Gen'
+troop_type_to_plain_model_tile_name['Cataphracts General']='tile_plain_40x40_Cataphracts_Gen'
+troop_type_to_plain_model_tile_name['Elephants General']='tile_plain_40x40_Elephants_Gen'
+troop_type_to_plain_model_tile_name['Camp General']='tile_plain_40x40_Camp_Gen'
+
+troop_type_to_plain_model_tile_name['Elephant Screen']='tile_plain_40x10_El_Screen'
+
+-- Return name (a string) of the variable that is plain tile for
+-- the base definition
+function get_plain_model_tile_name(base_definition)
+  local name = base_definition.name
+  local tile = troop_type_to_plain_model_tile_name[name]
+  if tile == nil then
+    print_error("No plain tile for " .. tostring(name))
+    -- TODO choose something that is an obvious error -- like a plain tile with no info.
+    return  'tile_grass_40x15'
+    end
+    return tile
+end
+
+
+-- Get a model definition, base and fgitures, that can be used to represent
+-- a base definition.
+function get_a_model_definition(base_definition)
+  if not g_use_plain_bases then
+    -- try to use models
+    local id = base_definition.id
+    if nil ~= id then
+      if g_models[ id ] ~= nil then
+        -- choose a random model definition
+        local models = g_models[ id ]
+        local index = math.random(1, #models)
+        local model = models[index]
+        assert(nil ~= model)
+        return model
+       end
+    end
+
+    if  base_definition.n_models ~= nil then
+      -- base definition is model definition, legacy.
+      return base_definition
+    end
+  end
+
+  -- Use a plain base.
+  local tile_name = get_plain_model_tile_name(base_definition)
+  local base_def_name = base_definition.name
+  return {
+      name = base_def_name,
+      ignore_terrain = 'false',
+      n_models = 0,
+      base = tile_name,
+  }
 end
 
 -- Get the base definition for an base object.
@@ -290,17 +619,22 @@ function get_base_definition_from_base_obj(base_obj)
   if nil == decoration then
     return nil
   end
+
   local base_definition_name = decoration.base_definition_name
   if nil == base_definition_name then
     return nil
   end
-  local base_definition = _G[base_definition_name]
-  if nil == base_definition_name then
-    print_error("base definition missing: " .. tostring(base_definition_name))
-    return nil
+  local base_definition = g_base_definitions[base_definition_name]
+  if nil ~= base_definition_name then
+      return base_definition
   end
 
-  return base_definition
+  base_definition = _G[base_definition_name]
+  if nil ~= base_definition_name then
+      return base_definition
+  end
+
+  return nil
 end
 
 
@@ -312,30 +646,69 @@ function get_base_definition(base_data)
   if type(base_data) ~= "string" then
     return base_data
   end
+
+  local definition = g_base_definitions[base_data]
+  if definition ~= nil then
+    return definition
+  end
+
+  -- Legacy
   -- The string refers to the name of the variable that
   -- defines the base.
-  local definition = _G[base_data]
-  if nil == definition then
-    print_error("base definition missing: " .. tostring(base_data))
+  definition = _G[base_data]
+  if nil ~= definition then
+    definition.base_definition_name = base_data
+    return definition
   end
-  definition.base_definition_name = base_data
-  return definition
+
+  print_error("base definition missing: " .. tostring(base_data))
+  return nil
 end
 
+function get_undeployed_bag(is_red_player)
+  if is_red_player then
+    return get_object_by_name("Red undeployed")
+  else
+    return get_object_by_name("Blue undeployed")
+  end
+end
+
+function move_base_to_undeployed(base_obj)
+  local is_red =  is_base_red_player(base_obj)
+  local bag = get_undeployed_bag(is_red)
+  if bag == nil then
+    print_error("bag is nil")
+    return
+  end
+  bag.putObject(base_obj)
+end
+
+-- Have the tablet show the Meshwesh page for the army.
+function set_tablet(is_red_player, army)
+  local table_name
+  if is_red_player then
+    tablet_name = "red tablet"
+  else
+    tablet_name = "blue tablet"
+  end
+  local tablet = get_object_by_name(tablet_name)
+  if tablet == nil then
+    print_error("Unable to find tablet " .. tablet_name)
+    return
+  end
+
+  local url = "https://meshwesh.wgcwar.com/armyList/" ..  army['data']['army_id'] .. "/explore"
+  tablet.Browser.url = url
+end
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
 -- validate
-function spawn_army(army_name, army, is_red_player, command_color)
+function spawn_army(army, is_red_player, command_color)
+    assert(nil ~= army)
+    local army_name = army.data.name
+    assert(nil ~= army_name)
     math.randomseed(os.time())
-    local n_bases = tlen(army) - 1
-    local rows = 1
-    if n_bases > g_max_bases_row then
-        n_bases = g_max_bases_row
-        rows = math.ceil(n_bases / g_max_bases_row)
-    end
-
-    local width_army = n_bases * g_base_width_in_inches
 
     local z_pos_0 = g_spawn_from_center_in
     local y_rotation = 180
@@ -348,71 +721,74 @@ function spawn_army(army_name, army, is_red_player, command_color)
     if is_red_player then
         z_pos = z_pos * -1
     end
-    local i = 0
-    for base_id, base_data in pairs(army) do
+
+    local z_pos_modifier = - -1
+    if is_red_player then
+        z_pos_modifier = -1 * z_pos_modifier
+    end
+
+    local column = 0
+    local row = 0
+    local last_troop_option = nil
+    local row_wrap_bonus = 0
+    for base_id,base_data  in pairs(army) do
         if base_id ~= 'data' then
             local base_definition = get_base_definition(base_data)
             if nil ~= base_definition then
+              if base_definition['min'] == nil then
+                base_definition['min'] = 0
+              end
               if base_definition['max'] == nil then
                 base_definition['max'] = 1
               end
 
+              if base_definition['troop_option_id'] ~= last_troop_option then
+                row = row + row_wrap_bonus
+                row = row + 1
+                column = 0
+                row_wrap_bonus = 0
+              else
+                column = column + 0.5
+              end
+              if 0 == base_definition['min'] then
+                column = column + 0.5
+              end
               for copy=1,base_definition['max'] do
-                local z_pos_modifier = -1 * get_depth_base(base_definition['base']) / 2
-                if is_red_player then
-                    z_pos_modifier = -1 * z_pos_modifier
-                end
 
-                local column = i % g_max_bases_row
-                local row = math.floor(i / g_max_bases_row)
-
-                local row_z_pos = z_pos * (1 + row) + z_pos_0
+                local row_z_pos = (g_base_width_in_inches + 0.75) * (1 + row) * z_pos_modifier + z_pos_0
 
                 local location = {
-                    x = g_offset_deployment_x + column * g_base_width_in_inches - width_army / 2,
+                    x = g_offset_deployment_x + column * g_base_width_in_inches,
                     y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
-                    z = row_z_pos - z_pos_modifier
-                }
+                    z = row_z_pos
+}
                 local base_obj = spawn_base(base_definition, location, y_rotation, is_red_player, command_color)
-                i = i + 1
+                last_troop_option = base_definition['troop_option_id']
+                if base_definition['dismounted_from'] ~= nil then
+                  -- Move the base into the undeployed bag
+                  move_base_to_undeployed(base_obj)
+                else
+                  -- calculate the position for the next base.
+                  if copy == base_definition['min'] then
+                    column = column + 0.5
+                  end
+                  column = column + 1
+                  if column >= g_max_bases_row then
+                    column = 0
+                    row = row + 1
+                    row_wrap_bonus = 0.5
+                  end
+                end
               end
             end
         end
-    end    
-
-    local note_row = math.floor(i / g_max_bases_row) + 1
-    local note_pos = {
-        x = g_offset_deployment_x,
-        y = g_base_height_tabletop + g_table_thickness + 1,
-        z = z_pos * (1 + note_row) + z_pos_0
-    }
-
-    local angle = 180
-    if is_red_player then
-        angle = 0
     end
 
-    local maker = ''
-    if army['data']['manufacturer'] ~= nil then
-        maker = '\n\nMiniatures by: ' .. army['data']['manufacturer']
-    end
-
-    spawn_note(army_name,
-        'Invasion: ' .. army['data']['Invasion'] .. '. Maneuver: ' .. army['data']['maneuver'] .. '\n'
-        .. 'Terrain: ' .. army['data']['terrain'] .. '\n'
-        .. army['data']['list'] .. '\n'
-        .. army['data']['general'] .. '\n'
-        .. maker,
-        note_pos,
-        angle)
-
+    set_tablet(is_red_player, army)
     update_tool_tips()
-    print_important('Army deployed: ' .. army_name .. ', see chat for options')
-    print_info('List: ' .. army['data']['list'])
-    print_info('Agressiveness: ' .. army['data']['Invasion']
-        .. ' Terrain: ' .. army['data']['terrain'])
-
+    print_important('Army deployed: ' .. army.data.name )
 end
+
 
 function get_author_tile(tilename)
     local tile = _G[tilename]
@@ -424,44 +800,21 @@ function get_author_model(modelname)
     return model['author']
 end
 
-function get_author_base(base)
-    if base['n_models'] == 0 then
-        return get_author_tile(base['base'])
-    end
-    local model = base['model_data']
-    if model == nil then
-        model = base['fixed_models'][1]
-    end
-    return get_author_model(model)
+function get_author_base(base_definition)
+  -- TODO broken for now due to meshwesh integration.
+  -- Should return a set of authors that have made a model that
+  -- could be used
+  return "TODO"
+    --if base['n_models'] == 0 then
+    --     return get_author_tile(base['base'])
+    -- end
+    -- local model = base['model_data']
+    -- if model == nil then
+    --     model = base['fixed_models'][1]
+    -- end
+    -- return get_author_model(model)
 end
 
-function update_authors_text(army)
-    local authorship_models = 'The authors of the models are:\n\n'
-    local authors_set = {}
-    for base_id, base in pairs(army) do
-        print_debug('Getting data of base for author of ' .. base_id)
-        if base_id ~= 'data' then
-            base = get_base_definition(base)
-            local author = get_author_base(base)
-
-            if authors_set[author] == nil then
-                authorship_models = authorship_models .. ' - ' .. author .. '\n\n'
-                authors_set[author] = 1
-            end
-        end
-    end
-    UI.setValue('text_authors', authorship_models)
-end
-
-function book_has_an_army_with_models(book_dataname)
-    local book_armies = armies[book_dataname]
-    for army_name,_ in pairs(book_armies) do
-        if not str_has_substr(army_name, '(Plain)') then
-            return true
-        end
-    end
-    return false
-end
 
 function get_first_book_with_models()
     for book_name, book_armies in pairs(armies) do
@@ -472,30 +825,7 @@ function get_first_book_with_models()
     return nil
 end
 
-function get_first_army_with_models(book_dataname)
-    local book_armies = armies[book_dataname]
-    for army_name,_ in pairs(book_armies) do
-        if not str_has_substr(army_name, '(Plain)') then
-            return army_name
-        end
-    end
-    return nil
-end
 
-function update_book_menu(book_selected)
-    local options = {}
-    for book_name, book_armies in pairs(armies) do
-        if not g_filter_armies_models then
-            table.insert(options, dataname_to_friendlyname(book_name))
-        end
-
-        if g_filter_armies_models
-            and book_has_an_army_with_models(book_name) then
-            table.insert(options, dataname_to_friendlyname(book_name))
-        end
-    end
-    set_options_dropdown_by_id('dropdown_book', options, book_selected)
-end
 
 function update_player_color_menu(is_player_red)
     local selected = 2
@@ -505,20 +835,28 @@ function update_player_color_menu(is_player_red)
     set_options_dropdown_by_id('dropdown_playercolor', { 'Red', 'Blue' },  selected)
 end
 
-function update_armies_menu(book, army_selected)
-    local options = {}
-    for army_name,_ in pairs(book) do
-        if not g_filter_armies_models then
-            table.insert(options, dataname_to_friendlyname(army_name))
-        end
 
-        if g_filter_armies_models
-           and not str_has_substr(army_name, '(Plain)') then
-            table.insert(options, dataname_to_friendlyname(army_name))
+-- Provide an iterator to walk through a sorted table
+-- t: Table to sort
+-- f: Function to use to sort.
+function pairsByKeys (t, f)
+    local a = {}
+    for n in pairs(t) do
+        table.insert(a, n)
+    end
+    table.sort(a, f)
+    local i = 0      -- iterator variable
+    local iter = function ()   -- iterator function
+        i = i + 1
+        if a[i] == nil then
+            return nil
+        else
+          return a[i], t[a[i]]
         end
     end
-    set_options_dropdown_by_id('dropdown_army', options, army_selected)
+    return iter
 end
+
 
 g_current_table = nil
 function spawn_table_obj(model_url, texture_array_urls, is_large)
@@ -592,16 +930,13 @@ function change_bases_to_terrain(terrain_type)
     end, 1)
 end
 
-function rotate_table()
-    local gametable = getObjectFromGUID(g_current_table)
-    local newrotation = gametable.getRotation()
-    newrotation['y'] = newrotation['y'] + 180
-    gametable.setRotation(newrotation)
-end
 
 function spawn_model(troop_name, pos, added_y_axis_rotation, collider, is_player_red, overridden_tex, overridden_mesh)
     -- Better pray that the input name actually exists! lol
     local model_data = _G[troop_name]
+    if model_data == nil then
+      print_error("Unable to spawn model, variable not defined: " .. tostring(troop_name))
+    end
 
     local texture = overridden_tex
     if texture == nil then
@@ -659,6 +994,10 @@ function spawn_asset(asset_name, pos, added_y_axis_rotation)
 end
 
 function calculate_random_meshes(how_many, meshes_available)
+    if type(how_many) ~= "number" then
+      print_error("how_many must be number not " .. type(how_many) .. ": ".. tostring(how_many))
+      return nil
+    end
     local aux = {}
     local meshes = {}
     for i = 1, how_many do
@@ -696,7 +1035,6 @@ end
 g_ignore_next_delete = {}
 
 function onObjectDestroy(dying_object)
-    remove_decorations_for_obj(dying_object)
     local name = dying_object.getName()
     if g_ignore_next_delete[name] ~= nil then
         g_ignore_next_delete[name] = nil
@@ -709,6 +1047,7 @@ function onObjectDestroy(dying_object)
     elseif g_bases[name] ~= nil then
         print_info('Base ' .. name .. ' removed from play')
         g_bases[name] = nil
+    remove_decorations_for_obj(dying_object)
     end
 end
 

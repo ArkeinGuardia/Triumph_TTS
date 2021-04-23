@@ -1,0 +1,87 @@
+-- 5fb1b9dbe1af06001770948b Early Bronze Age North Europe  2000 to 1200 BC
+
+if army == nil then
+  army = {}
+end
+if g_base_definitions == nil then
+  g_base_definitions = {}
+end
+g_str_5fb1ba23e1af06001770c4af_general='5fb1ba23e1af06001770c4af_general'
+g_base_definitions[g_str_5fb1ba23e1af06001770c4af_general]={
+  id=g_str_5fb1ba23e1af06001770c4af_general,
+  name='Bow Levy General',
+  min=8,
+  max=1,
+  description='Barbarian bowmen without training in massed warfare',
+  general=true,
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba23e1af06001770c4ae",
+}
+g_str_5fb1ba23e1af06001770c4af='5fb1ba23e1af06001770c4af'
+g_base_definitions[g_str_5fb1ba23e1af06001770c4af]={
+  id=g_str_5fb1ba23e1af06001770c4af,
+  name='Bow Levy',
+  min=8,
+  max=21,
+  description='Barbarian bowmen without training in massed warfare',
+  troop_type="Bow Levy",
+  troop_option_id="5fb1ba23e1af06001770c4ae",
+}
+g_str_5fb1ba23e1af06001770c4b1='5fb1ba23e1af06001770c4b1'
+g_base_definitions[g_str_5fb1ba23e1af06001770c4b1]={
+  id=g_str_5fb1ba23e1af06001770c4b1,
+  name='Skirmishers',
+  min=2,
+  max=4,
+  description='Barbarian skirmishing bowmen or slingers',
+  troop_type="Skirmishers",
+  troop_option_id="5fb1ba23e1af06001770c4b0",
+}
+g_str_5fb1ba23e1af06001770c4b3='5fb1ba23e1af06001770c4b3'
+g_base_definitions[g_str_5fb1ba23e1af06001770c4b3]={
+  id=g_str_5fb1ba23e1af06001770c4b3,
+  name='Horde',
+  min=0,
+  max=2,
+  description='Unenthusiastic or poorly equipped throng',
+  troop_type="Horde",
+  troop_option_id="5fb1ba23e1af06001770c4b2",
+}
+g_str_5fb1b9dbe1af06001770948b_camp='5fb1b9dbe1af06001770948b_camp'
+g_base_definitions[g_str_5fb1b9dbe1af06001770948b_camp]={
+  id=g_str_5fb1b9dbe1af06001770948b_camp,
+  name='Camp',
+  min=0,
+  max=1,
+  description='Camp',
+  troop_type="Camp",
+}
+army['5fb1b9dbe1af06001770948b']={
+  data={
+    name='Early Bronze Age North Europe  2000 to 1200 BC',
+    id='5fb1b9dbe1af06001770948b',
+    army_id='5fb1b9dbe1af06001770948b'
+  },
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4af_general],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4af],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4b1],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4b3],
+  g_base_definitions[g_str_5fb1b9dbe1af06001770948b_camp],
+}
+if nil == armies["Meshwesh id"] then
+  armies["Meshwesh id"] ={}
+end
+armies["Meshwesh id"]["5fb1b9dbe1af06001770948b"] = army["5fb1b9dbe1af06001770948b"]
+if nil == armies["Birth of the West"] then
+  armies["Birth of the West"] ={}
+end
+armies["Birth of the West"]["Early Bronze Age North Europe  2000 to 1200 BC"] = army["5fb1b9dbe1af06001770948b"]
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"]["Early Bronze Age North Europe  2000 to 1200 BC"] = army["5fb1b9dbe1af06001770948b"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["5fb1b9dbe1af06001770948b"] = {}
+army_dates["5fb1b9dbe1af06001770948b"]["2000 BC to 1200 BC"] ="5fb1b9dbe1af06001770948b"
