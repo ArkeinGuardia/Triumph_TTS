@@ -1042,6 +1042,54 @@ function get_strokes_quadrant_horizontal(angle, width, depth)
     }
 end
 
+function get_strokes_quadrant_vertical_flank(color, angle, width, depth)
+    local stroke_points = {}
+    local center = { x=0, y=0, z=0 }
+    local half_width = width / 2
+    local half_depth = depth / 2
+    table.insert(stroke_points, rotate_point_relative({
+        x = 5 * width / 12,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = half_depth
+    }, center, -angle))
+    table.insert(stroke_points, rotate_point_relative({
+        x = 5 * width / 12,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = -half_depth
+    }, center, -angle))
+
+    return {
+        points    = stroke_points,
+        color     = color,
+        thickness = g_line_thickness,
+        rotation  = {0,0,0}
+    }
+end
+
+function get_strokes_quadrant_vertical_flank_2(color, angle, width, depth)
+    local stroke_points = {}    
+    local center = { x=0, y=0, z=0 }
+    local half_width = width / 2
+    local half_depth = depth / 2
+    table.insert(stroke_points, rotate_point_relative({
+        x = - 5 * width / 12,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = half_depth
+    }, center, -angle))
+    table.insert(stroke_points, rotate_point_relative({
+        x = - 5 * width / 12,
+        y = g_table_thickness + g_base_height_inches / 2,
+        z = -half_depth
+    }, center, -angle))
+
+    return {
+        points    = stroke_points,
+        color     = color,
+        thickness = g_line_thickness,
+        rotation  = {0,0,0}
+    }
+end
+
 function get_strokes_quadrant_vertical(angle, width, depth)
     local stroke_points = {}
     local center = { x=0, y=0, z=0 }
@@ -1260,6 +1308,8 @@ function draw_deployment_lines()
     local strokes = {}
     table.insert(strokes, get_strokes_quadrant_vertical_2(angle, w, h))
     table.insert(strokes, get_strokes_quadrant_vertical_2(angle, w, h))
+    table.insert(strokes, get_strokes_quadrant_vertical_flank(g_gizmo_fire_color_player_blue, angle, w, h))
+    table.insert(strokes, get_strokes_quadrant_vertical_flank_2(g_gizmo_fire_color_player_blue, angle, w, h))
     table.insert(strokes, get_strokes_quadrant_vertical(angle, w, h))
     table.insert(strokes, get_strokes_quadrant_horizontal(angle, w, h))
     table.insert(strokes,
