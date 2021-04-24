@@ -21,6 +21,35 @@ def read_army_theme_json(army_id) :
   file_name = os.path.join("armyLists", army_id + "_thematicCategories")
   return read_json(file_name)
 
+def read_army_ally_options(army_id) :
+  file_name = os.path.join("armyLists", army_id + ".allyOptions.json")
+  allies = read_json(file_name)
+  # Push down date ranges to make it easier to see if the troop entries are in an army for date range.
+  for ally in allies :
+    for allyEntry in ally['allyEntries'] :
+      set_date_range(allyEntry, ally['dateRange'])
+      allyArmyList=allyEntry['allyArmyList']
+      set_date_range(allyArmyList, allyEntry['dateRange'])
+      for troop_option in allyArmyList['troopOptions'] :
+          set_date_range(troop_option, allyArmyList['dateRange'])
+          for troop_entry in troop_option['troopEntries'] :
+            set_date_range(troop_entry, troop_option['dateRange'])
+  return allies
+
+def set_date_range(destination, dates) :
+  if 'dateRange' not in destination  or (destination['dateRange'] is None):
+    destination['dateRange'] = dates
+  else:
+    if dates is None:
+      return
+    dest = destination['dateRange']
+    if not between(dates['startDate'], dest['startDate'], dates['endDate']) :
+      print("ERROR start date is out of range. ", dates['startDate'], dest['startDate'], dates['endDate'])
+    if not between(dates['startDate'], dest['endDate'], dates['endDate']) :
+      print("ERROR end date is out of range.", dates['startDate'], dest['endDate'], dates['endDate'])
+    dest['startDate'] = max( dates['startDate'], dest['startDate'] )
+    dest['endDate'] = min( dates['endDate'], dest['endDate'] )
+
 def troop_type_to_name(troop_type) :
   if troop_type == "WWG" :
     return "War Wagons"
@@ -559,6 +588,9 @@ def write_base_definition(file, base_definition) :
 
 def get_general_troop_type_codes(army) :
   codes = {}
+  if 'troopEntriesForGeneral' not in army :
+    return codes
+    
   for troop_entry_for_general in army['troopEntriesForGeneral'] :
     for troop_entry in troop_entry_for_general['troopEntries'] :
       troop_type = troop_entry['troopTypeCode']
@@ -778,6 +810,15 @@ def generate_army_for_date(file, army_json, startDate, endDate, base_definitions
 
   return army_id
 
+def get_optional_contingents(army_ally_options_json):
+  """Extract the ally_army options for the ally's that are internal. """
+  result = []
+  for ally in army_ally_options_json :
+    for allyEntry in ally['allyEntries'] :
+      allyArmyList=allyEntry['allyArmyList']
+      if "internalContingent" in allyArmyList and allyArmyList["internalContingent"]:
+        result.append(allyArmyList)
+  return result
 
 # Generate the LUA for an army
 # @param army_id Identifier for the army in Meshwesh
@@ -785,6 +826,10 @@ def generate_army(army_id) :
   global total
   army_json = read_army_json(army_id)
   army_theme_json = read_army_theme_json(army_id)
+  army_ally_options_json  = read_army_ally_options(army_id) 
+
+  optional_contingents = get_optional_contingents(army_ally_options_json)
+
   file_name = os.path.join("army_data", army_id + ".ttslua")
   with open(file_name, "w") as file :
 
@@ -795,6 +840,11 @@ def generate_army(army_id) :
     file.write("end\n")
 
     definitions = generate_base_definitions(file, army_json)
+    for ally_army in  optional_contingents :
+      troop_options = ally_army['troopOptions']
+      for troop_option in  troop_options :
+        defs = base_definitions(file, army_json, troop_option)
+        definitions.extend(defs)
 
     file.write("army['%s']={\n" % (army_id))
     file.write("  data={\n")
