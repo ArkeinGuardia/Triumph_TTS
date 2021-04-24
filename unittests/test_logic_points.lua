@@ -1,6 +1,5 @@
 lu = require('externals/luaunit/luaunit')
 armies = {}
-require('scripts/data/data_armies_Medieval_Era')
 require('scripts/utilities_lua')
 require('scripts/utilities')
 require('scripts/logic_base_obj')
