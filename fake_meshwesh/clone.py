@@ -4,6 +4,14 @@ import sys
 import subprocess
 
 #https://meshwesh.wgcwar.com/api/v1/
+
+
+def retrieve_allyOptions(id) :
+    dest_file = "armyLists/" + id + ".allyOptions.json"
+    src_url = "https://meshwesh.wgcwar.com/api/v1/armyLists/" + id + "/allyOptions"
+    cmd = [ "curl", "-o", dest_file, src_url]
+    subprocess.check_call(cmd)
+
 def retrieve_army(id) :
     dest_file = "armyLists/" + id
     src_url = "https://meshwesh.wgcwar.com/api/v1/armyLists/" + id
@@ -24,4 +32,5 @@ summary = json.loads(summary_text)
 for army_entry in summary :
     print(army_entry['id'])
     retrieve_army(army_entry['id'])
+    retrieve_allyOptions(army_entry['id'])
     retrieve_theme(army_entry['id'])
