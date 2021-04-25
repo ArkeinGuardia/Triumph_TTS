@@ -1320,8 +1320,11 @@ function is_snapable(obj, base)
     max_distance = g_max_distance_alignment
   end
 
-  local close_enough = distance < max_distance
-  return close_enough
+  if not (distance < max_distance) then 
+    return false
+  end
+
+  return is_facing_close_enough_for_snapping(obj, base)
 end
 
 -- Are two bases close enough to snap?
