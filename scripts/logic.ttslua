@@ -1298,37 +1298,6 @@ end
 
 
 
--- Are two bases close enough to snap?
--- moving_base: Base being moved, instance of base_cache
--- resting_base: Base that will be snapped against, instance of base_cache
--- distance_sq: Square of the distance that the moving_base will have
--- to be moved to snap.
--- return true if the bases are close enough to snap, false if the
--- distance is too large
-function is_bases_close_enough_to_snap(moving_base, resting_base, distance_sq)
-  -- small distances are always snapped
-  if distance_sq <  g_max_corner_distance_snap then
-    return true
-  end
-
-  -- large distances are never snapped
-  if distance_sq >= g_max_corner_distance_snap_intersect_sq then
-    return false
-  end
-
-  if not moving_base.intersectsWith(resting_base) then
-    return false
-  end
-
-  -- since the bases are on top of each other which is not legal in
-  -- DBA use a larger threshold to determine if we can snap.
-  if distance_sq < g_max_corner_distance_snap_intersect_sq then
-    return true
-  end
-
-  return false
-end
-
 -- Find the best snapping rule for a base.
 -- obj:  Object being moved, instance of base_cache,
 -- base: Resting base that might be snapped against, instance of base_cache.
