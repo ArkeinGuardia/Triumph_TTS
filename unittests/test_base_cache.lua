@@ -35,7 +35,7 @@ function build_base(base_name, tile)
   end
 
   base['getPosition']=function()
-    return base.position
+    return deep_copy(base.position)
   end
 
   base['setPosition']=function(new_value)
@@ -43,7 +43,7 @@ function build_base(base_name, tile)
   end
 
   base['getRotation']=function()
-    return base.rotation
+    return deep_copy(base.rotation)
   end
 
   base['setRotation']=function(new_value)
@@ -145,6 +145,111 @@ function test_intersects_with()
   local actual = sut.intersectsWith(other)
   lu.assertTrue(actual)
 end
+
+function test_set_position_changes_position()
+  -- Setup
+  local base = build_base("base 4Bw # 16")
+  local sut = build_base_cache(base)
+  local original_position = deep_copy( sut.getPosition())
+
+  -- Exercise
+  local new_pos = sut.getPosition()
+  new_pos['x'] = new_pos['x'] + 5
+  sut.setPosition(new_pos)
+
+  -- Verify
+  local new_position = sut.getPosition()
+  lu.assertNotEquals(original_position['x'], new_position['x'])
+  lu.assertEquals(new_pos['x'], new_position['x'])
+end  
+
+
+function test_set_position_recalculates_transform()
+  -- Setup
+  local base = build_base("base 4Bw # 16")
+  local sut = build_base_cache(base)
+  local original_tansform = deep_copy( sut.getTransform())
+
+  -- Exercise
+  local new_pos = sut.getPosition()
+  new_pos['x'] = new_pos['x'] + 5
+  sut.setPosition(new_pos)
+
+  -- Verify
+  local new_transform = sut.getTransform()
+  lu.assertNotEquals(original_tansform.position.x, new_transform.position.x)
+end  
+
+function test_set_position_recalculates_shape()
+  -- Setup
+  local base = build_base("base 4Bw # 16")
+  local sut = build_base_cache(base)
+  local original_shape = deep_copy( sut.getShape())
+
+  -- Exercise
+  local new_pos = sut.getPosition()
+  new_pos['x'] = new_pos['x'] + 5
+  sut.setPosition(new_pos)
+
+  -- Verify
+  local new_shape = sut.getShape()
+  lu.assertNotEquals(original_shape[1]['x'], new_shape[1]['x'])
+end  
+
+
+function test_set_rotation_changes_rotation()
+  -- Setup
+  local base = build_base("base 4Bw # 16")
+  local sut = build_base_cache(base)
+  local original_rotation = deep_copy( sut.getRotation())
+
+  -- Exercise
+  local new_rot = sut.getRotation()
+  new_rot['y'] = new_rot['y'] + 0.1
+  sut.setRotation(new_rot)
+
+  -- Verify
+  local new_rotation = sut.getRotation()
+  lu.assertNotEquals(original_rotation['y'], new_rotation['y'])
+  lu.assertEquals(new_rot['y'], new_rotation['y'])
+end  
+
+
+function test_set_position_recalculates_transform()
+  -- Setup
+  local base = build_base("base 4Bw # 16")
+  local sut = build_base_cache(base)
+  local original_tansform = deep_copy( sut.getTransform())
+
+  -- Exercise
+  local new_rot = sut.getRotation()
+  new_rot['x'] = new_rot['x'] + 3
+  new_rot['y'] = new_rot['y'] + 3
+  new_rot['z'] = new_rot['z'] + 3
+  sut.setRotation(new_rot)
+
+  -- Verify
+  local new_transform = sut.getTransform()
+  lu.assertNotEquals(original_tansform.corners.topright.x, new_transform.corners.topright.x)
+end  
+
+function test_set_position_recalculates_shape()
+  -- Setup
+  local base = build_base("base 4Bw # 16")
+  local sut = build_base_cache(base)
+  local original_shape = deep_copy( sut.getShape())
+
+  -- Exercise
+  local new_rot = sut.getRotation()
+  new_rot['x'] = new_rot['x'] + 3
+  new_rot['y'] = new_rot['y'] + 3
+  new_rot['z'] = new_rot['z'] + 3
+  sut.setRotation(new_rot)
+
+  -- Verify
+  local new_shape = sut.getShape()
+  lu.assertNotEquals(original_shape[1]['x'], new_shape[1]['x'])
+end  
 
 --function test_table_print()
 --  local expected_base = build_base("base 4Bw # 16")
