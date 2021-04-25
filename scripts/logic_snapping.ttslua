@@ -25,3 +25,35 @@ function is_facing_close_enough_for_snapping(stable_base_cached, moving_base_cac
   local moving_rotation_degrees = moving_base_cached.getRotation()['y']
   return are_facings_degrees_close_enough_to_snap(stable_rotation_degrees, moving_rotation_degrees )
 end
+
+
+
+-- is the moved base close enough to be snapped to another base?
+-- obj base being moved, instance of base_cache
+-- base Other base to compare against, instance of base_cache
+function is_snapable(obj, base)
+  -- Check if the two bases are pretty close
+  local pos = obj.getPosition()
+  local pos_base = base.getPosition()
+  local distance = distance_points_flat_sq(pos, pos_base)
+
+  -- no snap if the distance is too small
+  if distance < 0.0001 then
+    return false
+  end
+
+  local max_distance
+  if obj['is_large_base'] and base['is_large_base'] then
+    max_distance = g_max_distance_alignment * 16
+  elseif obj['is_large_base'] or base['is_large_base'] then
+    max_distance = g_max_distance_alignment * 4
+  else
+    max_distance = g_max_distance_alignment
+  end
+
+  if not (distance < max_distance) then 
+    return false
+  end
+
+  return is_facing_close_enough_for_snapping(obj, base)
+end
