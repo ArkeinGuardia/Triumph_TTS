@@ -33,5 +33,29 @@ function test_large_differencs_disqualify_snapping()
     lu.assertFalse(actual)
 end
 
+function test_snap_angle_change_same_facing()
+  local actual = snap_angle_change(45, 45)
+  lu.assertEquals(actual, 45)
+end
+
+function test_snap_angle_change_almost_same_facing()
+  local actual = snap_angle_change(49, 45)
+  lu.assertEquals(actual, 45)
+end
+
+function test_snap_angle_change_almost_opposite_facing()
+  local actual = snap_angle_change(229, 45)
+  lu.assertEquals(actual, 225)
+end
+
+function test_snap_angle_change_almost_orthogona_right_facing()
+  local actual = snap_angle_change(139, 45)
+  lu.assertEquals(actual, 135)
+end
+
+function test_snap_angle_change_almost_orthogona_left_facing()
+  local actual = snap_angle_change(310, 45)
+  lu.assertEquals(actual, 315)
+end
 
 os.exit( lu.LuaUnit.run() )
