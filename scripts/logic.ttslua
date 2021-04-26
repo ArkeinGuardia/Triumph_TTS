@@ -979,15 +979,13 @@ function snap_to_base(obj, transformObj, base, transformBase, direction)
     print_info(obj.getName() .. ' is snapping to ' .. base.getName() .. ', ' .. direction)
     local new_rotation = base.getRotation()
     if direction == 'opposite'
-       or direction == 'wwg_right_front'
        or direction == 'left_to_wwg_front'
        or direction == 'right_to_wwg_front'
        or direction == 'right_to_wwg_back' then
         local new_y = 0
         if direction == 'opposite' then
             new_y = new_rotation['y'] + 180
-        elseif direction == 'wwg_right_front'
-               or direction == 'right_to_wwg_front'then
+        elseif direction == 'right_to_wwg_front'then
             new_y = new_rotation['y'] + 90
         elseif direction == 'left_to_wwg_front'
                or direction == 'right_to_wwg_back'  then
@@ -1018,9 +1016,6 @@ function snap_to_base(obj, transformObj, base, transformBase, direction)
     elseif direction == 'left' then
         relative_pos['x'] = -1*(sizeObj['x'] / 2 + sizeBase['x'] / 2)
         relative_pos['z'] = -1*(sizeObj['z'] - sizeBase['z']) / 2
-    elseif direction == 'wwg_right_front' then
-      relative_pos['x']  =  (-sizeObj['z'] + sizeBase['x'] ) / 2
-      relative_pos['z']  = (sizeObj['x'] + sizeBase['z']) / 2
     elseif direction == 'right_to_wwg_front' then
       relative_pos['x'] = -1*(sizeObj['z'] / 2) + sizeBase['x'] / 2
       relative_pos['z'] = sizeObj['x'] / 2 + sizeBase['z'] / 2
