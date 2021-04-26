@@ -537,31 +537,6 @@ function test_snap_to_base_right()
   lu.assertBaseEquals(resting_base, original_base)
 end
 
-function test_snap_to_base_left_to_wwg_front()
-  local resting_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  resting_base.setRotation({0, 270, 0})
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base Bw # 19")
-  moving_base.setRotation({0, 180, 0})
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.topleft.x
-  local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.topleft.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  jiggle(moving_base)
-  transform_moving = calculate_transform(moving_base)
-
-  -- Exercise
-  snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'left_to_wwg_front')
-
-  -- Verify
-  local transform_actual = calculate_transform(moving_base)
-  lu.assertAlmostEquals(moving_base.rotation.y, 180, 0.01)
-  lu.assertPointAlmostEquals(transform_actual.corners.topleft, transform_resting.corners.topleft)
-end
-
-
 function test_transform_to_shape()
   local base = build_base("base 4Bw # 16")
   local transform = calculate_transform(base)
