@@ -348,56 +348,6 @@ function test_is_right_side()
 end
 
 
-function test_distance_right_to_back_returns_huge_on_bad_angle()
-  -- if the WWg is not facing the right way for the rule to be used
-  -- then math.huge is returned.
-  local resting_base = build_base("base WWg # 19", 'tile_plain_40x40_War_Wagon')
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  local base_height = get_depth_base('tile_plain_40x40_War_Wagon')
-  moving_base.position['z'] = moving_base.position['z'] - base_height
-  local transform_resting = calculate_transform(resting_base)
-  local transform_moving = calculate_transform(moving_base)
-  local actual = distance_right_to_back(transform_moving, transform_resting)
-  lu.assertEquals(actual, math.huge)
-end
-
-function test_distance_right_to_back_returns_distance()
-  local resting_base = build_base("base Bw # 19")
-
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.setRotation({0, -90, 0})
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.botleft.x - transform_moving.corners.topright.x
-  local delta_z = transform_resting.corners.botleft.z - transform_moving.corners.topright.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  transform_moving = calculate_transform(moving_base)
-  -- assert that the bases are located where they are supposed to be.
-  local corners = transform_moving.corners
-  local tr = corners['topright']
-  local tl = corners['topleft']
-  local br = corners['botright']
-  local bl = corners['botleft']
-  -- assert TR relations
-  lu.assertAlmostEquals(tr.x, tl.x, 0.01)
-  lu.assertTrue(tr.z > tl.z)
-  lu.assertAlmostEquals(tr.z, br.z, 0.01)
-  -- assert TL relations
-  lu.assertAlmostEquals(tl.z, bl.z, 0.01)
-  lu.assertTrue(tl.x < bl.x)
-  -- assert BR relations
-  lu.assertTrue(br.z > bl.z)
-  lu.assertAlmostEquals(br.x, bl.x, 0.01)
-
-  -- Exercise
-  local actual = distance_right_to_back(transform_moving, transform_resting)
-
-  -- Validate
-  lu.assertAlmostEquals(actual, 0.0, 0.01)
-end
-
 function test_snap_to_base_wwg_right_to_back()
   -- Setup
   local resting_base = build_base("base Bw # 19")
@@ -434,10 +384,6 @@ function test_snap_to_base_wwg_right_to_back()
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
 
-  -- assert right back rule applies
-  local fixup_distance_sq = distance_right_to_back(transform_moving, transform_resting)
-  lu.assertTrue(fixup_distance_sq  < math.huge)
-
   -- Exericse
   -- snap to base should have nothing to do
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'wwg_right_to_back')
@@ -454,36 +400,6 @@ function test_snap_to_base_wwg_right_to_back()
   lu.assertBaseEquals(resting_base, original_base)
 end
 
-
-function test_distance_right_to_front_returns_huge_on_bad_angle()
-  -- if the WWg is not facing the right way for the rule to be used
-  -- then math.huge is returned.
-  local resting_base = build_base("base WWg # 19", 'tile_plain_40x40_War_Wagon')
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  local base_height = get_depth_base('tile_plain_40x40_War_Wagon')
-  moving_base.position['z'] = moving_base.position['z'] - base_height
-  local transform_resting = calculate_transform(resting_base)
-  local transform_moving = calculate_transform(moving_base)
-  local actual = distance_right_to_front(transform_moving, transform_resting)
-  lu.assertEquals(actual, math.huge)
-end
-
-function test_distance_right_to_front_returns_distance()
-  local resting_base = build_base("base Bw # 19")
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.setRotation({0, 90, 0})
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.topright.x - transform_moving.corners.topright.x
-  local delta_z = transform_resting.corners.topright.z - transform_moving.corners.topright.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  transform_moving = calculate_transform(moving_base)
-
-  local actual = distance_right_to_front(transform_moving, transform_resting)
-  lu.assertAlmostEquals(actual, 0.0, 0.01)
-end
 
 function test_snap_to_base_wwg_right_front()
   -- Setup
@@ -520,10 +436,6 @@ function test_snap_to_base_wwg_right_front()
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
 
-  -- assert that the rule applies
-  local distance = distance_right_to_front(transform_moving, transform_resting)
-  lu.assertTrue(distance < math.huge)
-
   -- Exercise
   -- no movement needed
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'wwg_right_front')
@@ -538,38 +450,6 @@ function test_snap_to_base_wwg_right_front()
   lu.assertPointAlmostEquals(corners_actual.botleft, bl)
   lu.assertPointAlmostEquals(corners_actual.botright, br)
   lu.assertBaseEquals(resting_base, original_base)
-end
-
-function test_distance_left_to_back_returns_huge_on_bad_angle()
-  -- if the WWg is not facing the right way for the rule to be used
-  -- then math.huge is returned.
-  local resting_base = build_base("base WWg # 19", 'tile_plain_40x40_War_Wagon')
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  local base_height = get_depth_base('tile_plain_40x40_War_Wagon')
-  moving_base.position['z'] = moving_base.position['z'] - base_height
-  local transform_resting = calculate_transform(resting_base)
-  local transform_moving = calculate_transform(moving_base)
-  local actual = distance_left_to_back(transform_moving, transform_resting)
-  lu.assertEquals(actual, math.huge)
-end
-
-
-function test_distance_left_to_back_returns_distance()
-  local resting_base = build_base("base Bw # 19")
-  resting_base.setRotation({0,270,0})
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.setRotation({0, 0, 0})
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.botright.x - transform_moving.corners.topleft.x
-  local delta_z = transform_resting.corners.botright.z - transform_moving.corners.topleft.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  transform_moving = calculate_transform(moving_base)
-
-  local actual = distance_left_to_back(transform_moving, transform_resting)
-  lu.assertAlmostEquals(actual, 0.0, 0.01)
 end
 
 
@@ -593,10 +473,6 @@ function test_snap_to_base_wwg_left_to_back()
 
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
-
-  -- assert rule applies
-  local distance = distance_left_to_back(transform_moving, transform_resting)
-  lu.assertTrue(distance < math.huge)
 
   -- Exercise
   -- no movement needed
@@ -629,10 +505,6 @@ function test_snap_to_base_wwg_left_to_back_large()
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
 
-  -- assert rule applies
-  local distance = distance_left_to_back(transform_moving, transform_resting)
-  lu.assertTrue(distance < math.huge)
-
   -- Exercise
   -- no movement needed
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'wwg_left_to_back')
@@ -642,35 +514,6 @@ function test_snap_to_base_wwg_left_to_back_large()
   lu.assertBaseEquals(resting_base, original_base)
 end
 
-function test_distance_left_to_front_returns_huge_on_bad_angle()
-  -- if the WWg is not facing the right way for the rule to be used
-  -- then math.huge is returned.
-  local resting_base = build_base("base WWg # 19", 'tile_plain_40x40_War_Wagon')
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  local base_height = get_depth_base('tile_plain_40x40_War_Wagon')
-  moving_base.position['z'] = moving_base.position['z'] - base_height
-  local transform_resting = calculate_transform(resting_base)
-  local transform_moving = calculate_transform(moving_base)
-  local actual = distance_left_to_front(transform_moving, transform_resting)
-  lu.assertEquals(actual, math.huge)
-end
-
-function test_distance_left_to_front_returns_distance()
-  local resting_base = build_base("base Bw # 19")
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.setRotation({0, 90, 0})
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.topleft.x
-  local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.topleft.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  transform_moving = calculate_transform(moving_base)
-
-  local actual = distance_left_to_front(transform_moving, transform_resting)
-  lu.assertAlmostEquals(actual, 0.0, 0.01)
-end
 
 
 function test_snap_to_base_wwg_left_front()
@@ -697,9 +540,6 @@ function test_snap_to_base_wwg_left_front()
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
 
-  -- Assert rule applies
-  local distance = distance_left_to_front(transform_moving, transform_resting)
-  lu.assertTrue(distance < math.huge)
   -- Assert the orientation
   lu.assertTrue(bl.x < tl.x)
   lu.assertAlmostEquals(bl.z, tl.z, 0.01)
@@ -722,95 +562,6 @@ function test_snap_to_base_wwg_left_front()
   lu.assertBaseEquals(resting_base, original_base)
 end
 
-function test_distance_front_to_front_returns_huge_on_bad_angle()
-  -- if the WWg is not facing the right way for the rule to be used
-  -- then math.huge is returned.
-  local resting_base = build_base("base WWg # 19", 'tile_plain_40x40_War_Wagon')
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  local base_height = get_depth_base('tile_plain_40x40_War_Wagon')
-  moving_base.position['z'] = moving_base.position['z'] - base_height
-  local transform_resting = calculate_transform(resting_base)
-  local transform_moving = calculate_transform(moving_base)
-  local actual = distance_front_to_front(transform_moving, transform_resting)
-  lu.assertEquals(actual, math.huge)
-end
-
-function test_distance_front_to_front_returns_distance()
-  local resting_base = build_base("base Bw # 19")
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.setRotation({0,  -180, 0})
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.topright.x
-  local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.topright.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  transform_moving = calculate_transform(moving_base)
-
-  local actual = distance_front_to_front(transform_moving, transform_resting)
-  lu.assertAlmostEquals(actual, 0.0, 0.01)
-end
-
-
-function test_distance_front_to_left_returns_huge_on_bad_angle()
-  -- if the WWg is not facing the right way for the rule to be used
-  -- then math.huge is returned.
-  local resting_base = build_base("base WWg # 19", 'tile_plain_40x40_War_Wagon')
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.position['x'] = moving_base.position['x'] - g_two_movement_units_in_inches
-  local transform_resting = calculate_transform(resting_base)
-  local transform_moving = calculate_transform(moving_base)
-  local actual = distance_front_to_left(transform_moving, transform_resting)
-  lu.assertEquals(actual, math.huge)
-end
-
-function test_distance_front_to_left_returns_distance()
-  local resting_base = build_base("base Bw # 19")
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.setRotation({0, 90, 0})
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.topleft.x
-  local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.topleft.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  transform_moving = calculate_transform(moving_base)
-
-  local actual = distance_front_to_left(transform_moving, transform_resting)
-  lu.assertAlmostEquals(actual, 0.0, 0.01)
-end
-
-
-function test_distance_front_to_right_returns_huge_on_bad_angle()
-  -- if the WWg is not facing the right way for the rule to be used
-  -- then math.huge is returned.
-  local resting_base = build_base("base WWg # 19", 'tile_plain_40x40_War_Wagon')
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.position['x'] = moving_base.position['x'] + g_two_movement_units_in_inches
-  local transform_resting = calculate_transform(resting_base)
-  local transform_moving = calculate_transform(moving_base)
-  local actual = distance_front_to_right(transform_moving, transform_resting)
-  lu.assertEquals(actual, math.huge)
-end
-
-function test_distance_front_to_right_returns_distance()
-  local resting_base = build_base("base Bw # 19")
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  moving_base.setRotation({0, -90, 0})
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.topright.x - transform_moving.corners.topright.x
-  local delta_z = transform_resting.corners.topright.z - transform_moving.corners.topright.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  transform_moving = calculate_transform(moving_base)
-
-  local actual = distance_front_to_right(transform_moving, transform_resting)
-  lu.assertAlmostEquals(actual, 0.0, 0.01)
-end
 
 function test_distance_back_to_front_returns_huge_when_angle_too_different()
   local resting_base = build_base("base Bw # 19")
@@ -926,10 +677,6 @@ function test_snap_to_base_opposite()
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
 
-  -- check that rule applies
-  local actual = distance_front_to_front(transform_moving, transform_resting)
-  lu.assertTrue(actual < math.huge)
-
   -- Exercise
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'opposite')
 
@@ -1021,10 +768,6 @@ function test_snap_to_base_door_left()
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
 
-  -- check that rule applies
-  local actual = distance_front_to_left(transform_moving, transform_resting)
-  lu.assertTrue(actual < math.huge)
-
   -- Exercise
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'door_left')
 
@@ -1052,10 +795,6 @@ function test_snap_to_base_door_right()
   moving_base.setRotation({0, -90, 0})
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
-
-  -- check that rule applies
-  local actual = distance_front_to_right(transform_moving, transform_resting)
-  lu.assertTrue(actual < math.huge)
 
   -- Exercise
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'door_right')
@@ -1087,10 +826,6 @@ function test_snap_to_base_left_to_wwg_back()
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
 
-  -- check that rule applies
-  local actual = distance_back_to_left(transform_moving, transform_resting)
-  lu.assertTrue(actual < math.huge)
-
   -- Exercise
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'left_to_wwg_back')
 
@@ -1114,10 +849,6 @@ function test_snap_to_base_left_to_wwg_front()
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
 
-  -- check that rule applies
-  local actual = distance_back_to_left(transform_moving, transform_resting)
-  lu.assertTrue(actual < math.huge)
-
   -- Exercise
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'left_to_wwg_front')
 
@@ -1140,10 +871,6 @@ function test_right_to_wwg_back()
   moving_base.setRotation({0, -90, 0})
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
-
-  -- check that rule applies
-  local actual = distance_right_to_back(transform_moving, transform_resting)
-  lu.assertTrue(actual < math.huge)
 
   -- Exercise
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'right_to_wwg_back')
@@ -1170,10 +897,6 @@ function test_right_to_wwg_front()
   moving_base.position['z'] = moving_base.position['z'] + delta_z
   jiggle(moving_base)
   transform_moving = calculate_transform(moving_base)
-
-  -- check that rule applies
-  local actual = distance_right_to_front(transform_moving, transform_resting)
-  lu.assertTrue(actual < math.huge)
 
   -- Exercise
   snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'right_to_wwg_front')
