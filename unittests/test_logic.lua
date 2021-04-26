@@ -753,33 +753,6 @@ function test_snap_to_base_right()
 end
 
 
-function test_snap_to_base_door_right()
-  -- Setup
-  local resting_base = build_base("base Bw # 19")
-  local original_base = deep_copy(resting_base)
-  local transform_resting = calculate_transform(resting_base)
-
-  local moving_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
-  local transform_moving = calculate_transform(moving_base)
-  local delta_x = transform_resting.corners.topright.x - transform_moving.corners.topright.x
-  local delta_z = transform_resting.corners.topright.z - transform_moving.corners.topright.z
-  moving_base.position['x'] = moving_base.position['x'] + delta_x
-  moving_base.position['z'] = moving_base.position['z'] + delta_z
-  moving_base.setRotation({0, -90, 0})
-  jiggle(moving_base)
-  transform_moving = calculate_transform(moving_base)
-
-  -- Exercise
-  snap_to_base(moving_base, transform_moving, resting_base, transform_resting, 'door_right')
-
-  -- Verify
-  local transform_actual = calculate_transform(moving_base)
-  local actual_rotation = transform_actual.rotation
-  lu.assertAlmostEquals(actual_rotation, normalize_radians(transform_resting.rotation+(math.pi/2)), 0.01)
-  lu.assertPointAlmostEquals(transform_actual.corners.topright, transform_resting.corners.topright)
-  lu.assertBaseEquals(resting_base, original_base)
-end
-
 function test_snap_to_base_left_to_wwg_back()
   local resting_base = build_base("base WWg # 20", 'tile_plain_40x40_War_Wagon')
   resting_base.setRotation({0, 90, 0})
