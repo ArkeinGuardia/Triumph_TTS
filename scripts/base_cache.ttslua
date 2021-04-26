@@ -22,7 +22,8 @@ function build_base_cache(base)
   end
 
   cache['getPosition'] = function()
-    return deep_copy(cache['base'].getPosition())
+    local pos = cache['base'].getPosition()
+    return pos
   end
 
   cache['setPosition'] = function(new_position)
