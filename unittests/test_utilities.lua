@@ -363,4 +363,21 @@ function test_in_to_mu()
 end
 
 
+function test_angle_difference_same_angle()
+  local actual = angle_difference_degrees(32.3, 32.3)
+  lu.assertAlmostEquals(actual, 0, 1e-6)
+end
+
+
+function test_angle_difference_small_angle()
+  local actual = angle_difference_degrees(32.3, 22.3)
+  lu.assertAlmostEquals(actual, 10, 1e-6)
+end
+
+function test_angle_difference_small_negative_angle()
+  local actual = angle_difference_degrees(22.3, 32.3)
+  lu.assertAlmostEquals(actual, 10, 1e-6)
+end
+
+
 os.exit( lu.LuaUnit.run() )

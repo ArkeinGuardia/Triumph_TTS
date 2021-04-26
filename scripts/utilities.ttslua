@@ -134,6 +134,18 @@ function normalize_radians(angle)
   return angle
 end
 
+-- What is the angle between the two vectors
+-- a,b: vector described in degrees, e.g. the facing.
+-- result: angle between the two, 0 to 180 degrees
+function angle_difference_degrees(a,b)
+  local diff = a - b
+  diff = normalize_degrees(diff)
+  if diff > 180 then 
+    return 360 - diff
+  end
+  return diff
+end
+
 -- Are two angles approximately the same.  Angles are measured in radians.
 -- delta is the expected difference.
 function is_rad_angle_diff(angleA, angleB, delta)
