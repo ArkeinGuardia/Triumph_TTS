@@ -570,6 +570,9 @@ function get_plain_model_tile_name(base_definition)
       if base_definition.pack_train then
         return 'tile_plain_40x40_Trains_And_Herds_Donkeys'
       end
+      if base_definition.fortified_camp then
+        return 'tile_plain_40x40_Fortified_Camp'
+      end
     end
   local name = base_definition.name
   local tile = troop_type_to_plain_model_tile_name[name]
