@@ -133,12 +133,44 @@ function test_no_longer_at_top_of_stack_after_go_back()
 end
 
 function test_go_back_applies_the_event_before_the_current_event()
+    -- If the history event uses 'apply' then we skip the current event,
+    -- and apply the event that is before the current event.
     local applied_event = nil
     local sut = Stack.Create()
     local event1 = {type="1", apply = function() applied_event = 1 end}
     local event2 = {type="2", apply = function() applied_event = 2 end}
     sut:push(event1)
     sut:push(event2)
+    sut:go_back()
+    lu.assertEquals(applied_event, 1)
+end
+
+function test_go_back_undoes_current_event()
+    -- If the history event uses 'undo' then we use the current event.
+    local undone = nil
+    local sut = Stack.Create()
+    local event1 = {type="1", undo = function() undone = 1 end}
+    local event2 = {type="2", undo = function() undone = 2 end}
+    sut:push(event1)
+    sut:push(event2)
+    sut:go_back()
+    lu.assertEquals(undone, 2)
+end
+
+function test_go_back_changes_current_after_undo()
+    -- If the history event uses 'undo' then we use the current event.
+    local applied_event = nil
+    local undone = nil
+    local sut = Stack.Create()
+    local event1 = {type="1", apply = function() applied_event = 1 end}
+    local event2 = {type="2", apply = function() applied_event = 2 end}
+    local event3 = {type="3", undo = function() undone = 3 end}
+    sut:push(event1)
+    sut:push(event2)
+    sut:push(event3)
+    sut:go_back()
+    lu.assertEquals(undone, 3)
+    lu.assertEquals(applied_event, 2)
     sut:go_back()
     lu.assertEquals(applied_event, 1)
 end
@@ -170,6 +202,77 @@ lu.assertEquals(two, sut._current)
     sut:go_back()
 lu.assertEquals(one, sut._current)
     lu.assertEquals(applied_event, 1)
+end
+
+
+function test_go_back_undoes_1_event()
+    -- If the current event is an applied event then when we go back
+    -- nothing is executed on the event.  If the previous event is
+    --  and apply event, then apply is called.  If the previous event
+    --  is an undo event then undo is called, and the current event
+    --  is the one before the undo event.
+    
+    -- setup
+    local applied_event = nil
+    local redone_event = nil
+    local undone_event = nil
+    local sut = Stack.Create()
+    local event1 = {type="1", apply = function() applied_event = 1 end}
+    local event2 = {
+      type="2", 
+      undo = function() 
+	undone_event = 2
+      end, 
+      redo = function() 
+        redone_event=2
+      end,
+    }
+    local event3 = {type="3", apply = function() applied_event = 3 end}
+    sut:push(event1)
+    sut:push(event2)
+    sut:push(event3)
+    sut:go_back()
+    -- validate
+    lu.assertEquals(undone_event, 2)
+    lu.assertEquals(applied_event, 1)
+    lu.assertEquals(redone_event, nil)
+end
+
+function test_go_forward_redoes_the_event_after_current_event()
+    -- setup
+    local applied_event = nil
+    local redone_event = nil
+    local undone_event = nil
+    local sut = Stack.Create()
+    local event1 = {type="1", apply = function() applied_event = 1 end}
+    local event2 = {type="2", apply = function() applied_event = 2 end}
+    local event3 = {
+      type="3", 
+      undo = function() 
+	undone_event = 3
+      end, 
+      redo = function() 
+        redone_event=3
+      end,
+    }
+    local event4 = {type="4", apply = function() applied_event = 4 end}
+    sut:push(event1)
+    sut:push(event2)
+    sut:push(event3)
+    sut:push(event4)
+    sut:go_back()
+    lu.assertEquals(undone_event, 3)
+    lu.assertEquals(applied_event, 2)
+    lu.assertEquals(redone_event, nil)
+    sut:go_back()
+    lu.assertEquals(applied_event, 1)
+    -- Exercise
+    sut:go_forward()
+    lu.assertEquals(applied_event, 2)
+    sut:go_forward()
+    -- validate
+    lu.assertEquals(redone_event, 3)
+    lu.assertEquals(applied_event, 4)
 end
 
 function test_go_forwared_applies_the_event_after_the_current_event()
