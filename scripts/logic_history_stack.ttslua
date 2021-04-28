@@ -68,11 +68,6 @@ function Stack:Create()
         print_error("pushing nil")
         return
       end
-      local apply = event["apply"]
-      if nil == apply then
-        print_error("apply is nil")
-        return
-      end
 
       if _stack._head == _stack._current then
         _stack._current = _stack._head.before
@@ -88,10 +83,23 @@ function Stack:Create()
       local new_node = {
         after = _stack._head,
         before = _stack._head.before,
-                apply = function()
-                  event.apply()
-                end
       }
+      if event.apply ~= nil then
+        new_node.apply = function()
+          event.apply()
+        end
+      end
+      if event.undo ~= nil then
+        new_node.undo = function()
+          event.undo()
+        end
+      end
+      if event.redo ~= nil then
+        new_node.redo = function()
+          event.redo()
+        end
+      end
+
       _stack._head.before.after = new_node
       _stack._head.before = new_node
       _stack._current = new_node
@@ -103,8 +111,22 @@ function Stack:Create()
     -- Gets the current element and advances current lower into the stack, as if
     -- the element is removed (but it isn't). Cannot go lower than the bottom.
     function _stack:go_back()
+        if self._current.apply ~= nil then
+          self._current = self._current.before
+        end
+        if self._current.apply ~= nil then
+          self._current.apply()
+          return
+        end
+        if self._current.undo == nil then
+          print_error("History event not understood")
+          return
+        end
+        self._current.undo()
         self._current = self._current.before
-        self._current.apply()
+        if self._current.apply ~= nil then
+          self._current.apply()
+        end
     end
 
     -- Goes up in the stack, setting the current to the top of the current one,
@@ -112,7 +134,16 @@ function Stack:Create()
     -- the top.
     function _stack:go_forward()
         self._current = self._current.after
-        self._current.apply()
+        if self._current.apply ~= nil then
+          self._current.apply()
+          return
+        end
+
+        self._current.redo()
+        if self._current.after.apply ~= nil then
+          self._current = self._current.after
+          self._current.apply()
+        end
     end
 
 
