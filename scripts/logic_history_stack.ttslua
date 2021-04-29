@@ -6,12 +6,12 @@ Stack = {}
 -- until you go up. However, if you add something, everything up of the current
 -- is removed.
 function Stack:Create()
-    -- Fake node that is before the first recorded position
-    local tail = { after=nil, before=nil,
-      apply = function()
-        print_important("Before first event")
-        return false
-      end
+  -- Fake node that is before the first recorded position
+  local tail = { after=nil, before=nil,
+    apply = function()
+      print_important("Before first event")
+      return false
+    end
     }
 
     -- Fake node that is after the last recorded position.
@@ -99,7 +99,11 @@ function Stack:Create()
           event.redo()
         end
       end
-
+      if event.rename_guid ~= nil then
+        new_node.rename_guid = function(self, old_guid, new_guid)
+        event:rename_guid(old_guid, new_guid)
+      end
+    end
       _stack._head.before.after = new_node
       _stack._head.before = new_node
       _stack._current = new_node
@@ -164,6 +168,17 @@ function Stack:Create()
       while self._current ~= self._head.before do
         self:_delete_node(self._head.before)
       end
+    end
+
+    -- Send to all the history events that an object's GUID has changed.
+    function _stack:rename_guid(old_guid, new_guid)
+      local current = self._head
+      repeat
+        if nil ~= current['rename_guid'] then 
+          current:rename_guid(old_guid, new_guid)
+        end
+        current = current.before
+      until (current == self._tail)
     end
 
     return _stack

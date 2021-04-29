@@ -461,4 +461,33 @@ function test_move_after_past_top()
   print_important = old
 end
 
+-- If a history event does not support rename_guid
+-- then the method call is not attempted.
+function test_rename_guid_does_not_call_event()
+    local sut = Stack.Create()
+    local event1 = {}
+    sut:push(event1)
+    local old_guid = "FOO"
+    local new_guid = "BAR"
+    sut:rename_guid(old_guid, new_guid)  
+end
+
+-- If a history event supports rename_guid
+-- then the method call mad.
+function test_rename_guid_does_not_call_event()
+    local sut = Stack.Create()
+    local called = nil
+    local event1 = {
+      rename_guid = function(self, old_guid, new_guid) 
+        called = {old_guid=old_guid, new_guid=new_guid}
+     end}
+    sut:push(event1)
+    local old_guid = "FOO"
+    local new_guid = "BAR"
+    sut:rename_guid(old_guid, new_guid)  
+    -- Verify
+    lu.assertEquals(called.old_guid, old_guid)
+    lu.assertEquals(called.new_guid, new_guid)
+end
+
 os.exit( lu.LuaUnit.run() )
