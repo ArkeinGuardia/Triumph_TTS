@@ -497,6 +497,8 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
       spawn_elephant_screen_counter(base_obj, base_definition, pos, is_red_player, command_color)
     end
 
+    set_last_snapshot()
+
     return base_obj
 end
 
@@ -655,6 +657,9 @@ end
 -- base_obj:  Base object
 -- return: base definition or nil.
 function get_base_definition_from_base_obj(base_obj)
+  if nil == base_obj then
+    return nil
+  end
   local guid = base_obj.getGUID()
   return get_base_definition_from_guid(guid)
 end
@@ -1071,6 +1076,7 @@ function onObjectDestroy(dying_object)
     if is_base_obj(dying_object) then
       print_info('Base ' .. name .. ' removed from play')
       g_bases[name] = nil
+      set_last_snapshot()
       history_record_object_destroy(dying_object)
       remove_decorations_for_obj(dying_object)
     end

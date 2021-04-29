@@ -54,7 +54,7 @@ function spawn_dice(color, pos)
 
         function onRandomize()
             if not g_is_rolling then
-                Global.call("create_history_event_snapshot")
+                Global.call("history_record_delta_snapshot")
                 g_is_rolling = true
                 startLuaCoroutine(self, 'check_if_at_rest')
             end
