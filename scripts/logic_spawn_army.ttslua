@@ -619,16 +619,9 @@ function get_a_model_definition(base_definition)
   }
 end
 
--- Get the base definition for an base object.
--- base_obj:  Base object
--- return: base definition or nil.
-function get_base_definition_from_base_obj(base_obj)
-  local decoration = g_decorations[ base_obj.getGUID()]
-  if nil == decoration then
-    return nil
-  end
 
-  local base_definition_name = decoration.base_definition_name
+-- Get the base definintion from the name of the base definition
+function get_base_definition_from_name(base_definition_name)
   if nil == base_definition_name then
     return nil
   end
@@ -643,6 +636,27 @@ function get_base_definition_from_base_obj(base_obj)
   end
 
   return nil
+end
+
+-- Get the base definition for a base object.
+-- guid: GUID of the base
+-- return: base definition or nil.
+function get_base_definition_from_guid(guid)
+  local decoration = g_decorations[ guid]
+  if nil == decoration then
+    return nil
+  end
+
+  local base_definition_name = decoration.base_definition_name
+  return get_base_definition_from_name(base_definition_name)
+end
+
+-- Get the base definition for a base object.
+-- base_obj:  Base object
+-- return: base definition or nil.
+function get_base_definition_from_base_obj(base_obj)
+  local guid = base_obj.getGUID()
+  return get_base_definition_from_guid(guid)
 end
 
 
@@ -1052,10 +1066,13 @@ function onObjectDestroy(dying_object)
         print_info('Table removed from play')
         remove_deployment_lines()
         g_current_table = nil
-    elseif g_bases[name] ~= nil then
-        print_info('Base ' .. name .. ' removed from play')
-        g_bases[name] = nil
-    remove_decorations_for_obj(dying_object)
+        return
+    end
+    if is_base_obj(dying_object) then
+      print_info('Base ' .. name .. ' removed from play')
+      g_bases[name] = nil
+      history_record_object_destroy(dying_object)
+      remove_decorations_for_obj(dying_object)
     end
 end
 

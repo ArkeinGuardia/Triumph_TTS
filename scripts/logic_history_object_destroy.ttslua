@@ -1,0 +1,59 @@
+
+
+function history_record_object_destroy(dying_object)
+  local command_color = get_decoration_for_obj(dying_object, "command_color")
+  local player_color = get_decoration_for_obj(base_obj, "player_color")
+  
+  local event = {
+    guid = dying_object.getGUID(),
+    name = dying_object.getName(),
+    location = dying_object.getPosition(),
+    y_rotation = dying_object.getRotation()['y'],
+    decorations = g_decorations[ dying_object.getGUID() ]
+  }
+  local self = event
+
+  event['undo'] = function()
+      print("UNDO history_record_object_destroy ", self)
+      table_print(self)
+      -- respawn the object
+      print(22)
+      local base_definition_name = self.decorations.base_definition_name
+      print("24 base_definition_name=", base_definition_name)
+      local base_definition = get_base_definition_from_name(base_definition_name)
+      print(26)
+      if base_definition == nil then
+        print_error("base definition is nil")
+        return
+      end
+      print(31)
+      local is_red_player = ("RED" == self.decorations.player_color)
+      local base_obj = spawn_base(base_definition, self.location,
+        self.y_rotation, is_red_player, self.command_color)
+     print(35)
+      base_obj.setName(self.name)
+      print(37)
+
+      -- change the decoration to use the new guid
+      local new_guid = base_obj.getGUID()
+      print(41)
+      g_history_stack:rename_guid(self.guid, new_guid)
+      g_decorations[new_guid] = event.decorations
+      print(44)
+      self.guid = new_guid
+      print(46)
+    end
+
+  event['redo'] = function()
+      print("REDO history_record_object_destroy")
+      g_ignore_next_delete[ self.name] = true
+      local base = getObjectFromGUID(self.guid)
+      if base == nil then
+        print_error("base base for " .. tostring(self.guid))
+        return
+      end
+      base.destruct()
+    end
+
+  g_history_stack:push(event)
+end

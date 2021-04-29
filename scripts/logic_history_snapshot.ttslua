@@ -15,6 +15,13 @@ function create_history_event_snapshot()
       apply_snapshot(result)
     end
 
+    result.rename_guid = function(self, old_guid, new_guid) 
+      if old_guid ~= new_guid then
+        self.bases[new_guid] = self.bases[old_guid]
+        self.bases[old_guid] = nil
+      end
+    end
+
     result.id =  g_history_stack:size() + 1
 
     return result
