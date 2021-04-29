@@ -60,14 +60,14 @@ function align_two_bases(base2, position, corners, rotation)
     if relative_angle > g_alignment_angle_side
        and relative_angle < math.pi then
         -- Angle the back of base2 with the front of base1
-        translation = vec_sub(corners['topright'], corners2['botright'])
+        translation = vec_sub_3d(corners['topright'], corners2['botright'])
     elseif relative_angle <= g_alignment_angle_side
            or relative_angle >= (2*math.pi - g_alignment_angle_side) then
         -- Angle the left side of base2 with the right of base1
-        translation = vec_sub(corners['topright'], corners2['topleft'])
+        translation = vec_sub_3d(corners['topright'], corners2['topleft'])
     else
         -- Angle the front of base2 with the back of base1
-        translation = vec_sub(corners['botleft'], corners2['topleft'])
+        translation = vec_sub_3d(corners['botleft'], corners2['topleft'])
     end
 
     local new_pos = vec_add(base2.getPosition(), translation)
@@ -141,10 +141,10 @@ function move_base(obj, how_much_movement, ignore_history)
 end
 
 function make_general (obj)
-    if is_base_army_general(obj) then 
+    if is_base_army_general(obj) then
       return
     end
-    
+
     local name = obj.getName()
     local pos = string.find(name, " #")
     if pos == nil then
