@@ -114,7 +114,7 @@ function turn_around_base(obj)
     rotation['y'] = rotation['y'] + 180
     obj.setRotation(rotation)
 
-    history_record_snapshot()
+    history_record_delta_snapshot()
     local new_transform = calculate_transform(obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
@@ -135,7 +135,7 @@ function move_base(obj, how_much_movement, ignore_history)
     obj.setPosition(destination)
 
     if not ignore_history then
-        history_record_snapshot()
+        history_record_delta_snapshot()
     end
     return how_much_movement
 end
@@ -178,7 +178,7 @@ function push_back(obj)
     local mu = inches_to_mu_display_string(distance)
     print_info(obj.getName() .. ' has moved backwards its own depth ' .. mu)
 
-    history_record_snapshot()
+    history_record_delta_snapshot()
 end
 
 -- Like push back but in the other direction
@@ -197,7 +197,7 @@ function push_forward(obj)
     local mu = inches_to_mu_display_string(distance)
     print_info(obj.getName() .. ' has moved forward its own depth, ' .. mu)
 
-    history_record_snapshot()
+    history_record_delta_snapshot()
 end
 
 
@@ -462,7 +462,7 @@ end
 
 -- Pushes back a whole column, that may not be exactly aligned
 function push_back_column(objs)
-    history_record_snapshot()
+    history_record_delta_snapshot()
 
     -- We use many comparisons for the column so we precalculate all the
     -- transforms
@@ -611,7 +611,7 @@ function apply_transform_obj(base_obj, old_transform, new_transform)
 end
 
 function perform_wheels()
-    history_record_snapshot()
+    history_record_delta_snapshot()
     local new_transforms = g_current_wheel_newtransforms
     local old_transforms = g_current_wheel_transforms
     local front_elements = g_current_wheel_group['front_elements']
@@ -1035,7 +1035,7 @@ function onObjectDrop(player_color,  picked_up_object)
     g_picked_base_objects[picked_up_object] = nil
     if is_table_empty(g_picked_base_objects) then
       if is_base_obj(picked_up_object) then
-        history_record_snapshot()
+        history_record_delta_snapshot()
       end
     end
 

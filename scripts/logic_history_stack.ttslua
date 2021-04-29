@@ -6,20 +6,27 @@ Stack = {}
 -- until you go up. However, if you add something, everything up of the current
 -- is removed.
 function Stack:Create()
+
   -- Fake node that is before the first recorded position
   local tail = { after=nil, before=nil,
-    apply = function()
+    type="tail",
+    undo = function()
       print_important("Before first event")
-      return false
+    end,
+    redo = function()
     end
     }
 
     -- Fake node that is after the last recorded position.
     -- Current should never point to head.
-    local head = { after=nil, before=nil,
-      apply = function()
+    local head = { 
+      type="head",
+      after=nil,
+      before=nil,
+      redo = function()
         print_important("After last event")
-        return false
+      end,
+      undo = function()
       end
     }
     tail.before = tail
@@ -28,6 +35,9 @@ function Stack:Create()
     head.before = tail
 
     local _stack = {}
+
+    -- number of events created
+    _stack._event_id = 0
 
     -- Maximum number of events to keep
     _stack._capacity = 60
@@ -79,24 +89,22 @@ function Stack:Create()
         _stack:_delete_node(_stack._tail.after)
       end
 
+      _stack._event_id = _stack._event_id + 1
+
       -- Make new node to be the top of stack.
       local new_node = {
         after = _stack._head,
         before = _stack._head.before,
+        id =   _stack._event_id
       }
-      if event.apply ~= nil then
-        new_node.apply = function()
-          event.apply()
-        end
-      end
       if event.undo ~= nil then
         new_node.undo = function()
-          event.undo()
+          event:undo()
         end
       end
       if event.redo ~= nil then
         new_node.redo = function()
-          event.redo()
+          event:redo()
         end
       end
       if event.rename_guid ~= nil then
@@ -115,22 +123,12 @@ function Stack:Create()
     -- Gets the current element and advances current lower into the stack, as if
     -- the element is removed (but it isn't). Cannot go lower than the bottom.
     function _stack:go_back()
-        if self._current.apply ~= nil then
-          self._current = self._current.before
-        end
-        if self._current.apply ~= nil then
-          self._current.apply()
-          return
-        end
         if self._current.undo == nil then
           print_error("History event not understood")
           return
         end
-        self._current.undo()
+        self._current:undo()
         self._current = self._current.before
-        if self._current.apply ~= nil then
-          self._current.apply()
-        end
     end
 
     -- Goes up in the stack, setting the current to the top of the current one,
@@ -138,16 +136,7 @@ function Stack:Create()
     -- the top.
     function _stack:go_forward()
         self._current = self._current.after
-        if self._current.apply ~= nil then
-          self._current.apply()
-          return
-        end
-
-        self._current.redo()
-        if self._current.after.apply ~= nil then
-          self._current = self._current.after
-          self._current.apply()
-        end
+        self._current:redo()
     end
 
 
@@ -174,7 +163,7 @@ function Stack:Create()
     function _stack:rename_guid(old_guid, new_guid)
       local current = self._head
       repeat
-        if nil ~= current['rename_guid'] then 
+        if nil ~= current['rename_guid'] then
           current:rename_guid(old_guid, new_guid)
         end
         current = current.before
@@ -184,6 +173,7 @@ function Stack:Create()
     return _stack
 end
 
+-- Number of history events created
 g_history_stack = Stack:Create()
 
 

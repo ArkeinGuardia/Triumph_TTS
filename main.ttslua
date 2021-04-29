@@ -23,7 +23,7 @@
 #include scripts/logic_dead
 #include scripts/logic_dice
 #include scripts/logic_history_stack
-#include scripts/logic_history_snapshot
+#include scripts/logic_history_object_move
 #include scripts/logic_history_object_destroy
 #include scripts/logic_tool_tips
 #include scripts/logic_snapping
@@ -59,6 +59,8 @@ function onload(saved_data)
 
     set_tablet_homepage("red tablet")
     set_tablet_homepage("blue tablet")
+
+    set_last_snapshot()
 end
 
 function set_tablet_homepage(tablet_name)
