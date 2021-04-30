@@ -3,6 +3,14 @@ require('scripts/data/data_settings')
 require('scripts/utilities_lua')
 require('scripts/utilities')
 
+function test_vec_sub_3d()
+  local vec1={x=5,y=7,z=9}
+  local vec2={x=4,y=5,z=6}
+  local actual = vec_sub_3d(vec1, vec2)
+  local expected={x=1,y=2,z=3}
+  lu.assertEquals(actual, expected)
+end
+
 
 function test_vec_add_3d()
   local vec1={x=1,y=2,z=3}

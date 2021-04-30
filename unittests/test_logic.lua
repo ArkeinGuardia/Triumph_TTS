@@ -14,7 +14,6 @@ require('scripts/logic_spawn_army')
 require('scripts/logic_dead')
 require('scripts/logic_dice')
 require('scripts/logic_history_stack')
-require('scripts/logic_history_snapshot')
 require('scripts/logic')
 require('scripts/uievents')
 
@@ -26,6 +25,7 @@ end
 
 -- disable history since we do not want to use startLuaCoroutine
 history_record_snapshot = function() end
+history_record_delta_snapshot = function() end
 
 lu.assertPointEquals = function(a,b)
   lu.assertEquals(a['x'], b['x'])

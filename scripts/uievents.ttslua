@@ -36,7 +36,7 @@ function move_bases(player, value, id)
     return
     end
 
-    history_record_snapshot()
+    history_record_delta_snapshot()
 
     for _,obj in ipairs(objs) do
         local moved = move_base(obj, from_mu_to_in(g_mu_movement), true)

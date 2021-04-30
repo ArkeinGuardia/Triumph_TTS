@@ -1,0 +1,117 @@
+
+-- Last know location of all bases prior to a move
+g_last_snapshot = nil
+
+-- Update the know position of all bases
+function set_last_snapshot()
+	g_last_snapshot = {}
+	for _,base in pairs(get_all_bases()) do
+	  local guid = base.getGUID()
+	  local pos = base.getPosition()
+	  local rot = base.getRotation()
+	  g_last_snapshot[guid] =  {
+		  	position={x=pos.x, y=pos.y, z=pos.z},
+				rotation={x=rot.x, y=rot.y, z=rot.z}
+  	}
+  end
+end
+
+-- Return the differences between the last known positions
+-- and the current positions.  nil if the difference could not
+-- be calculated.
+function create_delta_snapshot()
+	delta = {}
+	for _,base in pairs(get_all_bases()) do
+	  local guid = base.getGUID()
+  	  local old_obj = g_last_snapshot[guid]
+	  if old_obj == nil then
+			print_debug("base is missing " .. tostring(guid))
+ 	  else
+		local old_pos = old_obj.position
+		local old_rot = old_obj.rotation
+		local new_pos = base.getPosition()
+		local new_rot = base.getRotation()
+		delta[guid] = {
+			old = { position=old_pos, rotation=old_rot},
+			new = { position=new_pos, rotation = new_rot}
+		}
+	  end
+	end
+	return delta
+end
+
+-- Return the history event for the differences between bases
+-- and their last known positios.  nil if the event could not be
+-- generated.
+function create_delta_snapshot_event()
+	local deltas = create_delta_snapshot()
+	if deltas == nil then
+		return nil
+	end
+	if is_table_empty(deltas) then
+		return nil
+	end
+	set_last_snapshot()
+
+  local event = {deltas=deltas}
+	local self = event
+
+	event['undo'] = function(self)
+	  for guid,delta in pairs(self.deltas) do
+			local base_obj = getObjectFromGUID(guid)
+			if base_obj == nil then
+				print_error("base missing " .. tostring(base_obj))
+			else
+				base_obj.setRotation(delta.old.rotation)
+				base_obj.setPosition(delta.old.position)
+			end
+		end
+		set_last_snapshot()
+	end
+
+	event['redo'] = function(self)
+		for guid,delta in pairs(self.deltas) do
+			local base_obj = getObjectFromGUID(guid)
+			if base_obj == nil then
+				print_error("base missing " .. tostring(guid))
+				return
+			else
+				base_obj.setRotation(delta.new.rotation)
+				base_obj.setPosition(delta.new.position)
+			end
+		end
+		set_last_snapshot()
+	end
+
+	event['rename_guid'] = function(self, old_guid, new_guid)
+		self.deltas[new_guid] = self.deltas[old_guid]
+		self.deltas[old_guid] = nil
+	end
+
+	return event
+end
+
+
+function do_record_delta_snapshot()
+  local event = create_delta_snapshot_event()
+	if event == nil then
+		return
+	end
+  g_history_stack:push(event)
+end
+
+
+-- When all the bases have stopped moving record a snapshot.
+function record_delta_snapshot_at_rest()
+  while not are_all_bases_are_at_rest() do
+     coroutine.yield(0)
+  end
+  do_record_delta_snapshot()
+  return 1
+end
+
+-- Places an event for the current location of all bases on the
+-- history stack
+function history_record_delta_snapshot()
+  startLuaCoroutine(self, 'record_delta_snapshot_at_rest')
+end
