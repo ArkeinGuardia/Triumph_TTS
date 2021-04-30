@@ -214,9 +214,9 @@ function update_armyzone_value(zone)
     end
     Wait.frames(function ()
         if is_red then
-            spawn_number_red(tostring(armyvalue), { 78.2, 1.5, -20.6})
+            spawn_number_red(tostring(armyvalue), { 49.5, 1.5, -12})
         else
-            spawn_number_blue(tostring(armyvalue), { 71.3, 1.5, 20.6})
+            spawn_number_blue(tostring(armyvalue), { 42.75, 1.5, 12})
         end
     end, 1)
     print_debug('Updated army zone ' .. zone.getName())
