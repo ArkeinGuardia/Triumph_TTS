@@ -158,44 +158,157 @@ function make_general (obj)
     reset_state()
 end
 
+function will_base_contact_other_base(base_obj, relative_direction, max_distance)
+  local base_depth_mm = get_base_depth_from_base_obj(base_obj)
+  local base_depth = from_mm_to_in(base_depth_mm)
+  local base_size={g_base_width_in_inches,1,base_depth}
+  local initial_position = base_obj.getPosition()
+  local direction = degrees_to_vector_xz(base_obj.getRotation()['y'] + relative_direction)
+  local orientation = base_obj.getRotation()
+  orientation['y'] = orientation['y'] + relative_direction
+  local cast_params = {
+    origin=initial_position,
+    direction=direction,
+    type=3, -- box
+    size=base_size,
+    orientation = orientation,
+    max_distance=max_distance,
+    debug=false 
+  }
+  print("176 cast params" )
+  table_print(cast_params)
+  local intersects=Physics.cast(cast_params)
+  print("181 intersects=", intersects)
+  table_print(intersects)
+  local distance = math.huge
+  local intersecting_base = nil
+  for _,intersection in pairs(intersects) do
+    print(188, " intersection=", intersection)
+    if base_obj ~= intersection.hit_object then
+      if (intersection.distance > 0) and (intersection.distance < distance) then
+        if is_base_obj(intersection.hit_object) then
+          print("191")
+          distance = intersection.distance
+          intersecting_base = intersection.hit_object
+          print("195")
+        end
+      end
+    end
+  end
+  local result
+  if intersecting_base == nil then
+    result = nil
+  else
+   result = {colliding_base=intersecting_base, distance=distance}
+ end
+ print("OUT will_base_contact_other_base ", result)
+ table_print(result)
+ return result
+end
+
 -- Moves ONE single DBA base by it's depth
-function push_back(obj)
-    local initial_transform = calculate_transform(obj)
-    local angle = from_degrees_to_rad(obj.getRotation())['y']
+function push_back(base_obj)
+    local base_depth_mm = get_base_depth_from_base_obj(base_obj)
+    local base_depth = from_mm_to_in(base_depth_mm)
+
+    local collision = will_base_contact_other_base(base_obj, 180, base_depth)
+    print(214)
+    local magnitude
+    if collision == nil then
+      print(217)
+      magnitude = base_depth
+    else
+      print(219)
+      magnitude = collision.distance
+      print(221)
+      local mu = inches_to_mu_display_string(magnitude)
+      print(224)
+      local message = string.format(
+        "Collision with %s",
+        collision.colliding_base.getName())
+        print(228)
+      print_important(message)
+    end
+    print(231)
+
+    local initial_transform = calculate_transform(base_obj)
+    local angle = from_degrees_to_rad(base_obj.getRotation())['y']
     angle = angle + math.pi
     if angle > 2*math.pi then
         angle = angle - 2*math.pi
     end
+
     local displacement_vector = rad_to_vector(angle)
 
-    local magnitude = get_size(obj.getName())['z']
     local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
-    obj.setPosition(destination)
+    base_obj.setPosition(destination)
 
-    local new_transform = calculate_transform(obj)
+    local new_transform = calculate_transform(base_obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
     local mu = inches_to_mu_display_string(distance)
-    print_info(obj.getName() .. ' has moved backwards its own depth ' .. mu)
+    print(290)
+    if collision == nil then
+      print(292)
+      print_info(base_obj.getName() .. ' has moved back its own depth, ' .. mu)
+    else
+      print(295)
+      print_info(base_obj.getName() .. ' has moved back ' .. mu)
+    end
+    print(298)
 
     history_record_delta_snapshot()
 end
 
 -- Like push back but in the other direction
-function push_forward(obj)
-    local initial_transform = calculate_transform(obj)
-    local angle = from_degrees_to_rad(obj.getRotation())['y']
+function push_forward(base_obj)
+    local base_depth_mm = get_base_depth_from_base_obj(base_obj)
+    print("252 ")
+    local base_depth = from_mm_to_in(base_depth_mm)
+
+    local collision = will_base_contact_other_base(base_obj, 0, base_depth)
+    print(263)
+    local magnitude
+    if collision == nil then
+      magnitude = base_depth
+      print(201, " no collission ", magnitude)
+    else
+      print(267)
+      magnitude = collision.distance
+      print(271)
+      local mu = inches_to_mu_display_string(magnitude)
+      print(274)
+      local message =
+        string.format(
+          "Collision with %s at %s",
+          collision.colliding_base.getName(),
+          mu)
+      print_important(message)
+    end
+    print(274)
+
+    local initial_transform = calculate_transform(base_obj)
+    print(277)
+    local angle = from_degrees_to_rad(base_obj.getRotation())['y']
+    print(279)
     local displacement_vector = rad_to_vector(angle)
 
-    local magnitude = get_size(obj.getName())['z']
     local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
-    obj.setPosition(destination)
+    base_obj.setPosition(destination)
 
-    local new_transform = calculate_transform(obj)
+    local new_transform = calculate_transform(base_obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
     local mu = inches_to_mu_display_string(distance)
-    print_info(obj.getName() .. ' has moved forward its own depth, ' .. mu)
+    print(290)
+    if collision == nil then
+      print(292)
+      print_info(base_obj.getName() .. ' has moved forward its own depth, ' .. mu)
+    else
+      print(295)
+      print_info(base_obj.getName() .. ' has moved forward ' .. mu)
+    end
+    print(298)
 
     history_record_delta_snapshot()
 end
