@@ -93,7 +93,7 @@ function vec_2d_to_str(vec)
 end
 
 -- Given two points represented by tables with x,z coords, determines the angle
--- in radains, of point B relative to A, taking into account the orientation
+-- in radians, of point B relative to A, taking into account the orientation
 -- of A (in the Y axis) in radians
 function relative_angle_from_point(pointA, pointB, rotationA)
     local zdiff = pointB['z'] - pointA['z']
@@ -140,7 +140,7 @@ end
 function angle_difference_degrees(a,b)
   local diff = a - b
   diff = normalize_degrees(diff)
-  if diff > 180 then 
+  if diff > 180 then
     return 360 - diff
   end
   return diff
@@ -212,6 +212,13 @@ function rad_to_vector_xz(radians)
     return { x = math.cos(radians), y = 0, z = math.sin(radians) }
 end
 
+-- Rotation angle on the y-axis, in degrees, to 3D unit vector.
+-- result can be used in Physics.cast
+function degrees_to_vector_xz(rotation_y_degrees)
+  local y_radians = normalize_angle(math.rad(rotation_y_degrees-90))
+  return rad_to_vector_xz(y_radians)
+end
+
 -- Angles in TTS can be pretty funny: the y axis defines the rotation from +x to
 -- -y to -x to +y, which is pretty unintuitive, but I guess they wanted the
 -- degrees to be clockwise instead of counterclockwise...
@@ -249,6 +256,7 @@ function rotate_point(point, center_coordinates, theta)
     local relative = vec_sub_3d(point, center_coordinates)
     return rotate_point_relative(relative, center_coordinates, theta)
 end
+
 
 -- Given a table with four corners top/bot left/right, each with a xyz
 -- vector representing coordinates in inches, returns the same table but
@@ -666,8 +674,13 @@ end
 -- `indent` sets the initial level of indentation.
 function table_print (tbl, indent)
   if not indent then indent = 0 end
+  local indent_str = string.rep("  ", indent)
+  if type(tbl) ~= "table" then
+    print(indent_str .. tostring(tbl))
+    return
+  end
   for k, v in pairs(tbl) do
-    formatting = string.rep("  ", indent) .. k .. ": "
+    formatting = indent_str .. k .. ": "
     if is_vec_2d(v) then
       print(formatting .. vec_2d_to_str(v))
     elseif is_vec_3d(v) then
