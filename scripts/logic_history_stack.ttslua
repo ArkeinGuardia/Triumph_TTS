@@ -19,7 +19,7 @@ function Stack:Create()
 
     -- Fake node that is after the last recorded position.
     -- Current should never point to head.
-    local head = { 
+    local head = {
       type="head",
       after=nil,
       before=nil,
@@ -159,6 +159,25 @@ function Stack:Create()
       end
     end
 
+    -- Is there an event to undo?
+    function _stack:is_undoable()
+      if self._size == 0 then
+        return false
+      end
+      return (self._current ~= self._tail)
+    end
+
+    -- Is there an event to redo?
+    function _stack:is_redoable()
+      if self._size == 0 then
+        return false
+      end
+      print("self._current=", self._current)
+      print("self._current.before=", self._current.before)
+      print("self._head=", self._head)
+      return (self._current ~= self._head.before)
+    end
+
     -- Send to all the history events that an object's GUID has changed.
     function _stack:rename_guid(old_guid, new_guid)
       local current = self._head
@@ -181,6 +200,7 @@ function push_to_history_stack(event)
     g_history_stack:push(event)
     log('Pushed new event')
     log(event)
+    update_history_ui()
 end
 
 
@@ -189,10 +209,21 @@ end
 function go_back_history_stack()
     print_info("Going back in history")
     g_history_stack:go_back()
+    update_history_ui()
 end
 
 -- Undoes the last move on the history stack, going forward
 function go_forward_history_stack()
   g_history_stack:go_forward()
   print_info("Going forward in history")
+  update_history_ui()
+end
+
+function update_history_ui()
+  local enable_undo =  g_history_stack:is_undoable()
+  local enable_redo =  g_history_stack:is_redoable()
+  print("enable_undo=", enable_undo, " enable_redo=", enable_redo)
+
+  UI.setAttribute('button_undo_move', 'interactable', enable_undo)
+  UI.setAttribute('button_redo_move', 'interactable', enable_redo)
 end
