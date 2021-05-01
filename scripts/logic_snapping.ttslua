@@ -36,7 +36,7 @@ end
 -- distance is too large
 function is_bases_close_enough_to_snap(moving_base, resting_base, distance_sq)
   -- small distances are always snapped
-  if distance_sq <  g_max_corner_distance_snap then
+  if distance_sq <  g_max_corner_distance_snap_sq then
     return true
   end
 
