@@ -22,24 +22,11 @@ function build_base_cache(base)
   end
 
   cache['getPosition'] = function()
-    local pos = cache['base'].getPosition()
-    return pos
-  end
-
-  cache['setPosition'] = function(new_position)
-    cache['base'].setPosition(new_position)
-    cache['transform'] = nil
-    cache['shape'] = nil
+    return cache['base'].getPosition()
   end
 
   cache['getRotation'] = function()
     return cache['base'].getRotation()
-  end
-
-  cache['setRotation'] = function(new_rotation)
-    cache['base'].setRotation(new_rotation)
-    cache['transform'] = nil
-    cache['shape'] = nil
   end
 
   -- Return the size in inches
