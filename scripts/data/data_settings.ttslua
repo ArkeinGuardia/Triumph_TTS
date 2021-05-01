@@ -56,14 +56,14 @@ g_max_angle_snap_degrees = 15
 g_max_angle_pushback_rad = math.rad(15)
 
 -- Max distance in inches between corenrs for aligment when snapping
-g_max_corner_distance_snap_sq = 0.3
+g_max_corner_distance_snap = 0.3
 -- Max distance in inches between corenrs for aligment when snapping
 -- when the two bases intersect, i.e. the units are on top of each other.
 -- Since stacking is not allowed in DBA, we can have a big value.
 g_max_corner_distance_snap_intersect = 1
 -- Max distance in inches between corenrs for aligment when snapping, squared
 g_max_corner_distance_snap_sq =
-  g_max_corner_distance_snap_sq * g_max_corner_distance_snap_sq
+  g_max_corner_distance_snap * g_max_corner_distance_snap
 -- Max distance in inches between corenrs for aligment when snapping,
 -- when the bases overlap, squared
 g_max_corner_distance_snap_intersect_sq =
