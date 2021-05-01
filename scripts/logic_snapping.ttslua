@@ -216,14 +216,10 @@ function snap_corners(moving_base_cache, snap_rule)
   new_pos.z = new_pos.z + z_diff
   moving_base_cache.setPosition(new_pos)
 
-  local stable_shape = snap_rule.stable_base.getShape()
-  if is_2d_shapes_intersecting(moving_base_cache.getShape(), stable_shape) then
-    print_warning("not snapping since bases would be on top of each other.")
-    moving_base_cache.setPosition(original_position)
-    moving_base_cache.setRotation(original_rotation)
-  else
-    print_info("Snapped " .. moving_corner_name .. " to " .. stable_corner_name)
-  end
+  -- Since after snapping the corners are identical the two base
+  -- may be considered to overlap. So we do not check if
+  -- snapping would result in bases overlapping.
+  print_info("Snapped " .. moving_corner_name .. " to " .. stable_corner_name)
 end
 
 

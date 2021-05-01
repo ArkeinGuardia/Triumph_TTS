@@ -763,14 +763,14 @@ function update_pip(dice_obj_guid, id_text)
 end
 
 function on_roll_pips_red(player, value, id)
-    create_history_event_snapshot()
+    history_record_delta_snapshot()
     roll_dice('red', player)
     roll_dice('orange', player)
     roll_dice('yellow', player)
 end
 
 function on_roll_pips_blue(player, value, id)
-    create_history_event_snapshot()
+    history_record_delta_snapshot()
     roll_dice('blue', player)
     roll_dice('green', player)
     roll_dice('purple', player)
