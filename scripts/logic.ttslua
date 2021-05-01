@@ -797,7 +797,7 @@ end
 -- Are two edges considered to be touching each other.
 -- Distance between the corners squared.
 function is_corners_adjacent(distance_sq)
-  return distance_sq < g_max_corner_distance_snap
+  return distance_sq < g_max_corner_distance_snap_sq
 end
 
 -- Checks if the object A defined by its transform is inmediately behind
