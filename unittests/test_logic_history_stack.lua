@@ -14,7 +14,6 @@ require('scripts/logic_spawn_army')
 require('scripts/logic_dead')
 require('scripts/logic_dice')
 require('scripts/logic_history_stack')
-require('scripts/logic_history_snapshot')
 require('scripts/logic')
 require('scripts/uievents')
 
@@ -123,8 +122,18 @@ end
 
 function test_no_longer_at_top_of_stack_after_go_back()
     local sut = Stack.Create()
-    local event1 = {type="1", apply=function() end}
-    local event2 = {type="2", apply=function() end}
+    local event1 = {
+        type="1", 
+        undo = function() end,
+        redo = function() end
+    }
+        
+    local event2 = {
+        type="2",
+        undo = function() end,
+        redo = function() end
+    }
+
     sut:push(event1)
     sut:push(event2)
     sut:go_back()
@@ -132,78 +141,152 @@ function test_no_longer_at_top_of_stack_after_go_back()
     lu.assertFalse(actual)
 end
 
-function test_go_back_applies_the_event_before_the_current_event()
-    local applied_event = nil
+
+function test_go_back_undoes_current_event()
+    -- If the history event uses 'undo' then we use the current event.
+    local undone = nil
     local sut = Stack.Create()
-    local event1 = {type="1", apply = function() applied_event = 1 end}
-    local event2 = {type="2", apply = function() applied_event = 2 end}
+    local event1 = {type="1", undo = function() undone = 1 end}
+    local event2 = {type="2", undo = function() undone = 2 end}
     sut:push(event1)
     sut:push(event2)
     sut:go_back()
-    lu.assertEquals(applied_event, 1)
+    lu.assertEquals(undone, 2)
 end
 
-function test_go_back_changes_current_event()
-    local applied_event = nil
+function test_go_back_changes_current_after_undo()
+    local undone = nil
     local sut = Stack.Create()
-local head = sut._head
-local tail = sut._tail
-    local event1 = {type="1", apply = function() applied_event = 1 end}
-    local event2 = {type="2", apply = function() applied_event = 2 end}
-    local event3 = {type="3", apply = function() applied_event = 3 end}
+    local event1 = {type="1", undo = function() undone = -1 end}
+    local event2 = {type="2", undo = function() undone = -2 end}
+    local event3 = {type="3", undo = function() undone = -3 end}
     sut:push(event1)
- local one = sut._head.before
- lu.assertTrue(head == sut._head)
- lu.assertTrue(one == sut._head.before)
- lu.assertEquals(one, sut._current)
     sut:push(event2)
-local two = sut._head.before
-lu.assertFalse(head == sut._head.before)
-lu.assertFalse(head == sut._head.before)
-lu.assertEquals(two, sut._current)
-sut:push(event3)
- local three = sut._head.before
- lu.assertEquals(three, sut._current)
+    sut:push(event3)
     sut:go_back()
-    lu.assertEquals(applied_event, 2)
-lu.assertEquals(two, sut._current)
+    lu.assertEquals(undone, -3)
     sut:go_back()
-lu.assertEquals(one, sut._current)
-    lu.assertEquals(applied_event, 1)
+    lu.assertEquals(undone, -2)
 end
 
-function test_go_forwared_applies_the_event_after_the_current_event()
+
+function test_go_back_undoes_1_event()
+    -- If the current event is an applied event then when we go back
+    -- nothing is executed on the event.  If the previous event is
+    --  and apply event, then apply is called.  If the previous event
+    --  is an undo event then undo is called, and the current event
+    --  is the one before the undo event.
+    
+    -- setup
+    local redone_event = nil
+    local undone_event = nil
+    local sut = Stack.Create()
+
+    local event1 = {
+      type="1", 
+      undo = function() undone_event = 1 end
+    }
+
+    local event2 = {
+      type="2", 
+      undo = function() 
+  	    undone_event = 2
+      end, 
+      redo = function() 
+        redone_event=2
+      end,
+    }
+
+    local event3 = {
+        type="3", 
+        undo = function() undone_event = 3 end
+    }
+
+    sut:push(event1)
+    sut:push(event2)
+    sut:push(event3)
+    sut:go_back()
+    -- validate
+    lu.assertEquals(undone_event, 3)
+    lu.assertEquals(redone_event, nil)
+end
+
+function test_go_forward_redoes_the_current_event()
     -- setup
     local applied_event = nil
     local sut = Stack.Create()
-    local event1 = {type="1", apply = function() applied_event = 1 end}
-    local event2 = {type="2", apply = function() applied_event = 2 end}
+
+    local event1 = {
+        type="1", 
+        undo = function() applied_event = -1 end,
+        redo = function() applied_event = 1 end,
+    }
+
+    local event2 = {
+        type="2", 
+        undo = function() applied_event = -2 end,
+        redo = function() applied_event = 2 end,
+    }
+
+    local event3 = {
+      type="3", 
+        undo = function() applied_event = -3 end,
+        redo = function() applied_event = 3 end,
+    }
+
+    local event4 = {
+        type="4", 
+        undo = function() applied_event = -4 end,
+        redo = function() applied_event = 4 end,
+    }
+
     sut:push(event1)
     sut:push(event2)
+    sut:push(event3)
+    sut:push(event4)
     sut:go_back()
-    lu.assertEquals(applied_event, 1)
+    lu.assertEquals(applied_event, -4)
+    sut:go_back()
+    lu.assertEquals(applied_event, -3)
     -- Exercise
     sut:go_forward()
+    lu.assertEquals(applied_event, 3)
+    sut:go_forward()
     -- validate
-    lu.assertEquals(applied_event, 2)
+    lu.assertEquals(applied_event, 4)
 end
-
 
 
 function test_go_forwared_moves_the_current_event()
     -- setup
     local applied_event = nil
     local sut = Stack.Create()
-    local event1 = {type="1", apply = function() applied_event = 1 end}
-    local event2 = {type="2", apply = function() applied_event = 2 end}
-    local event3 = {type="3", apply = function() applied_event = 3 end}
+
+    local event1 = {
+       type="1", 
+       undo = function() applied_event = -1 end,
+       redo = function() applied_event = 1 end
+    }
+
+    local event2 = {
+        type="2",
+        undo = function() applied_event = -2 end,
+        redo = function() applied_event = 2 end
+    }
+
+    local event3 = {
+        type="3", 
+        undo = function() applied_event = -3 end,
+        redo = function() applied_event = 3 end
+    }
+
     sut:push(event1)
     sut:push(event2)
     sut:push(event3)
     sut:go_back()
-    lu.assertEquals(applied_event, 2)
+    lu.assertEquals(applied_event, -3)
     sut:go_back()
-    lu.assertEquals(applied_event, 1)
+    lu.assertEquals(applied_event, -2)
     -- Exercise
     sut:go_forward()
     lu.assertEquals(applied_event, 2)
@@ -231,21 +314,45 @@ function test_push_erases_all_above_current()
     -- setup
     local applied_event = nil
     local sut = Stack.Create()
-    local event1 = {apply = function() applied_event = 1 end}
-    local event2 = {apply = function() applied_event = 2 end}
-    local event3 = {apply = function() applied_event = 3 end}
-    local event4 = {apply = function() applied_event = 4 end}
+
+    local event1 = {
+        id=1,
+        undo = function() applied_event = -1 end,
+        redo = function() applied_event = 1 end,
+    }
+
+    local event2 = {
+        id=2,
+        undo = function() applied_event = -2 end,
+        redo = function() applied_event = 2 end,
+    }
+
+    local event3 = {
+        id=3,
+        undo = function() applied_event = -3 end,
+        redo = function() applied_event = 3 end,
+    }
+
+    local event4 = {
+        id=4,
+        undo  = function() applied_event = -4 end,
+        redo = function() applied_event = 4 end,
+    }
+
     sut:push(event1)
     sut:push(event2)
     sut:push(event3)
     sut:go_back()
-    lu.assertEquals(applied_event, 2)
+    lu.assertEquals(applied_event, -3)
     sut:go_back()
-    lu.assertEquals(applied_event, 1)
+    lu.assertEquals(applied_event, -2)
     -- Exercise
     sut:push(event4)
-    -- Validate
     sut:go_back()
+    lu.assertEquals(applied_event, -4)
+    sut:go_back()
+    lu.assertEquals(applied_event, -1)
+    sut:go_forward()
     lu.assertEquals(applied_event, 1)
     sut:go_forward()
     lu.assertEquals(applied_event, 4)
@@ -258,7 +365,7 @@ function test_empty_stack_size_is_zero()
 end
 
 function test_push_adds_to_size()
-    local event1 = {apply = function() applied_event = 1 end}
+    local event1 = {}
     local sut = Stack.Create()
     sut:push(event1)
     local actual = sut:size()
@@ -269,17 +376,17 @@ function test_push_eraseing_decreases_size()
     -- setup
     local applied_event = nil
     local sut = Stack.Create()
-    local event1 = {apply = function() applied_event = 1 end}
-    local event2 = {apply = function() applied_event = 2 end}
-    local event3 = {apply = function() applied_event = 3 end}
-    local event4 = {apply = function() applied_event = 4 end}
+    local event1 = {undo = function() applied_event = -1 end}
+    local event2 = {undo = function() applied_event = -2 end}
+    local event3 = {undo = function() applied_event = -3 end}
+    local event4 = {undo = function() applied_event = -4 end}
     sut:push(event1)
     sut:push(event2)
     sut:push(event3)
     sut:go_back()
-    lu.assertEquals(applied_event, 2)
+    lu.assertEquals(applied_event, -3)
     sut:go_back()
-    lu.assertEquals(applied_event, 1)
+    lu.assertEquals(applied_event, -2)
     -- Exercise
     sut:push(event4)
     local actual = sut:size()
@@ -318,18 +425,17 @@ function test_top_returns_most_recent_event()
     -- setup
     local applied_event = nil
     local sut = Stack.Create()
-    local event1 = {apply = function() applied_event = 1 end}
-    local event2 = {apply = function() applied_event = 2 end}
+    local event1 = {id=1}
+    local event2 = {id=2}
     sut:push(event1)
     sut:push(event2)
     -- exercise
     local top = sut:top()
     -- validate
-    top.apply()
-    lu.assertEquals(applied_event, 2)
+    lu.assertEquals(top.id, 2)
 end
 
--- Test fix for bug where we undo and event and then
+-- Test fix for bug where we undo an event and then
 -- redo past the top of the stack, then sit on
 -- the head, and then make a move.
 -- The new event is to be inserted after the head.
@@ -338,24 +444,77 @@ function test_move_after_past_top()
   local old = print_important
   print_important = function() end
   -- Exercise
+  local applied = nil
   local sut = Stack.Create()
-  local event1 = {apply = function()  end}
-  local event2 = {apply = function()  end}
+  local event1 = {
+      event_id = 1, 
+      undo = function() applied=-1 end,
+      redo = function() applied =1 end
+  }
+
+  local event2 = {
+    event_id = 1, 
+    undo = function() applied=-2 end,
+    redo = function() applied=2 end
+}
+
+  lu.assertEquals(sut:size(), 0)
   sut:push(event1)
+  lu.assertEquals(sut:size(), 1)
   sut:push(event2)
+  lu.assertEquals(sut:size(), 2)
   sut:go_back()
+  lu.assertEquals(-2, applied)
   sut:go_forward()
+  lu.assertEquals(2, applied)
+
   sut:go_forward()
-  local applied_event = nil
-  local event3 = {apply = function()  applied_event = 3 end}
+  lu.assertEquals(2, applied)
+
+  local event3 = { 
+    event_id = 3,
+    undo = function() 
+        applied=-3
+    end
+  }
   sut:push(event3)
+  lu.assertEquals(sut:size(), 3)
+
   -- Verify
-  applied_event = nil
-  sut._head.before.apply()
-  lu.assertEquals(3, applied_event)
+  sut.top().undo()
+  lu.assertEquals(applied, -3)
 
   -- Clean up
   print_important = old
+end
+
+-- If a history event does not support rename_guid
+-- then the method call is not attempted.
+function test_rename_guid_does_not_call_event()
+    local sut = Stack.Create()
+    local event1 = {}
+    sut:push(event1)
+    local old_guid = "FOO"
+    local new_guid = "BAR"
+    sut:rename_guid(old_guid, new_guid)  
+end
+
+-- If a history event supports rename_guid
+-- then the method call mad.
+function test_rename_guid_does_not_call_event()
+    local sut = Stack.Create()
+    local called = nil
+    local event1 = {
+      rename_guid = function(self, old_guid, new_guid) 
+        called = {old_guid=old_guid, new_guid=new_guid}
+     end}
+    sut:push(event1)
+    local old_guid = "FOO"
+    local new_guid = "BAR"
+    sut:rename_guid(old_guid, new_guid)  
+    -- Verify
+    lu.assertEquals(called.old_guid, old_guid)
+    lu.assertEquals(called.new_guid, new_guid)
 end
 
 os.exit( lu.LuaUnit.run() )

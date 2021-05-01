@@ -572,7 +572,7 @@ def write_base_definition_details(file, base_definition) :
     file.write("  dismounted_from=%s,\n" % (base_definition['dismounted_from']))
   for k in ['general', 'mobile_infantry', 'armored_camelry', 'light_camelry', 'elephant_screen',
     'plaustrella',
-    'fortifed_camp', 'pack_train', 'standard_wagon'] :
+    'fortified_camp', 'pack_train', 'standard_wagon'] :
     if k in base_definition  and base_definition[k] == True :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])

@@ -3,6 +3,14 @@ require('scripts/data/data_settings')
 require('scripts/utilities_lua')
 require('scripts/utilities')
 
+function test_vec_sub_3d()
+  local vec1={x=5,y=7,z=9}
+  local vec2={x=4,y=5,z=6}
+  local actual = vec_sub_3d(vec1, vec2)
+  local expected={x=1,y=2,z=3}
+  lu.assertEquals(actual, expected)
+end
+
 
 function test_vec_add_3d()
   local vec1={x=1,y=2,z=3}
@@ -360,6 +368,23 @@ end
 function test_in_to_mu()
   local actual = from_in_to_mu(g_base_width_in_inches)
   lu.assertAlmostEquals(actual, 2, 0.01)
+end
+
+
+function test_angle_difference_same_angle()
+  local actual = angle_difference_degrees(32.3, 32.3)
+  lu.assertAlmostEquals(actual, 0, 1e-6)
+end
+
+
+function test_angle_difference_small_angle()
+  local actual = angle_difference_degrees(32.3, 22.3)
+  lu.assertAlmostEquals(actual, 10, 1e-6)
+end
+
+function test_angle_difference_small_negative_angle()
+  local actual = angle_difference_degrees(22.3, 32.3)
+  lu.assertAlmostEquals(actual, 10, 1e-6)
 end
 
 
