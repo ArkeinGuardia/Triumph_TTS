@@ -281,6 +281,56 @@ function push_forward(base_obj)
     history_record_delta_snapshot()
 end
 
+-- Move a base so it's curner is at the specified location.
+-- base_cache base to move.
+-- corner_name: Name of the corner that should end up at the
+--  new corner position.
+-- new_corner_pos: Location where the base corner should end up.
+--
+-- The base is not rotated
+function move_corner_to_position(base_cache, corner_name, new_corner_pos)
+    print("IN move_corner_to_position")
+    local corners = base_cache.getCorners()
+    local original_corner_position = corners[corner_name]
+    local delta = vec_sub_3d(new_corner_pos, original_corner_position)
+    local position = base_cache.getPosition()
+    position = vec_add(position, delta)
+    base_cache.setPosition(position)
+    print("OUT move_corner_to_position")
+end
+
+
+function right_turn_to_face(base_obj)
+  print("IN right_turn_to_face")
+  local base_cache = build_base_cache(base_obj)
+
+  local corners = base_cache.getCorners()
+  local old_corner = corners['topright']
+
+  local rotation = base_cache.getRotation()
+  rotation['y'] = rotation['y'] + 90
+  base_cache.setRotation(rotation)
+  move_corner_to_position(base_cache, "topleft", old_corner)
+
+  history_record_delta_snapshot()
+  print("OUT right_turn_to_face")
+end
+
+function left_turn_to_face(base_obj)
+  print("IN left_turn_to_face")
+  local base_cache = build_base_cache(base_obj)
+
+  local corners = base_cache.getCorners()
+  local old_corner = corners['topleft']
+
+  local rotation = base_cache.getRotation()
+  rotation['y'] = rotation['y'] - 90
+  base_cache.setRotation(rotation)
+  move_corner_to_position(base_cache, "topright", old_corner)
+
+  history_record_delta_snapshot()
+  print("OUT left_turn_to_face")
+end
 
 -- Given a bunch of objects returns them in a column, which is
 -- {"front_of"=x, "behind_of" = x, "front_element"=x}, each a mapping
