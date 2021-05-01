@@ -1226,6 +1226,14 @@ function onObjectDrop(player_color,  picked_up_object)
     draw_all_gizmos()
 end
 
+function onObjectRotate(object, spin, flip, player_color, old_spin, old_flip)
+    if nil == g_picked_base_objects[object] then
+      if is_base_obj(object) then
+        history_record_delta_snapshot()
+      end
+    end
+end
+
 function calculate_future_position(base_obj, movement)
     local rotation = from_degrees_to_rad(base_obj.getRotation())['y']
     local displacement_vector = rad_to_vector(rotation)
