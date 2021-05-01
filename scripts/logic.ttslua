@@ -281,6 +281,17 @@ function push_forward(base_obj)
     history_record_delta_snapshot()
 end
 
+function right_turn_to_face()
+  print("IN right_turn_to_face")
+  history_record_delta_snapshot()
+  print("OUT right_turn_to_face")
+end
+
+function left_turn_to_face()
+  print("IN left_turn_to_face")
+  history_record_delta_snapshot()
+  print("OUT left_turn_to_face")
+end
 
 -- Given a bunch of objects returns them in a column, which is
 -- {"front_of"=x, "behind_of" = x, "front_element"=x}, each a mapping
