@@ -574,6 +574,9 @@ function get_plain_model_tile_name(base_definition)
       if base_definition.pack_train then
         return 'tile_plain_40x40_Trains_And_Herds_Donkeys'
       end
+      if base_definition.standard_wagon then
+        return 'tile_plain_40x80_Standard_Wagon'
+      end
       if base_definition.fortified_camp then
         return 'tile_plain_40x40_Fortified_Camp'
       end
