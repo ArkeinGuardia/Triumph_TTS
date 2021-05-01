@@ -40,17 +40,4 @@ function test_random_model_iterator()
     end
 end
 
-function test_get_plain_model_tile_name_pack_trains()
-    local base_def = g_base_definitions[g_str_5fb1b9d8e1af0600177092b3_camp_pack_train]
-    local actual = get_plain_model_tile_name(base_def)
-    lu.assertEquals(actual, 'tile_plain_40x40_Trains_And_Herds_Donkeys')
-end
-
-function test_get_plain_model_tile_name_fortified()
-    local base_def = g_base_definitions[g_str_5fb1b9f6e1af06001770a458_camp_fortified]
-    local actual = get_plain_model_tile_name(base_def)
-    lu.assertEquals(actual, 'tile_plain_40x40_Fortified_Camp')
-end
-
-
 os.exit( lu.LuaUnit.run() )

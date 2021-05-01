@@ -41,7 +41,7 @@ function vec_add_n(points)
 end
 
 -- Given two tables with x,y,z numerical components, computes the vec1-vec2
-function vec_sub_3d(vec1, vec2)
+function vec_sub(vec1, vec2)
     return { x = vec1['x'] - vec2['x'], y = vec1['y'] - vec2['y'], z = vec1['z'] - vec2['z'] }
 end
 
@@ -132,18 +132,6 @@ function normalize_radians(angle)
     angle = angle - (math.pi * 2)
   end
   return angle
-end
-
--- What is the angle between the two vectors
--- a,b: vector described in degrees, e.g. the facing.
--- result: angle between the two, 0 to 180 degrees
-function angle_difference_degrees(a,b)
-  local diff = a - b
-  diff = normalize_degrees(diff)
-  if diff > 180 then 
-    return 360 - diff
-  end
-  return diff
 end
 
 -- Are two angles approximately the same.  Angles are measured in radians.
@@ -246,7 +234,7 @@ end
 -- an angle theta, respective to a coordinate system with xyz coordinates,
 -- on that same plane
 function rotate_point(point, center_coordinates, theta)
-    local relative = vec_sub_3d(point, center_coordinates)
+    local relative = vec_sub(point, center_coordinates)
     return rotate_point_relative(relative, center_coordinates, theta)
 end
 

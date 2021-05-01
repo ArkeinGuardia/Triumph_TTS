@@ -60,14 +60,14 @@ function align_two_bases(base2, position, corners, rotation)
     if relative_angle > g_alignment_angle_side
        and relative_angle < math.pi then
         -- Angle the back of base2 with the front of base1
-        translation = vec_sub_3d(corners['topright'], corners2['botright'])
+        translation = vec_sub(corners['topright'], corners2['botright'])
     elseif relative_angle <= g_alignment_angle_side
            or relative_angle >= (2*math.pi - g_alignment_angle_side) then
         -- Angle the left side of base2 with the right of base1
-        translation = vec_sub_3d(corners['topright'], corners2['topleft'])
+        translation = vec_sub(corners['topright'], corners2['topleft'])
     else
         -- Angle the front of base2 with the back of base1
-        translation = vec_sub_3d(corners['botleft'], corners2['topleft'])
+        translation = vec_sub(corners['botleft'], corners2['topleft'])
     end
 
     local new_pos = vec_add(base2.getPosition(), translation)
@@ -114,7 +114,7 @@ function turn_around_base(obj)
     rotation['y'] = rotation['y'] + 180
     obj.setRotation(rotation)
 
-    history_record_delta_snapshot()
+    history_record_snapshot()
     local new_transform = calculate_transform(obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
@@ -135,16 +135,16 @@ function move_base(obj, how_much_movement, ignore_history)
     obj.setPosition(destination)
 
     if not ignore_history then
-        history_record_delta_snapshot()
+        history_record_snapshot()
     end
     return how_much_movement
 end
 
 function make_general (obj)
-    if is_base_army_general(obj) then
+    if is_base_army_general(obj) then 
       return
     end
-
+    
     local name = obj.getName()
     local pos = string.find(name, " #")
     if pos == nil then
@@ -178,7 +178,7 @@ function push_back(obj)
     local mu = inches_to_mu_display_string(distance)
     print_info(obj.getName() .. ' has moved backwards its own depth ' .. mu)
 
-    history_record_delta_snapshot()
+    history_record_snapshot()
 end
 
 -- Like push back but in the other direction
@@ -197,7 +197,7 @@ function push_forward(obj)
     local mu = inches_to_mu_display_string(distance)
     print_info(obj.getName() .. ' has moved forward its own depth, ' .. mu)
 
-    history_record_delta_snapshot()
+    history_record_snapshot()
 end
 
 
@@ -462,7 +462,7 @@ end
 
 -- Pushes back a whole column, that may not be exactly aligned
 function push_back_column(objs)
-    history_record_delta_snapshot()
+    history_record_snapshot()
 
     -- We use many comparisons for the column so we precalculate all the
     -- transforms
@@ -611,7 +611,7 @@ function apply_transform_obj(base_obj, old_transform, new_transform)
 end
 
 function perform_wheels()
-    history_record_delta_snapshot()
+    history_record_snapshot()
     local new_transforms = g_current_wheel_newtransforms
     local old_transforms = g_current_wheel_transforms
     local front_elements = g_current_wheel_group['front_elements']
@@ -829,6 +829,227 @@ function is_infront(transformA, transformB)
 end
 
 
+--     +-------------+
+--     | TL   ^   TR |
+--     |      B      |
+--     | BL       BR |
+--     +-------------+------+
+--     | TR              BR |
+--     |      <  A          |
+--     | TL              BL |
+--     +--------------------+
+function distance_right_to_back(transformA, transformB)
+    local angleA = transformA['rotation']
+    local angleB = transformB['rotation']
+
+    if not is_rad_angle_diff(angleA, angleB, math.pi/2) then
+       -- Angle is too different, skip
+       return math.huge
+    end
+
+    local matching_corners = {
+        {'topright', 'botleft'}
+    }
+    -- Note: We do not check the bottom because bases may be of different
+    -- sizes and we already check the angle
+
+    return corners_snapping_distance(transformA, transformB, matching_corners)
+end
+
+--   +------------------+
+--   | BL           TL  |
+--   |          A  >    |
+--   | BL           TR  |
+--   +----+-------------+
+--        | TL   ^   TR |
+--        |      B      |
+--        | BL       BR |
+--        +-------------+-
+function distance_right_to_front(transformA, transformB)
+    local angleA = transformA['rotation']
+    local angleB = transformB['rotation']
+    local diff_angle = math.abs(angleB - angleA)
+
+    -- Around 90 or 270 degrees
+    if math.abs(math.pi/2 - diff_angle) > g_max_angle_pushback_rad and
+       math.abs(3*math.pi/2 - diff_angle) > g_max_angle_pushback_rad then
+       -- Angle is too different, skip
+       return math.huge
+    end
+
+    local matching_corners = {
+        {'topright', 'topright'}
+    }
+    -- Note: We do not check the bottom because bases may be of different
+    -- sizes and we already check the angle
+
+    return corners_snapping_distance(transformA, transformB, matching_corners)
+end
+
+--         +------------+
+--         | TL      TR |
+--         |      ^     |
+--         |      B     |
+--         | BL      BR |
+--    +----+------------+
+--    | BL           TL |
+--    |      A  >       |
+--    | BR           TR |
+--    +-----------------+
+function distance_left_to_back(transformA, transformB)
+    local angleA = transformA['rotation']
+    local angleB = transformB['rotation']
+    if not is_rad_angle_diff(angleA, angleB, 1.5*math.pi) then
+       -- Angle is too different, skip
+       return math.huge
+    end
+
+   local matching_corners = {
+        {'topleft', 'botright'}
+    }
+    -- Note: We do not check the bottom because bases may be of different
+    -- sizes and we already check the angle
+
+    return corners_snapping_distance(transformA, transformB, matching_corners)
+end
+
+
+function distance_back_to_left(transformA, transformB)
+  return distance_left_to_back(transformB, transformA)
+end
+
+
+
+--    +------------------+
+--    | TR            BR |
+--    |      < A         |
+--    | TL            BL |
+--    +------------+-----+
+--    | TL      TR |
+--    |      ^     |
+--    |      B     |
+--    | BL      BR |
+--    +------------+
+function distance_left_to_front(transformA, transformB)
+   local angleA = transformA['rotation']
+    local angleB = transformB['rotation']
+    local diff_angle = math.abs(angleB - angleA)
+
+    -- Around 90 or 270 degrees
+    if math.abs(math.pi/2 - diff_angle) > g_max_angle_pushback_rad and
+       math.abs(3*math.pi/2 - diff_angle) > g_max_angle_pushback_rad then
+       -- Angle is too different, skip
+       return math.huge
+    end
+
+   local matching_corners = {
+        {'topleft', 'topleft'}
+    }
+    -- Note: We do not check the bottom because bases may be of different
+    -- sizes and we already check the angle
+
+    return corners_snapping_distance(transformA, transformB, matching_corners)
+ end
+
+
+
+function distance_back_to_left(transformA, transformB)
+  return distance_left_to_back(transformB, transformA)
+ end
+
+
+-- Determines if A is in front B, looking at B, while B looks at A
+-- returns the maximum (distance^2) for the corners aligning
+--
+-- +--------+
+-- | BR  BL |
+-- |        |
+-- |    V   |
+-- | TR  TL |
+-- +--------+
+-- | TL  TR |
+-- |    ^   |
+-- | BL  BR |
+-- +--------+
+--
+function distance_front_to_front(transformA, transformB)
+    local angleA = transformA['rotation']
+    local angleB = transformB['rotation']
+    local diff_angle = math.abs(angleB - angleA)
+    local angle_180 = math.abs(math.pi - diff_angle)
+
+    if angle_180 >= g_max_angle_pushback_rad then
+       -- Angle is too different, skip
+       return math.huge
+    end
+
+   local matching_corners = {
+        {'topright', 'topleft'},
+        {'topleft', 'topright'}
+    }
+    return corners_snapping_distance(transformA, transformB, matching_corners)
+end
+
+-- Determines if A is in the of side of B, "closing its door", which in DBA
+-- terms means that the left corner of A is touching the left corner B, and A
+-- is looking at B, while B does NOT look at A.
+--
+-- +----------+------------+
+-- | BL    TL | TL      TR |
+-- |    A>    |      ^     |
+-- | BR    TR |      B     |
+-- +----------+ BL      BR |
+--            +------------+
+--
+-- returns the maximum (distance^2) for the corners aligning
+function distance_front_to_left(transformA, transformB)
+    local angleA = transformA['rotation']
+    local angleB = transformB['rotation']
+    local diff_angle = angleB - angleA
+    if diff_angle < 0 then
+        diff_angle = diff_angle + 2*math.pi
+    end
+    local angle_90 = math.abs(math.pi/2 - diff_angle)
+    if angle_90 >= g_max_angle_pushback_rad then
+      return math.huge
+    end
+
+   local matching_corners = {
+        {'topleft', 'topleft'},
+    }
+    return corners_snapping_distance(transformA, transformB, matching_corners)
+end
+
+-- returns the maximum (distance^2) for the corners aligning
+--
+-- +----------+----------------+
+-- | TL    TR | TR          BR |
+-- |     ^    |   < A          |
+-- |     B    | TL          BL |
+-- |          +----------------+
+-- |          |
+-- |          |
+-- | BL    BR |
+-- +----------+
+--
+function distance_front_to_right(transformA, transformB)
+    local angleA = transformA['rotation']
+    local angleB = transformB['rotation']
+    local diff_angle = angleB - angleA
+    if diff_angle < 0 then
+        diff_angle = diff_angle + 2*math.pi
+    end
+    local angle_270 = math.abs(3*math.pi/2 - diff_angle)
+    if angle_270 >= g_max_angle_pushback_rad then
+       -- Angle is too different, skip
+       return math.huge
+    end
+
+   local matching_corners = {
+        {'topright', 'topright'},
+    }
+    return corners_snapping_distance(transformA, transformB, matching_corners)
+end
 
 -- Appendix A: Troop Types
 base_depth_by_troop_type = {}
@@ -978,10 +1199,32 @@ end
 function snap_to_base(obj, transformObj, base, transformBase, direction)
     print_info(obj.getName() .. ' is snapping to ' .. base.getName() .. ', ' .. direction)
     local new_rotation = base.getRotation()
-    if direction == 'opposite' then
+    if direction == 'opposite'
+       or direction == 'door_left'
+       or direction == 'door_right'
+       or direction == 'wwg_left_front'
+       or direction == 'wwg_left_to_back'
+       or direction == 'wwg_right_front'
+       or direction == 'wwg_right_to_back'
+       or direction == 'left_to_wwg_front'
+       or direction == 'left_to_wwg_back'
+       or direction == 'right_to_wwg_front'
+       or direction == 'right_to_wwg_back' then
         local new_y = 0
         if direction == 'opposite' then
             new_y = new_rotation['y'] + 180
+        elseif direction == 'door_left'
+               or direction == 'wwg_left_front'
+               or direction == 'left_to_wwg_back'
+               or direction == 'wwg_right_front'
+               or direction == 'wwg_left_to_back'
+               or direction == 'right_to_wwg_front'then
+            new_y = new_rotation['y'] + 90
+        elseif direction == 'door_right'
+          or direction == 'wwg_right_to_back'
+               or direction == 'left_to_wwg_front'
+               or direction == 'right_to_wwg_back'  then
+            new_y = new_rotation['y'] - 90
         end
         if new_y >= 360 then
             new_y = new_y - 360
@@ -1008,6 +1251,34 @@ function snap_to_base(obj, transformObj, base, transformBase, direction)
     elseif direction == 'left' then
         relative_pos['x'] = -1*(sizeObj['x'] / 2 + sizeBase['x'] / 2)
         relative_pos['z'] = -1*(sizeObj['z'] - sizeBase['z']) / 2
+    elseif direction == 'wwg_left_to_back' then
+      relative_pos['x'] = (sizeObj['x']/-2)
+      relative_pos['z'] = (sizeObj['x']  + sizeBase['z'] ) / -2
+    elseif direction == 'door_left'
+           or direction == 'wwg_left_front' then
+        relative_pos['x'] = -1*(sizeObj['z'] / 2 + sizeBase['x'] / 2)
+        relative_pos['z'] = -1*(sizeObj['x'] / 2) + (sizeBase['z'] / 2)
+    elseif direction == 'door_right' then
+        relative_pos['x'] = sizeObj['z'] / 2 + sizeBase['x'] / 2
+        relative_pos['z'] = -1*(sizeObj['x'] / 2) + (sizeBase['z'] / 2)
+    elseif direction == 'wwg_right_front' then
+      relative_pos['x']  =  (-sizeObj['z'] + sizeBase['x'] ) / 2
+      relative_pos['z']  = (sizeObj['x'] + sizeBase['z']) / 2
+    elseif direction == 'wwg_right_to_back' then
+      relative_pos['x']  =  (sizeObj['z']  -sizeBase['x'] ) / 2
+      relative_pos['z']  = (sizeObj['x'] + sizeBase['z']) / -2
+    elseif direction == 'right_to_wwg_front' then
+      relative_pos['x'] = -1*(sizeObj['z'] / 2) + sizeBase['x'] / 2
+      relative_pos['z'] = sizeObj['x'] / 2 + sizeBase['z'] / 2
+    elseif direction == 'right_to_wwg_back' then
+      relative_pos['x'] = sizeObj['z'] / 2 - sizeBase['x'] / 2
+      relative_pos['z'] = -1*(sizeObj['x'] / 2 + (sizeBase['z'] / 2))
+    elseif direction == 'left_to_wwg_front' then
+      relative_pos['x'] = sizeObj['z'] / 2 - sizeBase['x'] / 2
+      relative_pos['z'] = sizeObj['x'] / 2 + sizeBase['z'] / 2
+    elseif direction == 'left_to_wwg_back' then
+      relative_pos['x'] = -1*(sizeObj['z'] / 2) + sizeBase['x'] / 2
+      relative_pos['z'] = -1*(sizeObj['x'] / 2 + sizeBase['z'] / 2)
     else
       print_error('Tried to snap ' .. obj.getName() .. ' in unknown direction ' .. direction)
       return
@@ -1026,6 +1297,297 @@ function snap_to_base(obj, transformObj, base, transformBase, direction)
 end
 
 
+-- is the moved base close enough to be snapped to another base?
+-- obj base being moved, instance of base_cache
+-- base Other base to compare against, instance of base_cache
+function is_snapable(obj, base)
+  -- Check if the two bases are pretty close
+  local pos = obj.getPosition()
+  local pos_base = base.getPosition()
+  local distance = distance_points_flat_sq(pos, pos_base)
+
+  -- no snap if the distance is too small
+  if distance < 0.0001 then
+    return false
+  end
+
+  local max_distance
+  if obj['is_large_base'] and base['is_large_base'] then
+    max_distance = g_max_distance_alignment * 16
+  elseif obj['is_large_base'] or base['is_large_base'] then
+    max_distance = g_max_distance_alignment * 4
+  else
+    max_distance = g_max_distance_alignment
+  end
+
+  local close_enough = distance < max_distance
+  return close_enough
+end
+
+-- Are two bases close enough to snap?
+-- moving_base: Base being moved, instance of base_cache
+-- resting_base: Base that will be snapped against, instance of base_cache
+-- distance_sq: Square of the distance that the moving_base will have
+-- to be moved to snap.
+-- return true if the bases are close enough to snap, false if the
+-- distance is too large
+function is_bases_close_enough_to_snap(moving_base, resting_base, distance_sq)
+  -- small distances are always snapped
+  if distance_sq <  g_max_corner_distance_snap then
+    return true
+  end
+
+  -- large distances are never snapped
+  if distance_sq >= g_max_corner_distance_snap_intersect_sq then
+    return false
+  end
+
+  if not moving_base.intersectsWith(resting_base) then
+    return false
+  end
+
+  -- since the bases are on top of each other which is not legal in
+  -- DBA use a larger threshold to determine if we can snap.
+  if distance_sq < g_max_corner_distance_snap_intersect_sq then
+    return true
+  end
+
+  return false
+end
+
+-- Find the best snapping rule for a base.
+-- obj:  Object being moved, instance of base_cache,
+-- base: Resting base that might be snapped against, instance of base_cache.
+-- Return table containing the distance squared the object has to
+-- be moved to snap, and the best snapping rule, and the base itself.
+-- nil if there is no snapping rule that can be used.
+function find_best_snap_rule_for_base(obj, base)
+  -- Discard fast bases that are too far
+  if not is_snapable(obj, base) then
+    return nil
+  end
+
+  -- minimum distance squared for the best snap seen.
+  local best_snap_distance_sq = math.huge
+  -- function to execute for the best snap
+  local best_snap_fn = nil
+
+  print_debug('Checking snap of ' .. obj.getName()
+              .. ' with ' .. base.getName())
+
+  -- Calculate relative position
+  local distance
+
+  local transformObj = obj.getTransform()
+  local transformBase = base.getTransform()
+
+  distance = distance_back_to_front(transformObj, transformBase)
+  if distance < best_snap_distance_sq then
+    best_snap_distance_sq = distance
+    best_snap_fn = 'infront'
+  end
+
+  distance = distance_front_to_back(transformObj, transformBase)
+  if distance < best_snap_distance_sq then
+    best_snap_distance_sq = distance
+    best_snap_fn = 'behind'
+  end
+
+  distance = distance_right_to_left_side(transformObj, transformBase)
+  if distance < best_snap_distance_sq then
+    best_snap_distance_sq = distance
+    best_snap_fn = 'left'
+  end
+
+  distance = distance_left_to_right_side(transformObj, transformBase)
+  if distance < best_snap_distance_sq then
+    best_snap_distance_sq = distance
+    best_snap_fn = 'right'
+  end
+
+  distance = distance_front_to_front(transformObj, transformBase)
+  if distance < best_snap_distance_sq then
+    best_snap_distance_sq = distance
+    best_snap_fn = 'opposite'
+  end
+
+  distance = distance_front_to_left(transformObj, transformBase)
+  if distance < best_snap_distance_sq then
+    best_snap_distance_sq = distance
+    best_snap_fn = 'door_left'
+  end
+
+  distance = distance_front_to_right(transformObj, transformBase)
+  if distance < best_snap_distance_sq then
+    best_snap_distance_sq = distance
+    best_snap_fn = 'door_right'
+  end
+
+  if obj['is_wwg'] then
+    print_debug('The base is a WWg, checking special snapping')
+    distance = distance_left_to_back(transformObj, transformBase)
+    if distance < best_snap_distance_sq then
+      best_snap_distance_sq = distance
+      best_snap_fn = 'wwg_left_to_back'
+    end
+
+    distance = distance_left_to_front(transformObj, transformBase)
+    if distance < best_snap_distance_sq then
+      best_snap_distance_sq = distance
+      best_snap_fn = 'wwg_left_front'
+    end
+
+    distance = distance_right_to_back(transformObj, transformBase)
+    if distance < best_snap_distance_sq then
+      best_snap_distance_sq = distance
+      best_snap_fn = 'wwg_right_to_back'
+    end
+
+    distance = distance_right_to_front(transformObj, transformBase)
+    if distance < best_snap_distance_sq then
+      best_snap_distance_sq = distance
+      best_snap_fn = 'wwg_right_front'
+    end
+  end
+
+  if base['is_wwg'] then
+    print_debug('Trying to snap against a WWg, checking special positions')
+     distance = distance_left_to_back(transformObj, transformBase )
+     if distance < best_snap_distance_sq then
+       best_snap_distance_sq = distance
+       best_snap_fn = 'left_to_wwg_back'
+    end
+
+    distance = distance_left_to_front(transformObj, transformBase)
+    if distance < best_snap_distance_sq then
+      best_snap_distance_sq = distance
+      best_snap_fn = 'left_to_wwg_front'
+    end
+
+    distance = distance_right_to_back(transformObj, transformBase )
+    if distance < best_snap_distance_sq then
+      best_snap_distance_sq = distance
+      best_snap_fn = 'right_to_wwg_back'
+    end
+
+    distance = distance_right_to_front(transformObj, transformBase )
+    if distance < best_snap_distance_sq then
+      best_snap_distance_sq = distance
+      best_snap_fn = 'right_to_wwg_front'
+    end
+  end
+
+  if nil == best_snap_fn then
+    return nil
+  end
+
+  return { best_snap_distance_sq=best_snap_distance_sq, best_snap_fn=best_snap_fn, best_base = base}
+end
+
+
+-- find the snap rule that has the closest distance
+function min_snap_distance(ruleA, ruleB)
+  if ruleA == nil then
+    return ruleB
+  end
+  if ruleB == nil then
+    return ruleA
+  end
+  if ruleA['best_snap_distance_sq'] <= ruleB['best_snap_distance_sq'] then
+    return ruleA
+  end
+  return ruleB
+end
+
+-- Find the best snapping rule for all bases.
+-- obj:  base being moved, instance of base_cache
+-- Return table containing the distance squared the object has to
+-- be moved to snap, and the best snapping rule, and the base itself.
+-- nil if there is no snapping rule that can be used.
+function find_best_snap_rule_for_bases(obj)
+  local best_rule = nil
+  local bases = get_all_bases()
+  for _, base in pairs(bases) do
+    local base_cache = build_base_cache(base)
+    local base_rule = find_best_snap_rule_for_base(obj, base_cache)
+    best_rule = min_snap_distance(best_rule, base_rule)
+  end
+  if best_rule == nil then
+    return nil
+  end
+  local close_enough = is_bases_close_enough_to_snap(obj, best_rule['best_base'],best_rule['best_snap_distance_sq'])
+  if not close_enough then
+    return nil
+  end
+  return best_rule
+end
+
+
+-- If a base being moved is close enough to another base that it would
+-- align with then snap to moving base to the aligned position.
+-- obj:  base that is being moved.
+function snap_picked_base(obj)
+    local initial_corners = g_picked_base_initial_transform['corners']
+
+    local pos = obj.getPosition()
+
+    if str_has_substr(obj.getName(), 'Camp') then
+        -- Always assume that camps are 40mm depth! This may not always be the
+        -- case, in which case this code needs to be changed
+        local size_table = g_depth_table_in
+        if g_current_table_size == 'large' then
+            size_table = g_depth_large_table_in
+        end
+
+        local edge_camp_pos = (size_table / 2) - (g_base_width_in_inches / 2)
+        local distance = math.abs(math.abs(pos['z']) - edge_camp_pos)
+
+        print_debug('Camp has pos ' .. pos['z'] .. ' which has distance ' .. distance ..' to the edge ' .. edge_camp_pos)
+
+        if  distance < g_max_camp_edge_snap then
+            if pos['z'] > 0 then
+                pos['z'] = edge_camp_pos
+                obj.setRotation({x=0, y=180, z=0})
+            else
+                pos['z'] = -edge_camp_pos
+                obj.setRotation({x=0, y=0, z=0})
+            end
+            pos['y'] = g_bases_position
+            obj.setPosition(pos)
+            print_info('Camp snapped to battle edge')
+        else
+            print_debug('Moving a camp, which should not snap to anything')
+        end
+
+        return calculate_transform(obj)
+    end
+
+    local obj_cache = build_base_cache(obj)
+    local snap_rule = find_best_snap_rule_for_bases(obj_cache)
+    if snap_rule ~= nil then
+      local best_base = snap_rule['best_base']['base']
+      local best_transform = snap_rule['best_base'].getTransform()
+      snap_to_base(obj, obj_cache.getTransform(),
+         best_base, best_transform, snap_rule['best_snap_fn'])
+      return calculate_transform(obj)
+    end
+
+    -- If there's nothing else to snap, maybe I can snap to my initial
+    -- position if I moved too little
+    local new_transform = calculate_transform(obj)
+    local new_corners = new_transform['corners']
+    local distance = max_distance_between_bases(new_corners, initial_corners)
+    if distance < g_max_inches_snap_reset then
+        -- Snap back!
+        obj.setPosition(g_picked_base_initial_transform['position'])
+        obj.setRotation(transform_to_rotation_vector(g_picked_base_initial_transform))
+    else
+        -- No snapping, return the distance between positions
+        pos['y'] = g_base_height_tabletop + g_table_thickness + g_base_height_inches
+        obj.setPosition(pos)
+    end
+    return calculate_transform(obj)
+end
 
 function get_all_bases()
     return filter_bases(getAllObjects())
@@ -1035,7 +1597,7 @@ function onObjectDrop(player_color,  picked_up_object)
     g_picked_base_objects[picked_up_object] = nil
     if is_table_empty(g_picked_base_objects) then
       if is_base_obj(picked_up_object) then
-        history_record_delta_snapshot()
+        history_record_snapshot()
       end
     end
 

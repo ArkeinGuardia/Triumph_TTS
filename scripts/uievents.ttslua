@@ -36,7 +36,7 @@ function move_bases(player, value, id)
     return
     end
 
-    history_record_delta_snapshot()
+    history_record_snapshot()
 
     for _,obj in ipairs(objs) do
         local moved = move_base(obj, from_mu_to_in(g_mu_movement), true)
@@ -762,18 +762,44 @@ function update_pip(dice_obj_guid, id_text)
     return val
 end
 
+-- This exists to avoid players clicking super fast and confusing rivals
+g_roll_lock = {}
+
 function on_roll_pips_red(player, value, id)
-    history_record_delta_snapshot()
-    roll_dice('red', player)
-    roll_dice('orange', player)
-    roll_dice('yellow', player)
+    if g_roll_lock['red'] then
+        print_debug('Ignoring roll because this dice was rolled less than a second ago')
+    else
+        create_history_event_snapshot()
+        g_roll_lock['red'] = true
+        local red = roll_dice('red')
+        if red == nil then return end
+        local orange = roll_dice('orange')
+        if orange == nil then return end
+        local yellow = roll_dice('yellow')
+        if yellow == nil then return end
+
+        print_important('Red: ' .. red .. ' (Or: ' .. orange .. ' Yw: ' .. yellow .. ')')
+        Wait.time(function ()
+            g_roll_lock['red'] = false
+        end, 0.5)
+    end
 end
 
 function on_roll_pips_blue(player, value, id)
-    history_record_delta_snapshot()
-    roll_dice('blue', player)
-    roll_dice('green', player)
-    roll_dice('purple', player)
+    if g_roll_lock['blue'] then
+        print_debug('Ignoring roll because this dice was rolled less than a second ago')
+    else
+        create_history_event_snapshot()
+        g_roll_lock['blue'] = true
+        local blue = roll_dice('blue')
+        local green = roll_dice('green')
+        local purple = roll_dice('purple')
+
+        print_important('Blue: ' .. blue .. ' (Gr: ' .. green .. ' Pr: ' .. purple .. ')')
+        Wait.time(function ()
+            g_roll_lock['blue'] = false
+        end, 0.5)
+    end
 end
 
 function on_undo_move(player, value, id)

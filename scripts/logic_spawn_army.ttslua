@@ -497,8 +497,6 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
       spawn_elephant_screen_counter(base_obj, base_definition, pos, is_red_player, command_color)
     end
 
-    set_last_snapshot()
-
     return base_obj
 end
 
@@ -517,7 +515,7 @@ troop_type_to_plain_model_tile_name['Heavy Foot']='tile_plain_40x15_Heavy_Foot'
 troop_type_to_plain_model_tile_name['Horde']='tile_plain_40x40_Horde'
 troop_type_to_plain_model_tile_name['Pavisiers']='tile_plain_40x40_Pavisiers'
    -- Appendix A uses "Pike"
-troop_type_to_plain_model_tile_name['Pikes']='tile_plain_40x15_Pikes'
+troop_type_to_plain_model_tile_name['Pikes']='tile_plain_40x15_Pikes_Gen'
   -- Appendix A uses "Spear"
 troop_type_to_plain_model_tile_name['Spears']='tile_plain_40x15_Spears'
 troop_type_to_plain_model_tile_name['War Wagons']='tile_plain_40x40_War_Wagon'
@@ -568,14 +566,6 @@ troop_type_to_plain_model_tile_name['Elephant Screen']='tile_plain_40x10_El_Scre
 -- Return name (a string) of the variable that is plain tile for
 -- the base definition
 function get_plain_model_tile_name(base_definition)
-    if base_definition.troop_type == 'Camp' then
-      if base_definition.pack_train then
-        return 'tile_plain_40x40_Trains_And_Herds_Donkeys'
-      end
-      if base_definition.fortified_camp then
-        return 'tile_plain_40x40_Fortified_Camp'
-      end
-    end
   local name = base_definition.name
   local tile = troop_type_to_plain_model_tile_name[name]
   if tile == nil then
@@ -621,9 +611,16 @@ function get_a_model_definition(base_definition)
   }
 end
 
+-- Get the base definition for an base object.
+-- base_obj:  Base object
+-- return: base definition or nil.
+function get_base_definition_from_base_obj(base_obj)
+  local decoration = g_decorations[ base_obj.getGUID()]
+  if nil == decoration then
+    return nil
+  end
 
--- Get the base definintion from the name of the base definition
-function get_base_definition_from_name(base_definition_name)
+  local base_definition_name = decoration.base_definition_name
   if nil == base_definition_name then
     return nil
   end
@@ -638,30 +635,6 @@ function get_base_definition_from_name(base_definition_name)
   end
 
   return nil
-end
-
--- Get the base definition for a base object.
--- guid: GUID of the base
--- return: base definition or nil.
-function get_base_definition_from_guid(guid)
-  local decoration = g_decorations[ guid]
-  if nil == decoration then
-    return nil
-  end
-
-  local base_definition_name = decoration.base_definition_name
-  return get_base_definition_from_name(base_definition_name)
-end
-
--- Get the base definition for a base object.
--- base_obj:  Base object
--- return: base definition or nil.
-function get_base_definition_from_base_obj(base_obj)
-  if nil == base_obj then
-    return nil
-  end
-  local guid = base_obj.getGUID()
-  return get_base_definition_from_guid(guid)
 end
 
 
@@ -1071,14 +1044,10 @@ function onObjectDestroy(dying_object)
         print_info('Table removed from play')
         remove_deployment_lines()
         g_current_table = nil
-        return
-    end
-    if is_base_obj(dying_object) then
-      print_info('Base ' .. name .. ' removed from play')
-      g_bases[name] = nil
-      set_last_snapshot()
-      history_record_object_destroy(dying_object)
-      remove_decorations_for_obj(dying_object)
+    elseif g_bases[name] ~= nil then
+        print_info('Base ' .. name .. ' removed from play')
+        g_bases[name] = nil
+    remove_decorations_for_obj(dying_object)
     end
 end
 
@@ -1097,25 +1066,25 @@ end
 function spawn_proxy_after_deletion()
     spawn_base({
         name = 'Proxy 40x15',
-        base = 'tile_plain_40x15_Pikes',
+        base = 'tile_grass_40x15',
         ignore_terrain = 'false',
         n_models = 0
     }, {x=-42, y=2, z=-20}, 0, true)
     spawn_base({
         name = 'Proxy 40x20',
-        base = 'tile_plain_40x20_Archers',
+        base = 'tile_grass_40x20',
         ignore_terrain = 'false',
         n_models = 0
     }, {x=-42, y=2, z=-21}, 0, true)
     spawn_base({
         name = 'Proxy 40x30',
-        base = 'tile_plain_40x30_Knights_Gen',
+        base = 'tile_grass_40x30',
         ignore_terrain = 'false',
         n_models = 0
     }, {x=-42, y=2, z=-22.5}, 0, true)
     spawn_base({
         name = 'Proxy 40x40',
-        base = 'tile_plain_40x40_Scythed_Chariot',
+        base = 'tile_grass_40x40',
         ignore_terrain = 'false',
         n_models = 0
     }, {x=-42, y=2, z=-24}, 0, true)
@@ -1123,25 +1092,25 @@ function spawn_proxy_after_deletion()
 
     spawn_base({
         name = 'Proxy 40x15',
-        base = 'tile_plain_40x15_Spears_Gen',
+        base = 'tile_grass_40x15',
         ignore_terrain = 'false',
         n_models = 0
     }, {x=-42, y=2, z=20}, 180, false)
     spawn_base({
         name = 'Proxy 40x20',
-        base = 'tile_plain_40x20_Light_Foot',
+        base = 'tile_grass_40x20',
         ignore_terrain = 'false',
         n_models = 0
     }, {x=-42, y=2, z=21}, 180, false)
     spawn_base({
         name = 'Proxy 40x30',
-        base = 'tile_plain_40x30_Horse_Bow',
+        base = 'tile_grass_40x30',
         ignore_terrain = 'false',
         n_models = 0
     }, {x=-42, y=2, z=22.5}, 180, false)
     spawn_base({
         name = 'Proxy 40x40',
-        base = 'tile_plain_40x40_Artillery',
+        base = 'tile_grass_40x40',
         ignore_terrain = 'false',
         n_models = 0
     }, {x=-42, y=2, z=24}, 180, false)
