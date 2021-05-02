@@ -60,6 +60,13 @@ function onload(saved_data)
     set_tablet_homepage("red tablet")
     set_tablet_homepage("blue tablet")
 
+    update_dead_zones()
+
+    -- Do not allow the Red player to roll the blud die, and the Blue
+    -- player cannot roll the red dice.
+    UI.setAttribute("button_roll_blue", "visibility", "Blue|White|Black")
+    UI.setAttribute("button_roll_red",  "visibility", "Red|White|Black")
+
     set_last_snapshot()
 end
 
