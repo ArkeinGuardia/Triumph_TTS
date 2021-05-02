@@ -275,6 +275,47 @@ function meshes_from_model_name(model_name, how_many)
   return calculate_random_meshes(how_many, mesh)
 end
 
+-- base_obj: Object that will have the model attached to it.
+-- model_name: Name of the figure to add. e.g. 'troop_norman_knight_lance_pennat'
+-- model_pos: location on the base to place the model. Base center is (0,0,0)
+-- model_y_rotation_degrees: Rotation of the model on the base.  Towards front is zero.  In degrees.
+-- is_red_player:
+-- mesh: default to use for the model for the texture.
+function add_model(base_obj, model_name, model_pos, model_y_rotation_degrees, is_red_player, mesh)
+  local pos = base_obj.getPosition()
+  local relative_pos = {
+      x = pos['x'] + model_pos['x'],
+      y = pos['y'] + model_pos['y'],
+      z = pos['z'] + model_pos['z']
+  }
+  local soldier_obj = nil
+  if this_model_name ~= nil then
+    if _G[this_model_name]['customasset'] ~= nil then
+        soldier_obj = spawn_asset(model_name, relative_pos, model_y_rotation_degrees)
+    else
+      -- The object has non-fixed models, so we use any of the
+      -- randomly selected meshes
+      soldier_obj = spawn_model(model_name, relative_pos,
+        model_y_rotation_degrees, minimal_collider, is_red_player, nil, mesh)
+    end
+  else
+      -- Now we have fixed models, so we use the corresponding one
+      -- Except that fixed models may use assets instead of meshes!
+
+      if _G[model_name]['customasset'] ~= nil then
+          soldier_obj = spawn_asset(model_name, relative_pos,
+            model_y_rotation_degrees)
+      else
+          local meshes = _G[model_name]['mesh']
+          mesh = random_element(meshes)
+          soldier_obj = spawn_model(model_name, relative_pos,
+              model_y_rotation_degrees, minimal_collider, is_red_player,
+              nil, mesh)
+      end
+  end
+
+  base_obj.addAttachment(soldier_obj)
+end
 
 -- add models to base object
 -- base_name: Name of the base, e.g. "Camp"
@@ -329,9 +370,11 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
       local column = (i - 1) % columns + 1
       local row = math.floor((i - 1) / columns) + 1
 
-      local random_rotation = math.random(0, 40) - 20
+      local model_y_rotation_degrees
       if str_has_substr(base_name, 'Camp') then
-          random_rotation = 0
+          model_y_rotation_degrees = 0
+      else
+        model_y_rotation_degrees = math.random(0, 40) - 20
       end
 
       local random_x = 0
@@ -341,36 +384,15 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
           random_z = random_float(-g_max_loose_spawn, g_max_loose_spawn)
       end
 
-      local relative_pos = {
-          x = pos['x'] + column * column_width - half_width + random_x,
-          y = pos['y'] + g_base_height_inches / 2,
-          z = pos['z'] + row * row_depth - half_depth + random_x
+      local model_pos = {
+          x = column * column_width - half_width + random_x,
+          y = g_base_height_inches / 2,
+          z = row * row_depth - half_depth + random_x
       }
 
       local this_model_name = figure_iter()
-      local soldier_obj = nil
-      if this_model_name ~= nil then
-        if _G[this_model_name]['customasset'] ~= nil then
-            soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
-        else
-          -- The object has non-fixed models, so we use any of the
-          -- randomly selected meshes
-          soldier_obj = spawn_model(this_model_name, relative_pos, random_rotation, minimal_collider, is_red_player, nil, meshes[i])
-        end
-      else
-          -- Now we have fixed models, so we use the corresponding one
-          -- Except that fixed models may use assets instead of meshes!
-          this_model_name = model_definition['fixed_models'][i]
-
-          if _G[this_model_name]['customasset'] ~= nil then
-              soldier_obj = spawn_asset(this_model_name, relative_pos, random_rotation)
-          else
-              meshes[i] = random_element(_G[this_model_name]['mesh'])
-              soldier_obj = spawn_model(this_model_name, relative_pos, random_rotation, minimal_collider, is_red_player, nil, meshes[i])
-          end
-      end
-
-      base_obj.addAttachment(soldier_obj)
+      add_model(base_obj, this_model_name, model_pos,
+        model_y_rotation_degrees, is_red_player, meshes[i])
   end
 
   base_obj.setRotation({0, y_rotation, 0})
@@ -592,7 +614,7 @@ function get_plain_model_tile_name(base_definition)
 end
 
 
--- Get a model definition, base and fgitures, that can be used to represent
+-- Get a model definition, base and figures, that can be used to represent
 -- a base definition.
 function get_a_model_definition(base_definition)
   if not g_use_plain_bases then
@@ -608,11 +630,12 @@ function get_a_model_definition(base_definition)
         return model
        end
     end
+  end
 
-    if  base_definition.n_models ~= nil then
-      -- base definition is model definition, legacy.
-      return base_definition
-    end
+  if  base_definition.n_models ~= nil then
+    -- base definition is model definition,
+    -- Used for proxy bases
+    return base_definition
   end
 
   -- Use a plain base.
