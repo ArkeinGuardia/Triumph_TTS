@@ -62,6 +62,11 @@ function onload(saved_data)
 
     update_dead_zones()
 
+    -- Do not allow the Red player to roll the blud die, and the Blue
+    -- player cannot roll the red dice.
+    UI.setAttribute("button_roll_blue", "visibility", "Blue|White|Black")
+    UI.setAttribute("button_roll_red",  "visibility", "Red|White|Black")
+
     set_last_snapshot()
 end
 
