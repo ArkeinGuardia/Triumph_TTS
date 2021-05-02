@@ -38,7 +38,7 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
           [1] = 'troop_gallic_lch'
         }
       }
-    } 
+    }
     g_models[g_str_5fb1ba27e1af06001770c87f_mounted] = g_models[g_str_5fb1ba27e1af06001770c87f]
 
     -- Fierce fighters - Warriors
@@ -67,7 +67,7 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
           [2] = 'troop_gallic_cav_general'
         }
       }
-    } 
+    }
 
     --Noble horsemen - JavCav
     g_models[g_str_5fb1ba27e1af06001770c887] = {
@@ -75,7 +75,7 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
         base = 'tile_grass_40x30',
         model_data = 'troop_gallic_cav'
       }
-    } 
+    }
 
     --Horsemen - Bad Horse
     g_models[g_str_5fb1ba27e1af06001770c889] = {
@@ -95,7 +95,7 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
         model_data = 'troop_gallic_ps'
       }
     }
-    
+
     --Gaesati naked fighters - Warband
     g_models[g_str_5fb1ba27e1af06001770c88f] = {
       {
@@ -114,8 +114,18 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
     g_models[g_str_5fb1b9dce1af06001770959d_camp_fortified] = {
       {
         base = 'tile_grass_40x40',
-        n_models = 1,
-        model_data = 'troop_campfire'
+        overlay_models = { -- each of the models are placed on top of the base
+          {
+            model_data="troop_fortified_camp_outline_40x40",
+            position={x=-0,y=0,z=0}, -- optional defaults to (0,0,0)
+            rotation=0, -- optional defaults to 0
+            scale=1, -- optional defaults t0 1
+          },
+          {
+            model_data = 'troop_campfire',
+            scale=0.7
+          }
+        }
       }
     }
 
@@ -148,10 +158,10 @@ army['5fb1b9dce1af0600177095a5'].data.has_models = true
     }
 
     -- Fierce fighters - Warriors
-    g_models[g_str_5fb1ba27e1af06001770c8a3] = g_models[g_str_5fb1ba27e1af06001770c88d] 
+    g_models[g_str_5fb1ba27e1af06001770c8a3] = g_models[g_str_5fb1ba27e1af06001770c88d]
 
     -- Gallic Camp
     g_models[g_str_5fb1b9dce1af0600177095a5_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
 
     -- Gallic Camp Fortified
-    g_models[g_str_5fb1b9dce1af0600177095a5_camp_fortified] = g_models[g_str_5fb1b9dce1af06001770959d_camp_fortified] 
+    g_models[g_str_5fb1b9dce1af0600177095a5_camp_fortified] = g_models[g_str_5fb1b9dce1af06001770959d_camp_fortified]

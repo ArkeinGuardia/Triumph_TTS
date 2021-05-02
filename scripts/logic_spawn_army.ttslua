@@ -275,6 +275,49 @@ function meshes_from_model_name(model_name, how_many)
   return calculate_random_meshes(how_many, mesh)
 end
 
+-- Get the figure object,
+-- base_obj: Object that will have the model attached to it.
+-- model_name: Name of the figure to add. e.g. 'troop_norman_knight_lance_pennat'
+-- model_pos: location on the base to place the model. Base center is (0,0,0)
+-- model_y_rotation_degrees: Rotation of the model on the base.  Towards front is zero.  In degrees.
+-- is_red_player:
+-- mesh: default to use for the model for the texture.
+function get_model_obj(base_obj, model_name, model_pos, model_y_rotation_degrees, is_red_player, mesh)
+
+  local pos = base_obj.getPosition()
+  local relative_pos = {
+      x = pos['x'] + model_pos['x'],
+      y = pos['y'] + model_pos['y'],
+      z = pos['z'] + model_pos['z']
+  }
+  if this_model_name ~= nil then
+    if _G[this_model_name]['customasset'] ~= nil then
+        local soldier_obj = spawn_asset(model_name, relative_pos, model_y_rotation_degrees)
+        return soldier_obj
+    end
+    -- The object has non-fixed models, so we use any of the
+    -- randomly selected meshes
+    local soldier_obj = spawn_model(model_name, relative_pos,
+        model_y_rotation_degrees, minimal_collider, is_red_player, nil, mesh)
+    return soldier_obj
+  end
+
+  -- Now we have fixed models, so we use the corresponding one
+  -- Except that fixed models may use assets instead of meshes!
+  if _G[model_name]['customasset'] ~= nil then
+      local soldier_obj = spawn_asset(model_name, relative_pos,
+        model_y_rotation_degrees)
+      return soldier_obj
+  end
+
+  local meshes = _G[model_name]['mesh']
+  mesh = random_element(meshes)
+  local soldier_obj = spawn_model(model_name, relative_pos,
+      model_y_rotation_degrees, minimal_collider, is_red_player,
+      nil, mesh)
+  return soldier_obj
+end
+
 -- base_obj: Object that will have the model attached to it.
 -- model_name: Name of the figure to add. e.g. 'troop_norman_knight_lance_pennat'
 -- model_pos: location on the base to place the model. Base center is (0,0,0)
@@ -282,39 +325,36 @@ end
 -- is_red_player:
 -- mesh: default to use for the model for the texture.
 function add_model(base_obj, model_name, model_pos, model_y_rotation_degrees, is_red_player, mesh)
-  local pos = base_obj.getPosition()
-  local relative_pos = {
-      x = pos['x'] + model_pos['x'],
-      y = pos['y'] + model_pos['y'],
-      z = pos['z'] + model_pos['z']
-  }
-  local soldier_obj = nil
-  if this_model_name ~= nil then
-    if _G[this_model_name]['customasset'] ~= nil then
-        soldier_obj = spawn_asset(model_name, relative_pos, model_y_rotation_degrees)
-    else
-      -- The object has non-fixed models, so we use any of the
-      -- randomly selected meshes
-      soldier_obj = spawn_model(model_name, relative_pos,
-        model_y_rotation_degrees, minimal_collider, is_red_player, nil, mesh)
-    end
-  else
-      -- Now we have fixed models, so we use the corresponding one
-      -- Except that fixed models may use assets instead of meshes!
-
-      if _G[model_name]['customasset'] ~= nil then
-          soldier_obj = spawn_asset(model_name, relative_pos,
-            model_y_rotation_degrees)
-      else
-          local meshes = _G[model_name]['mesh']
-          mesh = random_element(meshes)
-          soldier_obj = spawn_model(model_name, relative_pos,
-              model_y_rotation_degrees, minimal_collider, is_red_player,
-              nil, mesh)
-      end
-  end
-
+  local soldier_obj = get_model_obj(base_obj, model_name, model_pos,
+    model_y_rotation_degrees, is_red_player, mesh)
   base_obj.addAttachment(soldier_obj)
+end
+
+function add_overlay_models(base_obj, model_definition, is_red_player)
+  for _,overlay_model in pairs(model_definition['overlay_models']) do
+    local model_name = overlay_model['model_data']
+    if model_name == nil then
+      print_error("model_name is nil")
+      return
+    end
+    local model_pos = overlay_model['position']
+    if model_pos == nil then
+      model_pos = { x=0,y=0,z=0}
+    end
+    local model_y_rotation_degrees = overlay_model['rotation']
+    if model_y_rotation_degrees == nil then
+      model_y_rotation_degrees = 0
+    end
+    local scale = overlay_model['scale']
+    if scale == nil then
+      scale = 1
+    end
+    -- TODO mesh
+    local model_obj = get_model_obj(base_obj, model_name, model_pos,
+      model_y_rotation_degrees, is_red_player, mesh)
+    model_obj.scale(scale)
+    base_obj.addAttachment(model_obj)
+  end
 end
 
 -- add models to base object
@@ -326,6 +366,12 @@ end
 -- pos Location of the base.
 -- y_rotation: rotation of the base
 function add_models(base_name, model_definition, base_definition, base_obj, is_red_player, pos, y_rotation)
+
+  if  model_definition['overlay_models'] ~= nil then
+    add_overlay_models(base_obj, model_definition, is_red_player)
+    return
+  end
+
   local n = model_definition['n_models']
   if n == nil then
     n = figures_per_base(base_definition.name)
