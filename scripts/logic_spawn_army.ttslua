@@ -349,7 +349,11 @@ function add_overlay_models(base_obj, model_definition, is_red_player)
     if scale == nil then
       scale = 1
     end
-    -- TODO mesh
+
+    -- Add the height of the base to the spawned object.
+    model_pos['y'] = model_pos['y'] + g_base_height_inches
+
+    local mesh = nil
     local model_obj = get_model_obj(base_obj, model_name, model_pos,
       model_y_rotation_degrees, is_red_player, mesh)
     model_obj.scale(scale)
