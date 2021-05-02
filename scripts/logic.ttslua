@@ -124,7 +124,7 @@ end
 
 -- Moves one or more DBA bases g_mu_movement forward
 -- ASSUMES all bases are in a flat board!!!!
--- Returns how much it moved (it cna move less in a collision)
+-- Returns how much it moved (it can move less in a collision)
 function move_base(obj, how_much_movement, ignore_history)
     local initial_transform = calculate_transform(obj)
     local current_rotation = from_degrees_to_rad(obj.getRotation())
@@ -197,47 +197,91 @@ function will_base_contact_other_base(base_obj, relative_direction, max_distance
  return result
 end
 
--- Moves ONE single DBA base by it's depth
+-- Moves ONE single base by it's depth
+-- base_obj: Base to move back
+-- return: true on success, false if there was a collision with another base.
+function do_push_back(base_obj)
+  local base_depth_mm = get_base_depth_from_base_obj(base_obj)
+  local base_depth = from_mm_to_in(base_depth_mm)
+
+  local collision = will_base_contact_other_base(base_obj, 180, base_depth)
+  local magnitude
+  if collision == nil then
+    magnitude = base_depth
+  else
+    magnitude = collision.distance
+    local mu = inches_to_mu_display_string(magnitude)
+    local message = string.format(
+      "Collision with %s",
+      collision.colliding_base.getName())
+    print_important(message)
+  end
+
+  local initial_transform = calculate_transform(base_obj)
+  local angle = from_degrees_to_rad(base_obj.getRotation())['y']
+  angle = angle + math.pi
+  if angle > 2*math.pi then
+      angle = angle - 2*math.pi
+  end
+
+  local displacement_vector = rad_to_vector(angle)
+
+  local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
+  base_obj.setPosition(destination)
+
+  local new_transform = calculate_transform(base_obj)
+
+  local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
+  local mu = inches_to_mu_display_string(distance)
+  if collision == nil then
+    print_info(base_obj.getName() .. ' has moved back its own depth, ' .. mu)
+  else
+    print_info(base_obj.getName() .. ' has moved back ' .. mu)
+  end
+
+  return not collision
+end
+
+
+-- Moves ONE single base by it's depth
 function push_back(base_obj)
-    local base_depth_mm = get_base_depth_from_base_obj(base_obj)
-    local base_depth = from_mm_to_in(base_depth_mm)
-
-    local collision = will_base_contact_other_base(base_obj, 180, base_depth)
-    local magnitude
-    if collision == nil then
-      magnitude = base_depth
-    else
-      magnitude = collision.distance
-      local mu = inches_to_mu_display_string(magnitude)
-      local message = string.format(
-        "Collision with %s",
-        collision.colliding_base.getName())
-      print_important(message)
-    end
-
-    local initial_transform = calculate_transform(base_obj)
-    local angle = from_degrees_to_rad(base_obj.getRotation())['y']
-    angle = angle + math.pi
-    if angle > 2*math.pi then
-        angle = angle - 2*math.pi
-    end
-
-    local displacement_vector = rad_to_vector(angle)
-
-    local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
-    base_obj.setPosition(destination)
-
-    local new_transform = calculate_transform(base_obj)
-
-    local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-    local mu = inches_to_mu_display_string(distance)
-    if collision == nil then
-      print_info(base_obj.getName() .. ' has moved back its own depth, ' .. mu)
-    else
-      print_info(base_obj.getName() .. ' has moved back ' .. mu)
-    end
-
+    do_push_back(base_obj)
     history_record_delta_snapshot()
+end
+
+
+-- Move a base forward stopping if it will collide with another base,
+-- distance_inches: Distance to attempt to move
+-- return: true on success, false if there was a collision with another base.
+function move_base_forward(base_obj, distance_inches)
+  local collision = will_base_contact_other_base(base_obj, 0, distance_inches)
+  local magnitude
+  if collision == nil then
+    magnitude = distance_inches
+  else
+    magnitude = collision.distance
+    local mu = inches_to_mu_display_string(magnitude)
+    local message =
+      string.format(
+        "Collision with %s at %s",
+        collision.colliding_base.getName(),
+        mu)
+    print_important(message)
+  end
+
+  local initial_transform = calculate_transform(base_obj)
+  local angle = from_degrees_to_rad(base_obj.getRotation())['y']
+  local displacement_vector = rad_to_vector(angle)
+
+  local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
+  base_obj.setPosition(destination)
+
+  local new_transform = calculate_transform(base_obj)
+
+  local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
+  local mu = inches_to_mu_display_string(distance)
+  print_info(base_obj.getName() .. ' has moved forward ' .. mu)
+  return not collision
 end
 
 -- Like push back but in the other direction
@@ -245,40 +289,33 @@ function push_forward(base_obj)
     local base_depth_mm = get_base_depth_from_base_obj(base_obj)
     local base_depth = from_mm_to_in(base_depth_mm)
 
-    local collision = will_base_contact_other_base(base_obj, 0, base_depth)
-    local magnitude
-    if collision == nil then
-      magnitude = base_depth
-    else
-      magnitude = collision.distance
-      print(271)
-      local mu = inches_to_mu_display_string(magnitude)
-      local message =
-        string.format(
-          "Collision with %s at %s",
-          collision.colliding_base.getName(),
-          mu)
-      print_important(message)
-    end
-
-    local initial_transform = calculate_transform(base_obj)
-    local angle = from_degrees_to_rad(base_obj.getRotation())['y']
-    local displacement_vector = rad_to_vector(angle)
-
-    local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
-    base_obj.setPosition(destination)
-
-    local new_transform = calculate_transform(base_obj)
-
-    local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-    local mu = inches_to_mu_display_string(distance)
-    if collision == nil then
+    local no_collision = move_base_forward(base_obj, base_depth)
+    if no_collision then
       print_info(base_obj.getName() .. ' has moved forward its own depth, ' .. mu)
-    else
-      print_info(base_obj.getName() .. ' has moved forward ' .. mu)
     end
 
     history_record_delta_snapshot()
+end
+
+function panic(base_obj)
+  -- Rule 84.1
+
+  -- 84.1.a
+  local no_collision = do_push_back(base_obj)
+  if no_collision then
+    -- 84.1.b
+    turn_around_base(base_obj)
+    -- 84.1.c full tactical move
+    local movement_mu = get_tactical_move_distance(base_obj)
+    if movement_mu == nil then
+      print_error("Unable to get tactical move distance")
+      return
+    end
+    print_info("panicing for " .. tostring(movement_mu) .. " MU")
+    local movement_inches = from_mu_to_in(movement_mu)
+    move_base_forward(base_obj, movement_inches)
+  end
+  history_record_delta_snapshot()
 end
 
 -- Move a base so it's curner is at the specified location.
