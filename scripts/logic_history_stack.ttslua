@@ -172,9 +172,6 @@ function Stack:Create()
       if self._size == 0 then
         return false
       end
-      print("self._current=", self._current)
-      print("self._current.before=", self._current.before)
-      print("self._head=", self._head)
       return (self._current ~= self._head.before)
     end
 
@@ -222,7 +219,6 @@ end
 function update_history_ui()
   local enable_undo =  g_history_stack:is_undoable()
   local enable_redo =  g_history_stack:is_redoable()
-  print("enable_undo=", enable_undo, " enable_redo=", enable_redo)
 
   UI.setAttribute('button_undo_move', 'interactable', enable_undo)
   UI.setAttribute('button_redo_move', 'interactable', enable_redo)
