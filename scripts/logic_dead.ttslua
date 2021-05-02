@@ -174,13 +174,25 @@ function update_dead_zone_value(zone)
     g_updating_zone[zone.getName()] = false
 end
 
+
+
+function update_dead_zones()
+  local red_zone = get_red_dead_zone()
+  if red_zone ~= nil then
+    update_dead_zone_value(red_zone)
+  end
+  local blue_zone = get_blue_dead_zone()
+  if blue_zone ~= nil then
+    update_dead_zone_value(blue_zone)
+  end
+end
+
 -- Calculate the number of points for an army builder zone
 -- bases: Bases that are in the zone
 -- return: number of points
 function calculate_army_builder_points(bases)
   return calculate_points_for_bases(bases, 0)
 end
-
 
 
 function update_armyzone_value(zone)
