@@ -133,8 +133,11 @@ function test_model_have_instructions()
         -- pass
       elseif  model['model_data'] ~= nil then
         -- pass
+      elseif  model['overlay_models'] ~= nil then
+          -- pass
       else
-        print("g_models['" .. id .. "'][" .. tostring(i) .. "] does not have recogized models.")
+        print("g_models['" .. id .. "']['" .. tostring(i) .. "'] does not have recognized models.")
+        table_print(g_models[id][i])
         lu.assertTrue(false)
       end
     end

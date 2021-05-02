@@ -361,8 +361,18 @@ army['5fb1b9eee1af06001770a00c'].data.has_models = true
     g_models[g_str_5fb1b9e8e1af060017709c95_camp_fortified] = {
       {
         base = 'tile_grass_40x40',
-        n_models = 1,
-        model_data = 'troop_camp_burgundian_ordonnances'
+        overlay_models = { -- each of the models are placed on top of the base
+          {
+            model_data="troop_fortified_camp_outline_40x40",
+            position={x=-0,y=0,z=0}, -- optional defaults to (0,0,0)
+            rotation=0, -- optional defaults to 0
+            scale=1, -- optional defaults t0 1
+          },
+          {
+            model_data = 'troop_camp_burgundian_ordonnances',
+            scale=0.7
+          }
+        }
       }
     }
 
@@ -460,7 +470,7 @@ army['5fb1b9eee1af06001770a00c'].data.has_models = true
 
 -- Transitional Renaissance Spanish
 -- 1495 AD to 1503 AD
--- https://meshwesh.wgcwar.com/armyList/5fb1b9e7e1af060017709c19/explore  
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e7e1af060017709c19/explore
 -- As of: 20210420
 
 
@@ -553,7 +563,7 @@ army['5fb1b9eee1af06001770a00c'].data.has_models = true
 
 -- Medieval Portuguese
 -- 1340 AD to 1515 AD
--- https://meshwesh.wgcwar.com/armyList/5fb1b9e7e1af060017709bfd/explore 
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e7e1af060017709bfd/explore
 -- As of: 20210420
 
 
@@ -825,7 +835,7 @@ army['5fb1b9eee1af06001770a00c'].data.has_models = true
         model_data = 'troop_handgunner_late_medieval'
       }
     }
-    
+
     -- Mercenary halberdiers - EF General
     g_models[g_str_5fb1ba3be1af06001770f041_general] = {
       {
@@ -840,7 +850,7 @@ army['5fb1b9eee1af06001770a00c'].data.has_models = true
       }
     }
 
-    -- Mercenary halberdiers - EF 
+    -- Mercenary halberdiers - EF
     g_models[g_str_5fb1ba3be1af06001770f041] = {
       {
         base = 'tile_grass_40x15',
@@ -848,7 +858,7 @@ army['5fb1b9eee1af06001770a00c'].data.has_models = true
       }
     }
 
-    -- Bombards and other guns - Arty 
+    -- Bombards and other guns - Arty
     g_models[g_str_5fb1ba3be1af06001770f044] = g_models[g_str_5fb1ba33e1af06001770dfbb]
 
     -- Transitional Renaissance Spanish Camp
