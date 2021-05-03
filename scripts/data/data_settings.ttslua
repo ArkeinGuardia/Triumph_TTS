@@ -3,6 +3,14 @@
 -- All bases have 40mm width
 g_base_width_in_inches = 1.5748031496062992126
 
+-- Base width for detecting collisions with other bases when moving.
+-- Slightly smaller since bases when snapped overlap on the corners,
+-- so we do not want to stop on a base we are snapped with.  Also
+-- if the bases are not perfectly aligned on the table but in
+-- real life you would not want to stop because of a millimeter of
+-- overhang.
+g_collision_base_width_in_inches = g_base_width_in_inches * 0.95
+
 g_movement_unit_in_inches = (g_base_width_in_inches / 2)
 g_two_movement_units_in_inches = g_base_width_in_inches
 
