@@ -25,6 +25,22 @@ function get_base_depth_from_base_obj(base_obj)
   return get_base_depth_from_base_definition(base_definition)
 end
 
+-- How far can a base move?
+-- base_obj:  Base to examine.
+-- return: amount of MU base can move.
+function get_tactical_move_distance(base_obj)
+  local base_definition = get_base_definition_from_base_obj(base_obj)
+  if base_definition == nil then
+    return nil
+  end
+  local base_type = base_definition.troop_type
+  local tip_data = base_tool_tips[base_type]
+  if tip_data == nil then
+    return nil
+  end
+  return tip_data.tactical_move_distance
+end
+
 function are_all_bases_are_at_rest()
   for _, base in pairs(get_all_bases()) do
     if not base.resting then
