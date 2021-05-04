@@ -95,6 +95,63 @@ function get_points_for_base(base_obj, points_for_camp)
   return dead
 end
 
+
+function get_army_builder_points_for_troop_type(troop_type)
+  local tips = base_tool_tips[troop_type]
+  if tips.army_builder_points ~= nil then
+    return tips.army_builder_points
+  end
+  if tips.points ~= nil then
+    return tips.points
+  end
+end
+
+function get_army_builder_points_for_base_definition(base_definition)
+  local troop_type = base_definition.troop_type
+  if base_definition.dismount_as ~= nil then
+    local mounted_points = get_army_builder_points_for_troop_type(troop_type)
+    local dismounted_def = g_base_definitions[base_definition.dismount_as]
+    local dismounted_points = get_army_builder_points_for_troop_type(dismounted_def.troop_type)
+    return math.max(mounted_points, dismounted_points)
+  end
+  if base_definition.charging_camelry or base_definition.armored_camelry then
+    return get_army_builder_points_for_troop_type(troop_type) - 1
+  end
+  if base_definition.plaustrella then
+    return get_army_builder_points_for_troop_type(troop_type) + 1
+  end
+  return get_army_builder_points_for_troop_type(troop_type)
+end
+
+-- How many points are in the collection of base defintions.
+-- Each base object maps to one base definition, therefore the
+-- same base definition may be in the collection multiple times.
+function get_army_builder_points_for_base_definitions(base_definitions)
+  local total_points = 0
+  local deployment_dismounting_points = 0
+  local mid_battle_dismounting_points = 0
+  local nb_mobile_infantry = 0
+  for _,base_definition in pairs(base_definitions) do
+      if base_definition.deployment_dismounting then
+        deployment_dismounting_points = 1
+      end
+      if base_definition.mid_battle_dismounting then
+        mid_battle_dismounting_points = 2
+      end
+      if base_definition.mobile_infantry then
+        nb_mobile_infantry = nb_mobile_infantry + 1
+      end
+      total_points = total_points + get_army_builder_points_for_base_definition(base_definition)
+  end
+  total_points = total_points + deployment_dismounting_points
+  total_points = total_points + mid_battle_dismounting_points
+  if nb_mobile_infantry > 1 then
+    total_points = total_points + 1
+  end
+  return total_points
+end
+
+
 -- Compute how many points there are in bases
 -- bases: base objects ot evaluate
 -- points_for_camp: How many points is a camp worth
