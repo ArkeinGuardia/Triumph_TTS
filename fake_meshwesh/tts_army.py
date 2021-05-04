@@ -363,6 +363,10 @@ def write_mobile_infantry(file, base_definition, battle_card):
 
   return [ mounted, dismounted]
 
+def write_separated_valets(file, base_definition, battle_card) :
+    print("TODO write_separated_valets")
+    return []
+
 
 def write_armored_camelry(file, base_definition, battle_card) :
   camels = base_definition.copy()
@@ -631,6 +635,9 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
       else:
         extra = write_deployment_dismounting(file, base_definition, battle_card)
         result.extend(extra)
+    elif code == "SV" :
+        extra = write_separated_valets(file, base_definition, battle_card)
+        result.extend(extra)
     elif code == "MD" :
         extra = write_mid_battle_dismounting(file, base_definition, battle_card)
         result.extend(extra)
@@ -667,6 +674,7 @@ def base_definitions(file, army, troop_option) :
   generals = get_general_troop_type_codes(army)
 
   for troop_entry in troop_option['troopEntries'] :
+
     # Push down the battle cards
     troop_entry['battleCardEntries'] = troop_option['battleCardEntries']
 
@@ -713,6 +721,29 @@ def write_camp(file, army_id) :
   write_base_definition(file, camp_def)
   return [camp_def]
 
+def write_troop_option(file, troop_option) :
+    file.write("g_troop_option['%s']= {\n" % troop_option['_id'])
+    file.write("  min=%d,\n" % (troop_option['min']))
+    file.write("  max=%d,\n" % (troop_option['max']))
+
+    description=troop_option['description']
+    description = description.replace("'", "\\'")
+    file.write("  description='%s',\n" % (description))
+    
+    note = troop_option['note']
+    if note is not None and len(note) > 0 :
+        note = note.replace("'", "\\'")
+        file.write("  note='%s',\n" % (note))
+    core = troop_option['core']
+    if core is not None and len(core) > 0 :
+        file.write("  core='%s',\n" % (core))
+    dateRange = troop_option['dateRange']
+    if dateRange is not None:
+      option_start = int(dateRange['startDate'])
+      option_end = int(dateRange['endDate'])
+      file.write("  startDate=%d,\n" % (option_start))
+      file.write("  endDate=%d,\n" % (option_end))
+    file.write("}\n")
 
 def generate_base_definitions(file, army_json) :
   """Write out the base definitions for the army.
@@ -728,6 +759,7 @@ def generate_base_definitions(file, army_json) :
 
   troop_options = army_json['troopOptions']
   for troop_option in  troop_options :
+    write_troop_option(file, troop_option)
     defs = base_definitions(file, army_json, troop_option)
     definitions.extend(defs)
 
