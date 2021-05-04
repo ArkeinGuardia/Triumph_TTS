@@ -584,7 +584,7 @@ def write_base_definition_details(file, base_definition) :
     'general',
     'deployment_dismounting',
     'mid_battle_dismounting',
-    'mobile_infantry', 'armored_camelry', 'light_camelry', 'elephant_screen',
+    'mobile_infantry', 'armored_camelry', 'charging_camelry', 'light_camelry', 'elephant_screen',
     'plaustrella',
     'fortified_camp', 'pack_train', 'standard_wagon'] :
     if k in base_definition  and base_definition[k] == True :
