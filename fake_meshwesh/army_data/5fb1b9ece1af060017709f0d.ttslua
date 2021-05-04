@@ -11,6 +11,52 @@ g_troop_option['5fb1ba39e1af06001770ebf7']= {
   max=6,
   description='Ahl Khurasan Arab lancers',
 }
+g_troop_entry['5fb1ba39e1af06001770ebf8']= {
+  troop_option='5fb1ba39e1af06001770ebf7',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba39e1af06001770ebfa']= {
+  min=2,
+  max=4,
+  description='Spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba39e1af06001770ebfb']= {
+  troop_option='5fb1ba39e1af06001770ebfa',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba39e1af06001770ebfd']= {
+  min=2,
+  max=3,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba39e1af06001770ebfe']= {
+  troop_option='5fb1ba39e1af06001770ebfd',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba39e1af06001770ebff']= {
+  troop_option='5fb1ba39e1af06001770ebfd',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba39e1af06001770ec01']= {
+  min=0,
+  max=2,
+  description='Mutatawwi\'a volunteers',
+}
+g_troop_entry['5fb1ba39e1af06001770ec02']= {
+  troop_option='5fb1ba39e1af06001770ec01',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba39e1af06001770ec03']= {
+  min=0,
+  max=4,
+  description='Mutatawwi\'a volunteers or tribal Arab auxiliary horsemen',
+}
+g_troop_entry['5fb1ba39e1af06001770ec04']= {
+  troop_option='5fb1ba39e1af06001770ec03',
+  troopTypeCode='JCV',
+}
 g_str_5fb1ba39e1af06001770ebf8_general='5fb1ba39e1af06001770ebf8_general'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebf8_general]={
   id=g_str_5fb1ba39e1af06001770ebf8_general,
@@ -20,7 +66,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebf8_general]={
   description='Ahl Khurasan Arab lancers',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba39e1af06001770ebf7",
 }
 g_str_5fb1ba39e1af06001770ebf8_general_dismounted='5fb1ba39e1af06001770ebf8_general_dismounted'
 g_str_5fb1ba39e1af06001770ebf8_general_mounted='5fb1ba39e1af06001770ebf8_general_mounted'
@@ -34,7 +79,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebf8_general_dismounted]={
   dismounted_from=g_str_5fb1ba39e1af06001770ebf8_general_mounted,
   general=true,
   troop_type="Spears",
-  troop_option_id="5fb1ba39e1af06001770ebf7",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770ebf8_general_mounted]={
   id=g_str_5fb1ba39e1af06001770ebf8_general_mounted,
@@ -47,7 +91,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebf8_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba39e1af06001770ebf7",
 }
 g_str_5fb1ba39e1af06001770ebf8='5fb1ba39e1af06001770ebf8'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebf8]={
@@ -57,7 +100,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebf8]={
   max=6,
   description='Ahl Khurasan Arab lancers',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba39e1af06001770ebf7",
 }
 g_str_5fb1ba39e1af06001770ebf8_dismounted='5fb1ba39e1af06001770ebf8_dismounted'
 g_str_5fb1ba39e1af06001770ebf8_mounted='5fb1ba39e1af06001770ebf8_mounted'
@@ -70,7 +112,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebf8_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba39e1af06001770ebf8_mounted,
   troop_type="Spears",
-  troop_option_id="5fb1ba39e1af06001770ebf7",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770ebf8_mounted]={
   id=g_str_5fb1ba39e1af06001770ebf8_mounted,
@@ -82,13 +123,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebf8_mounted]={
   dismount_as=g_str_5fb1ba39e1af06001770ebf8_dismounted,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba39e1af06001770ebf7",
-}
-g_troop_option['5fb1ba39e1af06001770ebfa']= {
-  min=2,
-  max=4,
-  description='Spearmen',
-  core='all',
 }
 g_str_5fb1ba39e1af06001770ebfb='5fb1ba39e1af06001770ebfb'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebfb]={
@@ -98,13 +132,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebfb]={
   max=4,
   description='Spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba39e1af06001770ebfa",
-}
-g_troop_option['5fb1ba39e1af06001770ebfd']= {
-  min=2,
-  max=3,
-  description='Bowmen',
-  core='all',
 }
 g_str_5fb1ba39e1af06001770ebfe='5fb1ba39e1af06001770ebfe'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebfe]={
@@ -114,7 +141,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebfe]={
   max=3,
   description='Bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba39e1af06001770ebfd",
 }
 g_str_5fb1ba39e1af06001770ebff='5fb1ba39e1af06001770ebff'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebff]={
@@ -124,12 +150,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebff]={
   max=3,
   description='Bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba39e1af06001770ebfd",
-}
-g_troop_option['5fb1ba39e1af06001770ec01']= {
-  min=0,
-  max=2,
-  description='Mutatawwi\'a volunteers',
 }
 g_str_5fb1ba39e1af06001770ec02='5fb1ba39e1af06001770ec02'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec02]={
@@ -139,12 +159,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec02]={
   max=2,
   description='Mutatawwi\'a volunteers',
   troop_type="Warband",
-  troop_option_id="5fb1ba39e1af06001770ec01",
-}
-g_troop_option['5fb1ba39e1af06001770ec03']= {
-  min=0,
-  max=4,
-  description='Mutatawwi\'a volunteers or tribal Arab auxiliary horsemen',
 }
 g_str_5fb1ba39e1af06001770ec04_general='5fb1ba39e1af06001770ec04_general'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec04_general]={
@@ -155,7 +169,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec04_general]={
   description='Mutatawwi\'a volunteers or tribal Arab auxiliary horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba39e1af06001770ec03",
 }
 g_str_5fb1ba39e1af06001770ec04='5fb1ba39e1af06001770ec04'
 g_base_definitions[g_str_5fb1ba39e1af06001770ec04]={
@@ -165,7 +178,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ec04]={
   max=4,
   description='Mutatawwi\'a volunteers or tribal Arab auxiliary horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba39e1af06001770ec03",
 }
 g_str_5fb1b9ece1af060017709f0d_camp='5fb1b9ece1af060017709f0d_camp'
 g_base_definitions[g_str_5fb1b9ece1af060017709f0d_camp]={

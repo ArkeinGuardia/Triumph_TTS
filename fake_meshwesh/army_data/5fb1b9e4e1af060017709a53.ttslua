@@ -11,6 +11,97 @@ g_troop_option['5fb1ba2fe1af06001770d97a']= {
   max=7,
   description='Milites',
 }
+g_troop_entry['5fb1ba2fe1af06001770d97b']= {
+  troop_option='5fb1ba2fe1af06001770d97a',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba2fe1af06001770d97d']= {
+  min=0,
+  max=1,
+  description='Milites, or Milites who removed their armor to scout',
+}
+g_troop_entry['5fb1ba2fe1af06001770d97e']= {
+  troop_option='5fb1ba2fe1af06001770d97d',
+  troopTypeCode='KNT',
+}
+g_troop_entry['5fb1ba2fe1af06001770d97f']= {
+  troop_option='5fb1ba2fe1af06001770d97d',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2fe1af06001770d980']= {
+  min=0,
+  max=4,
+  description='Pedites',
+  core='all',
+}
+g_troop_entry['5fb1ba2fe1af06001770d981']= {
+  troop_option='5fb1ba2fe1af06001770d980',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba2fe1af06001770d982']= {
+  min=0,
+  max=1,
+  description='Mercenary spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba2fe1af06001770d983']= {
+  troop_option='5fb1ba2fe1af06001770d982',
+  troopTypeCode='SPR',
+}
+g_troop_option['5fb1ba2fe1af06001770d984']= {
+  min=0,
+  max=2,
+  description='Massed levy bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba2fe1af06001770d985']= {
+  troop_option='5fb1ba2fe1af06001770d984',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba2fe1af06001770d986']= {
+  min=0,
+  max=1,
+  description='Crossbowmen or staff slingers',
+}
+g_troop_entry['5fb1ba2fe1af06001770d987']= {
+  troop_option='5fb1ba2fe1af06001770d986',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba2fe1af06001770d988']= {
+  troop_option='5fb1ba2fe1af06001770d986',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba2fe1af06001770d989']= {
+  min=0,
+  max=1,
+  description='Cottereaux',
+}
+g_troop_entry['5fb1ba2fe1af06001770d98a']= {
+  troop_option='5fb1ba2fe1af06001770d989',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba2fe1af06001770d98b']= {
+  min=0,
+  max=4,
+  description='Sicilian Greek infantry',
+  note='only Normans in Sicily',
+  startDate=1061,
+  endDate=1061,
+}
+g_troop_entry['5fb1ba2fe1af06001770d98d']= {
+  troop_option='5fb1ba2fe1af06001770d98b',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba2fe1af06001770d98e']= {
+  min=0,
+  max=2,
+  description='Servants, grooms, or peasants',
+  core='all',
+}
+g_troop_entry['5fb1ba2fe1af06001770d98f']= {
+  troop_option='5fb1ba2fe1af06001770d98e',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba2fe1af06001770d97b_general='5fb1ba2fe1af06001770d97b_general'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d97b_general]={
   id=g_str_5fb1ba2fe1af06001770d97b_general,
@@ -20,7 +111,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97b_general]={
   description='Milites',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2fe1af06001770d97a",
 }
 g_str_5fb1ba2fe1af06001770d97b_general_dismounted='5fb1ba2fe1af06001770d97b_general_dismounted'
 g_str_5fb1ba2fe1af06001770d97b_general_mounted='5fb1ba2fe1af06001770d97b_general_mounted'
@@ -34,7 +124,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97b_general_dismounted]={
   dismounted_from=g_str_5fb1ba2fe1af06001770d97b_general_mounted,
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba2fe1af06001770d97a",
 }
 g_base_definitions[g_str_5fb1ba2fe1af06001770d97b_general_mounted]={
   id=g_str_5fb1ba2fe1af06001770d97b_general_mounted,
@@ -47,7 +136,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97b_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2fe1af06001770d97a",
 }
 g_str_5fb1ba2fe1af06001770d97b='5fb1ba2fe1af06001770d97b'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d97b]={
@@ -57,7 +145,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97b]={
   max=7,
   description='Milites',
   troop_type="Knights",
-  troop_option_id="5fb1ba2fe1af06001770d97a",
 }
 g_str_5fb1ba2fe1af06001770d97b_dismounted='5fb1ba2fe1af06001770d97b_dismounted'
 g_str_5fb1ba2fe1af06001770d97b_mounted='5fb1ba2fe1af06001770d97b_mounted'
@@ -70,7 +157,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97b_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba2fe1af06001770d97b_mounted,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba2fe1af06001770d97a",
 }
 g_base_definitions[g_str_5fb1ba2fe1af06001770d97b_mounted]={
   id=g_str_5fb1ba2fe1af06001770d97b_mounted,
@@ -82,12 +168,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97b_mounted]={
   dismount_as=g_str_5fb1ba2fe1af06001770d97b_dismounted,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2fe1af06001770d97a",
-}
-g_troop_option['5fb1ba2fe1af06001770d97d']= {
-  min=0,
-  max=1,
-  description='Milites, or Milites who removed their armor to scout',
 }
 g_str_5fb1ba2fe1af06001770d97e_general='5fb1ba2fe1af06001770d97e_general'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d97e_general]={
@@ -98,7 +178,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97e_general]={
   description='Milites, or Milites who removed their armor to scout',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2fe1af06001770d97d",
 }
 g_str_5fb1ba2fe1af06001770d97e='5fb1ba2fe1af06001770d97e'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d97e]={
@@ -108,7 +187,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97e]={
   max=1,
   description='Milites, or Milites who removed their armor to scout',
   troop_type="Knights",
-  troop_option_id="5fb1ba2fe1af06001770d97d",
 }
 g_str_5fb1ba2fe1af06001770d97f='5fb1ba2fe1af06001770d97f'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d97f]={
@@ -118,13 +196,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d97f]={
   max=1,
   description='Milites, or Milites who removed their armor to scout',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2fe1af06001770d97d",
-}
-g_troop_option['5fb1ba2fe1af06001770d980']= {
-  min=0,
-  max=4,
-  description='Pedites',
-  core='all',
 }
 g_str_5fb1ba2fe1af06001770d981='5fb1ba2fe1af06001770d981'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d981]={
@@ -134,13 +205,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d981]={
   max=4,
   description='Pedites',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba2fe1af06001770d980",
-}
-g_troop_option['5fb1ba2fe1af06001770d982']= {
-  min=0,
-  max=1,
-  description='Mercenary spearmen',
-  core='all',
 }
 g_str_5fb1ba2fe1af06001770d983='5fb1ba2fe1af06001770d983'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d983]={
@@ -150,13 +214,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d983]={
   max=1,
   description='Mercenary spearmen',
   troop_type="Spears",
-  troop_option_id="5fb1ba2fe1af06001770d982",
-}
-g_troop_option['5fb1ba2fe1af06001770d984']= {
-  min=0,
-  max=2,
-  description='Massed levy bowmen',
-  core='all',
 }
 g_str_5fb1ba2fe1af06001770d985='5fb1ba2fe1af06001770d985'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d985]={
@@ -166,12 +223,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d985]={
   max=2,
   description='Massed levy bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba2fe1af06001770d984",
-}
-g_troop_option['5fb1ba2fe1af06001770d986']= {
-  min=0,
-  max=1,
-  description='Crossbowmen or staff slingers',
 }
 g_str_5fb1ba2fe1af06001770d987='5fb1ba2fe1af06001770d987'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d987]={
@@ -181,7 +232,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d987]={
   max=1,
   description='Crossbowmen or staff slingers',
   troop_type="Archers",
-  troop_option_id="5fb1ba2fe1af06001770d986",
 }
 g_str_5fb1ba2fe1af06001770d988='5fb1ba2fe1af06001770d988'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d988]={
@@ -191,12 +241,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d988]={
   max=1,
   description='Crossbowmen or staff slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2fe1af06001770d986",
-}
-g_troop_option['5fb1ba2fe1af06001770d989']= {
-  min=0,
-  max=1,
-  description='Cottereaux',
 }
 g_str_5fb1ba2fe1af06001770d98a='5fb1ba2fe1af06001770d98a'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d98a]={
@@ -206,15 +250,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d98a]={
   max=1,
   description='Cottereaux',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2fe1af06001770d989",
-}
-g_troop_option['5fb1ba2fe1af06001770d98b']= {
-  min=0,
-  max=4,
-  description='Sicilian Greek infantry',
-  note='only Normans in Sicily',
-  startDate=1061,
-  endDate=1061,
 }
 g_str_5fb1ba2fe1af06001770d98d='5fb1ba2fe1af06001770d98d'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d98d]={
@@ -224,13 +259,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d98d]={
   max=4,
   description='Sicilian Greek infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2fe1af06001770d98b",
-}
-g_troop_option['5fb1ba2fe1af06001770d98e']= {
-  min=0,
-  max=2,
-  description='Servants, grooms, or peasants',
-  core='all',
 }
 g_str_5fb1ba2fe1af06001770d98f='5fb1ba2fe1af06001770d98f'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d98f]={
@@ -240,7 +268,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d98f]={
   max=2,
   description='Servants, grooms, or peasants',
   troop_type="Horde",
-  troop_option_id="5fb1ba2fe1af06001770d98e",
 }
 g_str_5fb1b9e4e1af060017709a53_camp='5fb1b9e4e1af060017709a53_camp'
 g_base_definitions[g_str_5fb1b9e4e1af060017709a53_camp]={
@@ -312,6 +339,7 @@ army['5fb1b9e4e1af060017709a53_888_1060']={
   g_base_definitions[g_str_5fb1ba2fe1af06001770d987],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d988],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d98a],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d98d],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d98f],
   g_base_definitions[g_str_5fb1b9e4e1af060017709a53_camp],
   g_base_definitions[g_str_5fb1b9e4e1af060017709a53_camp_pack_train],
@@ -363,6 +391,7 @@ army['5fb1b9e4e1af060017709a53_1062_1072']={
   g_base_definitions[g_str_5fb1ba2fe1af06001770d987],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d988],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d98a],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d98d],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d98f],
   g_base_definitions[g_str_5fb1b9e4e1af060017709a53_camp],
   g_base_definitions[g_str_5fb1b9e4e1af060017709a53_camp_pack_train],

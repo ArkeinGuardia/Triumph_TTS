@@ -11,6 +11,67 @@ g_troop_option['5fb1ba31e1af06001770dcb2']= {
   max=4,
   description='Men-at-arms',
 }
+g_troop_entry['5fb1ba31e1af06001770dcb3']= {
+  troop_option='5fb1ba31e1af06001770dcb2',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba31e1af06001770dcb5']= {
+  min=0,
+  max=1,
+  description='Hobilars',
+}
+g_troop_entry['5fb1ba31e1af06001770dcb6']= {
+  troop_option='5fb1ba31e1af06001770dcb5',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba31e1af06001770dcb8']= {
+  min=0,
+  max=1,
+  description='Welsh infantry',
+}
+g_troop_entry['5fb1ba31e1af06001770dcb9']= {
+  troop_option='5fb1ba31e1af06001770dcb8',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba31e1af06001770dcba']= {
+  min=4,
+  max=8,
+  description='English longbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dcbb']= {
+  troop_option='5fb1ba31e1af06001770dcba',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba31e1af06001770dcbd']= {
+  min=0,
+  max=2,
+  description='English and Welsh longbowmen or Gascon crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dcbe']= {
+  troop_option='5fb1ba31e1af06001770dcbd',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba31e1af06001770dcbf']= {
+  min=0,
+  max=1,
+  description='Gascon bidowers, Bretons, or Irish kerns',
+}
+g_troop_entry['5fb1ba31e1af06001770dcc0']= {
+  troop_option='5fb1ba31e1af06001770dcbf',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba31e1af06001770dcc1']= {
+  min=0,
+  max=1,
+  description='Gascon town militia and levied infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dcc2']= {
+  troop_option='5fb1ba31e1af06001770dcc1',
+  troopTypeCode='HFT',
+}
 g_str_5fb1ba31e1af06001770dcb3_general='5fb1ba31e1af06001770dcb3_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_general]={
   id=g_str_5fb1ba31e1af06001770dcb3_general,
@@ -20,7 +81,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_general]={
   description='Men-at-arms',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dcb2",
 }
 g_str_5fb1ba31e1af06001770dcb3_general_dismounted='5fb1ba31e1af06001770dcb3_general_dismounted'
 g_str_5fb1ba31e1af06001770dcb3_general_mounted='5fb1ba31e1af06001770dcb3_general_mounted'
@@ -34,7 +94,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_general_dismounted]={
   dismounted_from=g_str_5fb1ba31e1af06001770dcb3_general_mounted,
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770dcb2",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_general_mounted]={
   id=g_str_5fb1ba31e1af06001770dcb3_general_mounted,
@@ -47,7 +106,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dcb2",
 }
 g_str_5fb1ba31e1af06001770dcb3='5fb1ba31e1af06001770dcb3'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcb3]={
@@ -57,7 +115,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb3]={
   max=4,
   description='Men-at-arms',
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dcb2",
 }
 g_str_5fb1ba31e1af06001770dcb3_dismounted='5fb1ba31e1af06001770dcb3_dismounted'
 g_str_5fb1ba31e1af06001770dcb3_mounted='5fb1ba31e1af06001770dcb3_mounted'
@@ -70,7 +127,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba31e1af06001770dcb3_mounted,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770dcb2",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_mounted]={
   id=g_str_5fb1ba31e1af06001770dcb3_mounted,
@@ -82,12 +138,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb3_mounted]={
   dismount_as=g_str_5fb1ba31e1af06001770dcb3_dismounted,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dcb2",
-}
-g_troop_option['5fb1ba31e1af06001770dcb5']= {
-  min=0,
-  max=1,
-  description='Hobilars',
 }
 g_str_5fb1ba31e1af06001770dcb6='5fb1ba31e1af06001770dcb6'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcb6]={
@@ -97,7 +147,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb6]={
   max=1,
   description='Hobilars',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba31e1af06001770dcb5",
 }
 g_str_5fb1ba31e1af06001770dcb6_dismounted='5fb1ba31e1af06001770dcb6_dismounted'
 g_str_5fb1ba31e1af06001770dcb6_mounted='5fb1ba31e1af06001770dcb6_mounted'
@@ -109,7 +158,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb6_dismounted]={
   description='Hobilars\nMid-battle dismounted from Bad Horse',
   dismounted_from=g_str_5fb1ba31e1af06001770dcb6_mounted,
   troop_type="Light Spear",
-  troop_option_id="5fb1ba31e1af06001770dcb5",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dcb6_mounted]={
   id=g_str_5fb1ba31e1af06001770dcb6_mounted,
@@ -120,12 +168,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb6_mounted]={
   dismount_as=g_str_5fb1ba31e1af06001770dcb6_dismounted,
   mid_battle_dismounting=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba31e1af06001770dcb5",
-}
-g_troop_option['5fb1ba31e1af06001770dcb8']= {
-  min=0,
-  max=1,
-  description='Welsh infantry',
 }
 g_str_5fb1ba31e1af06001770dcb9='5fb1ba31e1af06001770dcb9'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcb9]={
@@ -135,13 +177,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcb9]={
   max=1,
   description='Welsh infantry',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba31e1af06001770dcb8",
-}
-g_troop_option['5fb1ba31e1af06001770dcba']= {
-  min=4,
-  max=8,
-  description='English longbowmen',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dcbb='5fb1ba31e1af06001770dcbb'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcbb]={
@@ -151,7 +186,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcbb]={
   max=8,
   description='English longbowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba31e1af06001770dcba",
 }
 g_str_5fb1ba31e1af06001770dcbb_dismounted_mobile_infantry='5fb1ba31e1af06001770dcbb_dismounted_mobile_infantry'
 g_str_5fb1ba31e1af06001770dcbb_mounted_mobile_infantry='5fb1ba31e1af06001770dcbb_mounted_mobile_infantry'
@@ -163,7 +197,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcbb_dismounted_mobile_infantry]={
   description='English longbowmen\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba31e1af06001770dcbb_mounted_mobile_infantry,
   troop_type="Archers",
-  troop_option_id="5fb1ba31e1af06001770dcba",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dcbb_mounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770dcbb_mounted_mobile_infantry,
@@ -174,13 +207,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcbb_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba31e1af06001770dcbb_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba31e1af06001770dcba",
-}
-g_troop_option['5fb1ba31e1af06001770dcbd']= {
-  min=0,
-  max=2,
-  description='English and Welsh longbowmen or Gascon crossbowmen',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dcbe='5fb1ba31e1af06001770dcbe'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcbe]={
@@ -190,12 +216,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcbe]={
   max=2,
   description='English and Welsh longbowmen or Gascon crossbowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba31e1af06001770dcbd",
-}
-g_troop_option['5fb1ba31e1af06001770dcbf']= {
-  min=0,
-  max=1,
-  description='Gascon bidowers, Bretons, or Irish kerns',
 }
 g_str_5fb1ba31e1af06001770dcc0='5fb1ba31e1af06001770dcc0'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcc0]={
@@ -205,13 +225,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcc0]={
   max=1,
   description='Gascon bidowers, Bretons, or Irish kerns',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba31e1af06001770dcbf",
-}
-g_troop_option['5fb1ba31e1af06001770dcc1']= {
-  min=0,
-  max=1,
-  description='Gascon town militia and levied infantry',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dcc2='5fb1ba31e1af06001770dcc2'
 g_base_definitions[g_str_5fb1ba31e1af06001770dcc2]={
@@ -221,7 +234,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcc2]={
   max=1,
   description='Gascon town militia and levied infantry',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770dcc1",
 }
 g_str_5fb1ba31e1af06001770dcc2_dismounted_mobile_infantry='5fb1ba31e1af06001770dcc2_dismounted_mobile_infantry'
 g_str_5fb1ba31e1af06001770dcc2_mounted_mobile_infantry='5fb1ba31e1af06001770dcc2_mounted_mobile_infantry'
@@ -233,7 +245,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcc2_dismounted_mobile_infantry]={
   description='Gascon town militia and levied infantry\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba31e1af06001770dcc2_mounted_mobile_infantry,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770dcc1",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dcc2_mounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770dcc2_mounted_mobile_infantry,
@@ -244,7 +255,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dcc2_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba31e1af06001770dcc2_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770dcc1",
 }
 g_str_5fb1b9e6e1af060017709b2a_camp='5fb1b9e6e1af060017709b2a_camp'
 g_base_definitions[g_str_5fb1b9e6e1af060017709b2a_camp]={

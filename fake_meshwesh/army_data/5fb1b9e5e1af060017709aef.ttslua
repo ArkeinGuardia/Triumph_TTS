@@ -12,6 +12,67 @@ g_troop_option['5fb1ba31e1af06001770dbb9']= {
   description='Scottish men-at-arms',
   core='all',
 }
+g_troop_entry['5fb1ba31e1af06001770dbba']= {
+  troop_option='5fb1ba31e1af06001770dbb9',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba31e1af06001770dbbc']= {
+  min=2,
+  max=6,
+  description='Scottish spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dbbd']= {
+  troop_option='5fb1ba31e1af06001770dbbc',
+  troopTypeCode='PIK',
+}
+g_troop_option['5fb1ba31e1af06001770dbbe']= {
+  min=1,
+  max=3,
+  description='Irish horsemen armed with javelins',
+}
+g_troop_entry['5fb1ba31e1af06001770dbbf']= {
+  troop_option='5fb1ba31e1af06001770dbbe',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba31e1af06001770dbc1']= {
+  min=0,
+  max=3,
+  description='Galloglaich',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dbc2']= {
+  troop_option='5fb1ba31e1af06001770dbc1',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba31e1af06001770dbc3']= {
+  min=4,
+  max=8,
+  description='Kern javelinmen',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dbc4']= {
+  troop_option='5fb1ba31e1af06001770dbc3',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba31e1af06001770dbc5']= {
+  min=1,
+  max=2,
+  description='Kern bowmen and slingers',
+}
+g_troop_entry['5fb1ba31e1af06001770dbc6']= {
+  troop_option='5fb1ba31e1af06001770dbc5',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba31e1af06001770dbc7']= {
+  min=0,
+  max=10,
+  description='\'Rising out\'',
+}
+g_troop_entry['5fb1ba31e1af06001770dbc8']= {
+  troop_option='5fb1ba31e1af06001770dbc7',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba31e1af06001770dbba_general='5fb1ba31e1af06001770dbba_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbba_general]={
   id=g_str_5fb1ba31e1af06001770dbba_general,
@@ -21,7 +82,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbba_general]={
   description='Scottish men-at-arms',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dbb9",
 }
 g_str_5fb1ba31e1af06001770dbba_general_dismounted='5fb1ba31e1af06001770dbba_general_dismounted'
 g_str_5fb1ba31e1af06001770dbba_general_mounted='5fb1ba31e1af06001770dbba_general_mounted'
@@ -35,7 +95,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbba_general_dismounted]={
   dismounted_from=g_str_5fb1ba31e1af06001770dbba_general_mounted,
   general=true,
   troop_type="Pikes",
-  troop_option_id="5fb1ba31e1af06001770dbb9",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dbba_general_mounted]={
   id=g_str_5fb1ba31e1af06001770dbba_general_mounted,
@@ -48,7 +107,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbba_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dbb9",
 }
 g_str_5fb1ba31e1af06001770dbba='5fb1ba31e1af06001770dbba'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbba]={
@@ -58,7 +116,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbba]={
   max=1,
   description='Scottish men-at-arms',
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dbb9",
 }
 g_str_5fb1ba31e1af06001770dbba_dismounted='5fb1ba31e1af06001770dbba_dismounted'
 g_str_5fb1ba31e1af06001770dbba_mounted='5fb1ba31e1af06001770dbba_mounted'
@@ -71,7 +128,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbba_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba31e1af06001770dbba_mounted,
   troop_type="Pikes",
-  troop_option_id="5fb1ba31e1af06001770dbb9",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dbba_mounted]={
   id=g_str_5fb1ba31e1af06001770dbba_mounted,
@@ -83,13 +139,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbba_mounted]={
   dismount_as=g_str_5fb1ba31e1af06001770dbba_dismounted,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dbb9",
-}
-g_troop_option['5fb1ba31e1af06001770dbbc']= {
-  min=2,
-  max=6,
-  description='Scottish spearmen',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dbbd_general='5fb1ba31e1af06001770dbbd_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbbd_general]={
@@ -100,7 +149,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbbd_general]={
   description='Scottish spearmen',
   general=true,
   troop_type="Pikes",
-  troop_option_id="5fb1ba31e1af06001770dbbc",
 }
 g_str_5fb1ba31e1af06001770dbbd='5fb1ba31e1af06001770dbbd'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbbd]={
@@ -110,12 +158,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbbd]={
   max=6,
   description='Scottish spearmen',
   troop_type="Pikes",
-  troop_option_id="5fb1ba31e1af06001770dbbc",
-}
-g_troop_option['5fb1ba31e1af06001770dbbe']= {
-  min=1,
-  max=3,
-  description='Irish horsemen armed with javelins',
 }
 g_str_5fb1ba31e1af06001770dbbf='5fb1ba31e1af06001770dbbf'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbbf]={
@@ -125,7 +167,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbbf]={
   max=3,
   description='Irish horsemen armed with javelins',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba31e1af06001770dbbe",
 }
 g_str_5fb1ba31e1af06001770dbbf_dismounted='5fb1ba31e1af06001770dbbf_dismounted'
 g_str_5fb1ba31e1af06001770dbbf_mounted='5fb1ba31e1af06001770dbbf_mounted'
@@ -137,7 +178,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbbf_dismounted]={
   description='Irish horsemen armed with javelins\nMid-battle dismounted from Javelin Cavalry',
   dismounted_from=g_str_5fb1ba31e1af06001770dbbf_mounted,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba31e1af06001770dbbe",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dbbf_mounted]={
   id=g_str_5fb1ba31e1af06001770dbbf_mounted,
@@ -148,13 +188,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbbf_mounted]={
   dismount_as=g_str_5fb1ba31e1af06001770dbbf_dismounted,
   mid_battle_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba31e1af06001770dbbe",
-}
-g_troop_option['5fb1ba31e1af06001770dbc1']= {
-  min=0,
-  max=3,
-  description='Galloglaich',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dbc2='5fb1ba31e1af06001770dbc2'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbc2]={
@@ -164,13 +197,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbc2]={
   max=3,
   description='Galloglaich',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770dbc1",
-}
-g_troop_option['5fb1ba31e1af06001770dbc3']= {
-  min=4,
-  max=8,
-  description='Kern javelinmen',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dbc4='5fb1ba31e1af06001770dbc4'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbc4]={
@@ -180,12 +206,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbc4]={
   max=8,
   description='Kern javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba31e1af06001770dbc3",
-}
-g_troop_option['5fb1ba31e1af06001770dbc5']= {
-  min=1,
-  max=2,
-  description='Kern bowmen and slingers',
 }
 g_str_5fb1ba31e1af06001770dbc6='5fb1ba31e1af06001770dbc6'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbc6]={
@@ -195,12 +215,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbc6]={
   max=2,
   description='Kern bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba31e1af06001770dbc5",
-}
-g_troop_option['5fb1ba31e1af06001770dbc7']= {
-  min=0,
-  max=10,
-  description='\'Rising out\'',
 }
 g_str_5fb1ba31e1af06001770dbc8='5fb1ba31e1af06001770dbc8'
 g_base_definitions[g_str_5fb1ba31e1af06001770dbc8]={
@@ -210,7 +224,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dbc8]={
   max=10,
   description='\'Rising out\'',
   troop_type="Rabble",
-  troop_option_id="5fb1ba31e1af06001770dbc7",
 }
 g_str_5fb1b9e5e1af060017709aef_camp='5fb1b9e5e1af060017709aef_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709aef_camp]={

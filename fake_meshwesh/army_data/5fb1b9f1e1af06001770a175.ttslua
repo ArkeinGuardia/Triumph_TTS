@@ -14,6 +14,28 @@ g_troop_option['5fb1ba3ee1af06001770f57e']= {
   startDate=-10,
   endDate=70,
 }
+g_troop_entry['5fb1ba3ee1af06001770f580']= {
+  troop_option='5fb1ba3ee1af06001770f57e',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3ee1af06001770f581']= {
+  min=5,
+  max=12,
+  description='Horse archers',
+}
+g_troop_entry['5fb1ba3ee1af06001770f582']= {
+  troop_option='5fb1ba3ee1af06001770f581',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ee1af06001770f583']= {
+  min=0,
+  max=1,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba3ee1af06001770f584']= {
+  troop_option='5fb1ba3ee1af06001770f583',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba3ee1af06001770f580_general='5fb1ba3ee1af06001770f580_general'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f580_general]={
   id=g_str_5fb1ba3ee1af06001770f580_general,
@@ -23,7 +45,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f580_general]={
   description='Noble armored horsemen',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ee1af06001770f57e",
 }
 g_str_5fb1ba3ee1af06001770f580='5fb1ba3ee1af06001770f580'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f580]={
@@ -33,12 +54,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f580]={
   max=2,
   description='Noble armored horsemen',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ee1af06001770f57e",
-}
-g_troop_option['5fb1ba3ee1af06001770f581']= {
-  min=5,
-  max=12,
-  description='Horse archers',
 }
 g_str_5fb1ba3ee1af06001770f582_general='5fb1ba3ee1af06001770f582_general'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f582_general]={
@@ -49,7 +64,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f582_general]={
   description='Horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ee1af06001770f581",
 }
 g_str_5fb1ba3ee1af06001770f582='5fb1ba3ee1af06001770f582'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f582]={
@@ -59,12 +73,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f582]={
   max=12,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ee1af06001770f581",
-}
-g_troop_option['5fb1ba3ee1af06001770f583']= {
-  min=0,
-  max=1,
-  description='Skirmishing slingers',
 }
 g_str_5fb1ba3ee1af06001770f584='5fb1ba3ee1af06001770f584'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f584]={
@@ -74,7 +82,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f584]={
   max=1,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3ee1af06001770f583",
 }
 g_str_5fb1b9f1e1af06001770a175_camp='5fb1b9f1e1af06001770a175_camp'
 g_base_definitions[g_str_5fb1b9f1e1af06001770a175_camp]={
@@ -113,7 +120,6 @@ g_base_definitions[g_str_5fb1ba17e1af06001770b968]={
   max=4,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba17e1af06001770b967",
 }
 g_str_5fb1ba17e1af06001770b96a='5fb1ba17e1af06001770b96a'
 g_base_definitions[g_str_5fb1ba17e1af06001770b96a]={
@@ -123,7 +129,6 @@ g_base_definitions[g_str_5fb1ba17e1af06001770b96a]={
   max=3,
   description='Other tribal or subject tribe infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba17e1af06001770b969",
 }
 g_str_5fb1ba17e1af06001770b96b='5fb1ba17e1af06001770b96b'
 g_base_definitions[g_str_5fb1ba17e1af06001770b96b]={
@@ -133,7 +138,6 @@ g_base_definitions[g_str_5fb1ba17e1af06001770b96b]={
   max=3,
   description='Other tribal or subject tribe infantry',
   troop_type="Horde",
-  troop_option_id="5fb1ba17e1af06001770b969",
 }
 army['5fb1b9f1e1af06001770a175']={
   data={
@@ -163,6 +167,8 @@ army['5fb1b9f1e1af06001770a175_-400_-11']={
     id='5fb1b9f1e1af06001770a175_-400_-11',
     army_id='5fb1b9f1e1af06001770a175'
   },
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f580_general],
+  g_base_definitions[g_str_5fb1ba3ee1af06001770f580],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f582_general],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f582],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f584],

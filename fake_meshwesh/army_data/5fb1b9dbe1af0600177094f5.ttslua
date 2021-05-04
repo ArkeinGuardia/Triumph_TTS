@@ -11,6 +11,70 @@ g_troop_option['5fb1ba25e1af06001770c5cd']= {
   max=1,
   description='Horsemen',
 }
+g_troop_entry['5fb1ba25e1af06001770c5ce']= {
+  troop_option='5fb1ba25e1af06001770c5cd',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba25e1af06001770c5cf']= {
+  min=6,
+  max=16,
+  description='Hoplites',
+  core='all',
+}
+g_troop_entry['5fb1ba25e1af06001770c5d0']= {
+  troop_option='5fb1ba25e1af06001770c5cf',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba25e1af06001770c5d1']= {
+  min=0,
+  max=1,
+  description='Skirmishing bowmen and slingers',
+}
+g_troop_entry['5fb1ba25e1af06001770c5d2']= {
+  troop_option='5fb1ba25e1af06001770c5d1',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba25e1af06001770c5d3']= {
+  min=0,
+  max=2,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba25e1af06001770c5d4']= {
+  troop_option='5fb1ba25e1af06001770c5d3',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba25e1af06001770c5d5']= {
+  min=0,
+  max=2,
+  description='Sicel tribesmen',
+  note='only Syracusan Siciliot tyrant',
+}
+g_troop_entry['5fb1ba25e1af06001770c5d6']= {
+  troop_option='5fb1ba25e1af06001770c5d5',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba25e1af06001770c5d7']= {
+  min=0,
+  max=6,
+  description='Sicel tribesmen',
+  note='only Syracusan democratic army',
+  startDate=-461,
+  endDate=-461,
+}
+g_troop_entry['5fb1ba25e1af06001770c5d9']= {
+  troop_option='5fb1ba25e1af06001770c5d7',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba25e1af06001770c5da']= {
+  min=0,
+  max=1,
+  description='War dogs',
+  note='only Ionian',
+}
+g_troop_entry['5fb1ba25e1af06001770c5db']= {
+  troop_option='5fb1ba25e1af06001770c5da',
+  troopTypeCode='WBD',
+}
 g_str_5fb1ba25e1af06001770c5ce_general='5fb1ba25e1af06001770c5ce_general'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5ce_general]={
   id=g_str_5fb1ba25e1af06001770c5ce_general,
@@ -20,7 +84,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5ce_general]={
   description='Horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba25e1af06001770c5cd",
 }
 g_str_5fb1ba25e1af06001770c5ce='5fb1ba25e1af06001770c5ce'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5ce]={
@@ -30,13 +93,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5ce]={
   max=1,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba25e1af06001770c5cd",
-}
-g_troop_option['5fb1ba25e1af06001770c5cf']= {
-  min=6,
-  max=16,
-  description='Hoplites',
-  core='all',
 }
 g_str_5fb1ba25e1af06001770c5d0_general='5fb1ba25e1af06001770c5d0_general'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5d0_general]={
@@ -47,7 +103,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5d0_general]={
   description='Hoplites',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba25e1af06001770c5cf",
 }
 g_str_5fb1ba25e1af06001770c5d0='5fb1ba25e1af06001770c5d0'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5d0]={
@@ -57,12 +112,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5d0]={
   max=16,
   description='Hoplites',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba25e1af06001770c5cf",
-}
-g_troop_option['5fb1ba25e1af06001770c5d1']= {
-  min=0,
-  max=1,
-  description='Skirmishing bowmen and slingers',
 }
 g_str_5fb1ba25e1af06001770c5d2='5fb1ba25e1af06001770c5d2'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5d2]={
@@ -72,12 +121,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5d2]={
   max=1,
   description='Skirmishing bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba25e1af06001770c5d1",
-}
-g_troop_option['5fb1ba25e1af06001770c5d3']= {
-  min=0,
-  max=2,
-  description='Javelinmen',
 }
 g_str_5fb1ba25e1af06001770c5d4='5fb1ba25e1af06001770c5d4'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5d4]={
@@ -87,13 +130,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5d4]={
   max=2,
   description='Javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba25e1af06001770c5d3",
-}
-g_troop_option['5fb1ba25e1af06001770c5d5']= {
-  min=0,
-  max=2,
-  description='Sicel tribesmen',
-  note='only Syracusan Siciliot tyrant',
 }
 g_str_5fb1ba25e1af06001770c5d6='5fb1ba25e1af06001770c5d6'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5d6]={
@@ -103,15 +139,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5d6]={
   max=2,
   description='Sicel tribesmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba25e1af06001770c5d5",
-}
-g_troop_option['5fb1ba25e1af06001770c5d7']= {
-  min=0,
-  max=6,
-  description='Sicel tribesmen',
-  note='only Syracusan democratic army',
-  startDate=-461,
-  endDate=-461,
 }
 g_str_5fb1ba25e1af06001770c5d9='5fb1ba25e1af06001770c5d9'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5d9]={
@@ -121,13 +148,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5d9]={
   max=6,
   description='Sicel tribesmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba25e1af06001770c5d7",
-}
-g_troop_option['5fb1ba25e1af06001770c5da']= {
-  min=0,
-  max=1,
-  description='War dogs',
-  note='only Ionian',
 }
 g_str_5fb1ba25e1af06001770c5db='5fb1ba25e1af06001770c5db'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5db]={
@@ -137,7 +157,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5db]={
   max=1,
   description='War dogs',
   troop_type="Warband",
-  troop_option_id="5fb1ba25e1af06001770c5da",
 }
 g_str_5fb1b9dbe1af0600177094f5_camp='5fb1b9dbe1af0600177094f5_camp'
 g_base_definitions[g_str_5fb1b9dbe1af0600177094f5_camp]={
@@ -182,6 +201,7 @@ army['5fb1b9dbe1af0600177094f5_-669_-462']={
   g_base_definitions[g_str_5fb1ba25e1af06001770c5d2],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5d4],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5d6],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c5d9],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5db],
   g_base_definitions[g_str_5fb1b9dbe1af0600177094f5_camp],
 }
@@ -215,6 +235,7 @@ army['5fb1b9dbe1af0600177094f5_-460_-449']={
   g_base_definitions[g_str_5fb1ba25e1af06001770c5d2],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5d4],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5d6],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c5d9],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5db],
   g_base_definitions[g_str_5fb1b9dbe1af0600177094f5_camp],
 }

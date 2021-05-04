@@ -11,6 +11,57 @@ g_troop_option['5fb1ba2ee1af06001770d7a9']= {
   max=1,
   description='Frankish noble horsemen',
 }
+g_troop_entry['5fb1ba2ee1af06001770d7aa']= {
+  troop_option='5fb1ba2ee1af06001770d7a9',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba2ee1af06001770d7ac']= {
+  min=1,
+  max=2,
+  description='Gallo-Roman noble horsemen',
+}
+g_troop_entry['5fb1ba2ee1af06001770d7ad']= {
+  troop_option='5fb1ba2ee1af06001770d7ac',
+  troopTypeCode='KNT',
+  note='all',
+}
+g_troop_entry['5fb1ba2ee1af06001770d7ae']= {
+  troop_option='5fb1ba2ee1af06001770d7ac',
+  troopTypeCode='JCV',
+  note='all',
+}
+g_troop_option['5fb1ba2ee1af06001770d7b0']= {
+  min=8,
+  max=14,
+  description='Gallo-Roman infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba2ee1af06001770d7b1']= {
+  troop_option='5fb1ba2ee1af06001770d7b0',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba2ee1af06001770d7b2']= {
+  min=0,
+  max=1,
+  description='Tribal skirmishing bowmen',
+}
+g_troop_entry['5fb1ba2ee1af06001770d7b3']= {
+  troop_option='5fb1ba2ee1af06001770d7b2',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba2ee1af06001770d7b4']= {
+  min=0,
+  max=2,
+  description='Basque javelinmen or skirmishing slingers',
+}
+g_troop_entry['5fb1ba2ee1af06001770d7b5']= {
+  troop_option='5fb1ba2ee1af06001770d7b4',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba2ee1af06001770d7b6']= {
+  troop_option='5fb1ba2ee1af06001770d7b4',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba2ee1af06001770d7aa_general='5fb1ba2ee1af06001770d7aa_general'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa_general]={
   id=g_str_5fb1ba2ee1af06001770d7aa_general,
@@ -20,7 +71,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa_general]={
   description='Frankish noble horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7a9",
 }
 g_str_5fb1ba2ee1af06001770d7aa_general_dismounted='5fb1ba2ee1af06001770d7aa_general_dismounted'
 g_str_5fb1ba2ee1af06001770d7aa_general_mounted='5fb1ba2ee1af06001770d7aa_general_mounted'
@@ -34,7 +84,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa_general_dismounted]={
   dismounted_from=g_str_5fb1ba2ee1af06001770d7aa_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d7a9",
 }
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa_general_mounted]={
   id=g_str_5fb1ba2ee1af06001770d7aa_general_mounted,
@@ -47,7 +96,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7a9",
 }
 g_str_5fb1ba2ee1af06001770d7aa='5fb1ba2ee1af06001770d7aa'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa]={
@@ -57,7 +105,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa]={
   max=1,
   description='Frankish noble horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7a9",
 }
 g_str_5fb1ba2ee1af06001770d7aa_dismounted='5fb1ba2ee1af06001770d7aa_dismounted'
 g_str_5fb1ba2ee1af06001770d7aa_mounted='5fb1ba2ee1af06001770d7aa_mounted'
@@ -70,7 +117,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba2ee1af06001770d7aa_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d7a9",
 }
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa_mounted]={
   id=g_str_5fb1ba2ee1af06001770d7aa_mounted,
@@ -82,12 +128,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7aa_mounted]={
   dismount_as=g_str_5fb1ba2ee1af06001770d7aa_dismounted,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7a9",
-}
-g_troop_option['5fb1ba2ee1af06001770d7ac']= {
-  min=1,
-  max=2,
-  description='Gallo-Roman noble horsemen',
 }
 g_str_5fb1ba2ee1af06001770d7ad_general='5fb1ba2ee1af06001770d7ad_general'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad_general]={
@@ -98,7 +138,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad_general]={
   description='Gallo-Roman noble horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_str_5fb1ba2ee1af06001770d7ad_general_dismounted='5fb1ba2ee1af06001770d7ad_general_dismounted'
 g_str_5fb1ba2ee1af06001770d7ad_general_mounted='5fb1ba2ee1af06001770d7ad_general_mounted'
@@ -112,7 +151,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad_general_dismounted]={
   dismounted_from=g_str_5fb1ba2ee1af06001770d7ad_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad_general_mounted]={
   id=g_str_5fb1ba2ee1af06001770d7ad_general_mounted,
@@ -125,7 +163,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_str_5fb1ba2ee1af06001770d7ad='5fb1ba2ee1af06001770d7ad'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad]={
@@ -135,7 +172,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad]={
   max=2,
   description='Gallo-Roman noble horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_str_5fb1ba2ee1af06001770d7ad_dismounted='5fb1ba2ee1af06001770d7ad_dismounted'
 g_str_5fb1ba2ee1af06001770d7ad_mounted='5fb1ba2ee1af06001770d7ad_mounted'
@@ -148,7 +184,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba2ee1af06001770d7ad_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad_mounted]={
   id=g_str_5fb1ba2ee1af06001770d7ad_mounted,
@@ -160,7 +195,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ad_mounted]={
   dismount_as=g_str_5fb1ba2ee1af06001770d7ad_dismounted,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_str_5fb1ba2ee1af06001770d7ae_general='5fb1ba2ee1af06001770d7ae_general'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae_general]={
@@ -171,7 +205,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae_general]={
   description='Gallo-Roman noble horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_str_5fb1ba2ee1af06001770d7ae_general_dismounted='5fb1ba2ee1af06001770d7ae_general_dismounted'
 g_str_5fb1ba2ee1af06001770d7ae_general_mounted='5fb1ba2ee1af06001770d7ae_general_mounted'
@@ -185,7 +218,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae_general_dismounted]={
   dismounted_from=g_str_5fb1ba2ee1af06001770d7ae_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae_general_mounted]={
   id=g_str_5fb1ba2ee1af06001770d7ae_general_mounted,
@@ -198,7 +230,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_str_5fb1ba2ee1af06001770d7ae='5fb1ba2ee1af06001770d7ae'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae]={
@@ -208,7 +239,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae]={
   max=2,
   description='Gallo-Roman noble horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_str_5fb1ba2ee1af06001770d7ae_dismounted='5fb1ba2ee1af06001770d7ae_dismounted'
 g_str_5fb1ba2ee1af06001770d7ae_mounted='5fb1ba2ee1af06001770d7ae_mounted'
@@ -221,7 +251,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba2ee1af06001770d7ae_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
 }
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae_mounted]={
   id=g_str_5fb1ba2ee1af06001770d7ae_mounted,
@@ -233,13 +262,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7ae_mounted]={
   dismount_as=g_str_5fb1ba2ee1af06001770d7ae_dismounted,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ee1af06001770d7ac",
-}
-g_troop_option['5fb1ba2ee1af06001770d7b0']= {
-  min=8,
-  max=14,
-  description='Gallo-Roman infantry',
-  core='all',
 }
 g_str_5fb1ba2ee1af06001770d7b1='5fb1ba2ee1af06001770d7b1'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7b1]={
@@ -249,12 +271,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7b1]={
   max=14,
   description='Gallo-Roman infantry',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba2ee1af06001770d7b0",
-}
-g_troop_option['5fb1ba2ee1af06001770d7b2']= {
-  min=0,
-  max=1,
-  description='Tribal skirmishing bowmen',
 }
 g_str_5fb1ba2ee1af06001770d7b3='5fb1ba2ee1af06001770d7b3'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7b3]={
@@ -264,12 +280,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7b3]={
   max=1,
   description='Tribal skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2ee1af06001770d7b2",
-}
-g_troop_option['5fb1ba2ee1af06001770d7b4']= {
-  min=0,
-  max=2,
-  description='Basque javelinmen or skirmishing slingers',
 }
 g_str_5fb1ba2ee1af06001770d7b5='5fb1ba2ee1af06001770d7b5'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7b5]={
@@ -279,7 +289,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7b5]={
   max=2,
   description='Basque javelinmen or skirmishing slingers',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2ee1af06001770d7b4",
 }
 g_str_5fb1ba2ee1af06001770d7b6='5fb1ba2ee1af06001770d7b6'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7b6]={
@@ -289,7 +298,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7b6]={
   max=2,
   description='Basque javelinmen or skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2ee1af06001770d7b4",
 }
 g_str_5fb1b9e3e1af0600177099b8_camp='5fb1b9e3e1af0600177099b8_camp'
 g_base_definitions[g_str_5fb1b9e3e1af0600177099b8_camp]={

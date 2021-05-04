@@ -12,6 +12,52 @@ g_troop_option['5fb1ba2ae1af06001770d0ff']= {
   description='Cataphracts',
   core='all',
 }
+g_troop_entry['5fb1ba2ae1af06001770d100']= {
+  troop_option='5fb1ba2ae1af06001770d0ff',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba2ae1af06001770d102']= {
+  min=2,
+  max=8,
+  description='Horse archers',
+}
+g_troop_entry['5fb1ba2ae1af06001770d103']= {
+  troop_option='5fb1ba2ae1af06001770d102',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba2ae1af06001770d104']= {
+  min=2,
+  max=8,
+  description='Levy bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d105']= {
+  troop_option='5fb1ba2ae1af06001770d104',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba2ae1af06001770d106']= {
+  min=0,
+  max=2,
+  description='City garrisons or militia',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d107']= {
+  troop_option='5fb1ba2ae1af06001770d106',
+  troopTypeCode='RBL',
+}
+g_troop_entry['5fb1ba2ae1af06001770d108']= {
+  troop_option='5fb1ba2ae1af06001770d106',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba2ae1af06001770d109']= {
+  min=0,
+  max=5,
+  description='City dwellers skirmishing with javelins, bows or slings',
+}
+g_troop_entry['5fb1ba2ae1af06001770d10a']= {
+  troop_option='5fb1ba2ae1af06001770d109',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba2ae1af06001770d100_general='5fb1ba2ae1af06001770d100_general'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d100_general]={
   id=g_str_5fb1ba2ae1af06001770d100_general,
@@ -21,7 +67,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d100_general]={
   description='Cataphracts',
   general=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba2ae1af06001770d0ff",
 }
 g_str_5fb1ba2ae1af06001770d100_general_armored_camelry='5fb1ba2ae1af06001770d100_general_armored_camelry'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d100_general_armored_camelry]={
@@ -33,7 +78,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d100_general_armored_camelry]={
   general=true,
   armored_camelry=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba2ae1af06001770d0ff",
 }
 g_str_5fb1ba2ae1af06001770d100='5fb1ba2ae1af06001770d100'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d100]={
@@ -43,7 +87,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d100]={
   max=4,
   description='Cataphracts',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba2ae1af06001770d0ff",
 }
 g_str_5fb1ba2ae1af06001770d100_armored_camelry='5fb1ba2ae1af06001770d100_armored_camelry'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d100_armored_camelry]={
@@ -54,12 +97,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d100_armored_camelry]={
   description='Cataphracts\nArmored Camelry',
   armored_camelry=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba2ae1af06001770d0ff",
-}
-g_troop_option['5fb1ba2ae1af06001770d102']= {
-  min=2,
-  max=8,
-  description='Horse archers',
 }
 g_str_5fb1ba2ae1af06001770d103='5fb1ba2ae1af06001770d103'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d103]={
@@ -69,13 +106,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d103]={
   max=8,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2ae1af06001770d102",
-}
-g_troop_option['5fb1ba2ae1af06001770d104']= {
-  min=2,
-  max=8,
-  description='Levy bowmen',
-  core='all',
 }
 g_str_5fb1ba2ae1af06001770d105='5fb1ba2ae1af06001770d105'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d105]={
@@ -85,13 +115,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d105]={
   max=8,
   description='Levy bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba2ae1af06001770d104",
-}
-g_troop_option['5fb1ba2ae1af06001770d106']= {
-  min=0,
-  max=2,
-  description='City garrisons or militia',
-  core='all',
 }
 g_str_5fb1ba2ae1af06001770d107='5fb1ba2ae1af06001770d107'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d107]={
@@ -101,7 +124,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d107]={
   max=2,
   description='City garrisons or militia',
   troop_type="Rabble",
-  troop_option_id="5fb1ba2ae1af06001770d106",
 }
 g_str_5fb1ba2ae1af06001770d108='5fb1ba2ae1af06001770d108'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d108]={
@@ -111,12 +133,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d108]={
   max=2,
   description='City garrisons or militia',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba2ae1af06001770d106",
-}
-g_troop_option['5fb1ba2ae1af06001770d109']= {
-  min=0,
-  max=5,
-  description='City dwellers skirmishing with javelins, bows or slings',
 }
 g_str_5fb1ba2ae1af06001770d10a='5fb1ba2ae1af06001770d10a'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d10a]={
@@ -126,7 +142,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d10a]={
   max=5,
   description='City dwellers skirmishing with javelins, bows or slings',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2ae1af06001770d109",
 }
 g_str_5fb1b9e0e1af0600177097c8_camp='5fb1b9e0e1af0600177097c8_camp'
 g_base_definitions[g_str_5fb1b9e0e1af0600177097c8_camp]={

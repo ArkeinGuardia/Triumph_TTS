@@ -12,6 +12,51 @@ g_troop_option['5fb1ba43e1af06001770fd7f']= {
   description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
   core='all',
 }
+g_troop_entry['5fb1ba43e1af06001770fd80']= {
+  troop_option='5fb1ba43e1af06001770fd7f',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba43e1af06001770fd81']= {
+  troop_option='5fb1ba43e1af06001770fd7f',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba43e1af06001770fd82']= {
+  min=4,
+  max=8,
+  description='Commoners armed with mixed long spears and atlatls',
+  core='all',
+}
+g_troop_entry['5fb1ba43e1af06001770fd83']= {
+  troop_option='5fb1ba43e1af06001770fd82',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba43e1af06001770fd84']= {
+  min=2,
+  max=6,
+  description='Disaffected commoners',
+}
+g_troop_entry['5fb1ba43e1af06001770fd85']= {
+  troop_option='5fb1ba43e1af06001770fd84',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba43e1af06001770fd86']= {
+  min=0,
+  max=4,
+  description='Skirmishing groups of commoners armed with atlatls',
+}
+g_troop_entry['5fb1ba43e1af06001770fd87']= {
+  troop_option='5fb1ba43e1af06001770fd86',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba43e1af06001770fd88']= {
+  min=1,
+  max=4,
+  description='Peasant skirmishing slingers',
+}
+g_troop_entry['5fb1ba43e1af06001770fd89']= {
+  troop_option='5fb1ba43e1af06001770fd88',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba43e1af06001770fd80_general='5fb1ba43e1af06001770fd80_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd80_general]={
   id=g_str_5fb1ba43e1af06001770fd80_general,
@@ -21,7 +66,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd80_general]={
   description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd7f",
 }
 g_str_5fb1ba43e1af06001770fd80='5fb1ba43e1af06001770fd80'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd80]={
@@ -31,7 +75,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd80]={
   max=4,
   description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd7f",
 }
 g_str_5fb1ba43e1af06001770fd81_general='5fb1ba43e1af06001770fd81_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd81_general]={
@@ -42,7 +85,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd81_general]={
   description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba43e1af06001770fd7f",
 }
 g_str_5fb1ba43e1af06001770fd81='5fb1ba43e1af06001770fd81'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd81]={
@@ -52,13 +94,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd81]={
   max=4,
   description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba43e1af06001770fd7f",
-}
-g_troop_option['5fb1ba43e1af06001770fd82']= {
-  min=4,
-  max=8,
-  description='Commoners armed with mixed long spears and atlatls',
-  core='all',
 }
 g_str_5fb1ba43e1af06001770fd83_general='5fb1ba43e1af06001770fd83_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd83_general]={
@@ -69,7 +104,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd83_general]={
   description='Commoners armed with mixed long spears and atlatls',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd82",
 }
 g_str_5fb1ba43e1af06001770fd83='5fb1ba43e1af06001770fd83'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd83]={
@@ -79,12 +113,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd83]={
   max=8,
   description='Commoners armed with mixed long spears and atlatls',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd82",
-}
-g_troop_option['5fb1ba43e1af06001770fd84']= {
-  min=2,
-  max=6,
-  description='Disaffected commoners',
 }
 g_str_5fb1ba43e1af06001770fd85='5fb1ba43e1af06001770fd85'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd85]={
@@ -94,12 +122,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd85]={
   max=6,
   description='Disaffected commoners',
   troop_type="Rabble",
-  troop_option_id="5fb1ba43e1af06001770fd84",
-}
-g_troop_option['5fb1ba43e1af06001770fd86']= {
-  min=0,
-  max=4,
-  description='Skirmishing groups of commoners armed with atlatls',
 }
 g_str_5fb1ba43e1af06001770fd87='5fb1ba43e1af06001770fd87'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd87]={
@@ -109,12 +131,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd87]={
   max=4,
   description='Skirmishing groups of commoners armed with atlatls',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba43e1af06001770fd86",
-}
-g_troop_option['5fb1ba43e1af06001770fd88']= {
-  min=1,
-  max=4,
-  description='Peasant skirmishing slingers',
 }
 g_str_5fb1ba43e1af06001770fd89='5fb1ba43e1af06001770fd89'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd89]={
@@ -124,7 +140,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd89]={
   max=4,
   description='Peasant skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba43e1af06001770fd88",
 }
 g_str_5fb1b9f5e1af06001770a3d4_camp='5fb1b9f5e1af06001770a3d4_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a3d4_camp]={

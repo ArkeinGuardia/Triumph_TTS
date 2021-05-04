@@ -11,6 +11,42 @@ g_troop_option['5fb1ba36e1af06001770e69a']= {
   max=2,
   description='Fraelse and Smaasvenner',
 }
+g_troop_entry['5fb1ba36e1af06001770e69b']= {
+  troop_option='5fb1ba36e1af06001770e69a',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba36e1af06001770e69d']= {
+  min=0,
+  max=1,
+  description='Skyttar armored crossbowmen on horses',
+}
+g_troop_entry['5fb1ba36e1af06001770e69e']= {
+  troop_option='5fb1ba36e1af06001770e69d',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba36e1af06001770e69f']= {
+  min=6,
+  max=16,
+  description='Leidang',
+  core='all',
+}
+g_troop_entry['5fb1ba36e1af06001770e6a0']= {
+  troop_option='5fb1ba36e1af06001770e69f',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba36e1af06001770e6a2']= {
+  min=0,
+  max=2,
+  description='Leidang bowmen',
+}
+g_troop_entry['5fb1ba36e1af06001770e6a3']= {
+  troop_option='5fb1ba36e1af06001770e6a2',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba36e1af06001770e6a4']= {
+  troop_option='5fb1ba36e1af06001770e6a2',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba36e1af06001770e69b_general='5fb1ba36e1af06001770e69b_general'
 g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general]={
   id=g_str_5fb1ba36e1af06001770e69b_general,
@@ -20,7 +56,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general]={
   description='Fraelse and Smaasvenner',
   general=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba36e1af06001770e69a",
 }
 g_str_5fb1ba36e1af06001770e69b_general_dismounted='5fb1ba36e1af06001770e69b_general_dismounted'
 g_str_5fb1ba36e1af06001770e69b_general_mounted='5fb1ba36e1af06001770e69b_general_mounted'
@@ -34,7 +69,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general_dismounted]={
   dismounted_from=g_str_5fb1ba36e1af06001770e69b_general_mounted,
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba36e1af06001770e69a",
 }
 g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general_mounted]={
   id=g_str_5fb1ba36e1af06001770e69b_general_mounted,
@@ -47,7 +81,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba36e1af06001770e69a",
 }
 g_str_5fb1ba36e1af06001770e69b='5fb1ba36e1af06001770e69b'
 g_base_definitions[g_str_5fb1ba36e1af06001770e69b]={
@@ -57,7 +90,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69b]={
   max=2,
   description='Fraelse and Smaasvenner',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba36e1af06001770e69a",
 }
 g_str_5fb1ba36e1af06001770e69b_dismounted='5fb1ba36e1af06001770e69b_dismounted'
 g_str_5fb1ba36e1af06001770e69b_mounted='5fb1ba36e1af06001770e69b_mounted'
@@ -70,7 +102,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69b_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba36e1af06001770e69b_mounted,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba36e1af06001770e69a",
 }
 g_base_definitions[g_str_5fb1ba36e1af06001770e69b_mounted]={
   id=g_str_5fb1ba36e1af06001770e69b_mounted,
@@ -82,12 +113,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69b_mounted]={
   dismount_as=g_str_5fb1ba36e1af06001770e69b_dismounted,
   deployment_dismounting=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba36e1af06001770e69a",
-}
-g_troop_option['5fb1ba36e1af06001770e69d']= {
-  min=0,
-  max=1,
-  description='Skyttar armored crossbowmen on horses',
 }
 g_str_5fb1ba36e1af06001770e69e_general='5fb1ba36e1af06001770e69e_general'
 g_base_definitions[g_str_5fb1ba36e1af06001770e69e_general]={
@@ -98,7 +123,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69e_general]={
   description='Skyttar armored crossbowmen on horses',
   general=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba36e1af06001770e69d",
 }
 g_str_5fb1ba36e1af06001770e69e='5fb1ba36e1af06001770e69e'
 g_base_definitions[g_str_5fb1ba36e1af06001770e69e]={
@@ -108,13 +132,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e69e]={
   max=1,
   description='Skyttar armored crossbowmen on horses',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba36e1af06001770e69d",
-}
-g_troop_option['5fb1ba36e1af06001770e69f']= {
-  min=6,
-  max=16,
-  description='Leidang',
-  core='all',
 }
 g_str_5fb1ba36e1af06001770e6a0_general='5fb1ba36e1af06001770e6a0_general'
 g_base_definitions[g_str_5fb1ba36e1af06001770e6a0_general]={
@@ -125,7 +142,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e6a0_general]={
   description='Leidang',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba36e1af06001770e69f",
 }
 g_str_5fb1ba36e1af06001770e6a0='5fb1ba36e1af06001770e6a0'
 g_base_definitions[g_str_5fb1ba36e1af06001770e6a0]={
@@ -135,12 +151,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e6a0]={
   max=16,
   description='Leidang',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba36e1af06001770e69f",
-}
-g_troop_option['5fb1ba36e1af06001770e6a2']= {
-  min=0,
-  max=2,
-  description='Leidang bowmen',
 }
 g_str_5fb1ba36e1af06001770e6a3='5fb1ba36e1af06001770e6a3'
 g_base_definitions[g_str_5fb1ba36e1af06001770e6a3]={
@@ -150,7 +160,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e6a3]={
   max=2,
   description='Leidang bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba36e1af06001770e6a2",
 }
 g_str_5fb1ba36e1af06001770e6a4='5fb1ba36e1af06001770e6a4'
 g_base_definitions[g_str_5fb1ba36e1af06001770e6a4]={
@@ -160,7 +169,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e6a4]={
   max=2,
   description='Leidang bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba36e1af06001770e6a2",
 }
 g_str_5fb1b9eae1af060017709dc2_camp='5fb1b9eae1af060017709dc2_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709dc2_camp]={

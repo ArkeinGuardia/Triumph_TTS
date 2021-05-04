@@ -12,6 +12,77 @@ g_troop_option['5fb1ba31e1af06001770dd34']= {
   description='Men-at-arms',
   core='all',
 }
+g_troop_entry['5fb1ba31e1af06001770dd35']= {
+  troop_option='5fb1ba31e1af06001770dd34',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba31e1af06001770dd37']= {
+  min=1,
+  max=2,
+  description='Retinue billmen',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dd38']= {
+  troop_option='5fb1ba31e1af06001770dd37',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba31e1af06001770dd3b']= {
+  min=2,
+  max=4,
+  description='Retinue bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dd3c']= {
+  troop_option='5fb1ba31e1af06001770dd3b',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba31e1af06001770dd3e']= {
+  min=2,
+  max=4,
+  description='Foreign mercenary pikemen',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dd3f']= {
+  troop_option='5fb1ba31e1af06001770dd3e',
+  troopTypeCode='PIK',
+}
+g_troop_option['5fb1ba31e1af06001770dd40']= {
+  min=4,
+  max=8,
+  description='Irish kerns',
+}
+g_troop_entry['5fb1ba31e1af06001770dd41']= {
+  troop_option='5fb1ba31e1af06001770dd40',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba31e1af06001770dd42']= {
+  min=0,
+  max=1,
+  description='Continental handgunners',
+}
+g_troop_entry['5fb1ba31e1af06001770dd43']= {
+  troop_option='5fb1ba31e1af06001770dd42',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba31e1af06001770dd44']= {
+  min=0,
+  max=1,
+  description='Breton javelinmen',
+}
+g_troop_entry['5fb1ba31e1af06001770dd45']= {
+  troop_option='5fb1ba31e1af06001770dd44',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba31e1af06001770dd46']= {
+  min=0,
+  max=1,
+  description='Bombards',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770dd47']= {
+  troop_option='5fb1ba31e1af06001770dd46',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba31e1af06001770dd35_general='5fb1ba31e1af06001770dd35_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general]={
   id=g_str_5fb1ba31e1af06001770dd35_general,
@@ -21,7 +92,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general]={
   description='Men-at-arms',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dd34",
 }
 g_str_5fb1ba31e1af06001770dd35_general_dismounted='5fb1ba31e1af06001770dd35_general_dismounted'
 g_str_5fb1ba31e1af06001770dd35_general_mounted='5fb1ba31e1af06001770dd35_general_mounted'
@@ -35,7 +105,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general_dismounted]={
   dismounted_from=g_str_5fb1ba31e1af06001770dd35_general_mounted,
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770dd34",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general_mounted]={
   id=g_str_5fb1ba31e1af06001770dd35_general_mounted,
@@ -48,7 +117,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd35_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dd34",
 }
 g_str_5fb1ba31e1af06001770dd35='5fb1ba31e1af06001770dd35'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd35]={
@@ -58,7 +126,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd35]={
   max=2,
   description='Men-at-arms',
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dd34",
 }
 g_str_5fb1ba31e1af06001770dd35_dismounted='5fb1ba31e1af06001770dd35_dismounted'
 g_str_5fb1ba31e1af06001770dd35_mounted='5fb1ba31e1af06001770dd35_mounted'
@@ -71,7 +138,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd35_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba31e1af06001770dd35_mounted,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770dd34",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dd35_mounted]={
   id=g_str_5fb1ba31e1af06001770dd35_mounted,
@@ -83,13 +149,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd35_mounted]={
   dismount_as=g_str_5fb1ba31e1af06001770dd35_dismounted,
   deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba31e1af06001770dd34",
-}
-g_troop_option['5fb1ba31e1af06001770dd37']= {
-  min=1,
-  max=2,
-  description='Retinue billmen',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dd38='5fb1ba31e1af06001770dd38'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd38]={
@@ -99,7 +158,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd38]={
   max=2,
   description='Retinue billmen',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770dd37",
 }
 g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry='5fb1ba31e1af06001770dd38_dismounted_mobile_infantry'
 g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry='5fb1ba31e1af06001770dd38_mounted_mobile_infantry'
@@ -111,7 +169,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry]={
   description='Retinue billmen\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770dd37",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry,
@@ -122,13 +179,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd38_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba31e1af06001770dd38_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770dd37",
-}
-g_troop_option['5fb1ba31e1af06001770dd3b']= {
-  min=2,
-  max=4,
-  description='Retinue bowmen',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dd3c='5fb1ba31e1af06001770dd3c'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd3c]={
@@ -138,7 +188,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd3c]={
   max=4,
   description='Retinue bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba31e1af06001770dd3b",
 }
 g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry='5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry'
 g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry='5fb1ba31e1af06001770dd3c_mounted_mobile_infantry'
@@ -150,7 +199,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry]={
   description='Retinue bowmen\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry,
   troop_type="Archers",
-  troop_option_id="5fb1ba31e1af06001770dd3b",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry,
@@ -161,13 +209,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd3c_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba31e1af06001770dd3c_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba31e1af06001770dd3b",
-}
-g_troop_option['5fb1ba31e1af06001770dd3e']= {
-  min=2,
-  max=4,
-  description='Foreign mercenary pikemen',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dd3f='5fb1ba31e1af06001770dd3f'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd3f]={
@@ -177,12 +218,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd3f]={
   max=4,
   description='Foreign mercenary pikemen',
   troop_type="Pikes",
-  troop_option_id="5fb1ba31e1af06001770dd3e",
-}
-g_troop_option['5fb1ba31e1af06001770dd40']= {
-  min=4,
-  max=8,
-  description='Irish kerns',
 }
 g_str_5fb1ba31e1af06001770dd41='5fb1ba31e1af06001770dd41'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd41]={
@@ -192,12 +227,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd41]={
   max=8,
   description='Irish kerns',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba31e1af06001770dd40",
-}
-g_troop_option['5fb1ba31e1af06001770dd42']= {
-  min=0,
-  max=1,
-  description='Continental handgunners',
 }
 g_str_5fb1ba31e1af06001770dd43='5fb1ba31e1af06001770dd43'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd43]={
@@ -207,12 +236,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd43]={
   max=1,
   description='Continental handgunners',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba31e1af06001770dd42",
-}
-g_troop_option['5fb1ba31e1af06001770dd44']= {
-  min=0,
-  max=1,
-  description='Breton javelinmen',
 }
 g_str_5fb1ba31e1af06001770dd45='5fb1ba31e1af06001770dd45'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd45]={
@@ -222,13 +245,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd45]={
   max=1,
   description='Breton javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba31e1af06001770dd44",
-}
-g_troop_option['5fb1ba31e1af06001770dd46']= {
-  min=0,
-  max=1,
-  description='Bombards',
-  core='all',
 }
 g_str_5fb1ba31e1af06001770dd47='5fb1ba31e1af06001770dd47'
 g_base_definitions[g_str_5fb1ba31e1af06001770dd47]={
@@ -238,7 +254,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770dd47]={
   max=1,
   description='Bombards',
   troop_type="Artillery",
-  troop_option_id="5fb1ba31e1af06001770dd46",
 }
 g_str_5fb1b9e6e1af060017709b50_camp='5fb1b9e6e1af060017709b50_camp'
 g_base_definitions[g_str_5fb1b9e6e1af060017709b50_camp]={

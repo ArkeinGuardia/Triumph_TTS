@@ -11,6 +11,67 @@ g_troop_option['5fb1ba30e1af06001770dad6']= {
   max=2,
   description='Uchelwyr',
 }
+g_troop_entry['5fb1ba30e1af06001770dad7']= {
+  troop_option='5fb1ba30e1af06001770dad6',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba30e1af06001770dad9']= {
+  min=8,
+  max=14,
+  description='Unruly spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba30e1af06001770dada']= {
+  troop_option='5fb1ba30e1af06001770dad9',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba30e1af06001770dadb']= {
+  min=1,
+  max=2,
+  description='Javelinmen without shields',
+}
+g_troop_entry['5fb1ba30e1af06001770dadc']= {
+  troop_option='5fb1ba30e1af06001770dadb',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba30e1af06001770dadd']= {
+  min=0,
+  max=3,
+  description='Viking mercenaries or allies',
+  core='all',
+  startDate=842,
+  endDate=1149,
+}
+g_troop_entry['5fb1ba30e1af06001770dadf']= {
+  troop_option='5fb1ba30e1af06001770dadd',
+  troopTypeCode='EFT',
+}
+g_troop_entry['5fb1ba30e1af06001770dae0']= {
+  troop_option='5fb1ba30e1af06001770dadd',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba30e1af06001770dae2']= {
+  min=0,
+  max=4,
+  description='Welsh skilled javelinmen with shields',
+  startDate=842,
+  endDate=1149,
+}
+g_troop_entry['5fb1ba30e1af06001770dae4']= {
+  troop_option='5fb1ba30e1af06001770dae2',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba30e1af06001770dae6']= {
+  min=0,
+  max=1,
+  description='Welsh bowmen',
+  startDate=842,
+  endDate=1149,
+}
+g_troop_entry['5fb1ba30e1af06001770dae8']= {
+  troop_option='5fb1ba30e1af06001770dae6',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba30e1af06001770dad7_general='5fb1ba30e1af06001770dad7_general'
 g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general]={
   id=g_str_5fb1ba30e1af06001770dad7_general,
@@ -20,7 +81,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general]={
   description='Uchelwyr',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba30e1af06001770dad6",
 }
 g_str_5fb1ba30e1af06001770dad7_general_dismounted='5fb1ba30e1af06001770dad7_general_dismounted'
 g_str_5fb1ba30e1af06001770dad7_general_mounted='5fb1ba30e1af06001770dad7_general_mounted'
@@ -34,7 +94,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_dismounted]={
   dismounted_from=g_str_5fb1ba30e1af06001770dad7_general_mounted,
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba30e1af06001770dad6",
 }
 g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_mounted]={
   id=g_str_5fb1ba30e1af06001770dad7_general_mounted,
@@ -47,7 +106,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba30e1af06001770dad6",
 }
 g_str_5fb1ba30e1af06001770dad7='5fb1ba30e1af06001770dad7'
 g_base_definitions[g_str_5fb1ba30e1af06001770dad7]={
@@ -57,7 +115,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dad7]={
   max=2,
   description='Uchelwyr',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba30e1af06001770dad6",
 }
 g_str_5fb1ba30e1af06001770dad7_dismounted='5fb1ba30e1af06001770dad7_dismounted'
 g_str_5fb1ba30e1af06001770dad7_mounted='5fb1ba30e1af06001770dad7_mounted'
@@ -70,7 +127,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dad7_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba30e1af06001770dad7_mounted,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba30e1af06001770dad6",
 }
 g_base_definitions[g_str_5fb1ba30e1af06001770dad7_mounted]={
   id=g_str_5fb1ba30e1af06001770dad7_mounted,
@@ -82,13 +138,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dad7_mounted]={
   dismount_as=g_str_5fb1ba30e1af06001770dad7_dismounted,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba30e1af06001770dad6",
-}
-g_troop_option['5fb1ba30e1af06001770dad9']= {
-  min=8,
-  max=14,
-  description='Unruly spearmen',
-  core='all',
 }
 g_str_5fb1ba30e1af06001770dada='5fb1ba30e1af06001770dada'
 g_base_definitions[g_str_5fb1ba30e1af06001770dada]={
@@ -98,12 +147,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dada]={
   max=14,
   description='Unruly spearmen',
   troop_type="Warband",
-  troop_option_id="5fb1ba30e1af06001770dad9",
-}
-g_troop_option['5fb1ba30e1af06001770dadb']= {
-  min=1,
-  max=2,
-  description='Javelinmen without shields',
 }
 g_str_5fb1ba30e1af06001770dadc='5fb1ba30e1af06001770dadc'
 g_base_definitions[g_str_5fb1ba30e1af06001770dadc]={
@@ -113,15 +156,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dadc]={
   max=2,
   description='Javelinmen without shields',
   troop_type="Rabble",
-  troop_option_id="5fb1ba30e1af06001770dadb",
-}
-g_troop_option['5fb1ba30e1af06001770dadd']= {
-  min=0,
-  max=3,
-  description='Viking mercenaries or allies',
-  core='all',
-  startDate=842,
-  endDate=1149,
 }
 g_str_5fb1ba30e1af06001770dadf='5fb1ba30e1af06001770dadf'
 g_base_definitions[g_str_5fb1ba30e1af06001770dadf]={
@@ -131,7 +165,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dadf]={
   max=3,
   description='Viking mercenaries or allies',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba30e1af06001770dadd",
 }
 g_str_5fb1ba30e1af06001770dae0='5fb1ba30e1af06001770dae0'
 g_base_definitions[g_str_5fb1ba30e1af06001770dae0]={
@@ -141,14 +174,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dae0]={
   max=3,
   description='Viking mercenaries or allies',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba30e1af06001770dadd",
-}
-g_troop_option['5fb1ba30e1af06001770dae2']= {
-  min=0,
-  max=4,
-  description='Welsh skilled javelinmen with shields',
-  startDate=842,
-  endDate=1149,
 }
 g_str_5fb1ba30e1af06001770dae4='5fb1ba30e1af06001770dae4'
 g_base_definitions[g_str_5fb1ba30e1af06001770dae4]={
@@ -158,14 +183,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dae4]={
   max=4,
   description='Welsh skilled javelinmen with shields',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba30e1af06001770dae2",
-}
-g_troop_option['5fb1ba30e1af06001770dae6']= {
-  min=0,
-  max=1,
-  description='Welsh bowmen',
-  startDate=842,
-  endDate=1149,
 }
 g_str_5fb1ba30e1af06001770dae8='5fb1ba30e1af06001770dae8'
 g_base_definitions[g_str_5fb1ba30e1af06001770dae8]={
@@ -175,7 +192,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dae8]={
   max=1,
   description='Welsh bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba30e1af06001770dae6",
 }
 g_str_5fb1b9e5e1af060017709abd_camp='5fb1b9e5e1af060017709abd_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp]={
@@ -235,6 +251,10 @@ army['5fb1b9e5e1af060017709abd_580_841']={
   g_base_definitions[g_str_5fb1ba30e1af06001770dad7_dismounted],
   g_base_definitions[g_str_5fb1ba30e1af06001770dada],
   g_base_definitions[g_str_5fb1ba30e1af06001770dadc],
+  g_base_definitions[g_str_5fb1ba30e1af06001770dadf],
+  g_base_definitions[g_str_5fb1ba30e1af06001770dae0],
+  g_base_definitions[g_str_5fb1ba30e1af06001770dae4],
+  g_base_definitions[g_str_5fb1ba30e1af06001770dae8],
   g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp],
   g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp_pack_train],
 }

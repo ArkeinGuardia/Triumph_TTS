@@ -11,6 +11,75 @@ g_troop_option['5fb1ba20e1af06001770c0a2']= {
   max=5,
   description='2-horse chariots',
 }
+g_troop_entry['5fb1ba20e1af06001770c0a3']= {
+  troop_option='5fb1ba20e1af06001770c0a2',
+  troopTypeCode='CHT',
+}
+g_troop_option['5fb1ba20e1af06001770c0a4']= {
+  min=3,
+  max=5,
+  description='Infantry armed with spear and sidearm',
+  core='all',
+}
+g_troop_entry['5fb1ba20e1af06001770c0a5']= {
+  troop_option='5fb1ba20e1af06001770c0a4',
+  troopTypeCode='RDR',
+}
+g_troop_entry['5fb1ba20e1af06001770c0a6']= {
+  troop_option='5fb1ba20e1af06001770c0a4',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba20e1af06001770c0a7']= {
+  min=0,
+  max=1,
+  description='Infantry armed with heavy axe, or (only after 1276) Shardana Royal Guard',
+  core='all',
+}
+g_troop_entry['5fb1ba20e1af06001770c0a8']= {
+  troop_option='5fb1ba20e1af06001770c0a7',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba20e1af06001770c0a9']= {
+  min=3,
+  max=5,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba20e1af06001770c0aa']= {
+  troop_option='5fb1ba20e1af06001770c0a9',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba20e1af06001770c0ab']= {
+  troop_option='5fb1ba20e1af06001770c0a9',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba20e1af06001770c0ac']= {
+  min=0,
+  max=2,
+  description='Egyptian or Canaanite light infantry armed with javelins',
+}
+g_troop_entry['5fb1ba20e1af06001770c0ad']= {
+  troop_option='5fb1ba20e1af06001770c0ac',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba20e1af06001770c0ae']= {
+  min=0,
+  max=2,
+  description='Egyptian, Nubian, or Canaanite skirmishing bowmen',
+}
+g_troop_entry['5fb1ba20e1af06001770c0af']= {
+  troop_option='5fb1ba20e1af06001770c0ae',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba20e1af06001770c0b0']= {
+  min=0,
+  max=2,
+  description='Libyan, Palestinian, or Bedouin javelinmen',
+}
+g_troop_entry['5fb1ba20e1af06001770c0b1']= {
+  troop_option='5fb1ba20e1af06001770c0b0',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba20e1af06001770c0a3_general='5fb1ba20e1af06001770c0a3_general'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0a3_general]={
   id=g_str_5fb1ba20e1af06001770c0a3_general,
@@ -20,7 +89,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0a3_general]={
   description='2-horse chariots',
   general=true,
   troop_type="Chariots",
-  troop_option_id="5fb1ba20e1af06001770c0a2",
 }
 g_str_5fb1ba20e1af06001770c0a3='5fb1ba20e1af06001770c0a3'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0a3]={
@@ -30,13 +98,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0a3]={
   max=5,
   description='2-horse chariots',
   troop_type="Chariots",
-  troop_option_id="5fb1ba20e1af06001770c0a2",
-}
-g_troop_option['5fb1ba20e1af06001770c0a4']= {
-  min=3,
-  max=5,
-  description='Infantry armed with spear and sidearm',
-  core='all',
 }
 g_str_5fb1ba20e1af06001770c0a5='5fb1ba20e1af06001770c0a5'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0a5]={
@@ -46,7 +107,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0a5]={
   max=5,
   description='Infantry armed with spear and sidearm',
   troop_type="Raiders",
-  troop_option_id="5fb1ba20e1af06001770c0a4",
 }
 g_str_5fb1ba20e1af06001770c0a6='5fb1ba20e1af06001770c0a6'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0a6]={
@@ -56,13 +116,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0a6]={
   max=5,
   description='Infantry armed with spear and sidearm',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba20e1af06001770c0a4",
-}
-g_troop_option['5fb1ba20e1af06001770c0a7']= {
-  min=0,
-  max=1,
-  description='Infantry armed with heavy axe, or (only after 1276) Shardana Royal Guard',
-  core='all',
 }
 g_str_5fb1ba20e1af06001770c0a8='5fb1ba20e1af06001770c0a8'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0a8]={
@@ -72,13 +125,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0a8]={
   max=1,
   description='Infantry armed with heavy axe, or (only after 1276) Shardana Royal Guard',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba20e1af06001770c0a7",
-}
-g_troop_option['5fb1ba20e1af06001770c0a9']= {
-  min=3,
-  max=5,
-  description='Bowmen',
-  core='all',
 }
 g_str_5fb1ba20e1af06001770c0aa='5fb1ba20e1af06001770c0aa'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0aa]={
@@ -88,7 +134,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0aa]={
   max=5,
   description='Bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba20e1af06001770c0a9",
 }
 g_str_5fb1ba20e1af06001770c0ab='5fb1ba20e1af06001770c0ab'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0ab]={
@@ -98,12 +143,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0ab]={
   max=5,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba20e1af06001770c0a9",
-}
-g_troop_option['5fb1ba20e1af06001770c0ac']= {
-  min=0,
-  max=2,
-  description='Egyptian or Canaanite light infantry armed with javelins',
 }
 g_str_5fb1ba20e1af06001770c0ad='5fb1ba20e1af06001770c0ad'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0ad]={
@@ -113,12 +152,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0ad]={
   max=2,
   description='Egyptian or Canaanite light infantry armed with javelins',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba20e1af06001770c0ac",
-}
-g_troop_option['5fb1ba20e1af06001770c0ae']= {
-  min=0,
-  max=2,
-  description='Egyptian, Nubian, or Canaanite skirmishing bowmen',
 }
 g_str_5fb1ba20e1af06001770c0af='5fb1ba20e1af06001770c0af'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0af]={
@@ -128,12 +161,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0af]={
   max=2,
   description='Egyptian, Nubian, or Canaanite skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba20e1af06001770c0ae",
-}
-g_troop_option['5fb1ba20e1af06001770c0b0']= {
-  min=0,
-  max=2,
-  description='Libyan, Palestinian, or Bedouin javelinmen',
 }
 g_str_5fb1ba20e1af06001770c0b1='5fb1ba20e1af06001770c0b1'
 g_base_definitions[g_str_5fb1ba20e1af06001770c0b1]={
@@ -143,7 +170,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770c0b1]={
   max=2,
   description='Libyan, Palestinian, or Bedouin javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba20e1af06001770c0b0",
 }
 g_str_5fb1b9d9e1af06001770938e_camp='5fb1b9d9e1af06001770938e_camp'
 g_base_definitions[g_str_5fb1b9d9e1af06001770938e_camp]={

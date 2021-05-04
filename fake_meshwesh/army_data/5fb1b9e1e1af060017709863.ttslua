@@ -11,6 +11,48 @@ g_troop_option['5fb1ba2be1af06001770d2fe']= {
   max=4,
   description='Horsemen',
 }
+g_troop_entry['5fb1ba2be1af06001770d2ff']= {
+  troop_option='5fb1ba2be1af06001770d2fe',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2be1af06001770d301']= {
+  min=5,
+  max=10,
+  description='Fierce fighters',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d302']= {
+  troop_option='5fb1ba2be1af06001770d301',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba2be1af06001770d303']= {
+  min=0,
+  max=2,
+  description='Heroes with long spears',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d304']= {
+  troop_option='5fb1ba2be1af06001770d303',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba2be1af06001770d305']= {
+  min=2,
+  max=4,
+  description='Foot skirmishers armed with many fire-hardened untipped throwing spears',
+}
+g_troop_entry['5fb1ba2be1af06001770d306']= {
+  troop_option='5fb1ba2be1af06001770d305',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba2be1af06001770d307']= {
+  min=0,
+  max=2,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba2be1af06001770d308']= {
+  troop_option='5fb1ba2be1af06001770d307',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba2be1af06001770d2ff_general='5fb1ba2be1af06001770d2ff_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d2ff_general]={
   id=g_str_5fb1ba2be1af06001770d2ff_general,
@@ -20,7 +62,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d2ff_general]={
   description='Horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d2fe",
 }
 g_str_5fb1ba2be1af06001770d2ff_general_dismounted='5fb1ba2be1af06001770d2ff_general_dismounted'
 g_str_5fb1ba2be1af06001770d2ff_general_mounted='5fb1ba2be1af06001770d2ff_general_mounted'
@@ -34,7 +75,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d2ff_general_dismounted]={
   dismounted_from=g_str_5fb1ba2be1af06001770d2ff_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2be1af06001770d2fe",
 }
 g_base_definitions[g_str_5fb1ba2be1af06001770d2ff_general_mounted]={
   id=g_str_5fb1ba2be1af06001770d2ff_general_mounted,
@@ -47,7 +87,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d2ff_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d2fe",
 }
 g_str_5fb1ba2be1af06001770d2ff='5fb1ba2be1af06001770d2ff'
 g_base_definitions[g_str_5fb1ba2be1af06001770d2ff]={
@@ -57,7 +96,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d2ff]={
   max=4,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d2fe",
 }
 g_str_5fb1ba2be1af06001770d2ff_dismounted='5fb1ba2be1af06001770d2ff_dismounted'
 g_str_5fb1ba2be1af06001770d2ff_mounted='5fb1ba2be1af06001770d2ff_mounted'
@@ -70,7 +108,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d2ff_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba2be1af06001770d2ff_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2be1af06001770d2fe",
 }
 g_base_definitions[g_str_5fb1ba2be1af06001770d2ff_mounted]={
   id=g_str_5fb1ba2be1af06001770d2ff_mounted,
@@ -82,13 +119,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d2ff_mounted]={
   dismount_as=g_str_5fb1ba2be1af06001770d2ff_dismounted,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d2fe",
-}
-g_troop_option['5fb1ba2be1af06001770d301']= {
-  min=5,
-  max=10,
-  description='Fierce fighters',
-  core='all',
 }
 g_str_5fb1ba2be1af06001770d302_general='5fb1ba2be1af06001770d302_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d302_general]={
@@ -99,7 +129,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d302_general]={
   description='Fierce fighters',
   general=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba2be1af06001770d301",
 }
 g_str_5fb1ba2be1af06001770d302='5fb1ba2be1af06001770d302'
 g_base_definitions[g_str_5fb1ba2be1af06001770d302]={
@@ -109,13 +138,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d302]={
   max=10,
   description='Fierce fighters',
   troop_type="Warband",
-  troop_option_id="5fb1ba2be1af06001770d301",
-}
-g_troop_option['5fb1ba2be1af06001770d303']= {
-  min=0,
-  max=2,
-  description='Heroes with long spears',
-  core='all',
 }
 g_str_5fb1ba2be1af06001770d304='5fb1ba2be1af06001770d304'
 g_base_definitions[g_str_5fb1ba2be1af06001770d304]={
@@ -125,12 +147,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d304]={
   max=2,
   description='Heroes with long spears',
   troop_type="Warriors",
-  troop_option_id="5fb1ba2be1af06001770d303",
-}
-g_troop_option['5fb1ba2be1af06001770d305']= {
-  min=2,
-  max=4,
-  description='Foot skirmishers armed with many fire-hardened untipped throwing spears',
 }
 g_str_5fb1ba2be1af06001770d306='5fb1ba2be1af06001770d306'
 g_base_definitions[g_str_5fb1ba2be1af06001770d306]={
@@ -140,12 +156,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d306]={
   max=4,
   description='Foot skirmishers armed with many fire-hardened untipped throwing spears',
   troop_type="Rabble",
-  troop_option_id="5fb1ba2be1af06001770d305",
-}
-g_troop_option['5fb1ba2be1af06001770d307']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
 }
 g_str_5fb1ba2be1af06001770d308='5fb1ba2be1af06001770d308'
 g_base_definitions[g_str_5fb1ba2be1af06001770d308]={
@@ -155,7 +165,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d308]={
   max=2,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2be1af06001770d307",
 }
 g_str_5fb1b9e1e1af060017709863_camp='5fb1b9e1e1af060017709863_camp'
 g_base_definitions[g_str_5fb1b9e1e1af060017709863_camp]={

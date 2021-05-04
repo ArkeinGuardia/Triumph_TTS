@@ -11,6 +11,38 @@ g_troop_option['5fb1ba27e1af06001770c8bd']= {
   max=3,
   description='Horsemen',
 }
+g_troop_entry['5fb1ba27e1af06001770c8be']= {
+  troop_option='5fb1ba27e1af06001770c8bd',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba27e1af06001770c8c0']= {
+  min=4,
+  max=8,
+  description='Scutarii',
+  core='all',
+}
+g_troop_entry['5fb1ba27e1af06001770c8c1']= {
+  troop_option='5fb1ba27e1af06001770c8c0',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba27e1af06001770c8c2']= {
+  min=2,
+  max=4,
+  description='Caetrati',
+}
+g_troop_entry['5fb1ba27e1af06001770c8c3']= {
+  troop_option='5fb1ba27e1af06001770c8c2',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba27e1af06001770c8c4']= {
+  min=1,
+  max=2,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba27e1af06001770c8c5']= {
+  troop_option='5fb1ba27e1af06001770c8c4',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba27e1af06001770c8be_general='5fb1ba27e1af06001770c8be_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770c8be_general]={
   id=g_str_5fb1ba27e1af06001770c8be_general,
@@ -20,7 +52,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8be_general]={
   description='Horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba27e1af06001770c8bd",
 }
 g_str_5fb1ba27e1af06001770c8be_general_dismounted='5fb1ba27e1af06001770c8be_general_dismounted'
 g_str_5fb1ba27e1af06001770c8be_general_mounted='5fb1ba27e1af06001770c8be_general_mounted'
@@ -34,7 +65,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8be_general_dismounted]={
   dismounted_from=g_str_5fb1ba27e1af06001770c8be_general_mounted,
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba27e1af06001770c8bd",
 }
 g_base_definitions[g_str_5fb1ba27e1af06001770c8be_general_mounted]={
   id=g_str_5fb1ba27e1af06001770c8be_general_mounted,
@@ -47,7 +77,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8be_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba27e1af06001770c8bd",
 }
 g_str_5fb1ba27e1af06001770c8be='5fb1ba27e1af06001770c8be'
 g_base_definitions[g_str_5fb1ba27e1af06001770c8be]={
@@ -57,7 +86,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8be]={
   max=3,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba27e1af06001770c8bd",
 }
 g_str_5fb1ba27e1af06001770c8be_dismounted='5fb1ba27e1af06001770c8be_dismounted'
 g_str_5fb1ba27e1af06001770c8be_mounted='5fb1ba27e1af06001770c8be_mounted'
@@ -70,7 +98,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8be_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba27e1af06001770c8be_mounted,
   troop_type="Raiders",
-  troop_option_id="5fb1ba27e1af06001770c8bd",
 }
 g_base_definitions[g_str_5fb1ba27e1af06001770c8be_mounted]={
   id=g_str_5fb1ba27e1af06001770c8be_mounted,
@@ -82,13 +109,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8be_mounted]={
   dismount_as=g_str_5fb1ba27e1af06001770c8be_dismounted,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba27e1af06001770c8bd",
-}
-g_troop_option['5fb1ba27e1af06001770c8c0']= {
-  min=4,
-  max=8,
-  description='Scutarii',
-  core='all',
 }
 g_str_5fb1ba27e1af06001770c8c1='5fb1ba27e1af06001770c8c1'
 g_base_definitions[g_str_5fb1ba27e1af06001770c8c1]={
@@ -98,12 +118,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8c1]={
   max=8,
   description='Scutarii',
   troop_type="Raiders",
-  troop_option_id="5fb1ba27e1af06001770c8c0",
-}
-g_troop_option['5fb1ba27e1af06001770c8c2']= {
-  min=2,
-  max=4,
-  description='Caetrati',
 }
 g_str_5fb1ba27e1af06001770c8c3='5fb1ba27e1af06001770c8c3'
 g_base_definitions[g_str_5fb1ba27e1af06001770c8c3]={
@@ -113,12 +127,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8c3]={
   max=4,
   description='Caetrati',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba27e1af06001770c8c2",
-}
-g_troop_option['5fb1ba27e1af06001770c8c4']= {
-  min=1,
-  max=2,
-  description='Skirmishing slingers',
 }
 g_str_5fb1ba27e1af06001770c8c5='5fb1ba27e1af06001770c8c5'
 g_base_definitions[g_str_5fb1ba27e1af06001770c8c5]={
@@ -128,7 +136,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8c5]={
   max=2,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba27e1af06001770c8c4",
 }
 g_str_5fb1b9dce1af0600177095b2_camp='5fb1b9dce1af0600177095b2_camp'
 g_base_definitions[g_str_5fb1b9dce1af0600177095b2_camp]={

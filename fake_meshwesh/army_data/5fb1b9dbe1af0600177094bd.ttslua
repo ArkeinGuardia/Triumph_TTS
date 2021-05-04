@@ -11,6 +11,29 @@ g_troop_option['5fb1ba24e1af06001770c521']= {
   max=1,
   description='Horsemen',
 }
+g_troop_entry['5fb1ba24e1af06001770c522']= {
+  troop_option='5fb1ba24e1af06001770c521',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba24e1af06001770c524']= {
+  min=10,
+  max=16,
+  description='Light infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba24e1af06001770c525']= {
+  troop_option='5fb1ba24e1af06001770c524',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba24e1af06001770c526']= {
+  min=0,
+  max=2,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba24e1af06001770c527']= {
+  troop_option='5fb1ba24e1af06001770c526',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba24e1af06001770c522_general='5fb1ba24e1af06001770c522_general'
 g_base_definitions[g_str_5fb1ba24e1af06001770c522_general]={
   id=g_str_5fb1ba24e1af06001770c522_general,
@@ -20,7 +43,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c522_general]={
   description='Horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba24e1af06001770c521",
 }
 g_str_5fb1ba24e1af06001770c522_general_dismounted='5fb1ba24e1af06001770c522_general_dismounted'
 g_str_5fb1ba24e1af06001770c522_general_mounted='5fb1ba24e1af06001770c522_general_mounted'
@@ -34,7 +56,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c522_general_dismounted]={
   dismounted_from=g_str_5fb1ba24e1af06001770c522_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba24e1af06001770c521",
 }
 g_base_definitions[g_str_5fb1ba24e1af06001770c522_general_mounted]={
   id=g_str_5fb1ba24e1af06001770c522_general_mounted,
@@ -47,7 +68,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c522_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba24e1af06001770c521",
 }
 g_str_5fb1ba24e1af06001770c522='5fb1ba24e1af06001770c522'
 g_base_definitions[g_str_5fb1ba24e1af06001770c522]={
@@ -57,7 +77,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c522]={
   max=1,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba24e1af06001770c521",
 }
 g_str_5fb1ba24e1af06001770c522_dismounted='5fb1ba24e1af06001770c522_dismounted'
 g_str_5fb1ba24e1af06001770c522_mounted='5fb1ba24e1af06001770c522_mounted'
@@ -70,7 +89,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c522_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba24e1af06001770c522_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba24e1af06001770c521",
 }
 g_base_definitions[g_str_5fb1ba24e1af06001770c522_mounted]={
   id=g_str_5fb1ba24e1af06001770c522_mounted,
@@ -82,13 +100,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c522_mounted]={
   dismount_as=g_str_5fb1ba24e1af06001770c522_dismounted,
   deployment_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba24e1af06001770c521",
-}
-g_troop_option['5fb1ba24e1af06001770c524']= {
-  min=10,
-  max=16,
-  description='Light infantry',
-  core='all',
 }
 g_str_5fb1ba24e1af06001770c525_general='5fb1ba24e1af06001770c525_general'
 g_base_definitions[g_str_5fb1ba24e1af06001770c525_general]={
@@ -99,7 +110,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c525_general]={
   description='Light infantry',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba24e1af06001770c524",
 }
 g_str_5fb1ba24e1af06001770c525='5fb1ba24e1af06001770c525'
 g_base_definitions[g_str_5fb1ba24e1af06001770c525]={
@@ -109,12 +119,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c525]={
   max=16,
   description='Light infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba24e1af06001770c524",
-}
-g_troop_option['5fb1ba24e1af06001770c526']= {
-  min=0,
-  max=2,
-  description='Javelinmen',
 }
 g_str_5fb1ba24e1af06001770c527='5fb1ba24e1af06001770c527'
 g_base_definitions[g_str_5fb1ba24e1af06001770c527]={
@@ -124,7 +128,6 @@ g_base_definitions[g_str_5fb1ba24e1af06001770c527]={
   max=2,
   description='Javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba24e1af06001770c526",
 }
 g_str_5fb1b9dbe1af0600177094bd_camp='5fb1b9dbe1af0600177094bd_camp'
 g_base_definitions[g_str_5fb1b9dbe1af0600177094bd_camp]={

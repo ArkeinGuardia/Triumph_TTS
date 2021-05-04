@@ -12,6 +12,89 @@ g_troop_option['5fb1ba2be1af06001770d25d']= {
   description='Legionaries',
   core='all',
 }
+g_troop_entry['5fb1ba2be1af06001770d25e']= {
+  troop_option='5fb1ba2be1af06001770d25d',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba2be1af06001770d261']= {
+  min=1,
+  max=1,
+  description='Equites alares',
+}
+g_troop_entry['5fb1ba2be1af06001770d262']= {
+  troop_option='5fb1ba2be1af06001770d261',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2be1af06001770d263']= {
+  min=0,
+  max=1,
+  description='Equites cohortales',
+}
+g_troop_entry['5fb1ba2be1af06001770d264']= {
+  troop_option='5fb1ba2be1af06001770d263',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba2be1af06001770d265']= {
+  min=2,
+  max=6,
+  description='Auxiliary infantry',
+}
+g_troop_entry['5fb1ba2be1af06001770d266']= {
+  troop_option='5fb1ba2be1af06001770d265',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba2be1af06001770d268']= {
+  min=0,
+  max=1,
+  description='Auxiliary bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d269']= {
+  troop_option='5fb1ba2be1af06001770d268',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba2be1af06001770d26a']= {
+  troop_option='5fb1ba2be1af06001770d268',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba2be1af06001770d26c']= {
+  min=0,
+  max=1,
+  description='Numidian, Moorish, or other horsemen depending upon where based',
+}
+g_troop_entry['5fb1ba2be1af06001770d26d']= {
+  troop_option='5fb1ba2be1af06001770d26c',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2be1af06001770d26e']= {
+  min=0,
+  max=1,
+  description='Stone-throwers and bolt-shooters',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d26f']= {
+  troop_option='5fb1ba2be1af06001770d26e',
+  troopTypeCode='ART',
+}
+g_troop_option['5fb1ba2be1af06001770d270']= {
+  min=0,
+  max=4,
+  description='Raw legionaries',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d271']= {
+  troop_option='5fb1ba2be1af06001770d270',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba2be1af06001770d272']= {
+  min=0,
+  max=2,
+  description='Numeri or Symmachiarii light infantry',
+}
+g_troop_entry['5fb1ba2be1af06001770d273']= {
+  troop_option='5fb1ba2be1af06001770d272',
+  troopTypeCode='LFT',
+}
 g_str_5fb1ba2be1af06001770d25e_general='5fb1ba2be1af06001770d25e_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d25e_general]={
   id=g_str_5fb1ba2be1af06001770d25e_general,
@@ -21,7 +104,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d25e_general]={
   description='Legionaries',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba2be1af06001770d25d",
 }
 g_str_5fb1ba2be1af06001770d25e='5fb1ba2be1af06001770d25e'
 g_base_definitions[g_str_5fb1ba2be1af06001770d25e]={
@@ -31,12 +113,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d25e]={
   max=6,
   description='Legionaries',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba2be1af06001770d25d",
-}
-g_troop_option['5fb1ba2be1af06001770d261']= {
-  min=1,
-  max=1,
-  description='Equites alares',
 }
 g_str_5fb1ba2be1af06001770d262_general='5fb1ba2be1af06001770d262_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d262_general]={
@@ -47,7 +123,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d262_general]={
   description='Equites alares',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d261",
 }
 g_str_5fb1ba2be1af06001770d262='5fb1ba2be1af06001770d262'
 g_base_definitions[g_str_5fb1ba2be1af06001770d262]={
@@ -57,12 +132,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d262]={
   max=1,
   description='Equites alares',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d261",
-}
-g_troop_option['5fb1ba2be1af06001770d263']= {
-  min=0,
-  max=1,
-  description='Equites cohortales',
 }
 g_str_5fb1ba2be1af06001770d264='5fb1ba2be1af06001770d264'
 g_base_definitions[g_str_5fb1ba2be1af06001770d264]={
@@ -72,12 +141,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d264]={
   max=1,
   description='Equites cohortales',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba2be1af06001770d263",
-}
-g_troop_option['5fb1ba2be1af06001770d265']= {
-  min=2,
-  max=6,
-  description='Auxiliary infantry',
 }
 g_str_5fb1ba2be1af06001770d266='5fb1ba2be1af06001770d266'
 g_base_definitions[g_str_5fb1ba2be1af06001770d266]={
@@ -87,13 +150,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d266]={
   max=6,
   description='Auxiliary infantry',
   troop_type="Raiders",
-  troop_option_id="5fb1ba2be1af06001770d265",
-}
-g_troop_option['5fb1ba2be1af06001770d268']= {
-  min=0,
-  max=1,
-  description='Auxiliary bowmen',
-  core='all',
 }
 g_str_5fb1ba2be1af06001770d269='5fb1ba2be1af06001770d269'
 g_base_definitions[g_str_5fb1ba2be1af06001770d269]={
@@ -103,7 +159,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d269]={
   max=1,
   description='Auxiliary bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2be1af06001770d268",
 }
 g_str_5fb1ba2be1af06001770d26a='5fb1ba2be1af06001770d26a'
 g_base_definitions[g_str_5fb1ba2be1af06001770d26a]={
@@ -113,12 +168,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d26a]={
   max=1,
   description='Auxiliary bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba2be1af06001770d268",
-}
-g_troop_option['5fb1ba2be1af06001770d26c']= {
-  min=0,
-  max=1,
-  description='Numidian, Moorish, or other horsemen depending upon where based',
 }
 g_str_5fb1ba2be1af06001770d26d_general='5fb1ba2be1af06001770d26d_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d26d_general]={
@@ -129,7 +178,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d26d_general]={
   description='Numidian, Moorish, or other horsemen depending upon where based',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d26c",
 }
 g_str_5fb1ba2be1af06001770d26d='5fb1ba2be1af06001770d26d'
 g_base_definitions[g_str_5fb1ba2be1af06001770d26d]={
@@ -139,13 +187,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d26d]={
   max=1,
   description='Numidian, Moorish, or other horsemen depending upon where based',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d26c",
-}
-g_troop_option['5fb1ba2be1af06001770d26e']= {
-  min=0,
-  max=1,
-  description='Stone-throwers and bolt-shooters',
-  core='all',
 }
 g_str_5fb1ba2be1af06001770d26f='5fb1ba2be1af06001770d26f'
 g_base_definitions[g_str_5fb1ba2be1af06001770d26f]={
@@ -155,13 +196,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d26f]={
   max=1,
   description='Stone-throwers and bolt-shooters',
   troop_type="Artillery",
-  troop_option_id="5fb1ba2be1af06001770d26e",
-}
-g_troop_option['5fb1ba2be1af06001770d270']= {
-  min=0,
-  max=4,
-  description='Raw legionaries',
-  core='all',
 }
 g_str_5fb1ba2be1af06001770d271='5fb1ba2be1af06001770d271'
 g_base_definitions[g_str_5fb1ba2be1af06001770d271]={
@@ -171,12 +205,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d271]={
   max=4,
   description='Raw legionaries',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba2be1af06001770d270",
-}
-g_troop_option['5fb1ba2be1af06001770d272']= {
-  min=0,
-  max=2,
-  description='Numeri or Symmachiarii light infantry',
 }
 g_str_5fb1ba2be1af06001770d273='5fb1ba2be1af06001770d273'
 g_base_definitions[g_str_5fb1ba2be1af06001770d273]={
@@ -186,7 +214,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d273]={
   max=2,
   description='Numeri or Symmachiarii light infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2be1af06001770d272",
 }
 g_str_5fb1b9e1e1af060017709831_camp='5fb1b9e1e1af060017709831_camp'
 g_base_definitions[g_str_5fb1b9e1e1af060017709831_camp]={

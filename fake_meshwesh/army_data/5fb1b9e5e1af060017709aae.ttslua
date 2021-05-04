@@ -12,6 +12,51 @@ g_troop_option['5fb1ba30e1af06001770daa3']= {
   description='Huscarles',
   core='all',
 }
+g_troop_entry['5fb1ba30e1af06001770daa4']= {
+  troop_option='5fb1ba30e1af06001770daa3',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba30e1af06001770daa6']= {
+  min=5,
+  max=14,
+  description='Hird',
+  core='all',
+}
+g_troop_entry['5fb1ba30e1af06001770daa7']= {
+  troop_option='5fb1ba30e1af06001770daa6',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba30e1af06001770daa9']= {
+  min=0,
+  max=2,
+  description='Freelance marauders',
+}
+g_troop_entry['5fb1ba30e1af06001770daaa']= {
+  troop_option='5fb1ba30e1af06001770daa9',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba30e1af06001770daac']= {
+  min=0,
+  max=1,
+  description='Hird bowmen',
+}
+g_troop_entry['5fb1ba30e1af06001770daad']= {
+  troop_option='5fb1ba30e1af06001770daac',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba30e1af06001770daae']= {
+  troop_option='5fb1ba30e1af06001770daac',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba30e1af06001770dab0']= {
+  min=0,
+  max=1,
+  description='Besirkir',
+}
+g_troop_entry['5fb1ba30e1af06001770dab1']= {
+  troop_option='5fb1ba30e1af06001770dab0',
+  troopTypeCode='WBD',
+}
 g_str_5fb1ba30e1af06001770daa4_general='5fb1ba30e1af06001770daa4_general'
 g_base_definitions[g_str_5fb1ba30e1af06001770daa4_general]={
   id=g_str_5fb1ba30e1af06001770daa4_general,
@@ -21,7 +66,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daa4_general]={
   description='Huscarles',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba30e1af06001770daa3",
 }
 g_str_5fb1ba30e1af06001770daa4='5fb1ba30e1af06001770daa4'
 g_base_definitions[g_str_5fb1ba30e1af06001770daa4]={
@@ -31,13 +75,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daa4]={
   max=3,
   description='Huscarles',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba30e1af06001770daa3",
-}
-g_troop_option['5fb1ba30e1af06001770daa6']= {
-  min=5,
-  max=14,
-  description='Hird',
-  core='all',
 }
 g_str_5fb1ba30e1af06001770daa7='5fb1ba30e1af06001770daa7'
 g_base_definitions[g_str_5fb1ba30e1af06001770daa7]={
@@ -47,7 +84,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daa7]={
   max=14,
   description='Hird',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba30e1af06001770daa6",
 }
 g_str_5fb1ba30e1af06001770daa7_dismounted_mobile_infantry='5fb1ba30e1af06001770daa7_dismounted_mobile_infantry'
 g_str_5fb1ba30e1af06001770daa7_mounted_mobile_infantry='5fb1ba30e1af06001770daa7_mounted_mobile_infantry'
@@ -59,7 +95,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daa7_dismounted_mobile_infantry]={
   description='Hird\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba30e1af06001770daa7_mounted_mobile_infantry,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba30e1af06001770daa6",
 }
 g_base_definitions[g_str_5fb1ba30e1af06001770daa7_mounted_mobile_infantry]={
   id=g_str_5fb1ba30e1af06001770daa7_mounted_mobile_infantry,
@@ -70,12 +105,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daa7_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba30e1af06001770daa7_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba30e1af06001770daa6",
-}
-g_troop_option['5fb1ba30e1af06001770daa9']= {
-  min=0,
-  max=2,
-  description='Freelance marauders',
 }
 g_str_5fb1ba30e1af06001770daaa='5fb1ba30e1af06001770daaa'
 g_base_definitions[g_str_5fb1ba30e1af06001770daaa]={
@@ -85,7 +114,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daaa]={
   max=2,
   description='Freelance marauders',
   troop_type="Raiders",
-  troop_option_id="5fb1ba30e1af06001770daa9",
 }
 g_str_5fb1ba30e1af06001770daaa_dismounted_mobile_infantry='5fb1ba30e1af06001770daaa_dismounted_mobile_infantry'
 g_str_5fb1ba30e1af06001770daaa_mounted_mobile_infantry='5fb1ba30e1af06001770daaa_mounted_mobile_infantry'
@@ -97,7 +125,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daaa_dismounted_mobile_infantry]={
   description='Freelance marauders\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba30e1af06001770daaa_mounted_mobile_infantry,
   troop_type="Raiders",
-  troop_option_id="5fb1ba30e1af06001770daa9",
 }
 g_base_definitions[g_str_5fb1ba30e1af06001770daaa_mounted_mobile_infantry]={
   id=g_str_5fb1ba30e1af06001770daaa_mounted_mobile_infantry,
@@ -108,12 +135,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daaa_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba30e1af06001770daaa_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba30e1af06001770daa9",
-}
-g_troop_option['5fb1ba30e1af06001770daac']= {
-  min=0,
-  max=1,
-  description='Hird bowmen',
 }
 g_str_5fb1ba30e1af06001770daad='5fb1ba30e1af06001770daad'
 g_base_definitions[g_str_5fb1ba30e1af06001770daad]={
@@ -123,7 +144,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daad]={
   max=1,
   description='Hird bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba30e1af06001770daac",
 }
 g_str_5fb1ba30e1af06001770daae='5fb1ba30e1af06001770daae'
 g_base_definitions[g_str_5fb1ba30e1af06001770daae]={
@@ -133,12 +153,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770daae]={
   max=1,
   description='Hird bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba30e1af06001770daac",
-}
-g_troop_option['5fb1ba30e1af06001770dab0']= {
-  min=0,
-  max=1,
-  description='Besirkir',
 }
 g_str_5fb1ba30e1af06001770dab1='5fb1ba30e1af06001770dab1'
 g_base_definitions[g_str_5fb1ba30e1af06001770dab1]={
@@ -148,7 +162,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770dab1]={
   max=1,
   description='Besirkir',
   troop_type="Warband",
-  troop_option_id="5fb1ba30e1af06001770dab0",
 }
 g_str_5fb1b9e5e1af060017709aae_camp='5fb1b9e5e1af060017709aae_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709aae_camp]={

@@ -11,6 +11,95 @@ g_troop_option['5fb1ba35e1af06001770e3ac']= {
   max=4,
   description='Feudal men-at-arms and sergeants, or cavalieri',
 }
+g_troop_entry['5fb1ba35e1af06001770e3ad']= {
+  troop_option='5fb1ba35e1af06001770e3ac',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba35e1af06001770e3ae']= {
+  min=1,
+  max=2,
+  description='Mercenary German or Lombard men-at-arms',
+  startDate=1218,
+  endDate=1266,
+}
+g_troop_entry['5fb1ba35e1af06001770e3b0']= {
+  troop_option='5fb1ba35e1af06001770e3ae',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba35e1af06001770e3b1']= {
+  min=0,
+  max=4,
+  description='Italian communal spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e3b2']= {
+  troop_option='5fb1ba35e1af06001770e3b1',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba35e1af06001770e3b3']= {
+  min=0,
+  max=2,
+  description='Italian communal crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e3b4']= {
+  troop_option='5fb1ba35e1af06001770e3b3',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba35e1af06001770e3b5']= {
+  min=0,
+  max=2,
+  description='Mercenary crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e3b6']= {
+  troop_option='5fb1ba35e1af06001770e3b5',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba35e1af06001770e3b7']= {
+  min=0,
+  max=4,
+  description='Arriere-ban',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e3b8']= {
+  troop_option='5fb1ba35e1af06001770e3b7',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba35e1af06001770e3b9']= {
+  min=0,
+  max=1,
+  description='Saracen mounted infantry',
+  core='all',
+  startDate=1218,
+  endDate=1266,
+}
+g_troop_entry['5fb1ba35e1af06001770e3bb']= {
+  troop_option='5fb1ba35e1af06001770e3b9',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba35e1af06001770e3bc']= {
+  troop_option='5fb1ba35e1af06001770e3b9',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba35e1af06001770e3be']= {
+  min=4,
+  max=6,
+  description='Saracen foot bowmen',
+}
+g_troop_entry['5fb1ba35e1af06001770e3bf']= {
+  troop_option='5fb1ba35e1af06001770e3be',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba35e1af06001770e3c0']= {
+  min=0,
+  max=2,
+  description='Saracen javelinmen or axemen',
+}
+g_troop_entry['5fb1ba35e1af06001770e3c1']= {
+  troop_option='5fb1ba35e1af06001770e3c0',
+  troopTypeCode='LFT',
+}
 g_str_5fb1ba35e1af06001770e3ad_general='5fb1ba35e1af06001770e3ad_general'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3ad_general]={
   id=g_str_5fb1ba35e1af06001770e3ad_general,
@@ -20,7 +109,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3ad_general]={
   description='Feudal men-at-arms and sergeants, or cavalieri',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba35e1af06001770e3ac",
 }
 g_str_5fb1ba35e1af06001770e3ad='5fb1ba35e1af06001770e3ad'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3ad]={
@@ -30,14 +118,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3ad]={
   max=4,
   description='Feudal men-at-arms and sergeants, or cavalieri',
   troop_type="Knights",
-  troop_option_id="5fb1ba35e1af06001770e3ac",
-}
-g_troop_option['5fb1ba35e1af06001770e3ae']= {
-  min=1,
-  max=2,
-  description='Mercenary German or Lombard men-at-arms',
-  startDate=1218,
-  endDate=1266,
 }
 g_str_5fb1ba35e1af06001770e3b0_general='5fb1ba35e1af06001770e3b0_general'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3b0_general]={
@@ -48,7 +128,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3b0_general]={
   description='Mercenary German or Lombard men-at-arms',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba35e1af06001770e3ae",
 }
 g_str_5fb1ba35e1af06001770e3b0='5fb1ba35e1af06001770e3b0'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3b0]={
@@ -58,13 +137,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3b0]={
   max=2,
   description='Mercenary German or Lombard men-at-arms',
   troop_type="Knights",
-  troop_option_id="5fb1ba35e1af06001770e3ae",
-}
-g_troop_option['5fb1ba35e1af06001770e3b1']= {
-  min=0,
-  max=4,
-  description='Italian communal spearmen',
-  core='all',
 }
 g_str_5fb1ba35e1af06001770e3b2='5fb1ba35e1af06001770e3b2'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3b2]={
@@ -74,13 +146,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3b2]={
   max=4,
   description='Italian communal spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba35e1af06001770e3b1",
-}
-g_troop_option['5fb1ba35e1af06001770e3b3']= {
-  min=0,
-  max=2,
-  description='Italian communal crossbowmen',
-  core='all',
 }
 g_str_5fb1ba35e1af06001770e3b4='5fb1ba35e1af06001770e3b4'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3b4]={
@@ -90,13 +155,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3b4]={
   max=2,
   description='Italian communal crossbowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba35e1af06001770e3b3",
-}
-g_troop_option['5fb1ba35e1af06001770e3b5']= {
-  min=0,
-  max=2,
-  description='Mercenary crossbowmen',
-  core='all',
 }
 g_str_5fb1ba35e1af06001770e3b6='5fb1ba35e1af06001770e3b6'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3b6]={
@@ -106,13 +164,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3b6]={
   max=2,
   description='Mercenary crossbowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba35e1af06001770e3b5",
-}
-g_troop_option['5fb1ba35e1af06001770e3b7']= {
-  min=0,
-  max=4,
-  description='Arriere-ban',
-  core='all',
 }
 g_str_5fb1ba35e1af06001770e3b8='5fb1ba35e1af06001770e3b8'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3b8]={
@@ -122,15 +173,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3b8]={
   max=4,
   description='Arriere-ban',
   troop_type="Horde",
-  troop_option_id="5fb1ba35e1af06001770e3b7",
-}
-g_troop_option['5fb1ba35e1af06001770e3b9']= {
-  min=0,
-  max=1,
-  description='Saracen mounted infantry',
-  core='all',
-  startDate=1218,
-  endDate=1266,
 }
 g_str_5fb1ba35e1af06001770e3bb='5fb1ba35e1af06001770e3bb'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3bb]={
@@ -140,7 +182,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3bb]={
   max=1,
   description='Saracen mounted infantry',
   troop_type="Archers",
-  troop_option_id="5fb1ba35e1af06001770e3b9",
 }
 g_str_5fb1ba35e1af06001770e3bb_dismounted_mobile_infantry='5fb1ba35e1af06001770e3bb_dismounted_mobile_infantry'
 g_str_5fb1ba35e1af06001770e3bb_mounted_mobile_infantry='5fb1ba35e1af06001770e3bb_mounted_mobile_infantry'
@@ -152,7 +193,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3bb_dismounted_mobile_infantry]={
   description='Saracen mounted infantry\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba35e1af06001770e3bb_mounted_mobile_infantry,
   troop_type="Archers",
-  troop_option_id="5fb1ba35e1af06001770e3b9",
 }
 g_base_definitions[g_str_5fb1ba35e1af06001770e3bb_mounted_mobile_infantry]={
   id=g_str_5fb1ba35e1af06001770e3bb_mounted_mobile_infantry,
@@ -163,7 +203,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3bb_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba35e1af06001770e3bb_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba35e1af06001770e3b9",
 }
 g_str_5fb1ba35e1af06001770e3bc='5fb1ba35e1af06001770e3bc'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3bc]={
@@ -173,7 +212,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3bc]={
   max=1,
   description='Saracen mounted infantry',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba35e1af06001770e3b9",
 }
 g_str_5fb1ba35e1af06001770e3bc_dismounted_mobile_infantry='5fb1ba35e1af06001770e3bc_dismounted_mobile_infantry'
 g_str_5fb1ba35e1af06001770e3bc_mounted_mobile_infantry='5fb1ba35e1af06001770e3bc_mounted_mobile_infantry'
@@ -185,7 +223,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3bc_dismounted_mobile_infantry]={
   description='Saracen mounted infantry\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba35e1af06001770e3bc_mounted_mobile_infantry,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba35e1af06001770e3b9",
 }
 g_base_definitions[g_str_5fb1ba35e1af06001770e3bc_mounted_mobile_infantry]={
   id=g_str_5fb1ba35e1af06001770e3bc_mounted_mobile_infantry,
@@ -196,12 +233,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3bc_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba35e1af06001770e3bc_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba35e1af06001770e3b9",
-}
-g_troop_option['5fb1ba35e1af06001770e3be']= {
-  min=4,
-  max=6,
-  description='Saracen foot bowmen',
 }
 g_str_5fb1ba35e1af06001770e3bf='5fb1ba35e1af06001770e3bf'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3bf]={
@@ -211,12 +242,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3bf]={
   max=6,
   description='Saracen foot bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba35e1af06001770e3be",
-}
-g_troop_option['5fb1ba35e1af06001770e3c0']= {
-  min=0,
-  max=2,
-  description='Saracen javelinmen or axemen',
 }
 g_str_5fb1ba35e1af06001770e3c1='5fb1ba35e1af06001770e3c1'
 g_base_definitions[g_str_5fb1ba35e1af06001770e3c1]={
@@ -226,7 +251,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e3c1]={
   max=2,
   description='Saracen javelinmen or axemen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba35e1af06001770e3c0",
 }
 g_str_5fb1b9e9e1af060017709d25_camp='5fb1b9e9e1af060017709d25_camp'
 g_base_definitions[g_str_5fb1b9e9e1af060017709d25_camp]={
@@ -273,10 +297,18 @@ army['5fb1b9e9e1af060017709d25_1194_1217']={
   },
   g_base_definitions[g_str_5fb1ba35e1af06001770e3ad_general],
   g_base_definitions[g_str_5fb1ba35e1af06001770e3ad],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e3b0_general],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e3b0],
   g_base_definitions[g_str_5fb1ba35e1af06001770e3b2],
   g_base_definitions[g_str_5fb1ba35e1af06001770e3b4],
   g_base_definitions[g_str_5fb1ba35e1af06001770e3b6],
   g_base_definitions[g_str_5fb1ba35e1af06001770e3b8],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e3bb],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e3bb_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e3bb_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e3bc],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e3bc_mounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba35e1af06001770e3bc_dismounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba35e1af06001770e3bf],
   g_base_definitions[g_str_5fb1ba35e1af06001770e3c1],
   g_base_definitions[g_str_5fb1b9e9e1af060017709d25_camp],

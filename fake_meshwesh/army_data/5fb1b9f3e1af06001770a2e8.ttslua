@@ -12,6 +12,57 @@ g_troop_option['5fb1ba41e1af06001770fada']= {
   description='Guard horsemen',
   core='all',
 }
+g_troop_entry['5fb1ba41e1af06001770fadb']= {
+  troop_option='5fb1ba41e1af06001770fada',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba41e1af06001770fadd']= {
+  min=0,
+  max=1,
+  description='Chinese guards',
+  core='all',
+}
+g_troop_entry['5fb1ba41e1af06001770fade']= {
+  troop_option='5fb1ba41e1af06001770fadd',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba41e1af06001770fadf']= {
+  min=0,
+  max=1,
+  description='North Chinese subject horsemen',
+  core='all',
+}
+g_troop_entry['5fb1ba41e1af06001770fae0']= {
+  troop_option='5fb1ba41e1af06001770fadf',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba41e1af06001770fae1']= {
+  min=2,
+  max=6,
+  description='Menggu jun (Mongol army) horse archers',
+}
+g_troop_entry['5fb1ba41e1af06001770fae2']= {
+  troop_option='5fb1ba41e1af06001770fae1',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba41e1af06001770fae4']= {
+  min=1,
+  max=3,
+  description='Tammachi horse archers',
+}
+g_troop_entry['5fb1ba41e1af06001770fae5']= {
+  troop_option='5fb1ba41e1af06001770fae4',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba41e1af06001770fae6']= {
+  min=0,
+  max=4,
+  description='Gantaolu "looters"',
+}
+g_troop_entry['5fb1ba41e1af06001770fae7']= {
+  troop_option='5fb1ba41e1af06001770fae6',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba41e1af06001770fadb_general='5fb1ba41e1af06001770fadb_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fadb_general]={
   id=g_str_5fb1ba41e1af06001770fadb_general,
@@ -21,7 +72,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fadb_general]={
   description='Guard horsemen',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fada",
 }
 g_str_5fb1ba41e1af06001770fadb_general_dismounted='5fb1ba41e1af06001770fadb_general_dismounted'
 g_str_5fb1ba41e1af06001770fadb_general_mounted='5fb1ba41e1af06001770fadb_general_mounted'
@@ -35,7 +85,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fadb_general_dismounted]={
   dismounted_from=g_str_5fb1ba41e1af06001770fadb_general_mounted,
   general=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba41e1af06001770fada",
 }
 g_base_definitions[g_str_5fb1ba41e1af06001770fadb_general_mounted]={
   id=g_str_5fb1ba41e1af06001770fadb_general_mounted,
@@ -48,7 +97,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fadb_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fada",
 }
 g_str_5fb1ba41e1af06001770fadb='5fb1ba41e1af06001770fadb'
 g_base_definitions[g_str_5fb1ba41e1af06001770fadb]={
@@ -58,7 +106,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fadb]={
   max=2,
   description='Guard horsemen',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fada",
 }
 g_str_5fb1ba41e1af06001770fadb_dismounted='5fb1ba41e1af06001770fadb_dismounted'
 g_str_5fb1ba41e1af06001770fadb_mounted='5fb1ba41e1af06001770fadb_mounted'
@@ -71,7 +118,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fadb_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba41e1af06001770fadb_mounted,
   troop_type="Archers",
-  troop_option_id="5fb1ba41e1af06001770fada",
 }
 g_base_definitions[g_str_5fb1ba41e1af06001770fadb_mounted]={
   id=g_str_5fb1ba41e1af06001770fadb_mounted,
@@ -83,13 +129,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fadb_mounted]={
   dismount_as=g_str_5fb1ba41e1af06001770fadb_dismounted,
   deployment_dismounting=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fada",
-}
-g_troop_option['5fb1ba41e1af06001770fadd']= {
-  min=0,
-  max=1,
-  description='Chinese guards',
-  core='all',
 }
 g_str_5fb1ba41e1af06001770fade='5fb1ba41e1af06001770fade'
 g_base_definitions[g_str_5fb1ba41e1af06001770fade]={
@@ -99,13 +138,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fade]={
   max=1,
   description='Chinese guards',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba41e1af06001770fadd",
-}
-g_troop_option['5fb1ba41e1af06001770fadf']= {
-  min=0,
-  max=1,
-  description='North Chinese subject horsemen',
-  core='all',
 }
 g_str_5fb1ba41e1af06001770fae0_general='5fb1ba41e1af06001770fae0_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fae0_general]={
@@ -116,7 +148,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae0_general]={
   description='North Chinese subject horsemen',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fadf",
 }
 g_str_5fb1ba41e1af06001770fae0='5fb1ba41e1af06001770fae0'
 g_base_definitions[g_str_5fb1ba41e1af06001770fae0]={
@@ -126,12 +157,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae0]={
   max=1,
   description='North Chinese subject horsemen',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fadf",
-}
-g_troop_option['5fb1ba41e1af06001770fae1']= {
-  min=2,
-  max=6,
-  description='Menggu jun (Mongol army) horse archers',
 }
 g_str_5fb1ba41e1af06001770fae2_general='5fb1ba41e1af06001770fae2_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fae2_general]={
@@ -142,7 +167,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae2_general]={
   description='Menggu jun (Mongol army) horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fae1",
 }
 g_str_5fb1ba41e1af06001770fae2_general_dismounted='5fb1ba41e1af06001770fae2_general_dismounted'
 g_str_5fb1ba41e1af06001770fae2_general_mounted='5fb1ba41e1af06001770fae2_general_mounted'
@@ -156,7 +180,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae2_general_dismounted]={
   dismounted_from=g_str_5fb1ba41e1af06001770fae2_general_mounted,
   general=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba41e1af06001770fae1",
 }
 g_base_definitions[g_str_5fb1ba41e1af06001770fae2_general_mounted]={
   id=g_str_5fb1ba41e1af06001770fae2_general_mounted,
@@ -169,7 +192,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae2_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fae1",
 }
 g_str_5fb1ba41e1af06001770fae2='5fb1ba41e1af06001770fae2'
 g_base_definitions[g_str_5fb1ba41e1af06001770fae2]={
@@ -179,7 +201,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae2]={
   max=6,
   description='Menggu jun (Mongol army) horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fae1",
 }
 g_str_5fb1ba41e1af06001770fae2_dismounted='5fb1ba41e1af06001770fae2_dismounted'
 g_str_5fb1ba41e1af06001770fae2_mounted='5fb1ba41e1af06001770fae2_mounted'
@@ -192,7 +213,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae2_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba41e1af06001770fae2_mounted,
   troop_type="Archers",
-  troop_option_id="5fb1ba41e1af06001770fae1",
 }
 g_base_definitions[g_str_5fb1ba41e1af06001770fae2_mounted]={
   id=g_str_5fb1ba41e1af06001770fae2_mounted,
@@ -204,12 +224,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae2_mounted]={
   dismount_as=g_str_5fb1ba41e1af06001770fae2_dismounted,
   deployment_dismounting=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fae1",
-}
-g_troop_option['5fb1ba41e1af06001770fae4']= {
-  min=1,
-  max=3,
-  description='Tammachi horse archers',
 }
 g_str_5fb1ba41e1af06001770fae5_general='5fb1ba41e1af06001770fae5_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fae5_general]={
@@ -220,7 +234,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae5_general]={
   description='Tammachi horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fae4",
 }
 g_str_5fb1ba41e1af06001770fae5='5fb1ba41e1af06001770fae5'
 g_base_definitions[g_str_5fb1ba41e1af06001770fae5]={
@@ -230,12 +243,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae5]={
   max=3,
   description='Tammachi horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fae4",
-}
-g_troop_option['5fb1ba41e1af06001770fae6']= {
-  min=0,
-  max=4,
-  description='Gantaolu "looters"',
 }
 g_str_5fb1ba41e1af06001770fae7='5fb1ba41e1af06001770fae7'
 g_base_definitions[g_str_5fb1ba41e1af06001770fae7]={
@@ -245,7 +252,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fae7]={
   max=4,
   description='Gantaolu "looters"',
   troop_type="Rabble",
-  troop_option_id="5fb1ba41e1af06001770fae6",
 }
 g_str_5fb1b9f3e1af06001770a2e8_camp='5fb1b9f3e1af06001770a2e8_camp'
 g_base_definitions[g_str_5fb1b9f3e1af06001770a2e8_camp]={
@@ -264,7 +270,6 @@ g_base_definitions[g_str_5fb1ba19e1af06001770bba6]={
   max=1,
   description='Swordsmen',
   troop_type="Raiders",
-  troop_option_id="5fb1ba19e1af06001770bba5",
 }
 g_str_5fb1ba19e1af06001770bba8='5fb1ba19e1af06001770bba8'
 g_base_definitions[g_str_5fb1ba19e1af06001770bba8]={
@@ -274,7 +279,6 @@ g_base_definitions[g_str_5fb1ba19e1af06001770bba8]={
   max=2,
   description='Spearmen and halberdiers',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba19e1af06001770bba7",
 }
 g_str_5fb1ba19e1af06001770bbaa='5fb1ba19e1af06001770bbaa'
 g_base_definitions[g_str_5fb1ba19e1af06001770bbaa]={
@@ -284,7 +288,6 @@ g_base_definitions[g_str_5fb1ba19e1af06001770bbaa]={
   max=3,
   description='Crossbowmen or bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba19e1af06001770bba9",
 }
 g_str_5fb1ba19e1af06001770bbac='5fb1ba19e1af06001770bbac'
 g_base_definitions[g_str_5fb1ba19e1af06001770bbac]={
@@ -294,7 +297,6 @@ g_base_definitions[g_str_5fb1ba19e1af06001770bbac]={
   max=1,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba19e1af06001770bbab",
 }
 army['5fb1b9f3e1af06001770a2e8']={
   data={

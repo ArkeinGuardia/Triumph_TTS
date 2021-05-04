@@ -544,13 +544,13 @@ def create_base_definition(troop_option, troop_entry) :
   troop_type = troop_entry['troopTypeCode']
   name = troop_type_to_name(troop_type)
 
-  troop_option_id = troop_option['_id']
+  troop_entry_id = troop_entry['_id']
 
   base_definition = {
     'id': id, 'name':name, 'troop_type':troop_type,
     'min':min, 'max':max,
     'description':description,
-    'troop_option_id': troop_option_id }
+    'troop_entry_id': troop_entry_id }
 
   return base_definition
 
@@ -591,9 +591,9 @@ def write_base_definition_details(file, base_definition) :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
   file.write("  troop_type=\"%s\",\n" %(troop_type_name))
-  if 'troop_option_id' in base_definition :
-    troop_option_id = base_definition['troop_option_id']
-    file.write("  troop_option_id=\"%s\",\n" %(troop_option_id))
+  if 'troop_entry' in base_definition :
+    troop_entry = base_definition['troop_entry']
+    file.write("  troop_entry=\"%s\",\n" %(troop_entry))
   file.write("}\n")
 
 def write_base_definition(file, base_definition) :
@@ -729,7 +729,7 @@ def write_troop_option(file, troop_option) :
     description=troop_option['description']
     description = description.replace("'", "\\'")
     file.write("  description='%s',\n" % (description))
-    
+
     note = troop_option['note']
     if note is not None and len(note) > 0 :
         note = note.replace("'", "\\'")
@@ -743,6 +743,19 @@ def write_troop_option(file, troop_option) :
       option_end = int(dateRange['endDate'])
       file.write("  startDate=%d,\n" % (option_start))
       file.write("  endDate=%d,\n" % (option_end))
+    file.write("}\n")
+
+def write_troop_entry(file, troop_option, troop_entry) :
+    file.write("g_troop_entry['%s']= {\n" % troop_entry['_id'])
+    file.write("  troop_option='%s',\n" % (troop_option['_id']))
+    file.write("  troopTypeCode='%s',\n" % (troop_entry['troopTypeCode']))
+    note = troop_entry['note']
+    if note is not None and len(note) > 0 :
+        note = note.replace("'", "\\'")
+        file.write("  note='%s',\n" % (note))
+    dismount = troop_entry['dismountTypeCode']
+    if dismount is not None and len(dismount) > 0 :
+        file.write("  dismountTypeCode='%s',\n" % (dismount))
     file.write("}\n")
 
 def generate_base_definitions(file, army_json) :
@@ -760,6 +773,10 @@ def generate_base_definitions(file, army_json) :
   troop_options = army_json['troopOptions']
   for troop_option in  troop_options :
     write_troop_option(file, troop_option)
+    for troop_entry in troop_option['troopEntries'] :
+        write_troop_entry(file, troop_option, troop_entry)
+
+  for troop_option in  troop_options :
     defs = base_definitions(file, army_json, troop_option)
     definitions.extend(defs)
 

@@ -11,6 +11,50 @@ g_troop_option['5fb1ba27e1af06001770c89a']= {
   max=3,
   description='Noble horsemen',
 }
+g_troop_entry['5fb1ba27e1af06001770c89b']= {
+  troop_option='5fb1ba27e1af06001770c89a',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba27e1af06001770c89c']= {
+  min=0,
+  max=3,
+  description='Unshielded horsemen',
+}
+g_troop_entry['5fb1ba27e1af06001770c89d']= {
+  troop_option='5fb1ba27e1af06001770c89c',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba27e1af06001770c89e']= {
+  min=8,
+  max=14,
+  description='Fierce fighters',
+  note='Helvetii or Belgae',
+  core='all',
+}
+g_troop_entry['5fb1ba27e1af06001770c89f']= {
+  troop_option='5fb1ba27e1af06001770c89e',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba27e1af06001770c8a0']= {
+  min=8,
+  max=14,
+  description='Sedentary infantry',
+  note='all except Helvetii or Belgae',
+  core='all',
+}
+g_troop_entry['5fb1ba27e1af06001770c8a1']= {
+  troop_option='5fb1ba27e1af06001770c8a0',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba27e1af06001770c8a2']= {
+  min=1,
+  max=3,
+  description='Poorly equipped and trained bowmen, slingers, and unshielded javelinmen',
+}
+g_troop_entry['5fb1ba27e1af06001770c8a3']= {
+  troop_option='5fb1ba27e1af06001770c8a2',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba27e1af06001770c89b_general='5fb1ba27e1af06001770c89b_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770c89b_general]={
   id=g_str_5fb1ba27e1af06001770c89b_general,
@@ -20,7 +64,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c89b_general]={
   description='Noble horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba27e1af06001770c89a",
 }
 g_str_5fb1ba27e1af06001770c89b='5fb1ba27e1af06001770c89b'
 g_base_definitions[g_str_5fb1ba27e1af06001770c89b]={
@@ -30,12 +73,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c89b]={
   max=3,
   description='Noble horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba27e1af06001770c89a",
-}
-g_troop_option['5fb1ba27e1af06001770c89c']= {
-  min=0,
-  max=3,
-  description='Unshielded horsemen',
 }
 g_str_5fb1ba27e1af06001770c89d='5fb1ba27e1af06001770c89d'
 g_base_definitions[g_str_5fb1ba27e1af06001770c89d]={
@@ -45,14 +82,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c89d]={
   max=3,
   description='Unshielded horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba27e1af06001770c89c",
-}
-g_troop_option['5fb1ba27e1af06001770c89e']= {
-  min=8,
-  max=14,
-  description='Fierce fighters',
-  note='Helvetii or Belgae',
-  core='all',
 }
 g_str_5fb1ba27e1af06001770c89f_general='5fb1ba27e1af06001770c89f_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770c89f_general]={
@@ -63,7 +92,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c89f_general]={
   description='Fierce fighters',
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba27e1af06001770c89e",
 }
 g_str_5fb1ba27e1af06001770c89f='5fb1ba27e1af06001770c89f'
 g_base_definitions[g_str_5fb1ba27e1af06001770c89f]={
@@ -73,14 +101,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c89f]={
   max=14,
   description='Fierce fighters',
   troop_type="Warriors",
-  troop_option_id="5fb1ba27e1af06001770c89e",
-}
-g_troop_option['5fb1ba27e1af06001770c8a0']= {
-  min=8,
-  max=14,
-  description='Sedentary infantry',
-  note='all except Helvetii or Belgae',
-  core='all',
 }
 g_str_5fb1ba27e1af06001770c8a1='5fb1ba27e1af06001770c8a1'
 g_base_definitions[g_str_5fb1ba27e1af06001770c8a1]={
@@ -90,12 +110,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8a1]={
   max=14,
   description='Sedentary infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba27e1af06001770c8a0",
-}
-g_troop_option['5fb1ba27e1af06001770c8a2']= {
-  min=1,
-  max=3,
-  description='Poorly equipped and trained bowmen, slingers, and unshielded javelinmen',
 }
 g_str_5fb1ba27e1af06001770c8a3='5fb1ba27e1af06001770c8a3'
 g_base_definitions[g_str_5fb1ba27e1af06001770c8a3]={
@@ -105,7 +119,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c8a3]={
   max=3,
   description='Poorly equipped and trained bowmen, slingers, and unshielded javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba27e1af06001770c8a2",
 }
 g_str_5fb1b9dce1af0600177095a5_camp='5fb1b9dce1af0600177095a5_camp'
 g_base_definitions[g_str_5fb1b9dce1af0600177095a5_camp]={

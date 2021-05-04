@@ -11,6 +11,51 @@ g_troop_option['5fb1ba2fe1af06001770d8f1']= {
   max=3,
   description='Noble horsemen',
 }
+g_troop_entry['5fb1ba2fe1af06001770d8f2']= {
+  troop_option='5fb1ba2fe1af06001770d8f1',
+  troopTypeCode='KNT',
+}
+g_troop_entry['5fb1ba2fe1af06001770d8f3']= {
+  troop_option='5fb1ba2fe1af06001770d8f1',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba2fe1af06001770d8f4']= {
+  min=1,
+  max=4,
+  description='Javelinmen armed with axes',
+}
+g_troop_entry['5fb1ba2fe1af06001770d8f5']= {
+  troop_option='5fb1ba2fe1af06001770d8f4',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba2fe1af06001770d8f6']= {
+  min=4,
+  max=7,
+  description='Spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba2fe1af06001770d8f7']= {
+  troop_option='5fb1ba2fe1af06001770d8f6',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba2fe1af06001770d8f8']= {
+  min=0,
+  max=1,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba2fe1af06001770d8f9']= {
+  troop_option='5fb1ba2fe1af06001770d8f8',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba2fe1af06001770d8fa']= {
+  min=0,
+  max=8,
+  description='Scouts and poorly-armed infantry',
+}
+g_troop_entry['5fb1ba2fe1af06001770d8fb']= {
+  troop_option='5fb1ba2fe1af06001770d8fa',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba2fe1af06001770d8f2_general='5fb1ba2fe1af06001770d8f2_general'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d8f2_general]={
   id=g_str_5fb1ba2fe1af06001770d8f2_general,
@@ -20,7 +65,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d8f2_general]={
   description='Noble horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2fe1af06001770d8f1",
 }
 g_str_5fb1ba2fe1af06001770d8f2='5fb1ba2fe1af06001770d8f2'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d8f2]={
@@ -30,7 +74,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d8f2]={
   max=3,
   description='Noble horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba2fe1af06001770d8f1",
 }
 g_str_5fb1ba2fe1af06001770d8f3_general='5fb1ba2fe1af06001770d8f3_general'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d8f3_general]={
@@ -41,7 +84,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d8f3_general]={
   description='Noble horsemen',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2fe1af06001770d8f1",
 }
 g_str_5fb1ba2fe1af06001770d8f3='5fb1ba2fe1af06001770d8f3'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d8f3]={
@@ -51,12 +93,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d8f3]={
   max=3,
   description='Noble horsemen',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2fe1af06001770d8f1",
-}
-g_troop_option['5fb1ba2fe1af06001770d8f4']= {
-  min=1,
-  max=4,
-  description='Javelinmen armed with axes',
 }
 g_str_5fb1ba2fe1af06001770d8f5='5fb1ba2fe1af06001770d8f5'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d8f5]={
@@ -66,13 +102,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d8f5]={
   max=4,
   description='Javelinmen armed with axes',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2fe1af06001770d8f4",
-}
-g_troop_option['5fb1ba2fe1af06001770d8f6']= {
-  min=4,
-  max=7,
-  description='Spearmen',
-  core='all',
 }
 g_str_5fb1ba2fe1af06001770d8f7='5fb1ba2fe1af06001770d8f7'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d8f7]={
@@ -82,12 +111,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d8f7]={
   max=7,
   description='Spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba2fe1af06001770d8f6",
-}
-g_troop_option['5fb1ba2fe1af06001770d8f8']= {
-  min=0,
-  max=1,
-  description='Skirmishing bowmen',
 }
 g_str_5fb1ba2fe1af06001770d8f9='5fb1ba2fe1af06001770d8f9'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d8f9]={
@@ -97,12 +120,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d8f9]={
   max=1,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2fe1af06001770d8f8",
-}
-g_troop_option['5fb1ba2fe1af06001770d8fa']= {
-  min=0,
-  max=8,
-  description='Scouts and poorly-armed infantry',
 }
 g_str_5fb1ba2fe1af06001770d8fb='5fb1ba2fe1af06001770d8fb'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d8fb]={
@@ -112,7 +129,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d8fb]={
   max=8,
   description='Scouts and poorly-armed infantry',
   troop_type="Rabble",
-  troop_option_id="5fb1ba2fe1af06001770d8fa",
 }
 g_str_5fb1b9e4e1af060017709a28_camp='5fb1b9e4e1af060017709a28_camp'
 g_base_definitions[g_str_5fb1b9e4e1af060017709a28_camp]={

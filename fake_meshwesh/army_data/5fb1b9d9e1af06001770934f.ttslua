@@ -12,6 +12,53 @@ g_troop_option['5fb1ba20e1af06001770bfc9']= {
   description='Bodyguard swordsmen',
   core='all',
 }
+g_troop_entry['5fb1ba20e1af06001770bfca']= {
+  troop_option='5fb1ba20e1af06001770bfc9',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba20e1af06001770bfcb']= {
+  min=1,
+  max=1,
+  description='2-horse chariots; javelin crew',
+  core='all',
+  startDate=-1250,
+  endDate=-1214,
+}
+g_troop_entry['5fb1ba20e1af06001770bfcd']= {
+  troop_option='5fb1ba20e1af06001770bfcb',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba20e1af06001770bfce']= {
+  min=10,
+  max=22,
+  description='Tribesmen armed with javelins, throwing sticks, and clubs',
+}
+g_troop_entry['5fb1ba20e1af06001770bfcf']= {
+  troop_option='5fb1ba20e1af06001770bfce',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba20e1af06001770bfd0']= {
+  min=2,
+  max=6,
+  description='Bowmen',
+}
+g_troop_entry['5fb1ba20e1af06001770bfd1']= {
+  troop_option='5fb1ba20e1af06001770bfd0',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba20e1af06001770bfd2']= {
+  troop_option='5fb1ba20e1af06001770bfd0',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba20e1af06001770bfd3']= {
+  min=0,
+  max=2,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba20e1af06001770bfd4']= {
+  troop_option='5fb1ba20e1af06001770bfd3',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba20e1af06001770bfca_general='5fb1ba20e1af06001770bfca_general'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfca_general]={
   id=g_str_5fb1ba20e1af06001770bfca_general,
@@ -21,7 +68,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfca_general]={
   description='Bodyguard swordsmen',
   general=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba20e1af06001770bfc9",
 }
 g_str_5fb1ba20e1af06001770bfca='5fb1ba20e1af06001770bfca'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfca]={
@@ -31,15 +77,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfca]={
   max=1,
   description='Bodyguard swordsmen',
   troop_type="Warband",
-  troop_option_id="5fb1ba20e1af06001770bfc9",
-}
-g_troop_option['5fb1ba20e1af06001770bfcb']= {
-  min=1,
-  max=1,
-  description='2-horse chariots; javelin crew',
-  core='all',
-  startDate=-1250,
-  endDate=-1214,
 }
 g_str_5fb1ba20e1af06001770bfcd_general='5fb1ba20e1af06001770bfcd_general'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfcd_general]={
@@ -50,7 +87,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfcd_general]={
   description='2-horse chariots; javelin crew',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba20e1af06001770bfcb",
 }
 g_str_5fb1ba20e1af06001770bfcd='5fb1ba20e1af06001770bfcd'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfcd]={
@@ -60,12 +96,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfcd]={
   max=1,
   description='2-horse chariots; javelin crew',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba20e1af06001770bfcb",
-}
-g_troop_option['5fb1ba20e1af06001770bfce']= {
-  min=10,
-  max=22,
-  description='Tribesmen armed with javelins, throwing sticks, and clubs',
 }
 g_str_5fb1ba20e1af06001770bfcf_general='5fb1ba20e1af06001770bfcf_general'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfcf_general]={
@@ -76,7 +106,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfcf_general]={
   description='Tribesmen armed with javelins, throwing sticks, and clubs',
   general=true,
   troop_type="Rabble",
-  troop_option_id="5fb1ba20e1af06001770bfce",
 }
 g_str_5fb1ba20e1af06001770bfcf='5fb1ba20e1af06001770bfcf'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfcf]={
@@ -86,12 +115,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfcf]={
   max=22,
   description='Tribesmen armed with javelins, throwing sticks, and clubs',
   troop_type="Rabble",
-  troop_option_id="5fb1ba20e1af06001770bfce",
-}
-g_troop_option['5fb1ba20e1af06001770bfd0']= {
-  min=2,
-  max=6,
-  description='Bowmen',
 }
 g_str_5fb1ba20e1af06001770bfd1='5fb1ba20e1af06001770bfd1'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfd1]={
@@ -101,7 +124,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfd1]={
   max=6,
   description='Bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba20e1af06001770bfd0",
 }
 g_str_5fb1ba20e1af06001770bfd2='5fb1ba20e1af06001770bfd2'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfd2]={
@@ -111,12 +133,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfd2]={
   max=6,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba20e1af06001770bfd0",
-}
-g_troop_option['5fb1ba20e1af06001770bfd3']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
 }
 g_str_5fb1ba20e1af06001770bfd4='5fb1ba20e1af06001770bfd4'
 g_base_definitions[g_str_5fb1ba20e1af06001770bfd4]={
@@ -126,7 +142,6 @@ g_base_definitions[g_str_5fb1ba20e1af06001770bfd4]={
   max=2,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba20e1af06001770bfd3",
 }
 g_str_5fb1b9d9e1af06001770934f_camp='5fb1b9d9e1af06001770934f_camp'
 g_base_definitions[g_str_5fb1b9d9e1af06001770934f_camp]={
@@ -177,6 +192,8 @@ army['5fb1b9d9e1af06001770934f_-2159_-1251']={
   },
   g_base_definitions[g_str_5fb1ba20e1af06001770bfca_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfca],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfcd_general],
+  g_base_definitions[g_str_5fb1ba20e1af06001770bfcd],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfcf_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfcf],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfd1],

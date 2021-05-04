@@ -11,6 +11,51 @@ g_troop_option['5fb1ba2be1af06001770d30e']= {
   max=4,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
 }
+g_troop_entry['5fb1ba2be1af06001770d30f']= {
+  troop_option='5fb1ba2be1af06001770d30e',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba2be1af06001770d311']= {
+  min=2,
+  max=3,
+  description='Pony-riding horsemen armed with javelins but no melee weapons',
+}
+g_troop_entry['5fb1ba2be1af06001770d312']= {
+  troop_option='5fb1ba2be1af06001770d311',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba2be1af06001770d313']= {
+  min=5,
+  max=13,
+  description='Fierce fighters',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d314']= {
+  troop_option='5fb1ba2be1af06001770d313',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba2be1af06001770d315']= {
+  min=0,
+  max=6,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba2be1af06001770d316']= {
+  troop_option='5fb1ba2be1af06001770d315',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba2be1af06001770d317']= {
+  troop_option='5fb1ba2be1af06001770d315',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba2be1af06001770d318']= {
+  min=0,
+  max=1,
+  description='Adolescents armed with javelins',
+}
+g_troop_entry['5fb1ba2be1af06001770d319']= {
+  troop_option='5fb1ba2be1af06001770d318',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba2be1af06001770d30f_general='5fb1ba2be1af06001770d30f_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general]={
   id=g_str_5fb1ba2be1af06001770d30f_general,
@@ -20,7 +65,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general]={
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2be1af06001770d30e",
 }
 g_str_5fb1ba2be1af06001770d30f_general_dismounted='5fb1ba2be1af06001770d30f_general_dismounted'
 g_str_5fb1ba2be1af06001770d30f_general_mounted='5fb1ba2be1af06001770d30f_general_mounted'
@@ -34,7 +78,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general_dismounted]={
   dismounted_from=g_str_5fb1ba2be1af06001770d30f_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2be1af06001770d30e",
 }
 g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general_mounted]={
   id=g_str_5fb1ba2be1af06001770d30f_general_mounted,
@@ -47,7 +90,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2be1af06001770d30e",
 }
 g_str_5fb1ba2be1af06001770d30f='5fb1ba2be1af06001770d30f'
 g_base_definitions[g_str_5fb1ba2be1af06001770d30f]={
@@ -57,7 +99,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f]={
   max=4,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2be1af06001770d30e",
 }
 g_str_5fb1ba2be1af06001770d30f_dismounted='5fb1ba2be1af06001770d30f_dismounted'
 g_str_5fb1ba2be1af06001770d30f_mounted='5fb1ba2be1af06001770d30f_mounted'
@@ -70,7 +111,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f_dismounted]={
   points=3,
   dismounted_from=g_str_5fb1ba2be1af06001770d30f_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2be1af06001770d30e",
 }
 g_base_definitions[g_str_5fb1ba2be1af06001770d30f_mounted]={
   id=g_str_5fb1ba2be1af06001770d30f_mounted,
@@ -82,12 +122,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d30f_mounted]={
   dismount_as=g_str_5fb1ba2be1af06001770d30f_dismounted,
   deployment_dismounting=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2be1af06001770d30e",
-}
-g_troop_option['5fb1ba2be1af06001770d311']= {
-  min=2,
-  max=3,
-  description='Pony-riding horsemen armed with javelins but no melee weapons',
 }
 g_str_5fb1ba2be1af06001770d312='5fb1ba2be1af06001770d312'
 g_base_definitions[g_str_5fb1ba2be1af06001770d312]={
@@ -97,13 +131,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d312]={
   max=3,
   description='Pony-riding horsemen armed with javelins but no melee weapons',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba2be1af06001770d311",
-}
-g_troop_option['5fb1ba2be1af06001770d313']= {
-  min=5,
-  max=13,
-  description='Fierce fighters',
-  core='all',
 }
 g_str_5fb1ba2be1af06001770d314_general='5fb1ba2be1af06001770d314_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d314_general]={
@@ -114,7 +141,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d314_general]={
   description='Fierce fighters',
   general=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba2be1af06001770d313",
 }
 g_str_5fb1ba2be1af06001770d314='5fb1ba2be1af06001770d314'
 g_base_definitions[g_str_5fb1ba2be1af06001770d314]={
@@ -124,12 +150,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d314]={
   max=13,
   description='Fierce fighters',
   troop_type="Warband",
-  troop_option_id="5fb1ba2be1af06001770d313",
-}
-g_troop_option['5fb1ba2be1af06001770d315']= {
-  min=0,
-  max=6,
-  description='Skirmishing slingers',
 }
 g_str_5fb1ba2be1af06001770d316='5fb1ba2be1af06001770d316'
 g_base_definitions[g_str_5fb1ba2be1af06001770d316]={
@@ -139,7 +159,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d316]={
   max=6,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2be1af06001770d315",
 }
 g_str_5fb1ba2be1af06001770d317='5fb1ba2be1af06001770d317'
 g_base_definitions[g_str_5fb1ba2be1af06001770d317]={
@@ -149,12 +168,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d317]={
   max=6,
   description='Skirmishing slingers',
   troop_type="Rabble",
-  troop_option_id="5fb1ba2be1af06001770d315",
-}
-g_troop_option['5fb1ba2be1af06001770d318']= {
-  min=0,
-  max=1,
-  description='Adolescents armed with javelins',
 }
 g_str_5fb1ba2be1af06001770d319='5fb1ba2be1af06001770d319'
 g_base_definitions[g_str_5fb1ba2be1af06001770d319]={
@@ -164,7 +177,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d319]={
   max=1,
   description='Adolescents armed with javelins',
   troop_type="Rabble",
-  troop_option_id="5fb1ba2be1af06001770d318",
 }
 g_str_5fb1b9e1e1af06001770986a_camp='5fb1b9e1e1af06001770986a_camp'
 g_base_definitions[g_str_5fb1b9e1e1af06001770986a_camp]={

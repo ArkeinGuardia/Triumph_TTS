@@ -11,6 +11,57 @@ g_troop_option['5fb1ba37e1af06001770e6df']= {
   max=2,
   description='Fraelse and Smaasvenner',
 }
+g_troop_entry['5fb1ba37e1af06001770e6e0']= {
+  troop_option='5fb1ba37e1af06001770e6df',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba37e1af06001770e6e2']= {
+  min=0,
+  max=1,
+  description='Skyttar armored crossbowmen on horses',
+}
+g_troop_entry['5fb1ba37e1af06001770e6e3']= {
+  troop_option='5fb1ba37e1af06001770e6e2',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba37e1af06001770e6e4']= {
+  min=3,
+  max=6,
+  description='Allmoge peasant infantry armed with mixed polearms',
+  core='all',
+}
+g_troop_entry['5fb1ba37e1af06001770e6e5']= {
+  troop_option='5fb1ba37e1af06001770e6e4',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba37e1af06001770e6e7']= {
+  min=3,
+  max=6,
+  description='Allmoge peasant crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba37e1af06001770e6e8']= {
+  troop_option='5fb1ba37e1af06001770e6e7',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba37e1af06001770e6ea']= {
+  min=0,
+  max=1,
+  description='Handgunners',
+}
+g_troop_entry['5fb1ba37e1af06001770e6eb']= {
+  troop_option='5fb1ba37e1af06001770e6ea',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba37e1af06001770e6ec']= {
+  min=0,
+  max=1,
+  description='Finnish infantry',
+}
+g_troop_entry['5fb1ba37e1af06001770e6ed']= {
+  troop_option='5fb1ba37e1af06001770e6ec',
+  troopTypeCode='LFT',
+}
 g_str_5fb1ba37e1af06001770e6e0_general='5fb1ba37e1af06001770e6e0_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general]={
   id=g_str_5fb1ba37e1af06001770e6e0_general,
@@ -20,7 +71,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general]={
   description='Fraelse and Smaasvenner',
   general=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba37e1af06001770e6df",
 }
 g_str_5fb1ba37e1af06001770e6e0_general_dismounted='5fb1ba37e1af06001770e6e0_general_dismounted'
 g_str_5fb1ba37e1af06001770e6e0_general_mounted='5fb1ba37e1af06001770e6e0_general_mounted'
@@ -34,7 +84,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general_dismounted]={
   dismounted_from=g_str_5fb1ba37e1af06001770e6e0_general_mounted,
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba37e1af06001770e6df",
 }
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general_mounted]={
   id=g_str_5fb1ba37e1af06001770e6e0_general_mounted,
@@ -47,7 +96,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba37e1af06001770e6df",
 }
 g_str_5fb1ba37e1af06001770e6e0='5fb1ba37e1af06001770e6e0'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e0]={
@@ -57,7 +105,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e0]={
   max=2,
   description='Fraelse and Smaasvenner',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba37e1af06001770e6df",
 }
 g_str_5fb1ba37e1af06001770e6e0_dismounted='5fb1ba37e1af06001770e6e0_dismounted'
 g_str_5fb1ba37e1af06001770e6e0_mounted='5fb1ba37e1af06001770e6e0_mounted'
@@ -70,7 +117,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba37e1af06001770e6e0_mounted,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba37e1af06001770e6df",
 }
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_mounted]={
   id=g_str_5fb1ba37e1af06001770e6e0_mounted,
@@ -82,12 +128,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e0_mounted]={
   dismount_as=g_str_5fb1ba37e1af06001770e6e0_dismounted,
   deployment_dismounting=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba37e1af06001770e6df",
-}
-g_troop_option['5fb1ba37e1af06001770e6e2']= {
-  min=0,
-  max=1,
-  description='Skyttar armored crossbowmen on horses',
 }
 g_str_5fb1ba37e1af06001770e6e3_general='5fb1ba37e1af06001770e6e3_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e3_general]={
@@ -98,7 +138,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e3_general]={
   description='Skyttar armored crossbowmen on horses',
   general=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba37e1af06001770e6e2",
 }
 g_str_5fb1ba37e1af06001770e6e3='5fb1ba37e1af06001770e6e3'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e3]={
@@ -108,13 +147,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e3]={
   max=1,
   description='Skyttar armored crossbowmen on horses',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba37e1af06001770e6e2",
-}
-g_troop_option['5fb1ba37e1af06001770e6e4']= {
-  min=3,
-  max=6,
-  description='Allmoge peasant infantry armed with mixed polearms',
-  core='all',
 }
 g_str_5fb1ba37e1af06001770e6e5_general='5fb1ba37e1af06001770e6e5_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e5_general]={
@@ -125,7 +157,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e5_general]={
   description='Allmoge peasant infantry armed with mixed polearms',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba37e1af06001770e6e4",
 }
 g_str_5fb1ba37e1af06001770e6e5='5fb1ba37e1af06001770e6e5'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e5]={
@@ -135,13 +166,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e5]={
   max=6,
   description='Allmoge peasant infantry armed with mixed polearms',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba37e1af06001770e6e4",
-}
-g_troop_option['5fb1ba37e1af06001770e6e7']= {
-  min=3,
-  max=6,
-  description='Allmoge peasant crossbowmen',
-  core='all',
 }
 g_str_5fb1ba37e1af06001770e6e8='5fb1ba37e1af06001770e6e8'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6e8]={
@@ -151,12 +175,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6e8]={
   max=6,
   description='Allmoge peasant crossbowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba37e1af06001770e6e7",
-}
-g_troop_option['5fb1ba37e1af06001770e6ea']= {
-  min=0,
-  max=1,
-  description='Handgunners',
 }
 g_str_5fb1ba37e1af06001770e6eb='5fb1ba37e1af06001770e6eb'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6eb]={
@@ -166,12 +184,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6eb]={
   max=1,
   description='Handgunners',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba37e1af06001770e6ea",
-}
-g_troop_option['5fb1ba37e1af06001770e6ec']= {
-  min=0,
-  max=1,
-  description='Finnish infantry',
 }
 g_str_5fb1ba37e1af06001770e6ed='5fb1ba37e1af06001770e6ed'
 g_base_definitions[g_str_5fb1ba37e1af06001770e6ed]={
@@ -181,7 +193,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e6ed]={
   max=1,
   description='Finnish infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba37e1af06001770e6ec",
 }
 g_str_5fb1b9eae1af060017709dd4_camp='5fb1b9eae1af060017709dd4_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709dd4_camp]={

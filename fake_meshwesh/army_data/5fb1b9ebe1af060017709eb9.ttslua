@@ -11,6 +11,38 @@ g_troop_option['5fb1ba39e1af06001770eab8']= {
   max=2,
   description='Horse archers',
 }
+g_troop_entry['5fb1ba39e1af06001770eab9']= {
+  troop_option='5fb1ba39e1af06001770eab8',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba39e1af06001770eaba']= {
+  min=9,
+  max=19,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba39e1af06001770eabb']= {
+  troop_option='5fb1ba39e1af06001770eaba',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba39e1af06001770eabc']= {
+  min=2,
+  max=4,
+  description='Spearmen',
+}
+g_troop_entry['5fb1ba39e1af06001770eabd']= {
+  troop_option='5fb1ba39e1af06001770eabc',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba39e1af06001770eabf']= {
+  min=0,
+  max=2,
+  description='Camel-mounted spearmen',
+}
+g_troop_entry['5fb1ba39e1af06001770eac0']= {
+  troop_option='5fb1ba39e1af06001770eabf',
+  troopTypeCode='BAD',
+}
 g_str_5fb1ba39e1af06001770eab9_general='5fb1ba39e1af06001770eab9_general'
 g_base_definitions[g_str_5fb1ba39e1af06001770eab9_general]={
   id=g_str_5fb1ba39e1af06001770eab9_general,
@@ -20,7 +52,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eab9_general]={
   description='Horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba39e1af06001770eab8",
 }
 g_str_5fb1ba39e1af06001770eab9='5fb1ba39e1af06001770eab9'
 g_base_definitions[g_str_5fb1ba39e1af06001770eab9]={
@@ -30,13 +61,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eab9]={
   max=2,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba39e1af06001770eab8",
-}
-g_troop_option['5fb1ba39e1af06001770eaba']= {
-  min=9,
-  max=19,
-  description='Bowmen',
-  core='all',
 }
 g_str_5fb1ba39e1af06001770eabb='5fb1ba39e1af06001770eabb'
 g_base_definitions[g_str_5fb1ba39e1af06001770eabb]={
@@ -46,12 +70,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eabb]={
   max=19,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba39e1af06001770eaba",
-}
-g_troop_option['5fb1ba39e1af06001770eabc']= {
-  min=2,
-  max=4,
-  description='Spearmen',
 }
 g_str_5fb1ba39e1af06001770eabd='5fb1ba39e1af06001770eabd'
 g_base_definitions[g_str_5fb1ba39e1af06001770eabd]={
@@ -61,7 +79,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eabd]={
   max=4,
   description='Spearmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba39e1af06001770eabc",
 }
 g_str_5fb1ba39e1af06001770eabd_dismounted_mobile_infantry='5fb1ba39e1af06001770eabd_dismounted_mobile_infantry'
 g_str_5fb1ba39e1af06001770eabd_mounted_mobile_infantry='5fb1ba39e1af06001770eabd_mounted_mobile_infantry'
@@ -73,7 +90,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eabd_dismounted_mobile_infantry]={
   description='Spearmen\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba39e1af06001770eabd_mounted_mobile_infantry,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba39e1af06001770eabc",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770eabd_mounted_mobile_infantry]={
   id=g_str_5fb1ba39e1af06001770eabd_mounted_mobile_infantry,
@@ -84,12 +100,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eabd_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba39e1af06001770eabd_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba39e1af06001770eabc",
-}
-g_troop_option['5fb1ba39e1af06001770eabf']= {
-  min=0,
-  max=2,
-  description='Camel-mounted spearmen',
 }
 g_str_5fb1ba39e1af06001770eac0='5fb1ba39e1af06001770eac0'
 g_base_definitions[g_str_5fb1ba39e1af06001770eac0]={
@@ -99,7 +109,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eac0]={
   max=2,
   description='Camel-mounted spearmen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba39e1af06001770eabf",
 }
 g_str_5fb1ba39e1af06001770eac0_light_camelry='5fb1ba39e1af06001770eac0_light_camelry'
 g_base_definitions[g_str_5fb1ba39e1af06001770eac0_light_camelry]={
@@ -110,7 +119,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770eac0_light_camelry]={
   description='Camel-mounted spearmen\nLight Camelry',
   light_camelry=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba39e1af06001770eabf",
 }
 g_str_5fb1b9ebe1af060017709eb9_camp='5fb1b9ebe1af060017709eb9_camp'
 g_base_definitions[g_str_5fb1b9ebe1af060017709eb9_camp]={

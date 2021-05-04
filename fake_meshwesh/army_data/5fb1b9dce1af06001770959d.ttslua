@@ -13,6 +13,69 @@ g_troop_option['5fb1ba27e1af06001770c87d']= {
   startDate=-400,
   endDate=-301,
 }
+g_troop_entry['5fb1ba27e1af06001770c87f']= {
+  troop_option='5fb1ba27e1af06001770c87d',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba27e1af06001770c881']= {
+  min=0,
+  max=1,
+  description='2-horse battle platforms with champions who dismount to fight on foot',
+  startDate=-300,
+  endDate=-100,
+}
+g_troop_entry['5fb1ba27e1af06001770c883']= {
+  troop_option='5fb1ba27e1af06001770c881',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba27e1af06001770c885']= {
+  min=1,
+  max=2,
+  description='Noble horsemen',
+  startDate=-300,
+  endDate=-100,
+}
+g_troop_entry['5fb1ba27e1af06001770c887']= {
+  troop_option='5fb1ba27e1af06001770c885',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba27e1af06001770c888']= {
+  min=0,
+  max=3,
+  description='Horsemen',
+}
+g_troop_entry['5fb1ba27e1af06001770c889']= {
+  troop_option='5fb1ba27e1af06001770c888',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba27e1af06001770c88a']= {
+  min=8,
+  max=14,
+  description='Fierce fighters',
+  core='all',
+}
+g_troop_entry['5fb1ba27e1af06001770c88b']= {
+  troop_option='5fb1ba27e1af06001770c88a',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba27e1af06001770c88c']= {
+  min=1,
+  max=2,
+  description='Poorly equipped and trained bowmen, slingers, and unshielded javelinmen',
+}
+g_troop_entry['5fb1ba27e1af06001770c88d']= {
+  troop_option='5fb1ba27e1af06001770c88c',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba27e1af06001770c88e']= {
+  min=0,
+  max=3,
+  description='Gaesati naked fighters',
+}
+g_troop_entry['5fb1ba27e1af06001770c88f']= {
+  troop_option='5fb1ba27e1af06001770c88e',
+  troopTypeCode='WBD',
+}
 g_str_5fb1ba27e1af06001770c87f_general='5fb1ba27e1af06001770c87f_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general]={
   id=g_str_5fb1ba27e1af06001770c87f_general,
@@ -22,7 +85,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general]={
   description='2-horse battle platforms with champions who dismount to fight on foot',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba27e1af06001770c87d",
 }
 g_str_5fb1ba27e1af06001770c87f_general_dismounted='5fb1ba27e1af06001770c87f_general_dismounted'
 g_str_5fb1ba27e1af06001770c87f_general_mounted='5fb1ba27e1af06001770c87f_general_mounted'
@@ -36,7 +98,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_dismounted]={
   dismounted_from=g_str_5fb1ba27e1af06001770c87f_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba27e1af06001770c87d",
 }
 g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_mounted]={
   id=g_str_5fb1ba27e1af06001770c87f_general_mounted,
@@ -49,7 +110,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba27e1af06001770c87d",
 }
 g_str_5fb1ba27e1af06001770c87f='5fb1ba27e1af06001770c87f'
 g_base_definitions[g_str_5fb1ba27e1af06001770c87f]={
@@ -59,7 +119,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c87f]={
   max=3,
   description='2-horse battle platforms with champions who dismount to fight on foot',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba27e1af06001770c87d",
 }
 g_str_5fb1ba27e1af06001770c87f_dismounted='5fb1ba27e1af06001770c87f_dismounted'
 g_str_5fb1ba27e1af06001770c87f_mounted='5fb1ba27e1af06001770c87f_mounted'
@@ -72,7 +131,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c87f_dismounted]={
   points=3,
   dismounted_from=g_str_5fb1ba27e1af06001770c87f_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba27e1af06001770c87d",
 }
 g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted]={
   id=g_str_5fb1ba27e1af06001770c87f_mounted,
@@ -84,14 +142,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted]={
   dismount_as=g_str_5fb1ba27e1af06001770c87f_dismounted,
   deployment_dismounting=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba27e1af06001770c87d",
-}
-g_troop_option['5fb1ba27e1af06001770c881']= {
-  min=0,
-  max=1,
-  description='2-horse battle platforms with champions who dismount to fight on foot',
-  startDate=-300,
-  endDate=-100,
 }
 g_str_5fb1ba27e1af06001770c883_general='5fb1ba27e1af06001770c883_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770c883_general]={
@@ -102,7 +152,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c883_general]={
   description='2-horse battle platforms with champions who dismount to fight on foot',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba27e1af06001770c881",
 }
 g_str_5fb1ba27e1af06001770c883_general_dismounted='5fb1ba27e1af06001770c883_general_dismounted'
 g_str_5fb1ba27e1af06001770c883_general_mounted='5fb1ba27e1af06001770c883_general_mounted'
@@ -116,7 +165,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_dismounted]={
   dismounted_from=g_str_5fb1ba27e1af06001770c883_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba27e1af06001770c881",
 }
 g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_mounted]={
   id=g_str_5fb1ba27e1af06001770c883_general_mounted,
@@ -129,7 +177,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_mounted]={
   general=true,
   deployment_dismounting=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba27e1af06001770c881",
 }
 g_str_5fb1ba27e1af06001770c883='5fb1ba27e1af06001770c883'
 g_base_definitions[g_str_5fb1ba27e1af06001770c883]={
@@ -139,7 +186,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c883]={
   max=1,
   description='2-horse battle platforms with champions who dismount to fight on foot',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba27e1af06001770c881",
 }
 g_str_5fb1ba27e1af06001770c883_dismounted='5fb1ba27e1af06001770c883_dismounted'
 g_str_5fb1ba27e1af06001770c883_mounted='5fb1ba27e1af06001770c883_mounted'
@@ -152,7 +198,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c883_dismounted]={
   points=3,
   dismounted_from=g_str_5fb1ba27e1af06001770c883_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba27e1af06001770c881",
 }
 g_base_definitions[g_str_5fb1ba27e1af06001770c883_mounted]={
   id=g_str_5fb1ba27e1af06001770c883_mounted,
@@ -164,14 +209,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c883_mounted]={
   dismount_as=g_str_5fb1ba27e1af06001770c883_dismounted,
   deployment_dismounting=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba27e1af06001770c881",
-}
-g_troop_option['5fb1ba27e1af06001770c885']= {
-  min=1,
-  max=2,
-  description='Noble horsemen',
-  startDate=-300,
-  endDate=-100,
 }
 g_str_5fb1ba27e1af06001770c887_general='5fb1ba27e1af06001770c887_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770c887_general]={
@@ -182,7 +219,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c887_general]={
   description='Noble horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba27e1af06001770c885",
 }
 g_str_5fb1ba27e1af06001770c887='5fb1ba27e1af06001770c887'
 g_base_definitions[g_str_5fb1ba27e1af06001770c887]={
@@ -192,12 +228,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c887]={
   max=2,
   description='Noble horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba27e1af06001770c885",
-}
-g_troop_option['5fb1ba27e1af06001770c888']= {
-  min=0,
-  max=3,
-  description='Horsemen',
 }
 g_str_5fb1ba27e1af06001770c889='5fb1ba27e1af06001770c889'
 g_base_definitions[g_str_5fb1ba27e1af06001770c889]={
@@ -207,13 +237,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c889]={
   max=3,
   description='Horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba27e1af06001770c888",
-}
-g_troop_option['5fb1ba27e1af06001770c88a']= {
-  min=8,
-  max=14,
-  description='Fierce fighters',
-  core='all',
 }
 g_str_5fb1ba27e1af06001770c88b_general='5fb1ba27e1af06001770c88b_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770c88b_general]={
@@ -224,7 +247,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c88b_general]={
   description='Fierce fighters',
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba27e1af06001770c88a",
 }
 g_str_5fb1ba27e1af06001770c88b='5fb1ba27e1af06001770c88b'
 g_base_definitions[g_str_5fb1ba27e1af06001770c88b]={
@@ -234,12 +256,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c88b]={
   max=14,
   description='Fierce fighters',
   troop_type="Warriors",
-  troop_option_id="5fb1ba27e1af06001770c88a",
-}
-g_troop_option['5fb1ba27e1af06001770c88c']= {
-  min=1,
-  max=2,
-  description='Poorly equipped and trained bowmen, slingers, and unshielded javelinmen',
 }
 g_str_5fb1ba27e1af06001770c88d='5fb1ba27e1af06001770c88d'
 g_base_definitions[g_str_5fb1ba27e1af06001770c88d]={
@@ -249,12 +265,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c88d]={
   max=2,
   description='Poorly equipped and trained bowmen, slingers, and unshielded javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba27e1af06001770c88c",
-}
-g_troop_option['5fb1ba27e1af06001770c88e']= {
-  min=0,
-  max=3,
-  description='Gaesati naked fighters',
 }
 g_str_5fb1ba27e1af06001770c88f='5fb1ba27e1af06001770c88f'
 g_base_definitions[g_str_5fb1ba27e1af06001770c88f]={
@@ -264,7 +274,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770c88f]={
   max=3,
   description='Gaesati naked fighters',
   troop_type="Warband",
-  troop_option_id="5fb1ba27e1af06001770c88e",
 }
 g_str_5fb1b9dce1af06001770959d_camp='5fb1b9dce1af06001770959d_camp'
 g_base_definitions[g_str_5fb1b9dce1af06001770959d_camp]={
@@ -329,6 +338,14 @@ army['5fb1b9dce1af06001770959d_-400_-301']={
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f],
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f_dismounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_mounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_dismounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_mounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c883_dismounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c887_general],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c887],
   g_base_definitions[g_str_5fb1ba27e1af06001770c889],
   g_base_definitions[g_str_5fb1ba27e1af06001770c88b_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c88b],
@@ -343,6 +360,12 @@ army['5fb1b9dce1af06001770959d_-300_-100']={
     id='5fb1b9dce1af06001770959d_-300_-100',
     army_id='5fb1b9dce1af06001770959d'
   },
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_mounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_dismounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted],
+  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_dismounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c883_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_mounted],
   g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_dismounted],
