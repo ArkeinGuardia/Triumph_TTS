@@ -203,4 +203,33 @@ function test_get_army_builder_points_plaustrella_one_point_per_stand()
   lu.assertEquals(actual, 4)
 end
 
+function test_get_army_builder_points_fortified_camp()
+  local def= g_base_definitions[g_str_5fb1b9eae1af060017709e10_camp_fortified]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- camps are normally 0
+  lu.assertEquals(actual, 1)
+end
+
+function test_get_army_builder_points_pack_train()
+  local def= g_base_definitions[g_str_5fb1b9d9e1af0600177093ad_camp_pack_train]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- camps are normally 0
+  lu.assertEquals(actual, 1)
+end
+
+function test_get_army_builder_points_wagon()
+  local def= g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- camps are normally 0, and standard wagons have no extra cost.
+  lu.assertEquals(actual, 0)
+end
+
+function test_get_army_builder_points_elephant_screen()
+  local def= g_base_definitions[g_str_5fb1ba29e1af06001770ce82_elephant_screen]
+  local actual = get_army_builder_points_for_base_definitions({def,def,def})
+  -- An extra two points for the elephant screen
+  lu.assertEquals(actual, 14)
+end
+
+
 os.exit( lu.LuaUnit.run() )
