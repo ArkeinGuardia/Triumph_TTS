@@ -1,9 +1,14 @@
 <!-- TODO Add more buttons and prettify -->
 
-<Panel id="panel_dba_orders_bg" width="900" height="100" rectAlignment="LowerRight" color="#00000000" raycastTarget="true">
-    <Image image="pip_counter_bg_v5"></Image>
+<Panel id="panel_dba_orders_bg" width="730" height="100" rectAlignment="LowerRight" color="#00000000" raycastTarget="true">
+    <Image image="rightbottomside_menu_bg_v3"></Image>
 </Panel>
 <Panel id="panel_dba_orders" width="730" height="90" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true">
+    <VerticalLayout>
+        <Button id="button_push_back" onClick="on_push_back">Push back Column</Button>
+        <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
+        <Button id="button_redo_move" onClick="on_redo_move">Redo</Button>
+    </VerticalLayout>
     <VerticalLayout>
         <HorizontalLayout>
             <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
@@ -12,11 +17,6 @@
             <Button id="button_move_forward" onClick="move_bases">Move 4 MU</Button>
             <Button id="button_wheel" onClick="on_wheel">Wheel Group</Button>
         </HorizontalLayout>
-    </VerticalLayout>
-    <VerticalLayout>
-        <Button id="button_push_back" onClick="on_push_back">Push back Column</Button>
-        <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
-        <Button id="button_redo_move" onClick="on_redo_move">Redo</Button>
     </VerticalLayout>
     <VerticalLayout>
         <Button id="button_spawn_table" onClick="on_create_table_menu">Spawn table</Button>
