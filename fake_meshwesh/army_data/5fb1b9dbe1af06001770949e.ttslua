@@ -6,6 +6,65 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba23e1af06001770c4d3']= {
+  min=0,
+  max=1,
+  description='2-horse battle platforms with champions who usually fight on foot',
+  core='all',
+}
+g_troop_entry['5fb1ba23e1af06001770c4d4']= {
+  troop_option='5fb1ba23e1af06001770c4d3',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba23e1af06001770c4d5']= {
+  min=1,
+  max=2,
+  description='Greek horsemen',
+}
+g_troop_entry['5fb1ba23e1af06001770c4d6']= {
+  troop_option='5fb1ba23e1af06001770c4d5',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba23e1af06001770c4d7']= {
+  min=8,
+  max=14,
+  description='Light infantry armed with sword or spear and dipylon shield',
+  core='all',
+}
+g_troop_entry['5fb1ba23e1af06001770c4d8']= {
+  troop_option='5fb1ba23e1af06001770c4d7',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba23e1af06001770c4da']= {
+  min=0,
+  max=14,
+  description='Heavy infantry armed with a mix of dipylon and hoplon shields',
+  core='all',
+  startDate=-724,
+  endDate=-665,
+}
+g_troop_entry['5fb1ba23e1af06001770c4dc']= {
+  troop_option='5fb1ba23e1af06001770c4da',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba23e1af06001770c4de']= {
+  min=0,
+  max=4,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba23e1af06001770c4df']= {
+  troop_option='5fb1ba23e1af06001770c4de',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba23e1af06001770c4e1']= {
+  min=1,
+  max=4,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba23e1af06001770c4e2']= {
+  troop_option='5fb1ba23e1af06001770c4e1',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba23e1af06001770c4d4_general='5fb1ba23e1af06001770c4d4_general'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4d4_general]={
   id=g_str_5fb1ba23e1af06001770c4d4_general,
@@ -15,7 +74,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4d4_general]={
   description='2-horse battle platforms with champions who usually fight on foot',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba23e1af06001770c4d3",
 }
 g_str_5fb1ba23e1af06001770c4d4='5fb1ba23e1af06001770c4d4'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4d4]={
@@ -25,7 +83,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4d4]={
   max=1,
   description='2-horse battle platforms with champions who usually fight on foot',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba23e1af06001770c4d3",
 }
 g_str_5fb1ba23e1af06001770c4d6_general='5fb1ba23e1af06001770c4d6_general'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4d6_general]={
@@ -36,7 +93,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4d6_general]={
   description='Greek horsemen',
   general=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba23e1af06001770c4d5",
 }
 g_str_5fb1ba23e1af06001770c4d6='5fb1ba23e1af06001770c4d6'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4d6]={
@@ -46,7 +102,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4d6]={
   max=2,
   description='Greek horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba23e1af06001770c4d5",
 }
 g_str_5fb1ba23e1af06001770c4d8='5fb1ba23e1af06001770c4d8'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4d8]={
@@ -56,7 +111,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4d8]={
   max=14,
   description='Light infantry armed with sword or spear and dipylon shield',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba23e1af06001770c4d7",
 }
 g_str_5fb1ba23e1af06001770c4dc='5fb1ba23e1af06001770c4dc'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4dc]={
@@ -66,7 +120,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4dc]={
   max=14,
   description='Heavy infantry armed with a mix of dipylon and hoplon shields',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba23e1af06001770c4da",
 }
 g_str_5fb1ba23e1af06001770c4df='5fb1ba23e1af06001770c4df'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4df]={
@@ -76,7 +129,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4df]={
   max=4,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba23e1af06001770c4de",
 }
 g_str_5fb1ba23e1af06001770c4e2='5fb1ba23e1af06001770c4e2'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4e2]={
@@ -86,7 +138,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4e2]={
   max=4,
   description='Javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba23e1af06001770c4e1",
 }
 g_str_5fb1b9dbe1af06001770949e_camp='5fb1b9dbe1af06001770949e_camp'
 g_base_definitions[g_str_5fb1b9dbe1af06001770949e_camp]={
@@ -128,6 +179,7 @@ army['5fb1b9dbe1af06001770949e_-1160_-725']={
   g_base_definitions[g_str_5fb1ba23e1af06001770c4d6_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4d6],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4d8],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c4dc],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4df],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4e2],
   g_base_definitions[g_str_5fb1b9dbe1af06001770949e_camp],

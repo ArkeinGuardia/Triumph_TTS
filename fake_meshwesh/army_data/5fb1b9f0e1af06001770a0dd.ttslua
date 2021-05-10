@@ -6,6 +6,63 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3de1af06001770f3a4']= {
+  min=4,
+  max=10,
+  description='Tibetan horsemen',
+}
+g_troop_entry['5fb1ba3de1af06001770f3a5']= {
+  troop_option='5fb1ba3de1af06001770f3a4',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba3de1af06001770f3a7']= {
+  min=0,
+  max=2,
+  description='Garrison spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3de1af06001770f3a8']= {
+  troop_option='5fb1ba3de1af06001770f3a7',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba3de1af06001770f3a9']= {
+  min=0,
+  max=2,
+  description='Garrison bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3de1af06001770f3aa']= {
+  troop_option='5fb1ba3de1af06001770f3a9',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba3de1af06001770f3ab']= {
+  min=0,
+  max=2,
+  description='Himalayan mountain tribesmen',
+}
+g_troop_entry['5fb1ba3de1af06001770f3ac']= {
+  troop_option='5fb1ba3de1af06001770f3ab',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba3de1af06001770f3ad']= {
+  min=0,
+  max=6,
+  description='Qiang, Sumpa, and similar nomad tribesmen horse archers',
+}
+g_troop_entry['5fb1ba3de1af06001770f3ae']= {
+  troop_option='5fb1ba3de1af06001770f3ad',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3de1af06001770f3af']= {
+  min=0,
+  max=1,
+  description='Large rope-pull stone-throwers',
+  core='all',
+}
+g_troop_entry['5fb1ba3de1af06001770f3b0']= {
+  troop_option='5fb1ba3de1af06001770f3af',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba3de1af06001770f3a5_general='5fb1ba3de1af06001770f3a5_general'
 g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_general]={
   id=g_str_5fb1ba3de1af06001770f3a5_general,
@@ -15,7 +72,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_general]={
   description='Tibetan horsemen',
   general=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba3de1af06001770f3a4",
 }
 g_str_5fb1ba3de1af06001770f3a5_general_dismounted='5fb1ba3de1af06001770f3a5_general_dismounted'
 g_str_5fb1ba3de1af06001770f3a5_general_mounted='5fb1ba3de1af06001770f3a5_general_mounted'
@@ -29,7 +85,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_general_dismounted]={
   dismounted_from=g_str_5fb1ba3de1af06001770f3a5_general_mounted,
   general=true,
   troop_type="Spears",
-  troop_option_id="5fb1ba3de1af06001770f3a4",
 }
 g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_general_mounted]={
   id=g_str_5fb1ba3de1af06001770f3a5_general_mounted,
@@ -40,8 +95,8 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_general_mounted]={
   points=4,
   dismount_as=g_str_5fb1ba3de1af06001770f3a5_general_dismounted,
   general=true,
+  deployment_dismounting=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba3de1af06001770f3a4",
 }
 g_str_5fb1ba3de1af06001770f3a5='5fb1ba3de1af06001770f3a5'
 g_base_definitions[g_str_5fb1ba3de1af06001770f3a5]={
@@ -51,7 +106,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3a5]={
   max=10,
   description='Tibetan horsemen',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba3de1af06001770f3a4",
 }
 g_str_5fb1ba3de1af06001770f3a5_dismounted='5fb1ba3de1af06001770f3a5_dismounted'
 g_str_5fb1ba3de1af06001770f3a5_mounted='5fb1ba3de1af06001770f3a5_mounted'
@@ -64,7 +118,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba3de1af06001770f3a5_mounted,
   troop_type="Spears",
-  troop_option_id="5fb1ba3de1af06001770f3a4",
 }
 g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_mounted]={
   id=g_str_5fb1ba3de1af06001770f3a5_mounted,
@@ -74,8 +127,8 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3a5_mounted]={
   description='Tibetan horsemen\nDeployment dismounting as Spears',
   points=4,
   dismount_as=g_str_5fb1ba3de1af06001770f3a5_dismounted,
+  deployment_dismounting=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba3de1af06001770f3a4",
 }
 g_str_5fb1ba3de1af06001770f3a8='5fb1ba3de1af06001770f3a8'
 g_base_definitions[g_str_5fb1ba3de1af06001770f3a8]={
@@ -85,7 +138,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3a8]={
   max=2,
   description='Garrison spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba3de1af06001770f3a7",
 }
 g_str_5fb1ba3de1af06001770f3aa='5fb1ba3de1af06001770f3aa'
 g_base_definitions[g_str_5fb1ba3de1af06001770f3aa]={
@@ -95,7 +147,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3aa]={
   max=2,
   description='Garrison bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba3de1af06001770f3a9",
 }
 g_str_5fb1ba3de1af06001770f3ac='5fb1ba3de1af06001770f3ac'
 g_base_definitions[g_str_5fb1ba3de1af06001770f3ac]={
@@ -105,7 +156,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3ac]={
   max=2,
   description='Himalayan mountain tribesmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3de1af06001770f3ab",
 }
 g_str_5fb1ba3de1af06001770f3ae='5fb1ba3de1af06001770f3ae'
 g_base_definitions[g_str_5fb1ba3de1af06001770f3ae]={
@@ -115,7 +165,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3ae]={
   max=6,
   description='Qiang, Sumpa, and similar nomad tribesmen horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3de1af06001770f3ad",
 }
 g_str_5fb1ba3de1af06001770f3b0='5fb1ba3de1af06001770f3b0'
 g_base_definitions[g_str_5fb1ba3de1af06001770f3b0]={
@@ -125,7 +174,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f3b0]={
   max=1,
   description='Large rope-pull stone-throwers',
   troop_type="Artillery",
-  troop_option_id="5fb1ba3de1af06001770f3af",
 }
 g_str_5fb1b9f0e1af06001770a0dd_camp='5fb1b9f0e1af06001770a0dd_camp'
 g_base_definitions[g_str_5fb1b9f0e1af06001770a0dd_camp]={

@@ -6,6 +6,76 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba42e1af06001770fc58']= {
+  min=1,
+  max=1,
+  description='Armored horse archers',
+}
+g_troop_entry['5fb1ba42e1af06001770fc59']= {
+  troop_option='5fb1ba42e1af06001770fc58',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba42e1af06001770fc5a']= {
+  min=6,
+  max=10,
+  description='Heishi militia bowmen protected by spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fc5b']= {
+  troop_option='5fb1ba42e1af06001770fc5a',
+  troopTypeCode='PAV',
+}
+g_troop_option['5fb1ba42e1af06001770fc5c']= {
+  min=0,
+  max=1,
+  description='Heishi horsemen armed with bow',
+}
+g_troop_entry['5fb1ba42e1af06001770fc5d']= {
+  troop_option='5fb1ba42e1af06001770fc5c',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba42e1af06001770fc5e']= {
+  min=0,
+  max=1,
+  description='Pacified Emishi scouts',
+}
+g_troop_entry['5fb1ba42e1af06001770fc5f']= {
+  troop_option='5fb1ba42e1af06001770fc5e',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba42e1af06001770fc60']= {
+  min=0,
+  max=2,
+  description='O-yumi crossbow artillery',
+}
+g_troop_entry['5fb1ba42e1af06001770fc61']= {
+  troop_option='5fb1ba42e1af06001770fc60',
+  troopTypeCode='ART',
+}
+g_troop_option['5fb1ba42e1af06001770fc62']= {
+  min=1,
+  max=2,
+  description='Kondei, fushu resettled Emishi, and similar additional horse archers',
+  note='only early Heian',
+  startDate=795,
+  endDate=900,
+}
+g_troop_entry['5fb1ba42e1af06001770fc64']= {
+  troop_option='5fb1ba42e1af06001770fc62',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba42e1af06001770fc65']= {
+  min=0,
+  max=1,
+  description='Nembei sei peasant conscripts',
+  note='only early Heian',
+  startDate=795,
+  endDate=900,
+}
+g_troop_entry['5fb1ba42e1af06001770fc67']= {
+  troop_option='5fb1ba42e1af06001770fc65',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba42e1af06001770fc59_general='5fb1ba42e1af06001770fc59_general'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc59_general]={
   id=g_str_5fb1ba42e1af06001770fc59_general,
@@ -15,7 +85,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc59_general]={
   description='Armored horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fc58",
 }
 g_str_5fb1ba42e1af06001770fc59='5fb1ba42e1af06001770fc59'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc59]={
@@ -25,7 +94,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc59]={
   max=1,
   description='Armored horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fc58",
 }
 g_str_5fb1ba42e1af06001770fc5b_general='5fb1ba42e1af06001770fc5b_general'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc5b_general]={
@@ -36,7 +104,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc5b_general]={
   description='Heishi militia bowmen protected by spearmen',
   general=true,
   troop_type="Pavisiers",
-  troop_option_id="5fb1ba42e1af06001770fc5a",
 }
 g_str_5fb1ba42e1af06001770fc5b='5fb1ba42e1af06001770fc5b'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc5b]={
@@ -46,7 +113,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc5b]={
   max=10,
   description='Heishi militia bowmen protected by spearmen',
   troop_type="Pavisiers",
-  troop_option_id="5fb1ba42e1af06001770fc5a",
 }
 g_str_5fb1ba42e1af06001770fc5d='5fb1ba42e1af06001770fc5d'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc5d]={
@@ -56,7 +122,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc5d]={
   max=1,
   description='Heishi horsemen armed with bow',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba42e1af06001770fc5c",
 }
 g_str_5fb1ba42e1af06001770fc5f='5fb1ba42e1af06001770fc5f'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc5f]={
@@ -66,7 +131,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc5f]={
   max=1,
   description='Pacified Emishi scouts',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba42e1af06001770fc5e",
 }
 g_str_5fb1ba42e1af06001770fc61='5fb1ba42e1af06001770fc61'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc61]={
@@ -76,7 +140,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc61]={
   max=2,
   description='O-yumi crossbow artillery',
   troop_type="Artillery",
-  troop_option_id="5fb1ba42e1af06001770fc60",
 }
 g_str_5fb1ba42e1af06001770fc64_general='5fb1ba42e1af06001770fc64_general'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc64_general]={
@@ -87,7 +150,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc64_general]={
   description='Kondei, fushu resettled Emishi, and similar additional horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fc62",
 }
 g_str_5fb1ba42e1af06001770fc64='5fb1ba42e1af06001770fc64'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc64]={
@@ -97,7 +159,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc64]={
   max=2,
   description='Kondei, fushu resettled Emishi, and similar additional horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fc62",
 }
 g_str_5fb1ba42e1af06001770fc67='5fb1ba42e1af06001770fc67'
 g_base_definitions[g_str_5fb1ba42e1af06001770fc67]={
@@ -107,7 +168,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fc67]={
   max=1,
   description='Nembei sei peasant conscripts',
   troop_type="Horde",
-  troop_option_id="5fb1ba42e1af06001770fc65",
 }
 g_str_5fb1b9f4e1af06001770a345_camp='5fb1b9f4e1af06001770a345_camp'
 g_base_definitions[g_str_5fb1b9f4e1af06001770a345_camp]={
@@ -164,6 +224,9 @@ army['5fb1b9f4e1af06001770a345_646_794']={
   g_base_definitions[g_str_5fb1ba42e1af06001770fc5d],
   g_base_definitions[g_str_5fb1ba42e1af06001770fc5f],
   g_base_definitions[g_str_5fb1ba42e1af06001770fc61],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fc64_general],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fc64],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fc67],
   g_base_definitions[g_str_5fb1b9f4e1af06001770a345_camp],
   g_base_definitions[g_str_5fb1b9f4e1af06001770a345_camp_fortified],
 }

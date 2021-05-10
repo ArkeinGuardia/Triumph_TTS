@@ -6,6 +6,87 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba31e1af06001770db25']= {
+  min=1,
+  max=3,
+  description='Hird',
+  core='all',
+  startDate=531,
+  endDate=616,
+}
+g_troop_entry['5fb1ba31e1af06001770db27']= {
+  troop_option='5fb1ba31e1af06001770db25',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba31e1af06001770db28']= {
+  min=1,
+  max=3,
+  description='Hird',
+  core='all',
+  startDate=617,
+  endDate=849,
+}
+g_troop_entry['5fb1ba31e1af06001770db2a']= {
+  troop_option='5fb1ba31e1af06001770db28',
+  troopTypeCode='WRR',
+}
+g_troop_entry['5fb1ba31e1af06001770db2b']= {
+  troop_option='5fb1ba31e1af06001770db28',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba31e1af06001770db2c']= {
+  min=1,
+  max=3,
+  description='Saxon thegns',
+  core='all',
+  startDate=850,
+  endDate=1016,
+}
+g_troop_entry['5fb1ba31e1af06001770db2e']= {
+  troop_option='5fb1ba31e1af06001770db2c',
+  troopTypeCode='HFT',
+}
+g_troop_entry['5fb1ba31e1af06001770db2f']= {
+  troop_option='5fb1ba31e1af06001770db2c',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba31e1af06001770db30']= {
+  min=7,
+  max=15,
+  description='Select fyrd',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770db31']= {
+  troop_option='5fb1ba31e1af06001770db30',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba31e1af06001770db32']= {
+  min=0,
+  max=1,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba31e1af06001770db33']= {
+  troop_option='5fb1ba31e1af06001770db32',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba31e1af06001770db34']= {
+  min=0,
+  max=1,
+  description='Scouts and javelinmen',
+}
+g_troop_entry['5fb1ba31e1af06001770db35']= {
+  troop_option='5fb1ba31e1af06001770db34',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba31e1af06001770db36']= {
+  min=0,
+  max=4,
+  description='Great fyrd',
+}
+g_troop_entry['5fb1ba31e1af06001770db37']= {
+  troop_option='5fb1ba31e1af06001770db36',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba31e1af06001770db27_general='5fb1ba31e1af06001770db27_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db27_general]={
   id=g_str_5fb1ba31e1af06001770db27_general,
@@ -15,7 +96,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db27_general]={
   description='Hird',
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba31e1af06001770db25",
 }
 g_str_5fb1ba31e1af06001770db27='5fb1ba31e1af06001770db27'
 g_base_definitions[g_str_5fb1ba31e1af06001770db27]={
@@ -25,7 +105,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db27]={
   max=3,
   description='Hird',
   troop_type="Warriors",
-  troop_option_id="5fb1ba31e1af06001770db25",
 }
 g_str_5fb1ba31e1af06001770db2a_general='5fb1ba31e1af06001770db2a_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db2a_general]={
@@ -36,7 +115,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db2a_general]={
   description='Hird',
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba31e1af06001770db28",
 }
 g_str_5fb1ba31e1af06001770db2a='5fb1ba31e1af06001770db2a'
 g_base_definitions[g_str_5fb1ba31e1af06001770db2a]={
@@ -46,7 +124,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db2a]={
   max=3,
   description='Hird',
   troop_type="Warriors",
-  troop_option_id="5fb1ba31e1af06001770db28",
 }
 g_str_5fb1ba31e1af06001770db2b_general='5fb1ba31e1af06001770db2b_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db2b_general]={
@@ -57,7 +134,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db2b_general]={
   description='Hird',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db28",
 }
 g_str_5fb1ba31e1af06001770db2b='5fb1ba31e1af06001770db2b'
 g_base_definitions[g_str_5fb1ba31e1af06001770db2b]={
@@ -67,7 +143,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db2b]={
   max=3,
   description='Hird',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db28",
 }
 g_str_5fb1ba31e1af06001770db2e_general='5fb1ba31e1af06001770db2e_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db2e_general]={
@@ -78,7 +153,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db2e_general]={
   description='Saxon thegns',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db2c",
 }
 g_str_5fb1ba31e1af06001770db2e='5fb1ba31e1af06001770db2e'
 g_base_definitions[g_str_5fb1ba31e1af06001770db2e]={
@@ -88,7 +162,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db2e]={
   max=3,
   description='Saxon thegns',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db2c",
 }
 g_str_5fb1ba31e1af06001770db2f_general='5fb1ba31e1af06001770db2f_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db2f_general]={
@@ -99,7 +172,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db2f_general]={
   description='Saxon thegns',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770db2c",
 }
 g_str_5fb1ba31e1af06001770db2f='5fb1ba31e1af06001770db2f'
 g_base_definitions[g_str_5fb1ba31e1af06001770db2f]={
@@ -109,7 +181,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db2f]={
   max=3,
   description='Saxon thegns',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770db2c",
 }
 g_str_5fb1ba31e1af06001770db31_general='5fb1ba31e1af06001770db31_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db31_general]={
@@ -120,7 +191,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db31_general]={
   description='Select fyrd',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db30",
 }
 g_str_5fb1ba31e1af06001770db31='5fb1ba31e1af06001770db31'
 g_base_definitions[g_str_5fb1ba31e1af06001770db31]={
@@ -130,7 +200,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db31]={
   max=15,
   description='Select fyrd',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db30",
 }
 g_str_5fb1ba31e1af06001770db33='5fb1ba31e1af06001770db33'
 g_base_definitions[g_str_5fb1ba31e1af06001770db33]={
@@ -140,7 +209,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db33]={
   max=1,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba31e1af06001770db32",
 }
 g_str_5fb1ba31e1af06001770db35='5fb1ba31e1af06001770db35'
 g_base_definitions[g_str_5fb1ba31e1af06001770db35]={
@@ -150,7 +218,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db35]={
   max=1,
   description='Scouts and javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba31e1af06001770db34",
 }
 g_str_5fb1ba31e1af06001770db37='5fb1ba31e1af06001770db37'
 g_base_definitions[g_str_5fb1ba31e1af06001770db37]={
@@ -160,7 +227,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db37]={
   max=4,
   description='Great fyrd',
   troop_type="Horde",
-  troop_option_id="5fb1ba31e1af06001770db36",
 }
 g_str_5fb1b9e5e1af060017709acf_camp='5fb1b9e5e1af060017709acf_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709acf_camp]={
@@ -206,6 +272,14 @@ army['5fb1b9e5e1af060017709acf_531_616']={
   },
   g_base_definitions[g_str_5fb1ba31e1af06001770db27_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db27],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2a_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2a],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2b_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2b],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2e_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2e],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2f_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2f],
   g_base_definitions[g_str_5fb1ba31e1af06001770db31_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db31],
   g_base_definitions[g_str_5fb1ba31e1af06001770db33],
@@ -219,10 +293,16 @@ army['5fb1b9e5e1af060017709acf_617_849']={
     id='5fb1b9e5e1af060017709acf_617_849',
     army_id='5fb1b9e5e1af060017709acf'
   },
+  g_base_definitions[g_str_5fb1ba31e1af06001770db27_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db27],
   g_base_definitions[g_str_5fb1ba31e1af06001770db2a_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db2a],
   g_base_definitions[g_str_5fb1ba31e1af06001770db2b_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db2b],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2e_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2e],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2f_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2f],
   g_base_definitions[g_str_5fb1ba31e1af06001770db31_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db31],
   g_base_definitions[g_str_5fb1ba31e1af06001770db33],
@@ -236,6 +316,12 @@ army['5fb1b9e5e1af060017709acf_850_1016']={
     id='5fb1b9e5e1af060017709acf_850_1016',
     army_id='5fb1b9e5e1af060017709acf'
   },
+  g_base_definitions[g_str_5fb1ba31e1af06001770db27_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db27],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2a_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2a],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2b_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db2b],
   g_base_definitions[g_str_5fb1ba31e1af06001770db2e_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db2e],
   g_base_definitions[g_str_5fb1ba31e1af06001770db2f_general],

@@ -6,6 +6,53 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba21e1af06001770c1a5']= {
+  min=1,
+  max=2,
+  description='2-horse chariots with two crewmen',
+}
+g_troop_entry['5fb1ba21e1af06001770c1a6']= {
+  troop_option='5fb1ba21e1af06001770c1a5',
+  troopTypeCode='CHT',
+}
+g_troop_option['5fb1ba21e1af06001770c1a7']= {
+  min=5,
+  max=10,
+  description='Militia spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba21e1af06001770c1a8']= {
+  troop_option='5fb1ba21e1af06001770c1a7',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba21e1af06001770c1a9']= {
+  min=1,
+  max=6,
+  description='Militia bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba21e1af06001770c1aa']= {
+  troop_option='5fb1ba21e1af06001770c1a9',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba21e1af06001770c1ab']= {
+  min=1,
+  max=5,
+  description='Militia slingers',
+}
+g_troop_entry['5fb1ba21e1af06001770c1ac']= {
+  troop_option='5fb1ba21e1af06001770c1ab',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba21e1af06001770c1ad']= {
+  min=0,
+  max=1,
+  description='Aramaean or Arab camelry',
+}
+g_troop_entry['5fb1ba21e1af06001770c1ae']= {
+  troop_option='5fb1ba21e1af06001770c1ad',
+  troopTypeCode='BAD',
+}
 g_str_5fb1ba21e1af06001770c1a6_general='5fb1ba21e1af06001770c1a6_general'
 g_base_definitions[g_str_5fb1ba21e1af06001770c1a6_general]={
   id=g_str_5fb1ba21e1af06001770c1a6_general,
@@ -15,7 +62,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1a6_general]={
   description='2-horse chariots with two crewmen',
   general=true,
   troop_type="Chariots",
-  troop_option_id="5fb1ba21e1af06001770c1a5",
 }
 g_str_5fb1ba21e1af06001770c1a6='5fb1ba21e1af06001770c1a6'
 g_base_definitions[g_str_5fb1ba21e1af06001770c1a6]={
@@ -25,7 +71,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1a6]={
   max=2,
   description='2-horse chariots with two crewmen',
   troop_type="Chariots",
-  troop_option_id="5fb1ba21e1af06001770c1a5",
 }
 g_str_5fb1ba21e1af06001770c1a8='5fb1ba21e1af06001770c1a8'
 g_base_definitions[g_str_5fb1ba21e1af06001770c1a8]={
@@ -35,7 +80,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1a8]={
   max=10,
   description='Militia spearmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba21e1af06001770c1a7",
 }
 g_str_5fb1ba21e1af06001770c1aa='5fb1ba21e1af06001770c1aa'
 g_base_definitions[g_str_5fb1ba21e1af06001770c1aa]={
@@ -45,7 +89,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1aa]={
   max=6,
   description='Militia bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba21e1af06001770c1a9",
 }
 g_str_5fb1ba21e1af06001770c1ac='5fb1ba21e1af06001770c1ac'
 g_base_definitions[g_str_5fb1ba21e1af06001770c1ac]={
@@ -55,7 +98,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1ac]={
   max=5,
   description='Militia slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba21e1af06001770c1ab",
 }
 g_str_5fb1ba21e1af06001770c1ae='5fb1ba21e1af06001770c1ae'
 g_base_definitions[g_str_5fb1ba21e1af06001770c1ae]={
@@ -65,7 +107,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1ae]={
   max=1,
   description='Aramaean or Arab camelry',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba21e1af06001770c1ad",
 }
 g_str_5fb1ba21e1af06001770c1ae_light_camelry='5fb1ba21e1af06001770c1ae_light_camelry'
 g_base_definitions[g_str_5fb1ba21e1af06001770c1ae_light_camelry]={
@@ -76,7 +117,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c1ae_light_camelry]={
   description='Aramaean or Arab camelry\nLight Camelry',
   light_camelry=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba21e1af06001770c1ad",
 }
 g_str_5fb1b9dae1af0600177093dd_camp='5fb1b9dae1af0600177093dd_camp'
 g_base_definitions[g_str_5fb1b9dae1af0600177093dd_camp]={

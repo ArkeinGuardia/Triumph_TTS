@@ -6,6 +6,54 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2be1af06001770d211']= {
+  min=1,
+  max=1,
+  description='Ex-gladiators and veteran war prisoners with Roman equipment',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d212']= {
+  troop_option='5fb1ba2be1af06001770d211',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba2be1af06001770d214']= {
+  min=0,
+  max=1,
+  description='Gallic and German horsemen',
+}
+g_troop_entry['5fb1ba2be1af06001770d215']= {
+  troop_option='5fb1ba2be1af06001770d214',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2be1af06001770d216']= {
+  min=4,
+  max=10,
+  description='Ex-slaves with Roman equipment',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d217']= {
+  troop_option='5fb1ba2be1af06001770d216',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba2be1af06001770d218']= {
+  min=0,
+  max=2,
+  description='Ex-slaves, Gallic and German fierce fighters',
+  core='all',
+}
+g_troop_entry['5fb1ba2be1af06001770d219']= {
+  troop_option='5fb1ba2be1af06001770d218',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba2be1af06001770d21a']= {
+  min=6,
+  max=16,
+  description='Ex-slaves, shepherds and herdsmen, bandits',
+}
+g_troop_entry['5fb1ba2be1af06001770d21b']= {
+  troop_option='5fb1ba2be1af06001770d21a',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba2be1af06001770d212_general='5fb1ba2be1af06001770d212_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d212_general]={
   id=g_str_5fb1ba2be1af06001770d212_general,
@@ -15,7 +63,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d212_general]={
   description='Ex-gladiators and veteran war prisoners with Roman equipment',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba2be1af06001770d211",
 }
 g_str_5fb1ba2be1af06001770d212='5fb1ba2be1af06001770d212'
 g_base_definitions[g_str_5fb1ba2be1af06001770d212]={
@@ -25,7 +72,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d212]={
   max=1,
   description='Ex-gladiators and veteran war prisoners with Roman equipment',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba2be1af06001770d211",
 }
 g_str_5fb1ba2be1af06001770d215_general='5fb1ba2be1af06001770d215_general'
 g_base_definitions[g_str_5fb1ba2be1af06001770d215_general]={
@@ -36,7 +82,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d215_general]={
   description='Gallic and German horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d214",
 }
 g_str_5fb1ba2be1af06001770d215='5fb1ba2be1af06001770d215'
 g_base_definitions[g_str_5fb1ba2be1af06001770d215]={
@@ -46,7 +91,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d215]={
   max=1,
   description='Gallic and German horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2be1af06001770d214",
 }
 g_str_5fb1ba2be1af06001770d217='5fb1ba2be1af06001770d217'
 g_base_definitions[g_str_5fb1ba2be1af06001770d217]={
@@ -56,7 +100,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d217]={
   max=10,
   description='Ex-slaves with Roman equipment',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba2be1af06001770d216",
 }
 g_str_5fb1ba2be1af06001770d219='5fb1ba2be1af06001770d219'
 g_base_definitions[g_str_5fb1ba2be1af06001770d219]={
@@ -66,7 +109,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d219]={
   max=2,
   description='Ex-slaves, Gallic and German fierce fighters',
   troop_type="Warriors",
-  troop_option_id="5fb1ba2be1af06001770d218",
 }
 g_str_5fb1ba2be1af06001770d21b='5fb1ba2be1af06001770d21b'
 g_base_definitions[g_str_5fb1ba2be1af06001770d21b]={
@@ -76,7 +118,6 @@ g_base_definitions[g_str_5fb1ba2be1af06001770d21b]={
   max=16,
   description='Ex-slaves, shepherds and herdsmen, bandits',
   troop_type="Rabble",
-  troop_option_id="5fb1ba2be1af06001770d21a",
 }
 g_str_5fb1b9e1e1af06001770981f_camp='5fb1b9e1e1af06001770981f_camp'
 g_base_definitions[g_str_5fb1b9e1e1af06001770981f_camp]={

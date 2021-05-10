@@ -6,6 +6,64 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba22e1af06001770c37c']= {
+  min=1,
+  max=2,
+  description='4-horse chariots with three crewmen',
+}
+g_troop_entry['5fb1ba22e1af06001770c37d']= {
+  troop_option='5fb1ba22e1af06001770c37c',
+  troopTypeCode='CHT',
+}
+g_troop_option['5fb1ba22e1af06001770c37e']= {
+  min=1,
+  max=2,
+  description='Qurbuti, Chaldean, Aramaean, or militia horsemen',
+}
+g_troop_entry['5fb1ba22e1af06001770c37f']= {
+  troop_option='5fb1ba22e1af06001770c37e',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba22e1af06001770c380']= {
+  min=0,
+  max=1,
+  description='Qurbuti infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba22e1af06001770c381']= {
+  troop_option='5fb1ba22e1af06001770c380',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba22e1af06001770c382']= {
+  min=3,
+  max=8,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba22e1af06001770c383']= {
+  troop_option='5fb1ba22e1af06001770c382',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba22e1af06001770c384']= {
+  min=0,
+  max=3,
+  description='Bowmen behind long-shield spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba22e1af06001770c385']= {
+  troop_option='5fb1ba22e1af06001770c384',
+  troopTypeCode='PAV',
+}
+g_troop_option['5fb1ba22e1af06001770c386']= {
+  min=3,
+  max=10,
+  description='Reserves and emergency levies',
+  core='all',
+}
+g_troop_entry['5fb1ba22e1af06001770c387']= {
+  troop_option='5fb1ba22e1af06001770c386',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba22e1af06001770c37d_general='5fb1ba22e1af06001770c37d_general'
 g_base_definitions[g_str_5fb1ba22e1af06001770c37d_general]={
   id=g_str_5fb1ba22e1af06001770c37d_general,
@@ -15,7 +73,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c37d_general]={
   description='4-horse chariots with three crewmen',
   general=true,
   troop_type="Chariots",
-  troop_option_id="5fb1ba22e1af06001770c37c",
 }
 g_str_5fb1ba22e1af06001770c37d='5fb1ba22e1af06001770c37d'
 g_base_definitions[g_str_5fb1ba22e1af06001770c37d]={
@@ -25,7 +82,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c37d]={
   max=2,
   description='4-horse chariots with three crewmen',
   troop_type="Chariots",
-  troop_option_id="5fb1ba22e1af06001770c37c",
 }
 g_str_5fb1ba22e1af06001770c37f='5fb1ba22e1af06001770c37f'
 g_base_definitions[g_str_5fb1ba22e1af06001770c37f]={
@@ -35,7 +91,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c37f]={
   max=2,
   description='Qurbuti, Chaldean, Aramaean, or militia horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba22e1af06001770c37e",
 }
 g_str_5fb1ba22e1af06001770c381='5fb1ba22e1af06001770c381'
 g_base_definitions[g_str_5fb1ba22e1af06001770c381]={
@@ -45,7 +100,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c381]={
   max=1,
   description='Qurbuti infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba22e1af06001770c380",
 }
 g_str_5fb1ba22e1af06001770c383='5fb1ba22e1af06001770c383'
 g_base_definitions[g_str_5fb1ba22e1af06001770c383]={
@@ -55,7 +109,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c383]={
   max=8,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c382",
 }
 g_str_5fb1ba22e1af06001770c385='5fb1ba22e1af06001770c385'
 g_base_definitions[g_str_5fb1ba22e1af06001770c385]={
@@ -65,7 +118,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c385]={
   max=3,
   description='Bowmen behind long-shield spearmen',
   troop_type="Pavisiers",
-  troop_option_id="5fb1ba22e1af06001770c384",
 }
 g_str_5fb1ba22e1af06001770c387='5fb1ba22e1af06001770c387'
 g_base_definitions[g_str_5fb1ba22e1af06001770c387]={
@@ -75,7 +127,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c387]={
   max=10,
   description='Reserves and emergency levies',
   troop_type="Horde",
-  troop_option_id="5fb1ba22e1af06001770c386",
 }
 g_str_5fb1b9dae1af06001770944a_camp='5fb1b9dae1af06001770944a_camp'
 g_base_definitions[g_str_5fb1b9dae1af06001770944a_camp]={

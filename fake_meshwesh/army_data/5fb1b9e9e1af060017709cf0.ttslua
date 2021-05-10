@@ -6,6 +6,131 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba34e1af06001770e315']= {
+  min=2,
+  max=5,
+  description='Deep mounted formations using men at arms with barding in front and less well equipped men-at-arms in rear ranks',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e316']= {
+  troop_option='5fb1ba34e1af06001770e315',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba34e1af06001770e317']= {
+  min=0,
+  max=1,
+  description='Armored crossbowmen on horses',
+}
+g_troop_entry['5fb1ba34e1af06001770e318']= {
+  troop_option='5fb1ba34e1af06001770e317',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba34e1af06001770e319']= {
+  min=0,
+  max=1,
+  description='Petronels',
+}
+g_troop_entry['5fb1ba34e1af06001770e31a']= {
+  troop_option='5fb1ba34e1af06001770e319',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba34e1af06001770e31b']= {
+  min=0,
+  max=4,
+  description='Feudal retainers or heerban',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e31c']= {
+  troop_option='5fb1ba34e1af06001770e31b',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba34e1af06001770e31d']= {
+  min=0,
+  max=2,
+  description='Heerban crossbowmen or bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e31e']= {
+  troop_option='5fb1ba34e1af06001770e31d',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba34e1af06001770e31f']= {
+  min=0,
+  max=3,
+  description='Mercenary axemen, swordsmen, and halberdiers',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e320']= {
+  troop_option='5fb1ba34e1af06001770e31f',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba34e1af06001770e322']= {
+  min=2,
+  max=4,
+  description='Mercenary bowmen or crossbowmen or handgunners',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e323']= {
+  troop_option='5fb1ba34e1af06001770e322',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba34e1af06001770e324']= {
+  troop_option='5fb1ba34e1af06001770e322',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba34e1af06001770e326']= {
+  min=0,
+  max=1,
+  description='City militia crossbowmen, possibly with pavises',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e327']= {
+  troop_option='5fb1ba34e1af06001770e326',
+  troopTypeCode='BLV',
+}
+g_troop_entry['5fb1ba34e1af06001770e328']= {
+  troop_option='5fb1ba34e1af06001770e326',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba34e1af06001770e329']= {
+  min=0,
+  max=2,
+  description='City militia spearmen or pikemen',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e32a']= {
+  troop_option='5fb1ba34e1af06001770e329',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba34e1af06001770e32c']= {
+  min=0,
+  max=1,
+  description='City militia skirmishing bowmen or handgunners',
+}
+g_troop_entry['5fb1ba34e1af06001770e32d']= {
+  troop_option='5fb1ba34e1af06001770e32c',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba34e1af06001770e32f']= {
+  min=0,
+  max=4,
+  description='Mercenary pikemen',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e330']= {
+  troop_option='5fb1ba34e1af06001770e32f',
+  troopTypeCode='PIK',
+}
+g_troop_option['5fb1ba34e1af06001770e331']= {
+  min=0,
+  max=1,
+  description='Bombards',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e332']= {
+  troop_option='5fb1ba34e1af06001770e331',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba34e1af06001770e316_general='5fb1ba34e1af06001770e316_general'
 g_base_definitions[g_str_5fb1ba34e1af06001770e316_general]={
   id=g_str_5fb1ba34e1af06001770e316_general,
@@ -15,7 +140,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e316_general]={
   description='Deep mounted formations using men at arms with barding in front and less well equipped men-at-arms in rear ranks',
   general=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba34e1af06001770e315",
 }
 g_str_5fb1ba34e1af06001770e316='5fb1ba34e1af06001770e316'
 g_base_definitions[g_str_5fb1ba34e1af06001770e316]={
@@ -25,7 +149,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e316]={
   max=5,
   description='Deep mounted formations using men at arms with barding in front and less well equipped men-at-arms in rear ranks',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba34e1af06001770e315",
 }
 g_str_5fb1ba34e1af06001770e318='5fb1ba34e1af06001770e318'
 g_base_definitions[g_str_5fb1ba34e1af06001770e318]={
@@ -35,7 +158,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e318]={
   max=1,
   description='Armored crossbowmen on horses',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba34e1af06001770e317",
 }
 g_str_5fb1ba34e1af06001770e31a='5fb1ba34e1af06001770e31a'
 g_base_definitions[g_str_5fb1ba34e1af06001770e31a]={
@@ -45,7 +167,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e31a]={
   max=1,
   description='Petronels',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba34e1af06001770e319",
 }
 g_str_5fb1ba34e1af06001770e31c='5fb1ba34e1af06001770e31c'
 g_base_definitions[g_str_5fb1ba34e1af06001770e31c]={
@@ -55,7 +176,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e31c]={
   max=4,
   description='Feudal retainers or heerban',
   troop_type="Horde",
-  troop_option_id="5fb1ba34e1af06001770e31b",
 }
 g_str_5fb1ba34e1af06001770e31e='5fb1ba34e1af06001770e31e'
 g_base_definitions[g_str_5fb1ba34e1af06001770e31e]={
@@ -65,7 +185,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e31e]={
   max=2,
   description='Heerban crossbowmen or bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba34e1af06001770e31d",
 }
 g_str_5fb1ba34e1af06001770e320='5fb1ba34e1af06001770e320'
 g_base_definitions[g_str_5fb1ba34e1af06001770e320]={
@@ -75,7 +194,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e320]={
   max=3,
   description='Mercenary axemen, swordsmen, and halberdiers',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba34e1af06001770e31f",
 }
 g_str_5fb1ba34e1af06001770e323='5fb1ba34e1af06001770e323'
 g_base_definitions[g_str_5fb1ba34e1af06001770e323]={
@@ -85,7 +203,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e323]={
   max=4,
   description='Mercenary bowmen or crossbowmen or handgunners',
   troop_type="Archers",
-  troop_option_id="5fb1ba34e1af06001770e322",
 }
 g_str_5fb1ba34e1af06001770e324='5fb1ba34e1af06001770e324'
 g_base_definitions[g_str_5fb1ba34e1af06001770e324]={
@@ -95,7 +212,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e324]={
   max=4,
   description='Mercenary bowmen or crossbowmen or handgunners',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba34e1af06001770e322",
 }
 g_str_5fb1ba34e1af06001770e327='5fb1ba34e1af06001770e327'
 g_base_definitions[g_str_5fb1ba34e1af06001770e327]={
@@ -105,7 +221,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e327]={
   max=1,
   description='City militia crossbowmen, possibly with pavises',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba34e1af06001770e326",
 }
 g_str_5fb1ba34e1af06001770e328='5fb1ba34e1af06001770e328'
 g_base_definitions[g_str_5fb1ba34e1af06001770e328]={
@@ -115,7 +230,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e328]={
   max=1,
   description='City militia crossbowmen, possibly with pavises',
   troop_type="Archers",
-  troop_option_id="5fb1ba34e1af06001770e326",
 }
 g_str_5fb1ba34e1af06001770e32a='5fb1ba34e1af06001770e32a'
 g_base_definitions[g_str_5fb1ba34e1af06001770e32a]={
@@ -125,7 +239,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e32a]={
   max=2,
   description='City militia spearmen or pikemen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba34e1af06001770e329",
 }
 g_str_5fb1ba34e1af06001770e32d='5fb1ba34e1af06001770e32d'
 g_base_definitions[g_str_5fb1ba34e1af06001770e32d]={
@@ -135,7 +248,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e32d]={
   max=1,
   description='City militia skirmishing bowmen or handgunners',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba34e1af06001770e32c",
 }
 g_str_5fb1ba34e1af06001770e330='5fb1ba34e1af06001770e330'
 g_base_definitions[g_str_5fb1ba34e1af06001770e330]={
@@ -145,7 +257,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e330]={
   max=4,
   description='Mercenary pikemen',
   troop_type="Pikes",
-  troop_option_id="5fb1ba34e1af06001770e32f",
 }
 g_str_5fb1ba34e1af06001770e332='5fb1ba34e1af06001770e332'
 g_base_definitions[g_str_5fb1ba34e1af06001770e332]={
@@ -155,7 +266,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e332]={
   max=1,
   description='Bombards',
   troop_type="Artillery",
-  troop_option_id="5fb1ba34e1af06001770e331",
 }
 g_str_5fb1b9e9e1af060017709cf0_camp='5fb1b9e9e1af060017709cf0_camp'
 g_base_definitions[g_str_5fb1b9e9e1af060017709cf0_camp]={

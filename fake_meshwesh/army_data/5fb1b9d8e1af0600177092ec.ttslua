@@ -6,6 +6,48 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba1fe1af06001770be89']= {
+  min=1,
+  max=6,
+  description='Retainers and effective javelinmen',
+  core='all',
+}
+g_troop_entry['5fb1ba1fe1af06001770be8a']= {
+  troop_option='5fb1ba1fe1af06001770be89',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba1fe1af06001770be8b']= {
+  min=6,
+  max=20,
+  description='Unshielded javelinmen',
+}
+g_troop_entry['5fb1ba1fe1af06001770be8c']= {
+  troop_option='5fb1ba1fe1af06001770be8b',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba1fe1af06001770be8d']= {
+  min=1,
+  max=3,
+  description='Slingers',
+}
+g_troop_entry['5fb1ba1fe1af06001770be8e']= {
+  troop_option='5fb1ba1fe1af06001770be8d',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba1fe1af06001770be8f']= {
+  min=1,
+  max=3,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba1fe1af06001770be90']= {
+  troop_option='5fb1ba1fe1af06001770be8f',
+  troopTypeCode='BLV',
+}
+g_troop_entry['5fb1ba1fe1af06001770be91']= {
+  troop_option='5fb1ba1fe1af06001770be8f',
+  troopTypeCode='ARC',
+}
 g_str_5fb1ba1fe1af06001770be8a_general='5fb1ba1fe1af06001770be8a_general'
 g_base_definitions[g_str_5fb1ba1fe1af06001770be8a_general]={
   id=g_str_5fb1ba1fe1af06001770be8a_general,
@@ -15,7 +57,6 @@ g_base_definitions[g_str_5fb1ba1fe1af06001770be8a_general]={
   description='Retainers and effective javelinmen',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba1fe1af06001770be89",
 }
 g_str_5fb1ba1fe1af06001770be8a='5fb1ba1fe1af06001770be8a'
 g_base_definitions[g_str_5fb1ba1fe1af06001770be8a]={
@@ -25,7 +66,6 @@ g_base_definitions[g_str_5fb1ba1fe1af06001770be8a]={
   max=6,
   description='Retainers and effective javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba1fe1af06001770be89",
 }
 g_str_5fb1ba1fe1af06001770be8c='5fb1ba1fe1af06001770be8c'
 g_base_definitions[g_str_5fb1ba1fe1af06001770be8c]={
@@ -35,7 +75,6 @@ g_base_definitions[g_str_5fb1ba1fe1af06001770be8c]={
   max=20,
   description='Unshielded javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba1fe1af06001770be8b",
 }
 g_str_5fb1ba1fe1af06001770be8e='5fb1ba1fe1af06001770be8e'
 g_base_definitions[g_str_5fb1ba1fe1af06001770be8e]={
@@ -45,7 +84,6 @@ g_base_definitions[g_str_5fb1ba1fe1af06001770be8e]={
   max=3,
   description='Slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba1fe1af06001770be8d",
 }
 g_str_5fb1ba1fe1af06001770be90='5fb1ba1fe1af06001770be90'
 g_base_definitions[g_str_5fb1ba1fe1af06001770be90]={
@@ -55,7 +93,6 @@ g_base_definitions[g_str_5fb1ba1fe1af06001770be90]={
   max=3,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba1fe1af06001770be8f",
 }
 g_str_5fb1ba1fe1af06001770be91='5fb1ba1fe1af06001770be91'
 g_base_definitions[g_str_5fb1ba1fe1af06001770be91]={
@@ -65,7 +102,6 @@ g_base_definitions[g_str_5fb1ba1fe1af06001770be91]={
   max=3,
   description='Bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba1fe1af06001770be8f",
 }
 g_str_5fb1b9d8e1af0600177092ec_camp='5fb1b9d8e1af0600177092ec_camp'
 g_base_definitions[g_str_5fb1b9d8e1af0600177092ec_camp]={

@@ -6,6 +6,34 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba25e1af06001770c6f8']= {
+  min=1,
+  max=2,
+  description='Horsemen',
+}
+g_troop_entry['5fb1ba25e1af06001770c6f9']= {
+  troop_option='5fb1ba25e1af06001770c6f8',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba25e1af06001770c6fa']= {
+  min=6,
+  max=15,
+  description='Roman-style infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba25e1af06001770c6fb']= {
+  troop_option='5fb1ba25e1af06001770c6fa',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba25e1af06001770c6fc']= {
+  min=0,
+  max=4,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba25e1af06001770c6fd']= {
+  troop_option='5fb1ba25e1af06001770c6fc',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba25e1af06001770c6f9_general='5fb1ba25e1af06001770c6f9_general'
 g_base_definitions[g_str_5fb1ba25e1af06001770c6f9_general]={
   id=g_str_5fb1ba25e1af06001770c6f9_general,
@@ -15,7 +43,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c6f9_general]={
   description='Horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba25e1af06001770c6f8",
 }
 g_str_5fb1ba25e1af06001770c6f9='5fb1ba25e1af06001770c6f9'
 g_base_definitions[g_str_5fb1ba25e1af06001770c6f9]={
@@ -25,7 +52,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c6f9]={
   max=2,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba25e1af06001770c6f8",
 }
 g_str_5fb1ba25e1af06001770c6fb='5fb1ba25e1af06001770c6fb'
 g_base_definitions[g_str_5fb1ba25e1af06001770c6fb]={
@@ -35,7 +61,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c6fb]={
   max=15,
   description='Roman-style infantry',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba25e1af06001770c6fa",
 }
 g_str_5fb1ba25e1af06001770c6fd='5fb1ba25e1af06001770c6fd'
 g_base_definitions[g_str_5fb1ba25e1af06001770c6fd]={
@@ -45,7 +70,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c6fd]={
   max=4,
   description='Javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba25e1af06001770c6fc",
 }
 g_str_5fb1b9dce1af060017709534_camp='5fb1b9dce1af060017709534_camp'
 g_base_definitions[g_str_5fb1b9dce1af060017709534_camp]={

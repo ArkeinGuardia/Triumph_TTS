@@ -6,6 +6,79 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba32e1af06001770de4e']= {
+  min=3,
+  max=9,
+  description='Arab or Berber lancers',
+}
+g_troop_entry['5fb1ba32e1af06001770de4f']= {
+  troop_option='5fb1ba32e1af06001770de4e',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba32e1af06001770de50']= {
+  min=4,
+  max=8,
+  description='Berber javelinmen',
+}
+g_troop_entry['5fb1ba32e1af06001770de51']= {
+  troop_option='5fb1ba32e1af06001770de50',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba32e1af06001770de52']= {
+  min=0,
+  max=1,
+  description='Berber skirmishing slingers',
+}
+g_troop_entry['5fb1ba32e1af06001770de53']= {
+  troop_option='5fb1ba32e1af06001770de52',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba32e1af06001770de54']= {
+  min=0,
+  max=2,
+  description='Arab bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba32e1af06001770de55']= {
+  troop_option='5fb1ba32e1af06001770de54',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba32e1af06001770de56']= {
+  troop_option='5fb1ba32e1af06001770de54',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba32e1af06001770de57']= {
+  min=0,
+  max=1,
+  description='Black slave infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba32e1af06001770de58']= {
+  troop_option='5fb1ba32e1af06001770de57',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba32e1af06001770de59']= {
+  min=0,
+  max=1,
+  description='Black slave bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba32e1af06001770de5a']= {
+  troop_option='5fb1ba32e1af06001770de59',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba32e1af06001770de5b']= {
+  min=0,
+  max=1,
+  description='Arab spearmen',
+  core='all',
+  startDate=740,
+  endDate=742,
+}
+g_troop_entry['5fb1ba32e1af06001770de5d']= {
+  troop_option='5fb1ba32e1af06001770de5b',
+  troopTypeCode='HFT',
+}
 g_str_5fb1ba32e1af06001770de4f_general='5fb1ba32e1af06001770de4f_general'
 g_base_definitions[g_str_5fb1ba32e1af06001770de4f_general]={
   id=g_str_5fb1ba32e1af06001770de4f_general,
@@ -15,7 +88,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de4f_general]={
   description='Arab or Berber lancers',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba32e1af06001770de4e",
 }
 g_str_5fb1ba32e1af06001770de4f='5fb1ba32e1af06001770de4f'
 g_base_definitions[g_str_5fb1ba32e1af06001770de4f]={
@@ -25,7 +97,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de4f]={
   max=9,
   description='Arab or Berber lancers',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba32e1af06001770de4e",
 }
 g_str_5fb1ba32e1af06001770de51='5fb1ba32e1af06001770de51'
 g_base_definitions[g_str_5fb1ba32e1af06001770de51]={
@@ -35,7 +106,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de51]={
   max=8,
   description='Berber javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba32e1af06001770de50",
 }
 g_str_5fb1ba32e1af06001770de53='5fb1ba32e1af06001770de53'
 g_base_definitions[g_str_5fb1ba32e1af06001770de53]={
@@ -45,7 +115,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de53]={
   max=1,
   description='Berber skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba32e1af06001770de52",
 }
 g_str_5fb1ba32e1af06001770de55='5fb1ba32e1af06001770de55'
 g_base_definitions[g_str_5fb1ba32e1af06001770de55]={
@@ -55,7 +124,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de55]={
   max=2,
   description='Arab bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba32e1af06001770de54",
 }
 g_str_5fb1ba32e1af06001770de56='5fb1ba32e1af06001770de56'
 g_base_definitions[g_str_5fb1ba32e1af06001770de56]={
@@ -65,7 +133,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de56]={
   max=2,
   description='Arab bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba32e1af06001770de54",
 }
 g_str_5fb1ba32e1af06001770de58='5fb1ba32e1af06001770de58'
 g_base_definitions[g_str_5fb1ba32e1af06001770de58]={
@@ -75,7 +142,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de58]={
   max=1,
   description='Black slave infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba32e1af06001770de57",
 }
 g_str_5fb1ba32e1af06001770de5a='5fb1ba32e1af06001770de5a'
 g_base_definitions[g_str_5fb1ba32e1af06001770de5a]={
@@ -85,7 +151,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de5a]={
   max=1,
   description='Black slave bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba32e1af06001770de59",
 }
 g_str_5fb1ba32e1af06001770de5d='5fb1ba32e1af06001770de5d'
 g_base_definitions[g_str_5fb1ba32e1af06001770de5d]={
@@ -95,7 +160,6 @@ g_base_definitions[g_str_5fb1ba32e1af06001770de5d]={
   max=1,
   description='Arab spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba32e1af06001770de5b",
 }
 g_str_5fb1b9e6e1af060017709bbd_camp='5fb1b9e6e1af060017709bbd_camp'
 g_base_definitions[g_str_5fb1b9e6e1af060017709bbd_camp]={
@@ -152,6 +216,7 @@ army['5fb1b9e6e1af060017709bbd_696_739']={
   g_base_definitions[g_str_5fb1ba32e1af06001770de56],
   g_base_definitions[g_str_5fb1ba32e1af06001770de58],
   g_base_definitions[g_str_5fb1ba32e1af06001770de5a],
+  g_base_definitions[g_str_5fb1ba32e1af06001770de5d],
   g_base_definitions[g_str_5fb1b9e6e1af060017709bbd_camp],
   g_base_definitions[g_str_5fb1b9e6e1af060017709bbd_camp_pack_train],
 }
@@ -187,6 +252,7 @@ army['5fb1b9e6e1af060017709bbd_743_800']={
   g_base_definitions[g_str_5fb1ba32e1af06001770de56],
   g_base_definitions[g_str_5fb1ba32e1af06001770de58],
   g_base_definitions[g_str_5fb1ba32e1af06001770de5a],
+  g_base_definitions[g_str_5fb1ba32e1af06001770de5d],
   g_base_definitions[g_str_5fb1b9e6e1af060017709bbd_camp],
   g_base_definitions[g_str_5fb1b9e6e1af060017709bbd_camp_pack_train],
 }

@@ -6,6 +6,90 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba27e1af06001770ca14']= {
+  min=1,
+  max=2,
+  description='Phokian hoplites',
+  core='all',
+}
+g_troop_entry['5fb1ba27e1af06001770ca15']= {
+  troop_option='5fb1ba27e1af06001770ca14',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba27e1af06001770ca17']= {
+  min=1,
+  max=2,
+  description='Psiloi armed with javelins',
+}
+g_troop_entry['5fb1ba27e1af06001770ca18']= {
+  troop_option='5fb1ba27e1af06001770ca17',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba27e1af06001770ca19']= {
+  min=0,
+  max=2,
+  description='Horsemen',
+}
+g_troop_entry['5fb1ba27e1af06001770ca1a']= {
+  troop_option='5fb1ba27e1af06001770ca19',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba27e1af06001770ca1b']= {
+  min=0,
+  max=1,
+  description='Cretan or other skirmishing mercenary bowmen',
+}
+g_troop_entry['5fb1ba27e1af06001770ca1c']= {
+  troop_option='5fb1ba27e1af06001770ca1b',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba27e1af06001770ca1d']= {
+  min=0,
+  max=2,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba27e1af06001770ca1e']= {
+  troop_option='5fb1ba27e1af06001770ca1d',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba27e1af06001770ca1f']= {
+  min=0,
+  max=1,
+  description='Thracian infantry',
+}
+g_troop_entry['5fb1ba27e1af06001770ca20']= {
+  troop_option='5fb1ba27e1af06001770ca1f',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba27e1af06001770ca21']= {
+  min=6,
+  max=14,
+  description='Mercenary hoplites',
+  core='all',
+}
+g_troop_entry['5fb1ba27e1af06001770ca22']= {
+  troop_option='5fb1ba27e1af06001770ca21',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba27e1af06001770ca23']= {
+  min=0,
+  max=4,
+  description='Mercenary peltasts',
+}
+g_troop_entry['5fb1ba27e1af06001770ca24']= {
+  troop_option='5fb1ba27e1af06001770ca23',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba27e1af06001770ca25']= {
+  min=0,
+  max=3,
+  description='Stone-throwers',
+  core='all',
+}
+g_troop_entry['5fb1ba27e1af06001770ca26']= {
+  troop_option='5fb1ba27e1af06001770ca25',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba27e1af06001770ca15_general='5fb1ba27e1af06001770ca15_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca15_general]={
   id=g_str_5fb1ba27e1af06001770ca15_general,
@@ -15,7 +99,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca15_general]={
   description='Phokian hoplites',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba27e1af06001770ca14",
 }
 g_str_5fb1ba27e1af06001770ca15='5fb1ba27e1af06001770ca15'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca15]={
@@ -25,7 +108,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca15]={
   max=2,
   description='Phokian hoplites',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba27e1af06001770ca14",
 }
 g_str_5fb1ba27e1af06001770ca18='5fb1ba27e1af06001770ca18'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca18]={
@@ -35,7 +117,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca18]={
   max=2,
   description='Psiloi armed with javelins',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba27e1af06001770ca17",
 }
 g_str_5fb1ba27e1af06001770ca1a_general='5fb1ba27e1af06001770ca1a_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca1a_general]={
@@ -46,7 +127,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca1a_general]={
   description='Horsemen',
   general=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba27e1af06001770ca19",
 }
 g_str_5fb1ba27e1af06001770ca1a='5fb1ba27e1af06001770ca1a'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca1a]={
@@ -56,7 +136,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca1a]={
   max=2,
   description='Horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba27e1af06001770ca19",
 }
 g_str_5fb1ba27e1af06001770ca1c='5fb1ba27e1af06001770ca1c'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca1c]={
@@ -66,7 +145,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca1c]={
   max=1,
   description='Cretan or other skirmishing mercenary bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba27e1af06001770ca1b",
 }
 g_str_5fb1ba27e1af06001770ca1e='5fb1ba27e1af06001770ca1e'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca1e]={
@@ -76,7 +154,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca1e]={
   max=2,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba27e1af06001770ca1d",
 }
 g_str_5fb1ba27e1af06001770ca20='5fb1ba27e1af06001770ca20'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca20]={
@@ -86,7 +163,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca20]={
   max=1,
   description='Thracian infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba27e1af06001770ca1f",
 }
 g_str_5fb1ba27e1af06001770ca22_general='5fb1ba27e1af06001770ca22_general'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca22_general]={
@@ -97,7 +173,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca22_general]={
   description='Mercenary hoplites',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba27e1af06001770ca21",
 }
 g_str_5fb1ba27e1af06001770ca22='5fb1ba27e1af06001770ca22'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca22]={
@@ -107,7 +182,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca22]={
   max=14,
   description='Mercenary hoplites',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba27e1af06001770ca21",
 }
 g_str_5fb1ba27e1af06001770ca24='5fb1ba27e1af06001770ca24'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca24]={
@@ -117,7 +191,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca24]={
   max=4,
   description='Mercenary peltasts',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba27e1af06001770ca23",
 }
 g_str_5fb1ba27e1af06001770ca26='5fb1ba27e1af06001770ca26'
 g_base_definitions[g_str_5fb1ba27e1af06001770ca26]={
@@ -127,7 +200,6 @@ g_base_definitions[g_str_5fb1ba27e1af06001770ca26]={
   max=3,
   description='Stone-throwers',
   troop_type="Artillery",
-  troop_option_id="5fb1ba27e1af06001770ca25",
 }
 g_str_5fb1b9dde1af0600177095ff_camp='5fb1b9dde1af0600177095ff_camp'
 g_base_definitions[g_str_5fb1b9dde1af0600177095ff_camp]={

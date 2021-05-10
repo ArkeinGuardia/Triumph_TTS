@@ -6,6 +6,63 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3fe1af06001770f6eb']= {
+  min=0,
+  max=1,
+  description='War elephants',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f6ec']= {
+  troop_option='5fb1ba3fe1af06001770f6eb',
+  troopTypeCode='ELE',
+}
+g_troop_option['5fb1ba3fe1af06001770f6ed']= {
+  min=6,
+  max=12,
+  description='Fierce infantry armed with spear and boot-shaped axe',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f6ee']= {
+  troop_option='5fb1ba3fe1af06001770f6ed',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba3fe1af06001770f6ef']= {
+  min=3,
+  max=9,
+  description='Bowmen and crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f6f0']= {
+  troop_option='5fb1ba3fe1af06001770f6ef',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3fe1af06001770f6f1']= {
+  min=0,
+  max=4,
+  description='Unshielded spearmen',
+}
+g_troop_entry['5fb1ba3fe1af06001770f6f2']= {
+  troop_option='5fb1ba3fe1af06001770f6f1',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba3fe1af06001770f6f3']= {
+  min=1,
+  max=3,
+  description='Hill tribesmen',
+}
+g_troop_entry['5fb1ba3fe1af06001770f6f4']= {
+  troop_option='5fb1ba3fe1af06001770f6f3',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba3fe1af06001770f6f5']= {
+  min=1,
+  max=2,
+  description='Hill tribe bowmen',
+}
+g_troop_entry['5fb1ba3fe1af06001770f6f6']= {
+  troop_option='5fb1ba3fe1af06001770f6f5',
+  troopTypeCode='BLV',
+}
 g_str_5fb1ba3fe1af06001770f6ec_general='5fb1ba3fe1af06001770f6ec_general'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6ec_general]={
   id=g_str_5fb1ba3fe1af06001770f6ec_general,
@@ -15,7 +72,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6ec_general]={
   description='War elephants',
   general=true,
   troop_type="Elephants",
-  troop_option_id="5fb1ba3fe1af06001770f6eb",
 }
 g_str_5fb1ba3fe1af06001770f6ec='5fb1ba3fe1af06001770f6ec'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6ec]={
@@ -25,7 +81,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6ec]={
   max=1,
   description='War elephants',
   troop_type="Elephants",
-  troop_option_id="5fb1ba3fe1af06001770f6eb",
 }
 g_str_5fb1ba3fe1af06001770f6ee_general='5fb1ba3fe1af06001770f6ee_general'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6ee_general]={
@@ -36,7 +91,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6ee_general]={
   description='Fierce infantry armed with spear and boot-shaped axe',
   general=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba3fe1af06001770f6ed",
 }
 g_str_5fb1ba3fe1af06001770f6ee='5fb1ba3fe1af06001770f6ee'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6ee]={
@@ -46,7 +100,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6ee]={
   max=12,
   description='Fierce infantry armed with spear and boot-shaped axe',
   troop_type="Warband",
-  troop_option_id="5fb1ba3fe1af06001770f6ed",
 }
 g_str_5fb1ba3fe1af06001770f6f0='5fb1ba3fe1af06001770f6f0'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6f0]={
@@ -56,7 +109,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6f0]={
   max=9,
   description='Bowmen and crossbowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3fe1af06001770f6ef",
 }
 g_str_5fb1ba3fe1af06001770f6f2='5fb1ba3fe1af06001770f6f2'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6f2]={
@@ -66,7 +118,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6f2]={
   max=4,
   description='Unshielded spearmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba3fe1af06001770f6f1",
 }
 g_str_5fb1ba3fe1af06001770f6f4='5fb1ba3fe1af06001770f6f4'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6f4]={
@@ -76,7 +127,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6f4]={
   max=3,
   description='Hill tribesmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba3fe1af06001770f6f3",
 }
 g_str_5fb1ba3fe1af06001770f6f6='5fb1ba3fe1af06001770f6f6'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f6f6]={
@@ -86,7 +136,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f6f6]={
   max=2,
   description='Hill tribe bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3fe1af06001770f6f5",
 }
 g_str_5fb1b9f2e1af06001770a1ee_camp='5fb1b9f2e1af06001770a1ee_camp'
 g_base_definitions[g_str_5fb1b9f2e1af06001770a1ee_camp]={

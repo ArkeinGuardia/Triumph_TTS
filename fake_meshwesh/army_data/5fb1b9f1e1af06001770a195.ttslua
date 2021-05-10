@@ -6,6 +6,107 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3fe1af06001770f5e5']= {
+  min=1,
+  max=2,
+  description='4-horse chariots',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5e6']= {
+  troop_option='5fb1ba3fe1af06001770f5e5',
+  troopTypeCode='CHT',
+}
+g_troop_option['5fb1ba3fe1af06001770f5e7']= {
+  min=1,
+  max=1,
+  description='Armored men armed with iron clubs',
+  note='only Zhongshan',
+  core='all',
+  startDate=-355,
+  endDate=-296,
+}
+g_troop_entry['5fb1ba3fe1af06001770f5e9']= {
+  troop_option='5fb1ba3fe1af06001770f5e7',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba3fe1af06001770f5ea']= {
+  min=1,
+  max=4,
+  description='Elite crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5eb']= {
+  troop_option='5fb1ba3fe1af06001770f5ea',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba3fe1af06001770f5ec']= {
+  min=1,
+  max=4,
+  description='Elite dagger-axe or halberdmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5ed']= {
+  troop_option='5fb1ba3fe1af06001770f5ec',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba3fe1af06001770f5ef']= {
+  min=2,
+  max=4,
+  description='Conscript crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5f0']= {
+  troop_option='5fb1ba3fe1af06001770f5ef',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3fe1af06001770f5f1']= {
+  min=2,
+  max=4,
+  description='Conscript dagger-axe or halberdmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5f2']= {
+  troop_option='5fb1ba3fe1af06001770f5f1',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba3fe1af06001770f5f3']= {
+  min=0,
+  max=6,
+  description='Mixed formations of crossbowmen behind lines of dagger-axe men',
+  core='all',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5f4']= {
+  troop_option='5fb1ba3fe1af06001770f5f3',
+  troopTypeCode='PAV',
+}
+g_troop_option['5fb1ba3fe1af06001770f5f6']= {
+  min=0,
+  max=4,
+  description='Dagger-axe men rearmed with spear and shield',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5f7']= {
+  troop_option='5fb1ba3fe1af06001770f5f6',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba3fe1af06001770f5f8']= {
+  min=0,
+  max=1,
+  description='Skirmishing bowmen or crossbowmen',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5f9']= {
+  troop_option='5fb1ba3fe1af06001770f5f8',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba3fe1af06001770f5fa']= {
+  min=0,
+  max=2,
+  description='Southern fierce tribesmen',
+  note='only Chu or Yue',
+}
+g_troop_entry['5fb1ba3fe1af06001770f5fb']= {
+  troop_option='5fb1ba3fe1af06001770f5fa',
+  troopTypeCode='WBD',
+}
 g_str_5fb1ba3fe1af06001770f5e6_general='5fb1ba3fe1af06001770f5e6_general'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6_general]={
   id=g_str_5fb1ba3fe1af06001770f5e6_general,
@@ -15,7 +116,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6_general]={
   description='4-horse chariots',
   general=true,
   troop_type="Chariots",
-  troop_option_id="5fb1ba3fe1af06001770f5e5",
 }
 g_str_5fb1ba3fe1af06001770f5e6='5fb1ba3fe1af06001770f5e6'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6]={
@@ -25,7 +125,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6]={
   max=2,
   description='4-horse chariots',
   troop_type="Chariots",
-  troop_option_id="5fb1ba3fe1af06001770f5e5",
 }
 g_str_5fb1ba3fe1af06001770f5e9='5fb1ba3fe1af06001770f5e9'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5e9]={
@@ -35,7 +134,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5e9]={
   max=1,
   description='Armored men armed with iron clubs',
   troop_type="Raiders",
-  troop_option_id="5fb1ba3fe1af06001770f5e7",
 }
 g_str_5fb1ba3fe1af06001770f5eb='5fb1ba3fe1af06001770f5eb'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5eb]={
@@ -45,7 +143,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5eb]={
   max=4,
   description='Elite crossbowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba3fe1af06001770f5ea",
 }
 g_str_5fb1ba3fe1af06001770f5ed='5fb1ba3fe1af06001770f5ed'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5ed]={
@@ -55,7 +152,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5ed]={
   max=4,
   description='Elite dagger-axe or halberdmen',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba3fe1af06001770f5ec",
 }
 g_str_5fb1ba3fe1af06001770f5f0='5fb1ba3fe1af06001770f5f0'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5f0]={
@@ -65,7 +161,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5f0]={
   max=4,
   description='Conscript crossbowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3fe1af06001770f5ef",
 }
 g_str_5fb1ba3fe1af06001770f5f2='5fb1ba3fe1af06001770f5f2'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5f2]={
@@ -75,7 +170,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5f2]={
   max=4,
   description='Conscript dagger-axe or halberdmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba3fe1af06001770f5f1",
 }
 g_str_5fb1ba3fe1af06001770f5f4='5fb1ba3fe1af06001770f5f4'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5f4]={
@@ -85,7 +179,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5f4]={
   max=6,
   description='Mixed formations of crossbowmen behind lines of dagger-axe men',
   troop_type="Pavisiers",
-  troop_option_id="5fb1ba3fe1af06001770f5f3",
 }
 g_str_5fb1ba3fe1af06001770f5f7='5fb1ba3fe1af06001770f5f7'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5f7]={
@@ -95,7 +188,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5f7]={
   max=4,
   description='Dagger-axe men rearmed with spear and shield',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba3fe1af06001770f5f6",
 }
 g_str_5fb1ba3fe1af06001770f5f9='5fb1ba3fe1af06001770f5f9'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5f9]={
@@ -105,7 +197,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5f9]={
   max=1,
   description='Skirmishing bowmen or crossbowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3fe1af06001770f5f8",
 }
 g_str_5fb1ba3fe1af06001770f5fb='5fb1ba3fe1af06001770f5fb'
 g_base_definitions[g_str_5fb1ba3fe1af06001770f5fb]={
@@ -115,7 +206,6 @@ g_base_definitions[g_str_5fb1ba3fe1af06001770f5fb]={
   max=2,
   description='Southern fierce tribesmen',
   troop_type="Warband",
-  troop_option_id="5fb1ba3fe1af06001770f5fa",
 }
 g_str_5fb1b9f1e1af06001770a195_camp='5fb1b9f1e1af06001770a195_camp'
 g_base_definitions[g_str_5fb1b9f1e1af06001770a195_camp]={

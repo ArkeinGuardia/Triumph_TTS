@@ -6,6 +6,47 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3be1af06001770ef7b']= {
+  min=1,
+  max=4,
+  description='Armenian horsemen',
+}
+g_troop_entry['5fb1ba3be1af06001770ef7c']= {
+  troop_option='5fb1ba3be1af06001770ef7b',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba3be1af06001770ef7d']= {
+  min=3,
+  max=9,
+  description='Armenian infantry',
+}
+g_troop_entry['5fb1ba3be1af06001770ef7e']= {
+  troop_option='5fb1ba3be1af06001770ef7d',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba3be1af06001770ef7f']= {
+  troop_option='5fb1ba3be1af06001770ef7d',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba3be1af06001770ef80']= {
+  min=2,
+  max=3,
+  description='Armenian bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770ef81']= {
+  troop_option='5fb1ba3be1af06001770ef80',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba3be1af06001770ef82']= {
+  min=0,
+  max=1,
+  description='Bedouin horsemen',
+}
+g_troop_entry['5fb1ba3be1af06001770ef83']= {
+  troop_option='5fb1ba3be1af06001770ef82',
+  troopTypeCode='JCV',
+}
 g_str_5fb1ba3be1af06001770ef7c_general='5fb1ba3be1af06001770ef7c_general'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef7c_general]={
   id=g_str_5fb1ba3be1af06001770ef7c_general,
@@ -15,7 +56,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef7c_general]={
   description='Armenian horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba3be1af06001770ef7b",
 }
 g_str_5fb1ba3be1af06001770ef7c='5fb1ba3be1af06001770ef7c'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef7c]={
@@ -25,7 +65,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef7c]={
   max=4,
   description='Armenian horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba3be1af06001770ef7b",
 }
 g_str_5fb1ba3be1af06001770ef7e='5fb1ba3be1af06001770ef7e'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef7e]={
@@ -35,7 +74,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef7e]={
   max=9,
   description='Armenian infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba3be1af06001770ef7d",
 }
 g_str_5fb1ba3be1af06001770ef7f='5fb1ba3be1af06001770ef7f'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef7f]={
@@ -45,7 +83,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef7f]={
   max=9,
   description='Armenian infantry',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba3be1af06001770ef7d",
 }
 g_str_5fb1ba3be1af06001770ef81='5fb1ba3be1af06001770ef81'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef81]={
@@ -55,7 +92,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef81]={
   max=3,
   description='Armenian bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba3be1af06001770ef80",
 }
 g_str_5fb1ba3be1af06001770ef83='5fb1ba3be1af06001770ef83'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef83]={
@@ -65,7 +101,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef83]={
   max=1,
   description='Bedouin horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba3be1af06001770ef82",
 }
 g_str_5fb1b9eee1af060017709fdb_camp='5fb1b9eee1af060017709fdb_camp'
 g_base_definitions[g_str_5fb1b9eee1af060017709fdb_camp]={

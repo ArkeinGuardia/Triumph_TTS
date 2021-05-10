@@ -6,6 +6,62 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba25e1af06001770c5f7']= {
+  min=2,
+  max=4,
+  description='Spartiates',
+  core='all',
+}
+g_troop_entry['5fb1ba25e1af06001770c5f8']= {
+  troop_option='5fb1ba25e1af06001770c5f7',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba25e1af06001770c5fa']= {
+  min=4,
+  max=13,
+  description='Hoplites',
+  core='all',
+}
+g_troop_entry['5fb1ba25e1af06001770c5fb']= {
+  troop_option='5fb1ba25e1af06001770c5fa',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba25e1af06001770c5fc']= {
+  min=0,
+  max=1,
+  description='Skirmishing bowmen and slingers',
+}
+g_troop_entry['5fb1ba25e1af06001770c5fd']= {
+  troop_option='5fb1ba25e1af06001770c5fc',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba25e1af06001770c5fe']= {
+  min=0,
+  max=2,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba25e1af06001770c5ff']= {
+  troop_option='5fb1ba25e1af06001770c5fe',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba25e1af06001770c600']= {
+  min=0,
+  max=4,
+  description='Massed helots armed with javelins',
+  note='only at Plataea',
+  startDate=-479,
+  endDate=-479,
+}
+g_troop_entry['5fb1ba25e1af06001770c602']= {
+  troop_option='5fb1ba25e1af06001770c600',
+  troopTypeCode='HRD',
+  note='all',
+}
+g_troop_entry['5fb1ba25e1af06001770c603']= {
+  troop_option='5fb1ba25e1af06001770c600',
+  troopTypeCode='RBL',
+  note='all',
+}
 g_str_5fb1ba25e1af06001770c5f8_general='5fb1ba25e1af06001770c5f8_general'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5f8_general]={
   id=g_str_5fb1ba25e1af06001770c5f8_general,
@@ -15,7 +71,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5f8_general]={
   description='Spartiates',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba25e1af06001770c5f7",
 }
 g_str_5fb1ba25e1af06001770c5f8='5fb1ba25e1af06001770c5f8'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5f8]={
@@ -25,7 +80,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5f8]={
   max=4,
   description='Spartiates',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba25e1af06001770c5f7",
 }
 g_str_5fb1ba25e1af06001770c5fb='5fb1ba25e1af06001770c5fb'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5fb]={
@@ -35,7 +89,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5fb]={
   max=13,
   description='Hoplites',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba25e1af06001770c5fa",
 }
 g_str_5fb1ba25e1af06001770c5fd='5fb1ba25e1af06001770c5fd'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5fd]={
@@ -45,7 +98,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5fd]={
   max=1,
   description='Skirmishing bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba25e1af06001770c5fc",
 }
 g_str_5fb1ba25e1af06001770c5ff='5fb1ba25e1af06001770c5ff'
 g_base_definitions[g_str_5fb1ba25e1af06001770c5ff]={
@@ -55,7 +107,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c5ff]={
   max=2,
   description='Javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba25e1af06001770c5fe",
 }
 g_str_5fb1ba25e1af06001770c602='5fb1ba25e1af06001770c602'
 g_base_definitions[g_str_5fb1ba25e1af06001770c602]={
@@ -65,7 +116,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c602]={
   max=4,
   description='Massed helots armed with javelins',
   troop_type="Horde",
-  troop_option_id="5fb1ba25e1af06001770c600",
 }
 g_str_5fb1ba25e1af06001770c603='5fb1ba25e1af06001770c603'
 g_base_definitions[g_str_5fb1ba25e1af06001770c603]={
@@ -75,7 +125,6 @@ g_base_definitions[g_str_5fb1ba25e1af06001770c603]={
   max=4,
   description='Massed helots armed with javelins',
   troop_type="Rabble",
-  troop_option_id="5fb1ba25e1af06001770c600",
 }
 g_str_5fb1b9dbe1af060017709502_camp='5fb1b9dbe1af060017709502_camp'
 g_base_definitions[g_str_5fb1b9dbe1af060017709502_camp]={
@@ -116,6 +165,8 @@ army['5fb1b9dbe1af060017709502_-669_-480']={
   g_base_definitions[g_str_5fb1ba25e1af06001770c5fb],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5fd],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5ff],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c602],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c603],
   g_base_definitions[g_str_5fb1b9dbe1af060017709502_camp],
 }
 army['5fb1b9dbe1af060017709502_-479_-479']={
@@ -144,6 +195,8 @@ army['5fb1b9dbe1af060017709502_-478_-449']={
   g_base_definitions[g_str_5fb1ba25e1af06001770c5fb],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5fd],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5ff],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c602],
+  g_base_definitions[g_str_5fb1ba25e1af06001770c603],
   g_base_definitions[g_str_5fb1b9dbe1af060017709502_camp],
 }
 if nil == armies["Birth of the West"] then

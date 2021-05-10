@@ -6,6 +6,106 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba38e1af06001770ea11']= {
+  min=0,
+  max=1,
+  description='Tazkones or similar guards',
+}
+g_troop_entry['5fb1ba38e1af06001770ea12']= {
+  troop_option='5fb1ba38e1af06001770ea11',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba38e1af06001770ea13']= {
+  min=0,
+  max=1,
+  description='Kavallarioi',
+  core='all',
+}
+g_troop_entry['5fb1ba38e1af06001770ea14']= {
+  troop_option='5fb1ba38e1af06001770ea13',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba38e1af06001770ea15']= {
+  min=2,
+  max=3,
+  description='Stratiotai',
+}
+g_troop_entry['5fb1ba38e1af06001770ea16']= {
+  troop_option='5fb1ba38e1af06001770ea15',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba38e1af06001770ea17']= {
+  min=0,
+  max=2,
+  description='Kontaratoi',
+  core='all',
+}
+g_troop_entry['5fb1ba38e1af06001770ea18']= {
+  troop_option='5fb1ba38e1af06001770ea17',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba38e1af06001770ea19']= {
+  min=3,
+  max=6,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba38e1af06001770ea1a']= {
+  troop_option='5fb1ba38e1af06001770ea19',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba38e1af06001770ea1b']= {
+  min=0,
+  max=2,
+  description='Mourtatoi or Gianitzaroi guard bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba38e1af06001770ea1c']= {
+  troop_option='5fb1ba38e1af06001770ea1b',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba38e1af06001770ea1d']= {
+  min=0,
+  max=10,
+  description='Peasants, servants, and militia',
+}
+g_troop_entry['5fb1ba38e1af06001770ea1e']= {
+  troop_option='5fb1ba38e1af06001770ea1d',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba38e1af06001770ea1f']= {
+  min=2,
+  max=4,
+  description='Cuman horse archers',
+  startDate=1261,
+  endDate=1291,
+}
+g_troop_entry['5fb1ba38e1af06001770ea21']= {
+  troop_option='5fb1ba38e1af06001770ea1f',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba38e1af06001770ea22']= {
+  min=0,
+  max=3,
+  description='Tourkopouloi or Vardariotai horse archer guards',
+  startDate=1261,
+  endDate=1320,
+}
+g_troop_entry['5fb1ba38e1af06001770ea24']= {
+  troop_option='5fb1ba38e1af06001770ea22',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba38e1af06001770ea25']= {
+  min=0,
+  max=2,
+  description='Catalan guard horsemen',
+  startDate=1321,
+  endDate=1384,
+}
+g_troop_entry['5fb1ba38e1af06001770ea27']= {
+  troop_option='5fb1ba38e1af06001770ea25',
+  troopTypeCode='JCV',
+}
 g_str_5fb1ba38e1af06001770ea12='5fb1ba38e1af06001770ea12'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea12]={
   id=g_str_5fb1ba38e1af06001770ea12,
@@ -14,7 +114,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea12]={
   max=1,
   description='Tazkones or similar guards',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba38e1af06001770ea11",
 }
 g_str_5fb1ba38e1af06001770ea14='5fb1ba38e1af06001770ea14'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea14]={
@@ -24,7 +123,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea14]={
   max=1,
   description='Kavallarioi',
   troop_type="Knights",
-  troop_option_id="5fb1ba38e1af06001770ea13",
 }
 g_str_5fb1ba38e1af06001770ea16_general='5fb1ba38e1af06001770ea16_general'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea16_general]={
@@ -35,7 +133,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea16_general]={
   description='Stratiotai',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba38e1af06001770ea15",
 }
 g_str_5fb1ba38e1af06001770ea16='5fb1ba38e1af06001770ea16'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea16]={
@@ -45,7 +142,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea16]={
   max=3,
   description='Stratiotai',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba38e1af06001770ea15",
 }
 g_str_5fb1ba38e1af06001770ea18='5fb1ba38e1af06001770ea18'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea18]={
@@ -55,7 +151,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea18]={
   max=2,
   description='Kontaratoi',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba38e1af06001770ea17",
 }
 g_str_5fb1ba38e1af06001770ea1a='5fb1ba38e1af06001770ea1a'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea1a]={
@@ -65,7 +160,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea1a]={
   max=6,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba38e1af06001770ea19",
 }
 g_str_5fb1ba38e1af06001770ea1c='5fb1ba38e1af06001770ea1c'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea1c]={
@@ -75,7 +169,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea1c]={
   max=2,
   description='Mourtatoi or Gianitzaroi guard bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba38e1af06001770ea1b",
 }
 g_str_5fb1ba38e1af06001770ea1e='5fb1ba38e1af06001770ea1e'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea1e]={
@@ -85,7 +178,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea1e]={
   max=10,
   description='Peasants, servants, and militia',
   troop_type="Rabble",
-  troop_option_id="5fb1ba38e1af06001770ea1d",
 }
 g_str_5fb1ba38e1af06001770ea21='5fb1ba38e1af06001770ea21'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea21]={
@@ -95,7 +187,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea21]={
   max=4,
   description='Cuman horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba38e1af06001770ea1f",
 }
 g_str_5fb1ba38e1af06001770ea24='5fb1ba38e1af06001770ea24'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea24]={
@@ -105,7 +196,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea24]={
   max=3,
   description='Tourkopouloi or Vardariotai horse archer guards',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba38e1af06001770ea22",
 }
 g_str_5fb1ba38e1af06001770ea27_general='5fb1ba38e1af06001770ea27_general'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea27_general]={
@@ -116,7 +206,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea27_general]={
   description='Catalan guard horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba38e1af06001770ea25",
 }
 g_str_5fb1ba38e1af06001770ea27='5fb1ba38e1af06001770ea27'
 g_base_definitions[g_str_5fb1ba38e1af06001770ea27]={
@@ -126,7 +215,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770ea27]={
   max=2,
   description='Catalan guard horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba38e1af06001770ea25",
 }
 g_str_5fb1b9ebe1af060017709e99_camp='5fb1b9ebe1af060017709e99_camp'
 g_base_definitions[g_str_5fb1b9ebe1af060017709e99_camp]={
@@ -177,6 +265,8 @@ army['5fb1b9ebe1af060017709e99_1261_1291']={
   g_base_definitions[g_str_5fb1ba38e1af06001770ea1e],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea21],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea24],
+  g_base_definitions[g_str_5fb1ba38e1af06001770ea27_general],
+  g_base_definitions[g_str_5fb1ba38e1af06001770ea27],
   g_base_definitions[g_str_5fb1b9ebe1af060017709e99_camp],
 }
 army['5fb1b9ebe1af060017709e99_1292_1320']={
@@ -193,7 +283,10 @@ army['5fb1b9ebe1af060017709e99_1292_1320']={
   g_base_definitions[g_str_5fb1ba38e1af06001770ea1a],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea1c],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea1e],
+  g_base_definitions[g_str_5fb1ba38e1af06001770ea21],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea24],
+  g_base_definitions[g_str_5fb1ba38e1af06001770ea27_general],
+  g_base_definitions[g_str_5fb1ba38e1af06001770ea27],
   g_base_definitions[g_str_5fb1b9ebe1af060017709e99_camp],
 }
 army['5fb1b9ebe1af060017709e99_1321_1384']={
@@ -210,6 +303,8 @@ army['5fb1b9ebe1af060017709e99_1321_1384']={
   g_base_definitions[g_str_5fb1ba38e1af06001770ea1a],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea1c],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea1e],
+  g_base_definitions[g_str_5fb1ba38e1af06001770ea21],
+  g_base_definitions[g_str_5fb1ba38e1af06001770ea24],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea27_general],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea27],
   g_base_definitions[g_str_5fb1b9ebe1af060017709e99_camp],

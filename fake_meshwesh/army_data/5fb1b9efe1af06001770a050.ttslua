@@ -6,6 +6,85 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3ce1af06001770f147']= {
+  min=1,
+  max=2,
+  description='Khurasani noble horsemen',
+}
+g_troop_entry['5fb1ba3ce1af06001770f148']= {
+  troop_option='5fb1ba3ce1af06001770f147',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3ce1af06001770f149']= {
+  min=0,
+  max=2,
+  description='Khurasani or Turkish mercenary horse archers',
+}
+g_troop_entry['5fb1ba3ce1af06001770f14a']= {
+  troop_option='5fb1ba3ce1af06001770f149',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f14b']= {
+  min=3,
+  max=5,
+  description='Khurasani armored spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f14c']= {
+  troop_option='5fb1ba3ce1af06001770f14b',
+  troopTypeCode='SPR',
+}
+g_troop_option['5fb1ba3ce1af06001770f14f']= {
+  min=2,
+  max=5,
+  description='Khurasani infantry bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f150']= {
+  troop_option='5fb1ba3ce1af06001770f14f',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba3ce1af06001770f151']= {
+  troop_option='5fb1ba3ce1af06001770f14f',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba3ce1af06001770f153']= {
+  min=0,
+  max=2,
+  description='Bedouin arab or Aiyar horsemen',
+}
+g_troop_entry['5fb1ba3ce1af06001770f154']= {
+  troop_option='5fb1ba3ce1af06001770f153',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba3ce1af06001770f155']= {
+  min=0,
+  max=1,
+  description='Dailami zupin-men',
+}
+g_troop_entry['5fb1ba3ce1af06001770f156']= {
+  troop_option='5fb1ba3ce1af06001770f155',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba3ce1af06001770f158']= {
+  min=0,
+  max=2,
+  description='Kumajis or other hillmen',
+}
+g_troop_entry['5fb1ba3ce1af06001770f159']= {
+  troop_option='5fb1ba3ce1af06001770f158',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba3ce1af06001770f15a']= {
+  min=0,
+  max=2,
+  description='Hashariyan levies',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f15b']= {
+  troop_option='5fb1ba3ce1af06001770f15a',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba3ce1af06001770f148_general='5fb1ba3ce1af06001770f148_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f148_general]={
   id=g_str_5fb1ba3ce1af06001770f148_general,
@@ -15,7 +94,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f148_general]={
   description='Khurasani noble horsemen',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f147",
 }
 g_str_5fb1ba3ce1af06001770f148='5fb1ba3ce1af06001770f148'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f148]={
@@ -25,7 +103,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f148]={
   max=2,
   description='Khurasani noble horsemen',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f147",
 }
 g_str_5fb1ba3ce1af06001770f14a='5fb1ba3ce1af06001770f14a'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f14a]={
@@ -35,7 +112,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f14a]={
   max=2,
   description='Khurasani or Turkish mercenary horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f149",
 }
 g_str_5fb1ba3ce1af06001770f14c='5fb1ba3ce1af06001770f14c'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f14c]={
@@ -45,7 +121,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f14c]={
   max=5,
   description='Khurasani armored spearmen',
   troop_type="Spears",
-  troop_option_id="5fb1ba3ce1af06001770f14b",
 }
 g_str_5fb1ba3ce1af06001770f150='5fb1ba3ce1af06001770f150'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f150]={
@@ -55,7 +130,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f150]={
   max=5,
   description='Khurasani infantry bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba3ce1af06001770f14f",
 }
 g_str_5fb1ba3ce1af06001770f151='5fb1ba3ce1af06001770f151'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f151]={
@@ -65,7 +139,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f151]={
   max=5,
   description='Khurasani infantry bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3ce1af06001770f14f",
 }
 g_str_5fb1ba3ce1af06001770f154='5fb1ba3ce1af06001770f154'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f154]={
@@ -75,7 +148,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f154]={
   max=2,
   description='Bedouin arab or Aiyar horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba3ce1af06001770f153",
 }
 g_str_5fb1ba3ce1af06001770f156='5fb1ba3ce1af06001770f156'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f156]={
@@ -85,7 +157,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f156]={
   max=1,
   description='Dailami zupin-men',
   troop_type="Raiders",
-  troop_option_id="5fb1ba3ce1af06001770f155",
 }
 g_str_5fb1ba3ce1af06001770f156_dismounted_mobile_infantry='5fb1ba3ce1af06001770f156_dismounted_mobile_infantry'
 g_str_5fb1ba3ce1af06001770f156_mounted_mobile_infantry='5fb1ba3ce1af06001770f156_mounted_mobile_infantry'
@@ -97,7 +168,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f156_dismounted_mobile_infantry]={
   description='Dailami zupin-men\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba3ce1af06001770f156_mounted_mobile_infantry,
   troop_type="Raiders",
-  troop_option_id="5fb1ba3ce1af06001770f155",
 }
 g_base_definitions[g_str_5fb1ba3ce1af06001770f156_mounted_mobile_infantry]={
   id=g_str_5fb1ba3ce1af06001770f156_mounted_mobile_infantry,
@@ -108,7 +178,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f156_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba3ce1af06001770f156_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba3ce1af06001770f155",
 }
 g_str_5fb1ba3ce1af06001770f159='5fb1ba3ce1af06001770f159'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f159]={
@@ -118,7 +187,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f159]={
   max=2,
   description='Kumajis or other hillmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba3ce1af06001770f158",
 }
 g_str_5fb1ba3ce1af06001770f15b='5fb1ba3ce1af06001770f15b'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f15b]={
@@ -128,7 +196,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f15b]={
   max=2,
   description='Hashariyan levies',
   troop_type="Horde",
-  troop_option_id="5fb1ba3ce1af06001770f15a",
 }
 g_str_5fb1b9efe1af06001770a050_camp='5fb1b9efe1af06001770a050_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a050_camp]={

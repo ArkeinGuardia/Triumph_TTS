@@ -6,6 +6,53 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba23e1af06001770c4b6']= {
+  min=1,
+  max=3,
+  description='Barbarian armored infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba23e1af06001770c4b7']= {
+  troop_option='5fb1ba23e1af06001770c4b6',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba23e1af06001770c4b8']= {
+  min=8,
+  max=12,
+  description='Barbarian light infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba23e1af06001770c4b9']= {
+  troop_option='5fb1ba23e1af06001770c4b8',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba23e1af06001770c4ba']= {
+  min=0,
+  max=1,
+  description='Barbarian horsemen',
+}
+g_troop_entry['5fb1ba23e1af06001770c4bb']= {
+  troop_option='5fb1ba23e1af06001770c4ba',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba23e1af06001770c4bc']= {
+  min=2,
+  max=4,
+  description='Barbarian skirmishing bowmen or slingers',
+}
+g_troop_entry['5fb1ba23e1af06001770c4bd']= {
+  troop_option='5fb1ba23e1af06001770c4bc',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba23e1af06001770c4be']= {
+  min=0,
+  max=2,
+  description='Unenthusiastic or poorly equipped throng',
+}
+g_troop_entry['5fb1ba23e1af06001770c4bf']= {
+  troop_option='5fb1ba23e1af06001770c4be',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba23e1af06001770c4b7_general='5fb1ba23e1af06001770c4b7_general'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4b7_general]={
   id=g_str_5fb1ba23e1af06001770c4b7_general,
@@ -15,7 +62,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4b7_general]={
   description='Barbarian armored infantry',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba23e1af06001770c4b6",
 }
 g_str_5fb1ba23e1af06001770c4b7='5fb1ba23e1af06001770c4b7'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4b7]={
@@ -25,7 +71,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4b7]={
   max=3,
   description='Barbarian armored infantry',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba23e1af06001770c4b6",
 }
 g_str_5fb1ba23e1af06001770c4b9='5fb1ba23e1af06001770c4b9'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4b9]={
@@ -35,7 +80,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4b9]={
   max=12,
   description='Barbarian light infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba23e1af06001770c4b8",
 }
 g_str_5fb1ba23e1af06001770c4bb='5fb1ba23e1af06001770c4bb'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4bb]={
@@ -45,7 +89,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4bb]={
   max=1,
   description='Barbarian horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba23e1af06001770c4ba",
 }
 g_str_5fb1ba23e1af06001770c4bd='5fb1ba23e1af06001770c4bd'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4bd]={
@@ -55,7 +98,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4bd]={
   max=4,
   description='Barbarian skirmishing bowmen or slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba23e1af06001770c4bc",
 }
 g_str_5fb1ba23e1af06001770c4bf='5fb1ba23e1af06001770c4bf'
 g_base_definitions[g_str_5fb1ba23e1af06001770c4bf]={
@@ -65,7 +107,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c4bf]={
   max=2,
   description='Unenthusiastic or poorly equipped throng',
   troop_type="Horde",
-  troop_option_id="5fb1ba23e1af06001770c4be",
 }
 g_str_5fb1b9dbe1af060017709491_camp='5fb1b9dbe1af060017709491_camp'
 g_base_definitions[g_str_5fb1b9dbe1af060017709491_camp]={

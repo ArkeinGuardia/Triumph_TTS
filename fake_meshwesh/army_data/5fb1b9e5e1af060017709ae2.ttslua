@@ -6,6 +6,78 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba31e1af06001770db81']= {
+  min=1,
+  max=3,
+  description='Highborn Irishmen and household troops',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770db82']= {
+  troop_option='5fb1ba31e1af06001770db81',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba31e1af06001770db84']= {
+  min=0,
+  max=3,
+  description='Marchslaug',
+  startDate=1099,
+  endDate=1300,
+}
+g_troop_entry['5fb1ba31e1af06001770db86']= {
+  troop_option='5fb1ba31e1af06001770db84',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba31e1af06001770db87']= {
+  min=8,
+  max=16,
+  description='Irish bonnachts',
+}
+g_troop_entry['5fb1ba31e1af06001770db88']= {
+  troop_option='5fb1ba31e1af06001770db87',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba31e1af06001770db89']= {
+  min=0,
+  max=1,
+  description='Kern bowmen and slingers',
+}
+g_troop_entry['5fb1ba31e1af06001770db8a']= {
+  troop_option='5fb1ba31e1af06001770db89',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba31e1af06001770db8b']= {
+  min=0,
+  max=7,
+  description='\'Rising out\'',
+}
+g_troop_entry['5fb1ba31e1af06001770db8c']= {
+  troop_option='5fb1ba31e1af06001770db8b',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba31e1af06001770db8d']= {
+  min=0,
+  max=1,
+  description='Irish dibergaich',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770db8e']= {
+  troop_option='5fb1ba31e1af06001770db8d',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba31e1af06001770db8f']= {
+  min=0,
+  max=3,
+  description='Friendly Ostmen',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770db90']= {
+  troop_option='5fb1ba31e1af06001770db8f',
+  troopTypeCode='EFT',
+}
+g_troop_entry['5fb1ba31e1af06001770db91']= {
+  troop_option='5fb1ba31e1af06001770db8f',
+  troopTypeCode='HFT',
+}
 g_str_5fb1ba31e1af06001770db82_general='5fb1ba31e1af06001770db82_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db82_general]={
   id=g_str_5fb1ba31e1af06001770db82_general,
@@ -15,7 +87,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db82_general]={
   description='Highborn Irishmen and household troops',
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba31e1af06001770db81",
 }
 g_str_5fb1ba31e1af06001770db82_general_dismounted_mobile_infantry='5fb1ba31e1af06001770db82_general_dismounted_mobile_infantry'
 g_str_5fb1ba31e1af06001770db82_general_mounted_mobile_infantry='5fb1ba31e1af06001770db82_general_mounted_mobile_infantry'
@@ -28,7 +99,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db82_general_dismounted_mobile_infa
   dismounted_from=g_str_5fb1ba31e1af06001770db82_general_mounted_mobile_infantry,
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba31e1af06001770db81",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770db82_general_mounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770db82_general_mounted_mobile_infantry,
@@ -40,7 +110,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db82_general_mounted_mobile_infantr
   general=true,
   mobile_infantry=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba31e1af06001770db81",
 }
 g_str_5fb1ba31e1af06001770db82='5fb1ba31e1af06001770db82'
 g_base_definitions[g_str_5fb1ba31e1af06001770db82]={
@@ -50,7 +119,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db82]={
   max=3,
   description='Highborn Irishmen and household troops',
   troop_type="Raiders",
-  troop_option_id="5fb1ba31e1af06001770db81",
 }
 g_str_5fb1ba31e1af06001770db82_dismounted_mobile_infantry='5fb1ba31e1af06001770db82_dismounted_mobile_infantry'
 g_str_5fb1ba31e1af06001770db82_mounted_mobile_infantry='5fb1ba31e1af06001770db82_mounted_mobile_infantry'
@@ -62,7 +130,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db82_dismounted_mobile_infantry]={
   description='Highborn Irishmen and household troops\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba31e1af06001770db82_mounted_mobile_infantry,
   troop_type="Raiders",
-  troop_option_id="5fb1ba31e1af06001770db81",
 }
 g_base_definitions[g_str_5fb1ba31e1af06001770db82_mounted_mobile_infantry]={
   id=g_str_5fb1ba31e1af06001770db82_mounted_mobile_infantry,
@@ -73,7 +140,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db82_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba31e1af06001770db82_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba31e1af06001770db81",
 }
 g_str_5fb1ba31e1af06001770db86='5fb1ba31e1af06001770db86'
 g_base_definitions[g_str_5fb1ba31e1af06001770db86]={
@@ -83,7 +149,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db86]={
   max=3,
   description='Marchslaug',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba31e1af06001770db84",
 }
 g_str_5fb1ba31e1af06001770db88_general='5fb1ba31e1af06001770db88_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db88_general]={
@@ -94,7 +159,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db88_general]={
   description='Irish bonnachts',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba31e1af06001770db87",
 }
 g_str_5fb1ba31e1af06001770db88='5fb1ba31e1af06001770db88'
 g_base_definitions[g_str_5fb1ba31e1af06001770db88]={
@@ -104,7 +168,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db88]={
   max=16,
   description='Irish bonnachts',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba31e1af06001770db87",
 }
 g_str_5fb1ba31e1af06001770db8a='5fb1ba31e1af06001770db8a'
 g_base_definitions[g_str_5fb1ba31e1af06001770db8a]={
@@ -114,7 +177,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db8a]={
   max=1,
   description='Kern bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba31e1af06001770db89",
 }
 g_str_5fb1ba31e1af06001770db8c='5fb1ba31e1af06001770db8c'
 g_base_definitions[g_str_5fb1ba31e1af06001770db8c]={
@@ -124,7 +186,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db8c]={
   max=7,
   description='\'Rising out\'',
   troop_type="Rabble",
-  troop_option_id="5fb1ba31e1af06001770db8b",
 }
 g_str_5fb1ba31e1af06001770db8e='5fb1ba31e1af06001770db8e'
 g_base_definitions[g_str_5fb1ba31e1af06001770db8e]={
@@ -134,7 +195,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db8e]={
   max=1,
   description='Irish dibergaich',
   troop_type="Warband",
-  troop_option_id="5fb1ba31e1af06001770db8d",
 }
 g_str_5fb1ba31e1af06001770db90='5fb1ba31e1af06001770db90'
 g_base_definitions[g_str_5fb1ba31e1af06001770db90]={
@@ -144,7 +204,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db90]={
   max=3,
   description='Friendly Ostmen',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba31e1af06001770db8f",
 }
 g_str_5fb1ba31e1af06001770db91='5fb1ba31e1af06001770db91'
 g_base_definitions[g_str_5fb1ba31e1af06001770db91]={
@@ -154,7 +213,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db91]={
   max=3,
   description='Friendly Ostmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db8f",
 }
 g_str_5fb1b9e5e1af060017709ae2_camp='5fb1b9e5e1af060017709ae2_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709ae2_camp]={
@@ -225,6 +283,7 @@ army['5fb1b9e5e1af060017709ae2_842_1098']={
   g_base_definitions[g_str_5fb1ba31e1af06001770db82],
   g_base_definitions[g_str_5fb1ba31e1af06001770db82_mounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba31e1af06001770db82_dismounted_mobile_infantry],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db86],
   g_base_definitions[g_str_5fb1ba31e1af06001770db88_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db88],
   g_base_definitions[g_str_5fb1ba31e1af06001770db8a],

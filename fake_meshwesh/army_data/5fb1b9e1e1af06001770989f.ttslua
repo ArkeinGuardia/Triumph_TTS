@@ -6,6 +6,50 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2ce1af06001770d3c9']= {
+  min=0,
+  max=1,
+  description='Noble horsemen',
+  core='all',
+}
+g_troop_entry['5fb1ba2ce1af06001770d3ca']= {
+  troop_option='5fb1ba2ce1af06001770d3c9',
+  troopTypeCode='KNT',
+}
+g_troop_entry['5fb1ba2ce1af06001770d3cb']= {
+  troop_option='5fb1ba2ce1af06001770d3c9',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2ce1af06001770d3cc']= {
+  min=11,
+  max=16,
+  description='Fierce fighting infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba2ce1af06001770d3cd']= {
+  troop_option='5fb1ba2ce1af06001770d3cc',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba2ce1af06001770d3ce']= {
+  min=0,
+  max=4,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba2ce1af06001770d3cf']= {
+  troop_option='5fb1ba2ce1af06001770d3ce',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba2ce1af06001770d3d0']= {
+  min=0,
+  max=1,
+  description='Remnant Alan horse archers',
+  startDate=428,
+  endDate=442,
+}
+g_troop_entry['5fb1ba2ce1af06001770d3d2']= {
+  troop_option='5fb1ba2ce1af06001770d3d0',
+  troopTypeCode='HBW',
+}
 g_str_5fb1ba2ce1af06001770d3ca_general='5fb1ba2ce1af06001770d3ca_general'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca_general]={
   id=g_str_5fb1ba2ce1af06001770d3ca_general,
@@ -15,7 +59,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca_general]={
   description='Noble horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ce1af06001770d3c9",
 }
 g_str_5fb1ba2ce1af06001770d3ca='5fb1ba2ce1af06001770d3ca'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca]={
@@ -25,7 +68,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3ca]={
   max=1,
   description='Noble horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba2ce1af06001770d3c9",
 }
 g_str_5fb1ba2ce1af06001770d3cb_general='5fb1ba2ce1af06001770d3cb_general'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3cb_general]={
@@ -36,7 +78,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3cb_general]={
   description='Noble horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ce1af06001770d3c9",
 }
 g_str_5fb1ba2ce1af06001770d3cb='5fb1ba2ce1af06001770d3cb'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3cb]={
@@ -46,7 +87,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3cb]={
   max=1,
   description='Noble horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ce1af06001770d3c9",
 }
 g_str_5fb1ba2ce1af06001770d3cd_general='5fb1ba2ce1af06001770d3cd_general'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd_general]={
@@ -57,7 +97,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd_general]={
   description='Fierce fighting infantry',
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ce1af06001770d3cc",
 }
 g_str_5fb1ba2ce1af06001770d3cd='5fb1ba2ce1af06001770d3cd'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd]={
@@ -67,7 +106,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd]={
   max=16,
   description='Fierce fighting infantry',
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ce1af06001770d3cc",
 }
 g_str_5fb1ba2ce1af06001770d3cf='5fb1ba2ce1af06001770d3cf'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3cf]={
@@ -77,7 +115,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3cf]={
   max=4,
   description='Javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba2ce1af06001770d3ce",
 }
 g_str_5fb1ba2ce1af06001770d3d2='5fb1ba2ce1af06001770d3d2'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d3d2]={
@@ -87,7 +124,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d3d2]={
   max=1,
   description='Remnant Alan horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2ce1af06001770d3d0",
 }
 g_str_5fb1b9e1e1af06001770989f_camp='5fb1b9e1e1af06001770989f_camp'
 g_base_definitions[g_str_5fb1b9e1e1af06001770989f_camp]={
@@ -142,6 +178,7 @@ army['5fb1b9e1e1af06001770989f_200_427']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3cd],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3cf],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d3d2],
   g_base_definitions[g_str_5fb1b9e1e1af06001770989f_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770989f_camp_fortified],
 }

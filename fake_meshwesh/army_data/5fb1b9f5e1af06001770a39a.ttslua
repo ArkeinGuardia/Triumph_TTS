@@ -6,6 +6,52 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba43e1af06001770fd17']= {
+  min=8,
+  max=16,
+  description='Nobles armed with long spears and clubs or small shields',
+  core='all',
+}
+g_troop_entry['5fb1ba43e1af06001770fd18']= {
+  troop_option='5fb1ba43e1af06001770fd17',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba43e1af06001770fd19']= {
+  min=0,
+  max=2,
+  description='Suit-wearers armed with long spears and clubs or small shields',
+}
+g_troop_entry['5fb1ba43e1af06001770fd1a']= {
+  troop_option='5fb1ba43e1af06001770fd19',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba43e1af06001770fd1b']= {
+  min=0,
+  max=2,
+  description='Garrison troops armed with mixed weapons',
+}
+g_troop_entry['5fb1ba43e1af06001770fd1c']= {
+  troop_option='5fb1ba43e1af06001770fd1b',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba43e1af06001770fd1d']= {
+  min=0,
+  max=6,
+  description='Poorly-armed commoners',
+}
+g_troop_entry['5fb1ba43e1af06001770fd1e']= {
+  troop_option='5fb1ba43e1af06001770fd1d',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba43e1af06001770fd1f']= {
+  min=0,
+  max=4,
+  description='Peasant skirmishing slingers',
+}
+g_troop_entry['5fb1ba43e1af06001770fd20']= {
+  troop_option='5fb1ba43e1af06001770fd1f',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba43e1af06001770fd18_general='5fb1ba43e1af06001770fd18_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd18_general]={
   id=g_str_5fb1ba43e1af06001770fd18_general,
@@ -15,7 +61,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd18_general]={
   description='Nobles armed with long spears and clubs or small shields',
   general=true,
   troop_type="Light Spear",
-  troop_option_id="5fb1ba43e1af06001770fd17",
 }
 g_str_5fb1ba43e1af06001770fd18='5fb1ba43e1af06001770fd18'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd18]={
@@ -25,7 +70,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd18]={
   max=16,
   description='Nobles armed with long spears and clubs or small shields',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba43e1af06001770fd17",
 }
 g_str_5fb1ba43e1af06001770fd1a='5fb1ba43e1af06001770fd1a'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd1a]={
@@ -35,7 +79,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd1a]={
   max=2,
   description='Suit-wearers armed with long spears and clubs or small shields',
   troop_type="Raiders",
-  troop_option_id="5fb1ba43e1af06001770fd19",
 }
 g_str_5fb1ba43e1af06001770fd1c='5fb1ba43e1af06001770fd1c'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd1c]={
@@ -45,7 +88,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd1c]={
   max=2,
   description='Garrison troops armed with mixed weapons',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd1b",
 }
 g_str_5fb1ba43e1af06001770fd1e='5fb1ba43e1af06001770fd1e'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd1e]={
@@ -55,7 +97,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd1e]={
   max=6,
   description='Poorly-armed commoners',
   troop_type="Horde",
-  troop_option_id="5fb1ba43e1af06001770fd1d",
 }
 g_str_5fb1ba43e1af06001770fd20='5fb1ba43e1af06001770fd20'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd20]={
@@ -65,7 +106,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd20]={
   max=4,
   description='Peasant skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba43e1af06001770fd1f",
 }
 g_str_5fb1b9f5e1af06001770a39a_camp='5fb1b9f5e1af06001770a39a_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a39a_camp]={

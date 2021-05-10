@@ -6,6 +6,117 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2ce1af06001770d384']= {
+  min=0,
+  max=4,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  core='all',
+  startDate=-55,
+  endDate=499,
+}
+g_troop_entry['5fb1ba2ce1af06001770d386']= {
+  troop_option='5fb1ba2ce1af06001770d384',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba2ce1af06001770d388']= {
+  min=0,
+  max=1,
+  description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
+  core='all',
+  startDate=500,
+  endDate=841,
+}
+g_troop_entry['5fb1ba2ce1af06001770d38a']= {
+  troop_option='5fb1ba2ce1af06001770d388',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba2ce1af06001770d38b']= {
+  min=5,
+  max=15,
+  description='Fighters',
+  core='all',
+}
+g_troop_entry['5fb1ba2ce1af06001770d38c']= {
+  troop_option='5fb1ba2ce1af06001770d38b',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba2ce1af06001770d38d']= {
+  min=0,
+  max=14,
+  description='Peasant levies',
+}
+g_troop_entry['5fb1ba2ce1af06001770d38e']= {
+  troop_option='5fb1ba2ce1af06001770d38d',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba2ce1af06001770d38f']= {
+  min=1,
+  max=3,
+  description='Skirmishing peasant slingers',
+}
+g_troop_entry['5fb1ba2ce1af06001770d390']= {
+  troop_option='5fb1ba2ce1af06001770d38f',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba2ce1af06001770d391']= {
+  min=0,
+  max=1,
+  description='Fianna or diberga',
+  core='all',
+}
+g_troop_entry['5fb1ba2ce1af06001770d392']= {
+  troop_option='5fb1ba2ce1af06001770d391',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba2ce1af06001770d393']= {
+  min=0,
+  max=1,
+  description='Roman allied Auxilia or Auxilia Palatina',
+  startDate=81,
+  endDate=192,
+}
+g_troop_entry['5fb1ba2ce1af06001770d395']= {
+  troop_option='5fb1ba2ce1af06001770d393',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba2ce1af06001770d396']= {
+  min=0,
+  max=2,
+  description='Atecotti fierce fighters',
+  startDate=300,
+  endDate=406,
+}
+g_troop_entry['5fb1ba2ce1af06001770d398']= {
+  troop_option='5fb1ba2ce1af06001770d396',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba2ce1af06001770d399']= {
+  min=0,
+  max=1,
+  description='Northumbrian exiles',
+  core='all',
+  startDate=629,
+  endDate=629,
+}
+g_troop_entry['5fb1ba2ce1af06001770d39b']= {
+  troop_option='5fb1ba2ce1af06001770d399',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba2ce1af06001770d39c']= {
+  min=0,
+  max=1,
+  description='British exiles',
+  startDate=637,
+  endDate=637,
+}
+g_troop_entry['5fb1ba2ce1af06001770d39e']= {
+  troop_option='5fb1ba2ce1af06001770d39c',
+  troopTypeCode='JCV',
+}
+g_troop_entry['5fb1ba2ce1af06001770d39f']= {
+  troop_option='5fb1ba2ce1af06001770d39c',
+  troopTypeCode='WRR',
+}
 g_str_5fb1ba2ce1af06001770d386_general='5fb1ba2ce1af06001770d386_general'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general]={
   id=g_str_5fb1ba2ce1af06001770d386_general,
@@ -15,7 +126,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general]={
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2ce1af06001770d384",
 }
 g_str_5fb1ba2ce1af06001770d386_general_dismounted='5fb1ba2ce1af06001770d386_general_dismounted'
 g_str_5fb1ba2ce1af06001770d386_general_mounted='5fb1ba2ce1af06001770d386_general_mounted'
@@ -29,7 +139,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted]={
   dismounted_from=g_str_5fb1ba2ce1af06001770d386_general_mounted,
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2ce1af06001770d384",
 }
 g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted]={
   id=g_str_5fb1ba2ce1af06001770d386_general_mounted,
@@ -40,8 +149,8 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted]={
   points=3,
   dismount_as=g_str_5fb1ba2ce1af06001770d386_general_dismounted,
   general=true,
+  deployment_dismounting=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2ce1af06001770d384",
 }
 g_str_5fb1ba2ce1af06001770d386='5fb1ba2ce1af06001770d386'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d386]={
@@ -51,7 +160,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d386]={
   max=4,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2ce1af06001770d384",
 }
 g_str_5fb1ba2ce1af06001770d386_dismounted='5fb1ba2ce1af06001770d386_dismounted'
 g_str_5fb1ba2ce1af06001770d386_mounted='5fb1ba2ce1af06001770d386_mounted'
@@ -64,7 +172,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted]={
   points=3,
   dismounted_from=g_str_5fb1ba2ce1af06001770d386_mounted,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2ce1af06001770d384",
 }
 g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted]={
   id=g_str_5fb1ba2ce1af06001770d386_mounted,
@@ -74,8 +181,8 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted]={
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen\nDeployment dismounting as Light Foot',
   points=3,
   dismount_as=g_str_5fb1ba2ce1af06001770d386_dismounted,
+  deployment_dismounting=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2ce1af06001770d384",
 }
 g_str_5fb1ba2ce1af06001770d38a_general='5fb1ba2ce1af06001770d38a_general'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general]={
@@ -86,7 +193,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general]={
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2ce1af06001770d388",
 }
 g_str_5fb1ba2ce1af06001770d38a='5fb1ba2ce1af06001770d38a'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d38a]={
@@ -96,7 +202,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d38a]={
   max=1,
   description='2-wheeled mobile battle platforms with dismounting crew and javelinmen',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba2ce1af06001770d388",
 }
 g_str_5fb1ba2ce1af06001770d38c_general='5fb1ba2ce1af06001770d38c_general'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general]={
@@ -107,7 +212,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general]={
   description='Fighters',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2ce1af06001770d38b",
 }
 g_str_5fb1ba2ce1af06001770d38c='5fb1ba2ce1af06001770d38c'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d38c]={
@@ -117,7 +221,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d38c]={
   max=15,
   description='Fighters',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2ce1af06001770d38b",
 }
 g_str_5fb1ba2ce1af06001770d38e='5fb1ba2ce1af06001770d38e'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d38e]={
@@ -127,7 +230,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d38e]={
   max=14,
   description='Peasant levies',
   troop_type="Rabble",
-  troop_option_id="5fb1ba2ce1af06001770d38d",
 }
 g_str_5fb1ba2ce1af06001770d390='5fb1ba2ce1af06001770d390'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d390]={
@@ -137,7 +239,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d390]={
   max=3,
   description='Skirmishing peasant slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2ce1af06001770d38f",
 }
 g_str_5fb1ba2ce1af06001770d392_general='5fb1ba2ce1af06001770d392_general'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general]={
@@ -148,7 +249,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general]={
   description='Fianna or diberga',
   general=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba2ce1af06001770d391",
 }
 g_str_5fb1ba2ce1af06001770d392='5fb1ba2ce1af06001770d392'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d392]={
@@ -158,7 +258,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d392]={
   max=1,
   description='Fianna or diberga',
   troop_type="Warband",
-  troop_option_id="5fb1ba2ce1af06001770d391",
 }
 g_str_5fb1ba2ce1af06001770d395='5fb1ba2ce1af06001770d395'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d395]={
@@ -168,7 +267,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d395]={
   max=1,
   description='Roman allied Auxilia or Auxilia Palatina',
   troop_type="Raiders",
-  troop_option_id="5fb1ba2ce1af06001770d393",
 }
 g_str_5fb1ba2ce1af06001770d398='5fb1ba2ce1af06001770d398'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d398]={
@@ -178,7 +276,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d398]={
   max=2,
   description='Atecotti fierce fighters',
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ce1af06001770d396",
 }
 g_str_5fb1ba2ce1af06001770d39b='5fb1ba2ce1af06001770d39b'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d39b]={
@@ -188,7 +285,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d39b]={
   max=1,
   description='Northumbrian exiles',
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ce1af06001770d399",
 }
 g_str_5fb1ba2ce1af06001770d39e='5fb1ba2ce1af06001770d39e'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d39e]={
@@ -198,7 +294,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d39e]={
   max=1,
   description='British exiles',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ce1af06001770d39c",
 }
 g_str_5fb1ba2ce1af06001770d39f='5fb1ba2ce1af06001770d39f'
 g_base_definitions[g_str_5fb1ba2ce1af06001770d39f]={
@@ -208,7 +303,6 @@ g_base_definitions[g_str_5fb1ba2ce1af06001770d39f]={
   max=1,
   description='British exiles',
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ce1af06001770d39c",
 }
 g_str_5fb1b9e1e1af06001770988c_camp='5fb1b9e1e1af06001770988c_camp'
 g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp]={
@@ -273,12 +367,19 @@ army['5fb1b9e1e1af06001770988c_-55_80']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
@@ -288,6 +389,14 @@ army['5fb1b9e1e1af06001770988c_81_192']={
     id='5fb1b9e1e1af06001770988c_81_192',
     army_id='5fb1b9e1e1af06001770988c'
   },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
@@ -295,6 +404,10 @@ army['5fb1b9e1e1af06001770988c_81_192']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
@@ -304,12 +417,25 @@ army['5fb1b9e1e1af06001770988c_193_299']={
     id='5fb1b9e1e1af06001770988c_193_299',
     army_id='5fb1b9e1e1af06001770988c'
   },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
@@ -319,13 +445,25 @@ army['5fb1b9e1e1af06001770988c_300_406']={
     id='5fb1b9e1e1af06001770988c_300_406',
     army_id='5fb1b9e1e1af06001770988c'
   },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
@@ -341,12 +479,19 @@ army['5fb1b9e1e1af06001770988c_407_499']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
@@ -356,6 +501,12 @@ army['5fb1b9e1e1af06001770988c_500_628']={
     id='5fb1b9e1e1af06001770988c_500_628',
     army_id='5fb1b9e1e1af06001770988c'
   },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
@@ -364,6 +515,11 @@ army['5fb1b9e1e1af06001770988c_500_628']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
@@ -373,13 +529,25 @@ army['5fb1b9e1e1af06001770988c_629_629']={
     id='5fb1b9e1e1af06001770988c_629_629',
     army_id='5fb1b9e1e1af06001770988c'
   },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
@@ -389,12 +557,25 @@ army['5fb1b9e1e1af06001770988c_630_636']={
     id='5fb1b9e1e1af06001770988c_630_636',
     army_id='5fb1b9e1e1af06001770988c'
   },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }
@@ -404,12 +585,23 @@ army['5fb1b9e1e1af06001770988c_637_637']={
     id='5fb1b9e1e1af06001770988c_637_637',
     army_id='5fb1b9e1e1af06001770988c'
   },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
@@ -421,6 +613,12 @@ army['5fb1b9e1e1af06001770988c_638_841']={
     id='5fb1b9e1e1af06001770988c_638_841',
     army_id='5fb1b9e1e1af06001770988c'
   },
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_general_dismounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_mounted],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d386_dismounted],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38a_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38a],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d38c_general],
@@ -429,6 +627,11 @@ army['5fb1b9e1e1af06001770988c_638_841']={
   g_base_definitions[g_str_5fb1ba2ce1af06001770d390],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d392],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d395],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d398],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39b],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39e],
+  g_base_definitions[g_str_5fb1ba2ce1af06001770d39f],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp],
   g_base_definitions[g_str_5fb1b9e1e1af06001770988c_camp_pack_train],
 }

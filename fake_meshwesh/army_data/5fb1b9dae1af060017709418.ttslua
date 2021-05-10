@@ -6,6 +6,56 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba22e1af06001770c2c5']= {
+  min=1,
+  max=2,
+  description='2- or 4-horse battle platforms with javelin-armed crewmen',
+}
+g_troop_entry['5fb1ba22e1af06001770c2c6']= {
+  troop_option='5fb1ba22e1af06001770c2c5',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba22e1af06001770c2c7']= {
+  min=1,
+  max=3,
+  description='Horsemen',
+}
+g_troop_entry['5fb1ba22e1af06001770c2c8']= {
+  troop_option='5fb1ba22e1af06001770c2c7',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba22e1af06001770c2c9']= {
+  min=7,
+  max=14,
+  description='Spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba22e1af06001770c2ca']= {
+  troop_option='5fb1ba22e1af06001770c2c9',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba22e1af06001770c2cb']= {
+  min=1,
+  max=5,
+  description='Skirmishing bowmen and slingers',
+}
+g_troop_entry['5fb1ba22e1af06001770c2cc']= {
+  troop_option='5fb1ba22e1af06001770c2cb',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba22e1af06001770c2cd']= {
+  min=0,
+  max=3,
+  description='Javelinmen, some with shields',
+}
+g_troop_entry['5fb1ba22e1af06001770c2ce']= {
+  troop_option='5fb1ba22e1af06001770c2cd',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba22e1af06001770c2cf']= {
+  troop_option='5fb1ba22e1af06001770c2cd',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba22e1af06001770c2c6_general='5fb1ba22e1af06001770c2c6_general'
 g_base_definitions[g_str_5fb1ba22e1af06001770c2c6_general]={
   id=g_str_5fb1ba22e1af06001770c2c6_general,
@@ -15,7 +65,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c2c6_general]={
   description='2- or 4-horse battle platforms with javelin-armed crewmen',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba22e1af06001770c2c5",
 }
 g_str_5fb1ba22e1af06001770c2c6='5fb1ba22e1af06001770c2c6'
 g_base_definitions[g_str_5fb1ba22e1af06001770c2c6]={
@@ -25,7 +74,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c2c6]={
   max=2,
   description='2- or 4-horse battle platforms with javelin-armed crewmen',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba22e1af06001770c2c5",
 }
 g_str_5fb1ba22e1af06001770c2c8='5fb1ba22e1af06001770c2c8'
 g_base_definitions[g_str_5fb1ba22e1af06001770c2c8]={
@@ -35,7 +83,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c2c8]={
   max=3,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba22e1af06001770c2c7",
 }
 g_str_5fb1ba22e1af06001770c2ca='5fb1ba22e1af06001770c2ca'
 g_base_definitions[g_str_5fb1ba22e1af06001770c2ca]={
@@ -45,7 +92,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c2ca]={
   max=14,
   description='Spearmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba22e1af06001770c2c9",
 }
 g_str_5fb1ba22e1af06001770c2cc='5fb1ba22e1af06001770c2cc'
 g_base_definitions[g_str_5fb1ba22e1af06001770c2cc]={
@@ -55,7 +101,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c2cc]={
   max=5,
   description='Skirmishing bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba22e1af06001770c2cb",
 }
 g_str_5fb1ba22e1af06001770c2ce='5fb1ba22e1af06001770c2ce'
 g_base_definitions[g_str_5fb1ba22e1af06001770c2ce]={
@@ -65,7 +110,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c2ce]={
   max=3,
   description='Javelinmen, some with shields',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba22e1af06001770c2cd",
 }
 g_str_5fb1ba22e1af06001770c2cf='5fb1ba22e1af06001770c2cf'
 g_base_definitions[g_str_5fb1ba22e1af06001770c2cf]={
@@ -75,7 +119,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c2cf]={
   max=3,
   description='Javelinmen, some with shields',
   troop_type="Rabble",
-  troop_option_id="5fb1ba22e1af06001770c2cd",
 }
 g_str_5fb1b9dae1af060017709418_camp='5fb1b9dae1af060017709418_camp'
 g_base_definitions[g_str_5fb1b9dae1af060017709418_camp]={

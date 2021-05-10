@@ -6,6 +6,44 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2ae1af06001770d01b']= {
+  min=1,
+  max=2,
+  description='Greek or bodyguard horsemen',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d01c']= {
+  troop_option='5fb1ba2ae1af06001770d01b',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba2ae1af06001770d01d']= {
+  min=1,
+  max=2,
+  description='Iranian lancers on armored horses',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d01e']= {
+  troop_option='5fb1ba2ae1af06001770d01d',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba2ae1af06001770d01f']= {
+  min=2,
+  max=5,
+  description='Bactrian, Arachosian, or similar light horsemen',
+}
+g_troop_entry['5fb1ba2ae1af06001770d020']= {
+  troop_option='5fb1ba2ae1af06001770d01f',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2ae1af06001770d021']= {
+  min=0,
+  max=1,
+  description='Saka horse archers',
+}
+g_troop_entry['5fb1ba2ae1af06001770d022']= {
+  troop_option='5fb1ba2ae1af06001770d021',
+  troopTypeCode='HBW',
+}
 g_str_5fb1ba2ae1af06001770d01c='5fb1ba2ae1af06001770d01c'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d01c]={
   id=g_str_5fb1ba2ae1af06001770d01c,
@@ -14,7 +52,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d01c]={
   max=2,
   description='Greek or bodyguard horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba2ae1af06001770d01b",
 }
 g_str_5fb1ba2ae1af06001770d01e='5fb1ba2ae1af06001770d01e'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d01e]={
@@ -24,7 +61,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d01e]={
   max=2,
   description='Iranian lancers on armored horses',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba2ae1af06001770d01d",
 }
 g_str_5fb1ba2ae1af06001770d020_general='5fb1ba2ae1af06001770d020_general'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d020_general]={
@@ -35,7 +71,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d020_general]={
   description='Bactrian, Arachosian, or similar light horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ae1af06001770d01f",
 }
 g_str_5fb1ba2ae1af06001770d020='5fb1ba2ae1af06001770d020'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d020]={
@@ -45,7 +80,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d020]={
   max=5,
   description='Bactrian, Arachosian, or similar light horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ae1af06001770d01f",
 }
 g_str_5fb1ba2ae1af06001770d022='5fb1ba2ae1af06001770d022'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d022]={
@@ -55,7 +89,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d022]={
   max=1,
   description='Saka horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2ae1af06001770d021",
 }
 g_str_5fb1b9dfe1af060017709784_camp='5fb1b9dfe1af060017709784_camp'
 g_base_definitions[g_str_5fb1b9dfe1af060017709784_camp]={
@@ -84,7 +117,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770abe0]={
   max=4,
   description='Phalanx',
   troop_type="Pikes",
-  troop_option_id="5fb1ba0de1af06001770abdf",
 }
 g_str_5fb1ba0de1af06001770abe2='5fb1ba0de1af06001770abe2'
 g_base_definitions[g_str_5fb1ba0de1af06001770abe2]={
@@ -94,7 +126,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770abe2]={
   max=2,
   description='Pisidian settler thureophoroi',
   troop_type="Raiders",
-  troop_option_id="5fb1ba0de1af06001770abe1",
 }
 g_str_5fb1ba0de1af06001770abe4='5fb1ba0de1af06001770abe4'
 g_base_definitions[g_str_5fb1ba0de1af06001770abe4]={
@@ -104,7 +135,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770abe4]={
   max=1,
   description='Cretans',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba0de1af06001770abe3",
 }
 g_str_5fb1ba0de1af06001770abe6='5fb1ba0de1af06001770abe6'
 g_base_definitions[g_str_5fb1ba0de1af06001770abe6]={
@@ -114,7 +144,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770abe6]={
   max=3,
   description='Mountain Indian spearmen',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba0de1af06001770abe5",
 }
 g_str_5fb1ba0de1af06001770abe8='5fb1ba0de1af06001770abe8'
 g_base_definitions[g_str_5fb1ba0de1af06001770abe8]={
@@ -124,7 +153,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770abe8]={
   max=3,
   description='Mountain Indian bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba0de1af06001770abe7",
 }
 g_str_5fb1ba0de1af06001770abe9='5fb1ba0de1af06001770abe9'
 g_base_definitions[g_str_5fb1ba0de1af06001770abe9]={
@@ -134,7 +162,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770abe9]={
   max=3,
   description='Mountain Indian bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba0de1af06001770abe7",
 }
 g_str_5fb1ba0de1af06001770abea='5fb1ba0de1af06001770abea'
 g_base_definitions[g_str_5fb1ba0de1af06001770abea]={
@@ -144,7 +171,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770abea]={
   max=3,
   description='Mountain Indian bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba0de1af06001770abe7",
 }
 g_str_5fb1ba0de1af06001770abec='5fb1ba0de1af06001770abec'
 g_base_definitions[g_str_5fb1ba0de1af06001770abec]={
@@ -154,7 +180,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770abec]={
   max=1,
   description='War elephants',
   troop_type="Elephants",
-  troop_option_id="5fb1ba0de1af06001770abeb",
 }
 army['5fb1b9dfe1af060017709784']={
   data={

@@ -6,6 +6,76 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3be1af06001770ef06']= {
+  min=1,
+  max=3,
+  description='Khwarizmian lancers',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770ef07']= {
+  troop_option='5fb1ba3be1af06001770ef06',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3be1af06001770ef0a']= {
+  min=3,
+  max=7,
+  description='Qangli and similar horse archers',
+}
+g_troop_entry['5fb1ba3be1af06001770ef0b']= {
+  troop_option='5fb1ba3be1af06001770ef0a',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3be1af06001770ef0d']= {
+  min=1,
+  max=1,
+  description='Kurdish horsemen',
+  startDate=1226,
+  endDate=1246,
+}
+g_troop_entry['5fb1ba3be1af06001770ef0f']= {
+  troop_option='5fb1ba3be1af06001770ef0d',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3be1af06001770ef11']= {
+  min=1,
+  max=2,
+  description='Militia bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770ef12']= {
+  troop_option='5fb1ba3be1af06001770ef11',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3be1af06001770ef14']= {
+  min=0,
+  max=2,
+  description='Persian or Tajik levy foot or armed slaves',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770ef15']= {
+  troop_option='5fb1ba3be1af06001770ef14',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba3be1af06001770ef16']= {
+  min=1,
+  max=4,
+  description='Turkoman horse archers',
+}
+g_troop_entry['5fb1ba3be1af06001770ef17']= {
+  troop_option='5fb1ba3be1af06001770ef16',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3be1af06001770ef18']= {
+  min=0,
+  max=2,
+  description='Qangli foot',
+  startDate=1186,
+  endDate=1225,
+}
+g_troop_entry['5fb1ba3be1af06001770ef1a']= {
+  troop_option='5fb1ba3be1af06001770ef18',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba3be1af06001770ef07_general='5fb1ba3be1af06001770ef07_general'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general]={
   id=g_str_5fb1ba3be1af06001770ef07_general,
@@ -15,7 +85,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general]={
   description='Khwarizmian lancers',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3be1af06001770ef06",
 }
 g_str_5fb1ba3be1af06001770ef07_general_dismounted='5fb1ba3be1af06001770ef07_general_dismounted'
 g_str_5fb1ba3be1af06001770ef07_general_mounted='5fb1ba3be1af06001770ef07_general_mounted'
@@ -29,7 +98,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general_dismounted]={
   dismounted_from=g_str_5fb1ba3be1af06001770ef07_general_mounted,
   general=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba3be1af06001770ef06",
 }
 g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general_mounted]={
   id=g_str_5fb1ba3be1af06001770ef07_general_mounted,
@@ -40,8 +108,8 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef07_general_mounted]={
   points=4,
   dismount_as=g_str_5fb1ba3be1af06001770ef07_general_dismounted,
   general=true,
+  deployment_dismounting=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3be1af06001770ef06",
 }
 g_str_5fb1ba3be1af06001770ef07='5fb1ba3be1af06001770ef07'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef07]={
@@ -51,7 +119,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef07]={
   max=3,
   description='Khwarizmian lancers',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3be1af06001770ef06",
 }
 g_str_5fb1ba3be1af06001770ef07_dismounted='5fb1ba3be1af06001770ef07_dismounted'
 g_str_5fb1ba3be1af06001770ef07_mounted='5fb1ba3be1af06001770ef07_mounted'
@@ -64,7 +131,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef07_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba3be1af06001770ef07_mounted,
   troop_type="Archers",
-  troop_option_id="5fb1ba3be1af06001770ef06",
 }
 g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted]={
   id=g_str_5fb1ba3be1af06001770ef07_mounted,
@@ -74,8 +140,8 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef07_mounted]={
   description='Khwarizmian lancers\nDeployment dismounting as Archer',
   points=4,
   dismount_as=g_str_5fb1ba3be1af06001770ef07_dismounted,
+  deployment_dismounting=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3be1af06001770ef06",
 }
 g_str_5fb1ba3be1af06001770ef0b='5fb1ba3be1af06001770ef0b'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef0b]={
@@ -85,7 +151,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef0b]={
   max=7,
   description='Qangli and similar horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3be1af06001770ef0a",
 }
 g_str_5fb1ba3be1af06001770ef0b_dismounted='5fb1ba3be1af06001770ef0b_dismounted'
 g_str_5fb1ba3be1af06001770ef0b_mounted='5fb1ba3be1af06001770ef0b_mounted'
@@ -98,7 +163,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba3be1af06001770ef0b_mounted,
   troop_type="Archers",
-  troop_option_id="5fb1ba3be1af06001770ef0a",
 }
 g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted]={
   id=g_str_5fb1ba3be1af06001770ef0b_mounted,
@@ -108,8 +172,8 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted]={
   description='Qangli and similar horse archers\nDeployment dismounting as Archer',
   points=4,
   dismount_as=g_str_5fb1ba3be1af06001770ef0b_dismounted,
+  deployment_dismounting=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3be1af06001770ef0a",
 }
 g_str_5fb1ba3be1af06001770ef0f_general='5fb1ba3be1af06001770ef0f_general'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef0f_general]={
@@ -120,7 +184,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef0f_general]={
   description='Kurdish horsemen',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3be1af06001770ef0d",
 }
 g_str_5fb1ba3be1af06001770ef0f='5fb1ba3be1af06001770ef0f'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef0f]={
@@ -130,7 +193,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef0f]={
   max=1,
   description='Kurdish horsemen',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3be1af06001770ef0d",
 }
 g_str_5fb1ba3be1af06001770ef12='5fb1ba3be1af06001770ef12'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef12]={
@@ -140,7 +202,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef12]={
   max=2,
   description='Militia bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3be1af06001770ef11",
 }
 g_str_5fb1ba3be1af06001770ef12_dismounted_mobile_infantry='5fb1ba3be1af06001770ef12_dismounted_mobile_infantry'
 g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry='5fb1ba3be1af06001770ef12_mounted_mobile_infantry'
@@ -152,7 +213,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef12_dismounted_mobile_infantry]={
   description='Militia bowmen\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3be1af06001770ef11",
 }
 g_base_definitions[g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry]={
   id=g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry,
@@ -163,7 +223,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba3be1af06001770ef12_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3be1af06001770ef11",
 }
 g_str_5fb1ba3be1af06001770ef15='5fb1ba3be1af06001770ef15'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef15]={
@@ -173,7 +232,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef15]={
   max=2,
   description='Persian or Tajik levy foot or armed slaves',
   troop_type="Horde",
-  troop_option_id="5fb1ba3be1af06001770ef14",
 }
 g_str_5fb1ba3be1af06001770ef17='5fb1ba3be1af06001770ef17'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef17]={
@@ -183,7 +241,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef17]={
   max=4,
   description='Turkoman horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3be1af06001770ef16",
 }
 g_str_5fb1ba3be1af06001770ef1a='5fb1ba3be1af06001770ef1a'
 g_base_definitions[g_str_5fb1ba3be1af06001770ef1a]={
@@ -193,7 +250,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770ef1a]={
   max=2,
   description='Qangli foot',
   troop_type="Rabble",
-  troop_option_id="5fb1ba3be1af06001770ef18",
 }
 g_str_5fb1b9ede1af060017709fc1_camp='5fb1b9ede1af060017709fc1_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp]={
@@ -259,6 +315,8 @@ army['5fb1b9ede1af060017709fc1_1186_1225']={
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0b],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_mounted],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef0b_dismounted],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0f_general],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef0f],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef12],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef12_mounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef12_dismounted_mobile_infantry],
@@ -290,6 +348,7 @@ army['5fb1b9ede1af060017709fc1_1226_1246']={
   g_base_definitions[g_str_5fb1ba3be1af06001770ef12_dismounted_mobile_infantry],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef15],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef17],
+  g_base_definitions[g_str_5fb1ba3be1af06001770ef1a],
   g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp],
   g_base_definitions[g_str_5fb1b9ede1af060017709fc1_camp_pack_train],
 }

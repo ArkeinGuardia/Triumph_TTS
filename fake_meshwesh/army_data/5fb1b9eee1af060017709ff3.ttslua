@@ -6,6 +6,145 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3be1af06001770efc5']= {
+  min=1,
+  max=2,
+  description='Qapukulu horsemen and better feudal sipahis with lance and bow',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770efc6']= {
+  troop_option='5fb1ba3be1af06001770efc5',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3be1af06001770efc8']= {
+  min=3,
+  max=6,
+  description='Feudal sipahis and akinjis',
+}
+g_troop_entry['5fb1ba3be1af06001770efc9']= {
+  troop_option='5fb1ba3be1af06001770efc8',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3be1af06001770efca']= {
+  min=0,
+  max=2,
+  description='Serbian vlastela',
+  core='all',
+  startDate=1390,
+  endDate=1520,
+}
+g_troop_entry['5fb1ba3be1af06001770efcc']= {
+  troop_option='5fb1ba3be1af06001770efca',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba3be1af06001770efcd']= {
+  min=0,
+  max=1,
+  description='Djanazan or Turkoman horse archers',
+}
+g_troop_entry['5fb1ba3be1af06001770efce']= {
+  troop_option='5fb1ba3be1af06001770efcd',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3be1af06001770efcf']= {
+  min=0,
+  max=1,
+  description='Delis, Kurds or Bedouin arab horsemen',
+}
+g_troop_entry['5fb1ba3be1af06001770efd0']= {
+  troop_option='5fb1ba3be1af06001770efcf',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba3be1af06001770efd1']= {
+  min=0,
+  max=1,
+  description='Janissary bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770efd2']= {
+  troop_option='5fb1ba3be1af06001770efd1',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba3be1af06001770efd3']= {
+  min=0,
+  max=1,
+  description='Iayalars',
+}
+g_troop_entry['5fb1ba3be1af06001770efd4']= {
+  troop_option='5fb1ba3be1af06001770efd3',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba3be1af06001770efd5']= {
+  min=0,
+  max=1,
+  description='Voynuks',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770efd6']= {
+  troop_option='5fb1ba3be1af06001770efd5',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba3be1af06001770efd7']= {
+  min=0,
+  max=1,
+  description='Spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770efd8']= {
+  troop_option='5fb1ba3be1af06001770efd7',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba3be1af06001770efd9']= {
+  troop_option='5fb1ba3be1af06001770efd7',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba3be1af06001770efda']= {
+  min=1,
+  max=2,
+  description='Azab bowmen  ',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770efdb']= {
+  troop_option='5fb1ba3be1af06001770efda',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3be1af06001770efdc']= {
+  min=0,
+  max=1,
+  description='Azab skirmishing bowmen and slingers',
+}
+g_troop_entry['5fb1ba3be1af06001770efdd']= {
+  troop_option='5fb1ba3be1af06001770efdc',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba3be1af06001770efde']= {
+  min=0,
+  max=1,
+  description='Azab javelinmen',
+}
+g_troop_entry['5fb1ba3be1af06001770efdf']= {
+  troop_option='5fb1ba3be1af06001770efde',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba3be1af06001770efe0']= {
+  min=0,
+  max=1,
+  description='Poorly equipped azabs (Levendat) or European levy infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba3be1af06001770efe1']= {
+  troop_option='5fb1ba3be1af06001770efe0',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba3be1af06001770efe2']= {
+  min=0,
+  max=1,
+  description='Bombards and other guns',
+}
+g_troop_entry['5fb1ba3be1af06001770efe3']= {
+  troop_option='5fb1ba3be1af06001770efe2',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba3be1af06001770efc6_general='5fb1ba3be1af06001770efc6_general'
 g_base_definitions[g_str_5fb1ba3be1af06001770efc6_general]={
   id=g_str_5fb1ba3be1af06001770efc6_general,
@@ -15,7 +154,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efc6_general]={
   description='Qapukulu horsemen and better feudal sipahis with lance and bow',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3be1af06001770efc5",
 }
 g_str_5fb1ba3be1af06001770efc6='5fb1ba3be1af06001770efc6'
 g_base_definitions[g_str_5fb1ba3be1af06001770efc6]={
@@ -25,7 +163,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efc6]={
   max=2,
   description='Qapukulu horsemen and better feudal sipahis with lance and bow',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3be1af06001770efc5",
 }
 g_str_5fb1ba3be1af06001770efc9_general='5fb1ba3be1af06001770efc9_general'
 g_base_definitions[g_str_5fb1ba3be1af06001770efc9_general]={
@@ -36,7 +173,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efc9_general]={
   description='Feudal sipahis and akinjis',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3be1af06001770efc8",
 }
 g_str_5fb1ba3be1af06001770efc9='5fb1ba3be1af06001770efc9'
 g_base_definitions[g_str_5fb1ba3be1af06001770efc9]={
@@ -46,7 +182,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efc9]={
   max=6,
   description='Feudal sipahis and akinjis',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3be1af06001770efc8",
 }
 g_str_5fb1ba3be1af06001770efcc='5fb1ba3be1af06001770efcc'
 g_base_definitions[g_str_5fb1ba3be1af06001770efcc]={
@@ -56,7 +191,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efcc]={
   max=2,
   description='Serbian vlastela',
   troop_type="Knights",
-  troop_option_id="5fb1ba3be1af06001770efca",
 }
 g_str_5fb1ba3be1af06001770efce_general='5fb1ba3be1af06001770efce_general'
 g_base_definitions[g_str_5fb1ba3be1af06001770efce_general]={
@@ -67,7 +201,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efce_general]={
   description='Djanazan or Turkoman horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3be1af06001770efcd",
 }
 g_str_5fb1ba3be1af06001770efce='5fb1ba3be1af06001770efce'
 g_base_definitions[g_str_5fb1ba3be1af06001770efce]={
@@ -77,7 +210,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efce]={
   max=1,
   description='Djanazan or Turkoman horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3be1af06001770efcd",
 }
 g_str_5fb1ba3be1af06001770efd0='5fb1ba3be1af06001770efd0'
 g_base_definitions[g_str_5fb1ba3be1af06001770efd0]={
@@ -87,7 +219,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efd0]={
   max=1,
   description='Delis, Kurds or Bedouin arab horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba3be1af06001770efcf",
 }
 g_str_5fb1ba3be1af06001770efd2='5fb1ba3be1af06001770efd2'
 g_base_definitions[g_str_5fb1ba3be1af06001770efd2]={
@@ -97,7 +228,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efd2]={
   max=1,
   description='Janissary bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba3be1af06001770efd1",
 }
 g_str_5fb1ba3be1af06001770efd4='5fb1ba3be1af06001770efd4'
 g_base_definitions[g_str_5fb1ba3be1af06001770efd4]={
@@ -107,7 +237,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efd4]={
   max=1,
   description='Iayalars',
   troop_type="Warband",
-  troop_option_id="5fb1ba3be1af06001770efd3",
 }
 g_str_5fb1ba3be1af06001770efd6='5fb1ba3be1af06001770efd6'
 g_base_definitions[g_str_5fb1ba3be1af06001770efd6]={
@@ -117,7 +246,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efd6]={
   max=1,
   description='Voynuks',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba3be1af06001770efd5",
 }
 g_str_5fb1ba3be1af06001770efd8='5fb1ba3be1af06001770efd8'
 g_base_definitions[g_str_5fb1ba3be1af06001770efd8]={
@@ -127,7 +255,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efd8]={
   max=1,
   description='Spearmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba3be1af06001770efd7",
 }
 g_str_5fb1ba3be1af06001770efd9='5fb1ba3be1af06001770efd9'
 g_base_definitions[g_str_5fb1ba3be1af06001770efd9]={
@@ -137,7 +264,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efd9]={
   max=1,
   description='Spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba3be1af06001770efd7",
 }
 g_str_5fb1ba3be1af06001770efdb='5fb1ba3be1af06001770efdb'
 g_base_definitions[g_str_5fb1ba3be1af06001770efdb]={
@@ -147,7 +273,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efdb]={
   max=2,
   description='Azab bowmen  ',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3be1af06001770efda",
 }
 g_str_5fb1ba3be1af06001770efdd='5fb1ba3be1af06001770efdd'
 g_base_definitions[g_str_5fb1ba3be1af06001770efdd]={
@@ -157,7 +282,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efdd]={
   max=1,
   description='Azab skirmishing bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3be1af06001770efdc",
 }
 g_str_5fb1ba3be1af06001770efdf='5fb1ba3be1af06001770efdf'
 g_base_definitions[g_str_5fb1ba3be1af06001770efdf]={
@@ -167,7 +291,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efdf]={
   max=1,
   description='Azab javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba3be1af06001770efde",
 }
 g_str_5fb1ba3be1af06001770efe1='5fb1ba3be1af06001770efe1'
 g_base_definitions[g_str_5fb1ba3be1af06001770efe1]={
@@ -177,7 +300,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efe1]={
   max=1,
   description='Poorly equipped azabs (Levendat) or European levy infantry',
   troop_type="Horde",
-  troop_option_id="5fb1ba3be1af06001770efe0",
 }
 g_str_5fb1ba3be1af06001770efe3='5fb1ba3be1af06001770efe3'
 g_base_definitions[g_str_5fb1ba3be1af06001770efe3]={
@@ -187,7 +309,6 @@ g_base_definitions[g_str_5fb1ba3be1af06001770efe3]={
   max=1,
   description='Bombards and other guns',
   troop_type="Artillery",
-  troop_option_id="5fb1ba3be1af06001770efe2",
 }
 g_str_5fb1b9eee1af060017709ff3_camp='5fb1b9eee1af060017709ff3_camp'
 g_base_definitions[g_str_5fb1b9eee1af060017709ff3_camp]={
@@ -260,6 +381,7 @@ army['5fb1b9eee1af060017709ff3_1362_1389']={
   g_base_definitions[g_str_5fb1ba3be1af06001770efc6],
   g_base_definitions[g_str_5fb1ba3be1af06001770efc9_general],
   g_base_definitions[g_str_5fb1ba3be1af06001770efc9],
+  g_base_definitions[g_str_5fb1ba3be1af06001770efcc],
   g_base_definitions[g_str_5fb1ba3be1af06001770efce_general],
   g_base_definitions[g_str_5fb1ba3be1af06001770efce],
   g_base_definitions[g_str_5fb1ba3be1af06001770efd0],

@@ -6,6 +6,57 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2fe1af06001770d95e']= {
+  min=5,
+  max=9,
+  description='Horsemen',
+}
+g_troop_entry['5fb1ba2fe1af06001770d95f']= {
+  troop_option='5fb1ba2fe1af06001770d95e',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2fe1af06001770d960']= {
+  min=0,
+  max=3,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba2fe1af06001770d961']= {
+  troop_option='5fb1ba2fe1af06001770d960',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba2fe1af06001770d962']= {
+  min=0,
+  max=3,
+  description='Peasants',
+  core='all',
+}
+g_troop_entry['5fb1ba2fe1af06001770d963']= {
+  troop_option='5fb1ba2fe1af06001770d962',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba2fe1af06001770d964']= {
+  min=1,
+  max=4,
+  description='Unarmored horsemen',
+  startDate=580,
+  endDate=930,
+}
+g_troop_entry['5fb1ba2fe1af06001770d966']= {
+  troop_option='5fb1ba2fe1af06001770d964',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2fe1af06001770d967']= {
+  min=0,
+  max=1,
+  description='Disguised Saxons {see battle card -- based as Horde}',
+  core='all',
+  startDate=580,
+  endDate=590,
+}
+g_troop_entry['5fb1ba2fe1af06001770d969']= {
+  troop_option='5fb1ba2fe1af06001770d967',
+  troopTypeCode='WRR',
+}
 g_str_5fb1ba2fe1af06001770d95f_general='5fb1ba2fe1af06001770d95f_general'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d95f_general]={
   id=g_str_5fb1ba2fe1af06001770d95f_general,
@@ -15,7 +66,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d95f_general]={
   description='Horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2fe1af06001770d95e",
 }
 g_str_5fb1ba2fe1af06001770d95f='5fb1ba2fe1af06001770d95f'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d95f]={
@@ -25,7 +75,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d95f]={
   max=9,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2fe1af06001770d95e",
 }
 g_str_5fb1ba2fe1af06001770d961='5fb1ba2fe1af06001770d961'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d961]={
@@ -35,7 +84,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d961]={
   max=3,
   description='Javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2fe1af06001770d960",
 }
 g_str_5fb1ba2fe1af06001770d963='5fb1ba2fe1af06001770d963'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d963]={
@@ -45,7 +93,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d963]={
   max=3,
   description='Peasants',
   troop_type="Horde",
-  troop_option_id="5fb1ba2fe1af06001770d962",
 }
 g_str_5fb1ba2fe1af06001770d966_general='5fb1ba2fe1af06001770d966_general'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d966_general]={
@@ -56,7 +103,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d966_general]={
   description='Unarmored horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2fe1af06001770d964",
 }
 g_str_5fb1ba2fe1af06001770d966='5fb1ba2fe1af06001770d966'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d966]={
@@ -66,7 +112,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d966]={
   max=4,
   description='Unarmored horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2fe1af06001770d964",
 }
 g_str_5fb1ba2fe1af06001770d969='5fb1ba2fe1af06001770d969'
 g_base_definitions[g_str_5fb1ba2fe1af06001770d969]={
@@ -76,7 +121,6 @@ g_base_definitions[g_str_5fb1ba2fe1af06001770d969]={
   max=1,
   description='Disguised Saxons {see battle card -- based as Horde}',
   troop_type="Warriors",
-  troop_option_id="5fb1ba2fe1af06001770d967",
 }
 g_str_5fb1b9e4e1af060017709a4c_camp='5fb1b9e4e1af060017709a4c_camp'
 g_base_definitions[g_str_5fb1b9e4e1af060017709a4c_camp]={
@@ -145,6 +189,7 @@ army['5fb1b9e4e1af060017709a4c_591_930']={
   g_base_definitions[g_str_5fb1ba2fe1af06001770d963],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d966_general],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d966],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d969],
   g_base_definitions[g_str_5fb1b9e4e1af060017709a4c_camp],
   g_base_definitions[g_str_5fb1b9e4e1af060017709a4c_camp_fortified],
 }
@@ -158,6 +203,9 @@ army['5fb1b9e4e1af060017709a4c_931_1072']={
   g_base_definitions[g_str_5fb1ba2fe1af06001770d95f],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d961],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d963],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d966_general],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d966],
+  g_base_definitions[g_str_5fb1ba2fe1af06001770d969],
   g_base_definitions[g_str_5fb1b9e4e1af060017709a4c_camp],
   g_base_definitions[g_str_5fb1b9e4e1af060017709a4c_camp_fortified],
 }

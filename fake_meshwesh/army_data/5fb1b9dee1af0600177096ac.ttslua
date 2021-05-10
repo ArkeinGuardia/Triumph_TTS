@@ -6,6 +6,94 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba28e1af06001770ccc2']= {
+  min=0,
+  max=1,
+  description='Greek mercenary horsemen',
+}
+g_troop_entry['5fb1ba28e1af06001770ccc3']= {
+  troop_option='5fb1ba28e1af06001770ccc2',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba28e1af06001770ccc4']= {
+  min=0,
+  max=1,
+  description='Macedonian horsemen',
+  startDate=-271,
+  endDate=-260,
+}
+g_troop_entry['5fb1ba28e1af06001770ccc6']= {
+  troop_option='5fb1ba28e1af06001770ccc4',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba28e1af06001770ccc7']= {
+  min=4,
+  max=8,
+  description='Phalanx',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770ccc8']= {
+  troop_option='5fb1ba28e1af06001770ccc7',
+  troopTypeCode='PIK',
+}
+g_troop_option['5fb1ba28e1af06001770ccca']= {
+  min=4,
+  max=8,
+  description='Thureophoroi',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770cccb']= {
+  troop_option='5fb1ba28e1af06001770ccca',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba28e1af06001770cccd']= {
+  min=0,
+  max=2,
+  description='Galatian fierce fighters',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770ccce']= {
+  troop_option='5fb1ba28e1af06001770cccd',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba28e1af06001770cccf']= {
+  min=0,
+  max=2,
+  description='Thracians, Illyrians, or Paionians',
+}
+g_troop_entry['5fb1ba28e1af06001770ccd0']= {
+  troop_option='5fb1ba28e1af06001770cccf',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba28e1af06001770ccd1']= {
+  min=0,
+  max=1,
+  description='Skirmishing bowmen and slingers',
+}
+g_troop_entry['5fb1ba28e1af06001770ccd2']= {
+  troop_option='5fb1ba28e1af06001770ccd1',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba28e1af06001770ccd3']= {
+  min=0,
+  max=1,
+  description='War elephants',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770ccd4']= {
+  troop_option='5fb1ba28e1af06001770ccd3',
+  troopTypeCode='ELE',
+}
+g_troop_option['5fb1ba28e1af06001770ccd6']= {
+  min=0,
+  max=1,
+  description='Bolt and stone throwers',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770ccd7']= {
+  troop_option='5fb1ba28e1af06001770ccd6',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba28e1af06001770ccc3_general='5fb1ba28e1af06001770ccc3_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc3_general]={
   id=g_str_5fb1ba28e1af06001770ccc3_general,
@@ -15,7 +103,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccc3_general]={
   description='Greek mercenary horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770ccc2",
 }
 g_str_5fb1ba28e1af06001770ccc3='5fb1ba28e1af06001770ccc3'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc3]={
@@ -25,7 +112,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccc3]={
   max=1,
   description='Greek mercenary horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770ccc2",
 }
 g_str_5fb1ba28e1af06001770ccc6_general='5fb1ba28e1af06001770ccc6_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc6_general]={
@@ -36,7 +122,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccc6_general]={
   description='Macedonian horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770ccc4",
 }
 g_str_5fb1ba28e1af06001770ccc6='5fb1ba28e1af06001770ccc6'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc6]={
@@ -46,7 +131,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccc6]={
   max=1,
   description='Macedonian horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770ccc4",
 }
 g_str_5fb1ba28e1af06001770ccc8_general='5fb1ba28e1af06001770ccc8_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_general]={
@@ -57,7 +141,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_general]={
   description='Phalanx',
   general=true,
   troop_type="Pikes",
-  troop_option_id="5fb1ba28e1af06001770ccc7",
 }
 g_str_5fb1ba28e1af06001770ccc8_general_elephant_screen='5fb1ba28e1af06001770ccc8_general_elephant_screen'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_general_elephant_screen]={
@@ -69,7 +152,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_general_elephant_screen]={
   general=true,
   elephant_screen=true,
   troop_type="Pikes",
-  troop_option_id="5fb1ba28e1af06001770ccc7",
 }
 g_str_5fb1ba28e1af06001770ccc8_general_elephant_screen_elephant_screen_counter='5fb1ba28e1af06001770ccc8_general_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_general_elephant_screen_elephant_screen_counter]={
@@ -88,7 +170,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccc8]={
   max=8,
   description='Phalanx',
   troop_type="Pikes",
-  troop_option_id="5fb1ba28e1af06001770ccc7",
 }
 g_str_5fb1ba28e1af06001770ccc8_elephant_screen='5fb1ba28e1af06001770ccc8_elephant_screen'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_elephant_screen]={
@@ -99,7 +180,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_elephant_screen]={
   description='Phalanx\nElephant Screen',
   elephant_screen=true,
   troop_type="Pikes",
-  troop_option_id="5fb1ba28e1af06001770ccc7",
 }
 g_str_5fb1ba28e1af06001770ccc8_elephant_screen_elephant_screen_counter='5fb1ba28e1af06001770ccc8_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_elephant_screen_elephant_screen_counter]={
@@ -119,7 +199,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cccb_general]={
   description='Thureophoroi',
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba28e1af06001770ccca",
 }
 g_str_5fb1ba28e1af06001770cccb_general_elephant_screen='5fb1ba28e1af06001770cccb_general_elephant_screen'
 g_base_definitions[g_str_5fb1ba28e1af06001770cccb_general_elephant_screen]={
@@ -131,7 +210,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cccb_general_elephant_screen]={
   general=true,
   elephant_screen=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba28e1af06001770ccca",
 }
 g_str_5fb1ba28e1af06001770cccb_general_elephant_screen_elephant_screen_counter='5fb1ba28e1af06001770cccb_general_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba28e1af06001770cccb_general_elephant_screen_elephant_screen_counter]={
@@ -150,7 +228,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cccb]={
   max=8,
   description='Thureophoroi',
   troop_type="Raiders",
-  troop_option_id="5fb1ba28e1af06001770ccca",
 }
 g_str_5fb1ba28e1af06001770cccb_elephant_screen='5fb1ba28e1af06001770cccb_elephant_screen'
 g_base_definitions[g_str_5fb1ba28e1af06001770cccb_elephant_screen]={
@@ -161,7 +238,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cccb_elephant_screen]={
   description='Thureophoroi\nElephant Screen',
   elephant_screen=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba28e1af06001770ccca",
 }
 g_str_5fb1ba28e1af06001770cccb_elephant_screen_elephant_screen_counter='5fb1ba28e1af06001770cccb_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba28e1af06001770cccb_elephant_screen_elephant_screen_counter]={
@@ -180,7 +256,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccce]={
   max=2,
   description='Galatian fierce fighters',
   troop_type="Warriors",
-  troop_option_id="5fb1ba28e1af06001770cccd",
 }
 g_str_5fb1ba28e1af06001770ccd0='5fb1ba28e1af06001770ccd0'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccd0]={
@@ -190,7 +265,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccd0]={
   max=2,
   description='Thracians, Illyrians, or Paionians',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770cccf",
 }
 g_str_5fb1ba28e1af06001770ccd2='5fb1ba28e1af06001770ccd2'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccd2]={
@@ -200,7 +274,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccd2]={
   max=1,
   description='Skirmishing bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba28e1af06001770ccd1",
 }
 g_str_5fb1ba28e1af06001770ccd4='5fb1ba28e1af06001770ccd4'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccd4]={
@@ -210,7 +283,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccd4]={
   max=1,
   description='War elephants',
   troop_type="Elephants",
-  troop_option_id="5fb1ba28e1af06001770ccd3",
 }
 g_str_5fb1ba28e1af06001770ccd7='5fb1ba28e1af06001770ccd7'
 g_base_definitions[g_str_5fb1ba28e1af06001770ccd7]={
@@ -220,7 +292,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770ccd7]={
   max=1,
   description='Bolt and stone throwers',
   troop_type="Artillery",
-  troop_option_id="5fb1ba28e1af06001770ccd6",
 }
 g_str_5fb1b9dee1af0600177096ac_camp='5fb1b9dee1af0600177096ac_camp'
 g_base_definitions[g_str_5fb1b9dee1af0600177096ac_camp]={
@@ -290,6 +361,8 @@ army['5fb1b9dee1af0600177096ac_-277_-272']={
   },
   g_base_definitions[g_str_5fb1ba28e1af06001770ccc3_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770ccc3],
+  g_base_definitions[g_str_5fb1ba28e1af06001770ccc6_general],
+  g_base_definitions[g_str_5fb1ba28e1af06001770ccc6],
   g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770ccc8_general_elephant_screen],
   g_base_definitions[g_str_5fb1ba28e1af06001770ccc8],

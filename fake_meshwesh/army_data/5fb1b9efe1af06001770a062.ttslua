@@ -6,6 +6,64 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3ce1af06001770f1bf']= {
+  min=0,
+  max=1,
+  description='Noble horsemen with armored horses',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1c0']= {
+  troop_option='5fb1ba3ce1af06001770f1bf',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3ce1af06001770f1c1']= {
+  min=1,
+  max=3,
+  description='Noble horse archers',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1c2']= {
+  troop_option='5fb1ba3ce1af06001770f1c1',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f1c3']= {
+  min=3,
+  max=8,
+  description='Horse archers',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1c4']= {
+  troop_option='5fb1ba3ce1af06001770f1c3',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f1c5']= {
+  min=2,
+  max=6,
+  description='Spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1c6']= {
+  troop_option='5fb1ba3ce1af06001770f1c5',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba3ce1af06001770f1c8']= {
+  min=2,
+  max=4,
+  description='Foot bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1c9']= {
+  troop_option='5fb1ba3ce1af06001770f1c8',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3ce1af06001770f1cb']= {
+  min=0,
+  max=1,
+  description='Levy spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1cc']= {
+  troop_option='5fb1ba3ce1af06001770f1cb',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba3ce1af06001770f1c0_general='5fb1ba3ce1af06001770f1c0_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1c0_general]={
   id=g_str_5fb1ba3ce1af06001770f1c0_general,
@@ -15,7 +73,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1c0_general]={
   description='Noble horsemen with armored horses',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f1bf",
 }
 g_str_5fb1ba3ce1af06001770f1c0='5fb1ba3ce1af06001770f1c0'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1c0]={
@@ -25,7 +82,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1c0]={
   max=1,
   description='Noble horsemen with armored horses',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f1bf",
 }
 g_str_5fb1ba3ce1af06001770f1c2_general='5fb1ba3ce1af06001770f1c2_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1c2_general]={
@@ -36,7 +92,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1c2_general]={
   description='Noble horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f1c1",
 }
 g_str_5fb1ba3ce1af06001770f1c2='5fb1ba3ce1af06001770f1c2'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1c2]={
@@ -46,7 +101,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1c2]={
   max=3,
   description='Noble horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f1c1",
 }
 g_str_5fb1ba3ce1af06001770f1c4_general='5fb1ba3ce1af06001770f1c4_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1c4_general]={
@@ -57,7 +111,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1c4_general]={
   description='Horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f1c3",
 }
 g_str_5fb1ba3ce1af06001770f1c4='5fb1ba3ce1af06001770f1c4'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1c4]={
@@ -67,7 +120,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1c4]={
   max=8,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f1c3",
 }
 g_str_5fb1ba3ce1af06001770f1c6='5fb1ba3ce1af06001770f1c6'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1c6]={
@@ -77,7 +129,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1c6]={
   max=6,
   description='Spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba3ce1af06001770f1c5",
 }
 g_str_5fb1ba3ce1af06001770f1c9='5fb1ba3ce1af06001770f1c9'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1c9]={
@@ -87,7 +138,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1c9]={
   max=4,
   description='Foot bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3ce1af06001770f1c8",
 }
 g_str_5fb1ba3ce1af06001770f1cc='5fb1ba3ce1af06001770f1cc'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1cc]={
@@ -97,7 +147,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1cc]={
   max=1,
   description='Levy spearmen',
   troop_type="Horde",
-  troop_option_id="5fb1ba3ce1af06001770f1cb",
 }
 g_str_5fb1b9efe1af06001770a062_camp='5fb1b9efe1af06001770a062_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a062_camp]={

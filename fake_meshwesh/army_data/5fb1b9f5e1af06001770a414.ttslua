@@ -6,6 +6,56 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba44e1af06001770fdde']= {
+  min=1,
+  max=3,
+  description='Noble and veteran suit-wearers',
+  core='all',
+}
+g_troop_entry['5fb1ba44e1af06001770fddf']= {
+  troop_option='5fb1ba44e1af06001770fdde',
+  troopTypeCode='RDR',
+}
+g_troop_entry['5fb1ba44e1af06001770fde0']= {
+  troop_option='5fb1ba44e1af06001770fdde',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba44e1af06001770fde1']= {
+  min=0,
+  max=3,
+  description='Temple soldiers',
+  core='all',
+}
+g_troop_entry['5fb1ba44e1af06001770fde2']= {
+  troop_option='5fb1ba44e1af06001770fde1',
+  troopTypeCode='RDR',
+}
+g_troop_entry['5fb1ba44e1af06001770fde3']= {
+  troop_option='5fb1ba44e1af06001770fde1',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba44e1af06001770fde4']= {
+  min=6,
+  max=20,
+  description='Close-combat infantry or bowmen',
+}
+g_troop_entry['5fb1ba44e1af06001770fde5']= {
+  troop_option='5fb1ba44e1af06001770fde4',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba44e1af06001770fde6']= {
+  troop_option='5fb1ba44e1af06001770fde4',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba44e1af06001770fde7']= {
+  min=2,
+  max=6,
+  description='Peasant skirmishing slingers',
+}
+g_troop_entry['5fb1ba44e1af06001770fde8']= {
+  troop_option='5fb1ba44e1af06001770fde7',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba44e1af06001770fddf_general='5fb1ba44e1af06001770fddf_general'
 g_base_definitions[g_str_5fb1ba44e1af06001770fddf_general]={
   id=g_str_5fb1ba44e1af06001770fddf_general,
@@ -15,7 +65,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fddf_general]={
   description='Noble and veteran suit-wearers',
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba44e1af06001770fdde",
 }
 g_str_5fb1ba44e1af06001770fddf='5fb1ba44e1af06001770fddf'
 g_base_definitions[g_str_5fb1ba44e1af06001770fddf]={
@@ -25,7 +74,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fddf]={
   max=3,
   description='Noble and veteran suit-wearers',
   troop_type="Raiders",
-  troop_option_id="5fb1ba44e1af06001770fdde",
 }
 g_str_5fb1ba44e1af06001770fde0_general='5fb1ba44e1af06001770fde0_general'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde0_general]={
@@ -36,7 +84,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde0_general]={
   description='Noble and veteran suit-wearers',
   general=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba44e1af06001770fdde",
 }
 g_str_5fb1ba44e1af06001770fde0='5fb1ba44e1af06001770fde0'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde0]={
@@ -46,7 +93,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde0]={
   max=3,
   description='Noble and veteran suit-wearers',
   troop_type="Archers",
-  troop_option_id="5fb1ba44e1af06001770fdde",
 }
 g_str_5fb1ba44e1af06001770fde2_general='5fb1ba44e1af06001770fde2_general'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde2_general]={
@@ -57,7 +103,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde2_general]={
   description='Temple soldiers',
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba44e1af06001770fde1",
 }
 g_str_5fb1ba44e1af06001770fde2='5fb1ba44e1af06001770fde2'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde2]={
@@ -67,7 +112,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde2]={
   max=3,
   description='Temple soldiers',
   troop_type="Raiders",
-  troop_option_id="5fb1ba44e1af06001770fde1",
 }
 g_str_5fb1ba44e1af06001770fde3_general='5fb1ba44e1af06001770fde3_general'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde3_general]={
@@ -78,7 +122,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde3_general]={
   description='Temple soldiers',
   general=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba44e1af06001770fde1",
 }
 g_str_5fb1ba44e1af06001770fde3='5fb1ba44e1af06001770fde3'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde3]={
@@ -88,7 +131,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde3]={
   max=3,
   description='Temple soldiers',
   troop_type="Archers",
-  troop_option_id="5fb1ba44e1af06001770fde1",
 }
 g_str_5fb1ba44e1af06001770fde5='5fb1ba44e1af06001770fde5'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde5]={
@@ -98,7 +140,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde5]={
   max=20,
   description='Close-combat infantry or bowmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba44e1af06001770fde4",
 }
 g_str_5fb1ba44e1af06001770fde6='5fb1ba44e1af06001770fde6'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde6]={
@@ -108,7 +149,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde6]={
   max=20,
   description='Close-combat infantry or bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba44e1af06001770fde4",
 }
 g_str_5fb1ba44e1af06001770fde8='5fb1ba44e1af06001770fde8'
 g_base_definitions[g_str_5fb1ba44e1af06001770fde8]={
@@ -118,7 +158,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fde8]={
   max=6,
   description='Peasant skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba44e1af06001770fde7",
 }
 g_str_5fb1b9f5e1af06001770a414_camp='5fb1b9f5e1af06001770a414_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a414_camp]={

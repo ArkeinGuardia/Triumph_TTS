@@ -6,6 +6,68 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba34e1af06001770e37d']= {
+  min=0,
+  max=1,
+  description='Crossbowmen on horses',
+}
+g_troop_entry['5fb1ba34e1af06001770e37e']= {
+  troop_option='5fb1ba34e1af06001770e37d',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba34e1af06001770e380']= {
+  min=7,
+  max=15,
+  description='Pikemen mixed with some halberdiers',
+  core='all',
+}
+g_troop_entry['5fb1ba34e1af06001770e381']= {
+  troop_option='5fb1ba34e1af06001770e380',
+  troopTypeCode='PIK',
+}
+g_troop_option['5fb1ba34e1af06001770e382']= {
+  min=0,
+  max=4,
+  description='Separately deployed halberdiers, some with armor',
+}
+g_troop_entry['5fb1ba34e1af06001770e383']= {
+  troop_option='5fb1ba34e1af06001770e382',
+  troopTypeCode='RDR',
+}
+g_troop_entry['5fb1ba34e1af06001770e384']= {
+  troop_option='5fb1ba34e1af06001770e382',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba34e1af06001770e385']= {
+  min=0,
+  max=1,
+  description='Skirmishing handgunners',
+}
+g_troop_entry['5fb1ba34e1af06001770e386']= {
+  troop_option='5fb1ba34e1af06001770e385',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba34e1af06001770e387']= {
+  min=1,
+  max=2,
+  description='Skirmishing crossbowmen',
+}
+g_troop_entry['5fb1ba34e1af06001770e388']= {
+  troop_option='5fb1ba34e1af06001770e387',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba34e1af06001770e389']= {
+  min=0,
+  max=1,
+  description='Captured Burgundian artillery',
+  core='all',
+  startDate=1476,
+  endDate=1477,
+}
+g_troop_entry['5fb1ba34e1af06001770e38b']= {
+  troop_option='5fb1ba34e1af06001770e389',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba34e1af06001770e37e='5fb1ba34e1af06001770e37e'
 g_base_definitions[g_str_5fb1ba34e1af06001770e37e]={
   id=g_str_5fb1ba34e1af06001770e37e,
@@ -14,7 +76,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e37e]={
   max=1,
   description='Crossbowmen on horses',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba34e1af06001770e37d",
 }
 g_str_5fb1ba34e1af06001770e37e_dismounted='5fb1ba34e1af06001770e37e_dismounted'
 g_str_5fb1ba34e1af06001770e37e_mounted='5fb1ba34e1af06001770e37e_mounted'
@@ -26,7 +87,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e37e_dismounted]={
   description='Crossbowmen on horses\nMid-battle dismounted from Bad Horse',
   dismounted_from=g_str_5fb1ba34e1af06001770e37e_mounted,
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba34e1af06001770e37d",
 }
 g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted]={
   id=g_str_5fb1ba34e1af06001770e37e_mounted,
@@ -35,8 +95,8 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted]={
   max=1,
   description='Crossbowmen on horses\nMid-battle dismounting as Skirmisher',
   dismount_as=g_str_5fb1ba34e1af06001770e37e_dismounted,
+  mid_battle_dismounting=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba34e1af06001770e37d",
 }
 g_str_5fb1ba34e1af06001770e381_general='5fb1ba34e1af06001770e381_general'
 g_base_definitions[g_str_5fb1ba34e1af06001770e381_general]={
@@ -47,7 +107,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e381_general]={
   description='Pikemen mixed with some halberdiers',
   general=true,
   troop_type="Pikes",
-  troop_option_id="5fb1ba34e1af06001770e380",
 }
 g_str_5fb1ba34e1af06001770e381='5fb1ba34e1af06001770e381'
 g_base_definitions[g_str_5fb1ba34e1af06001770e381]={
@@ -57,7 +116,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e381]={
   max=15,
   description='Pikemen mixed with some halberdiers',
   troop_type="Pikes",
-  troop_option_id="5fb1ba34e1af06001770e380",
 }
 g_str_5fb1ba34e1af06001770e383='5fb1ba34e1af06001770e383'
 g_base_definitions[g_str_5fb1ba34e1af06001770e383]={
@@ -67,7 +125,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e383]={
   max=4,
   description='Separately deployed halberdiers, some with armor',
   troop_type="Raiders",
-  troop_option_id="5fb1ba34e1af06001770e382",
 }
 g_str_5fb1ba34e1af06001770e384='5fb1ba34e1af06001770e384'
 g_base_definitions[g_str_5fb1ba34e1af06001770e384]={
@@ -77,7 +134,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e384]={
   max=4,
   description='Separately deployed halberdiers, some with armor',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba34e1af06001770e382",
 }
 g_str_5fb1ba34e1af06001770e386='5fb1ba34e1af06001770e386'
 g_base_definitions[g_str_5fb1ba34e1af06001770e386]={
@@ -87,7 +143,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e386]={
   max=1,
   description='Skirmishing handgunners',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba34e1af06001770e385",
 }
 g_str_5fb1ba34e1af06001770e388='5fb1ba34e1af06001770e388'
 g_base_definitions[g_str_5fb1ba34e1af06001770e388]={
@@ -97,7 +152,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e388]={
   max=2,
   description='Skirmishing crossbowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba34e1af06001770e387",
 }
 g_str_5fb1ba34e1af06001770e38b='5fb1ba34e1af06001770e38b'
 g_base_definitions[g_str_5fb1ba34e1af06001770e38b]={
@@ -107,7 +161,6 @@ g_base_definitions[g_str_5fb1ba34e1af06001770e38b]={
   max=1,
   description='Captured Burgundian artillery',
   troop_type="Artillery",
-  troop_option_id="5fb1ba34e1af06001770e389",
 }
 g_str_5fb1b9e9e1af060017709d0d_camp='5fb1b9e9e1af060017709d0d_camp'
 g_base_definitions[g_str_5fb1b9e9e1af060017709d0d_camp]={
@@ -155,6 +208,7 @@ army['5fb1b9e9e1af060017709d0d_1425_1475']={
   g_base_definitions[g_str_5fb1ba34e1af06001770e384],
   g_base_definitions[g_str_5fb1ba34e1af06001770e386],
   g_base_definitions[g_str_5fb1ba34e1af06001770e388],
+  g_base_definitions[g_str_5fb1ba34e1af06001770e38b],
   g_base_definitions[g_str_5fb1b9e9e1af060017709d0d_camp],
 }
 army['5fb1b9e9e1af060017709d0d_1476_1477']={

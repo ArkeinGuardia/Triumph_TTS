@@ -6,6 +6,52 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba44e1af06001770fe0d']= {
+  min=2,
+  max=6,
+  description='Military order suit-wearers',
+  core='all',
+}
+g_troop_entry['5fb1ba44e1af06001770fe0e']= {
+  troop_option='5fb1ba44e1af06001770fe0d',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba44e1af06001770fe0f']= {
+  min=0,
+  max=1,
+  description='Cuachichiqueh and Ontontin shock troops',
+}
+g_troop_entry['5fb1ba44e1af06001770fe10']= {
+  troop_option='5fb1ba44e1af06001770fe0f',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba44e1af06001770fe11']= {
+  min=4,
+  max=11,
+  description='Macehualtin tribesmen',
+}
+g_troop_entry['5fb1ba44e1af06001770fe12']= {
+  troop_option='5fb1ba44e1af06001770fe11',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba44e1af06001770fe13']= {
+  min=2,
+  max=4,
+  description='Skirmishing slingers or bowmen',
+}
+g_troop_entry['5fb1ba44e1af06001770fe14']= {
+  troop_option='5fb1ba44e1af06001770fe13',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba44e1af06001770fe15']= {
+  min=0,
+  max=1,
+  description='Mercenary bowmen',
+}
+g_troop_entry['5fb1ba44e1af06001770fe16']= {
+  troop_option='5fb1ba44e1af06001770fe15',
+  troopTypeCode='BLV',
+}
 g_str_5fb1ba44e1af06001770fe0e_general='5fb1ba44e1af06001770fe0e_general'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe0e_general]={
   id=g_str_5fb1ba44e1af06001770fe0e_general,
@@ -15,7 +61,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe0e_general]={
   description='Military order suit-wearers',
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba44e1af06001770fe0d",
 }
 g_str_5fb1ba44e1af06001770fe0e='5fb1ba44e1af06001770fe0e'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe0e]={
@@ -25,7 +70,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe0e]={
   max=6,
   description='Military order suit-wearers',
   troop_type="Raiders",
-  troop_option_id="5fb1ba44e1af06001770fe0d",
 }
 g_str_5fb1ba44e1af06001770fe10_general='5fb1ba44e1af06001770fe10_general'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe10_general]={
@@ -36,7 +80,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe10_general]={
   description='Cuachichiqueh and Ontontin shock troops',
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba44e1af06001770fe0f",
 }
 g_str_5fb1ba44e1af06001770fe10='5fb1ba44e1af06001770fe10'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe10]={
@@ -46,7 +89,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe10]={
   max=1,
   description='Cuachichiqueh and Ontontin shock troops',
   troop_type="Raiders",
-  troop_option_id="5fb1ba44e1af06001770fe0f",
 }
 g_str_5fb1ba44e1af06001770fe12='5fb1ba44e1af06001770fe12'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe12]={
@@ -56,7 +98,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe12]={
   max=11,
   description='Macehualtin tribesmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba44e1af06001770fe11",
 }
 g_str_5fb1ba44e1af06001770fe14='5fb1ba44e1af06001770fe14'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe14]={
@@ -66,7 +107,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe14]={
   max=4,
   description='Skirmishing slingers or bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba44e1af06001770fe13",
 }
 g_str_5fb1ba44e1af06001770fe16='5fb1ba44e1af06001770fe16'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe16]={
@@ -76,7 +116,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe16]={
   max=1,
   description='Mercenary bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba44e1af06001770fe15",
 }
 g_str_5fb1b9f5e1af06001770a42a_camp='5fb1b9f5e1af06001770a42a_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a42a_camp]={

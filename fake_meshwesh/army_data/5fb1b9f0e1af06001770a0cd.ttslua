@@ -6,6 +6,67 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3de1af06001770f36c']= {
+  min=1,
+  max=1,
+  description='War elephants',
+  core='all',
+}
+g_troop_entry['5fb1ba3de1af06001770f36d']= {
+  troop_option='5fb1ba3de1af06001770f36c',
+  troopTypeCode='ELE',
+}
+g_troop_option['5fb1ba3de1af06001770f36f']= {
+  min=0,
+  max=1,
+  description='Kudirai-sevakar horsemen',
+}
+g_troop_entry['5fb1ba3de1af06001770f370']= {
+  troop_option='5fb1ba3de1af06001770f36f',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba3de1af06001770f371']= {
+  min=1,
+  max=4,
+  description='Swordsmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3de1af06001770f372']= {
+  troop_option='5fb1ba3de1af06001770f371',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba3de1af06001770f374']= {
+  min=0,
+  max=3,
+  description='Wild tribes',
+}
+g_troop_entry['5fb1ba3de1af06001770f375']= {
+  troop_option='5fb1ba3de1af06001770f374',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba3de1af06001770f376']= {
+  troop_option='5fb1ba3de1af06001770f374',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba3de1af06001770f377']= {
+  min=8,
+  max=16,
+  description='Militia bowmen',
+}
+g_troop_entry['5fb1ba3de1af06001770f378']= {
+  troop_option='5fb1ba3de1af06001770f377',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3de1af06001770f379']= {
+  min=0,
+  max=1,
+  description='Militia bowmen with large hide shields',
+  core='all',
+}
+g_troop_entry['5fb1ba3de1af06001770f37a']= {
+  troop_option='5fb1ba3de1af06001770f379',
+  troopTypeCode='ARC',
+}
 g_str_5fb1ba3de1af06001770f36d_general='5fb1ba3de1af06001770f36d_general'
 g_base_definitions[g_str_5fb1ba3de1af06001770f36d_general]={
   id=g_str_5fb1ba3de1af06001770f36d_general,
@@ -15,7 +76,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f36d_general]={
   description='War elephants',
   general=true,
   troop_type="Elephants",
-  troop_option_id="5fb1ba3de1af06001770f36c",
 }
 g_str_5fb1ba3de1af06001770f36d='5fb1ba3de1af06001770f36d'
 g_base_definitions[g_str_5fb1ba3de1af06001770f36d]={
@@ -25,7 +85,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f36d]={
   max=1,
   description='War elephants',
   troop_type="Elephants",
-  troop_option_id="5fb1ba3de1af06001770f36c",
 }
 g_str_5fb1ba3de1af06001770f370='5fb1ba3de1af06001770f370'
 g_base_definitions[g_str_5fb1ba3de1af06001770f370]={
@@ -35,7 +94,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f370]={
   max=1,
   description='Kudirai-sevakar horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba3de1af06001770f36f",
 }
 g_str_5fb1ba3de1af06001770f372_general='5fb1ba3de1af06001770f372_general'
 g_base_definitions[g_str_5fb1ba3de1af06001770f372_general]={
@@ -46,7 +104,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f372_general]={
   description='Swordsmen',
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba3de1af06001770f371",
 }
 g_str_5fb1ba3de1af06001770f372_general_elephant_screen='5fb1ba3de1af06001770f372_general_elephant_screen'
 g_base_definitions[g_str_5fb1ba3de1af06001770f372_general_elephant_screen]={
@@ -58,7 +115,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f372_general_elephant_screen]={
   general=true,
   elephant_screen=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba3de1af06001770f371",
 }
 g_str_5fb1ba3de1af06001770f372_general_elephant_screen_elephant_screen_counter='5fb1ba3de1af06001770f372_general_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba3de1af06001770f372_general_elephant_screen_elephant_screen_counter]={
@@ -77,7 +133,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f372]={
   max=4,
   description='Swordsmen',
   troop_type="Raiders",
-  troop_option_id="5fb1ba3de1af06001770f371",
 }
 g_str_5fb1ba3de1af06001770f372_elephant_screen='5fb1ba3de1af06001770f372_elephant_screen'
 g_base_definitions[g_str_5fb1ba3de1af06001770f372_elephant_screen]={
@@ -88,7 +143,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f372_elephant_screen]={
   description='Swordsmen\nElephant Screen',
   elephant_screen=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba3de1af06001770f371",
 }
 g_str_5fb1ba3de1af06001770f372_elephant_screen_elephant_screen_counter='5fb1ba3de1af06001770f372_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba3de1af06001770f372_elephant_screen_elephant_screen_counter]={
@@ -107,7 +161,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f375]={
   max=3,
   description='Wild tribes',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3de1af06001770f374",
 }
 g_str_5fb1ba3de1af06001770f376='5fb1ba3de1af06001770f376'
 g_base_definitions[g_str_5fb1ba3de1af06001770f376]={
@@ -117,7 +170,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f376]={
   max=3,
   description='Wild tribes',
   troop_type="Rabble",
-  troop_option_id="5fb1ba3de1af06001770f374",
 }
 g_str_5fb1ba3de1af06001770f378='5fb1ba3de1af06001770f378'
 g_base_definitions[g_str_5fb1ba3de1af06001770f378]={
@@ -127,7 +179,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f378]={
   max=16,
   description='Militia bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3de1af06001770f377",
 }
 g_str_5fb1ba3de1af06001770f37a='5fb1ba3de1af06001770f37a'
 g_base_definitions[g_str_5fb1ba3de1af06001770f37a]={
@@ -137,7 +188,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f37a]={
   max=1,
   description='Militia bowmen with large hide shields',
   troop_type="Archers",
-  troop_option_id="5fb1ba3de1af06001770f379",
 }
 g_str_5fb1b9f0e1af06001770a0cd_camp='5fb1b9f0e1af06001770a0cd_camp'
 g_base_definitions[g_str_5fb1b9f0e1af06001770a0cd_camp]={

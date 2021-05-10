@@ -24,101 +24,162 @@ end
 
 local g_updating_zone = {}
 
--- How many points is a base worth
--- base_obj: Base object to evaluate.
--- points_for_camp: How many points is a camp worth
-function get_points_for_base(base_obj, points_for_camp)
-  local base_definition = get_base_definition_from_base_obj(base_obj)
-  if nil ~= base_definition then
-    -- base defintion can override the algorithm
-    local definition_points = base_definition['points']
-    if definition_points ~= nil then
-      return definition_points
-    end
+
+
+
+
+function get_army_builder_points_for_troop_type(troop_type)
+  if troop_type == nil then
+    print_error("get_army_builder_points_for_troop_type troop_type is nil")
+    return nil
   end
-
-  local base_name = base_obj.getName()
-
-  if str_has_substr(base_name, 'Camp') then
-    -- Fortified Camp battle card
-    if str_has_substr(base_name, 'Fortified') then
-      return points_for_camp + 1
-    end
-      return points_for_camp
+  local tips = base_tool_tips[troop_type]
+  if tips == nil then
+    print_error("Unable to get base_tool_tips for ",troop_type)
+    return nil
   end
-
-
-  local dead = 3
-
-  if str_has_substr(base_name, 'Bow Levy')
-     or str_has_substr(base_name, 'Horde')
-     or str_has_substr(base_name, 'Rabble') then
-      dead = dead - 1
+  if tips.army_builder_points ~= nil then
+    return tips.army_builder_points
   end
-
-  if str_has_substr(base_name, 'Archers')
-     or str_has_substr(base_name, 'Elite Foot')
-     or str_has_substr(base_name, 'Pavisiers')
-     or str_has_substr(base_name, 'Raiders')
-     or str_has_substr(base_name, 'Spears')
-     or str_has_substr(base_name, 'Cataphracts')
-     or str_has_substr(base_name, 'Chariots')
-     or str_has_substr(base_name, 'Elephants')
-     or str_has_substr(base_name, 'Elite Cavalry')
-     or str_has_substr(base_name, 'HorseBow')
-     or str_has_substr(base_name, 'Javelin Cavalry')
-     or str_has_substr(base_name, 'Knights')then
-        dead = dead + 1
+  if tips.points == nil then
+    print_error("Unable to get army build points for troop type " .. tostring(troop_type))
+    return nil
   end
-
-  if str_has_substr(base_name, 'Herds') then
-      dead = dead - 2
-  end
-
-  if str_has_substr(base_name, 'Mobile') then
-      dead = dead - 3.5
-  end
-
-  if str_has_substr(base_name, 'Plaustrella')
-     or str_has_substr(base_name, 'Shower Shooting') then
-      dead = dead -2
-  end
-
-  if str_has_substr(base_name, 'Charging Camelry') then
-      dead = dead - 4
-  end
-
-  if str_has_substr(base_name, 'Sword Fighting') then
-       dead = dead - 3.5
-  end
-
-  return dead
+  return tips.points
 end
 
--- Compute how many points there are in bases
--- bases: base objects ot evaluate
--- points_for_camp: How many points is a camp worth
-function calculate_points_for_bases(bases, points_for_camp)
-  local dead = 0
+function get_army_builder_points_for_base_definition(base_definition)
+  local troop_type = base_definition.troop_type
+  if base_definition.dismount_as ~= nil then
+    local mounted_points = get_army_builder_points_for_troop_type(troop_type)
+    local dismounted_def = g_base_definitions[base_definition.dismount_as]
+    local dismounted_points = get_army_builder_points_for_troop_type(dismounted_def.troop_type)
+    return math.max(mounted_points, dismounted_points)
+  end
+  if base_definition.charging_camelry or base_definition.armored_camelry then
+    return get_army_builder_points_for_troop_type(troop_type) - 1
+  end
+  if base_definition.plaustrella then
+    return get_army_builder_points_for_troop_type(troop_type) + 1
+  end
+  if base_definition.fortified_camp then
+    return 1
+  end
+  if base_definition.pack_train then
+    return 1
+  end
+  return get_army_builder_points_for_troop_type(troop_type)
+end
 
-  for _,obj in ipairs(bases) do
-    if not is_base_obj(obj) then
-      local obj_name = obj.getName()
-      print_debug("Non-base: " .. tostring(obj_name))
-    else
-      dead = dead + get_points_for_base(obj, points_for_camp)
+-- How many points are in the collection of base defintions.
+-- Each base object maps to one base definition, therefore the
+-- same base definition may be in the collection multiple times.
+function get_army_builder_points_for_base_definitions(base_definitions)
+  local total_points = 0
+  local deployment_dismounting_points = 0
+  local mid_battle_dismounting_points = 0
+  local nb_mobile_infantry = 0
+  local elephant_screen_points = 0
+  for _,base_definition in pairs(base_definitions) do
+      if base_definition.deployment_dismounting then
+        deployment_dismounting_points = 1
+      end
+      if base_definition.mid_battle_dismounting then
+        mid_battle_dismounting_points = 2
+      end
+      if base_definition.mobile_infantry then
+        nb_mobile_infantry = nb_mobile_infantry + 1
+      end
+      if base_definition.elephant_screen then
+        elephant_screen_points = 2
+      end
+      total_points = total_points + get_army_builder_points_for_base_definition(base_definition)
+  end
+  total_points = total_points + deployment_dismounting_points
+  total_points = total_points + mid_battle_dismounting_points
+  total_points = total_points + elephant_screen_points
+  if nb_mobile_infantry > 1 then
+    total_points = total_points + 1
+  end
+  return total_points
+end
+
+function get_victory_points_for_troop_type(troop_type)
+  local tips = base_tool_tips[troop_type]
+  if tips.victory_points ~= nil then
+    return tips.victory_points
+  end
+  return tips.points
+end
+
+
+function get_victory_points_for_base_definition(base_definition)
+  if base_definition.victory_points then
+    return base_definition.victory_points
+  end
+  local troop_type = base_definition.troop_type
+  if base_definition.mid_battle_dismounting then
+    local mounted_points = get_army_builder_points_for_troop_type(troop_type)
+    local dismounted_def = g_base_definitions[base_definition.dismount_as]
+    local dismounted_points = get_army_builder_points_for_troop_type(dismounted_def.troop_type)
+    return math.max(mounted_points, dismounted_points)
+  end
+  if base_definition.dismounted_from ~= nil then
+    local mounted_def = g_base_definitions[base_definition.dismounted_from]
+    if mounted_def.mid_battle_dismounting then
+      return get_victory_points_for_base_definition(mounted_def)
     end
   end
-
-  return dead
+  if base_definition.charging_camelry or base_definition.armored_camelry then
+    return 3
+  end
+   if base_definition.plaustrella then
+     return 4
+  end
+  return get_victory_points_for_troop_type(troop_type)
 end
+
+
+-- How many points are in the collection of base defintions.
+-- Each base object maps to one base definition, therefore the
+-- same base definition may be in the collection multiple times.
+function get_victory_points_for_base_definitions(base_definitions)
+  local total_points = 0
+  for _,base_definition in pairs(base_definitions) do
+      total_points = total_points + get_victory_points_for_base_definition(base_definition)
+  end
+  return total_points
+end
+
+
+function get_army_builder_points_for_base_objects(base_objs)
+  local definitions = {}
+  for _,base_obj in pairs(base_objs) do
+    local base_definition = get_base_definition_from_base_obj(base_obj)
+    if base_definition ~= nil then
+      table.insert(definitions, base_definition)
+    end
+  end
+  return get_army_builder_points_for_base_definitions(definitions)
+end
+
 
 -- Calculate the number of points for a dead zone
--- bases: Bases that are in the zone
+-- objects: objects that are in the zone
 -- return: number of points
-function calculate_dead_points(bases)
-  -- round up, see battle card Mobile Infantry
-  return math.ceil(calculate_points_for_bases(bases, 8))
+function calculate_dead_points(objects)
+  local definitions = {}
+  for _,obj in pairs(objects) do
+    if is_base_obj(obj) then
+      local base_obj = obj
+      local base_definition = get_base_definition_from_base_obj(base_obj)
+      if base_definition ~= nil then
+        table.insert(definitions, base_definition)
+      end
+    end
+  end
+  local result = get_victory_points_for_base_definitions(definitions)
+  return result
 end
 
 
@@ -135,8 +196,16 @@ function update_dead_zone_value(zone)
         return
     end
 
-    local bases = zone.getObjects()
-    local dead =  calculate_dead_points(bases)
+    local objects = zone.getObjects()
+    local ran,result =  pcall(calculate_dead_points, objects)
+
+    if not ran then
+      local error = result
+      print_error(tostring(error))
+      return
+    end
+
+    local dead = result
 
     local is_red = false
     if str_has_substr(name, 'red') then
@@ -188,10 +257,21 @@ function update_dead_zones()
 end
 
 -- Calculate the number of points for an army builder zone
--- bases: Bases that are in the zone
+-- objects: objects that are in the zone
 -- return: number of points
-function calculate_army_builder_points(bases)
-  return calculate_points_for_bases(bases, 0)
+function calculate_army_builder_points(objects)
+  local definitions = {}
+  for _,obj in pairs(objects) do
+    if is_base_obj(obj) then
+      local base_obj = obj
+      local base_definition = get_base_definition_from_base_obj(base_obj)
+      if base_definition ~= nil then
+        table.insert(definitions, base_definition)
+      end
+    end
+  end
+  local result = get_army_builder_points_for_base_definitions(definitions)
+  return result
 end
 
 
@@ -205,12 +285,18 @@ function update_armyzone_value(zone)
         is_red = true
     end
 
-    local bases = zone.getObjects()
-    local armyvalue =  calculate_army_builder_points(bases)
+    local objects = zone.getObjects()
+    local ran,result =  pcall(calculate_army_builder_points, objects)
 
-    --local points = tostring(armyvalue)
-    local all_objs = getAllObjects()
-    for _,obj in ipairs(all_objs) do
+    if not ran then
+      local error = result
+      print_error(tostring(error))
+      return
+    end
+
+    local armyvalue = result
+
+    for _,obj in ipairs(getAllObjects()) do
         local name = obj.getName()
         if is_red then
             if str_starts_with(name, 'NumberRed ') then

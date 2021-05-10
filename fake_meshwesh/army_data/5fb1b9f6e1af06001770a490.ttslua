@@ -6,6 +6,34 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba44e1af06001770feac']= {
+  min=8,
+  max=16,
+  description='Tribesmen armed with long spears',
+  core='all',
+}
+g_troop_entry['5fb1ba44e1af06001770fead']= {
+  troop_option='5fb1ba44e1af06001770feac',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba44e1af06001770feae']= {
+  min=0,
+  max=8,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba44e1af06001770feaf']= {
+  troop_option='5fb1ba44e1af06001770feae',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba44e1af06001770feb0']= {
+  min=0,
+  max=2,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba44e1af06001770feb1']= {
+  troop_option='5fb1ba44e1af06001770feb0',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba44e1af06001770fead_general='5fb1ba44e1af06001770fead_general'
 g_base_definitions[g_str_5fb1ba44e1af06001770fead_general]={
   id=g_str_5fb1ba44e1af06001770fead_general,
@@ -15,7 +43,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fead_general]={
   description='Tribesmen armed with long spears',
   general=true,
   troop_type="Light Spear",
-  troop_option_id="5fb1ba44e1af06001770feac",
 }
 g_str_5fb1ba44e1af06001770fead='5fb1ba44e1af06001770fead'
 g_base_definitions[g_str_5fb1ba44e1af06001770fead]={
@@ -25,7 +52,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fead]={
   max=16,
   description='Tribesmen armed with long spears',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba44e1af06001770feac",
 }
 g_str_5fb1ba44e1af06001770feaf='5fb1ba44e1af06001770feaf'
 g_base_definitions[g_str_5fb1ba44e1af06001770feaf]={
@@ -35,7 +61,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770feaf]={
   max=8,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba44e1af06001770feae",
 }
 g_str_5fb1ba44e1af06001770feb1='5fb1ba44e1af06001770feb1'
 g_base_definitions[g_str_5fb1ba44e1af06001770feb1]={
@@ -45,7 +70,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770feb1]={
   max=2,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba44e1af06001770feb0",
 }
 g_str_5fb1b9f6e1af06001770a490_camp='5fb1b9f6e1af06001770a490_camp'
 g_base_definitions[g_str_5fb1b9f6e1af06001770a490_camp]={

@@ -6,6 +6,53 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba43e1af06001770fcc9']= {
+  min=0,
+  max=2,
+  description='Mounted samurai armed with yari and katana',
+}
+g_troop_entry['5fb1ba43e1af06001770fcca']= {
+  troop_option='5fb1ba43e1af06001770fcc9',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba43e1af06001770fccb']= {
+  min=2,
+  max=4,
+  description='Elite samurai infantry armed with naginata or yari or katana',
+  core='all',
+}
+g_troop_entry['5fb1ba43e1af06001770fccc']= {
+  troop_option='5fb1ba43e1af06001770fccb',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba43e1af06001770fccd']= {
+  min=1,
+  max=2,
+  description='Samurai nobushi bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba43e1af06001770fcce']= {
+  troop_option='5fb1ba43e1af06001770fccd',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba43e1af06001770fccf']= {
+  min=3,
+  max=12,
+  description='Ashigaru armed with yari',
+}
+g_troop_entry['5fb1ba43e1af06001770fcd0']= {
+  troop_option='5fb1ba43e1af06001770fccf',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba43e1af06001770fcd1']= {
+  min=0,
+  max=2,
+  description='Shashu no ashigaru armed with bow',
+}
+g_troop_entry['5fb1ba43e1af06001770fcd2']= {
+  troop_option='5fb1ba43e1af06001770fcd1',
+  troopTypeCode='BLV',
+}
 g_str_5fb1ba43e1af06001770fcca_general='5fb1ba43e1af06001770fcca_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fcca_general]={
   id=g_str_5fb1ba43e1af06001770fcca_general,
@@ -15,7 +62,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fcca_general]={
   description='Mounted samurai armed with yari and katana',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba43e1af06001770fcc9",
 }
 g_str_5fb1ba43e1af06001770fcca='5fb1ba43e1af06001770fcca'
 g_base_definitions[g_str_5fb1ba43e1af06001770fcca]={
@@ -25,7 +71,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fcca]={
   max=2,
   description='Mounted samurai armed with yari and katana',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba43e1af06001770fcc9",
 }
 g_str_5fb1ba43e1af06001770fccc_general='5fb1ba43e1af06001770fccc_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fccc_general]={
@@ -36,7 +81,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fccc_general]={
   description='Elite samurai infantry armed with naginata or yari or katana',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba43e1af06001770fccb",
 }
 g_str_5fb1ba43e1af06001770fccc='5fb1ba43e1af06001770fccc'
 g_base_definitions[g_str_5fb1ba43e1af06001770fccc]={
@@ -46,7 +90,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fccc]={
   max=4,
   description='Elite samurai infantry armed with naginata or yari or katana',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba43e1af06001770fccb",
 }
 g_str_5fb1ba43e1af06001770fcce='5fb1ba43e1af06001770fcce'
 g_base_definitions[g_str_5fb1ba43e1af06001770fcce]={
@@ -56,7 +99,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fcce]={
   max=2,
   description='Samurai nobushi bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba43e1af06001770fccd",
 }
 g_str_5fb1ba43e1af06001770fcd0='5fb1ba43e1af06001770fcd0'
 g_base_definitions[g_str_5fb1ba43e1af06001770fcd0]={
@@ -66,7 +108,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fcd0]={
   max=12,
   description='Ashigaru armed with yari',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba43e1af06001770fccf",
 }
 g_str_5fb1ba43e1af06001770fcd2='5fb1ba43e1af06001770fcd2'
 g_base_definitions[g_str_5fb1ba43e1af06001770fcd2]={
@@ -76,7 +117,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fcd2]={
   max=2,
   description='Shashu no ashigaru armed with bow',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba43e1af06001770fcd1",
 }
 g_str_5fb1b9f4e1af06001770a371_camp='5fb1b9f4e1af06001770a371_camp'
 g_base_definitions[g_str_5fb1b9f4e1af06001770a371_camp]={
@@ -95,7 +135,6 @@ g_base_definitions[g_str_5fb1ba19e1af06001770bc6a]={
   max=3,
   description='Yamabushi monks mostly armed with naginata',
   troop_type="Raiders",
-  troop_option_id="5fb1ba19e1af06001770bc69",
 }
 g_str_5fb1ba19e1af06001770bc6d='5fb1ba19e1af06001770bc6d'
 g_base_definitions[g_str_5fb1ba19e1af06001770bc6d]={
@@ -105,7 +144,6 @@ g_base_definitions[g_str_5fb1ba19e1af06001770bc6d]={
   max=10,
   description='Religious fanatics',
   troop_type="Rabble",
-  troop_option_id="5fb1ba19e1af06001770bc6c",
 }
 g_str_5fb1ba19e1af06001770bc70='5fb1ba19e1af06001770bc70'
 g_base_definitions[g_str_5fb1ba19e1af06001770bc70]={
@@ -115,7 +153,6 @@ g_base_definitions[g_str_5fb1ba19e1af06001770bc70]={
   max=4,
   description='Improvised town militia',
   troop_type="Horde",
-  troop_option_id="5fb1ba19e1af06001770bc6f",
 }
 army['5fb1b9f4e1af06001770a371']={
   data={

@@ -6,6 +6,148 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba35e1af06001770e437']= {
+  min=0,
+  max=1,
+  description='Papal guard spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e438']= {
+  troop_option='5fb1ba35e1af06001770e437',
+  troopTypeCode='SPR',
+}
+g_troop_option['5fb1ba35e1af06001770e439']= {
+  min=1,
+  max=2,
+  description='Papal feudal and Lombard mercenary men-at-arms',
+}
+g_troop_entry['5fb1ba35e1af06001770e43a']= {
+  troop_option='5fb1ba35e1af06001770e439',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba35e1af06001770e43b']= {
+  min=0,
+  max=1,
+  description='Mercenary bowmen',
+}
+g_troop_entry['5fb1ba35e1af06001770e43c']= {
+  troop_option='5fb1ba35e1af06001770e43b',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba35e1af06001770e43d']= {
+  min=0,
+  max=1,
+  description='Mercenary spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e43e']= {
+  troop_option='5fb1ba35e1af06001770e43d',
+  troopTypeCode='SPR',
+}
+g_troop_option['5fb1ba35e1af06001770e43f']= {
+  min=0,
+  max=1,
+  description='Mercenary crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e440']= {
+  troop_option='5fb1ba35e1af06001770e43f',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba35e1af06001770e441']= {
+  min=1,
+  max=2,
+  description='Contadini and communal cavalieri and some German mercenary men-at-arms',
+}
+g_troop_entry['5fb1ba35e1af06001770e442']= {
+  troop_option='5fb1ba35e1af06001770e441',
+  troopTypeCode='KNT',
+}
+g_troop_entry['5fb1ba35e1af06001770e443']= {
+  troop_option='5fb1ba35e1af06001770e441',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba35e1af06001770e444']= {
+  min=0,
+  max=1,
+  description='Crossbowmen on horses',
+}
+g_troop_entry['5fb1ba35e1af06001770e445']= {
+  troop_option='5fb1ba35e1af06001770e444',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba35e1af06001770e446']= {
+  min=0,
+  max=1,
+  description='Popolo spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e447']= {
+  troop_option='5fb1ba35e1af06001770e446',
+  troopTypeCode='SPR',
+}
+g_troop_option['5fb1ba35e1af06001770e448']= {
+  min=2,
+  max=6,
+  description='Italian communal spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e449']= {
+  troop_option='5fb1ba35e1af06001770e448',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba35e1af06001770e44b']= {
+  min=0,
+  max=1,
+  description='Italian communal axemen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e44c']= {
+  troop_option='5fb1ba35e1af06001770e44b',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba35e1af06001770e44d']= {
+  min=0,
+  max=2,
+  description='Italian communal javelinmen',
+}
+g_troop_entry['5fb1ba35e1af06001770e44e']= {
+  troop_option='5fb1ba35e1af06001770e44d',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba35e1af06001770e44f']= {
+  min=1,
+  max=2,
+  description='Italian communal crossbowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e450']= {
+  troop_option='5fb1ba35e1af06001770e44f',
+  troopTypeCode='BLV',
+}
+g_troop_entry['5fb1ba35e1af06001770e451']= {
+  troop_option='5fb1ba35e1af06001770e44f',
+  troopTypeCode='PAV',
+}
+g_troop_option['5fb1ba35e1af06001770e453']= {
+  min=0,
+  max=1,
+  description='Italian communal skirmishing bowmen',
+}
+g_troop_entry['5fb1ba35e1af06001770e454']= {
+  troop_option='5fb1ba35e1af06001770e453',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba35e1af06001770e455']= {
+  min=0,
+  max=2,
+  description='Contadini infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba35e1af06001770e456']= {
+  troop_option='5fb1ba35e1af06001770e455',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba35e1af06001770e438_general='5fb1ba35e1af06001770e438_general'
 g_base_definitions[g_str_5fb1ba35e1af06001770e438_general]={
   id=g_str_5fb1ba35e1af06001770e438_general,
@@ -15,7 +157,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e438_general]={
   description='Papal guard spearmen',
   general=true,
   troop_type="Spears",
-  troop_option_id="5fb1ba35e1af06001770e437",
 }
 g_str_5fb1ba35e1af06001770e438='5fb1ba35e1af06001770e438'
 g_base_definitions[g_str_5fb1ba35e1af06001770e438]={
@@ -25,7 +166,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e438]={
   max=1,
   description='Papal guard spearmen',
   troop_type="Spears",
-  troop_option_id="5fb1ba35e1af06001770e437",
 }
 g_str_5fb1ba35e1af06001770e43a_general='5fb1ba35e1af06001770e43a_general'
 g_base_definitions[g_str_5fb1ba35e1af06001770e43a_general]={
@@ -36,7 +176,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e43a_general]={
   description='Papal feudal and Lombard mercenary men-at-arms',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba35e1af06001770e439",
 }
 g_str_5fb1ba35e1af06001770e43a='5fb1ba35e1af06001770e43a'
 g_base_definitions[g_str_5fb1ba35e1af06001770e43a]={
@@ -46,7 +185,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e43a]={
   max=2,
   description='Papal feudal and Lombard mercenary men-at-arms',
   troop_type="Knights",
-  troop_option_id="5fb1ba35e1af06001770e439",
 }
 g_str_5fb1ba35e1af06001770e43c='5fb1ba35e1af06001770e43c'
 g_base_definitions[g_str_5fb1ba35e1af06001770e43c]={
@@ -56,7 +194,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e43c]={
   max=1,
   description='Mercenary bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba35e1af06001770e43b",
 }
 g_str_5fb1ba35e1af06001770e43e_general='5fb1ba35e1af06001770e43e_general'
 g_base_definitions[g_str_5fb1ba35e1af06001770e43e_general]={
@@ -67,7 +204,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e43e_general]={
   description='Mercenary spearmen',
   general=true,
   troop_type="Spears",
-  troop_option_id="5fb1ba35e1af06001770e43d",
 }
 g_str_5fb1ba35e1af06001770e43e='5fb1ba35e1af06001770e43e'
 g_base_definitions[g_str_5fb1ba35e1af06001770e43e]={
@@ -77,7 +213,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e43e]={
   max=1,
   description='Mercenary spearmen',
   troop_type="Spears",
-  troop_option_id="5fb1ba35e1af06001770e43d",
 }
 g_str_5fb1ba35e1af06001770e440='5fb1ba35e1af06001770e440'
 g_base_definitions[g_str_5fb1ba35e1af06001770e440]={
@@ -87,7 +222,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e440]={
   max=1,
   description='Mercenary crossbowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba35e1af06001770e43f",
 }
 g_str_5fb1ba35e1af06001770e442_general='5fb1ba35e1af06001770e442_general'
 g_base_definitions[g_str_5fb1ba35e1af06001770e442_general]={
@@ -98,7 +232,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e442_general]={
   description='Contadini and communal cavalieri and some German mercenary men-at-arms',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba35e1af06001770e441",
 }
 g_str_5fb1ba35e1af06001770e442='5fb1ba35e1af06001770e442'
 g_base_definitions[g_str_5fb1ba35e1af06001770e442]={
@@ -108,7 +241,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e442]={
   max=2,
   description='Contadini and communal cavalieri and some German mercenary men-at-arms',
   troop_type="Knights",
-  troop_option_id="5fb1ba35e1af06001770e441",
 }
 g_str_5fb1ba35e1af06001770e443='5fb1ba35e1af06001770e443'
 g_base_definitions[g_str_5fb1ba35e1af06001770e443]={
@@ -118,7 +250,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e443]={
   max=2,
   description='Contadini and communal cavalieri and some German mercenary men-at-arms',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba35e1af06001770e441",
 }
 g_str_5fb1ba35e1af06001770e445='5fb1ba35e1af06001770e445'
 g_base_definitions[g_str_5fb1ba35e1af06001770e445]={
@@ -128,7 +259,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e445]={
   max=1,
   description='Crossbowmen on horses',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba35e1af06001770e444",
 }
 g_str_5fb1ba35e1af06001770e447_general='5fb1ba35e1af06001770e447_general'
 g_base_definitions[g_str_5fb1ba35e1af06001770e447_general]={
@@ -139,7 +269,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e447_general]={
   description='Popolo spearmen',
   general=true,
   troop_type="Spears",
-  troop_option_id="5fb1ba35e1af06001770e446",
 }
 g_str_5fb1ba35e1af06001770e447='5fb1ba35e1af06001770e447'
 g_base_definitions[g_str_5fb1ba35e1af06001770e447]={
@@ -149,7 +278,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e447]={
   max=1,
   description='Popolo spearmen',
   troop_type="Spears",
-  troop_option_id="5fb1ba35e1af06001770e446",
 }
 g_str_5fb1ba35e1af06001770e449='5fb1ba35e1af06001770e449'
 g_base_definitions[g_str_5fb1ba35e1af06001770e449]={
@@ -159,7 +287,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e449]={
   max=6,
   description='Italian communal spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba35e1af06001770e448",
 }
 g_str_5fb1ba35e1af06001770e449_plaustrella='5fb1ba35e1af06001770e449_plaustrella'
 g_base_definitions[g_str_5fb1ba35e1af06001770e449_plaustrella]={
@@ -170,7 +297,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e449_plaustrella]={
   description='Italian communal spearmen\nPlaustrella',
   plaustrella=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba35e1af06001770e448",
 }
 g_str_5fb1ba35e1af06001770e44c='5fb1ba35e1af06001770e44c'
 g_base_definitions[g_str_5fb1ba35e1af06001770e44c]={
@@ -180,7 +306,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e44c]={
   max=1,
   description='Italian communal axemen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba35e1af06001770e44b",
 }
 g_str_5fb1ba35e1af06001770e44e='5fb1ba35e1af06001770e44e'
 g_base_definitions[g_str_5fb1ba35e1af06001770e44e]={
@@ -190,7 +315,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e44e]={
   max=2,
   description='Italian communal javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba35e1af06001770e44d",
 }
 g_str_5fb1ba35e1af06001770e450='5fb1ba35e1af06001770e450'
 g_base_definitions[g_str_5fb1ba35e1af06001770e450]={
@@ -200,7 +324,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e450]={
   max=2,
   description='Italian communal crossbowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba35e1af06001770e44f",
 }
 g_str_5fb1ba35e1af06001770e451='5fb1ba35e1af06001770e451'
 g_base_definitions[g_str_5fb1ba35e1af06001770e451]={
@@ -210,7 +333,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e451]={
   max=2,
   description='Italian communal crossbowmen',
   troop_type="Pavisiers",
-  troop_option_id="5fb1ba35e1af06001770e44f",
 }
 g_str_5fb1ba35e1af06001770e454='5fb1ba35e1af06001770e454'
 g_base_definitions[g_str_5fb1ba35e1af06001770e454]={
@@ -220,7 +342,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e454]={
   max=1,
   description='Italian communal skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba35e1af06001770e453",
 }
 g_str_5fb1ba35e1af06001770e456='5fb1ba35e1af06001770e456'
 g_base_definitions[g_str_5fb1ba35e1af06001770e456]={
@@ -230,7 +351,6 @@ g_base_definitions[g_str_5fb1ba35e1af06001770e456]={
   max=2,
   description='Contadini infantry',
   troop_type="Horde",
-  troop_option_id="5fb1ba35e1af06001770e455",
 }
 g_str_5fb1b9e9e1af060017709d3d_camp='5fb1b9e9e1af060017709d3d_camp'
 g_base_definitions[g_str_5fb1b9e9e1af060017709d3d_camp]={

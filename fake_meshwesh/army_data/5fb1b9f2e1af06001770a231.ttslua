@@ -6,6 +6,118 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba40e1af06001770f7d8']= {
+  min=1,
+  max=3,
+  description='Heavy horsemen armed with spears and polearms, or armed with crossbows and bows',
+}
+g_troop_entry['5fb1ba40e1af06001770f7d9']= {
+  troop_option='5fb1ba40e1af06001770f7d8',
+  troopTypeCode='JCV',
+}
+g_troop_entry['5fb1ba40e1af06001770f7da']= {
+  troop_option='5fb1ba40e1af06001770f7d8',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba40e1af06001770f7db']= {
+  min=0,
+  max=1,
+  description='Light horsemen armed with lance or halberd',
+}
+g_troop_entry['5fb1ba40e1af06001770f7dc']= {
+  troop_option='5fb1ba40e1af06001770f7db',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba40e1af06001770f7dd']= {
+  min=1,
+  max=2,
+  description='Horse archers',
+}
+g_troop_entry['5fb1ba40e1af06001770f7de']= {
+  troop_option='5fb1ba40e1af06001770f7dd',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba40e1af06001770f7df']= {
+  min=0,
+  max=1,
+  description='Tribal horse archers',
+}
+g_troop_entry['5fb1ba40e1af06001770f7e0']= {
+  troop_option='5fb1ba40e1af06001770f7df',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba40e1af06001770f7e1']= {
+  min=2,
+  max=6,
+  description='Close-fighting foot armed with long spears',
+  core='all',
+}
+g_troop_entry['5fb1ba40e1af06001770f7e2']= {
+  troop_option='5fb1ba40e1af06001770f7e1',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba40e1af06001770f7e3']= {
+  min=0,
+  max=1,
+  description='Close-fighting foot armed with halberds',
+  core='all',
+}
+g_troop_entry['5fb1ba40e1af06001770f7e4']= {
+  troop_option='5fb1ba40e1af06001770f7e3',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba40e1af06001770f7e5']= {
+  min=0,
+  max=1,
+  description='Close-fighting foot armed with spear and shield',
+  core='all',
+}
+g_troop_entry['5fb1ba40e1af06001770f7e6']= {
+  troop_option='5fb1ba40e1af06001770f7e5',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba40e1af06001770f7e7']= {
+  min=1,
+  max=3,
+  description='Crossbowmen and bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba40e1af06001770f7e8']= {
+  troop_option='5fb1ba40e1af06001770f7e7',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba40e1af06001770f7e9']= {
+  min=1,
+  max=2,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba40e1af06001770f7ea']= {
+  troop_option='5fb1ba40e1af06001770f7e9',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba40e1af06001770f7eb']= {
+  min=0,
+  max=1,
+  description='Tribal spear-throwers',
+}
+g_troop_entry['5fb1ba40e1af06001770f7ec']= {
+  troop_option='5fb1ba40e1af06001770f7eb',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba40e1af06001770f7ed']= {
+  min=0,
+  max=1,
+  description='Dare-to-die troops either in double armor or unarmored',
+  core='all',
+}
+g_troop_entry['5fb1ba40e1af06001770f7ee']= {
+  troop_option='5fb1ba40e1af06001770f7ed',
+  troopTypeCode='EFT',
+}
+g_troop_entry['5fb1ba40e1af06001770f7ef']= {
+  troop_option='5fb1ba40e1af06001770f7ed',
+  troopTypeCode='RDR',
+}
 g_str_5fb1ba40e1af06001770f7d9_general='5fb1ba40e1af06001770f7d9_general'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7d9_general]={
   id=g_str_5fb1ba40e1af06001770f7d9_general,
@@ -15,7 +127,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7d9_general]={
   description='Heavy horsemen armed with spears and polearms, or armed with crossbows and bows',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba40e1af06001770f7d8",
 }
 g_str_5fb1ba40e1af06001770f7d9='5fb1ba40e1af06001770f7d9'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7d9]={
@@ -25,7 +136,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7d9]={
   max=3,
   description='Heavy horsemen armed with spears and polearms, or armed with crossbows and bows',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba40e1af06001770f7d8",
 }
 g_str_5fb1ba40e1af06001770f7da_general='5fb1ba40e1af06001770f7da_general'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7da_general]={
@@ -36,7 +146,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7da_general]={
   description='Heavy horsemen armed with spears and polearms, or armed with crossbows and bows',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba40e1af06001770f7d8",
 }
 g_str_5fb1ba40e1af06001770f7da='5fb1ba40e1af06001770f7da'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7da]={
@@ -46,7 +155,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7da]={
   max=3,
   description='Heavy horsemen armed with spears and polearms, or armed with crossbows and bows',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba40e1af06001770f7d8",
 }
 g_str_5fb1ba40e1af06001770f7dc_general='5fb1ba40e1af06001770f7dc_general'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7dc_general]={
@@ -57,7 +165,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7dc_general]={
   description='Light horsemen armed with lance or halberd',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba40e1af06001770f7db",
 }
 g_str_5fb1ba40e1af06001770f7dc='5fb1ba40e1af06001770f7dc'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7dc]={
@@ -67,7 +174,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7dc]={
   max=1,
   description='Light horsemen armed with lance or halberd',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba40e1af06001770f7db",
 }
 g_str_5fb1ba40e1af06001770f7de_general='5fb1ba40e1af06001770f7de_general'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7de_general]={
@@ -78,7 +184,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7de_general]={
   description='Horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba40e1af06001770f7dd",
 }
 g_str_5fb1ba40e1af06001770f7de='5fb1ba40e1af06001770f7de'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7de]={
@@ -88,7 +193,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7de]={
   max=2,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba40e1af06001770f7dd",
 }
 g_str_5fb1ba40e1af06001770f7e0_general='5fb1ba40e1af06001770f7e0_general'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7e0_general]={
@@ -99,7 +203,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7e0_general]={
   description='Tribal horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba40e1af06001770f7df",
 }
 g_str_5fb1ba40e1af06001770f7e0='5fb1ba40e1af06001770f7e0'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7e0]={
@@ -109,7 +212,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7e0]={
   max=1,
   description='Tribal horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba40e1af06001770f7df",
 }
 g_str_5fb1ba40e1af06001770f7e2='5fb1ba40e1af06001770f7e2'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7e2]={
@@ -119,7 +221,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7e2]={
   max=6,
   description='Close-fighting foot armed with long spears',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba40e1af06001770f7e1",
 }
 g_str_5fb1ba40e1af06001770f7e4='5fb1ba40e1af06001770f7e4'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7e4]={
@@ -129,7 +230,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7e4]={
   max=1,
   description='Close-fighting foot armed with halberds',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba40e1af06001770f7e3",
 }
 g_str_5fb1ba40e1af06001770f7e6='5fb1ba40e1af06001770f7e6'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7e6]={
@@ -139,7 +239,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7e6]={
   max=1,
   description='Close-fighting foot armed with spear and shield',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba40e1af06001770f7e5",
 }
 g_str_5fb1ba40e1af06001770f7e8='5fb1ba40e1af06001770f7e8'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7e8]={
@@ -149,7 +248,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7e8]={
   max=3,
   description='Crossbowmen and bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba40e1af06001770f7e7",
 }
 g_str_5fb1ba40e1af06001770f7ea='5fb1ba40e1af06001770f7ea'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7ea]={
@@ -159,7 +257,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7ea]={
   max=2,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba40e1af06001770f7e9",
 }
 g_str_5fb1ba40e1af06001770f7ec='5fb1ba40e1af06001770f7ec'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7ec]={
@@ -169,7 +266,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7ec]={
   max=1,
   description='Tribal spear-throwers',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba40e1af06001770f7eb",
 }
 g_str_5fb1ba40e1af06001770f7ee='5fb1ba40e1af06001770f7ee'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7ee]={
@@ -179,7 +275,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7ee]={
   max=1,
   description='Dare-to-die troops either in double armor or unarmored',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba40e1af06001770f7ed",
 }
 g_str_5fb1ba40e1af06001770f7ef='5fb1ba40e1af06001770f7ef'
 g_base_definitions[g_str_5fb1ba40e1af06001770f7ef]={
@@ -189,7 +284,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f7ef]={
   max=1,
   description='Dare-to-die troops either in double armor or unarmored',
   troop_type="Raiders",
-  troop_option_id="5fb1ba40e1af06001770f7ed",
 }
 g_str_5fb1b9f2e1af06001770a231_camp='5fb1b9f2e1af06001770a231_camp'
 g_base_definitions[g_str_5fb1b9f2e1af06001770a231_camp]={

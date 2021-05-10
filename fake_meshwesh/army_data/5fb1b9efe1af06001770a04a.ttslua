@@ -6,6 +6,54 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3ce1af06001770f139']= {
+  min=2,
+  max=5,
+  description='Persian horsemen armed with lance and bow and possibly horse armor',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f13a']= {
+  troop_option='5fb1ba3ce1af06001770f139',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3ce1af06001770f13c']= {
+  min=4,
+  max=6,
+  description='Persian horse archers',
+}
+g_troop_entry['5fb1ba3ce1af06001770f13d']= {
+  troop_option='5fb1ba3ce1af06001770f13c',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f13e']= {
+  min=0,
+  max=1,
+  description='Turkoman horse archers',
+}
+g_troop_entry['5fb1ba3ce1af06001770f13f']= {
+  troop_option='5fb1ba3ce1af06001770f13e',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f140']= {
+  min=1,
+  max=3,
+  description='Persian bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f141']= {
+  troop_option='5fb1ba3ce1af06001770f140',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3ce1af06001770f142']= {
+  min=0,
+  max=1,
+  description='Camp followers or levy foot',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f143']= {
+  troop_option='5fb1ba3ce1af06001770f142',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba3ce1af06001770f13a_general='5fb1ba3ce1af06001770f13a_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f13a_general]={
   id=g_str_5fb1ba3ce1af06001770f13a_general,
@@ -15,7 +63,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f13a_general]={
   description='Persian horsemen armed with lance and bow and possibly horse armor',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f139",
 }
 g_str_5fb1ba3ce1af06001770f13a='5fb1ba3ce1af06001770f13a'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f13a]={
@@ -25,7 +72,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f13a]={
   max=5,
   description='Persian horsemen armed with lance and bow and possibly horse armor',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f139",
 }
 g_str_5fb1ba3ce1af06001770f13d='5fb1ba3ce1af06001770f13d'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f13d]={
@@ -35,7 +81,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f13d]={
   max=6,
   description='Persian horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f13c",
 }
 g_str_5fb1ba3ce1af06001770f13f='5fb1ba3ce1af06001770f13f'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f13f]={
@@ -45,7 +90,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f13f]={
   max=1,
   description='Turkoman horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f13e",
 }
 g_str_5fb1ba3ce1af06001770f141='5fb1ba3ce1af06001770f141'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f141]={
@@ -55,7 +99,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f141]={
   max=3,
   description='Persian bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3ce1af06001770f140",
 }
 g_str_5fb1ba3ce1af06001770f143='5fb1ba3ce1af06001770f143'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f143]={
@@ -65,7 +108,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f143]={
   max=1,
   description='Camp followers or levy foot',
   troop_type="Horde",
-  troop_option_id="5fb1ba3ce1af06001770f142",
 }
 g_str_5fb1b9efe1af06001770a04a_camp='5fb1b9efe1af06001770a04a_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a04a_camp]={

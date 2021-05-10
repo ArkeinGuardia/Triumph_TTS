@@ -6,6 +6,66 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba28e1af06001770cc4e']= {
+  min=1,
+  max=2,
+  description='Horsemen',
+}
+g_troop_entry['5fb1ba28e1af06001770cc4f']= {
+  troop_option='5fb1ba28e1af06001770cc4e',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba28e1af06001770cc50']= {
+  min=0,
+  max=4,
+  description='Mercenary thureophoroi',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770cc51']= {
+  troop_option='5fb1ba28e1af06001770cc50',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba28e1af06001770cc52']= {
+  min=4,
+  max=10,
+  description='Peltasts',
+}
+g_troop_entry['5fb1ba28e1af06001770cc53']= {
+  troop_option='5fb1ba28e1af06001770cc52',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba28e1af06001770cc54']= {
+  min=0,
+  max=4,
+  description='Hoplites',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770cc55']= {
+  troop_option='5fb1ba28e1af06001770cc54',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba28e1af06001770cc57']= {
+  min=1,
+  max=2,
+  description='Skirmishing bowmen and slingers',
+}
+g_troop_entry['5fb1ba28e1af06001770cc58']= {
+  troop_option='5fb1ba28e1af06001770cc57',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba28e1af06001770cc59']= {
+  min=0,
+  max=3,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba28e1af06001770cc5a']= {
+  troop_option='5fb1ba28e1af06001770cc59',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba28e1af06001770cc5b']= {
+  troop_option='5fb1ba28e1af06001770cc59',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba28e1af06001770cc4f_general='5fb1ba28e1af06001770cc4f_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc4f_general]={
   id=g_str_5fb1ba28e1af06001770cc4f_general,
@@ -15,7 +75,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc4f_general]={
   description='Horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770cc4e",
 }
 g_str_5fb1ba28e1af06001770cc4f='5fb1ba28e1af06001770cc4f'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc4f]={
@@ -25,7 +84,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc4f]={
   max=2,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770cc4e",
 }
 g_str_5fb1ba28e1af06001770cc51='5fb1ba28e1af06001770cc51'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc51]={
@@ -35,7 +93,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc51]={
   max=4,
   description='Mercenary thureophoroi',
   troop_type="Raiders",
-  troop_option_id="5fb1ba28e1af06001770cc50",
 }
 g_str_5fb1ba28e1af06001770cc53='5fb1ba28e1af06001770cc53'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc53]={
@@ -45,7 +102,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc53]={
   max=10,
   description='Peltasts',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770cc52",
 }
 g_str_5fb1ba28e1af06001770cc55='5fb1ba28e1af06001770cc55'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc55]={
@@ -55,7 +111,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc55]={
   max=4,
   description='Hoplites',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba28e1af06001770cc54",
 }
 g_str_5fb1ba28e1af06001770cc58='5fb1ba28e1af06001770cc58'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc58]={
@@ -65,7 +120,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc58]={
   max=2,
   description='Skirmishing bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba28e1af06001770cc57",
 }
 g_str_5fb1ba28e1af06001770cc5a='5fb1ba28e1af06001770cc5a'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc5a]={
@@ -75,7 +129,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc5a]={
   max=3,
   description='Javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770cc59",
 }
 g_str_5fb1ba28e1af06001770cc5b='5fb1ba28e1af06001770cc5b'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc5b]={
@@ -85,7 +138,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc5b]={
   max=3,
   description='Javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba28e1af06001770cc59",
 }
 g_str_5fb1b9dee1af06001770968b_camp='5fb1b9dee1af06001770968b_camp'
 g_base_definitions[g_str_5fb1b9dee1af06001770968b_camp]={

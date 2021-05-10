@@ -6,6 +6,47 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2ee1af06001770d78a']= {
+  min=1,
+  max=2,
+  description='Frankish and Alamannic noble horsemen',
+}
+g_troop_entry['5fb1ba2ee1af06001770d78b']= {
+  troop_option='5fb1ba2ee1af06001770d78a',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba2ee1af06001770d78d']= {
+  min=8,
+  max=14,
+  description='Tribal fierce infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba2ee1af06001770d78e']= {
+  troop_option='5fb1ba2ee1af06001770d78d',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba2ee1af06001770d78f']= {
+  min=0,
+  max=1,
+  description='Tribal bowmen',
+}
+g_troop_entry['5fb1ba2ee1af06001770d790']= {
+  troop_option='5fb1ba2ee1af06001770d78f',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba2ee1af06001770d791']= {
+  min=0,
+  max=2,
+  description='Basque javelinmen or skirmishing slingers',
+}
+g_troop_entry['5fb1ba2ee1af06001770d792']= {
+  troop_option='5fb1ba2ee1af06001770d791',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba2ee1af06001770d793']= {
+  troop_option='5fb1ba2ee1af06001770d791',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba2ee1af06001770d78b_general='5fb1ba2ee1af06001770d78b_general'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_general]={
   id=g_str_5fb1ba2ee1af06001770d78b_general,
@@ -15,7 +56,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_general]={
   description='Frankish and Alamannic noble horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d78a",
 }
 g_str_5fb1ba2ee1af06001770d78b_general_dismounted='5fb1ba2ee1af06001770d78b_general_dismounted'
 g_str_5fb1ba2ee1af06001770d78b_general_mounted='5fb1ba2ee1af06001770d78b_general_mounted'
@@ -29,7 +69,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_general_dismounted]={
   dismounted_from=g_str_5fb1ba2ee1af06001770d78b_general_mounted,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d78a",
 }
 g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_general_mounted]={
   id=g_str_5fb1ba2ee1af06001770d78b_general_mounted,
@@ -40,8 +79,8 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_general_mounted]={
   points=4,
   dismount_as=g_str_5fb1ba2ee1af06001770d78b_general_dismounted,
   general=true,
+  deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d78a",
 }
 g_str_5fb1ba2ee1af06001770d78b='5fb1ba2ee1af06001770d78b'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d78b]={
@@ -51,7 +90,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d78b]={
   max=2,
   description='Frankish and Alamannic noble horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d78a",
 }
 g_str_5fb1ba2ee1af06001770d78b_dismounted='5fb1ba2ee1af06001770d78b_dismounted'
 g_str_5fb1ba2ee1af06001770d78b_mounted='5fb1ba2ee1af06001770d78b_mounted'
@@ -64,7 +102,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba2ee1af06001770d78b_mounted,
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d78a",
 }
 g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_mounted]={
   id=g_str_5fb1ba2ee1af06001770d78b_mounted,
@@ -74,8 +111,8 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d78b_mounted]={
   description='Frankish and Alamannic noble horsemen\nDeployment dismounting as Warrior',
   points=4,
   dismount_as=g_str_5fb1ba2ee1af06001770d78b_dismounted,
+  deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d78a",
 }
 g_str_5fb1ba2ee1af06001770d78e='5fb1ba2ee1af06001770d78e'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d78e]={
@@ -85,7 +122,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d78e]={
   max=14,
   description='Tribal fierce infantry',
   troop_type="Warriors",
-  troop_option_id="5fb1ba2ee1af06001770d78d",
 }
 g_str_5fb1ba2ee1af06001770d790='5fb1ba2ee1af06001770d790'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d790]={
@@ -95,7 +131,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d790]={
   max=1,
   description='Tribal bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2ee1af06001770d78f",
 }
 g_str_5fb1ba2ee1af06001770d792='5fb1ba2ee1af06001770d792'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d792]={
@@ -105,7 +140,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d792]={
   max=2,
   description='Basque javelinmen or skirmishing slingers',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2ee1af06001770d791",
 }
 g_str_5fb1ba2ee1af06001770d793='5fb1ba2ee1af06001770d793'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d793]={
@@ -115,7 +149,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d793]={
   max=2,
   description='Basque javelinmen or skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2ee1af06001770d791",
 }
 g_str_5fb1b9e3e1af0600177099aa_camp='5fb1b9e3e1af0600177099aa_camp'
 g_base_definitions[g_str_5fb1b9e3e1af0600177099aa_camp]={

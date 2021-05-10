@@ -6,6 +6,105 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba42e1af06001770fbe9']= {
+  min=1,
+  max=3,
+  description='Noble heavy horsemen',
+}
+g_troop_entry['5fb1ba42e1af06001770fbea']= {
+  troop_option='5fb1ba42e1af06001770fbe9',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba42e1af06001770fbeb']= {
+  min=0,
+  max=3,
+  description='Horse archers and Malgal horse',
+}
+g_troop_entry['5fb1ba42e1af06001770fbec']= {
+  troop_option='5fb1ba42e1af06001770fbeb',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba42e1af06001770fbed']= {
+  min=1,
+  max=3,
+  description='Armored halberdiers',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbee']= {
+  troop_option='5fb1ba42e1af06001770fbed',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba42e1af06001770fbef']= {
+  min=1,
+  max=1,
+  description='Armored bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbf0']= {
+  troop_option='5fb1ba42e1af06001770fbef',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba42e1af06001770fbf1']= {
+  min=0,
+  max=1,
+  description='Armored swordsmen',
+}
+g_troop_entry['5fb1ba42e1af06001770fbf2']= {
+  troop_option='5fb1ba42e1af06001770fbf1',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba42e1af06001770fbf3']= {
+  min=1,
+  max=2,
+  description='Infantry armed with long spears',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbf4']= {
+  troop_option='5fb1ba42e1af06001770fbf3',
+  troopTypeCode='PIK',
+}
+g_troop_option['5fb1ba42e1af06001770fbf5']= {
+  min=2,
+  max=6,
+  description='Militia spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbf6']= {
+  troop_option='5fb1ba42e1af06001770fbf5',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba42e1af06001770fbf7']= {
+  min=1,
+  max=2,
+  description='Militia bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbf8']= {
+  troop_option='5fb1ba42e1af06001770fbf7',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba42e1af06001770fbf9']= {
+  min=0,
+  max=2,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba42e1af06001770fbfa']= {
+  troop_option='5fb1ba42e1af06001770fbf9',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba42e1af06001770fbfb']= {
+  min=0,
+  max=1,
+  description='Malgal bowmen',
+}
+g_troop_entry['5fb1ba42e1af06001770fbfc']= {
+  troop_option='5fb1ba42e1af06001770fbfb',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba42e1af06001770fbfd']= {
+  troop_option='5fb1ba42e1af06001770fbfb',
+  troopTypeCode='ARC',
+}
 g_str_5fb1ba42e1af06001770fbea_general='5fb1ba42e1af06001770fbea_general'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbea_general]={
   id=g_str_5fb1ba42e1af06001770fbea_general,
@@ -15,7 +114,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbea_general]={
   description='Noble heavy horsemen',
   general=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba42e1af06001770fbe9",
 }
 g_str_5fb1ba42e1af06001770fbea='5fb1ba42e1af06001770fbea'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbea]={
@@ -25,7 +123,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbea]={
   max=3,
   description='Noble heavy horsemen',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba42e1af06001770fbe9",
 }
 g_str_5fb1ba42e1af06001770fbec='5fb1ba42e1af06001770fbec'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbec]={
@@ -35,7 +132,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbec]={
   max=3,
   description='Horse archers and Malgal horse',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fbeb",
 }
 g_str_5fb1ba42e1af06001770fbee='5fb1ba42e1af06001770fbee'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbee]={
@@ -45,7 +141,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbee]={
   max=3,
   description='Armored halberdiers',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba42e1af06001770fbed",
 }
 g_str_5fb1ba42e1af06001770fbf0='5fb1ba42e1af06001770fbf0'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbf0]={
@@ -55,7 +150,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbf0]={
   max=1,
   description='Armored bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba42e1af06001770fbef",
 }
 g_str_5fb1ba42e1af06001770fbf2='5fb1ba42e1af06001770fbf2'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbf2]={
@@ -65,7 +159,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbf2]={
   max=1,
   description='Armored swordsmen',
   troop_type="Raiders",
-  troop_option_id="5fb1ba42e1af06001770fbf1",
 }
 g_str_5fb1ba42e1af06001770fbf4='5fb1ba42e1af06001770fbf4'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbf4]={
@@ -75,7 +168,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbf4]={
   max=2,
   description='Infantry armed with long spears',
   troop_type="Pikes",
-  troop_option_id="5fb1ba42e1af06001770fbf3",
 }
 g_str_5fb1ba42e1af06001770fbf6='5fb1ba42e1af06001770fbf6'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbf6]={
@@ -85,7 +177,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbf6]={
   max=6,
   description='Militia spearmen',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba42e1af06001770fbf5",
 }
 g_str_5fb1ba42e1af06001770fbf8='5fb1ba42e1af06001770fbf8'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbf8]={
@@ -95,7 +186,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbf8]={
   max=2,
   description='Militia bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba42e1af06001770fbf7",
 }
 g_str_5fb1ba42e1af06001770fbfa='5fb1ba42e1af06001770fbfa'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbfa]={
@@ -105,7 +195,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbfa]={
   max=2,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba42e1af06001770fbf9",
 }
 g_str_5fb1ba42e1af06001770fbfc='5fb1ba42e1af06001770fbfc'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbfc]={
@@ -115,7 +204,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbfc]={
   max=1,
   description='Malgal bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba42e1af06001770fbfb",
 }
 g_str_5fb1ba42e1af06001770fbfd='5fb1ba42e1af06001770fbfd'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbfd]={
@@ -125,7 +213,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbfd]={
   max=1,
   description='Malgal bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba42e1af06001770fbfb",
 }
 g_str_5fb1b9f4e1af06001770a32e_camp='5fb1b9f4e1af06001770a32e_camp'
 g_base_definitions[g_str_5fb1b9f4e1af06001770a32e_camp]={

@@ -6,6 +6,44 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2de1af06001770d5c8']= {
+  min=0,
+  max=6,
+  description='Nobles and horsemen armed with lance, bow, shield, and some horse armor',
+  core='all',
+}
+g_troop_entry['5fb1ba2de1af06001770d5c9']= {
+  troop_option='5fb1ba2de1af06001770d5c8',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba2de1af06001770d5ca']= {
+  min=6,
+  max=12,
+  description='Horse archers',
+}
+g_troop_entry['5fb1ba2de1af06001770d5cb']= {
+  troop_option='5fb1ba2de1af06001770d5ca',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba2de1af06001770d5cc']= {
+  min=0,
+  max=4,
+  description='Peasant axemen',
+  core='all',
+}
+g_troop_entry['5fb1ba2de1af06001770d5cd']= {
+  troop_option='5fb1ba2de1af06001770d5cc',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba2de1af06001770d5ce']= {
+  min=0,
+  max=2,
+  description='Skirmishing peasant bowmen',
+}
+g_troop_entry['5fb1ba2de1af06001770d5cf']= {
+  troop_option='5fb1ba2de1af06001770d5ce',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba2de1af06001770d5c9_general='5fb1ba2de1af06001770d5c9_general'
 g_base_definitions[g_str_5fb1ba2de1af06001770d5c9_general]={
   id=g_str_5fb1ba2de1af06001770d5c9_general,
@@ -15,7 +53,6 @@ g_base_definitions[g_str_5fb1ba2de1af06001770d5c9_general]={
   description='Nobles and horsemen armed with lance, bow, shield, and some horse armor',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2de1af06001770d5c8",
 }
 g_str_5fb1ba2de1af06001770d5c9='5fb1ba2de1af06001770d5c9'
 g_base_definitions[g_str_5fb1ba2de1af06001770d5c9]={
@@ -25,7 +62,6 @@ g_base_definitions[g_str_5fb1ba2de1af06001770d5c9]={
   max=6,
   description='Nobles and horsemen armed with lance, bow, shield, and some horse armor',
   troop_type="Knights",
-  troop_option_id="5fb1ba2de1af06001770d5c8",
 }
 g_str_5fb1ba2de1af06001770d5cb_general='5fb1ba2de1af06001770d5cb_general'
 g_base_definitions[g_str_5fb1ba2de1af06001770d5cb_general]={
@@ -36,7 +72,6 @@ g_base_definitions[g_str_5fb1ba2de1af06001770d5cb_general]={
   description='Horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2de1af06001770d5ca",
 }
 g_str_5fb1ba2de1af06001770d5cb='5fb1ba2de1af06001770d5cb'
 g_base_definitions[g_str_5fb1ba2de1af06001770d5cb]={
@@ -46,7 +81,6 @@ g_base_definitions[g_str_5fb1ba2de1af06001770d5cb]={
   max=12,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2de1af06001770d5ca",
 }
 g_str_5fb1ba2de1af06001770d5cd='5fb1ba2de1af06001770d5cd'
 g_base_definitions[g_str_5fb1ba2de1af06001770d5cd]={
@@ -56,7 +90,6 @@ g_base_definitions[g_str_5fb1ba2de1af06001770d5cd]={
   max=4,
   description='Peasant axemen',
   troop_type="Warband",
-  troop_option_id="5fb1ba2de1af06001770d5cc",
 }
 g_str_5fb1ba2de1af06001770d5cf='5fb1ba2de1af06001770d5cf'
 g_base_definitions[g_str_5fb1ba2de1af06001770d5cf]={
@@ -66,7 +99,6 @@ g_base_definitions[g_str_5fb1ba2de1af06001770d5cf]={
   max=2,
   description='Skirmishing peasant bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2de1af06001770d5ce",
 }
 g_str_5fb1b9e2e1af060017709932_camp='5fb1b9e2e1af060017709932_camp'
 g_base_definitions[g_str_5fb1b9e2e1af060017709932_camp]={

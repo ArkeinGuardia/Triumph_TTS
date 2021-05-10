@@ -6,6 +6,69 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba31e1af06001770db0c']= {
+  min=0,
+  max=1,
+  description='Hird attempting to fight on horses',
+  note='Northumbrian',
+  startDate=617,
+  endDate=685,
+}
+g_troop_entry['5fb1ba31e1af06001770db0e']= {
+  troop_option='5fb1ba31e1af06001770db0c',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba31e1af06001770db0f']= {
+  min=1,
+  max=3,
+  description='Hird',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770db10']= {
+  troop_option='5fb1ba31e1af06001770db0f',
+  troopTypeCode='WRR',
+}
+g_troop_entry['5fb1ba31e1af06001770db11']= {
+  troop_option='5fb1ba31e1af06001770db0f',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba31e1af06001770db12']= {
+  min=7,
+  max=15,
+  description='Select fyrd',
+  core='all',
+}
+g_troop_entry['5fb1ba31e1af06001770db13']= {
+  troop_option='5fb1ba31e1af06001770db12',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba31e1af06001770db14']= {
+  min=0,
+  max=1,
+  description='Bowmen',
+}
+g_troop_entry['5fb1ba31e1af06001770db15']= {
+  troop_option='5fb1ba31e1af06001770db14',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba31e1af06001770db16']= {
+  min=0,
+  max=1,
+  description='Scouts and javelinmen',
+}
+g_troop_entry['5fb1ba31e1af06001770db17']= {
+  troop_option='5fb1ba31e1af06001770db16',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba31e1af06001770db18']= {
+  min=0,
+  max=4,
+  description='Great fyrd',
+}
+g_troop_entry['5fb1ba31e1af06001770db19']= {
+  troop_option='5fb1ba31e1af06001770db18',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba31e1af06001770db0e_general='5fb1ba31e1af06001770db0e_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db0e_general]={
   id=g_str_5fb1ba31e1af06001770db0e_general,
@@ -15,7 +78,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db0e_general]={
   description='Hird attempting to fight on horses',
   general=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba31e1af06001770db0c",
 }
 g_str_5fb1ba31e1af06001770db0e='5fb1ba31e1af06001770db0e'
 g_base_definitions[g_str_5fb1ba31e1af06001770db0e]={
@@ -25,7 +87,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db0e]={
   max=1,
   description='Hird attempting to fight on horses',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba31e1af06001770db0c",
 }
 g_str_5fb1ba31e1af06001770db10_general='5fb1ba31e1af06001770db10_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db10_general]={
@@ -36,7 +97,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db10_general]={
   description='Hird',
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba31e1af06001770db0f",
 }
 g_str_5fb1ba31e1af06001770db10='5fb1ba31e1af06001770db10'
 g_base_definitions[g_str_5fb1ba31e1af06001770db10]={
@@ -46,7 +106,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db10]={
   max=3,
   description='Hird',
   troop_type="Warriors",
-  troop_option_id="5fb1ba31e1af06001770db0f",
 }
 g_str_5fb1ba31e1af06001770db11_general='5fb1ba31e1af06001770db11_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db11_general]={
@@ -57,7 +116,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db11_general]={
   description='Hird',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db0f",
 }
 g_str_5fb1ba31e1af06001770db11='5fb1ba31e1af06001770db11'
 g_base_definitions[g_str_5fb1ba31e1af06001770db11]={
@@ -67,7 +125,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db11]={
   max=3,
   description='Hird',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db0f",
 }
 g_str_5fb1ba31e1af06001770db13_general='5fb1ba31e1af06001770db13_general'
 g_base_definitions[g_str_5fb1ba31e1af06001770db13_general]={
@@ -78,7 +135,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db13_general]={
   description='Select fyrd',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db12",
 }
 g_str_5fb1ba31e1af06001770db13='5fb1ba31e1af06001770db13'
 g_base_definitions[g_str_5fb1ba31e1af06001770db13]={
@@ -88,7 +144,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db13]={
   max=15,
   description='Select fyrd',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba31e1af06001770db12",
 }
 g_str_5fb1ba31e1af06001770db15='5fb1ba31e1af06001770db15'
 g_base_definitions[g_str_5fb1ba31e1af06001770db15]={
@@ -98,7 +153,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db15]={
   max=1,
   description='Bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba31e1af06001770db14",
 }
 g_str_5fb1ba31e1af06001770db17='5fb1ba31e1af06001770db17'
 g_base_definitions[g_str_5fb1ba31e1af06001770db17]={
@@ -108,7 +162,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db17]={
   max=1,
   description='Scouts and javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba31e1af06001770db16",
 }
 g_str_5fb1ba31e1af06001770db19='5fb1ba31e1af06001770db19'
 g_base_definitions[g_str_5fb1ba31e1af06001770db19]={
@@ -118,7 +171,6 @@ g_base_definitions[g_str_5fb1ba31e1af06001770db19]={
   max=4,
   description='Great fyrd',
   troop_type="Horde",
-  troop_option_id="5fb1ba31e1af06001770db18",
 }
 g_str_5fb1b9e5e1af060017709ac9_camp='5fb1b9e5e1af060017709ac9_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709ac9_camp]={
@@ -177,6 +229,8 @@ army['5fb1b9e5e1af060017709ac9_686_700']={
     id='5fb1b9e5e1af060017709ac9_686_700',
     army_id='5fb1b9e5e1af060017709ac9'
   },
+  g_base_definitions[g_str_5fb1ba31e1af06001770db0e_general],
+  g_base_definitions[g_str_5fb1ba31e1af06001770db0e],
   g_base_definitions[g_str_5fb1ba31e1af06001770db10_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db10],
   g_base_definitions[g_str_5fb1ba31e1af06001770db11_general],

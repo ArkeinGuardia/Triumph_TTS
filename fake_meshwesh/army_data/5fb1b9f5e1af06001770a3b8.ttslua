@@ -6,6 +6,68 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba43e1af06001770fd3c']= {
+  min=0,
+  max=1,
+  description='Ah Camul guard',
+  core='all',
+  startDate=988,
+  endDate=1282,
+}
+g_troop_entry['5fb1ba43e1af06001770fd3e']= {
+  troop_option='5fb1ba43e1af06001770fd3c',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba43e1af06001770fd3f']= {
+  min=1,
+  max=1,
+  description='Toltec-Chichimec mercenary bowmen',
+  core='all',
+  startDate=1283,
+  endDate=1461,
+}
+g_troop_entry['5fb1ba43e1af06001770fd41']= {
+  troop_option='5fb1ba43e1af06001770fd3f',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba43e1af06001770fd42']= {
+  min=1,
+  max=3,
+  description='nobles',
+  note='only Toltec until 1224, or only Itza 1224 and later',
+  core='all',
+}
+g_troop_entry['5fb1ba43e1af06001770fd43']= {
+  troop_option='5fb1ba43e1af06001770fd42',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba43e1af06001770fd44']= {
+  min=8,
+  max=15,
+  description='Formed infantry',
+}
+g_troop_entry['5fb1ba43e1af06001770fd45']= {
+  troop_option='5fb1ba43e1af06001770fd44',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba43e1af06001770fd46']= {
+  min=0,
+  max=3,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba43e1af06001770fd47']= {
+  troop_option='5fb1ba43e1af06001770fd46',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba43e1af06001770fd48']= {
+  min=0,
+  max=1,
+  description='Road weasel scouts',
+}
+g_troop_entry['5fb1ba43e1af06001770fd49']= {
+  troop_option='5fb1ba43e1af06001770fd48',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba43e1af06001770fd3e_general='5fb1ba43e1af06001770fd3e_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd3e_general]={
   id=g_str_5fb1ba43e1af06001770fd3e_general,
@@ -15,7 +77,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd3e_general]={
   description='Ah Camul guard',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba43e1af06001770fd3c",
 }
 g_str_5fb1ba43e1af06001770fd3e='5fb1ba43e1af06001770fd3e'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd3e]={
@@ -25,7 +86,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd3e]={
   max=1,
   description='Ah Camul guard',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba43e1af06001770fd3c",
 }
 g_str_5fb1ba43e1af06001770fd41='5fb1ba43e1af06001770fd41'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd41]={
@@ -35,7 +95,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd41]={
   max=1,
   description='Toltec-Chichimec mercenary bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba43e1af06001770fd3f",
 }
 g_str_5fb1ba43e1af06001770fd43_general='5fb1ba43e1af06001770fd43_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd43_general]={
@@ -46,7 +105,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd43_general]={
   description='nobles',
   general=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba43e1af06001770fd42",
 }
 g_str_5fb1ba43e1af06001770fd43='5fb1ba43e1af06001770fd43'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd43]={
@@ -56,7 +114,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd43]={
   max=3,
   description='nobles',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba43e1af06001770fd42",
 }
 g_str_5fb1ba43e1af06001770fd45_general='5fb1ba43e1af06001770fd45_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd45_general]={
@@ -67,7 +124,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd45_general]={
   description='Formed infantry',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd44",
 }
 g_str_5fb1ba43e1af06001770fd45='5fb1ba43e1af06001770fd45'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd45]={
@@ -77,7 +133,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd45]={
   max=15,
   description='Formed infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd44",
 }
 g_str_5fb1ba43e1af06001770fd47='5fb1ba43e1af06001770fd47'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd47]={
@@ -87,7 +142,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd47]={
   max=3,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba43e1af06001770fd46",
 }
 g_str_5fb1ba43e1af06001770fd49='5fb1ba43e1af06001770fd49'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd49]={
@@ -97,7 +151,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd49]={
   max=1,
   description='Road weasel scouts',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba43e1af06001770fd48",
 }
 g_str_5fb1b9f5e1af06001770a3b8_camp='5fb1b9f5e1af06001770a3b8_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a3b8_camp]={
@@ -137,6 +190,7 @@ army['5fb1b9f5e1af06001770a3b8_988_1282']={
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fd3e_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd3e],
+  g_base_definitions[g_str_5fb1ba43e1af06001770fd41],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd43_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd43],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd45_general],
@@ -151,6 +205,8 @@ army['5fb1b9f5e1af06001770a3b8_1283_1461']={
     id='5fb1b9f5e1af06001770a3b8_1283_1461',
     army_id='5fb1b9f5e1af06001770a3b8'
   },
+  g_base_definitions[g_str_5fb1ba43e1af06001770fd3e_general],
+  g_base_definitions[g_str_5fb1ba43e1af06001770fd3e],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd41],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd43_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd43],

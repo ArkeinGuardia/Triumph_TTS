@@ -6,6 +6,44 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba40e1af06001770f8a6']= {
+  min=0,
+  max=1,
+  description='Horsemen riding armored horses',
+  core='all',
+}
+g_troop_entry['5fb1ba40e1af06001770f8a7']= {
+  troop_option='5fb1ba40e1af06001770f8a6',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba40e1af06001770f8a8']= {
+  min=2,
+  max=4,
+  description='Turkish-style heavy horsemen',
+  core='all',
+}
+g_troop_entry['5fb1ba40e1af06001770f8a9']= {
+  troop_option='5fb1ba40e1af06001770f8a8',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba40e1af06001770f8aa']= {
+  min=0,
+  max=1,
+  description='Lancers without bow',
+}
+g_troop_entry['5fb1ba40e1af06001770f8ab']= {
+  troop_option='5fb1ba40e1af06001770f8aa',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba40e1af06001770f8ac']= {
+  min=4,
+  max=8,
+  description='Tang, Turkish, or other nomad horse archers',
+}
+g_troop_entry['5fb1ba40e1af06001770f8ad']= {
+  troop_option='5fb1ba40e1af06001770f8ac',
+  troopTypeCode='HBW',
+}
 g_str_5fb1ba40e1af06001770f8a7='5fb1ba40e1af06001770f8a7'
 g_base_definitions[g_str_5fb1ba40e1af06001770f8a7]={
   id=g_str_5fb1ba40e1af06001770f8a7,
@@ -14,7 +52,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8a7]={
   max=1,
   description='Horsemen riding armored horses',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba40e1af06001770f8a6",
 }
 g_str_5fb1ba40e1af06001770f8a9_general='5fb1ba40e1af06001770f8a9_general'
 g_base_definitions[g_str_5fb1ba40e1af06001770f8a9_general]={
@@ -25,7 +62,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8a9_general]={
   description='Turkish-style heavy horsemen',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba40e1af06001770f8a8",
 }
 g_str_5fb1ba40e1af06001770f8a9='5fb1ba40e1af06001770f8a9'
 g_base_definitions[g_str_5fb1ba40e1af06001770f8a9]={
@@ -35,7 +71,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8a9]={
   max=4,
   description='Turkish-style heavy horsemen',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba40e1af06001770f8a8",
 }
 g_str_5fb1ba40e1af06001770f8ab='5fb1ba40e1af06001770f8ab'
 g_base_definitions[g_str_5fb1ba40e1af06001770f8ab]={
@@ -45,7 +80,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8ab]={
   max=1,
   description='Lancers without bow',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba40e1af06001770f8aa",
 }
 g_str_5fb1ba40e1af06001770f8ad='5fb1ba40e1af06001770f8ad'
 g_base_definitions[g_str_5fb1ba40e1af06001770f8ad]={
@@ -55,7 +89,6 @@ g_base_definitions[g_str_5fb1ba40e1af06001770f8ad]={
   max=8,
   description='Tang, Turkish, or other nomad horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba40e1af06001770f8ac",
 }
 g_str_5fb1b9f2e1af06001770a267_camp='5fb1b9f2e1af06001770a267_camp'
 g_base_definitions[g_str_5fb1b9f2e1af06001770a267_camp]={

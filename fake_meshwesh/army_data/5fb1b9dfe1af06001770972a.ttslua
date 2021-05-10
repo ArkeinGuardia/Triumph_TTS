@@ -6,6 +6,48 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba29e1af06001770ced9']= {
+  min=9,
+  max=14,
+  description='Guerrillas',
+  core='all',
+}
+g_troop_entry['5fb1ba29e1af06001770ceda']= {
+  troop_option='5fb1ba29e1af06001770ced9',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba29e1af06001770cedb']= {
+  troop_option='5fb1ba29e1af06001770ced9',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba29e1af06001770cedc']= {
+  min=1,
+  max=4,
+  description='Guerrilla levy bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba29e1af06001770cedd']= {
+  troop_option='5fb1ba29e1af06001770cedc',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba29e1af06001770cede']= {
+  min=0,
+  max=5,
+  description='Guerrilla dregs',
+}
+g_troop_entry['5fb1ba29e1af06001770cedf']= {
+  troop_option='5fb1ba29e1af06001770cede',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba29e1af06001770cee0']= {
+  min=1,
+  max=3,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba29e1af06001770cee1']= {
+  troop_option='5fb1ba29e1af06001770cee0',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba29e1af06001770ceda_general='5fb1ba29e1af06001770ceda_general'
 g_base_definitions[g_str_5fb1ba29e1af06001770ceda_general]={
   id=g_str_5fb1ba29e1af06001770ceda_general,
@@ -15,7 +57,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ceda_general]={
   description='Guerrillas',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba29e1af06001770ced9",
 }
 g_str_5fb1ba29e1af06001770ceda='5fb1ba29e1af06001770ceda'
 g_base_definitions[g_str_5fb1ba29e1af06001770ceda]={
@@ -25,7 +66,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770ceda]={
   max=14,
   description='Guerrillas',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba29e1af06001770ced9",
 }
 g_str_5fb1ba29e1af06001770cedb_general='5fb1ba29e1af06001770cedb_general'
 g_base_definitions[g_str_5fb1ba29e1af06001770cedb_general]={
@@ -36,7 +76,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cedb_general]={
   description='Guerrillas',
   general=true,
   troop_type="Rabble",
-  troop_option_id="5fb1ba29e1af06001770ced9",
 }
 g_str_5fb1ba29e1af06001770cedb='5fb1ba29e1af06001770cedb'
 g_base_definitions[g_str_5fb1ba29e1af06001770cedb]={
@@ -46,7 +85,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cedb]={
   max=14,
   description='Guerrillas',
   troop_type="Rabble",
-  troop_option_id="5fb1ba29e1af06001770ced9",
 }
 g_str_5fb1ba29e1af06001770cedd='5fb1ba29e1af06001770cedd'
 g_base_definitions[g_str_5fb1ba29e1af06001770cedd]={
@@ -56,7 +94,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cedd]={
   max=4,
   description='Guerrilla levy bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba29e1af06001770cedc",
 }
 g_str_5fb1ba29e1af06001770cedf_general='5fb1ba29e1af06001770cedf_general'
 g_base_definitions[g_str_5fb1ba29e1af06001770cedf_general]={
@@ -67,7 +104,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cedf_general]={
   description='Guerrilla dregs',
   general=true,
   troop_type="Rabble",
-  troop_option_id="5fb1ba29e1af06001770cede",
 }
 g_str_5fb1ba29e1af06001770cedf='5fb1ba29e1af06001770cedf'
 g_base_definitions[g_str_5fb1ba29e1af06001770cedf]={
@@ -77,7 +113,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cedf]={
   max=5,
   description='Guerrilla dregs',
   troop_type="Rabble",
-  troop_option_id="5fb1ba29e1af06001770cede",
 }
 g_str_5fb1ba29e1af06001770cee1='5fb1ba29e1af06001770cee1'
 g_base_definitions[g_str_5fb1ba29e1af06001770cee1]={
@@ -87,7 +122,6 @@ g_base_definitions[g_str_5fb1ba29e1af06001770cee1]={
   max=3,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba29e1af06001770cee0",
 }
 g_str_5fb1b9dfe1af06001770972a_camp='5fb1b9dfe1af06001770972a_camp'
 g_base_definitions[g_str_5fb1b9dfe1af06001770972a_camp]={

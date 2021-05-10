@@ -6,6 +6,56 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3ae1af06001770ed11']= {
+  min=4,
+  max=12,
+  description='Bedouin "Arabitai"',
+}
+g_troop_entry['5fb1ba3ae1af06001770ed12']= {
+  troop_option='5fb1ba3ae1af06001770ed11',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba3ae1af06001770ed13']= {
+  min=0,
+  max=1,
+  description='Turkish or Circassian ghulams',
+}
+g_troop_entry['5fb1ba3ae1af06001770ed14']= {
+  troop_option='5fb1ba3ae1af06001770ed13',
+  troopTypeCode='HBW',
+}
+g_troop_entry['5fb1ba3ae1af06001770ed15']= {
+  troop_option='5fb1ba3ae1af06001770ed13',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3ae1af06001770ed17']= {
+  min=0,
+  max=1,
+  description='Bedouin or Dailami skirmishing bowmen',
+}
+g_troop_entry['5fb1ba3ae1af06001770ed18']= {
+  troop_option='5fb1ba3ae1af06001770ed17',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba3ae1af06001770ed1a']= {
+  min=0,
+  max=1,
+  description='Bedouin camel-mounted scouts',
+}
+g_troop_entry['5fb1ba3ae1af06001770ed1b']= {
+  troop_option='5fb1ba3ae1af06001770ed1a',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba3ae1af06001770ed1d']= {
+  min=0,
+  max=2,
+  description='Ahdath militia',
+  core='all',
+}
+g_troop_entry['5fb1ba3ae1af06001770ed1e']= {
+  troop_option='5fb1ba3ae1af06001770ed1d',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba3ae1af06001770ed12_general='5fb1ba3ae1af06001770ed12_general'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed12_general]={
   id=g_str_5fb1ba3ae1af06001770ed12_general,
@@ -15,7 +65,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed12_general]={
   description='Bedouin "Arabitai"',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba3ae1af06001770ed11",
 }
 g_str_5fb1ba3ae1af06001770ed12='5fb1ba3ae1af06001770ed12'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed12]={
@@ -25,7 +74,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed12]={
   max=12,
   description='Bedouin "Arabitai"',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba3ae1af06001770ed11",
 }
 g_str_5fb1ba3ae1af06001770ed14_general='5fb1ba3ae1af06001770ed14_general'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed14_general]={
@@ -36,7 +84,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed14_general]={
   description='Turkish or Circassian ghulams',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ae1af06001770ed13",
 }
 g_str_5fb1ba3ae1af06001770ed14='5fb1ba3ae1af06001770ed14'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed14]={
@@ -46,7 +93,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed14]={
   max=1,
   description='Turkish or Circassian ghulams',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ae1af06001770ed13",
 }
 g_str_5fb1ba3ae1af06001770ed15_general='5fb1ba3ae1af06001770ed15_general'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed15_general]={
@@ -57,7 +103,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed15_general]={
   description='Turkish or Circassian ghulams',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ae1af06001770ed13",
 }
 g_str_5fb1ba3ae1af06001770ed15='5fb1ba3ae1af06001770ed15'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed15]={
@@ -67,7 +112,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed15]={
   max=1,
   description='Turkish or Circassian ghulams',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ae1af06001770ed13",
 }
 g_str_5fb1ba3ae1af06001770ed18='5fb1ba3ae1af06001770ed18'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed18]={
@@ -77,7 +121,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed18]={
   max=1,
   description='Bedouin or Dailami skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3ae1af06001770ed17",
 }
 g_str_5fb1ba3ae1af06001770ed1b='5fb1ba3ae1af06001770ed1b'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed1b]={
@@ -87,7 +130,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed1b]={
   max=1,
   description='Bedouin camel-mounted scouts',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba3ae1af06001770ed1a",
 }
 g_str_5fb1ba3ae1af06001770ed1b_light_camelry='5fb1ba3ae1af06001770ed1b_light_camelry'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed1b_light_camelry]={
@@ -98,7 +140,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed1b_light_camelry]={
   description='Bedouin camel-mounted scouts\nLight Camelry',
   light_camelry=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba3ae1af06001770ed1a",
 }
 g_str_5fb1ba3ae1af06001770ed1e='5fb1ba3ae1af06001770ed1e'
 g_base_definitions[g_str_5fb1ba3ae1af06001770ed1e]={
@@ -108,7 +149,6 @@ g_base_definitions[g_str_5fb1ba3ae1af06001770ed1e]={
   max=2,
   description='Ahdath militia',
   troop_type="Horde",
-  troop_option_id="5fb1ba3ae1af06001770ed1d",
 }
 g_str_5fb1b9ede1af060017709f41_camp='5fb1b9ede1af060017709f41_camp'
 g_base_definitions[g_str_5fb1b9ede1af060017709f41_camp]={

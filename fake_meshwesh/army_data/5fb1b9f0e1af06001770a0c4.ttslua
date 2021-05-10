@@ -6,6 +6,68 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3de1af06001770f351']= {
+  min=2,
+  max=3,
+  description='War elephants',
+  core='all',
+}
+g_troop_entry['5fb1ba3de1af06001770f352']= {
+  troop_option='5fb1ba3de1af06001770f351',
+  troopTypeCode='ELE',
+}
+g_troop_option['5fb1ba3de1af06001770f354']= {
+  min=0,
+  max=1,
+  description='Kudirai-sevakar horsemen',
+}
+g_troop_entry['5fb1ba3de1af06001770f355']= {
+  troop_option='5fb1ba3de1af06001770f354',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba3de1af06001770f356']= {
+  min=4,
+  max=8,
+  description='Valperra swordsmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3de1af06001770f357']= {
+  troop_option='5fb1ba3de1af06001770f356',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba3de1af06001770f359']= {
+  min=0,
+  max=1,
+  description='Chavers',
+  startDate=950,
+  endDate=1370,
+}
+g_troop_entry['5fb1ba3de1af06001770f35b']= {
+  troop_option='5fb1ba3de1af06001770f359',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba3de1af06001770f35c']= {
+  min=0,
+  max=3,
+  description='Wild tribesmen',
+}
+g_troop_entry['5fb1ba3de1af06001770f35d']= {
+  troop_option='5fb1ba3de1af06001770f35c',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba3de1af06001770f35e']= {
+  troop_option='5fb1ba3de1af06001770f35c',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba3de1af06001770f35f']= {
+  min=1,
+  max=3,
+  description='Villikal bowmen',
+}
+g_troop_entry['5fb1ba3de1af06001770f360']= {
+  troop_option='5fb1ba3de1af06001770f35f',
+  troopTypeCode='BLV',
+}
 g_str_5fb1ba3de1af06001770f352_general='5fb1ba3de1af06001770f352_general'
 g_base_definitions[g_str_5fb1ba3de1af06001770f352_general]={
   id=g_str_5fb1ba3de1af06001770f352_general,
@@ -15,7 +77,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f352_general]={
   description='War elephants',
   general=true,
   troop_type="Elephants",
-  troop_option_id="5fb1ba3de1af06001770f351",
 }
 g_str_5fb1ba3de1af06001770f352='5fb1ba3de1af06001770f352'
 g_base_definitions[g_str_5fb1ba3de1af06001770f352]={
@@ -25,7 +86,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f352]={
   max=3,
   description='War elephants',
   troop_type="Elephants",
-  troop_option_id="5fb1ba3de1af06001770f351",
 }
 g_str_5fb1ba3de1af06001770f355='5fb1ba3de1af06001770f355'
 g_base_definitions[g_str_5fb1ba3de1af06001770f355]={
@@ -35,7 +95,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f355]={
   max=1,
   description='Kudirai-sevakar horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba3de1af06001770f354",
 }
 g_str_5fb1ba3de1af06001770f357='5fb1ba3de1af06001770f357'
 g_base_definitions[g_str_5fb1ba3de1af06001770f357]={
@@ -45,7 +104,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f357]={
   max=8,
   description='Valperra swordsmen',
   troop_type="Raiders",
-  troop_option_id="5fb1ba3de1af06001770f356",
 }
 g_str_5fb1ba3de1af06001770f357_elephant_screen='5fb1ba3de1af06001770f357_elephant_screen'
 g_base_definitions[g_str_5fb1ba3de1af06001770f357_elephant_screen]={
@@ -56,7 +114,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f357_elephant_screen]={
   description='Valperra swordsmen\nElephant Screen',
   elephant_screen=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba3de1af06001770f356",
 }
 g_str_5fb1ba3de1af06001770f357_elephant_screen_elephant_screen_counter='5fb1ba3de1af06001770f357_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba3de1af06001770f357_elephant_screen_elephant_screen_counter]={
@@ -75,7 +132,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f35b]={
   max=1,
   description='Chavers',
   troop_type="Warband",
-  troop_option_id="5fb1ba3de1af06001770f359",
 }
 g_str_5fb1ba3de1af06001770f35d='5fb1ba3de1af06001770f35d'
 g_base_definitions[g_str_5fb1ba3de1af06001770f35d]={
@@ -85,7 +141,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f35d]={
   max=3,
   description='Wild tribesmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3de1af06001770f35c",
 }
 g_str_5fb1ba3de1af06001770f35e='5fb1ba3de1af06001770f35e'
 g_base_definitions[g_str_5fb1ba3de1af06001770f35e]={
@@ -95,7 +150,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f35e]={
   max=3,
   description='Wild tribesmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba3de1af06001770f35c",
 }
 g_str_5fb1ba3de1af06001770f360='5fb1ba3de1af06001770f360'
 g_base_definitions[g_str_5fb1ba3de1af06001770f360]={
@@ -105,7 +159,6 @@ g_base_definitions[g_str_5fb1ba3de1af06001770f360]={
   max=3,
   description='Villikal bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3de1af06001770f35f",
 }
 g_str_5fb1b9f0e1af06001770a0c4_camp='5fb1b9f0e1af06001770a0c4_camp'
 g_base_definitions[g_str_5fb1b9f0e1af06001770a0c4_camp]={
@@ -124,7 +177,6 @@ g_base_definitions[g_str_5fb1ba17e1af06001770b889]={
   max=2,
   description='Left Hand bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba17e1af06001770b888",
 }
 g_str_5fb1ba17e1af06001770b88b='5fb1ba17e1af06001770b88b'
 g_base_definitions[g_str_5fb1ba17e1af06001770b88b]={
@@ -134,7 +186,6 @@ g_base_definitions[g_str_5fb1ba17e1af06001770b88b]={
   max=2,
   description='Left Hand foot',
   troop_type="Horde",
-  troop_option_id="5fb1ba17e1af06001770b88a",
 }
 army['5fb1b9f0e1af06001770a0c4']={
   data={
@@ -170,6 +221,7 @@ army['5fb1b9f0e1af06001770a0c4_301_949']={
   g_base_definitions[g_str_5fb1ba3de1af06001770f355],
   g_base_definitions[g_str_5fb1ba3de1af06001770f357],
   g_base_definitions[g_str_5fb1ba3de1af06001770f357_elephant_screen],
+  g_base_definitions[g_str_5fb1ba3de1af06001770f35b],
   g_base_definitions[g_str_5fb1ba3de1af06001770f35d],
   g_base_definitions[g_str_5fb1ba3de1af06001770f35e],
   g_base_definitions[g_str_5fb1ba3de1af06001770f360],
@@ -207,6 +259,7 @@ army['5fb1b9f0e1af06001770a0c4_1371_1515']={
   g_base_definitions[g_str_5fb1ba3de1af06001770f355],
   g_base_definitions[g_str_5fb1ba3de1af06001770f357],
   g_base_definitions[g_str_5fb1ba3de1af06001770f357_elephant_screen],
+  g_base_definitions[g_str_5fb1ba3de1af06001770f35b],
   g_base_definitions[g_str_5fb1ba3de1af06001770f35d],
   g_base_definitions[g_str_5fb1ba3de1af06001770f35e],
   g_base_definitions[g_str_5fb1ba3de1af06001770f360],

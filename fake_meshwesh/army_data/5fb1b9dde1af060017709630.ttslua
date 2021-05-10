@@ -6,6 +6,47 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba28e1af06001770caf3']= {
+  min=0,
+  max=1,
+  description='Horsemen',
+}
+g_troop_entry['5fb1ba28e1af06001770caf4']= {
+  troop_option='5fb1ba28e1af06001770caf3',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba28e1af06001770caf5']= {
+  min=9,
+  max=16,
+  description='Light infantry and their armed slaves',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770caf6']= {
+  troop_option='5fb1ba28e1af06001770caf5',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba28e1af06001770caf7']= {
+  min=0,
+  max=2,
+  description='Skirmishing bowmen or slingers',
+}
+g_troop_entry['5fb1ba28e1af06001770caf8']= {
+  troop_option='5fb1ba28e1af06001770caf7',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba28e1af06001770caf9']= {
+  min=0,
+  max=3,
+  description='Javelinmen and shielded javelinmen',
+}
+g_troop_entry['5fb1ba28e1af06001770cafa']= {
+  troop_option='5fb1ba28e1af06001770caf9',
+  troopTypeCode='RBL',
+}
+g_troop_entry['5fb1ba28e1af06001770cafb']= {
+  troop_option='5fb1ba28e1af06001770caf9',
+  troopTypeCode='LFT',
+}
 g_str_5fb1ba28e1af06001770caf4_general='5fb1ba28e1af06001770caf4_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770caf4_general]={
   id=g_str_5fb1ba28e1af06001770caf4_general,
@@ -15,7 +56,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770caf4_general]={
   description='Horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770caf3",
 }
 g_str_5fb1ba28e1af06001770caf4='5fb1ba28e1af06001770caf4'
 g_base_definitions[g_str_5fb1ba28e1af06001770caf4]={
@@ -25,7 +65,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770caf4]={
   max=1,
   description='Horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770caf3",
 }
 g_str_5fb1ba28e1af06001770caf6_general='5fb1ba28e1af06001770caf6_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770caf6_general]={
@@ -36,7 +75,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770caf6_general]={
   description='Light infantry and their armed slaves',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770caf5",
 }
 g_str_5fb1ba28e1af06001770caf6='5fb1ba28e1af06001770caf6'
 g_base_definitions[g_str_5fb1ba28e1af06001770caf6]={
@@ -46,7 +84,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770caf6]={
   max=16,
   description='Light infantry and their armed slaves',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770caf5",
 }
 g_str_5fb1ba28e1af06001770caf8='5fb1ba28e1af06001770caf8'
 g_base_definitions[g_str_5fb1ba28e1af06001770caf8]={
@@ -56,7 +93,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770caf8]={
   max=2,
   description='Skirmishing bowmen or slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba28e1af06001770caf7",
 }
 g_str_5fb1ba28e1af06001770cafa='5fb1ba28e1af06001770cafa'
 g_base_definitions[g_str_5fb1ba28e1af06001770cafa]={
@@ -66,7 +102,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cafa]={
   max=3,
   description='Javelinmen and shielded javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba28e1af06001770caf9",
 }
 g_str_5fb1ba28e1af06001770cafb_general='5fb1ba28e1af06001770cafb_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770cafb_general]={
@@ -77,7 +112,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cafb_general]={
   description='Javelinmen and shielded javelinmen',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770caf9",
 }
 g_str_5fb1ba28e1af06001770cafb='5fb1ba28e1af06001770cafb'
 g_base_definitions[g_str_5fb1ba28e1af06001770cafb]={
@@ -87,7 +121,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cafb]={
   max=3,
   description='Javelinmen and shielded javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770caf9",
 }
 g_str_5fb1b9dde1af060017709630_camp='5fb1b9dde1af060017709630_camp'
 g_base_definitions[g_str_5fb1b9dde1af060017709630_camp]={

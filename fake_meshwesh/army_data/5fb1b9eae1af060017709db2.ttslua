@@ -6,6 +6,44 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba36e1af06001770e655']= {
+  min=0,
+  max=2,
+  description='Noble horsemen',
+}
+g_troop_entry['5fb1ba36e1af06001770e656']= {
+  troop_option='5fb1ba36e1af06001770e655',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba36e1af06001770e658']= {
+  min=8,
+  max=16,
+  description='Fierce fighters',
+  core='all',
+}
+g_troop_entry['5fb1ba36e1af06001770e659']= {
+  troop_option='5fb1ba36e1af06001770e658',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba36e1af06001770e65a']= {
+  min=0,
+  max=10,
+  description='Militia',
+}
+g_troop_entry['5fb1ba36e1af06001770e65b']= {
+  troop_option='5fb1ba36e1af06001770e65a',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba36e1af06001770e65c']= {
+  min=2,
+  max=4,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba36e1af06001770e65d']= {
+  troop_option='5fb1ba36e1af06001770e65c',
+  troopTypeCode='BLV',
+}
 g_str_5fb1ba36e1af06001770e656_general='5fb1ba36e1af06001770e656_general'
 g_base_definitions[g_str_5fb1ba36e1af06001770e656_general]={
   id=g_str_5fb1ba36e1af06001770e656_general,
@@ -15,7 +53,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e656_general]={
   description='Noble horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba36e1af06001770e655",
 }
 g_str_5fb1ba36e1af06001770e656_general_dismounted='5fb1ba36e1af06001770e656_general_dismounted'
 g_str_5fb1ba36e1af06001770e656_general_mounted='5fb1ba36e1af06001770e656_general_mounted'
@@ -28,7 +65,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_dismounted]={
   dismounted_from=g_str_5fb1ba36e1af06001770e656_general_mounted,
   general=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba36e1af06001770e655",
 }
 g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_mounted]={
   id=g_str_5fb1ba36e1af06001770e656_general_mounted,
@@ -38,8 +74,8 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_mounted]={
   description='Noble horsemen\nMid-battle dismounting as Warband',
   dismount_as=g_str_5fb1ba36e1af06001770e656_general_dismounted,
   general=true,
+  mid_battle_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba36e1af06001770e655",
 }
 g_str_5fb1ba36e1af06001770e656='5fb1ba36e1af06001770e656'
 g_base_definitions[g_str_5fb1ba36e1af06001770e656]={
@@ -49,7 +85,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e656]={
   max=2,
   description='Noble horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba36e1af06001770e655",
 }
 g_str_5fb1ba36e1af06001770e656_dismounted='5fb1ba36e1af06001770e656_dismounted'
 g_str_5fb1ba36e1af06001770e656_mounted='5fb1ba36e1af06001770e656_mounted'
@@ -61,7 +96,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e656_dismounted]={
   description='Noble horsemen\nMid-battle dismounted from Javelin Cavalry',
   dismounted_from=g_str_5fb1ba36e1af06001770e656_mounted,
   troop_type="Warband",
-  troop_option_id="5fb1ba36e1af06001770e655",
 }
 g_base_definitions[g_str_5fb1ba36e1af06001770e656_mounted]={
   id=g_str_5fb1ba36e1af06001770e656_mounted,
@@ -70,8 +104,8 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e656_mounted]={
   max=2,
   description='Noble horsemen\nMid-battle dismounting as Warband',
   dismount_as=g_str_5fb1ba36e1af06001770e656_dismounted,
+  mid_battle_dismounting=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba36e1af06001770e655",
 }
 g_str_5fb1ba36e1af06001770e659_general='5fb1ba36e1af06001770e659_general'
 g_base_definitions[g_str_5fb1ba36e1af06001770e659_general]={
@@ -82,7 +116,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e659_general]={
   description='Fierce fighters',
   general=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba36e1af06001770e658",
 }
 g_str_5fb1ba36e1af06001770e659='5fb1ba36e1af06001770e659'
 g_base_definitions[g_str_5fb1ba36e1af06001770e659]={
@@ -92,7 +125,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e659]={
   max=16,
   description='Fierce fighters',
   troop_type="Warband",
-  troop_option_id="5fb1ba36e1af06001770e658",
 }
 g_str_5fb1ba36e1af06001770e65b='5fb1ba36e1af06001770e65b'
 g_base_definitions[g_str_5fb1ba36e1af06001770e65b]={
@@ -102,7 +134,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e65b]={
   max=10,
   description='Militia',
   troop_type="Rabble",
-  troop_option_id="5fb1ba36e1af06001770e65a",
 }
 g_str_5fb1ba36e1af06001770e65d='5fb1ba36e1af06001770e65d'
 g_base_definitions[g_str_5fb1ba36e1af06001770e65d]={
@@ -112,7 +143,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e65d]={
   max=4,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba36e1af06001770e65c",
 }
 g_str_5fb1b9eae1af060017709db2_camp='5fb1b9eae1af060017709db2_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709db2_camp]={

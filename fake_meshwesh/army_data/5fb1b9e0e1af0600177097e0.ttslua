@@ -6,6 +6,75 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2ae1af06001770d134']= {
+  min=1,
+  max=3,
+  description='Cataphracts',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d135']= {
+  troop_option='5fb1ba2ae1af06001770d134',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba2ae1af06001770d136']= {
+  min=4,
+  max=11,
+  description='Horse archers',
+}
+g_troop_entry['5fb1ba2ae1af06001770d137']= {
+  troop_option='5fb1ba2ae1af06001770d136',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba2ae1af06001770d138']= {
+  min=0,
+  max=3,
+  description='Kushan infantry',
+}
+g_troop_entry['5fb1ba2ae1af06001770d139']= {
+  troop_option='5fb1ba2ae1af06001770d138',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba2ae1af06001770d13a']= {
+  min=0,
+  max=2,
+  description='War elephants',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d13b']= {
+  troop_option='5fb1ba2ae1af06001770d13a',
+  troopTypeCode='ELE',
+}
+g_troop_option['5fb1ba2ae1af06001770d13c']= {
+  min=0,
+  max=1,
+  description='Mountain tribe horsemen',
+}
+g_troop_entry['5fb1ba2ae1af06001770d13d']= {
+  troop_option='5fb1ba2ae1af06001770d13c',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba2ae1af06001770d13e']= {
+  min=0,
+  max=1,
+  description='Mountain tribe bowmen',
+}
+g_troop_entry['5fb1ba2ae1af06001770d13f']= {
+  troop_option='5fb1ba2ae1af06001770d13e',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba2ae1af06001770d140']= {
+  troop_option='5fb1ba2ae1af06001770d13e',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba2ae1af06001770d141']= {
+  min=0,
+  max=1,
+  description='Mountain tribe spearmen',
+}
+g_troop_entry['5fb1ba2ae1af06001770d142']= {
+  troop_option='5fb1ba2ae1af06001770d141',
+  troopTypeCode='LSP',
+}
 g_str_5fb1ba2ae1af06001770d135_general='5fb1ba2ae1af06001770d135_general'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d135_general]={
   id=g_str_5fb1ba2ae1af06001770d135_general,
@@ -15,7 +84,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d135_general]={
   description='Cataphracts',
   general=true,
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba2ae1af06001770d134",
 }
 g_str_5fb1ba2ae1af06001770d135='5fb1ba2ae1af06001770d135'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d135]={
@@ -25,7 +93,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d135]={
   max=3,
   description='Cataphracts',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba2ae1af06001770d134",
 }
 g_str_5fb1ba2ae1af06001770d137='5fb1ba2ae1af06001770d137'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d137]={
@@ -35,7 +102,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d137]={
   max=11,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2ae1af06001770d136",
 }
 g_str_5fb1ba2ae1af06001770d139='5fb1ba2ae1af06001770d139'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d139]={
@@ -45,7 +111,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d139]={
   max=3,
   description='Kushan infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba2ae1af06001770d138",
 }
 g_str_5fb1ba2ae1af06001770d13b_general='5fb1ba2ae1af06001770d13b_general'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d13b_general]={
@@ -56,7 +121,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d13b_general]={
   description='War elephants',
   general=true,
   troop_type="Elephants",
-  troop_option_id="5fb1ba2ae1af06001770d13a",
 }
 g_str_5fb1ba2ae1af06001770d13b='5fb1ba2ae1af06001770d13b'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d13b]={
@@ -66,7 +130,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d13b]={
   max=2,
   description='War elephants',
   troop_type="Elephants",
-  troop_option_id="5fb1ba2ae1af06001770d13a",
 }
 g_str_5fb1ba2ae1af06001770d13d='5fb1ba2ae1af06001770d13d'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d13d]={
@@ -76,7 +139,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d13d]={
   max=1,
   description='Mountain tribe horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba2ae1af06001770d13c",
 }
 g_str_5fb1ba2ae1af06001770d13f='5fb1ba2ae1af06001770d13f'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d13f]={
@@ -86,7 +148,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d13f]={
   max=1,
   description='Mountain tribe bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba2ae1af06001770d13e",
 }
 g_str_5fb1ba2ae1af06001770d140='5fb1ba2ae1af06001770d140'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d140]={
@@ -96,7 +157,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d140]={
   max=1,
   description='Mountain tribe bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba2ae1af06001770d13e",
 }
 g_str_5fb1ba2ae1af06001770d142='5fb1ba2ae1af06001770d142'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d142]={
@@ -106,7 +166,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d142]={
   max=1,
   description='Mountain tribe spearmen',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba2ae1af06001770d141",
 }
 g_str_5fb1b9e0e1af0600177097e0_camp='5fb1b9e0e1af0600177097e0_camp'
 g_base_definitions[g_str_5fb1b9e0e1af0600177097e0_camp]={
@@ -135,7 +194,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770ac6e]={
   max=1,
   description='Swordsmen and axemen in quilted armor',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba0de1af06001770ac6d",
 }
 g_str_5fb1ba0de1af06001770ac70='5fb1ba0de1af06001770ac70'
 g_base_definitions[g_str_5fb1ba0de1af06001770ac70]={
@@ -145,7 +203,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770ac70]={
   max=1,
   description='Indian horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba0de1af06001770ac6f",
 }
 g_str_5fb1ba0de1af06001770ac72='5fb1ba0de1af06001770ac72'
 g_base_definitions[g_str_5fb1ba0de1af06001770ac72]={
@@ -155,7 +212,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770ac72]={
   max=2,
   description='Indian hereditary bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba0de1af06001770ac71",
 }
 g_str_5fb1ba0de1af06001770ac74='5fb1ba0de1af06001770ac74'
 g_base_definitions[g_str_5fb1ba0de1af06001770ac74]={
@@ -165,7 +221,6 @@ g_base_definitions[g_str_5fb1ba0de1af06001770ac74]={
   max=2,
   description='Indian heavy javelinmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba0de1af06001770ac73",
 }
 army['5fb1b9e0e1af0600177097e0']={
   data={

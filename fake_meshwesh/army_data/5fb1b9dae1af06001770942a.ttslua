@@ -6,6 +6,72 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba22e1af06001770c306']= {
+  min=0,
+  max=1,
+  description='4-horse chariots with three crewmen',
+}
+g_troop_entry['5fb1ba22e1af06001770c307']= {
+  troop_option='5fb1ba22e1af06001770c306',
+  troopTypeCode='CHT',
+}
+g_troop_option['5fb1ba22e1af06001770c308']= {
+  min=1,
+  max=3,
+  description='Unarmored horse archers armed with bow, long spear, and sword',
+}
+g_troop_entry['5fb1ba22e1af06001770c309']= {
+  troop_option='5fb1ba22e1af06001770c308',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba22e1af06001770c30a']= {
+  min=1,
+  max=6,
+  description='Kallapani',
+  core='all',
+}
+g_troop_entry['5fb1ba22e1af06001770c30b']= {
+  troop_option='5fb1ba22e1af06001770c30a',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba22e1af06001770c30d']= {
+  min=0,
+  max=1,
+  description='Spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba22e1af06001770c30e']= {
+  troop_option='5fb1ba22e1af06001770c30d',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba22e1af06001770c30f']= {
+  min=0,
+  max=1,
+  description='Shielded bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba22e1af06001770c310']= {
+  troop_option='5fb1ba22e1af06001770c30f',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba22e1af06001770c311']= {
+  min=6,
+  max=20,
+  description='Bowmen',
+}
+g_troop_entry['5fb1ba22e1af06001770c312']= {
+  troop_option='5fb1ba22e1af06001770c311',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba22e1af06001770c313']= {
+  min=0,
+  max=2,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba22e1af06001770c314']= {
+  troop_option='5fb1ba22e1af06001770c313',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba22e1af06001770c307_general='5fb1ba22e1af06001770c307_general'
 g_base_definitions[g_str_5fb1ba22e1af06001770c307_general]={
   id=g_str_5fb1ba22e1af06001770c307_general,
@@ -15,7 +81,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c307_general]={
   description='4-horse chariots with three crewmen',
   general=true,
   troop_type="Chariots",
-  troop_option_id="5fb1ba22e1af06001770c306",
 }
 g_str_5fb1ba22e1af06001770c307='5fb1ba22e1af06001770c307'
 g_base_definitions[g_str_5fb1ba22e1af06001770c307]={
@@ -25,7 +90,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c307]={
   max=1,
   description='4-horse chariots with three crewmen',
   troop_type="Chariots",
-  troop_option_id="5fb1ba22e1af06001770c306",
 }
 g_str_5fb1ba22e1af06001770c309='5fb1ba22e1af06001770c309'
 g_base_definitions[g_str_5fb1ba22e1af06001770c309]={
@@ -35,7 +99,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c309]={
   max=3,
   description='Unarmored horse archers armed with bow, long spear, and sword',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba22e1af06001770c308",
 }
 g_str_5fb1ba22e1af06001770c30b_general='5fb1ba22e1af06001770c30b_general'
 g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general]={
@@ -46,7 +109,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general]={
   description='Kallapani',
   general=true,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c30a",
 }
 g_str_5fb1ba22e1af06001770c30b_general_dismounted_mobile_infantry='5fb1ba22e1af06001770c30b_general_dismounted_mobile_infantry'
 g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantry='5fb1ba22e1af06001770c30b_general_mounted_mobile_infantry'
@@ -59,7 +121,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general_dismounted_mobile_infa
   dismounted_from=g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantry,
   general=true,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c30a",
 }
 g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantry]={
   id=g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantry,
@@ -71,7 +132,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantr
   general=true,
   mobile_infantry=true,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c30a",
 }
 g_str_5fb1ba22e1af06001770c30b='5fb1ba22e1af06001770c30b'
 g_base_definitions[g_str_5fb1ba22e1af06001770c30b]={
@@ -81,7 +141,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30b]={
   max=6,
   description='Kallapani',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c30a",
 }
 g_str_5fb1ba22e1af06001770c30b_dismounted_mobile_infantry='5fb1ba22e1af06001770c30b_dismounted_mobile_infantry'
 g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry='5fb1ba22e1af06001770c30b_mounted_mobile_infantry'
@@ -93,7 +152,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30b_dismounted_mobile_infantry]={
   description='Kallapani\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c30a",
 }
 g_base_definitions[g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry]={
   id=g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry,
@@ -104,7 +162,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba22e1af06001770c30b_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c30a",
 }
 g_str_5fb1ba22e1af06001770c30e='5fb1ba22e1af06001770c30e'
 g_base_definitions[g_str_5fb1ba22e1af06001770c30e]={
@@ -114,7 +171,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c30e]={
   max=1,
   description='Spearmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba22e1af06001770c30d",
 }
 g_str_5fb1ba22e1af06001770c310='5fb1ba22e1af06001770c310'
 g_base_definitions[g_str_5fb1ba22e1af06001770c310]={
@@ -124,7 +180,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c310]={
   max=1,
   description='Shielded bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba22e1af06001770c30f",
 }
 g_str_5fb1ba22e1af06001770c312_general='5fb1ba22e1af06001770c312_general'
 g_base_definitions[g_str_5fb1ba22e1af06001770c312_general]={
@@ -135,7 +190,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c312_general]={
   description='Bowmen',
   general=true,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c311",
 }
 g_str_5fb1ba22e1af06001770c312='5fb1ba22e1af06001770c312'
 g_base_definitions[g_str_5fb1ba22e1af06001770c312]={
@@ -145,7 +199,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c312]={
   max=20,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba22e1af06001770c311",
 }
 g_str_5fb1ba22e1af06001770c314='5fb1ba22e1af06001770c314'
 g_base_definitions[g_str_5fb1ba22e1af06001770c314]={
@@ -155,7 +208,6 @@ g_base_definitions[g_str_5fb1ba22e1af06001770c314]={
   max=2,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba22e1af06001770c313",
 }
 g_str_5fb1b9dae1af06001770942a_camp='5fb1b9dae1af06001770942a_camp'
 g_base_definitions[g_str_5fb1b9dae1af06001770942a_camp]={

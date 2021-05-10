@@ -6,6 +6,27 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2ee1af06001770d7d8']= {
+  min=8,
+  max=12,
+  description='Charging Vandal horsemen',
+  core='all',
+}
+g_troop_entry['5fb1ba2ee1af06001770d7d9']= {
+  troop_option='5fb1ba2ee1af06001770d7d8',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba2ee1af06001770d7da']= {
+  min=0,
+  max=1,
+  description='Remnant Alan horse archers',
+  startDate=442,
+  endDate=499,
+}
+g_troop_entry['5fb1ba2ee1af06001770d7dc']= {
+  troop_option='5fb1ba2ee1af06001770d7da',
+  troopTypeCode='HBW',
+}
 g_str_5fb1ba2ee1af06001770d7d9_general='5fb1ba2ee1af06001770d7d9_general'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9_general]={
   id=g_str_5fb1ba2ee1af06001770d7d9_general,
@@ -15,7 +36,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9_general]={
   description='Charging Vandal horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7d8",
 }
 g_str_5fb1ba2ee1af06001770d7d9='5fb1ba2ee1af06001770d7d9'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9]={
@@ -25,7 +45,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9]={
   max=12,
   description='Charging Vandal horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba2ee1af06001770d7d8",
 }
 g_str_5fb1ba2ee1af06001770d7dc='5fb1ba2ee1af06001770d7dc'
 g_base_definitions[g_str_5fb1ba2ee1af06001770d7dc]={
@@ -35,7 +54,6 @@ g_base_definitions[g_str_5fb1ba2ee1af06001770d7dc]={
   max=1,
   description='Remnant Alan horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2ee1af06001770d7da",
 }
 g_str_5fb1b9e3e1af0600177099c6_camp='5fb1b9e3e1af0600177099c6_camp'
 g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp]={
@@ -92,6 +110,7 @@ army['5fb1b9e3e1af0600177099c6_500_535']={
   },
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9],
+  g_base_definitions[g_str_5fb1ba2ee1af06001770d7dc],
   g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp],
   g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp_fortified],
 }

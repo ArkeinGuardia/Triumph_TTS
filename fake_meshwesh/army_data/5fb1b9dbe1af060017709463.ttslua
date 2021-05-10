@@ -6,6 +6,98 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba23e1af06001770c422']= {
+  min=1,
+  max=3,
+  description='2-horse chariots',
+}
+g_troop_entry['5fb1ba23e1af06001770c423']= {
+  troop_option='5fb1ba23e1af06001770c422',
+  troopTypeCode='CHT',
+}
+g_troop_option['5fb1ba23e1af06001770c424']= {
+  min=0,
+  max=1,
+  description='Egyptian horsemen',
+  startDate=-946,
+  endDate=-725,
+}
+g_troop_entry['5fb1ba23e1af06001770c426']= {
+  troop_option='5fb1ba23e1af06001770c424',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba23e1af06001770c427']= {
+  min=0,
+  max=2,
+  description='Meshwesh',
+  core='all',
+}
+g_troop_entry['5fb1ba23e1af06001770c428']= {
+  troop_option='5fb1ba23e1af06001770c427',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba23e1af06001770c429']= {
+  min=1,
+  max=2,
+  description='Nubian or Libu light bowmen',
+}
+g_troop_entry['5fb1ba23e1af06001770c42a']= {
+  troop_option='5fb1ba23e1af06001770c429',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba23e1af06001770c42b']= {
+  min=0,
+  max=2,
+  description='Nubian mercenary bowmen',
+  note='only Thebes',
+}
+g_troop_entry['5fb1ba23e1af06001770c42c']= {
+  troop_option='5fb1ba23e1af06001770c42b',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba23e1af06001770c42d']= {
+  troop_option='5fb1ba23e1af06001770c42b',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba23e1af06001770c42e']= {
+  min=3,
+  max=6,
+  description='Egyptian infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba23e1af06001770c42f']= {
+  troop_option='5fb1ba23e1af06001770c42e',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba23e1af06001770c430']= {
+  min=3,
+  max=6,
+  description='Egyptian bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba23e1af06001770c431']= {
+  troop_option='5fb1ba23e1af06001770c430',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba23e1af06001770c432']= {
+  min=0,
+  max=4,
+  description='Egyptian levy ',
+  core='all',
+}
+g_troop_entry['5fb1ba23e1af06001770c433']= {
+  troop_option='5fb1ba23e1af06001770c432',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba23e1af06001770c434']= {
+  min=3,
+  max=6,
+  description='Libu or Arab javelinmen',
+}
+g_troop_entry['5fb1ba23e1af06001770c435']= {
+  troop_option='5fb1ba23e1af06001770c434',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba23e1af06001770c423_general='5fb1ba23e1af06001770c423_general'
 g_base_definitions[g_str_5fb1ba23e1af06001770c423_general]={
   id=g_str_5fb1ba23e1af06001770c423_general,
@@ -15,7 +107,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c423_general]={
   description='2-horse chariots',
   general=true,
   troop_type="Chariots",
-  troop_option_id="5fb1ba23e1af06001770c422",
 }
 g_str_5fb1ba23e1af06001770c423='5fb1ba23e1af06001770c423'
 g_base_definitions[g_str_5fb1ba23e1af06001770c423]={
@@ -25,7 +116,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c423]={
   max=3,
   description='2-horse chariots',
   troop_type="Chariots",
-  troop_option_id="5fb1ba23e1af06001770c422",
 }
 g_str_5fb1ba23e1af06001770c426='5fb1ba23e1af06001770c426'
 g_base_definitions[g_str_5fb1ba23e1af06001770c426]={
@@ -35,7 +125,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c426]={
   max=1,
   description='Egyptian horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba23e1af06001770c424",
 }
 g_str_5fb1ba23e1af06001770c428='5fb1ba23e1af06001770c428'
 g_base_definitions[g_str_5fb1ba23e1af06001770c428]={
@@ -45,7 +134,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c428]={
   max=2,
   description='Meshwesh',
   troop_type="Warriors",
-  troop_option_id="5fb1ba23e1af06001770c427",
 }
 g_str_5fb1ba23e1af06001770c42a='5fb1ba23e1af06001770c42a'
 g_base_definitions[g_str_5fb1ba23e1af06001770c42a]={
@@ -55,7 +143,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c42a]={
   max=2,
   description='Nubian or Libu light bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba23e1af06001770c429",
 }
 g_str_5fb1ba23e1af06001770c42c='5fb1ba23e1af06001770c42c'
 g_base_definitions[g_str_5fb1ba23e1af06001770c42c]={
@@ -65,7 +152,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c42c]={
   max=2,
   description='Nubian mercenary bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba23e1af06001770c42b",
 }
 g_str_5fb1ba23e1af06001770c42d='5fb1ba23e1af06001770c42d'
 g_base_definitions[g_str_5fb1ba23e1af06001770c42d]={
@@ -75,7 +161,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c42d]={
   max=2,
   description='Nubian mercenary bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba23e1af06001770c42b",
 }
 g_str_5fb1ba23e1af06001770c42f='5fb1ba23e1af06001770c42f'
 g_base_definitions[g_str_5fb1ba23e1af06001770c42f]={
@@ -85,7 +170,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c42f]={
   max=6,
   description='Egyptian infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba23e1af06001770c42e",
 }
 g_str_5fb1ba23e1af06001770c431='5fb1ba23e1af06001770c431'
 g_base_definitions[g_str_5fb1ba23e1af06001770c431]={
@@ -95,7 +179,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c431]={
   max=6,
   description='Egyptian bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba23e1af06001770c430",
 }
 g_str_5fb1ba23e1af06001770c433='5fb1ba23e1af06001770c433'
 g_base_definitions[g_str_5fb1ba23e1af06001770c433]={
@@ -105,7 +188,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c433]={
   max=4,
   description='Egyptian levy ',
   troop_type="Horde",
-  troop_option_id="5fb1ba23e1af06001770c432",
 }
 g_str_5fb1ba23e1af06001770c435='5fb1ba23e1af06001770c435'
 g_base_definitions[g_str_5fb1ba23e1af06001770c435]={
@@ -115,7 +197,6 @@ g_base_definitions[g_str_5fb1ba23e1af06001770c435]={
   max=6,
   description='Libu or Arab javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba23e1af06001770c434",
 }
 g_str_5fb1b9dbe1af060017709463_camp='5fb1b9dbe1af060017709463_camp'
 g_base_definitions[g_str_5fb1b9dbe1af060017709463_camp]={
@@ -168,6 +249,7 @@ army['5fb1b9dbe1af060017709463_-1080_-947']={
   },
   g_base_definitions[g_str_5fb1ba23e1af06001770c423_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c423],
+  g_base_definitions[g_str_5fb1ba23e1af06001770c426],
   g_base_definitions[g_str_5fb1ba23e1af06001770c428],
   g_base_definitions[g_str_5fb1ba23e1af06001770c42a],
   g_base_definitions[g_str_5fb1ba23e1af06001770c42c],

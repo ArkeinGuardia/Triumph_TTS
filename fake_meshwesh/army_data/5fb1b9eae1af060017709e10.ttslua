@@ -6,6 +6,44 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba37e1af06001770e7ca']= {
+  min=2,
+  max=5,
+  description='Bulgar horse archers',
+}
+g_troop_entry['5fb1ba37e1af06001770e7cb']= {
+  troop_option='5fb1ba37e1af06001770e7ca',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba37e1af06001770e7cc']= {
+  min=2,
+  max=6,
+  description='Suwar, Barsula, or other nomad horse archers',
+}
+g_troop_entry['5fb1ba37e1af06001770e7cd']= {
+  troop_option='5fb1ba37e1af06001770e7cc',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba37e1af06001770e7ce']= {
+  min=1,
+  max=2,
+  description='Levy bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba37e1af06001770e7cf']= {
+  troop_option='5fb1ba37e1af06001770e7ce',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba37e1af06001770e7d0']= {
+  min=1,
+  max=2,
+  description='Town levies',
+  core='all',
+}
+g_troop_entry['5fb1ba37e1af06001770e7d1']= {
+  troop_option='5fb1ba37e1af06001770e7d0',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba37e1af06001770e7cb_general='5fb1ba37e1af06001770e7cb_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e7cb_general]={
   id=g_str_5fb1ba37e1af06001770e7cb_general,
@@ -15,7 +53,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7cb_general]={
   description='Bulgar horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba37e1af06001770e7ca",
 }
 g_str_5fb1ba37e1af06001770e7cb='5fb1ba37e1af06001770e7cb'
 g_base_definitions[g_str_5fb1ba37e1af06001770e7cb]={
@@ -25,7 +62,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7cb]={
   max=5,
   description='Bulgar horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba37e1af06001770e7ca",
 }
 g_str_5fb1ba37e1af06001770e7cd_general='5fb1ba37e1af06001770e7cd_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e7cd_general]={
@@ -36,7 +72,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7cd_general]={
   description='Suwar, Barsula, or other nomad horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba37e1af06001770e7cc",
 }
 g_str_5fb1ba37e1af06001770e7cd='5fb1ba37e1af06001770e7cd'
 g_base_definitions[g_str_5fb1ba37e1af06001770e7cd]={
@@ -46,7 +81,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7cd]={
   max=6,
   description='Suwar, Barsula, or other nomad horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba37e1af06001770e7cc",
 }
 g_str_5fb1ba37e1af06001770e7cf='5fb1ba37e1af06001770e7cf'
 g_base_definitions[g_str_5fb1ba37e1af06001770e7cf]={
@@ -56,7 +90,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7cf]={
   max=2,
   description='Levy bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba37e1af06001770e7ce",
 }
 g_str_5fb1ba37e1af06001770e7d1='5fb1ba37e1af06001770e7d1'
 g_base_definitions[g_str_5fb1ba37e1af06001770e7d1]={
@@ -66,7 +99,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e7d1]={
   max=2,
   description='Town levies',
   troop_type="Horde",
-  troop_option_id="5fb1ba37e1af06001770e7d0",
 }
 g_str_5fb1b9eae1af060017709e10_camp='5fb1b9eae1af060017709e10_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709e10_camp]={
@@ -106,7 +138,6 @@ g_base_definitions[g_str_5fb1ba14e1af06001770b4a3_general]={
   description='Horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba14e1af06001770b4a2",
 }
 g_str_5fb1ba14e1af06001770b4a3='5fb1ba14e1af06001770b4a3'
 g_base_definitions[g_str_5fb1ba14e1af06001770b4a3]={
@@ -116,7 +147,6 @@ g_base_definitions[g_str_5fb1ba14e1af06001770b4a3]={
   max=1,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba14e1af06001770b4a2",
 }
 g_str_5fb1ba14e1af06001770b4a5='5fb1ba14e1af06001770b4a5'
 g_base_definitions[g_str_5fb1ba14e1af06001770b4a5]={
@@ -126,7 +156,6 @@ g_base_definitions[g_str_5fb1ba14e1af06001770b4a5]={
   max=2,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba14e1af06001770b4a4",
 }
 g_str_5fb1ba14e1af06001770b4a7='5fb1ba14e1af06001770b4a7'
 g_base_definitions[g_str_5fb1ba14e1af06001770b4a7]={
@@ -136,7 +165,6 @@ g_base_definitions[g_str_5fb1ba14e1af06001770b4a7]={
   max=2,
   description='Finnish or Ugrian infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba14e1af06001770b4a6",
 }
 g_str_5fb1ba14e1af06001770b4a8='5fb1ba14e1af06001770b4a8'
 g_base_definitions[g_str_5fb1ba14e1af06001770b4a8]={
@@ -146,7 +174,6 @@ g_base_definitions[g_str_5fb1ba14e1af06001770b4a8]={
   max=2,
   description='Finnish or Ugrian infantry',
   troop_type="Warband",
-  troop_option_id="5fb1ba14e1af06001770b4a6",
 }
 army['5fb1b9eae1af060017709e10']={
   data={

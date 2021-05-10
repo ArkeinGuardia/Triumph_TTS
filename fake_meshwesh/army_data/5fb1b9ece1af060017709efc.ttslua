@@ -6,6 +6,62 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba39e1af06001770ebbe']= {
+  min=0,
+  max=1,
+  description='Light camels',
+}
+g_troop_entry['5fb1ba39e1af06001770ebbf']= {
+  troop_option='5fb1ba39e1af06001770ebbe',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba39e1af06001770ebc1']= {
+  min=3,
+  max=6,
+  description='Khwarij Jund horsemen',
+}
+g_troop_entry['5fb1ba39e1af06001770ebc2']= {
+  troop_option='5fb1ba39e1af06001770ebc1',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba39e1af06001770ebc4']= {
+  min=5,
+  max=10,
+  description='Khawarij swordsmen',
+  core='all',
+}
+g_troop_entry['5fb1ba39e1af06001770ebc5']= {
+  troop_option='5fb1ba39e1af06001770ebc4',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba39e1af06001770ebc7']= {
+  min=1,
+  max=2,
+  description='Muslim bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba39e1af06001770ebc8']= {
+  troop_option='5fb1ba39e1af06001770ebc7',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba39e1af06001770ebca']= {
+  min=0,
+  max=2,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba39e1af06001770ebcb']= {
+  troop_option='5fb1ba39e1af06001770ebca',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba39e1af06001770ebcd']= {
+  min=0,
+  max=1,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba39e1af06001770ebce']= {
+  troop_option='5fb1ba39e1af06001770ebcd',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba39e1af06001770ebbf='5fb1ba39e1af06001770ebbf'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebbf]={
   id=g_str_5fb1ba39e1af06001770ebbf,
@@ -14,7 +70,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebbf]={
   max=1,
   description='Light camels',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba39e1af06001770ebbe",
 }
 g_str_5fb1ba39e1af06001770ebbf_light_camelry='5fb1ba39e1af06001770ebbf_light_camelry'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebbf_light_camelry]={
@@ -25,7 +80,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebbf_light_camelry]={
   description='Light camels\nLight Camelry',
   light_camelry=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba39e1af06001770ebbe",
 }
 g_str_5fb1ba39e1af06001770ebc2_general='5fb1ba39e1af06001770ebc2_general'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebc2_general]={
@@ -36,7 +90,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc2_general]={
   description='Khwarij Jund horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba39e1af06001770ebc1",
 }
 g_str_5fb1ba39e1af06001770ebc2_general_dismounted='5fb1ba39e1af06001770ebc2_general_dismounted'
 g_str_5fb1ba39e1af06001770ebc2_general_mounted='5fb1ba39e1af06001770ebc2_general_mounted'
@@ -50,7 +103,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc2_general_dismounted]={
   dismounted_from=g_str_5fb1ba39e1af06001770ebc2_general_mounted,
   general=true,
   troop_type="Spears",
-  troop_option_id="5fb1ba39e1af06001770ebc1",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770ebc2_general_mounted]={
   id=g_str_5fb1ba39e1af06001770ebc2_general_mounted,
@@ -61,8 +113,8 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc2_general_mounted]={
   points=4,
   dismount_as=g_str_5fb1ba39e1af06001770ebc2_general_dismounted,
   general=true,
+  deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba39e1af06001770ebc1",
 }
 g_str_5fb1ba39e1af06001770ebc2='5fb1ba39e1af06001770ebc2'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebc2]={
@@ -72,7 +124,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc2]={
   max=6,
   description='Khwarij Jund horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba39e1af06001770ebc1",
 }
 g_str_5fb1ba39e1af06001770ebc2_dismounted='5fb1ba39e1af06001770ebc2_dismounted'
 g_str_5fb1ba39e1af06001770ebc2_mounted='5fb1ba39e1af06001770ebc2_mounted'
@@ -85,7 +136,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc2_dismounted]={
   points=4,
   dismounted_from=g_str_5fb1ba39e1af06001770ebc2_mounted,
   troop_type="Spears",
-  troop_option_id="5fb1ba39e1af06001770ebc1",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770ebc2_mounted]={
   id=g_str_5fb1ba39e1af06001770ebc2_mounted,
@@ -95,8 +145,8 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc2_mounted]={
   description='Khwarij Jund horsemen\nDeployment dismounting as Spears',
   points=4,
   dismount_as=g_str_5fb1ba39e1af06001770ebc2_dismounted,
+  deployment_dismounting=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba39e1af06001770ebc1",
 }
 g_str_5fb1ba39e1af06001770ebc5='5fb1ba39e1af06001770ebc5'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebc5]={
@@ -106,7 +156,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc5]={
   max=10,
   description='Khawarij swordsmen',
   troop_type="Warband",
-  troop_option_id="5fb1ba39e1af06001770ebc4",
 }
 g_str_5fb1ba39e1af06001770ebc5_dismounted_mobile_infantry='5fb1ba39e1af06001770ebc5_dismounted_mobile_infantry'
 g_str_5fb1ba39e1af06001770ebc5_mounted_mobile_infantry='5fb1ba39e1af06001770ebc5_mounted_mobile_infantry'
@@ -118,7 +167,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc5_dismounted_mobile_infantry]={
   description='Khawarij swordsmen\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba39e1af06001770ebc5_mounted_mobile_infantry,
   troop_type="Warband",
-  troop_option_id="5fb1ba39e1af06001770ebc4",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770ebc5_mounted_mobile_infantry]={
   id=g_str_5fb1ba39e1af06001770ebc5_mounted_mobile_infantry,
@@ -129,7 +177,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc5_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba39e1af06001770ebc5_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba39e1af06001770ebc4",
 }
 g_str_5fb1ba39e1af06001770ebc8='5fb1ba39e1af06001770ebc8'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebc8]={
@@ -139,7 +186,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc8]={
   max=2,
   description='Muslim bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba39e1af06001770ebc7",
 }
 g_str_5fb1ba39e1af06001770ebc8_dismounted_mobile_infantry='5fb1ba39e1af06001770ebc8_dismounted_mobile_infantry'
 g_str_5fb1ba39e1af06001770ebc8_mounted_mobile_infantry='5fb1ba39e1af06001770ebc8_mounted_mobile_infantry'
@@ -151,7 +197,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc8_dismounted_mobile_infantry]={
   description='Muslim bowmen\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba39e1af06001770ebc8_mounted_mobile_infantry,
   troop_type="Archers",
-  troop_option_id="5fb1ba39e1af06001770ebc7",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770ebc8_mounted_mobile_infantry]={
   id=g_str_5fb1ba39e1af06001770ebc8_mounted_mobile_infantry,
@@ -162,7 +207,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebc8_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba39e1af06001770ebc8_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Archers",
-  troop_option_id="5fb1ba39e1af06001770ebc7",
 }
 g_str_5fb1ba39e1af06001770ebcb='5fb1ba39e1af06001770ebcb'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebcb]={
@@ -172,7 +216,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebcb]={
   max=2,
   description='Javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba39e1af06001770ebca",
 }
 g_str_5fb1ba39e1af06001770ebcb_dismounted_mobile_infantry='5fb1ba39e1af06001770ebcb_dismounted_mobile_infantry'
 g_str_5fb1ba39e1af06001770ebcb_mounted_mobile_infantry='5fb1ba39e1af06001770ebcb_mounted_mobile_infantry'
@@ -184,7 +227,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebcb_dismounted_mobile_infantry]={
   description='Javelinmen\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba39e1af06001770ebcb_mounted_mobile_infantry,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba39e1af06001770ebca",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770ebcb_mounted_mobile_infantry]={
   id=g_str_5fb1ba39e1af06001770ebcb_mounted_mobile_infantry,
@@ -195,7 +237,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebcb_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba39e1af06001770ebcb_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba39e1af06001770ebca",
 }
 g_str_5fb1ba39e1af06001770ebce='5fb1ba39e1af06001770ebce'
 g_base_definitions[g_str_5fb1ba39e1af06001770ebce]={
@@ -205,7 +246,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebce]={
   max=1,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba39e1af06001770ebcd",
 }
 g_str_5fb1ba39e1af06001770ebce_dismounted_mobile_infantry='5fb1ba39e1af06001770ebce_dismounted_mobile_infantry'
 g_str_5fb1ba39e1af06001770ebce_mounted_mobile_infantry='5fb1ba39e1af06001770ebce_mounted_mobile_infantry'
@@ -217,7 +257,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebce_dismounted_mobile_infantry]={
   description='Skirmishing slingers\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba39e1af06001770ebce_mounted_mobile_infantry,
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba39e1af06001770ebcd",
 }
 g_base_definitions[g_str_5fb1ba39e1af06001770ebce_mounted_mobile_infantry]={
   id=g_str_5fb1ba39e1af06001770ebce_mounted_mobile_infantry,
@@ -228,7 +267,6 @@ g_base_definitions[g_str_5fb1ba39e1af06001770ebce_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba39e1af06001770ebce_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba39e1af06001770ebcd",
 }
 g_str_5fb1b9ece1af060017709efc_camp='5fb1b9ece1af060017709efc_camp'
 g_base_definitions[g_str_5fb1b9ece1af060017709efc_camp]={

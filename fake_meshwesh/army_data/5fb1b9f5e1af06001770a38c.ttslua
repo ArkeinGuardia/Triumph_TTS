@@ -6,6 +6,34 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba43e1af06001770fd05']= {
+  min=0,
+  max=2,
+  description='Well equipped or trained infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba43e1af06001770fd06']= {
+  troop_option='5fb1ba43e1af06001770fd05',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba43e1af06001770fd07']= {
+  min=11,
+  max=16,
+  description='Hit-and-run unshielded fighters armed with substantial melee weapons',
+}
+g_troop_entry['5fb1ba43e1af06001770fd08']= {
+  troop_option='5fb1ba43e1af06001770fd07',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba43e1af06001770fd09']= {
+  min=0,
+  max=4,
+  description='Poorly-armed skirmishing foot',
+}
+g_troop_entry['5fb1ba43e1af06001770fd0a']= {
+  troop_option='5fb1ba43e1af06001770fd09',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba43e1af06001770fd06_general='5fb1ba43e1af06001770fd06_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd06_general]={
   id=g_str_5fb1ba43e1af06001770fd06_general,
@@ -15,7 +43,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd06_general]={
   description='Well equipped or trained infantry',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd05",
 }
 g_str_5fb1ba43e1af06001770fd06='5fb1ba43e1af06001770fd06'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd06]={
@@ -25,7 +52,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd06]={
   max=2,
   description='Well equipped or trained infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd05",
 }
 g_str_5fb1ba43e1af06001770fd08='5fb1ba43e1af06001770fd08'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd08]={
@@ -35,7 +61,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd08]={
   max=16,
   description='Hit-and-run unshielded fighters armed with substantial melee weapons',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba43e1af06001770fd07",
 }
 g_str_5fb1ba43e1af06001770fd0a_general='5fb1ba43e1af06001770fd0a_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd0a_general]={
@@ -46,7 +71,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd0a_general]={
   description='Poorly-armed skirmishing foot',
   general=true,
   troop_type="Rabble",
-  troop_option_id="5fb1ba43e1af06001770fd09",
 }
 g_str_5fb1ba43e1af06001770fd0a='5fb1ba43e1af06001770fd0a'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd0a]={
@@ -56,7 +80,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd0a]={
   max=4,
   description='Poorly-armed skirmishing foot',
   troop_type="Rabble",
-  troop_option_id="5fb1ba43e1af06001770fd09",
 }
 g_str_5fb1b9f5e1af06001770a38c_camp='5fb1b9f5e1af06001770a38c_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a38c_camp]={

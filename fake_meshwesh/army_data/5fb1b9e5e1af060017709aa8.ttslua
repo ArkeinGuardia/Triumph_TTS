@@ -6,6 +6,34 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba30e1af06001770da9a']= {
+  min=1,
+  max=3,
+  description='Huscarles',
+  core='all',
+}
+g_troop_entry['5fb1ba30e1af06001770da9b']= {
+  troop_option='5fb1ba30e1af06001770da9a',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba30e1af06001770da9c']= {
+  min=8,
+  max=11,
+  description='Undisciplined marauders',
+}
+g_troop_entry['5fb1ba30e1af06001770da9d']= {
+  troop_option='5fb1ba30e1af06001770da9c',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba30e1af06001770da9e']= {
+  min=0,
+  max=1,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba30e1af06001770da9f']= {
+  troop_option='5fb1ba30e1af06001770da9e',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba30e1af06001770da9b_general='5fb1ba30e1af06001770da9b_general'
 g_base_definitions[g_str_5fb1ba30e1af06001770da9b_general]={
   id=g_str_5fb1ba30e1af06001770da9b_general,
@@ -15,7 +43,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770da9b_general]={
   description='Huscarles',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba30e1af06001770da9a",
 }
 g_str_5fb1ba30e1af06001770da9b='5fb1ba30e1af06001770da9b'
 g_base_definitions[g_str_5fb1ba30e1af06001770da9b]={
@@ -25,7 +52,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770da9b]={
   max=3,
   description='Huscarles',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba30e1af06001770da9a",
 }
 g_str_5fb1ba30e1af06001770da9d='5fb1ba30e1af06001770da9d'
 g_base_definitions[g_str_5fb1ba30e1af06001770da9d]={
@@ -35,7 +61,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770da9d]={
   max=11,
   description='Undisciplined marauders',
   troop_type="Raiders",
-  troop_option_id="5fb1ba30e1af06001770da9c",
 }
 g_str_5fb1ba30e1af06001770da9f='5fb1ba30e1af06001770da9f'
 g_base_definitions[g_str_5fb1ba30e1af06001770da9f]={
@@ -45,7 +70,6 @@ g_base_definitions[g_str_5fb1ba30e1af06001770da9f]={
   max=1,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba30e1af06001770da9e",
 }
 g_str_5fb1b9e5e1af060017709aa8_camp='5fb1b9e5e1af060017709aa8_camp'
 g_base_definitions[g_str_5fb1b9e5e1af060017709aa8_camp]={

@@ -1,144 +1,216 @@
 lu = require('externals/luaunit/luaunit')
-armies = {}
-require('scripts/utilities_lua')
-require('scripts/utilities')
-require('scripts/logic_base_obj')
-require('scripts/logic_dead')
-require('scripts/logic_spawn_army')
-require('scripts/data/data_troops')
+require('flatten')
 
-g_decorations = {}
 
-function test_all_bases_are_counted()
-  local base1_obj = { getName = function() return "base Archers #48" end, getGUID = function() return "ABCDE" end }
-  local base2_obj = { getName = function() return "base Horde #49" end, getGUID = function() return "A2345" end  }
-  local bases = {base1_obj, base2_obj}
-  local actual = calculate_dead_points(bases)
-  lu.assertEquals(actual, 6)
+function test_get_army_builder_points_for_base_defintions_uses_points_from_tool_tip()
+  local def = g_base_definitions[g_str_5fb1ba1ee1af06001770bd94] -- a rabble
+  local actual = get_army_builder_points_for_base_definitions({def})
+  lu.assertEquals(actual, 2)
 end
 
-function test_camp_is_worth_points_passed_in()
-  local base_obj = { getName = function() return "base Camp #48" end, getGUID = function() return "ABCDE" end  }
-  local actual = get_points_for_base(base_obj, 32)
-  lu.assertEquals(actual, 32)
+function test_get_victory_points_for_base_defintions_uses_points_from_tool_tip()
+  local def = g_base_definitions[g_str_5fb1ba1ee1af06001770bd94] -- a rabble
+  local actual = get_victory_points_for_base_definitions({def})
+  lu.assertEquals(actual, 2)
 end
 
-function test_camp_is_worth_eight_points_of_casualties()
-  local base_obj = { getName = function() return "base Camp #48" end, getGUID = function() return "ABCDE" end  }
-  local bases = {base_obj}
-  local actual = calculate_dead_points(bases)
-  lu.assertEquals(actual, 8)
+function test_get_army_builder_points_for_base_defintion_uses_max_for_dismounting()
+  local def = g_base_definitions[g_str_5fb1ba2fe1af06001770d99d_general_mounted]
+  local actual = get_army_builder_points_for_base_definition(def)
+  lu.assertEquals(actual, 4)
 end
 
-function test_camp_is_worth_zero_points_in_army_builder()
-  local base_obj = { getName = function() return "base Camp #48" end, getGUID = function() return "ABCDE" end  }
-  local bases = {base_obj}
-  local actual = calculate_army_builder_points(bases)
-  lu.assertEquals(actual, 0)
-end
 
--- Fortified camp battle card
-function test_fortified_camp_is_worth_nine_points_of_casualties()
-  local base_obj = { getName = function() return "base Fortified Camp #48" end, getGUID = function() return "ABCDE" end  }
-  local bases = {base_obj}
-  local actual = calculate_dead_points(bases)
+function test_get_army_builder_points_for_base_defintion_adds_1_point_for_any_deployment_dismounting()
+  local def1 = g_base_definitions[g_str_5fb1ba2fe1af06001770d99d_general_mounted]
+  local def2 = g_base_definitions[g_str_5fb1ba2fe1af06001770d99d_mounted]
+  local actual = get_army_builder_points_for_base_definitions({def1, def2})
   lu.assertEquals(actual, 9)
 end
 
--- Fortified camp battle card
-function test_fortified_camp_is_worth_one_points_in_army_builder()
-  local base_obj = { getName = function() return "base Fortified Camp #48" end, getGUID = function() return "ABCDE" end  }
-  local bases = {base_obj}
-  local actual = calculate_army_builder_points(bases)
+function test_get_army_builder_points_for_base_defintion_adds_2_points_for_any_mid_battle_dismounting()
+  local def1 = g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_general_mounted]
+  local def2 = g_base_definitions[g_str_5fb1ba31e1af06001770dbd0_general_mounted]
+  local actual = get_army_builder_points_for_base_definitions({def1, def2})
+  lu.assertEquals(actual, 10)
+end
+
+function test_get_victory_points_for_base_defintion_uses_higher_score_mid_battle_dismounting_mounted()
+  -- setup
+  local def1 = { dismount_as="def2", mid_battle_dismounting=true, troop_type="Bad Horse"}
+  local def2 = { dismounted_from="def2", troop_type = "Elite Foot"}
+  g_base_definitions["def1"] = def1
+  g_base_definitions["def2"] = def2
+
+  -- exercise
+  local actual = get_victory_points_for_base_definitions({def1})
+  -- validate
+  lu.assertEquals(actual, 4)
+
+  -- cleanup
+  g_base_definitions["def1"] = nil
+  g_base_definitions["def2"] = nil
+end
+
+function test_get_victory_points_for_base_defintion_uses_higher_score_mid_battle_dismounting_dismounted()
+  -- setup
+  local def1 = { dismount_as="def2", mid_battle_dismounting=true, troop_type="Knights"}
+  local def2 = { dismounted_from="def2", dismounted_from="def1", troop_type = "Horde"}
+  g_base_definitions["def1"] = def1
+  g_base_definitions["def2"] = def2
+
+  -- exercise
+  local actual = get_victory_points_for_base_definitions({def2})
+  -- validate
+  lu.assertEquals(actual, 4)
+
+  -- cleanup
+  g_base_definitions["def1"] = nil
+  g_base_definitions["def2"] = nil
+end
+
+
+function test_get_army_builder_points_for_charging_camelry_1_point_less_than_normal()
+  local def = g_base_definitions[g_str_5fb1ba32e1af06001770de42_charging_camelry]
+  local actual = get_army_builder_points_for_base_definition(def)
+  -- knights normally cost 4 points
+  lu.assertEquals(actual, 3)
+end
+
+function test_get_victory_points_for_charging_camelry_3()
+  local def = g_base_definitions[g_str_5fb1ba32e1af06001770de42_charging_camelry]
+  local actual = get_victory_points_for_base_definition(def)
+  -- knights normally cost 4 points
+  lu.assertEquals(actual, 3)
+end
+
+function test_get_army_builder_points_for_armored_camelry_1_point_less_than_normal()
+  local def = g_base_definitions[g_str_5fb1ba2ae1af06001770cf87_armored_camelry]
+  local actual = get_army_builder_points_for_base_definition(def)
+  -- Cataphracts normally cost 4 points
+  lu.assertEquals(actual, 3)
+end
+
+function test_get_victory_points_for_armored_camelry_3()
+  local def = g_base_definitions[g_str_5fb1ba2ae1af06001770cf87_armored_camelry]
+  local actual = get_victory_points_for_base_definition(def)
+  -- Cataphracts normally cost 3 points
+  lu.assertEquals(actual, 3)
+end
+
+function test_get_army_builder_points_for_1_mobile_infantry()
+  local def = g_base_definitions[g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- same costs as normal
+  lu.assertEquals(actual, 2)
+end
+
+function test_get_army_builder_points_for_3_mobile_infantry()
+  local def = g_base_definitions[g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry]
+  local actual = get_army_builder_points_for_base_definitions({def,def,def})
+  -- 1 extra for more than 1 mobile infranty
+  lu.assertEquals(actual, 7)
+end
+
+function test_get_army_builder_points_for_2_mobile_infantry()
+  local def = g_base_definitions[g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry]
+  local actual = get_army_builder_points_for_base_definitions({def,def})
+  -- 1 extra for more than 1 mobile infranty
+  lu.assertEquals(actual, 5)
+end
+
+function test_get_victory_points_for_mobile_infantry_mounted()
+  local def = g_base_definitions[g_str_5fb1ba22e1af06001770c30b_mounted_mobile_infantry]
+  local actual = get_victory_points_for_base_definitions({def})
+  -- Bow levy
+  lu.assertEquals(actual, 2)
+end
+
+function test_get_victory_points_for_mobile_infantry_dismounted()
+  local def = g_base_definitions[g_str_5fb1ba22e1af06001770c30b_dismounted_mobile_infantry]
+  local actual = get_victory_points_for_base_definitions({def})
+  -- Bow levy
+  lu.assertEquals(actual, 2)
+end
+
+function test_get_army_builder_points_plaustrella_one_point_per_stand()
+  local def= g_base_definitions[g_str_5fb1ba35e1af06001770e449_plaustrella]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- heavy foot are normally 3
+  lu.assertEquals(actual, 4)
+end
+
+function test_get_army_builder_points_plaustrella_one_point_per_stand()
+  local def= g_base_definitions[g_str_5fb1ba35e1af06001770e449_plaustrella]
+  local actual = get_victory_points_for_base_definitions({def})
+  -- heavy foot are normally 3
+  lu.assertEquals(actual, 4)
+end
+
+function test_get_army_builder_points_camp()
+  local def= g_base_definitions[g_str_5fb1b9eae1af060017709e10_camp]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  lu.assertEquals(actual, 0)
+end
+
+function test_get_victory_points_camp()
+  local def= g_base_definitions[g_str_5fb1b9eae1af060017709e10_camp]
+  local actual = get_victory_points_for_base_definitions({def})
+  lu.assertEquals(actual, 8)
+end
+
+function test_get_army_builder_points_fortified_camp()
+  local def= g_base_definitions[g_str_5fb1b9eae1af060017709e10_camp_fortified]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- camps are normally 0
   lu.assertEquals(actual, 1)
 end
 
-function test_base_definition_overrides_points(base_obj)
-  -- setup
-  local old_fn = get_base_definition_from_base_obj
-  get_base_definition_from_base_obj = function(base_obj)
-    return {points=77}
-  end
-
-  -- exercise
-  local base_obj = { getName = function() return "base Archer* #48" end, getGUID = function() return "ABCDE" end  }
-  local bases = {base_obj}
-  local actual = calculate_army_builder_points(bases)
-  local bases = {base_obj}
-  lu.assertEquals(actual, 77)
-
-  -- cleanup
-  get_base_definition_from_base_obj = old_fn
+function test_get_victory_points_fortified_camp()
+  local def= g_base_definitions[g_str_5fb1b9eae1af060017709e10_camp_fortified]
+  local actual = get_victory_points_for_base_definitions({def})
+  -- no extra VP for forified camp
+  lu.assertEquals(actual, 8)
 end
 
-function test_algorithm_used_if_base_definition_does_not_define_points(base_obj)
-  -- setup
-  local old_fn = get_base_definition_from_base_obj
-  get_base_definition_from_base_obj = function(base_obj)
-    return {}
-  end
-
-  -- exercise
-  local base_obj = { getName = function() return "base Archer* #48" end, getGUID = function() return "ABCDE" end  }
-  local bases = {base_obj}
-  local actual = calculate_army_builder_points(bases)
-  local bases = {base_obj}
-  lu.assertEquals(actual, 3)
-
-  -- cleanup
-  get_base_definition_from_base_obj = old_fn
+function test_get_army_builder_points_pack_train()
+  local def= g_base_definitions[g_str_5fb1b9d9e1af0600177093ad_camp_pack_train]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- camps are normally 0
+  lu.assertEquals(actual, 1)
 end
 
-function test_points_for_base_are_not_rounded()
-  -- setup
-  local old_fn = get_base_definition_from_base_obj
-  get_base_definition_from_base_obj = function(base_obj)
-    return {points=4.5}
-  end
-
-  -- exercise
-  local base_obj = { getName = function() return "base Archer* #48" end, getGUID = function() return "ABCDE" end  }
-  local actual = get_points_for_base(base_obj, 32)
-  lu.assertEquals(actual, 4.5)
-
-  -- cleanup
-  get_base_definition_from_base_obj = old_fn
+function test_get_victory_points_pack_train()
+  local def= g_base_definitions[g_str_5fb1b9d9e1af0600177093ad_camp]
+  local actual = get_victory_points_for_base_definitions({def})
+  lu.assertEquals(actual, 8)
 end
 
-function test_total_points_are_not_rounded_up_for_army_builder()
-  -- setup
-  local old_fn = get_base_definition_from_base_obj
-  get_base_definition_from_base_obj = function(base_obj)
-    return {points=4.5}
-  end
-
-  -- exercise
-  local base_obj = { getName = function() return "base Archer* #48" end, getGUID = function() return "ABCDE" end  }
-  local bases = {base_obj}
-  local actual = calculate_army_builder_points(bases)
-  local bases = {base_obj}
-  lu.assertEquals(actual, 4.5)
-
-  -- cleanup
-  get_base_definition_from_base_obj = old_fn
+function test_get_army_builder_points_standard_wagon()
+  local def= g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- camps are normally 0, and standard wagons have no extra cost.
+  lu.assertEquals(actual, 0)
 end
 
-function test_total_points_are_rounded_up_for_casualties()
-  -- setup
-  local old_fn = get_base_definition_from_base_obj
-  get_base_definition_from_base_obj = function(base_obj)
-    return {points=4.5}
-  end
+function test_get_victory_points_standard_wagon()
+  local def= g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon]
+  local actual = get_victory_points_for_base_definitions({def})
+  lu.assertEquals(actual, 8)
+end
 
-  -- exercise
-  local base_obj = { getName = function() return "base Archer* #48" end, getGUID = function() return "ABCDE" end  }
-  local bases = {base_obj}
-  local actual = calculate_dead_points(bases)
-  local bases = {base_obj}
-  lu.assertEquals(actual, 5)
+function test_get_army_builder_points_elephant_screen()
+  local def= g_base_definitions[g_str_5fb1ba29e1af06001770ce82_elephant_screen]
+  local actual = get_army_builder_points_for_base_definitions({def,def,def})
+  -- An extra two points for the elephant screen
+  lu.assertEquals(actual, 14)
+end
 
-  -- cleanup
-  get_base_definition_from_base_obj = old_fn
+function test_get_victory_points_elephant_screen()
+  local def= g_base_definitions[g_str_5fb1ba29e1af06001770ce82_elephant_screen]
+  local actual = get_victory_points_for_base_definitions({def})
+  -- No points for the elephant screen
+  lu.assertEquals(actual, 4)
 end
 
 os.exit( lu.LuaUnit.run() )

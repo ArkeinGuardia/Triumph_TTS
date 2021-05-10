@@ -6,6 +6,83 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba26e1af06001770c811']= {
+  min=1,
+  max=2,
+  description='Numidian, Spanish, Poeni or Libyan horsemen',
+}
+g_troop_entry['5fb1ba26e1af06001770c812']= {
+  troop_option='5fb1ba26e1af06001770c811',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba26e1af06001770c813']= {
+  min=0,
+  max=2,
+  description='Gallic horsemen',
+}
+g_troop_entry['5fb1ba26e1af06001770c814']= {
+  troop_option='5fb1ba26e1af06001770c813',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba26e1af06001770c815']= {
+  min=2,
+  max=4,
+  description='Hannibal\'s veterans',
+  core='all',
+}
+g_troop_entry['5fb1ba26e1af06001770c816']= {
+  troop_option='5fb1ba26e1af06001770c815',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba26e1af06001770c818']= {
+  min=4,
+  max=12,
+  description='Libyan and Poeni citizen infantry armed with spears',
+  core='all',
+}
+g_troop_entry['5fb1ba26e1af06001770c819']= {
+  troop_option='5fb1ba26e1af06001770c818',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba26e1af06001770c81a']= {
+  min=1,
+  max=3,
+  description='Libyan, Moorish or Numidian javelinmen',
+}
+g_troop_entry['5fb1ba26e1af06001770c81b']= {
+  troop_option='5fb1ba26e1af06001770c81a',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba26e1af06001770c81c']= {
+  min=0,
+  max=1,
+  description='Bolt-shooters',
+  core='all',
+}
+g_troop_entry['5fb1ba26e1af06001770c81d']= {
+  troop_option='5fb1ba26e1af06001770c81c',
+  troopTypeCode='ART',
+}
+g_troop_option['5fb1ba26e1af06001770c81e']= {
+  min=0,
+  max=2,
+  description='Celtiberian mercenary infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba26e1af06001770c81f']= {
+  troop_option='5fb1ba26e1af06001770c81e',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba26e1af06001770c820']= {
+  min=0,
+  max=2,
+  description='Ligurian infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba26e1af06001770c821']= {
+  troop_option='5fb1ba26e1af06001770c820',
+  troopTypeCode='RDR',
+}
 g_str_5fb1ba26e1af06001770c812_general='5fb1ba26e1af06001770c812_general'
 g_base_definitions[g_str_5fb1ba26e1af06001770c812_general]={
   id=g_str_5fb1ba26e1af06001770c812_general,
@@ -15,7 +92,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c812_general]={
   description='Numidian, Spanish, Poeni or Libyan horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba26e1af06001770c811",
 }
 g_str_5fb1ba26e1af06001770c812='5fb1ba26e1af06001770c812'
 g_base_definitions[g_str_5fb1ba26e1af06001770c812]={
@@ -25,7 +101,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c812]={
   max=2,
   description='Numidian, Spanish, Poeni or Libyan horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba26e1af06001770c811",
 }
 g_str_5fb1ba26e1af06001770c814_general='5fb1ba26e1af06001770c814_general'
 g_base_definitions[g_str_5fb1ba26e1af06001770c814_general]={
@@ -36,7 +111,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c814_general]={
   description='Gallic horsemen',
   general=true,
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba26e1af06001770c813",
 }
 g_str_5fb1ba26e1af06001770c814='5fb1ba26e1af06001770c814'
 g_base_definitions[g_str_5fb1ba26e1af06001770c814]={
@@ -46,7 +120,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c814]={
   max=2,
   description='Gallic horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba26e1af06001770c813",
 }
 g_str_5fb1ba26e1af06001770c816='5fb1ba26e1af06001770c816'
 g_base_definitions[g_str_5fb1ba26e1af06001770c816]={
@@ -56,7 +129,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c816]={
   max=4,
   description='Hannibal\'s veterans',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba26e1af06001770c815",
 }
 g_str_5fb1ba26e1af06001770c819='5fb1ba26e1af06001770c819'
 g_base_definitions[g_str_5fb1ba26e1af06001770c819]={
@@ -66,7 +138,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c819]={
   max=12,
   description='Libyan and Poeni citizen infantry armed with spears',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba26e1af06001770c818",
 }
 g_str_5fb1ba26e1af06001770c81b='5fb1ba26e1af06001770c81b'
 g_base_definitions[g_str_5fb1ba26e1af06001770c81b]={
@@ -76,7 +147,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c81b]={
   max=3,
   description='Libyan, Moorish or Numidian javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba26e1af06001770c81a",
 }
 g_str_5fb1ba26e1af06001770c81d='5fb1ba26e1af06001770c81d'
 g_base_definitions[g_str_5fb1ba26e1af06001770c81d]={
@@ -86,7 +156,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c81d]={
   max=1,
   description='Bolt-shooters',
   troop_type="Artillery",
-  troop_option_id="5fb1ba26e1af06001770c81c",
 }
 g_str_5fb1ba26e1af06001770c81f='5fb1ba26e1af06001770c81f'
 g_base_definitions[g_str_5fb1ba26e1af06001770c81f]={
@@ -96,7 +165,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c81f]={
   max=2,
   description='Celtiberian mercenary infantry',
   troop_type="Raiders",
-  troop_option_id="5fb1ba26e1af06001770c81e",
 }
 g_str_5fb1ba26e1af06001770c821='5fb1ba26e1af06001770c821'
 g_base_definitions[g_str_5fb1ba26e1af06001770c821]={
@@ -106,7 +174,6 @@ g_base_definitions[g_str_5fb1ba26e1af06001770c821]={
   max=2,
   description='Ligurian infantry',
   troop_type="Raiders",
-  troop_option_id="5fb1ba26e1af06001770c820",
 }
 g_str_5fb1b9dce1af060017709573_camp='5fb1b9dce1af060017709573_camp'
 g_base_definitions[g_str_5fb1b9dce1af060017709573_camp]={

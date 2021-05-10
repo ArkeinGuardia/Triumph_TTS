@@ -6,6 +6,93 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba21e1af06001770c11f']= {
+  min=2,
+  max=4,
+  description='2-wheeled mobile battle platforms with champions who dismount to fight on foot',
+  core='all',
+}
+g_troop_entry['5fb1ba21e1af06001770c120']= {
+  troop_option='5fb1ba21e1af06001770c11f',
+  troopTypeCode='BTX',
+}
+g_troop_option['5fb1ba21e1af06001770c121']= {
+  min=0,
+  max=1,
+  description='Mounted fighters',
+}
+g_troop_entry['5fb1ba21e1af06001770c122']= {
+  troop_option='5fb1ba21e1af06001770c121',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba21e1af06001770c123']= {
+  min=4,
+  max=12,
+  description='Spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba21e1af06001770c124']= {
+  troop_option='5fb1ba21e1af06001770c123',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba21e1af06001770c125']= {
+  min=1,
+  max=4,
+  description='Javelinmen with or without shields',
+}
+g_troop_entry['5fb1ba21e1af06001770c126']= {
+  troop_option='5fb1ba21e1af06001770c125',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba21e1af06001770c127']= {
+  troop_option='5fb1ba21e1af06001770c125',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba21e1af06001770c128']= {
+  min=0,
+  max=2,
+  description='Slingers',
+}
+g_troop_entry['5fb1ba21e1af06001770c129']= {
+  troop_option='5fb1ba21e1af06001770c128',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba21e1af06001770c12a']= {
+  min=1,
+  max=2,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba21e1af06001770c12b']= {
+  troop_option='5fb1ba21e1af06001770c12a',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba21e1af06001770c12c']= {
+  min=0,
+  max=1,
+  description='Myrmidons',
+  note='Achaians',
+  core='all',
+}
+g_troop_entry['5fb1ba21e1af06001770c12d']= {
+  troop_option='5fb1ba21e1af06001770c12c',
+  troopTypeCode='WRR',
+}
+g_troop_entry['5fb1ba21e1af06001770c12e']= {
+  troop_option='5fb1ba21e1af06001770c12c',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba21e1af06001770c12f']= {
+  min=0,
+  max=1,
+  description='Lukka warriors',
+  note='Trojans',
+  core='all',
+}
+g_troop_entry['5fb1ba21e1af06001770c130']= {
+  troop_option='5fb1ba21e1af06001770c12f',
+  troopTypeCode='RDR',
+}
 g_str_5fb1ba21e1af06001770c120_general='5fb1ba21e1af06001770c120_general'
 g_base_definitions[g_str_5fb1ba21e1af06001770c120_general]={
   id=g_str_5fb1ba21e1af06001770c120_general,
@@ -15,7 +102,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c120_general]={
   description='2-wheeled mobile battle platforms with champions who dismount to fight on foot',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba21e1af06001770c11f",
 }
 g_str_5fb1ba21e1af06001770c120='5fb1ba21e1af06001770c120'
 g_base_definitions[g_str_5fb1ba21e1af06001770c120]={
@@ -25,7 +111,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c120]={
   max=4,
   description='2-wheeled mobile battle platforms with champions who dismount to fight on foot',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba21e1af06001770c11f",
 }
 g_str_5fb1ba21e1af06001770c122='5fb1ba21e1af06001770c122'
 g_base_definitions[g_str_5fb1ba21e1af06001770c122]={
@@ -35,7 +120,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c122]={
   max=1,
   description='Mounted fighters',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba21e1af06001770c121",
 }
 g_str_5fb1ba21e1af06001770c124='5fb1ba21e1af06001770c124'
 g_base_definitions[g_str_5fb1ba21e1af06001770c124]={
@@ -45,7 +129,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c124]={
   max=12,
   description='Spearmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba21e1af06001770c123",
 }
 g_str_5fb1ba21e1af06001770c126='5fb1ba21e1af06001770c126'
 g_base_definitions[g_str_5fb1ba21e1af06001770c126]={
@@ -55,7 +138,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c126]={
   max=4,
   description='Javelinmen with or without shields',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba21e1af06001770c125",
 }
 g_str_5fb1ba21e1af06001770c127='5fb1ba21e1af06001770c127'
 g_base_definitions[g_str_5fb1ba21e1af06001770c127]={
@@ -65,7 +147,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c127]={
   max=4,
   description='Javelinmen with or without shields',
   troop_type="Rabble",
-  troop_option_id="5fb1ba21e1af06001770c125",
 }
 g_str_5fb1ba21e1af06001770c129='5fb1ba21e1af06001770c129'
 g_base_definitions[g_str_5fb1ba21e1af06001770c129]={
@@ -75,7 +156,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c129]={
   max=2,
   description='Slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba21e1af06001770c128",
 }
 g_str_5fb1ba21e1af06001770c12b='5fb1ba21e1af06001770c12b'
 g_base_definitions[g_str_5fb1ba21e1af06001770c12b]={
@@ -85,7 +165,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c12b]={
   max=2,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba21e1af06001770c12a",
 }
 g_str_5fb1ba21e1af06001770c12d='5fb1ba21e1af06001770c12d'
 g_base_definitions[g_str_5fb1ba21e1af06001770c12d]={
@@ -95,7 +174,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c12d]={
   max=1,
   description='Myrmidons',
   troop_type="Warriors",
-  troop_option_id="5fb1ba21e1af06001770c12c",
 }
 g_str_5fb1ba21e1af06001770c12e='5fb1ba21e1af06001770c12e'
 g_base_definitions[g_str_5fb1ba21e1af06001770c12e]={
@@ -105,7 +183,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c12e]={
   max=1,
   description='Myrmidons',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba21e1af06001770c12c",
 }
 g_str_5fb1ba21e1af06001770c130='5fb1ba21e1af06001770c130'
 g_base_definitions[g_str_5fb1ba21e1af06001770c130]={
@@ -115,7 +192,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c130]={
   max=1,
   description='Lukka warriors',
   troop_type="Raiders",
-  troop_option_id="5fb1ba21e1af06001770c12f",
 }
 g_str_5fb1b9dae1af0600177093bb_camp='5fb1b9dae1af0600177093bb_camp'
 g_base_definitions[g_str_5fb1b9dae1af0600177093bb_camp]={
@@ -145,7 +221,6 @@ g_base_definitions[g_str_5fb1ba07e1af06001770a629_general]={
   description='Pylian battle platforms',
   general=true,
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba07e1af06001770a628",
 }
 g_str_5fb1ba07e1af06001770a629='5fb1ba07e1af06001770a629'
 g_base_definitions[g_str_5fb1ba07e1af06001770a629]={
@@ -155,7 +230,6 @@ g_base_definitions[g_str_5fb1ba07e1af06001770a629]={
   max=1,
   description='Pylian battle platforms',
   troop_type="Battle Taxi",
-  troop_option_id="5fb1ba07e1af06001770a628",
 }
 g_str_5fb1ba07e1af06001770a62b='5fb1ba07e1af06001770a62b'
 g_base_definitions[g_str_5fb1ba07e1af06001770a62b]={
@@ -165,7 +239,6 @@ g_base_definitions[g_str_5fb1ba07e1af06001770a62b]={
   max=2,
   description='Pylian spearmen',
   troop_type="Pikes",
-  troop_option_id="5fb1ba07e1af06001770a62a",
 }
 g_str_5fb1ba07e1af06001770a62d='5fb1ba07e1af06001770a62d'
 g_base_definitions[g_str_5fb1ba07e1af06001770a62d]={
@@ -175,7 +248,6 @@ g_base_definitions[g_str_5fb1ba07e1af06001770a62d]={
   max=1,
   description='Pylian bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba07e1af06001770a62c",
 }
 army['5fb1b9dae1af0600177093bb']={
   data={

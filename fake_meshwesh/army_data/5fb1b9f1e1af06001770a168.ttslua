@@ -6,6 +6,52 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3ee1af06001770f558']= {
+  min=1,
+  max=4,
+  description='Nobles in 3-man 4-horse chariots',
+}
+g_troop_entry['5fb1ba3ee1af06001770f559']= {
+  troop_option='5fb1ba3ee1af06001770f558',
+  troopTypeCode='CHT',
+}
+g_troop_option['5fb1ba3ee1af06001770f55a']= {
+  min=6,
+  max=13,
+  description='Infantry armed with long spear or long dagger-axe, or having discarded such weapons to charge with the sword',
+  core='all',
+}
+g_troop_entry['5fb1ba3ee1af06001770f55b']= {
+  troop_option='5fb1ba3ee1af06001770f55a',
+  troopTypeCode='LSP',
+}
+g_troop_entry['5fb1ba3ee1af06001770f55c']= {
+  troop_option='5fb1ba3ee1af06001770f55a',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba3ee1af06001770f55e']= {
+  min=0,
+  max=1,
+  description='Palace guardsmen',
+}
+g_troop_entry['5fb1ba3ee1af06001770f55f']= {
+  troop_option='5fb1ba3ee1af06001770f55e',
+  troopTypeCode='RDR',
+}
+g_troop_entry['5fb1ba3ee1af06001770f560']= {
+  troop_option='5fb1ba3ee1af06001770f55e',
+  troopTypeCode='EFT',
+}
+g_troop_option['5fb1ba3ee1af06001770f562']= {
+  min=2,
+  max=6,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba3ee1af06001770f563']= {
+  troop_option='5fb1ba3ee1af06001770f562',
+  troopTypeCode='BLV',
+}
 g_str_5fb1ba3ee1af06001770f559_general='5fb1ba3ee1af06001770f559_general'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f559_general]={
   id=g_str_5fb1ba3ee1af06001770f559_general,
@@ -15,7 +61,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f559_general]={
   description='Nobles in 3-man 4-horse chariots',
   general=true,
   troop_type="Chariots",
-  troop_option_id="5fb1ba3ee1af06001770f558",
 }
 g_str_5fb1ba3ee1af06001770f559='5fb1ba3ee1af06001770f559'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f559]={
@@ -25,7 +70,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f559]={
   max=4,
   description='Nobles in 3-man 4-horse chariots',
   troop_type="Chariots",
-  troop_option_id="5fb1ba3ee1af06001770f558",
 }
 g_str_5fb1ba3ee1af06001770f55b='5fb1ba3ee1af06001770f55b'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f55b]={
@@ -35,7 +79,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f55b]={
   max=13,
   description='Infantry armed with long spear or long dagger-axe, or having discarded such weapons to charge with the sword',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba3ee1af06001770f55a",
 }
 g_str_5fb1ba3ee1af06001770f55c='5fb1ba3ee1af06001770f55c'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f55c]={
@@ -45,7 +88,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f55c]={
   max=13,
   description='Infantry armed with long spear or long dagger-axe, or having discarded such weapons to charge with the sword',
   troop_type="Raiders",
-  troop_option_id="5fb1ba3ee1af06001770f55a",
 }
 g_str_5fb1ba3ee1af06001770f55f='5fb1ba3ee1af06001770f55f'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f55f]={
@@ -55,7 +97,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f55f]={
   max=1,
   description='Palace guardsmen',
   troop_type="Raiders",
-  troop_option_id="5fb1ba3ee1af06001770f55e",
 }
 g_str_5fb1ba3ee1af06001770f560='5fb1ba3ee1af06001770f560'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f560]={
@@ -65,7 +106,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f560]={
   max=1,
   description='Palace guardsmen',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba3ee1af06001770f55e",
 }
 g_str_5fb1ba3ee1af06001770f563='5fb1ba3ee1af06001770f563'
 g_base_definitions[g_str_5fb1ba3ee1af06001770f563]={
@@ -75,7 +115,6 @@ g_base_definitions[g_str_5fb1ba3ee1af06001770f563]={
   max=6,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3ee1af06001770f562",
 }
 g_str_5fb1b9f1e1af06001770a168_camp='5fb1b9f1e1af06001770a168_camp'
 g_base_definitions[g_str_5fb1b9f1e1af06001770a168_camp]={

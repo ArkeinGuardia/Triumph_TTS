@@ -6,6 +6,83 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba28e1af06001770cc6f']= {
+  min=1,
+  max=1,
+  description='Achaean horsemen',
+}
+g_troop_entry['5fb1ba28e1af06001770cc70']= {
+  troop_option='5fb1ba28e1af06001770cc6f',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba28e1af06001770cc71']= {
+  min=0,
+  max=1,
+  description='Tarentine-style horsemen',
+}
+g_troop_entry['5fb1ba28e1af06001770cc72']= {
+  troop_option='5fb1ba28e1af06001770cc71',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba28e1af06001770cc73']= {
+  min=0,
+  max=1,
+  description='Thracian horsemen',
+}
+g_troop_entry['5fb1ba28e1af06001770cc74']= {
+  troop_option='5fb1ba28e1af06001770cc73',
+  troopTypeCode='JCV',
+}
+g_troop_option['5fb1ba28e1af06001770cc75']= {
+  min=0,
+  max=4,
+  description='Mercenary thureophoroi',
+}
+g_troop_entry['5fb1ba28e1af06001770cc76']= {
+  troop_option='5fb1ba28e1af06001770cc75',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba28e1af06001770cc77']= {
+  min=4,
+  max=13,
+  description='Phalanx',
+  core='all',
+}
+g_troop_entry['5fb1ba28e1af06001770cc78']= {
+  troop_option='5fb1ba28e1af06001770cc77',
+  troopTypeCode='PIK',
+}
+g_troop_option['5fb1ba28e1af06001770cc79']= {
+  min=0,
+  max=2,
+  description='Illyrian javelinmen',
+}
+g_troop_entry['5fb1ba28e1af06001770cc7a']= {
+  troop_option='5fb1ba28e1af06001770cc79',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba28e1af06001770cc7b']= {
+  min=1,
+  max=2,
+  description='Skirmishing bowmen and slingers',
+}
+g_troop_entry['5fb1ba28e1af06001770cc7c']= {
+  troop_option='5fb1ba28e1af06001770cc7b',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba28e1af06001770cc7d']= {
+  min=0,
+  max=3,
+  description='Javelinmen',
+}
+g_troop_entry['5fb1ba28e1af06001770cc7e']= {
+  troop_option='5fb1ba28e1af06001770cc7d',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba28e1af06001770cc7f']= {
+  troop_option='5fb1ba28e1af06001770cc7d',
+  troopTypeCode='RBL',
+}
 g_str_5fb1ba28e1af06001770cc70_general='5fb1ba28e1af06001770cc70_general'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc70_general]={
   id=g_str_5fb1ba28e1af06001770cc70_general,
@@ -15,7 +92,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc70_general]={
   description='Achaean horsemen',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba28e1af06001770cc6f",
 }
 g_str_5fb1ba28e1af06001770cc70='5fb1ba28e1af06001770cc70'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc70]={
@@ -25,7 +101,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc70]={
   max=1,
   description='Achaean horsemen',
   troop_type="Knights",
-  troop_option_id="5fb1ba28e1af06001770cc6f",
 }
 g_str_5fb1ba28e1af06001770cc72='5fb1ba28e1af06001770cc72'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc72]={
@@ -35,7 +110,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc72]={
   max=1,
   description='Tarentine-style horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770cc71",
 }
 g_str_5fb1ba28e1af06001770cc74='5fb1ba28e1af06001770cc74'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc74]={
@@ -45,7 +119,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc74]={
   max=1,
   description='Thracian horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba28e1af06001770cc73",
 }
 g_str_5fb1ba28e1af06001770cc76='5fb1ba28e1af06001770cc76'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc76]={
@@ -55,7 +128,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc76]={
   max=4,
   description='Mercenary thureophoroi',
   troop_type="Raiders",
-  troop_option_id="5fb1ba28e1af06001770cc75",
 }
 g_str_5fb1ba28e1af06001770cc78='5fb1ba28e1af06001770cc78'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc78]={
@@ -65,7 +137,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc78]={
   max=13,
   description='Phalanx',
   troop_type="Pikes",
-  troop_option_id="5fb1ba28e1af06001770cc77",
 }
 g_str_5fb1ba28e1af06001770cc7a='5fb1ba28e1af06001770cc7a'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc7a]={
@@ -75,7 +146,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc7a]={
   max=2,
   description='Illyrian javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770cc79",
 }
 g_str_5fb1ba28e1af06001770cc7c='5fb1ba28e1af06001770cc7c'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc7c]={
@@ -85,7 +155,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc7c]={
   max=2,
   description='Skirmishing bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba28e1af06001770cc7b",
 }
 g_str_5fb1ba28e1af06001770cc7e='5fb1ba28e1af06001770cc7e'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc7e]={
@@ -95,7 +164,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc7e]={
   max=3,
   description='Javelinmen',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba28e1af06001770cc7d",
 }
 g_str_5fb1ba28e1af06001770cc7f='5fb1ba28e1af06001770cc7f'
 g_base_definitions[g_str_5fb1ba28e1af06001770cc7f]={
@@ -105,7 +173,6 @@ g_base_definitions[g_str_5fb1ba28e1af06001770cc7f]={
   max=3,
   description='Javelinmen',
   troop_type="Rabble",
-  troop_option_id="5fb1ba28e1af06001770cc7d",
 }
 g_str_5fb1b9dee1af060017709698_camp='5fb1b9dee1af060017709698_camp'
 g_base_definitions[g_str_5fb1b9dee1af060017709698_camp]={

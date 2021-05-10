@@ -6,6 +6,25 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba44e1af06001770fe72']= {
+  min=10,
+  max=14,
+  description='Infantry armed with long thrusting spears',
+  core='all',
+}
+g_troop_entry['5fb1ba44e1af06001770fe73']= {
+  troop_option='5fb1ba44e1af06001770fe72',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba44e1af06001770fe74']= {
+  min=2,
+  max=6,
+  description='Skirmishing slingers',
+}
+g_troop_entry['5fb1ba44e1af06001770fe75']= {
+  troop_option='5fb1ba44e1af06001770fe74',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba44e1af06001770fe73_general='5fb1ba44e1af06001770fe73_general'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe73_general]={
   id=g_str_5fb1ba44e1af06001770fe73_general,
@@ -15,7 +34,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe73_general]={
   description='Infantry armed with long thrusting spears',
   general=true,
   troop_type="Light Spear",
-  troop_option_id="5fb1ba44e1af06001770fe72",
 }
 g_str_5fb1ba44e1af06001770fe73='5fb1ba44e1af06001770fe73'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe73]={
@@ -25,7 +43,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe73]={
   max=14,
   description='Infantry armed with long thrusting spears',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba44e1af06001770fe72",
 }
 g_str_5fb1ba44e1af06001770fe75='5fb1ba44e1af06001770fe75'
 g_base_definitions[g_str_5fb1ba44e1af06001770fe75]={
@@ -35,7 +52,6 @@ g_base_definitions[g_str_5fb1ba44e1af06001770fe75]={
   max=6,
   description='Skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba44e1af06001770fe74",
 }
 g_str_5fb1b9f6e1af06001770a470_camp='5fb1b9f6e1af06001770a470_camp'
 g_base_definitions[g_str_5fb1b9f6e1af06001770a470_camp]={

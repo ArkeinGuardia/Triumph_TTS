@@ -6,6 +6,50 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba36e1af06001770e62c']= {
+  min=0,
+  max=2,
+  description='Nobles and their retinue',
+  core='all',
+}
+g_troop_entry['5fb1ba36e1af06001770e62d']= {
+  troop_option='5fb1ba36e1af06001770e62c',
+  troopTypeCode='WRR',
+}
+g_troop_option['5fb1ba36e1af06001770e62f']= {
+  min=8,
+  max=14,
+  description='Fierce fighters',
+  core='all',
+}
+g_troop_entry['5fb1ba36e1af06001770e630']= {
+  troop_option='5fb1ba36e1af06001770e62f',
+  troopTypeCode='WBD',
+}
+g_troop_option['5fb1ba36e1af06001770e631']= {
+  min=2,
+  max=4,
+  description='Bowmen and crossbowmen',
+}
+g_troop_entry['5fb1ba36e1af06001770e632']= {
+  troop_option='5fb1ba36e1af06001770e631',
+  troopTypeCode='SKM',
+}
+g_troop_entry['5fb1ba36e1af06001770e633']= {
+  troop_option='5fb1ba36e1af06001770e631',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba36e1af06001770e634']= {
+  min=0,
+  max=1,
+  description='Mercenary Russian crossbowmen',
+  startDate=1223,
+  endDate=1227,
+}
+g_troop_entry['5fb1ba36e1af06001770e636']= {
+  troop_option='5fb1ba36e1af06001770e634',
+  troopTypeCode='ARC',
+}
 g_str_5fb1ba36e1af06001770e62d_general='5fb1ba36e1af06001770e62d_general'
 g_base_definitions[g_str_5fb1ba36e1af06001770e62d_general]={
   id=g_str_5fb1ba36e1af06001770e62d_general,
@@ -15,7 +59,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e62d_general]={
   description='Nobles and their retinue',
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba36e1af06001770e62c",
 }
 g_str_5fb1ba36e1af06001770e62d_general_dismounted_mobile_infantry='5fb1ba36e1af06001770e62d_general_dismounted_mobile_infantry'
 g_str_5fb1ba36e1af06001770e62d_general_mounted_mobile_infantry='5fb1ba36e1af06001770e62d_general_mounted_mobile_infantry'
@@ -28,7 +71,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e62d_general_dismounted_mobile_infa
   dismounted_from=g_str_5fb1ba36e1af06001770e62d_general_mounted_mobile_infantry,
   general=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba36e1af06001770e62c",
 }
 g_base_definitions[g_str_5fb1ba36e1af06001770e62d_general_mounted_mobile_infantry]={
   id=g_str_5fb1ba36e1af06001770e62d_general_mounted_mobile_infantry,
@@ -40,7 +82,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e62d_general_mounted_mobile_infantr
   general=true,
   mobile_infantry=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba36e1af06001770e62c",
 }
 g_str_5fb1ba36e1af06001770e62d='5fb1ba36e1af06001770e62d'
 g_base_definitions[g_str_5fb1ba36e1af06001770e62d]={
@@ -50,7 +91,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e62d]={
   max=2,
   description='Nobles and their retinue',
   troop_type="Warriors",
-  troop_option_id="5fb1ba36e1af06001770e62c",
 }
 g_str_5fb1ba36e1af06001770e62d_dismounted_mobile_infantry='5fb1ba36e1af06001770e62d_dismounted_mobile_infantry'
 g_str_5fb1ba36e1af06001770e62d_mounted_mobile_infantry='5fb1ba36e1af06001770e62d_mounted_mobile_infantry'
@@ -62,7 +102,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e62d_dismounted_mobile_infantry]={
   description='Nobles and their retinue\nDismounted mobile infantry',
   dismounted_from=g_str_5fb1ba36e1af06001770e62d_mounted_mobile_infantry,
   troop_type="Warriors",
-  troop_option_id="5fb1ba36e1af06001770e62c",
 }
 g_base_definitions[g_str_5fb1ba36e1af06001770e62d_mounted_mobile_infantry]={
   id=g_str_5fb1ba36e1af06001770e62d_mounted_mobile_infantry,
@@ -73,7 +112,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e62d_mounted_mobile_infantry]={
   dismount_as=g_str_5fb1ba36e1af06001770e62d_dismounted_mobile_infantry,
   mobile_infantry=true,
   troop_type="Warriors",
-  troop_option_id="5fb1ba36e1af06001770e62c",
 }
 g_str_5fb1ba36e1af06001770e630_general='5fb1ba36e1af06001770e630_general'
 g_base_definitions[g_str_5fb1ba36e1af06001770e630_general]={
@@ -84,7 +122,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e630_general]={
   description='Fierce fighters',
   general=true,
   troop_type="Warband",
-  troop_option_id="5fb1ba36e1af06001770e62f",
 }
 g_str_5fb1ba36e1af06001770e630='5fb1ba36e1af06001770e630'
 g_base_definitions[g_str_5fb1ba36e1af06001770e630]={
@@ -94,7 +131,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e630]={
   max=14,
   description='Fierce fighters',
   troop_type="Warband",
-  troop_option_id="5fb1ba36e1af06001770e62f",
 }
 g_str_5fb1ba36e1af06001770e632='5fb1ba36e1af06001770e632'
 g_base_definitions[g_str_5fb1ba36e1af06001770e632]={
@@ -104,7 +140,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e632]={
   max=4,
   description='Bowmen and crossbowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba36e1af06001770e631",
 }
 g_str_5fb1ba36e1af06001770e633='5fb1ba36e1af06001770e633'
 g_base_definitions[g_str_5fb1ba36e1af06001770e633]={
@@ -114,7 +149,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e633]={
   max=4,
   description='Bowmen and crossbowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba36e1af06001770e631",
 }
 g_str_5fb1ba36e1af06001770e636='5fb1ba36e1af06001770e636'
 g_base_definitions[g_str_5fb1ba36e1af06001770e636]={
@@ -124,7 +158,6 @@ g_base_definitions[g_str_5fb1ba36e1af06001770e636]={
   max=1,
   description='Mercenary Russian crossbowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba36e1af06001770e634",
 }
 g_str_5fb1b9eae1af060017709da4_camp='5fb1b9eae1af060017709da4_camp'
 g_base_definitions[g_str_5fb1b9eae1af060017709da4_camp]={
@@ -174,6 +207,7 @@ army['5fb1b9eae1af060017709da4_1200_1222']={
   g_base_definitions[g_str_5fb1ba36e1af06001770e630],
   g_base_definitions[g_str_5fb1ba36e1af06001770e632],
   g_base_definitions[g_str_5fb1ba36e1af06001770e633],
+  g_base_definitions[g_str_5fb1ba36e1af06001770e636],
   g_base_definitions[g_str_5fb1b9eae1af060017709da4_camp],
 }
 army['5fb1b9eae1af060017709da4_1223_1227']={

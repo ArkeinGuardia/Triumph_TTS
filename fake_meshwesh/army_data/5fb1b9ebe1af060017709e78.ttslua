@@ -6,6 +6,53 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba38e1af06001770e975']= {
+  min=3,
+  max=6,
+  description='Serbian vlastela',
+}
+g_troop_entry['5fb1ba38e1af06001770e976']= {
+  troop_option='5fb1ba38e1af06001770e975',
+  troopTypeCode='KNT',
+}
+g_troop_option['5fb1ba38e1af06001770e977']= {
+  min=0,
+  max=1,
+  description='Serbian voynuk spearmen',
+}
+g_troop_entry['5fb1ba38e1af06001770e978']= {
+  troop_option='5fb1ba38e1af06001770e977',
+  troopTypeCode='SPR',
+}
+g_troop_option['5fb1ba38e1af06001770e979']= {
+  min=4,
+  max=8,
+  description='Serbian, Moravian, Bosnian, or Greek bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba38e1af06001770e97a']= {
+  troop_option='5fb1ba38e1af06001770e979',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba38e1af06001770e97b']= {
+  min=0,
+  max=2,
+  description='Hungarian, Cuman, Turkoman, or Wallachian mercenaries',
+}
+g_troop_entry['5fb1ba38e1af06001770e97c']= {
+  troop_option='5fb1ba38e1af06001770e97b',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba38e1af06001770e97d']= {
+  min=0,
+  max=2,
+  description='Zamanitchka Voyska levies',
+  core='all',
+}
+g_troop_entry['5fb1ba38e1af06001770e97e']= {
+  troop_option='5fb1ba38e1af06001770e97d',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba38e1af06001770e976_general='5fb1ba38e1af06001770e976_general'
 g_base_definitions[g_str_5fb1ba38e1af06001770e976_general]={
   id=g_str_5fb1ba38e1af06001770e976_general,
@@ -15,7 +62,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e976_general]={
   description='Serbian vlastela',
   general=true,
   troop_type="Knights",
-  troop_option_id="5fb1ba38e1af06001770e975",
 }
 g_str_5fb1ba38e1af06001770e976='5fb1ba38e1af06001770e976'
 g_base_definitions[g_str_5fb1ba38e1af06001770e976]={
@@ -25,7 +71,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e976]={
   max=6,
   description='Serbian vlastela',
   troop_type="Knights",
-  troop_option_id="5fb1ba38e1af06001770e975",
 }
 g_str_5fb1ba38e1af06001770e978='5fb1ba38e1af06001770e978'
 g_base_definitions[g_str_5fb1ba38e1af06001770e978]={
@@ -35,7 +80,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e978]={
   max=1,
   description='Serbian voynuk spearmen',
   troop_type="Spears",
-  troop_option_id="5fb1ba38e1af06001770e977",
 }
 g_str_5fb1ba38e1af06001770e97a='5fb1ba38e1af06001770e97a'
 g_base_definitions[g_str_5fb1ba38e1af06001770e97a]={
@@ -45,7 +89,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e97a]={
   max=8,
   description='Serbian, Moravian, Bosnian, or Greek bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba38e1af06001770e979",
 }
 g_str_5fb1ba38e1af06001770e97c='5fb1ba38e1af06001770e97c'
 g_base_definitions[g_str_5fb1ba38e1af06001770e97c]={
@@ -55,7 +98,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e97c]={
   max=2,
   description='Hungarian, Cuman, Turkoman, or Wallachian mercenaries',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba38e1af06001770e97b",
 }
 g_str_5fb1ba38e1af06001770e97e='5fb1ba38e1af06001770e97e'
 g_base_definitions[g_str_5fb1ba38e1af06001770e97e]={
@@ -65,7 +107,6 @@ g_base_definitions[g_str_5fb1ba38e1af06001770e97e]={
   max=2,
   description='Zamanitchka Voyska levies',
   troop_type="Horde",
-  troop_option_id="5fb1ba38e1af06001770e97d",
 }
 g_str_5fb1b9ebe1af060017709e78_camp='5fb1b9ebe1af060017709e78_camp'
 g_base_definitions[g_str_5fb1b9ebe1af060017709e78_camp]={

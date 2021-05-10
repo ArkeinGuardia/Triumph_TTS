@@ -6,6 +6,91 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba42e1af06001770fbc1']= {
+  min=2,
+  max=4,
+  description='Horse archers',
+  startDate=300,
+  endDate=405,
+}
+g_troop_entry['5fb1ba42e1af06001770fbc3']= {
+  troop_option='5fb1ba42e1af06001770fbc1',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba42e1af06001770fbc4']= {
+  min=1,
+  max=2,
+  description='Guard heavy horsemen',
+  core='all',
+  startDate=406,
+  endDate=663,
+}
+g_troop_entry['5fb1ba42e1af06001770fbc6']= {
+  troop_option='5fb1ba42e1af06001770fbc4',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba42e1af06001770fbc7']= {
+  min=1,
+  max=2,
+  description='Horse archers',
+  startDate=406,
+  endDate=663,
+}
+g_troop_entry['5fb1ba42e1af06001770fbc9']= {
+  troop_option='5fb1ba42e1af06001770fbc7',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba42e1af06001770fbca']= {
+  min=1,
+  max=2,
+  description='Provincial spearmen',
+  note='only Paekche',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbcb']= {
+  troop_option='5fb1ba42e1af06001770fbca',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba42e1af06001770fbcc']= {
+  min=1,
+  max=1,
+  description='Provincial bowmen',
+  note='only Paekche',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbcd']= {
+  troop_option='5fb1ba42e1af06001770fbcc',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba42e1af06001770fbce']= {
+  min=2,
+  max=8,
+  description='Militia spearmen',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbcf']= {
+  troop_option='5fb1ba42e1af06001770fbce',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba42e1af06001770fbd0']= {
+  min=2,
+  max=8,
+  description='Militia bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba42e1af06001770fbd1']= {
+  troop_option='5fb1ba42e1af06001770fbd0',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba42e1af06001770fbd2']= {
+  min=0,
+  max=2,
+  description='Skirmishing bowmen',
+}
+g_troop_entry['5fb1ba42e1af06001770fbd3']= {
+  troop_option='5fb1ba42e1af06001770fbd2',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba42e1af06001770fbc3_general='5fb1ba42e1af06001770fbc3_general'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbc3_general]={
   id=g_str_5fb1ba42e1af06001770fbc3_general,
@@ -15,7 +100,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbc3_general]={
   description='Horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fbc1",
 }
 g_str_5fb1ba42e1af06001770fbc3='5fb1ba42e1af06001770fbc3'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbc3]={
@@ -25,7 +109,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbc3]={
   max=4,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fbc1",
 }
 g_str_5fb1ba42e1af06001770fbc6='5fb1ba42e1af06001770fbc6'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbc6]={
@@ -35,7 +118,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbc6]={
   max=2,
   description='Guard heavy horsemen',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba42e1af06001770fbc4",
 }
 g_str_5fb1ba42e1af06001770fbc9_general='5fb1ba42e1af06001770fbc9_general'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbc9_general]={
@@ -46,7 +128,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbc9_general]={
   description='Horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fbc7",
 }
 g_str_5fb1ba42e1af06001770fbc9='5fb1ba42e1af06001770fbc9'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbc9]={
@@ -56,7 +137,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbc9]={
   max=2,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba42e1af06001770fbc7",
 }
 g_str_5fb1ba42e1af06001770fbcb='5fb1ba42e1af06001770fbcb'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbcb]={
@@ -66,7 +146,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbcb]={
   max=2,
   description='Provincial spearmen',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba42e1af06001770fbca",
 }
 g_str_5fb1ba42e1af06001770fbcd='5fb1ba42e1af06001770fbcd'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbcd]={
@@ -76,7 +155,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbcd]={
   max=1,
   description='Provincial bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba42e1af06001770fbcc",
 }
 g_str_5fb1ba42e1af06001770fbcf='5fb1ba42e1af06001770fbcf'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbcf]={
@@ -86,7 +164,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbcf]={
   max=8,
   description='Militia spearmen',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba42e1af06001770fbce",
 }
 g_str_5fb1ba42e1af06001770fbd1='5fb1ba42e1af06001770fbd1'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbd1]={
@@ -96,7 +173,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbd1]={
   max=8,
   description='Militia bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba42e1af06001770fbd0",
 }
 g_str_5fb1ba42e1af06001770fbd3='5fb1ba42e1af06001770fbd3'
 g_base_definitions[g_str_5fb1ba42e1af06001770fbd3]={
@@ -106,7 +182,6 @@ g_base_definitions[g_str_5fb1ba42e1af06001770fbd3]={
   max=2,
   description='Skirmishing bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba42e1af06001770fbd2",
 }
 g_str_5fb1b9f4e1af06001770a325_camp='5fb1b9f4e1af06001770a325_camp'
 g_base_definitions[g_str_5fb1b9f4e1af06001770a325_camp]={
@@ -158,6 +233,9 @@ army['5fb1b9f4e1af06001770a325_300_405']={
   },
   g_base_definitions[g_str_5fb1ba42e1af06001770fbc3_general],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbc3],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc6],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc9_general],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc9],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbcb],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbcd],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbcf],
@@ -172,6 +250,8 @@ army['5fb1b9f4e1af06001770a325_406_663']={
     id='5fb1b9f4e1af06001770a325_406_663',
     army_id='5fb1b9f4e1af06001770a325'
   },
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc3_general],
+  g_base_definitions[g_str_5fb1ba42e1af06001770fbc3],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbc6],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbc9_general],
   g_base_definitions[g_str_5fb1ba42e1af06001770fbc9],

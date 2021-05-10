@@ -6,6 +6,78 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba21e1af06001770c138']= {
+  min=3,
+  max=6,
+  description='2-wheeled chariots with heroic bowmen and driver',
+}
+g_troop_entry['5fb1ba21e1af06001770c139']= {
+  troop_option='5fb1ba21e1af06001770c138',
+  troopTypeCode='CHT',
+}
+g_troop_option['5fb1ba21e1af06001770c13a']= {
+  min=0,
+  max=1,
+  description='Mounted fighters',
+  startDate=-900,
+  endDate=-512,
+}
+g_troop_entry['5fb1ba21e1af06001770c13c']= {
+  troop_option='5fb1ba21e1af06001770c13a',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba21e1af06001770c13d']= {
+  min=8,
+  max=16,
+  description='Bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba21e1af06001770c13e']= {
+  troop_option='5fb1ba21e1af06001770c13d',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba21e1af06001770c13f']= {
+  min=0,
+  max=1,
+  description='Slingers',
+}
+g_troop_entry['5fb1ba21e1af06001770c140']= {
+  troop_option='5fb1ba21e1af06001770c13f',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba21e1af06001770c141']= {
+  min=0,
+  max=3,
+  description='Followers',
+  startDate=-1500,
+  endDate=-1100,
+}
+g_troop_entry['5fb1ba21e1af06001770c143']= {
+  troop_option='5fb1ba21e1af06001770c141',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba21e1af06001770c144']= {
+  min=0,
+  max=1,
+  description='Followers',
+  startDate=-1099,
+  endDate=-512,
+}
+g_troop_entry['5fb1ba21e1af06001770c146']= {
+  troop_option='5fb1ba21e1af06001770c144',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba21e1af06001770c147']= {
+  min=0,
+  max=1,
+  description='Indian war elephants',
+  startDate=-899,
+  endDate=-512,
+}
+g_troop_entry['5fb1ba21e1af06001770c149']= {
+  troop_option='5fb1ba21e1af06001770c147',
+  troopTypeCode='ELE',
+}
 g_str_5fb1ba21e1af06001770c139_general='5fb1ba21e1af06001770c139_general'
 g_base_definitions[g_str_5fb1ba21e1af06001770c139_general]={
   id=g_str_5fb1ba21e1af06001770c139_general,
@@ -15,7 +87,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c139_general]={
   description='2-wheeled chariots with heroic bowmen and driver',
   general=true,
   troop_type="Chariots",
-  troop_option_id="5fb1ba21e1af06001770c138",
 }
 g_str_5fb1ba21e1af06001770c139='5fb1ba21e1af06001770c139'
 g_base_definitions[g_str_5fb1ba21e1af06001770c139]={
@@ -25,7 +96,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c139]={
   max=6,
   description='2-wheeled chariots with heroic bowmen and driver',
   troop_type="Chariots",
-  troop_option_id="5fb1ba21e1af06001770c138",
 }
 g_str_5fb1ba21e1af06001770c13c='5fb1ba21e1af06001770c13c'
 g_base_definitions[g_str_5fb1ba21e1af06001770c13c]={
@@ -35,7 +105,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c13c]={
   max=1,
   description='Mounted fighters',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba21e1af06001770c13a",
 }
 g_str_5fb1ba21e1af06001770c13e='5fb1ba21e1af06001770c13e'
 g_base_definitions[g_str_5fb1ba21e1af06001770c13e]={
@@ -45,7 +114,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c13e]={
   max=16,
   description='Bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba21e1af06001770c13d",
 }
 g_str_5fb1ba21e1af06001770c140='5fb1ba21e1af06001770c140'
 g_base_definitions[g_str_5fb1ba21e1af06001770c140]={
@@ -55,7 +123,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c140]={
   max=1,
   description='Slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba21e1af06001770c13f",
 }
 g_str_5fb1ba21e1af06001770c143='5fb1ba21e1af06001770c143'
 g_base_definitions[g_str_5fb1ba21e1af06001770c143]={
@@ -65,7 +132,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c143]={
   max=3,
   description='Followers',
   troop_type="Horde",
-  troop_option_id="5fb1ba21e1af06001770c141",
 }
 g_str_5fb1ba21e1af06001770c146='5fb1ba21e1af06001770c146'
 g_base_definitions[g_str_5fb1ba21e1af06001770c146]={
@@ -75,7 +141,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c146]={
   max=1,
   description='Followers',
   troop_type="Horde",
-  troop_option_id="5fb1ba21e1af06001770c144",
 }
 g_str_5fb1ba21e1af06001770c149='5fb1ba21e1af06001770c149'
 g_base_definitions[g_str_5fb1ba21e1af06001770c149]={
@@ -85,7 +150,6 @@ g_base_definitions[g_str_5fb1ba21e1af06001770c149]={
   max=1,
   description='Indian war elephants',
   troop_type="Elephants",
-  troop_option_id="5fb1ba21e1af06001770c147",
 }
 g_str_5fb1b9dae1af0600177093c2_camp='5fb1b9dae1af0600177093c2_camp'
 g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp]={
@@ -135,9 +199,12 @@ army['5fb1b9dae1af0600177093c2_-1500_-1100']={
   },
   g_base_definitions[g_str_5fb1ba21e1af06001770c139_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c139],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c13c],
   g_base_definitions[g_str_5fb1ba21e1af06001770c13e],
   g_base_definitions[g_str_5fb1ba21e1af06001770c140],
   g_base_definitions[g_str_5fb1ba21e1af06001770c143],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c146],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c149],
   g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp],
   g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp_pack_train],
 }
@@ -149,9 +216,12 @@ army['5fb1b9dae1af0600177093c2_-1099_-901']={
   },
   g_base_definitions[g_str_5fb1ba21e1af06001770c139_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c139],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c13c],
   g_base_definitions[g_str_5fb1ba21e1af06001770c13e],
   g_base_definitions[g_str_5fb1ba21e1af06001770c140],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c143],
   g_base_definitions[g_str_5fb1ba21e1af06001770c146],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c149],
   g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp],
   g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp_pack_train],
 }
@@ -166,6 +236,9 @@ army['5fb1b9dae1af0600177093c2_-900_-900']={
   g_base_definitions[g_str_5fb1ba21e1af06001770c13c],
   g_base_definitions[g_str_5fb1ba21e1af06001770c13e],
   g_base_definitions[g_str_5fb1ba21e1af06001770c140],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c143],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c146],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c149],
   g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp],
   g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp_pack_train],
 }
@@ -180,6 +253,7 @@ army['5fb1b9dae1af0600177093c2_-899_-512']={
   g_base_definitions[g_str_5fb1ba21e1af06001770c13c],
   g_base_definitions[g_str_5fb1ba21e1af06001770c13e],
   g_base_definitions[g_str_5fb1ba21e1af06001770c140],
+  g_base_definitions[g_str_5fb1ba21e1af06001770c143],
   g_base_definitions[g_str_5fb1ba21e1af06001770c146],
   g_base_definitions[g_str_5fb1ba21e1af06001770c149],
   g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp],

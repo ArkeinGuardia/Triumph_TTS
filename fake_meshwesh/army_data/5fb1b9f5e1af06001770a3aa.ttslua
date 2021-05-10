@@ -6,6 +6,38 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba43e1af06001770fd2b']= {
+  min=2,
+  max=6,
+  description='Nobles and elite infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba43e1af06001770fd2c']= {
+  troop_option='5fb1ba43e1af06001770fd2b',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba43e1af06001770fd2d']= {
+  min=12,
+  max=21,
+  description='Commoners, some carrying roll-up shields',
+}
+g_troop_entry['5fb1ba43e1af06001770fd2e']= {
+  troop_option='5fb1ba43e1af06001770fd2d',
+  troopTypeCode='LFT',
+}
+g_troop_entry['5fb1ba43e1af06001770fd2f']= {
+  troop_option='5fb1ba43e1af06001770fd2d',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba43e1af06001770fd30']= {
+  min=0,
+  max=4,
+  description='Peasant skirmishing slingers',
+}
+g_troop_entry['5fb1ba43e1af06001770fd31']= {
+  troop_option='5fb1ba43e1af06001770fd30',
+  troopTypeCode='SKM',
+}
 g_str_5fb1ba43e1af06001770fd2c_general='5fb1ba43e1af06001770fd2c_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd2c_general]={
   id=g_str_5fb1ba43e1af06001770fd2c_general,
@@ -15,7 +47,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd2c_general]={
   description='Nobles and elite infantry',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd2b",
 }
 g_str_5fb1ba43e1af06001770fd2c='5fb1ba43e1af06001770fd2c'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd2c]={
@@ -25,7 +56,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd2c]={
   max=6,
   description='Nobles and elite infantry',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd2b",
 }
 g_str_5fb1ba43e1af06001770fd2e_general='5fb1ba43e1af06001770fd2e_general'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd2e_general]={
@@ -36,7 +66,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd2e_general]={
   description='Commoners, some carrying roll-up shields',
   general=true,
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd2d",
 }
 g_str_5fb1ba43e1af06001770fd2e='5fb1ba43e1af06001770fd2e'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd2e]={
@@ -46,7 +75,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd2e]={
   max=21,
   description='Commoners, some carrying roll-up shields',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba43e1af06001770fd2d",
 }
 g_str_5fb1ba43e1af06001770fd2f='5fb1ba43e1af06001770fd2f'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd2f]={
@@ -56,7 +84,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd2f]={
   max=21,
   description='Commoners, some carrying roll-up shields',
   troop_type="Rabble",
-  troop_option_id="5fb1ba43e1af06001770fd2d",
 }
 g_str_5fb1ba43e1af06001770fd31='5fb1ba43e1af06001770fd31'
 g_base_definitions[g_str_5fb1ba43e1af06001770fd31]={
@@ -66,7 +93,6 @@ g_base_definitions[g_str_5fb1ba43e1af06001770fd31]={
   max=4,
   description='Peasant skirmishing slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba43e1af06001770fd30",
 }
 g_str_5fb1b9f5e1af06001770a3aa_camp='5fb1b9f5e1af06001770a3aa_camp'
 g_base_definitions[g_str_5fb1b9f5e1af06001770a3aa_camp]={

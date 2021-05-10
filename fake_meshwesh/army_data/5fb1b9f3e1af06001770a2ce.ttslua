@@ -6,6 +6,43 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba41e1af06001770fa66']= {
+  min=3,
+  max=6,
+  description='Jurchen horsemen',
+  core='all',
+}
+g_troop_entry['5fb1ba41e1af06001770fa67']= {
+  troop_option='5fb1ba41e1af06001770fa66',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba41e1af06001770fa68']= {
+  min=0,
+  max=1,
+  description='Jurchen scout horse archers',
+}
+g_troop_entry['5fb1ba41e1af06001770fa69']= {
+  troop_option='5fb1ba41e1af06001770fa68',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba41e1af06001770fa6a']= {
+  min=0,
+  max=1,
+  description='Khitan heavy horsemen',
+}
+g_troop_entry['5fb1ba41e1af06001770fa6b']= {
+  troop_option='5fb1ba41e1af06001770fa6a',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba41e1af06001770fa6c']= {
+  min=0,
+  max=2,
+  description='Khitan foragers and orderlies',
+}
+g_troop_entry['5fb1ba41e1af06001770fa6d']= {
+  troop_option='5fb1ba41e1af06001770fa6c',
+  troopTypeCode='HBW',
+}
 g_str_5fb1ba41e1af06001770fa67_general='5fb1ba41e1af06001770fa67_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa67_general]={
   id=g_str_5fb1ba41e1af06001770fa67_general,
@@ -15,7 +52,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa67_general]={
   description='Jurchen horsemen',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fa66",
 }
 g_str_5fb1ba41e1af06001770fa67='5fb1ba41e1af06001770fa67'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa67]={
@@ -25,7 +61,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa67]={
   max=6,
   description='Jurchen horsemen',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fa66",
 }
 g_str_5fb1ba41e1af06001770fa69='5fb1ba41e1af06001770fa69'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa69]={
@@ -35,7 +70,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa69]={
   max=1,
   description='Jurchen scout horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fa68",
 }
 g_str_5fb1ba41e1af06001770fa6b_general='5fb1ba41e1af06001770fa6b_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa6b_general]={
@@ -46,7 +80,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa6b_general]={
   description='Khitan heavy horsemen',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fa6a",
 }
 g_str_5fb1ba41e1af06001770fa6b='5fb1ba41e1af06001770fa6b'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa6b]={
@@ -56,7 +89,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa6b]={
   max=1,
   description='Khitan heavy horsemen',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fa6a",
 }
 g_str_5fb1ba41e1af06001770fa6d='5fb1ba41e1af06001770fa6d'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa6d]={
@@ -66,7 +98,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa6d]={
   max=2,
   description='Khitan foragers and orderlies',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fa6c",
 }
 g_str_5fb1b9f3e1af06001770a2ce_camp='5fb1b9f3e1af06001770a2ce_camp'
 g_base_definitions[g_str_5fb1b9f3e1af06001770a2ce_camp]={

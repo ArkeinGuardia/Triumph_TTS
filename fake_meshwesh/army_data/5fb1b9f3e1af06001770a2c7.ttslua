@@ -6,6 +6,105 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba41e1af06001770fa43']= {
+  min=0,
+  max=1,
+  description='Chinese horsemen',
+}
+g_troop_entry['5fb1ba41e1af06001770fa44']= {
+  troop_option='5fb1ba41e1af06001770fa43',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba41e1af06001770fa45']= {
+  min=0,
+  max=2,
+  description='Mongol horse archers',
+  startDate=1250,
+  endDate=1279,
+}
+g_troop_entry['5fb1ba41e1af06001770fa47']= {
+  troop_option='5fb1ba41e1af06001770fa45',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba41e1af06001770fa48']= {
+  min=5,
+  max=10,
+  description='Imperial infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba41e1af06001770fa49']= {
+  troop_option='5fb1ba41e1af06001770fa48',
+  troopTypeCode='PAV',
+}
+g_troop_option['5fb1ba41e1af06001770fa4b']= {
+  min=0,
+  max=2,
+  description='Provincial infantry armed with mixed weapons',
+}
+g_troop_entry['5fb1ba41e1af06001770fa4c']= {
+  troop_option='5fb1ba41e1af06001770fa4b',
+  troopTypeCode='RBL',
+}
+g_troop_option['5fb1ba41e1af06001770fa4d']= {
+  min=0,
+  max=3,
+  description='Provincial crossbowmen and bowmen',
+}
+g_troop_entry['5fb1ba41e1af06001770fa4e']= {
+  troop_option='5fb1ba41e1af06001770fa4d',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba41e1af06001770fa4f']= {
+  min=0,
+  max=1,
+  description='Picked infantry armed with axe or long swords, or with sword and shield',
+}
+g_troop_entry['5fb1ba41e1af06001770fa50']= {
+  troop_option='5fb1ba41e1af06001770fa4f',
+  troopTypeCode='EFT',
+}
+g_troop_entry['5fb1ba41e1af06001770fa51']= {
+  troop_option='5fb1ba41e1af06001770fa4f',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba41e1af06001770fa52']= {
+  min=0,
+  max=3,
+  description='Militia',
+}
+g_troop_entry['5fb1ba41e1af06001770fa53']= {
+  troop_option='5fb1ba41e1af06001770fa52',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba41e1af06001770fa54']= {
+  min=0,
+  max=1,
+  description='Fire-lance foot',
+}
+g_troop_entry['5fb1ba41e1af06001770fa55']= {
+  troop_option='5fb1ba41e1af06001770fa54',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba41e1af06001770fa56']= {
+  min=0,
+  max=2,
+  description='War wagons',
+  core='all',
+}
+g_troop_entry['5fb1ba41e1af06001770fa57']= {
+  troop_option='5fb1ba41e1af06001770fa56',
+  troopTypeCode='WWG',
+}
+g_troop_option['5fb1ba41e1af06001770fa58']= {
+  min=1,
+  max=2,
+  description='Heavy stone-throwers or bolt-shooting giant crossbows',
+  core='all',
+}
+g_troop_entry['5fb1ba41e1af06001770fa59']= {
+  troop_option='5fb1ba41e1af06001770fa58',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba41e1af06001770fa44_general='5fb1ba41e1af06001770fa44_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa44_general]={
   id=g_str_5fb1ba41e1af06001770fa44_general,
@@ -15,7 +114,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa44_general]={
   description='Chinese horsemen',
   general=true,
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba41e1af06001770fa43",
 }
 g_str_5fb1ba41e1af06001770fa44='5fb1ba41e1af06001770fa44'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa44]={
@@ -25,7 +123,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa44]={
   max=1,
   description='Chinese horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba41e1af06001770fa43",
 }
 g_str_5fb1ba41e1af06001770fa47='5fb1ba41e1af06001770fa47'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa47]={
@@ -35,7 +132,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa47]={
   max=2,
   description='Mongol horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fa45",
 }
 g_str_5fb1ba41e1af06001770fa49_general='5fb1ba41e1af06001770fa49_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa49_general]={
@@ -46,7 +142,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa49_general]={
   description='Imperial infantry',
   general=true,
   troop_type="Pavisiers",
-  troop_option_id="5fb1ba41e1af06001770fa48",
 }
 g_str_5fb1ba41e1af06001770fa49='5fb1ba41e1af06001770fa49'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa49]={
@@ -56,7 +151,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa49]={
   max=10,
   description='Imperial infantry',
   troop_type="Pavisiers",
-  troop_option_id="5fb1ba41e1af06001770fa48",
 }
 g_str_5fb1ba41e1af06001770fa4c='5fb1ba41e1af06001770fa4c'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa4c]={
@@ -66,7 +160,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa4c]={
   max=2,
   description='Provincial infantry armed with mixed weapons',
   troop_type="Rabble",
-  troop_option_id="5fb1ba41e1af06001770fa4b",
 }
 g_str_5fb1ba41e1af06001770fa4e='5fb1ba41e1af06001770fa4e'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa4e]={
@@ -76,7 +169,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa4e]={
   max=3,
   description='Provincial crossbowmen and bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba41e1af06001770fa4d",
 }
 g_str_5fb1ba41e1af06001770fa50_general='5fb1ba41e1af06001770fa50_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa50_general]={
@@ -87,7 +179,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa50_general]={
   description='Picked infantry armed with axe or long swords, or with sword and shield',
   general=true,
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba41e1af06001770fa4f",
 }
 g_str_5fb1ba41e1af06001770fa50='5fb1ba41e1af06001770fa50'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa50]={
@@ -97,7 +188,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa50]={
   max=1,
   description='Picked infantry armed with axe or long swords, or with sword and shield',
   troop_type="Elite Foot",
-  troop_option_id="5fb1ba41e1af06001770fa4f",
 }
 g_str_5fb1ba41e1af06001770fa51_general='5fb1ba41e1af06001770fa51_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa51_general]={
@@ -108,7 +198,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa51_general]={
   description='Picked infantry armed with axe or long swords, or with sword and shield',
   general=true,
   troop_type="Raiders",
-  troop_option_id="5fb1ba41e1af06001770fa4f",
 }
 g_str_5fb1ba41e1af06001770fa51='5fb1ba41e1af06001770fa51'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa51]={
@@ -118,7 +207,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa51]={
   max=1,
   description='Picked infantry armed with axe or long swords, or with sword and shield',
   troop_type="Raiders",
-  troop_option_id="5fb1ba41e1af06001770fa4f",
 }
 g_str_5fb1ba41e1af06001770fa53='5fb1ba41e1af06001770fa53'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa53]={
@@ -128,7 +216,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa53]={
   max=3,
   description='Militia',
   troop_type="Horde",
-  troop_option_id="5fb1ba41e1af06001770fa52",
 }
 g_str_5fb1ba41e1af06001770fa55='5fb1ba41e1af06001770fa55'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa55]={
@@ -138,7 +225,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa55]={
   max=1,
   description='Fire-lance foot',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba41e1af06001770fa54",
 }
 g_str_5fb1ba41e1af06001770fa57='5fb1ba41e1af06001770fa57'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa57]={
@@ -148,7 +234,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa57]={
   max=2,
   description='War wagons',
   troop_type="War Wagons",
-  troop_option_id="5fb1ba41e1af06001770fa56",
 }
 g_str_5fb1ba41e1af06001770fa59='5fb1ba41e1af06001770fa59'
 g_base_definitions[g_str_5fb1ba41e1af06001770fa59]={
@@ -158,7 +243,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fa59]={
   max=2,
   description='Heavy stone-throwers or bolt-shooting giant crossbows',
   troop_type="Artillery",
-  troop_option_id="5fb1ba41e1af06001770fa58",
 }
 g_str_5fb1b9f3e1af06001770a2c7_camp='5fb1b9f3e1af06001770a2c7_camp'
 g_base_definitions[g_str_5fb1b9f3e1af06001770a2c7_camp]={
@@ -204,6 +288,7 @@ army['5fb1b9f3e1af06001770a2c7_1127_1249']={
   },
   g_base_definitions[g_str_5fb1ba41e1af06001770fa44_general],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa44],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fa47],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa49_general],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa49],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa4c],

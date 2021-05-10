@@ -6,6 +6,110 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3ce1af06001770f11c']= {
+  min=0,
+  max=2,
+  description='Persian horsemen armed with lance and bow and possibly horse armor',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f11d']= {
+  troop_option='5fb1ba3ce1af06001770f11c',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3ce1af06001770f11f']= {
+  min=3,
+  max=10,
+  description='Persian horse archers',
+}
+g_troop_entry['5fb1ba3ce1af06001770f120']= {
+  troop_option='5fb1ba3ce1af06001770f11f',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f121']= {
+  min=0,
+  max=1,
+  description='Turkoman horse archers',
+}
+g_troop_entry['5fb1ba3ce1af06001770f122']= {
+  troop_option='5fb1ba3ce1af06001770f121',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f123']= {
+  min=1,
+  max=3,
+  description='Persian bowmen',
+  note='any except Sarbaradarids',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f124']= {
+  troop_option='5fb1ba3ce1af06001770f123',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3ce1af06001770f125']= {
+  min=1,
+  max=3,
+  description='Sabadar bowmen',
+  note='only Sarbaradarids of Sabzawar',
+  core='all',
+  startDate=1337,
+  endDate=1381,
+}
+g_troop_entry['5fb1ba3ce1af06001770f127']= {
+  troop_option='5fb1ba3ce1af06001770f125',
+  troopTypeCode='ARC',
+}
+g_troop_option['5fb1ba3ce1af06001770f128']= {
+  min=0,
+  max=1,
+  description='Camp followers or levy foot',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f129']= {
+  troop_option='5fb1ba3ce1af06001770f128',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba3ce1af06001770f12a']= {
+  min=1,
+  max=2,
+  description='Afghan bowmen',
+  note='only Kurts of Herat',
+  core='all',
+  startDate=1245,
+  endDate=1389,
+}
+g_troop_entry['5fb1ba3ce1af06001770f12c']= {
+  troop_option='5fb1ba3ce1af06001770f12a',
+  troopTypeCode='ARC',
+}
+g_troop_entry['5fb1ba3ce1af06001770f12d']= {
+  troop_option='5fb1ba3ce1af06001770f12a',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba3ce1af06001770f12e']= {
+  min=1,
+  max=2,
+  description='Afghan spearmen',
+  note='only Kurts of Herat',
+  core='all',
+  startDate=1245,
+  endDate=1389,
+}
+g_troop_entry['5fb1ba3ce1af06001770f130']= {
+  troop_option='5fb1ba3ce1af06001770f12e',
+  troopTypeCode='LSP',
+}
+g_troop_option['5fb1ba3ce1af06001770f131']= {
+  min=0,
+  max=1,
+  description='Kurdish horsemen',
+  note='only Injuids of Fars 1303-1353, Muzaffarids of Isfahan and Fars 1314-1393',
+  startDate=1303,
+  endDate=1393,
+}
+g_troop_entry['5fb1ba3ce1af06001770f133']= {
+  troop_option='5fb1ba3ce1af06001770f131',
+  troopTypeCode='JCV',
+}
 g_str_5fb1ba3ce1af06001770f11d_general='5fb1ba3ce1af06001770f11d_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f11d_general]={
   id=g_str_5fb1ba3ce1af06001770f11d_general,
@@ -15,7 +119,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f11d_general]={
   description='Persian horsemen armed with lance and bow and possibly horse armor',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f11c",
 }
 g_str_5fb1ba3ce1af06001770f11d='5fb1ba3ce1af06001770f11d'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f11d]={
@@ -25,7 +128,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f11d]={
   max=2,
   description='Persian horsemen armed with lance and bow and possibly horse armor',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f11c",
 }
 g_str_5fb1ba3ce1af06001770f120_general='5fb1ba3ce1af06001770f120_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f120_general]={
@@ -36,7 +138,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f120_general]={
   description='Persian horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f11f",
 }
 g_str_5fb1ba3ce1af06001770f120='5fb1ba3ce1af06001770f120'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f120]={
@@ -46,7 +147,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f120]={
   max=10,
   description='Persian horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f11f",
 }
 g_str_5fb1ba3ce1af06001770f122_general='5fb1ba3ce1af06001770f122_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f122_general]={
@@ -57,7 +157,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f122_general]={
   description='Turkoman horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f121",
 }
 g_str_5fb1ba3ce1af06001770f122='5fb1ba3ce1af06001770f122'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f122]={
@@ -67,7 +166,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f122]={
   max=1,
   description='Turkoman horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f121",
 }
 g_str_5fb1ba3ce1af06001770f124='5fb1ba3ce1af06001770f124'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f124]={
@@ -77,7 +175,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f124]={
   max=3,
   description='Persian bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3ce1af06001770f123",
 }
 g_str_5fb1ba3ce1af06001770f127='5fb1ba3ce1af06001770f127'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f127]={
@@ -87,7 +184,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f127]={
   max=3,
   description='Sabadar bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba3ce1af06001770f125",
 }
 g_str_5fb1ba3ce1af06001770f129='5fb1ba3ce1af06001770f129'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f129]={
@@ -97,7 +193,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f129]={
   max=1,
   description='Camp followers or levy foot',
   troop_type="Horde",
-  troop_option_id="5fb1ba3ce1af06001770f128",
 }
 g_str_5fb1ba3ce1af06001770f12c='5fb1ba3ce1af06001770f12c'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f12c]={
@@ -107,7 +202,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f12c]={
   max=2,
   description='Afghan bowmen',
   troop_type="Archers",
-  troop_option_id="5fb1ba3ce1af06001770f12a",
 }
 g_str_5fb1ba3ce1af06001770f12d='5fb1ba3ce1af06001770f12d'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f12d]={
@@ -117,7 +211,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f12d]={
   max=2,
   description='Afghan bowmen',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba3ce1af06001770f12a",
 }
 g_str_5fb1ba3ce1af06001770f130='5fb1ba3ce1af06001770f130'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f130]={
@@ -127,7 +220,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f130]={
   max=2,
   description='Afghan spearmen',
   troop_type="Light Spear",
-  troop_option_id="5fb1ba3ce1af06001770f12e",
 }
 g_str_5fb1ba3ce1af06001770f133='5fb1ba3ce1af06001770f133'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f133]={
@@ -137,7 +229,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f133]={
   max=1,
   description='Kurdish horsemen',
   troop_type="Javelin Cavalry",
-  troop_option_id="5fb1ba3ce1af06001770f131",
 }
 g_str_5fb1b9efe1af06001770a044_camp='5fb1b9efe1af06001770a044_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp]={
@@ -197,10 +288,12 @@ army['5fb1b9efe1af06001770a044_1245_1302']={
   g_base_definitions[g_str_5fb1ba3ce1af06001770f122_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f122],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f124],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f127],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f129],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f12c],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f12d],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f130],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f133],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp_pack_train],
 }
@@ -217,7 +310,11 @@ army['5fb1b9efe1af06001770a044_1303_1336']={
   g_base_definitions[g_str_5fb1ba3ce1af06001770f122_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f122],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f124],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f127],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f129],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f12c],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f12d],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f130],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f133],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp_pack_train],
@@ -237,6 +334,10 @@ army['5fb1b9efe1af06001770a044_1337_1381']={
   g_base_definitions[g_str_5fb1ba3ce1af06001770f124],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f127],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f129],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f12c],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f12d],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f130],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f133],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp_pack_train],
 }
@@ -253,10 +354,12 @@ army['5fb1b9efe1af06001770a044_1382_1389']={
   g_base_definitions[g_str_5fb1ba3ce1af06001770f122_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f122],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f124],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f127],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f129],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f12c],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f12d],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f130],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f133],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp_pack_train],
 }
@@ -273,7 +376,11 @@ army['5fb1b9efe1af06001770a044_1390_1393']={
   g_base_definitions[g_str_5fb1ba3ce1af06001770f122_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f122],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f124],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f127],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f129],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f12c],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f12d],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f130],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f133],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp],
   g_base_definitions[g_str_5fb1b9efe1af06001770a044_camp_pack_train],

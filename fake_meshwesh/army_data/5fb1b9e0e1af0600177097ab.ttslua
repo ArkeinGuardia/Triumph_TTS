@@ -6,6 +6,72 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba2ae1af06001770d090']= {
+  min=2,
+  max=3,
+  description='War elephants',
+}
+g_troop_entry['5fb1ba2ae1af06001770d091']= {
+  troop_option='5fb1ba2ae1af06001770d090',
+  troopTypeCode='ELE',
+}
+g_troop_option['5fb1ba2ae1af06001770d093']= {
+  min=1,
+  max=2,
+  description='Lancers on armored horses',
+}
+g_troop_entry['5fb1ba2ae1af06001770d094']= {
+  troop_option='5fb1ba2ae1af06001770d093',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba2ae1af06001770d095']= {
+  min=1,
+  max=2,
+  description='Horsemen',
+}
+g_troop_entry['5fb1ba2ae1af06001770d096']= {
+  troop_option='5fb1ba2ae1af06001770d095',
+  troopTypeCode='BAD',
+}
+g_troop_option['5fb1ba2ae1af06001770d097']= {
+  min=0,
+  max=1,
+  description='Horse archers',
+}
+g_troop_entry['5fb1ba2ae1af06001770d098']= {
+  troop_option='5fb1ba2ae1af06001770d097',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba2ae1af06001770d099']= {
+  min=3,
+  max=9,
+  description='Hereditary and mercenary bowmen',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d09a']= {
+  troop_option='5fb1ba2ae1af06001770d099',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba2ae1af06001770d09c']= {
+  min=2,
+  max=4,
+  description='Hereditary and mercenary javelinmen',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d09d']= {
+  troop_option='5fb1ba2ae1af06001770d09c',
+  troopTypeCode='HFT',
+}
+g_troop_option['5fb1ba2ae1af06001770d09f']= {
+  min=2,
+  max=4,
+  description='Poor quality infantry',
+  core='all',
+}
+g_troop_entry['5fb1ba2ae1af06001770d0a0']= {
+  troop_option='5fb1ba2ae1af06001770d09f',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba2ae1af06001770d091_general='5fb1ba2ae1af06001770d091_general'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d091_general]={
   id=g_str_5fb1ba2ae1af06001770d091_general,
@@ -15,7 +81,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d091_general]={
   description='War elephants',
   general=true,
   troop_type="Elephants",
-  troop_option_id="5fb1ba2ae1af06001770d090",
 }
 g_str_5fb1ba2ae1af06001770d091='5fb1ba2ae1af06001770d091'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d091]={
@@ -25,7 +90,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d091]={
   max=3,
   description='War elephants',
   troop_type="Elephants",
-  troop_option_id="5fb1ba2ae1af06001770d090",
 }
 g_str_5fb1ba2ae1af06001770d094='5fb1ba2ae1af06001770d094'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d094]={
@@ -35,7 +99,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d094]={
   max=2,
   description='Lancers on armored horses',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba2ae1af06001770d093",
 }
 g_str_5fb1ba2ae1af06001770d096='5fb1ba2ae1af06001770d096'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d096]={
@@ -45,7 +108,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d096]={
   max=2,
   description='Horsemen',
   troop_type="Bad Horse",
-  troop_option_id="5fb1ba2ae1af06001770d095",
 }
 g_str_5fb1ba2ae1af06001770d098='5fb1ba2ae1af06001770d098'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d098]={
@@ -55,7 +117,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d098]={
   max=1,
   description='Horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba2ae1af06001770d097",
 }
 g_str_5fb1ba2ae1af06001770d09a='5fb1ba2ae1af06001770d09a'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d09a]={
@@ -65,7 +126,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d09a]={
   max=9,
   description='Hereditary and mercenary bowmen',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba2ae1af06001770d099",
 }
 g_str_5fb1ba2ae1af06001770d09a_elephant_screen='5fb1ba2ae1af06001770d09a_elephant_screen'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d09a_elephant_screen]={
@@ -76,7 +136,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d09a_elephant_screen]={
   description='Hereditary and mercenary bowmen\nElephant Screen',
   elephant_screen=true,
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba2ae1af06001770d099",
 }
 g_str_5fb1ba2ae1af06001770d09a_elephant_screen_elephant_screen_counter='5fb1ba2ae1af06001770d09a_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d09a_elephant_screen_elephant_screen_counter]={
@@ -95,7 +154,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d09d]={
   max=4,
   description='Hereditary and mercenary javelinmen',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba2ae1af06001770d09c",
 }
 g_str_5fb1ba2ae1af06001770d09d_elephant_screen='5fb1ba2ae1af06001770d09d_elephant_screen'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d09d_elephant_screen]={
@@ -106,7 +164,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d09d_elephant_screen]={
   description='Hereditary and mercenary javelinmen\nElephant Screen',
   elephant_screen=true,
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba2ae1af06001770d09c",
 }
 g_str_5fb1ba2ae1af06001770d09d_elephant_screen_elephant_screen_counter='5fb1ba2ae1af06001770d09d_elephant_screen_elephant_screen_counter'
 g_base_definitions[g_str_5fb1ba2ae1af06001770d09d_elephant_screen_elephant_screen_counter]={
@@ -125,7 +182,6 @@ g_base_definitions[g_str_5fb1ba2ae1af06001770d0a0]={
   max=4,
   description='Poor quality infantry',
   troop_type="Horde",
-  troop_option_id="5fb1ba2ae1af06001770d09f",
 }
 g_str_5fb1b9e0e1af0600177097ab_camp='5fb1b9e0e1af0600177097ab_camp'
 g_base_definitions[g_str_5fb1b9e0e1af0600177097ab_camp]={

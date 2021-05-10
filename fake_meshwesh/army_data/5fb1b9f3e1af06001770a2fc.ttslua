@@ -6,6 +6,60 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba41e1af06001770fb3e']= {
+  min=0,
+  max=2,
+  description='Mongol horsemen armed with lance and bow, riding armored horses',
+  core='all',
+}
+g_troop_entry['5fb1ba41e1af06001770fb3f']= {
+  troop_option='5fb1ba41e1af06001770fb3e',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba41e1af06001770fb40']= {
+  min=6,
+  max=12,
+  description='Mongol horse archers',
+}
+g_troop_entry['5fb1ba41e1af06001770fb41']= {
+  troop_option='5fb1ba41e1af06001770fb40',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba41e1af06001770fb42']= {
+  min=0,
+  max=2,
+  description='Servants and camp followers',
+  core='all',
+}
+g_troop_entry['5fb1ba41e1af06001770fb43']= {
+  troop_option='5fb1ba41e1af06001770fb42',
+  troopTypeCode='HRD',
+}
+g_troop_option['5fb1ba41e1af06001770fb44']= {
+  min=0,
+  max=3,
+  description='Transoxus Tajik levies',
+  note='only Chagadai khanate',
+  core='all',
+  startDate=1266,
+  endDate=1362,
+}
+g_troop_entry['5fb1ba41e1af06001770fb46']= {
+  troop_option='5fb1ba41e1af06001770fb44',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba41e1af06001770fb47']= {
+  min=0,
+  max=1,
+  description='Transoxus Turkoman horse archers',
+  note='only Chagadai khanate',
+  startDate=1266,
+  endDate=1362,
+}
+g_troop_entry['5fb1ba41e1af06001770fb49']= {
+  troop_option='5fb1ba41e1af06001770fb47',
+  troopTypeCode='HBW',
+}
 g_str_5fb1ba41e1af06001770fb3f_general='5fb1ba41e1af06001770fb3f_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb3f_general]={
   id=g_str_5fb1ba41e1af06001770fb3f_general,
@@ -15,7 +69,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb3f_general]={
   description='Mongol horsemen armed with lance and bow, riding armored horses',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fb3e",
 }
 g_str_5fb1ba41e1af06001770fb3f='5fb1ba41e1af06001770fb3f'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb3f]={
@@ -25,7 +78,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb3f]={
   max=2,
   description='Mongol horsemen armed with lance and bow, riding armored horses',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba41e1af06001770fb3e",
 }
 g_str_5fb1ba41e1af06001770fb41_general='5fb1ba41e1af06001770fb41_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb41_general]={
@@ -36,7 +88,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb41_general]={
   description='Mongol horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fb40",
 }
 g_str_5fb1ba41e1af06001770fb41='5fb1ba41e1af06001770fb41'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb41]={
@@ -46,7 +97,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb41]={
   max=12,
   description='Mongol horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fb40",
 }
 g_str_5fb1ba41e1af06001770fb43='5fb1ba41e1af06001770fb43'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb43]={
@@ -56,7 +106,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb43]={
   max=2,
   description='Servants and camp followers',
   troop_type="Horde",
-  troop_option_id="5fb1ba41e1af06001770fb42",
 }
 g_str_5fb1ba41e1af06001770fb46='5fb1ba41e1af06001770fb46'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb46]={
@@ -66,7 +115,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb46]={
   max=3,
   description='Transoxus Tajik levies',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba41e1af06001770fb44",
 }
 g_str_5fb1ba41e1af06001770fb49_general='5fb1ba41e1af06001770fb49_general'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb49_general]={
@@ -77,7 +125,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb49_general]={
   description='Transoxus Turkoman horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fb47",
 }
 g_str_5fb1ba41e1af06001770fb49='5fb1ba41e1af06001770fb49'
 g_base_definitions[g_str_5fb1ba41e1af06001770fb49]={
@@ -87,7 +134,6 @@ g_base_definitions[g_str_5fb1ba41e1af06001770fb49]={
   max=1,
   description='Transoxus Turkoman horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba41e1af06001770fb47",
 }
 g_str_5fb1b9f3e1af06001770a2fc_camp='5fb1b9f3e1af06001770a2fc_camp'
 g_base_definitions[g_str_5fb1b9f3e1af06001770a2fc_camp]={
@@ -157,6 +203,9 @@ army['5fb1b9f3e1af06001770a2fc_1363_1508']={
   g_base_definitions[g_str_5fb1ba41e1af06001770fb41_general],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb41],
   g_base_definitions[g_str_5fb1ba41e1af06001770fb43],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb46],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb49_general],
+  g_base_definitions[g_str_5fb1ba41e1af06001770fb49],
   g_base_definitions[g_str_5fb1b9f3e1af06001770a2fc_camp],
   g_base_definitions[g_str_5fb1b9f3e1af06001770a2fc_camp_pack_train],
 }

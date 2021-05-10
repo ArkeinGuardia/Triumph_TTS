@@ -6,6 +6,99 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba37e1af06001770e888']= {
+  min=2,
+  max=4,
+  description='Tagmatic or picked thematic kavallarioi',
+}
+g_troop_entry['5fb1ba37e1af06001770e889']= {
+  troop_option='5fb1ba37e1af06001770e888',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba37e1af06001770e88b']= {
+  min=0,
+  max=1,
+  description='Prokoursatores and flank guards',
+}
+g_troop_entry['5fb1ba37e1af06001770e88c']= {
+  troop_option='5fb1ba37e1af06001770e88b',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba37e1af06001770e88d']= {
+  min=0,
+  max=1,
+  description='Klibanophoroi',
+  core='all',
+  startDate=963,
+  endDate=1000,
+}
+g_troop_entry['5fb1ba37e1af06001770e88f']= {
+  troop_option='5fb1ba37e1af06001770e88d',
+  troopTypeCode='CAT',
+}
+g_troop_option['5fb1ba37e1af06001770e890']= {
+  min=0,
+  max=1,
+  description='Varangian or Rus mercenaries',
+  core='all',
+  startDate=989,
+  endDate=1042,
+}
+g_troop_entry['5fb1ba37e1af06001770e892']= {
+  troop_option='5fb1ba37e1af06001770e890',
+  troopTypeCode='HFT',
+}
+g_troop_entry['5fb1ba37e1af06001770e893']= {
+  troop_option='5fb1ba37e1af06001770e890',
+  troopTypeCode='SPR',
+}
+g_troop_option['5fb1ba37e1af06001770e894']= {
+  min=3,
+  max=6,
+  description='Skoutatoi',
+  core='all',
+}
+g_troop_entry['5fb1ba37e1af06001770e895']= {
+  troop_option='5fb1ba37e1af06001770e894',
+  troopTypeCode='PAV',
+}
+g_troop_option['5fb1ba37e1af06001770e897']= {
+  min=0,
+  max=1,
+  description='Akontistai or Rus or Slav mercenaries',
+}
+g_troop_entry['5fb1ba37e1af06001770e898']= {
+  troop_option='5fb1ba37e1af06001770e897',
+  troopTypeCode='LFT',
+}
+g_troop_option['5fb1ba37e1af06001770e89a']= {
+  min=0,
+  max=1,
+  description='Detached Menavlatoi',
+  core='all',
+}
+g_troop_entry['5fb1ba37e1af06001770e89b']= {
+  troop_option='5fb1ba37e1af06001770e89a',
+  troopTypeCode='RDR',
+}
+g_troop_option['5fb1ba37e1af06001770e89c']= {
+  min=0,
+  max=1,
+  description='Skirmishing bowmen and slingers',
+}
+g_troop_entry['5fb1ba37e1af06001770e89d']= {
+  troop_option='5fb1ba37e1af06001770e89c',
+  troopTypeCode='SKM',
+}
+g_troop_option['5fb1ba37e1af06001770e89f']= {
+  min=0,
+  max=1,
+  description='Wagon-mounted alakatia and heavy rope-pull stone-throwers',
+}
+g_troop_entry['5fb1ba37e1af06001770e8a0']= {
+  troop_option='5fb1ba37e1af06001770e89f',
+  troopTypeCode='ART',
+}
 g_str_5fb1ba37e1af06001770e889_general='5fb1ba37e1af06001770e889_general'
 g_base_definitions[g_str_5fb1ba37e1af06001770e889_general]={
   id=g_str_5fb1ba37e1af06001770e889_general,
@@ -15,7 +108,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e889_general]={
   description='Tagmatic or picked thematic kavallarioi',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba37e1af06001770e888",
 }
 g_str_5fb1ba37e1af06001770e889='5fb1ba37e1af06001770e889'
 g_base_definitions[g_str_5fb1ba37e1af06001770e889]={
@@ -25,7 +117,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e889]={
   max=4,
   description='Tagmatic or picked thematic kavallarioi',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba37e1af06001770e888",
 }
 g_str_5fb1ba37e1af06001770e88c='5fb1ba37e1af06001770e88c'
 g_base_definitions[g_str_5fb1ba37e1af06001770e88c]={
@@ -35,7 +126,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e88c]={
   max=1,
   description='Prokoursatores and flank guards',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba37e1af06001770e88b",
 }
 g_str_5fb1ba37e1af06001770e88f='5fb1ba37e1af06001770e88f'
 g_base_definitions[g_str_5fb1ba37e1af06001770e88f]={
@@ -45,7 +135,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e88f]={
   max=1,
   description='Klibanophoroi',
   troop_type="Cataphracts",
-  troop_option_id="5fb1ba37e1af06001770e88d",
 }
 g_str_5fb1ba37e1af06001770e892='5fb1ba37e1af06001770e892'
 g_base_definitions[g_str_5fb1ba37e1af06001770e892]={
@@ -55,7 +144,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e892]={
   max=1,
   description='Varangian or Rus mercenaries',
   troop_type="Heavy Foot",
-  troop_option_id="5fb1ba37e1af06001770e890",
 }
 g_str_5fb1ba37e1af06001770e893='5fb1ba37e1af06001770e893'
 g_base_definitions[g_str_5fb1ba37e1af06001770e893]={
@@ -65,7 +153,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e893]={
   max=1,
   description='Varangian or Rus mercenaries',
   troop_type="Spears",
-  troop_option_id="5fb1ba37e1af06001770e890",
 }
 g_str_5fb1ba37e1af06001770e895='5fb1ba37e1af06001770e895'
 g_base_definitions[g_str_5fb1ba37e1af06001770e895]={
@@ -75,7 +162,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e895]={
   max=6,
   description='Skoutatoi',
   troop_type="Pavisiers",
-  troop_option_id="5fb1ba37e1af06001770e894",
 }
 g_str_5fb1ba37e1af06001770e898='5fb1ba37e1af06001770e898'
 g_base_definitions[g_str_5fb1ba37e1af06001770e898]={
@@ -85,7 +171,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e898]={
   max=1,
   description='Akontistai or Rus or Slav mercenaries',
   troop_type="Light Foot",
-  troop_option_id="5fb1ba37e1af06001770e897",
 }
 g_str_5fb1ba37e1af06001770e89b='5fb1ba37e1af06001770e89b'
 g_base_definitions[g_str_5fb1ba37e1af06001770e89b]={
@@ -95,7 +180,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e89b]={
   max=1,
   description='Detached Menavlatoi',
   troop_type="Raiders",
-  troop_option_id="5fb1ba37e1af06001770e89a",
 }
 g_str_5fb1ba37e1af06001770e89d='5fb1ba37e1af06001770e89d'
 g_base_definitions[g_str_5fb1ba37e1af06001770e89d]={
@@ -105,7 +189,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e89d]={
   max=1,
   description='Skirmishing bowmen and slingers',
   troop_type="Skirmishers",
-  troop_option_id="5fb1ba37e1af06001770e89c",
 }
 g_str_5fb1ba37e1af06001770e8a0='5fb1ba37e1af06001770e8a0'
 g_base_definitions[g_str_5fb1ba37e1af06001770e8a0]={
@@ -115,7 +198,6 @@ g_base_definitions[g_str_5fb1ba37e1af06001770e8a0]={
   max=1,
   description='Wagon-mounted alakatia and heavy rope-pull stone-throwers',
   troop_type="Artillery",
-  troop_option_id="5fb1ba37e1af06001770e89f",
 }
 g_str_5fb1b9ebe1af060017709e47_camp='5fb1b9ebe1af060017709e47_camp'
 g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp]={
@@ -181,6 +263,8 @@ army['5fb1b9ebe1af060017709e47_963_988']={
   g_base_definitions[g_str_5fb1ba37e1af06001770e889],
   g_base_definitions[g_str_5fb1ba37e1af06001770e88c],
   g_base_definitions[g_str_5fb1ba37e1af06001770e88f],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e892],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e893],
   g_base_definitions[g_str_5fb1ba37e1af06001770e895],
   g_base_definitions[g_str_5fb1ba37e1af06001770e898],
   g_base_definitions[g_str_5fb1ba37e1af06001770e89b],
@@ -220,6 +304,7 @@ army['5fb1b9ebe1af060017709e47_1001_1042']={
   g_base_definitions[g_str_5fb1ba37e1af06001770e889_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e889],
   g_base_definitions[g_str_5fb1ba37e1af06001770e88c],
+  g_base_definitions[g_str_5fb1ba37e1af06001770e88f],
   g_base_definitions[g_str_5fb1ba37e1af06001770e892],
   g_base_definitions[g_str_5fb1ba37e1af06001770e893],
   g_base_definitions[g_str_5fb1ba37e1af06001770e895],

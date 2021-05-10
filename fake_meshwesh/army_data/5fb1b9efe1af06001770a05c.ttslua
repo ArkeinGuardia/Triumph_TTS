@@ -6,6 +6,66 @@ end
 if g_base_definitions == nil then
   g_base_definitions = {}
 end
+g_troop_option['5fb1ba3ce1af06001770f1a4']= {
+  min=0,
+  max=1,
+  description='Bodyguard',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1a5']= {
+  troop_option='5fb1ba3ce1af06001770f1a4',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3ce1af06001770f1a6']= {
+  min=0,
+  max=1,
+  description='Tribal horsemen with armored horses',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1a7']= {
+  troop_option='5fb1ba3ce1af06001770f1a6',
+  troopTypeCode='ECV',
+}
+g_troop_option['5fb1ba3ce1af06001770f1a8']= {
+  min=6,
+  max=11,
+  description='Tribal standing-army horse archers',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1a9']= {
+  troop_option='5fb1ba3ce1af06001770f1a8',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f1aa']= {
+  min=1,
+  max=4,
+  description='Qarluq nobles and horse archers',
+  startDate=1132,
+  endDate=1210,
+}
+g_troop_entry['5fb1ba3ce1af06001770f1ac']= {
+  troop_option='5fb1ba3ce1af06001770f1aa',
+  troopTypeCode='HBW',
+}
+g_troop_option['5fb1ba3ce1af06001770f1ad']= {
+  min=0,
+  max=1,
+  description='City militia',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1ae']= {
+  troop_option='5fb1ba3ce1af06001770f1ad',
+  troopTypeCode='BLV',
+}
+g_troop_option['5fb1ba3ce1af06001770f1af']= {
+  min=0,
+  max=1,
+  description='Subject levy',
+  core='all',
+}
+g_troop_entry['5fb1ba3ce1af06001770f1b0']= {
+  troop_option='5fb1ba3ce1af06001770f1af',
+  troopTypeCode='HRD',
+}
 g_str_5fb1ba3ce1af06001770f1a5_general='5fb1ba3ce1af06001770f1a5_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5_general]={
   id=g_str_5fb1ba3ce1af06001770f1a5_general,
@@ -15,7 +75,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5_general]={
   description='Bodyguard',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f1a4",
 }
 g_str_5fb1ba3ce1af06001770f1a5='5fb1ba3ce1af06001770f1a5'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5]={
@@ -25,7 +84,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5]={
   max=1,
   description='Bodyguard',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f1a4",
 }
 g_str_5fb1ba3ce1af06001770f1a7_general='5fb1ba3ce1af06001770f1a7_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7_general]={
@@ -36,7 +94,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7_general]={
   description='Tribal horsemen with armored horses',
   general=true,
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f1a6",
 }
 g_str_5fb1ba3ce1af06001770f1a7='5fb1ba3ce1af06001770f1a7'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7]={
@@ -46,7 +103,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7]={
   max=1,
   description='Tribal horsemen with armored horses',
   troop_type="Elite Cavalary",
-  troop_option_id="5fb1ba3ce1af06001770f1a6",
 }
 g_str_5fb1ba3ce1af06001770f1a9_general='5fb1ba3ce1af06001770f1a9_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9_general]={
@@ -57,7 +113,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9_general]={
   description='Tribal standing-army horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f1a8",
 }
 g_str_5fb1ba3ce1af06001770f1a9='5fb1ba3ce1af06001770f1a9'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9]={
@@ -67,7 +122,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9]={
   max=11,
   description='Tribal standing-army horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f1a8",
 }
 g_str_5fb1ba3ce1af06001770f1ac_general='5fb1ba3ce1af06001770f1ac_general'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac_general]={
@@ -78,7 +132,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac_general]={
   description='Qarluq nobles and horse archers',
   general=true,
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f1aa",
 }
 g_str_5fb1ba3ce1af06001770f1ac='5fb1ba3ce1af06001770f1ac'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac]={
@@ -88,7 +141,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac]={
   max=4,
   description='Qarluq nobles and horse archers',
   troop_type="Horse Bow",
-  troop_option_id="5fb1ba3ce1af06001770f1aa",
 }
 g_str_5fb1ba3ce1af06001770f1ae='5fb1ba3ce1af06001770f1ae'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1ae]={
@@ -98,7 +150,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1ae]={
   max=1,
   description='City militia',
   troop_type="Bow Levy",
-  troop_option_id="5fb1ba3ce1af06001770f1ad",
 }
 g_str_5fb1ba3ce1af06001770f1b0='5fb1ba3ce1af06001770f1b0'
 g_base_definitions[g_str_5fb1ba3ce1af06001770f1b0]={
@@ -108,7 +159,6 @@ g_base_definitions[g_str_5fb1ba3ce1af06001770f1b0]={
   max=1,
   description='Subject levy',
   troop_type="Horde",
-  troop_option_id="5fb1ba3ce1af06001770f1af",
 }
 g_str_5fb1b9efe1af06001770a05c_camp='5fb1b9efe1af06001770a05c_camp'
 g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp]={
@@ -164,6 +214,8 @@ army['5fb1b9efe1af06001770a05c_1124_1131']={
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac_general],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1ae],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1b0],
   g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp],
@@ -200,6 +252,8 @@ army['5fb1b9efe1af06001770a05c_1211_1211']={
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac_general],
+  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1ae],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1b0],
   g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp],
