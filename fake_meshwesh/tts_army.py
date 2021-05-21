@@ -7,6 +7,11 @@ import sys
 import subprocess
 import re
 
+# set of the identifiers of the base definitions that have already
+# been written
+base_definitions_written=set()
+
+
 def read_json(file_name) :
   with open(file_name, "r") as file:
     text = file.read()
@@ -44,9 +49,12 @@ def set_date_range(destination, dates) :
       return
     dest = destination['dateRange']
     if not between(dates['startDate'], dest['startDate'], dates['endDate']) :
-      print("ERROR start date is out of range. ", dates['startDate'], dest['startDate'], dates['endDate'])
+      #print("ERROR start date is out of range. ", dates['startDate'], dest['startDate'], dates['endDate'])
+      pass
     if not between(dates['startDate'], dest['endDate'], dates['endDate']) :
-      print("ERROR end date is out of range.", dates['startDate'], dest['endDate'], dates['endDate'])
+      #print("ERROR end date is out of range.", dates['startDate'], dest['endDate'], dates['endDate'])
+      pass
+
     dest['startDate'] = max( dates['startDate'], dest['startDate'] )
     dest['endDate'] = min( dates['endDate'], dest['endDate'] )
 
@@ -583,8 +591,10 @@ def write_base_definition_details(file, base_definition) :
   file.write("}\n")
 
 def write_base_definition(file, base_definition) :
-  write_base_definition_id(file, base_definition)
-  write_base_definition_details(file, base_definition)
+  if base_definition['id'] not in base_definitions_written:
+    write_base_definition_id(file, base_definition)
+    write_base_definition_details(file, base_definition)
+    base_definitions_written.add( base_definition['id'])
 
 def get_general_troop_type_codes(army) :
   codes = {}
@@ -934,16 +944,38 @@ def generate_army(army_id) :
       (years, id) = date_entry
       file.write("army_dates[\"%s\"][\"%s\"] =\"%s\"\n" % (army_id, years, id))
 
+def generate_ally_base_definitions(army_id) :
+  """Generate any base definitions for an armies allies that have 
+     not yet been generated.
+  """
+  file_name = os.path.join("army_data", army_id + ".ttslua")
+  with open(file_name, "a") as file :
+    army_ally_options_json  = read_army_ally_options(army_id) 
+    if 'allyEntries' not in army_ally_options_json :
+      return
+    for ally_entry in army_ally_options_json['allyEntries'] :
+      allyArmyList = ally_entry['allyArmyList']
+      troopOptions =allyArmyList['troopOptions']
+      for troop_option in troopOptions :
+        for troop_entry in troop_options['troopEntries'] :
+          base_definition = create_base_definition(troop_option, troop_entry) 
+          write_base_definition(file, base_definition) 
+
 summary = read_json("armyLists/summary")
+
+for army_entry in summary :
+  army_id = army_entry['id']
+  print(army_id)
+  try :
+    generate_army(army_id)
+  except:
+    print(army_entry['name'])
+    raise
+
+for army_entry in summary :
+    generate_ally_base_definitions(army_id)
 
 with open("army_data/all_armies.ttslua", "w") as all_armies:
   for army_entry in summary :
-    army_id = army_entry['id']
-    print(army_id)
-    try :
-      generate_army(army_id)
-    except:
-      print(army_entry['name'])
-      raise
     all_armies.write( "#include %s\n" % (army_id))
 
