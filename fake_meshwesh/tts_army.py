@@ -989,7 +989,7 @@ def write_troop_option(file, troop_option) :
 
 def write_troop_options(army_id) :
   """Write the troop options data so they can be accessed in LUA."""
-  file_name = os.path.join("army_data", army_id + ".ttslua")
+  file_name = os.path.join("army_data", army_id + "_troop_options.ttslua")
   with open(file_name, "w") as file :
     army_json = read_army_json(army_id)
     troop_options = army_json['troopOptions']
@@ -1007,27 +1007,28 @@ def write_troop_options(army_id) :
 
 summary = read_json("armyLists/summary")
 
-for army_entry in summary :
-  army_id = army_entry['id']
-  write_troop_options(army_id)
-
-for army_entry in summary :
-  army_id = army_entry['id']
-  print(army_id)
-  try :
-    generate_army(army_id)
-  except:
-    print(army_entry['name'])
-    raise
-
-for army_entry in summary :
-  army_id = army_entry['id']
-  generate_ally_base_definitions(army_id)
-
-for army_entry in summary :
-  army_id = army_entry['id']
-
 with open("army_data/all_armies.ttslua", "w") as all_armies:
+  for army_entry in summary :
+    army_id = army_entry['id']
+    write_troop_options(army_id)
+    all_armies.write("#include %s_troop_options\n" % (army_id))
+  
+  for army_entry in summary :
+    army_id = army_entry['id']
+    print(army_id)
+    try :
+      generate_army(army_id)
+    except:
+      print(army_entry['name'])
+      raise
+  
+  for army_entry in summary :
+    army_id = army_entry['id']
+    generate_ally_base_definitions(army_id)
+  
+  for army_entry in summary :
+    army_id = army_entry['id']
+  
   for army_entry in summary :
     all_armies.write( "#include %s\n" % (army_id))
 
