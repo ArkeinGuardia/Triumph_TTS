@@ -96,8 +96,62 @@ function on_cancel_load_army(player, value, id)
     UI.setAttribute('button_create_army', 'interactable', true)
 end
 
+-- is low <= mid <= high?
+function between(low, mid, high)
+  if low > mid then
+    return false
+  end
+  if mid > high then
+    return false
+  end
+  return true
+end
+
+
+-- Do two date ranges have a comon period
+function date_ranges_intersect(a,b)
+  if  between(b.startDate, a.startDate, b.endDate) then
+    return true
+  end
+  if  between(b.startDate, a.endDate, b.endDate) then
+    return true
+  end
+  if between(a.startDate, b.startDate, a.endDate) then
+    return true
+  end
+  if between(a.startDate, b.endDate, a.endDate) then
+    return true
+  end
+  return false
+end
+
+-- Compute the army that is to be used for a date range.
+-- army: army to filter, not modified
+-- date_range: {startDate, endDate} of the army components that
+--   should be filtered in.
+-- return: army with base definitions filterd
+function filter_base_definitions_by_date(army, date_range)
+  filtered = deep_copy(army)
+  for k,base_definition in pairs(filtered) do
+    if k ~= "data" then
+      if not date_ranges_intersect(base_definition.dateRange, date_range) then
+        filtered[k] = nil
+      end
+    end
+  end
+  return filtered
+end
+
 function on_load_army(player, value, id)
-    spawn_army(army[g_army_id_to_deploy], g_color_spawn_army_selected == 'Red', g_command_spawn_army_selected)
+    local date_range = army_dates[g_army_id_selected][g_year_selected]
+    local army = filter_base_definitions_by_date(
+      army[g_army_id_selected], 
+      date_range)
+
+    spawn_army(
+      army, 
+      g_color_spawn_army_selected == 'Red', 
+      g_command_spawn_army_selected)
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
     UI.setAttribute('panel_dba_troop_selection_bg', 'active', false)
@@ -200,13 +254,6 @@ g_army_id_selected = nil
 -- Year to show as selected in UI elements.
 -- Example: "1 AD to 5 AD"
 g_year_selected = nil
-
-
--- Identifier of the army that should be spawned.
--- May be the Meshwesh ID such as  "5fb1b9f6e1af06001770a4aa",
---  or and augmented name  such as "5fb1b9f3e1af06001770a2fc_1266_1362"
--- for a period specific army
-g_army_id_to_deploy = nil
 
 
 -----------------------------------------------------------
@@ -366,7 +413,6 @@ function update_years_menu()
     end
     g_year_selected = selected
     set_options_dropdown_by_id('dropdown_year', options, selected_index)
-    g_army_id_to_deploy = dates_for_army[g_year_selected]
 end
 
 function update_player_menu()
