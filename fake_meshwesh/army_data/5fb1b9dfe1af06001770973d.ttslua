@@ -4,7 +4,10 @@ army['5fb1b9dfe1af06001770973d']={
   data={
     name='Mithradatic  110 to 47 BC',
     id='5fb1b9dfe1af06001770973d',
-    army_id='5fb1b9dfe1af06001770973d'
+    dateRange={
+      startDate=-110,
+      endDate=-47,
+    }
   },
   g_base_definitions[g_str_5fb1ba29e1af06001770cf18],
   g_base_definitions[g_str_5fb1ba29e1af06001770cf1a_general],
@@ -28,51 +31,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dfe1af06001770973d"] = army["5fb1b9dfe1af06001770973d"]
-army['5fb1b9dfe1af06001770973d_-110_-85']={
-  data={
-    name='Mithradatic 110 BC to 85 BC',
-    id='5fb1b9dfe1af06001770973d_-110_-85',
-    army_id='5fb1b9dfe1af06001770973d'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf18],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf1a_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf1a],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf1c],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf1e],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf20],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf22],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf25],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf2d],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf2f],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf31],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf33],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf35],
-  g_base_definitions[g_str_5fb1b9dfe1af06001770973d_camp],
-  g_base_definitions[g_str_5fb1b9dfe1af06001770973d_camp_fortified],
-}
-army['5fb1b9dfe1af06001770973d_-84_-47']={
-  data={
-    name='Mithradatic 84 BC to 47 BC',
-    id='5fb1b9dfe1af06001770973d_-84_-47',
-    army_id='5fb1b9dfe1af06001770973d'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf18],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf1a_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf1a],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf1c],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf1e],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf20],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf22],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf28],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf2b],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf2d],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf2f],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf31],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf33],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cf35],
-  g_base_definitions[g_str_5fb1b9dfe1af06001770973d_camp],
-  g_base_definitions[g_str_5fb1b9dfe1af06001770973d_camp_fortified],
-}
 if nil == armies["Hellenistic World"] then
   armies["Hellenistic World"] ={}
 end
@@ -89,6 +47,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dfe1af06001770973d"] = {}
-army_dates["5fb1b9dfe1af06001770973d"]["110 BC to 47 BC"] ="5fb1b9dfe1af06001770973d"
-army_dates["5fb1b9dfe1af06001770973d"]["110 BC to 85 BC"] ="5fb1b9dfe1af06001770973d_-110_-85"
-army_dates["5fb1b9dfe1af06001770973d"]["84 BC to 47 BC"] ="5fb1b9dfe1af06001770973d_-84_-47"
+army_dates["5fb1b9dfe1af06001770973d"]["110 BC to 47 BC"] = {
+  startDate=-110,
+  endDate=-47
+}
+army_dates["5fb1b9dfe1af06001770973d"]["110 BC to 85 BC"] = {
+  startDate=-110,
+  endDate=-47
+}
+army_dates["5fb1b9dfe1af06001770973d"]["84 BC to 47 BC"] = {
+  startDate=-110,
+  endDate=-47
+}

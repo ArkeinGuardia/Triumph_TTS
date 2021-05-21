@@ -4,7 +4,10 @@ army['5fb1b9dae1af060017709430']={
   data={
     name='Kimmerian and Skythian  722 to 300 BC',
     id='5fb1b9dae1af060017709430',
-    army_id='5fb1b9dae1af060017709430'
+    dateRange={
+      startDate=-722,
+      endDate=-300,
+    }
   },
   g_base_definitions[g_str_5fb1ba22e1af06001770c324_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c324],
@@ -22,40 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dae1af060017709430"] = army["5fb1b9dae1af060017709430"]
-army['5fb1b9dae1af060017709430_-722_-501']={
-  data={
-    name='Kimmerian and Skythian 722 BC to 501 BC',
-    id='5fb1b9dae1af060017709430_-722_-501',
-    army_id='5fb1b9dae1af060017709430'
-  },
-  g_base_definitions[g_str_5fb1ba22e1af06001770c326_general],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c326],
-  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp],
-  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp_pack_train],
-  g_base_definitions[g_str_5fb1ba08e1af06001770a6d9],
-  g_base_definitions[g_str_5fb1ba08e1af06001770a6db],
-  g_base_definitions[g_str_5fb1ba08e1af06001770a6dd],
-  g_base_definitions[g_str_5fb1ba08e1af06001770a6de],
-}
-army['5fb1b9dae1af060017709430_-500_-300']={
-  data={
-    name='Kimmerian and Skythian 500 BC to 300 BC',
-    id='5fb1b9dae1af060017709430_-500_-300',
-    army_id='5fb1b9dae1af060017709430'
-  },
-  g_base_definitions[g_str_5fb1ba22e1af06001770c324_general],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c324],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c326_general],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c326],
-  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp],
-  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dae1af060017709430_camp_pack_train],
-  g_base_definitions[g_str_5fb1ba08e1af06001770a6d9],
-  g_base_definitions[g_str_5fb1ba08e1af06001770a6db],
-  g_base_definitions[g_str_5fb1ba08e1af06001770a6dd],
-  g_base_definitions[g_str_5fb1ba08e1af06001770a6de],
-}
 if nil == armies["Assyrian Empire"] then
   armies["Assyrian Empire"] ={}
 end
@@ -76,6 +45,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af060017709430"] = {}
-army_dates["5fb1b9dae1af060017709430"]["722 BC to 300 BC"] ="5fb1b9dae1af060017709430"
-army_dates["5fb1b9dae1af060017709430"]["722 BC to 501 BC"] ="5fb1b9dae1af060017709430_-722_-501"
-army_dates["5fb1b9dae1af060017709430"]["500 BC to 300 BC"] ="5fb1b9dae1af060017709430_-500_-300"
+army_dates["5fb1b9dae1af060017709430"]["722 BC to 300 BC"] = {
+  startDate=-722,
+  endDate=-300
+}
+army_dates["5fb1b9dae1af060017709430"]["722 BC to 501 BC"] = {
+  startDate=-722,
+  endDate=-300
+}
+army_dates["5fb1b9dae1af060017709430"]["500 BC to 300 BC"] = {
+  startDate=-722,
+  endDate=-300
+}

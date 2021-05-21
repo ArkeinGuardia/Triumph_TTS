@@ -4,7 +4,10 @@ army['5fb1b9dbe1af0600177094f5']={
   data={
     name='Early Hoplite Greek: Siciliot, Italiot, or Ionian  669 to 449 BC',
     id='5fb1b9dbe1af0600177094f5',
-    army_id='5fb1b9dbe1af0600177094f5'
+    dateRange={
+      startDate=-669,
+      endDate=-449,
+    }
   },
   g_base_definitions[g_str_5fb1ba25e1af06001770c5ce_general],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5ce],
@@ -21,55 +24,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dbe1af0600177094f5"] = army["5fb1b9dbe1af0600177094f5"]
-army['5fb1b9dbe1af0600177094f5_-669_-462']={
-  data={
-    name='Early Hoplite Greek: Siciliot, Italiot, or Ionian 669 BC to 462 BC',
-    id='5fb1b9dbe1af0600177094f5_-669_-462',
-    army_id='5fb1b9dbe1af0600177094f5'
-  },
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ce_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ce],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d0_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d0],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d2],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d4],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d6],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5db],
-  g_base_definitions[g_str_5fb1b9dbe1af0600177094f5_camp],
-}
-army['5fb1b9dbe1af0600177094f5_-461_-461']={
-  data={
-    name='Early Hoplite Greek: Siciliot, Italiot, or Ionian 461 BC',
-    id='5fb1b9dbe1af0600177094f5_-461_-461',
-    army_id='5fb1b9dbe1af0600177094f5'
-  },
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ce_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ce],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d0_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d0],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d2],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d4],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d6],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d9],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5db],
-  g_base_definitions[g_str_5fb1b9dbe1af0600177094f5_camp],
-}
-army['5fb1b9dbe1af0600177094f5_-460_-449']={
-  data={
-    name='Early Hoplite Greek: Siciliot, Italiot, or Ionian 460 BC to 449 BC',
-    id='5fb1b9dbe1af0600177094f5_-460_-449',
-    army_id='5fb1b9dbe1af0600177094f5'
-  },
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ce_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ce],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d0_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d0],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d2],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d4],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5d6],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5db],
-  g_base_definitions[g_str_5fb1b9dbe1af0600177094f5_camp],
-}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -82,7 +36,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dbe1af0600177094f5"] = {}
-army_dates["5fb1b9dbe1af0600177094f5"]["669 BC to 449 BC"] ="5fb1b9dbe1af0600177094f5"
-army_dates["5fb1b9dbe1af0600177094f5"]["669 BC to 462 BC"] ="5fb1b9dbe1af0600177094f5_-669_-462"
-army_dates["5fb1b9dbe1af0600177094f5"]["461 BC"] ="5fb1b9dbe1af0600177094f5_-461_-461"
-army_dates["5fb1b9dbe1af0600177094f5"]["460 BC to 449 BC"] ="5fb1b9dbe1af0600177094f5_-460_-449"
+army_dates["5fb1b9dbe1af0600177094f5"]["669 BC to 449 BC"] = {
+  startDate=-669,
+  endDate=-449
+}
+army_dates["5fb1b9dbe1af0600177094f5"]["669 BC to 462 BC"] = {
+  startDate=-669,
+  endDate=-449
+}
+army_dates["5fb1b9dbe1af0600177094f5"]["461 BC"] = {
+  startDate=-669,
+  endDate=-449
+}
+army_dates["5fb1b9dbe1af0600177094f5"]["460 BC to 449 BC"] = {
+  startDate=-669,
+  endDate=-449
+}

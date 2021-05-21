@@ -4,7 +4,10 @@ army['5fb1b9e9e1af060017709d37']={
   data={
     name='Early Papal Italian  1049 to 1150 AD',
     id='5fb1b9e9e1af060017709d37',
-    army_id='5fb1b9e9e1af060017709d37'
+    dateRange={
+      startDate=1049,
+      endDate=1150,
+    }
   },
   g_base_definitions[g_str_5fb1ba35e1af06001770e405_general],
   g_base_definitions[g_str_5fb1ba35e1af06001770e405],
@@ -36,63 +39,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e9e1af060017709d37"] = army["5fb1b9e9e1af060017709d37"]
-army['5fb1b9e9e1af060017709d37_1049_1072']={
-  data={
-    name='Early Papal Italian 1049 AD to 1072 AD',
-    id='5fb1b9e9e1af060017709d37_1049_1072',
-    army_id='5fb1b9e9e1af060017709d37'
-  },
-  g_base_definitions[g_str_5fb1ba35e1af06001770e405_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e405],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e408_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e408],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e40b_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e40b_general_mounted],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e40b_general_dismounted],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e40b],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e40b_mounted],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e40b_dismounted],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e40f],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e411],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e413_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e413],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e416],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e418_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e418],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e419],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e41b],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e41d],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e41f],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e421],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e423],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d37_camp],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d37_camp_standard_wagon],
-}
-army['5fb1b9e9e1af060017709d37_1073_1150']={
-  data={
-    name='Early Papal Italian 1073 AD to 1150 AD',
-    id='5fb1b9e9e1af060017709d37_1073_1150',
-    army_id='5fb1b9e9e1af060017709d37'
-  },
-  g_base_definitions[g_str_5fb1ba35e1af06001770e405_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e405],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e408_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e408],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e411],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e413_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e413],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e416],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e418_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e418],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e419],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e41b],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e41d],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e41f],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e421],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e423],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d37_camp],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d37_camp_standard_wagon],
-}
 if nil == armies["Italy and Balkans"] then
   armies["Italy and Balkans"] ={}
 end
@@ -105,6 +51,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e9e1af060017709d37"] = {}
-army_dates["5fb1b9e9e1af060017709d37"]["1049 AD to 1150 AD"] ="5fb1b9e9e1af060017709d37"
-army_dates["5fb1b9e9e1af060017709d37"]["1049 AD to 1072 AD"] ="5fb1b9e9e1af060017709d37_1049_1072"
-army_dates["5fb1b9e9e1af060017709d37"]["1073 AD to 1150 AD"] ="5fb1b9e9e1af060017709d37_1073_1150"
+army_dates["5fb1b9e9e1af060017709d37"]["1049 AD to 1150 AD"] = {
+  startDate=1049,
+  endDate=1150
+}
+army_dates["5fb1b9e9e1af060017709d37"]["1049 AD to 1072 AD"] = {
+  startDate=1049,
+  endDate=1150
+}
+army_dates["5fb1b9e9e1af060017709d37"]["1073 AD to 1150 AD"] = {
+  startDate=1049,
+  endDate=1150
+}

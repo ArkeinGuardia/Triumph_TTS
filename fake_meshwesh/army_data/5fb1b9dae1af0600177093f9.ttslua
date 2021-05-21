@@ -4,7 +4,10 @@ army['5fb1b9dae1af0600177093f9']={
   data={
     name='Middle Cypriot and Phoenician  664 to 351 BC',
     id='5fb1b9dae1af0600177093f9',
-    army_id='5fb1b9dae1af0600177093f9'
+    dateRange={
+      startDate=-664,
+      endDate=-351,
+    }
   },
   g_base_definitions[g_str_5fb1ba21e1af06001770c221_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c221],
@@ -23,42 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dae1af0600177093f9"] = army["5fb1b9dae1af0600177093f9"]
-army['5fb1b9dae1af0600177093f9_-664_-490']={
-  data={
-    name='Middle Cypriot and Phoenician 664 BC to 490 BC',
-    id='5fb1b9dae1af0600177093f9_-664_-490',
-    army_id='5fb1b9dae1af0600177093f9'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c221_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c221],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c223_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c223],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c225],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c226_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c226],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c228],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c22a],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c22c],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093f9_camp],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093f9_camp_pack_train],
-}
-army['5fb1b9dae1af0600177093f9_-489_-351']={
-  data={
-    name='Middle Cypriot and Phoenician 489 BC to 351 BC',
-    id='5fb1b9dae1af0600177093f9_-489_-351',
-    army_id='5fb1b9dae1af0600177093f9'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c223_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c223],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c225],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c226_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c226],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c228],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c22a],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c22c],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093f9_camp],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093f9_camp_pack_train],
-}
 if nil == armies["Assyrian Empire"] then
   armies["Assyrian Empire"] ={}
 end
@@ -75,6 +42,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af0600177093f9"] = {}
-army_dates["5fb1b9dae1af0600177093f9"]["664 BC to 351 BC"] ="5fb1b9dae1af0600177093f9"
-army_dates["5fb1b9dae1af0600177093f9"]["664 BC to 490 BC"] ="5fb1b9dae1af0600177093f9_-664_-490"
-army_dates["5fb1b9dae1af0600177093f9"]["489 BC to 351 BC"] ="5fb1b9dae1af0600177093f9_-489_-351"
+army_dates["5fb1b9dae1af0600177093f9"]["664 BC to 351 BC"] = {
+  startDate=-664,
+  endDate=-351
+}
+army_dates["5fb1b9dae1af0600177093f9"]["664 BC to 490 BC"] = {
+  startDate=-664,
+  endDate=-351
+}
+army_dates["5fb1b9dae1af0600177093f9"]["489 BC to 351 BC"] = {
+  startDate=-664,
+  endDate=-351
+}

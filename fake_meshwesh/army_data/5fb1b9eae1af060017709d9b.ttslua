@@ -4,7 +4,10 @@ army['5fb1b9eae1af060017709d9b']={
   data={
     name='Later Polish  1335 to 1515 AD',
     id='5fb1b9eae1af060017709d9b',
-    army_id='5fb1b9eae1af060017709d9b'
+    dateRange={
+      startDate=1335,
+      endDate=1515,
+    }
   },
   g_base_definitions[g_str_5fb1ba36e1af06001770e611_general],
   g_base_definitions[g_str_5fb1ba36e1af06001770e611],
@@ -27,48 +30,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9eae1af060017709d9b"] = army["5fb1b9eae1af060017709d9b"]
-army['5fb1b9eae1af060017709d9b_1335_1400']={
-  data={
-    name='Later Polish 1335 AD to 1400 AD',
-    id='5fb1b9eae1af060017709d9b_1335_1400',
-    army_id='5fb1b9eae1af060017709d9b'
-  },
-  g_base_definitions[g_str_5fb1ba36e1af06001770e611_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e611],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e616],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e616_mounted],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e616_dismounted],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e619],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e61b],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e61d],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e61d_mounted],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e61d_dismounted],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e620],
-  g_base_definitions[g_str_5fb1b9eae1af060017709d9b_camp],
-}
-army['5fb1b9eae1af060017709d9b_1401_1515']={
-  data={
-    name='Later Polish 1401 AD to 1515 AD',
-    id='5fb1b9eae1af060017709d9b_1401_1515',
-    army_id='5fb1b9eae1af060017709d9b'
-  },
-  g_base_definitions[g_str_5fb1ba36e1af06001770e611_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e611],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e614_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e614],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e616],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e616_mounted],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e616_dismounted],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e619],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e61b],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e61d],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e61d_mounted],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e61d_dismounted],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e620],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e623],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e626],
-  g_base_definitions[g_str_5fb1b9eae1af060017709d9b_camp],
-}
 if nil == armies["Russian Princes"] then
   armies["Russian Princes"] ={}
 end
@@ -93,6 +54,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9eae1af060017709d9b"] = {}
-army_dates["5fb1b9eae1af060017709d9b"]["1335 AD to 1515 AD"] ="5fb1b9eae1af060017709d9b"
-army_dates["5fb1b9eae1af060017709d9b"]["1335 AD to 1400 AD"] ="5fb1b9eae1af060017709d9b_1335_1400"
-army_dates["5fb1b9eae1af060017709d9b"]["1401 AD to 1515 AD"] ="5fb1b9eae1af060017709d9b_1401_1515"
+army_dates["5fb1b9eae1af060017709d9b"]["1335 AD to 1515 AD"] = {
+  startDate=1335,
+  endDate=1515
+}
+army_dates["5fb1b9eae1af060017709d9b"]["1335 AD to 1400 AD"] = {
+  startDate=1335,
+  endDate=1515
+}
+army_dates["5fb1b9eae1af060017709d9b"]["1401 AD to 1515 AD"] = {
+  startDate=1335,
+  endDate=1515
+}

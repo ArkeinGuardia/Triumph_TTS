@@ -4,7 +4,10 @@ army['5fb1b9ebe1af060017709e93']={
   data={
     name='Epirote Byzantine  1204 to 1340 AD',
     id='5fb1b9ebe1af060017709e93',
-    army_id='5fb1b9ebe1af060017709e93'
+    dateRange={
+      startDate=1204,
+      endDate=1340,
+    }
   },
   g_base_definitions[g_str_5fb1ba38e1af06001770e9eb],
   g_base_definitions[g_str_5fb1ba38e1af06001770e9ed],
@@ -23,61 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ebe1af060017709e93"] = army["5fb1b9ebe1af060017709e93"]
-army['5fb1b9ebe1af060017709e93_1204_1229']={
-  data={
-    name='Epirote Byzantine 1204 AD to 1229 AD',
-    id='5fb1b9ebe1af060017709e93_1204_1229',
-    army_id='5fb1b9ebe1af060017709e93'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9eb],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ed],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ef_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ef],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f1],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f9_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f9],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e93_camp],
-}
-army['5fb1b9ebe1af060017709e93_1230_1318']={
-  data={
-    name='Epirote Byzantine 1230 AD to 1318 AD',
-    id='5fb1b9ebe1af060017709e93_1230_1318',
-    army_id='5fb1b9ebe1af060017709e93'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9eb],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ed],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ef_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ef],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f1],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f9_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f9],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9fc],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e93_camp],
-}
-army['5fb1b9ebe1af060017709e93_1319_1340']={
-  data={
-    name='Epirote Byzantine 1319 AD to 1340 AD',
-    id='5fb1b9ebe1af060017709e93_1319_1340',
-    army_id='5fb1b9ebe1af060017709e93'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9eb],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ed],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ef_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9ef],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f1],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f9_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9f9],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e93_camp],
-}
 if nil == armies["Byzantium in Decay"] then
   armies["Byzantium in Decay"] ={}
 end
@@ -90,7 +38,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ebe1af060017709e93"] = {}
-army_dates["5fb1b9ebe1af060017709e93"]["1204 AD to 1340 AD"] ="5fb1b9ebe1af060017709e93"
-army_dates["5fb1b9ebe1af060017709e93"]["1204 AD to 1229 AD"] ="5fb1b9ebe1af060017709e93_1204_1229"
-army_dates["5fb1b9ebe1af060017709e93"]["1230 AD to 1318 AD"] ="5fb1b9ebe1af060017709e93_1230_1318"
-army_dates["5fb1b9ebe1af060017709e93"]["1319 AD to 1340 AD"] ="5fb1b9ebe1af060017709e93_1319_1340"
+army_dates["5fb1b9ebe1af060017709e93"]["1204 AD to 1340 AD"] = {
+  startDate=1204,
+  endDate=1340
+}
+army_dates["5fb1b9ebe1af060017709e93"]["1204 AD to 1229 AD"] = {
+  startDate=1204,
+  endDate=1340
+}
+army_dates["5fb1b9ebe1af060017709e93"]["1230 AD to 1318 AD"] = {
+  startDate=1204,
+  endDate=1340
+}
+army_dates["5fb1b9ebe1af060017709e93"]["1319 AD to 1340 AD"] = {
+  startDate=1204,
+  endDate=1340
+}

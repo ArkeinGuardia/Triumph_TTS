@@ -4,7 +4,10 @@ army['5fb1b9dae1af060017709450']={
   data={
     name='Neo-Assyrian Empire  745 to 681 BC',
     id='5fb1b9dae1af060017709450',
-    army_id='5fb1b9dae1af060017709450'
+    dateRange={
+      startDate=-745,
+      endDate=-681,
+    }
   },
   g_base_definitions[g_str_5fb1ba22e1af06001770c38d_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c38d],
@@ -30,55 +33,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dae1af060017709450"] = army["5fb1b9dae1af060017709450"]
-army['5fb1b9dae1af060017709450_-745_-704']={
-  data={
-    name='Neo-Assyrian Empire 745 BC to 704 BC',
-    id='5fb1b9dae1af060017709450_-745_-704',
-    army_id='5fb1b9dae1af060017709450'
-  },
-  g_base_definitions[g_str_5fb1ba22e1af06001770c38d_general],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c38d],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c390],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c395],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c395_light_camelry],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c39c],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c39f],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3a2],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3a5],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3a8],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3aa],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3ac],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3ae],
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp],
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_standard_wagon],
-}
-army['5fb1b9dae1af060017709450_-703_-681']={
-  data={
-    name='Neo-Assyrian Empire 703 BC to 681 BC',
-    id='5fb1b9dae1af060017709450_-703_-681',
-    army_id='5fb1b9dae1af060017709450'
-  },
-  g_base_definitions[g_str_5fb1ba22e1af06001770c38d_general],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c38d],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c393],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c395],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c395_light_camelry],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c399],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c39c],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c39f],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3a2],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3a5],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3a8],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3aa],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3ac],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c3ae],
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp],
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9dae1af060017709450_camp_standard_wagon],
-}
 if nil == armies["Assyrian Empire"] then
   armies["Assyrian Empire"] ={}
 end
@@ -91,6 +45,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af060017709450"] = {}
-army_dates["5fb1b9dae1af060017709450"]["745 BC to 681 BC"] ="5fb1b9dae1af060017709450"
-army_dates["5fb1b9dae1af060017709450"]["745 BC to 704 BC"] ="5fb1b9dae1af060017709450_-745_-704"
-army_dates["5fb1b9dae1af060017709450"]["703 BC to 681 BC"] ="5fb1b9dae1af060017709450_-703_-681"
+army_dates["5fb1b9dae1af060017709450"]["745 BC to 681 BC"] = {
+  startDate=-745,
+  endDate=-681
+}
+army_dates["5fb1b9dae1af060017709450"]["745 BC to 704 BC"] = {
+  startDate=-745,
+  endDate=-681
+}
+army_dates["5fb1b9dae1af060017709450"]["703 BC to 681 BC"] = {
+  startDate=-745,
+  endDate=-681
+}

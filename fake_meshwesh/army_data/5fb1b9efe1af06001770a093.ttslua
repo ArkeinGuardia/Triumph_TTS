@@ -4,7 +4,10 @@ army['5fb1b9efe1af06001770a093']={
   data={
     name='Later Muslim Indian  1206 to 1295 AD',
     id='5fb1b9efe1af06001770a093',
-    army_id='5fb1b9efe1af06001770a093'
+    dateRange={
+      startDate=1206,
+      endDate=1295,
+    }
   },
   g_base_definitions[g_str_5fb1ba3de1af06001770f292_general],
   g_base_definitions[g_str_5fb1ba3de1af06001770f292],
@@ -28,51 +31,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9efe1af06001770a093"] = army["5fb1b9efe1af06001770a093"]
-army['5fb1b9efe1af06001770a093_1206_1219']={
-  data={
-    name='Later Muslim Indian 1206 AD to 1219 AD',
-    id='5fb1b9efe1af06001770a093_1206_1219',
-    army_id='5fb1b9efe1af06001770a093'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f292_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f292],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f296],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f29b],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f29d],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f29d_plaustrella],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a0],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a0_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a0_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a5],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a9],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a093_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a093_camp_pack_train],
-}
-army['5fb1b9efe1af06001770a093_1220_1295']={
-  data={
-    name='Later Muslim Indian 1220 AD to 1295 AD',
-    id='5fb1b9efe1af06001770a093_1220_1295',
-    army_id='5fb1b9efe1af06001770a093'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f292_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f292],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f299_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f299],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f29b],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f29d],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f29d_plaustrella],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a0],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a0_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a0_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a5],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f2a9],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a093_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a093_camp_pack_train],
-}
 if nil == armies["Monsoon Region"] then
   armies["Monsoon Region"] ={}
 end
@@ -93,6 +51,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9efe1af06001770a093"] = {}
-army_dates["5fb1b9efe1af06001770a093"]["1206 AD to 1295 AD"] ="5fb1b9efe1af06001770a093"
-army_dates["5fb1b9efe1af06001770a093"]["1206 AD to 1219 AD"] ="5fb1b9efe1af06001770a093_1206_1219"
-army_dates["5fb1b9efe1af06001770a093"]["1220 AD to 1295 AD"] ="5fb1b9efe1af06001770a093_1220_1295"
+army_dates["5fb1b9efe1af06001770a093"]["1206 AD to 1295 AD"] = {
+  startDate=1206,
+  endDate=1295
+}
+army_dates["5fb1b9efe1af06001770a093"]["1206 AD to 1219 AD"] = {
+  startDate=1206,
+  endDate=1295
+}
+army_dates["5fb1b9efe1af06001770a093"]["1220 AD to 1295 AD"] = {
+  startDate=1206,
+  endDate=1295
+}

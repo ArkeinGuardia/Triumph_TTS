@@ -4,7 +4,10 @@ army['5fb1b9e5e1af060017709a9f']={
   data={
     name='Scandinavian Leidang  790 to 1280 AD',
     id='5fb1b9e5e1af060017709a9f',
-    army_id='5fb1b9e5e1af060017709a9f'
+    dateRange={
+      startDate=790,
+      endDate=1280,
+    }
   },
   g_base_definitions[g_str_5fb1ba30e1af06001770da73_general],
   g_base_definitions[g_str_5fb1ba30e1af06001770da73],
@@ -33,48 +36,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e5e1af060017709a9f"] = army["5fb1b9e5e1af060017709a9f"]
-army['5fb1b9e5e1af060017709a9f_790_1132']={
-  data={
-    name='Scandinavian Leidang 790 AD to 1132 AD',
-    id='5fb1b9e5e1af060017709a9f_790_1132',
-    army_id='5fb1b9e5e1af060017709a9f'
-  },
-  g_base_definitions[g_str_5fb1ba30e1af06001770da73_general],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da73],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da80],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da82],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da84],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da86],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da88],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709a9f_camp],
-}
-army['5fb1b9e5e1af060017709a9f_1133_1280']={
-  data={
-    name='Scandinavian Leidang 1133 AD to 1280 AD',
-    id='5fb1b9e5e1af060017709a9f_1133_1280',
-    army_id='5fb1b9e5e1af060017709a9f'
-  },
-  g_base_definitions[g_str_5fb1ba30e1af06001770da76_general],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da76_general_mounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da76_general_dismounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da76],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da76_mounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da76_dismounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da7a_general],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da7a_general_mounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da7a_general_dismounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da7a],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da7a_mounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da7a_dismounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da7e_general],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da7e],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da80],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da82],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da84],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da86],
-  g_base_definitions[g_str_5fb1ba30e1af06001770da88],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709a9f_camp],
-}
 if nil == armies["Viking Seas"] then
   armies["Viking Seas"] ={}
 end
@@ -91,6 +52,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e5e1af060017709a9f"] = {}
-army_dates["5fb1b9e5e1af060017709a9f"]["790 AD to 1280 AD"] ="5fb1b9e5e1af060017709a9f"
-army_dates["5fb1b9e5e1af060017709a9f"]["790 AD to 1132 AD"] ="5fb1b9e5e1af060017709a9f_790_1132"
-army_dates["5fb1b9e5e1af060017709a9f"]["1133 AD to 1280 AD"] ="5fb1b9e5e1af060017709a9f_1133_1280"
+army_dates["5fb1b9e5e1af060017709a9f"]["790 AD to 1280 AD"] = {
+  startDate=790,
+  endDate=1280
+}
+army_dates["5fb1b9e5e1af060017709a9f"]["790 AD to 1132 AD"] = {
+  startDate=790,
+  endDate=1280
+}
+army_dates["5fb1b9e5e1af060017709a9f"]["1133 AD to 1280 AD"] = {
+  startDate=790,
+  endDate=1280
+}

@@ -4,7 +4,10 @@ army['5fb1b9f4e1af06001770a377']={
   data={
     name='Yi Dynasty Korean  1392 to 1598 AD',
     id='5fb1b9f4e1af06001770a377',
-    army_id='5fb1b9f4e1af06001770a377'
+    dateRange={
+      startDate=1392,
+      endDate=1598,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fcdd_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fcdd],
@@ -25,47 +28,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f4e1af06001770a377"] = army["5fb1b9f4e1af06001770a377"]
-army['5fb1b9f4e1af06001770a377_1392_1450']={
-  data={
-    name='Yi Dynasty Korean 1392 AD to 1450 AD',
-    id='5fb1b9f4e1af06001770a377_1392_1450',
-    army_id='5fb1b9f4e1af06001770a377'
-  },
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcdd_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcdd],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcdf_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcdf],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce1_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce1],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce3],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce5],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce7],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce9],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fceb],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fced],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a377_camp],
-}
-army['5fb1b9f4e1af06001770a377_1451_1598']={
-  data={
-    name='Yi Dynasty Korean 1451 AD to 1598 AD',
-    id='5fb1b9f4e1af06001770a377_1451_1598',
-    army_id='5fb1b9f4e1af06001770a377'
-  },
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcdd_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcdd],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcdf_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcdf],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce1_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce1],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce3],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce5],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce7],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fce9],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fceb],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fced],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf0],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a377_camp],
-}
 if nil == armies["Korea and Japan"] then
   armies["Korea and Japan"] ={}
 end
@@ -82,6 +44,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f4e1af06001770a377"] = {}
-army_dates["5fb1b9f4e1af06001770a377"]["1392 AD to 1598 AD"] ="5fb1b9f4e1af06001770a377"
-army_dates["5fb1b9f4e1af06001770a377"]["1392 AD to 1450 AD"] ="5fb1b9f4e1af06001770a377_1392_1450"
-army_dates["5fb1b9f4e1af06001770a377"]["1451 AD to 1598 AD"] ="5fb1b9f4e1af06001770a377_1451_1598"
+army_dates["5fb1b9f4e1af06001770a377"]["1392 AD to 1598 AD"] = {
+  startDate=1392,
+  endDate=1598
+}
+army_dates["5fb1b9f4e1af06001770a377"]["1392 AD to 1450 AD"] = {
+  startDate=1392,
+  endDate=1598
+}
+army_dates["5fb1b9f4e1af06001770a377"]["1451 AD to 1598 AD"] = {
+  startDate=1392,
+  endDate=1598
+}

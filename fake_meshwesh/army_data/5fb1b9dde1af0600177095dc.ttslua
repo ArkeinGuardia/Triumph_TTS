@@ -4,7 +4,10 @@ army['5fb1b9dde1af0600177095dc']={
   data={
     name='Later Hoplite Spartan  448 to 225 BC',
     id='5fb1b9dde1af0600177095dc',
-    army_id='5fb1b9dde1af0600177095dc'
+    dateRange={
+      startDate=-448,
+      endDate=-225,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770c966_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c966],
@@ -23,61 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dde1af0600177095dc"] = army["5fb1b9dde1af0600177095dc"]
-army['5fb1b9dde1af0600177095dc_-448_-392']={
-  data={
-    name='Later Hoplite Spartan 448 BC to 392 BC',
-    id='5fb1b9dde1af0600177095dc_-448_-392',
-    army_id='5fb1b9dde1af0600177095dc'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c966_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c966],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96a],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96d],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96f],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c971],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c973],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c975],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c977],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095dc_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095dc_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095dc_-391_-371']={
-  data={
-    name='Later Hoplite Spartan 391 BC to 371 BC',
-    id='5fb1b9dde1af0600177095dc_-391_-371',
-    army_id='5fb1b9dde1af0600177095dc'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c966_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c966],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96a],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96d],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96f],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c971],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c973],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c975],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c977],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c97a],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095dc_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095dc_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095dc_-370_-225']={
-  data={
-    name='Later Hoplite Spartan 370 BC to 225 BC',
-    id='5fb1b9dde1af0600177095dc_-370_-225',
-    army_id='5fb1b9dde1af0600177095dc'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c966_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c966],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96a],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96d],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c96f],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c971],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c973],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c975],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c977],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095dc_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095dc_camp_pack_train],
-}
 if nil == armies["Alexander and Successors"] then
   armies["Alexander and Successors"] ={}
 end
@@ -94,7 +42,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dde1af0600177095dc"] = {}
-army_dates["5fb1b9dde1af0600177095dc"]["448 BC to 225 BC"] ="5fb1b9dde1af0600177095dc"
-army_dates["5fb1b9dde1af0600177095dc"]["448 BC to 392 BC"] ="5fb1b9dde1af0600177095dc_-448_-392"
-army_dates["5fb1b9dde1af0600177095dc"]["391 BC to 371 BC"] ="5fb1b9dde1af0600177095dc_-391_-371"
-army_dates["5fb1b9dde1af0600177095dc"]["370 BC to 225 BC"] ="5fb1b9dde1af0600177095dc_-370_-225"
+army_dates["5fb1b9dde1af0600177095dc"]["448 BC to 225 BC"] = {
+  startDate=-448,
+  endDate=-225
+}
+army_dates["5fb1b9dde1af0600177095dc"]["448 BC to 392 BC"] = {
+  startDate=-448,
+  endDate=-225
+}
+army_dates["5fb1b9dde1af0600177095dc"]["391 BC to 371 BC"] = {
+  startDate=-448,
+  endDate=-225
+}
+army_dates["5fb1b9dde1af0600177095dc"]["370 BC to 225 BC"] = {
+  startDate=-448,
+  endDate=-225
+}

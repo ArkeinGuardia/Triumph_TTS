@@ -4,7 +4,10 @@ army['5fb1b9dce1af060017709565']={
   data={
     name='Later Carthaginian not in Spain or Italy  275 to 203 BC',
     id='5fb1b9dce1af060017709565',
-    army_id='5fb1b9dce1af060017709565'
+    dateRange={
+      startDate=-275,
+      endDate=-203,
+    }
   },
   g_base_definitions[g_str_5fb1ba26e1af06001770c7bc_general],
   g_base_definitions[g_str_5fb1ba26e1af06001770c7bc],
@@ -31,57 +34,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dce1af060017709565"] = army["5fb1b9dce1af060017709565"]
-army['5fb1b9dce1af060017709565_-275_-236']={
-  data={
-    name='Later Carthaginian not in Spain or Italy 275 BC to 236 BC',
-    id='5fb1b9dce1af060017709565_-275_-236',
-    army_id='5fb1b9dce1af060017709565'
-  },
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7bc_general],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7bc],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7be],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7c0],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7c2],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7c5],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7c9],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7cc],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7ce],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d0],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d2],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d4],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d6],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d7_general],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d7],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d9],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7db],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7dd],
-  g_base_definitions[g_str_5fb1b9dce1af060017709565_camp],
-  g_base_definitions[g_str_5fb1b9dce1af060017709565_camp_fortified],
-}
-army['5fb1b9dce1af060017709565_-235_-203']={
-  data={
-    name='Later Carthaginian not in Spain or Italy 235 BC to 203 BC',
-    id='5fb1b9dce1af060017709565_-235_-203',
-    army_id='5fb1b9dce1af060017709565'
-  },
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7bc_general],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7bc],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7be],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7c0],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7c2],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7ce],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d0],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d2],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d4],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d6],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d7_general],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d7],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7d9],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7db],
-  g_base_definitions[g_str_5fb1ba26e1af06001770c7dd],
-  g_base_definitions[g_str_5fb1b9dce1af060017709565_camp],
-  g_base_definitions[g_str_5fb1b9dce1af060017709565_camp_fortified],
-}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -98,6 +50,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dce1af060017709565"] = {}
-army_dates["5fb1b9dce1af060017709565"]["275 BC to 203 BC"] ="5fb1b9dce1af060017709565"
-army_dates["5fb1b9dce1af060017709565"]["275 BC to 236 BC"] ="5fb1b9dce1af060017709565_-275_-236"
-army_dates["5fb1b9dce1af060017709565"]["235 BC to 203 BC"] ="5fb1b9dce1af060017709565_-235_-203"
+army_dates["5fb1b9dce1af060017709565"]["275 BC to 203 BC"] = {
+  startDate=-275,
+  endDate=-203
+}
+army_dates["5fb1b9dce1af060017709565"]["275 BC to 236 BC"] = {
+  startDate=-275,
+  endDate=-203
+}
+army_dates["5fb1b9dce1af060017709565"]["235 BC to 203 BC"] = {
+  startDate=-275,
+  endDate=-203
+}

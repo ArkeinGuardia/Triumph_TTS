@@ -4,7 +4,10 @@ army['5fb1b9dde1af0600177095ea']={
   data={
     name='Later Hoplite Theban/Boiotian  448 to 225 BC',
     id='5fb1b9dde1af0600177095ea',
-    army_id='5fb1b9dde1af0600177095ea'
+    dateRange={
+      startDate=-448,
+      endDate=-225,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770c9be_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c9be],
@@ -23,61 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dde1af0600177095ea"] = army["5fb1b9dde1af0600177095ea"]
-army['5fb1b9dde1af0600177095ea_-448_-401']={
-  data={
-    name='Later Hoplite Theban/Boiotian 448 BC to 401 BC',
-    id='5fb1b9dde1af0600177095ea_-448_-401',
-    army_id='5fb1b9dde1af0600177095ea'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9be_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9be],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c5],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c9],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9cb],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9cd],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ea_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ea_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095ea_-400_-278']={
-  data={
-    name='Later Hoplite Theban/Boiotian 400 BC to 278 BC',
-    id='5fb1b9dde1af0600177095ea_-400_-278',
-    army_id='5fb1b9dde1af0600177095ea'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9be_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9be],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c5],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c9],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9cb],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9cd],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9d0],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ea_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ea_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095ea_-277_-225']={
-  data={
-    name='Later Hoplite Theban/Boiotian 277 BC to 225 BC',
-    id='5fb1b9dde1af0600177095ea_-277_-225',
-    army_id='5fb1b9dde1af0600177095ea'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9be_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9be],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c5],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9c9],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9cb],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c9cd],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ea_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ea_camp_pack_train],
-}
 if nil == armies["Alexander and Successors"] then
   armies["Alexander and Successors"] ={}
 end
@@ -94,7 +42,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dde1af0600177095ea"] = {}
-army_dates["5fb1b9dde1af0600177095ea"]["448 BC to 225 BC"] ="5fb1b9dde1af0600177095ea"
-army_dates["5fb1b9dde1af0600177095ea"]["448 BC to 401 BC"] ="5fb1b9dde1af0600177095ea_-448_-401"
-army_dates["5fb1b9dde1af0600177095ea"]["400 BC to 278 BC"] ="5fb1b9dde1af0600177095ea_-400_-278"
-army_dates["5fb1b9dde1af0600177095ea"]["277 BC to 225 BC"] ="5fb1b9dde1af0600177095ea_-277_-225"
+army_dates["5fb1b9dde1af0600177095ea"]["448 BC to 225 BC"] = {
+  startDate=-448,
+  endDate=-225
+}
+army_dates["5fb1b9dde1af0600177095ea"]["448 BC to 401 BC"] = {
+  startDate=-448,
+  endDate=-225
+}
+army_dates["5fb1b9dde1af0600177095ea"]["400 BC to 278 BC"] = {
+  startDate=-448,
+  endDate=-225
+}
+army_dates["5fb1b9dde1af0600177095ea"]["277 BC to 225 BC"] = {
+  startDate=-448,
+  endDate=-225
+}

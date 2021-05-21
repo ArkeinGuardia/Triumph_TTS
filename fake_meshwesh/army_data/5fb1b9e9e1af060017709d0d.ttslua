@@ -4,7 +4,10 @@ army['5fb1b9e9e1af060017709d0d']={
   data={
     name='Later Swiss  1425 to 1477 AD',
     id='5fb1b9e9e1af060017709d0d',
-    army_id='5fb1b9e9e1af060017709d0d'
+    dateRange={
+      startDate=1425,
+      endDate=1477,
+    }
   },
   g_base_definitions[g_str_5fb1ba34e1af06001770e37e],
   g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted],
@@ -22,41 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e9e1af060017709d0d"] = army["5fb1b9e9e1af060017709d0d"]
-army['5fb1b9e9e1af060017709d0d_1425_1475']={
-  data={
-    name='Later Swiss 1425 AD to 1475 AD',
-    id='5fb1b9e9e1af060017709d0d_1425_1475',
-    army_id='5fb1b9e9e1af060017709d0d'
-  },
-  g_base_definitions[g_str_5fb1ba34e1af06001770e37e],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_dismounted],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e381_general],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e381],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e383],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e384],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e386],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e388],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d0d_camp],
-}
-army['5fb1b9e9e1af060017709d0d_1476_1477']={
-  data={
-    name='Later Swiss 1476 AD to 1477 AD',
-    id='5fb1b9e9e1af060017709d0d_1476_1477',
-    army_id='5fb1b9e9e1af060017709d0d'
-  },
-  g_base_definitions[g_str_5fb1ba34e1af06001770e37e],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_mounted],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e37e_dismounted],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e381_general],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e381],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e383],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e384],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e386],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e388],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e38b],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d0d_camp],
-}
 if nil == armies["Holy Roman Empire"] then
   armies["Holy Roman Empire"] ={}
 end
@@ -77,6 +45,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e9e1af060017709d0d"] = {}
-army_dates["5fb1b9e9e1af060017709d0d"]["1425 AD to 1477 AD"] ="5fb1b9e9e1af060017709d0d"
-army_dates["5fb1b9e9e1af060017709d0d"]["1425 AD to 1475 AD"] ="5fb1b9e9e1af060017709d0d_1425_1475"
-army_dates["5fb1b9e9e1af060017709d0d"]["1476 AD to 1477 AD"] ="5fb1b9e9e1af060017709d0d_1476_1477"
+army_dates["5fb1b9e9e1af060017709d0d"]["1425 AD to 1477 AD"] = {
+  startDate=1425,
+  endDate=1477
+}
+army_dates["5fb1b9e9e1af060017709d0d"]["1425 AD to 1475 AD"] = {
+  startDate=1425,
+  endDate=1477
+}
+army_dates["5fb1b9e9e1af060017709d0d"]["1476 AD to 1477 AD"] = {
+  startDate=1425,
+  endDate=1477
+}

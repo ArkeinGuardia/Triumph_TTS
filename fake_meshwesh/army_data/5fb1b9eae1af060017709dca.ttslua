@@ -4,7 +4,10 @@ army['5fb1b9eae1af060017709dca']={
   data={
     name='Medieval Danish and Union of Kalmar  1350 to 1523 AD',
     id='5fb1b9eae1af060017709dca',
-    army_id='5fb1b9eae1af060017709dca'
+    dateRange={
+      startDate=1350,
+      endDate=1523,
+    }
   },
   g_base_definitions[g_str_5fb1ba36e1af06001770e6b3_general],
   g_base_definitions[g_str_5fb1ba36e1af06001770e6b3],
@@ -24,63 +27,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9eae1af060017709dca"] = army["5fb1b9eae1af060017709dca"]
-army['5fb1b9eae1af060017709dca_1350_1390']={
-  data={
-    name='Medieval Danish and Union of Kalmar 1350 AD to 1390 AD',
-    id='5fb1b9eae1af060017709dca_1350_1390',
-    army_id='5fb1b9eae1af060017709dca'
-  },
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b3_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b3],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b5_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b5],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b7],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b9],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bb_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bb],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bd],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bf],
-  g_base_definitions[g_str_5fb1b9eae1af060017709dca_camp],
-}
-army['5fb1b9eae1af060017709dca_1391_1493']={
-  data={
-    name='Medieval Danish and Union of Kalmar 1391 AD to 1493 AD',
-    id='5fb1b9eae1af060017709dca_1391_1493',
-    army_id='5fb1b9eae1af060017709dca'
-  },
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b3_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b3],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b5_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b5],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b7],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b9],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bb_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bb],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bd],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bf],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6c2],
-  g_base_definitions[g_str_5fb1b9eae1af060017709dca_camp],
-}
-army['5fb1b9eae1af060017709dca_1494_1523']={
-  data={
-    name='Medieval Danish and Union of Kalmar 1494 AD to 1523 AD',
-    id='5fb1b9eae1af060017709dca_1494_1523',
-    army_id='5fb1b9eae1af060017709dca'
-  },
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b3_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b3],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b5_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b5],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b7],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6b9],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bb_general],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bb],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bd],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6bf],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6c2],
-  g_base_definitions[g_str_5fb1ba36e1af06001770e6c5],
-  g_base_definitions[g_str_5fb1b9eae1af060017709dca_camp],
-}
 if nil == armies["Russian Princes"] then
   armies["Russian Princes"] ={}
 end
@@ -105,7 +51,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9eae1af060017709dca"] = {}
-army_dates["5fb1b9eae1af060017709dca"]["1350 AD to 1523 AD"] ="5fb1b9eae1af060017709dca"
-army_dates["5fb1b9eae1af060017709dca"]["1350 AD to 1390 AD"] ="5fb1b9eae1af060017709dca_1350_1390"
-army_dates["5fb1b9eae1af060017709dca"]["1391 AD to 1493 AD"] ="5fb1b9eae1af060017709dca_1391_1493"
-army_dates["5fb1b9eae1af060017709dca"]["1494 AD to 1523 AD"] ="5fb1b9eae1af060017709dca_1494_1523"
+army_dates["5fb1b9eae1af060017709dca"]["1350 AD to 1523 AD"] = {
+  startDate=1350,
+  endDate=1523
+}
+army_dates["5fb1b9eae1af060017709dca"]["1350 AD to 1390 AD"] = {
+  startDate=1350,
+  endDate=1523
+}
+army_dates["5fb1b9eae1af060017709dca"]["1391 AD to 1493 AD"] = {
+  startDate=1350,
+  endDate=1523
+}
+army_dates["5fb1b9eae1af060017709dca"]["1494 AD to 1523 AD"] = {
+  startDate=1350,
+  endDate=1523
+}

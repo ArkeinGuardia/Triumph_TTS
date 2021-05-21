@@ -4,7 +4,10 @@ army['5fb1b9ebe1af060017709ea0']={
   data={
     name='Morean Byzantine  1262 to 1460 AD',
     id='5fb1b9ebe1af060017709ea0',
-    army_id='5fb1b9ebe1af060017709ea0'
+    dateRange={
+      startDate=1262,
+      endDate=1460,
+    }
   },
   g_base_definitions[g_str_5fb1ba38e1af06001770ea3d_general],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea3d],
@@ -26,49 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ebe1af060017709ea0"] = army["5fb1b9ebe1af060017709ea0"]
-army['5fb1b9ebe1af060017709ea0_1262_1315']={
-  data={
-    name='Morean Byzantine 1262 AD to 1315 AD',
-    id='5fb1b9ebe1af060017709ea0_1262_1315',
-    army_id='5fb1b9ebe1af060017709ea0'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea3d_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea3d],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea42],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea44],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea46],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea48],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709ea0_camp],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b564],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b566],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b568],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b56b],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b56d],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b56f],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b570],
-}
-army['5fb1b9ebe1af060017709ea0_1316_1460']={
-  data={
-    name='Morean Byzantine 1316 AD to 1460 AD',
-    id='5fb1b9ebe1af060017709ea0_1316_1460',
-    army_id='5fb1b9ebe1af060017709ea0'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea3d_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea3d],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea40],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea42],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea44],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea46],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea48],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709ea0_camp],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b564],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b566],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b568],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b56b],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b56d],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b56f],
-  g_base_definitions[g_str_5fb1ba14e1af06001770b570],
-}
 if nil == armies["Byzantium in Decay"] then
   armies["Byzantium in Decay"] ={}
 end
@@ -81,6 +41,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ebe1af060017709ea0"] = {}
-army_dates["5fb1b9ebe1af060017709ea0"]["1262 AD to 1460 AD"] ="5fb1b9ebe1af060017709ea0"
-army_dates["5fb1b9ebe1af060017709ea0"]["1262 AD to 1315 AD"] ="5fb1b9ebe1af060017709ea0_1262_1315"
-army_dates["5fb1b9ebe1af060017709ea0"]["1316 AD to 1460 AD"] ="5fb1b9ebe1af060017709ea0_1316_1460"
+army_dates["5fb1b9ebe1af060017709ea0"]["1262 AD to 1460 AD"] = {
+  startDate=1262,
+  endDate=1460
+}
+army_dates["5fb1b9ebe1af060017709ea0"]["1262 AD to 1315 AD"] = {
+  startDate=1262,
+  endDate=1460
+}
+army_dates["5fb1b9ebe1af060017709ea0"]["1316 AD to 1460 AD"] = {
+  startDate=1262,
+  endDate=1460
+}

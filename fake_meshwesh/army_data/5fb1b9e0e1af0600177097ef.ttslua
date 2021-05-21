@@ -4,7 +4,10 @@ army['5fb1b9e0e1af0600177097ef']={
   data={
     name='Later Commagene  79 BC to 72 AD',
     id='5fb1b9e0e1af0600177097ef',
-    army_id='5fb1b9e0e1af0600177097ef'
+    dateRange={
+      startDate=-79,
+      endDate=72,
+    }
   },
   g_base_definitions[g_str_5fb1ba2be1af06001770d167_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d167],
@@ -23,57 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e0e1af0600177097ef"] = army["5fb1b9e0e1af0600177097ef"]
-army['5fb1b9e0e1af0600177097ef_-79_17']={
-  data={
-    name='Later Commagene 79 BC to 17 AD',
-    id='5fb1b9e0e1af0600177097ef_-79_17',
-    army_id='5fb1b9e0e1af0600177097ef'
-  },
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16c],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16e],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d170],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d172],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d174],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d176],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d179],
-  g_base_definitions[g_str_5fb1b9e0e1af0600177097ef_camp],
-}
-army['5fb1b9e0e1af0600177097ef_18_65']={
-  data={
-    name='Later Commagene 18 AD to 65 AD',
-    id='5fb1b9e0e1af0600177097ef_18_65',
-    army_id='5fb1b9e0e1af0600177097ef'
-  },
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16c],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16e],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d170],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d172],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d174],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d176],
-  g_base_definitions[g_str_5fb1b9e0e1af0600177097ef_camp],
-}
-army['5fb1b9e0e1af0600177097ef_66_72']={
-  data={
-    name='Later Commagene 66 AD to 72 AD',
-    id='5fb1b9e0e1af0600177097ef_66_72',
-    army_id='5fb1b9e0e1af0600177097ef'
-  },
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16a_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16a],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16c],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16e],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d170],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d172],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d174],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d176],
-  g_base_definitions[g_str_5fb1b9e0e1af0600177097ef_camp],
-}
 if nil == armies["Rise of Rome"] then
   armies["Rise of Rome"] ={}
 end
@@ -90,7 +42,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e0e1af0600177097ef"] = {}
-army_dates["5fb1b9e0e1af0600177097ef"]["79 BC to 72 AD"] ="5fb1b9e0e1af0600177097ef"
-army_dates["5fb1b9e0e1af0600177097ef"]["79 BC to 17 AD"] ="5fb1b9e0e1af0600177097ef_-79_17"
-army_dates["5fb1b9e0e1af0600177097ef"]["18 AD to 65 AD"] ="5fb1b9e0e1af0600177097ef_18_65"
-army_dates["5fb1b9e0e1af0600177097ef"]["66 AD to 72 AD"] ="5fb1b9e0e1af0600177097ef_66_72"
+army_dates["5fb1b9e0e1af0600177097ef"]["79 BC to 72 AD"] = {
+  startDate=-79,
+  endDate=72
+}
+army_dates["5fb1b9e0e1af0600177097ef"]["79 BC to 17 AD"] = {
+  startDate=-79,
+  endDate=72
+}
+army_dates["5fb1b9e0e1af0600177097ef"]["18 AD to 65 AD"] = {
+  startDate=-79,
+  endDate=72
+}
+army_dates["5fb1b9e0e1af0600177097ef"]["66 AD to 72 AD"] = {
+  startDate=-79,
+  endDate=72
+}

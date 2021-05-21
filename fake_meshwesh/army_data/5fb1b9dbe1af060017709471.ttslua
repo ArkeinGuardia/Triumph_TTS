@@ -4,7 +4,10 @@ army['5fb1b9dbe1af060017709471']={
   data={
     name='Napata Kushite  1068 to 746 BC',
     id='5fb1b9dbe1af060017709471',
-    army_id='5fb1b9dbe1af060017709471'
+    dateRange={
+      startDate=-1068,
+      endDate=-746,
+    }
   },
   g_base_definitions[g_str_5fb1ba23e1af06001770c455_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c455],
@@ -20,37 +23,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dbe1af060017709471"] = army["5fb1b9dbe1af060017709471"]
-army['5fb1b9dbe1af060017709471_-1068_-901']={
-  data={
-    name='Napata Kushite 1068 BC to 901 BC',
-    id='5fb1b9dbe1af060017709471_-1068_-901',
-    army_id='5fb1b9dbe1af060017709471'
-  },
-  g_base_definitions[g_str_5fb1ba23e1af06001770c455_general],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c455],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c45a],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c45b],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c45d],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c45f],
-  g_base_definitions[g_str_5fb1b9dbe1af060017709471_camp],
-  g_base_definitions[g_str_5fb1b9dbe1af060017709471_camp_pack_train],
-}
-army['5fb1b9dbe1af060017709471_-900_-746']={
-  data={
-    name='Napata Kushite 900 BC to 746 BC',
-    id='5fb1b9dbe1af060017709471_-900_-746',
-    army_id='5fb1b9dbe1af060017709471'
-  },
-  g_base_definitions[g_str_5fb1ba23e1af06001770c455_general],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c455],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c458],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c45a],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c45b],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c45d],
-  g_base_definitions[g_str_5fb1ba23e1af06001770c45f],
-  g_base_definitions[g_str_5fb1b9dbe1af060017709471_camp],
-  g_base_definitions[g_str_5fb1b9dbe1af060017709471_camp_pack_train],
-}
 if nil == armies["Chariot Supremacy"] then
   armies["Chariot Supremacy"] ={}
 end
@@ -67,6 +39,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dbe1af060017709471"] = {}
-army_dates["5fb1b9dbe1af060017709471"]["1068 BC to 746 BC"] ="5fb1b9dbe1af060017709471"
-army_dates["5fb1b9dbe1af060017709471"]["1068 BC to 901 BC"] ="5fb1b9dbe1af060017709471_-1068_-901"
-army_dates["5fb1b9dbe1af060017709471"]["900 BC to 746 BC"] ="5fb1b9dbe1af060017709471_-900_-746"
+army_dates["5fb1b9dbe1af060017709471"]["1068 BC to 746 BC"] = {
+  startDate=-1068,
+  endDate=-746
+}
+army_dates["5fb1b9dbe1af060017709471"]["1068 BC to 901 BC"] = {
+  startDate=-1068,
+  endDate=-746
+}
+army_dates["5fb1b9dbe1af060017709471"]["900 BC to 746 BC"] = {
+  startDate=-1068,
+  endDate=-746
+}

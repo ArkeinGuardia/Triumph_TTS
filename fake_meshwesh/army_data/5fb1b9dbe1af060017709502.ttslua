@@ -4,7 +4,10 @@ army['5fb1b9dbe1af060017709502']={
   data={
     name='Early Hoplite Greek: Sparta  669 to 449 BC',
     id='5fb1b9dbe1af060017709502',
-    army_id='5fb1b9dbe1af060017709502'
+    dateRange={
+      startDate=-669,
+      endDate=-449,
+    }
   },
   g_base_definitions[g_str_5fb1ba25e1af06001770c5f8_general],
   g_base_definitions[g_str_5fb1ba25e1af06001770c5f8],
@@ -19,47 +22,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dbe1af060017709502"] = army["5fb1b9dbe1af060017709502"]
-army['5fb1b9dbe1af060017709502_-669_-480']={
-  data={
-    name='Early Hoplite Greek: Sparta 669 BC to 480 BC',
-    id='5fb1b9dbe1af060017709502_-669_-480',
-    army_id='5fb1b9dbe1af060017709502'
-  },
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5f8_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5f8],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5fb],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5fd],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ff],
-  g_base_definitions[g_str_5fb1b9dbe1af060017709502_camp],
-}
-army['5fb1b9dbe1af060017709502_-479_-479']={
-  data={
-    name='Early Hoplite Greek: Sparta 479 BC',
-    id='5fb1b9dbe1af060017709502_-479_-479',
-    army_id='5fb1b9dbe1af060017709502'
-  },
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5f8_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5f8],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5fb],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5fd],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ff],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c602],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c603],
-  g_base_definitions[g_str_5fb1b9dbe1af060017709502_camp],
-}
-army['5fb1b9dbe1af060017709502_-478_-449']={
-  data={
-    name='Early Hoplite Greek: Sparta 478 BC to 449 BC',
-    id='5fb1b9dbe1af060017709502_-478_-449',
-    army_id='5fb1b9dbe1af060017709502'
-  },
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5f8_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5f8],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5fb],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5fd],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c5ff],
-  g_base_definitions[g_str_5fb1b9dbe1af060017709502_camp],
-}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -72,7 +34,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dbe1af060017709502"] = {}
-army_dates["5fb1b9dbe1af060017709502"]["669 BC to 449 BC"] ="5fb1b9dbe1af060017709502"
-army_dates["5fb1b9dbe1af060017709502"]["669 BC to 480 BC"] ="5fb1b9dbe1af060017709502_-669_-480"
-army_dates["5fb1b9dbe1af060017709502"]["479 BC"] ="5fb1b9dbe1af060017709502_-479_-479"
-army_dates["5fb1b9dbe1af060017709502"]["478 BC to 449 BC"] ="5fb1b9dbe1af060017709502_-478_-449"
+army_dates["5fb1b9dbe1af060017709502"]["669 BC to 449 BC"] = {
+  startDate=-669,
+  endDate=-449
+}
+army_dates["5fb1b9dbe1af060017709502"]["669 BC to 480 BC"] = {
+  startDate=-669,
+  endDate=-449
+}
+army_dates["5fb1b9dbe1af060017709502"]["479 BC"] = {
+  startDate=-669,
+  endDate=-449
+}
+army_dates["5fb1b9dbe1af060017709502"]["478 BC to 449 BC"] = {
+  startDate=-669,
+  endDate=-449
+}

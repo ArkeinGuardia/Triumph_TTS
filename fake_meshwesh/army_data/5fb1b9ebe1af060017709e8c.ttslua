@@ -4,7 +4,10 @@ army['5fb1b9ebe1af060017709e8c']={
   data={
     name='Romanian Frankish  1204 to 1432 AD',
     id='5fb1b9ebe1af060017709e8c',
-    army_id='5fb1b9ebe1af060017709e8c'
+    dateRange={
+      startDate=1204,
+      endDate=1432,
+    }
   },
   g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general],
   g_base_definitions[g_str_5fb1ba38e1af06001770e9bc],
@@ -22,58 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ebe1af060017709e8c"] = army["5fb1b9ebe1af060017709e8c"]
-army['5fb1b9ebe1af060017709e8c_1204_1210']={
-  data={
-    name='Romanian Frankish 1204 AD to 1210 AD',
-    id='5fb1b9ebe1af060017709e8c_1204_1210',
-    army_id='5fb1b9ebe1af060017709e8c'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9be],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c9],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9cb],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp_pack_train],
-}
-army['5fb1b9ebe1af060017709e8c_1211_1214']={
-  data={
-    name='Romanian Frankish 1211 AD to 1214 AD',
-    id='5fb1b9ebe1af060017709e8c_1211_1214',
-    army_id='5fb1b9ebe1af060017709e8c'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9be],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c1],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c9],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9cb],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp_pack_train],
-}
-army['5fb1b9ebe1af060017709e8c_1215_1432']={
-  data={
-    name='Romanian Frankish 1215 AD to 1432 AD',
-    id='5fb1b9ebe1af060017709e8c_1215_1432',
-    army_id='5fb1b9ebe1af060017709e8c'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9be],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c9],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9cb],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp_pack_train],
-}
 if nil == armies["Byzantium in Decay"] then
   armies["Byzantium in Decay"] ={}
 end
@@ -90,7 +41,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ebe1af060017709e8c"] = {}
-army_dates["5fb1b9ebe1af060017709e8c"]["1204 AD to 1432 AD"] ="5fb1b9ebe1af060017709e8c"
-army_dates["5fb1b9ebe1af060017709e8c"]["1204 AD to 1210 AD"] ="5fb1b9ebe1af060017709e8c_1204_1210"
-army_dates["5fb1b9ebe1af060017709e8c"]["1211 AD to 1214 AD"] ="5fb1b9ebe1af060017709e8c_1211_1214"
-army_dates["5fb1b9ebe1af060017709e8c"]["1215 AD to 1432 AD"] ="5fb1b9ebe1af060017709e8c_1215_1432"
+army_dates["5fb1b9ebe1af060017709e8c"]["1204 AD to 1432 AD"] = {
+  startDate=1204,
+  endDate=1432
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1204 AD to 1210 AD"] = {
+  startDate=1204,
+  endDate=1432
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1211 AD to 1214 AD"] = {
+  startDate=1204,
+  endDate=1432
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1215 AD to 1432 AD"] = {
+  startDate=1204,
+  endDate=1432
+}

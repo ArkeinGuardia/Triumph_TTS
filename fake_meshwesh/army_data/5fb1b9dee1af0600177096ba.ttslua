@@ -4,7 +4,10 @@ army['5fb1b9dee1af0600177096ba']={
   data={
     name='Galatian  227 to 65 BC',
     id='5fb1b9dee1af0600177096ba',
-    army_id='5fb1b9dee1af0600177096ba'
+    dateRange={
+      startDate=-227,
+      endDate=-65,
+    }
   },
   g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general_mounted],
@@ -23,61 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dee1af0600177096ba"] = army["5fb1b9dee1af0600177096ba"]
-army['5fb1b9dee1af0600177096ba_-227_-190']={
-  data={
-    name='Galatian 227 BC to 190 BC',
-    id='5fb1b9dee1af0600177096ba_-227_-190',
-    army_id='5fb1b9dee1af0600177096ba'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general_mounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general_dismounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_mounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_dismounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfe_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfe],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd00],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd02],
-  g_base_definitions[g_str_5fb1b9dee1af0600177096ba_camp],
-}
-army['5fb1b9dee1af0600177096ba_-189_-189']={
-  data={
-    name='Galatian 189 BC',
-    id='5fb1b9dee1af0600177096ba_-189_-189',
-    army_id='5fb1b9dee1af0600177096ba'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general_mounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general_dismounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_mounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_dismounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfe_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfe],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd00],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd02],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd05],
-  g_base_definitions[g_str_5fb1b9dee1af0600177096ba_camp],
-}
-army['5fb1b9dee1af0600177096ba_-188_-65']={
-  data={
-    name='Galatian 188 BC to 65 BC',
-    id='5fb1b9dee1af0600177096ba_-188_-65',
-    army_id='5fb1b9dee1af0600177096ba'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general_mounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_general_dismounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_mounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfb_dismounted],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfe_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ccfe],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd00],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd02],
-  g_base_definitions[g_str_5fb1b9dee1af0600177096ba_camp],
-}
 if nil == armies["Hellenistic World"] then
   armies["Hellenistic World"] ={}
 end
@@ -90,7 +38,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dee1af0600177096ba"] = {}
-army_dates["5fb1b9dee1af0600177096ba"]["227 BC to 65 BC"] ="5fb1b9dee1af0600177096ba"
-army_dates["5fb1b9dee1af0600177096ba"]["227 BC to 190 BC"] ="5fb1b9dee1af0600177096ba_-227_-190"
-army_dates["5fb1b9dee1af0600177096ba"]["189 BC"] ="5fb1b9dee1af0600177096ba_-189_-189"
-army_dates["5fb1b9dee1af0600177096ba"]["188 BC to 65 BC"] ="5fb1b9dee1af0600177096ba_-188_-65"
+army_dates["5fb1b9dee1af0600177096ba"]["227 BC to 65 BC"] = {
+  startDate=-227,
+  endDate=-65
+}
+army_dates["5fb1b9dee1af0600177096ba"]["227 BC to 190 BC"] = {
+  startDate=-227,
+  endDate=-65
+}
+army_dates["5fb1b9dee1af0600177096ba"]["189 BC"] = {
+  startDate=-227,
+  endDate=-65
+}
+army_dates["5fb1b9dee1af0600177096ba"]["188 BC to 65 BC"] = {
+  startDate=-227,
+  endDate=-65
+}

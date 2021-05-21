@@ -4,7 +4,10 @@ army['5fb1b9e2e1af0600177098e1']={
   data={
     name='Later Sub-Roman British  429 to 517 AD',
     id='5fb1b9e2e1af0600177098e1',
-    army_id='5fb1b9e2e1af0600177098e1'
+    dateRange={
+      startDate=429,
+      endDate=517,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ce1af06001770d49e_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d49e],
@@ -30,64 +33,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e2e1af0600177098e1"] = army["5fb1b9e2e1af0600177098e1"]
-army['5fb1b9e2e1af0600177098e1_429_470']={
-  data={
-    name='Later Sub-Roman British 429 AD to 470 AD',
-    id='5fb1b9e2e1af0600177098e1_429_470',
-    army_id='5fb1b9e2e1af0600177098e1'
-  },
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d49e_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d49e],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d49f_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d49f],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a2_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a2],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a9_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a9],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ab_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ab],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ad],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4af],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4b0],
-  g_base_definitions[g_str_5fb1b9e2e1af0600177098e1_camp],
-  g_base_definitions[g_str_5fb1b9e2e1af0600177098e1_camp_pack_train],
-}
-army['5fb1b9e2e1af0600177098e1_471_494']={
-  data={
-    name='Later Sub-Roman British 471 AD to 494 AD',
-    id='5fb1b9e2e1af0600177098e1_471_494',
-    army_id='5fb1b9e2e1af0600177098e1'
-  },
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a9_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a9],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ab_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ab],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ad],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4af],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4b0],
-  g_base_definitions[g_str_5fb1b9e2e1af0600177098e1_camp],
-  g_base_definitions[g_str_5fb1b9e2e1af0600177098e1_camp_pack_train],
-}
-army['5fb1b9e2e1af0600177098e1_495_517']={
-  data={
-    name='Later Sub-Roman British 495 AD to 517 AD',
-    id='5fb1b9e2e1af0600177098e1_495_517',
-    army_id='5fb1b9e2e1af0600177098e1'
-  },
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a6_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a6],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a7_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a7],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a9_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4a9],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ab_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ab],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4ad],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4af],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d4b0],
-  g_base_definitions[g_str_5fb1b9e2e1af0600177098e1_camp],
-  g_base_definitions[g_str_5fb1b9e2e1af0600177098e1_camp_pack_train],
-}
 if nil == armies["Fall of Rome"] then
   armies["Fall of Rome"] ={}
 end
@@ -100,7 +45,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e2e1af0600177098e1"] = {}
-army_dates["5fb1b9e2e1af0600177098e1"]["429 AD to 517 AD"] ="5fb1b9e2e1af0600177098e1"
-army_dates["5fb1b9e2e1af0600177098e1"]["429 AD to 470 AD"] ="5fb1b9e2e1af0600177098e1_429_470"
-army_dates["5fb1b9e2e1af0600177098e1"]["471 AD to 494 AD"] ="5fb1b9e2e1af0600177098e1_471_494"
-army_dates["5fb1b9e2e1af0600177098e1"]["495 AD to 517 AD"] ="5fb1b9e2e1af0600177098e1_495_517"
+army_dates["5fb1b9e2e1af0600177098e1"]["429 AD to 517 AD"] = {
+  startDate=429,
+  endDate=517
+}
+army_dates["5fb1b9e2e1af0600177098e1"]["429 AD to 470 AD"] = {
+  startDate=429,
+  endDate=517
+}
+army_dates["5fb1b9e2e1af0600177098e1"]["471 AD to 494 AD"] = {
+  startDate=429,
+  endDate=517
+}
+army_dates["5fb1b9e2e1af0600177098e1"]["495 AD to 517 AD"] = {
+  startDate=429,
+  endDate=517
+}

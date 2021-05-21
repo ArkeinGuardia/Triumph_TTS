@@ -4,7 +4,10 @@ army['5fb1b9e9e1af060017709d76']={
   data={
     name='Later Hungarian  1245 to 1441 AD',
     id='5fb1b9e9e1af060017709d76',
-    army_id='5fb1b9e9e1af060017709d76'
+    dateRange={
+      startDate=1245,
+      endDate=1441,
+    }
   },
   g_base_definitions[g_str_5fb1ba35e1af06001770e54d_general],
   g_base_definitions[g_str_5fb1ba35e1af06001770e54d],
@@ -23,42 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e9e1af060017709d76"] = army["5fb1b9e9e1af060017709d76"]
-army['5fb1b9e9e1af060017709d76_1245_1394']={
-  data={
-    name='Later Hungarian 1245 AD to 1394 AD',
-    id='5fb1b9e9e1af060017709d76_1245_1394',
-    army_id='5fb1b9e9e1af060017709d76'
-  },
-  g_base_definitions[g_str_5fb1ba35e1af06001770e54d_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e54d],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e552],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e554],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e557],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e558],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d76_camp],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d76_camp_fortified],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3f5],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3f6],
-}
-army['5fb1b9e9e1af060017709d76_1395_1441']={
-  data={
-    name='Later Hungarian 1395 AD to 1441 AD',
-    id='5fb1b9e9e1af060017709d76_1395_1441',
-    army_id='5fb1b9e9e1af060017709d76'
-  },
-  g_base_definitions[g_str_5fb1ba35e1af06001770e54d_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e54d],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e550_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e550],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e552],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e554],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e557],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e558],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d76_camp],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d76_camp_fortified],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3f5],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3f6],
-}
 if nil == armies["Italy and Balkans"] then
   armies["Italy and Balkans"] ={}
 end
@@ -75,6 +42,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e9e1af060017709d76"] = {}
-army_dates["5fb1b9e9e1af060017709d76"]["1245 AD to 1441 AD"] ="5fb1b9e9e1af060017709d76"
-army_dates["5fb1b9e9e1af060017709d76"]["1245 AD to 1394 AD"] ="5fb1b9e9e1af060017709d76_1245_1394"
-army_dates["5fb1b9e9e1af060017709d76"]["1395 AD to 1441 AD"] ="5fb1b9e9e1af060017709d76_1395_1441"
+army_dates["5fb1b9e9e1af060017709d76"]["1245 AD to 1441 AD"] = {
+  startDate=1245,
+  endDate=1441
+}
+army_dates["5fb1b9e9e1af060017709d76"]["1245 AD to 1394 AD"] = {
+  startDate=1245,
+  endDate=1441
+}
+army_dates["5fb1b9e9e1af060017709d76"]["1395 AD to 1441 AD"] = {
+  startDate=1245,
+  endDate=1441
+}

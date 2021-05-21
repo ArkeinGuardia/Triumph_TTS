@@ -4,7 +4,10 @@ army['5fb1b9d9e1af060017709335']={
   data={
     name='Early Egyptian  3000 to 1541 BC',
     id='5fb1b9d9e1af060017709335',
-    army_id='5fb1b9d9e1af060017709335'
+    dateRange={
+      startDate=-3000,
+      endDate=-1541,
+    }
   },
   g_base_definitions[g_str_5fb1ba1fe1af06001770bf7c_general],
   g_base_definitions[g_str_5fb1ba1fe1af06001770bf7c],
@@ -28,48 +31,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9d9e1af060017709335"] = army["5fb1b9d9e1af060017709335"]
-army['5fb1b9d9e1af060017709335_-3000_-1690']={
-  data={
-    name='Early Egyptian 3000 BC to 1690 BC',
-    id='5fb1b9d9e1af060017709335_-3000_-1690',
-    army_id='5fb1b9d9e1af060017709335'
-  },
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf7c_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf7c],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf82],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf84],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf85],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf87],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf89],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf8b],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf8c],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf8e],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf90],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709335_camp],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709335_camp_pack_train],
-}
-army['5fb1b9d9e1af060017709335_-1689_-1541']={
-  data={
-    name='Early Egyptian 1689 BC to 1541 BC',
-    id='5fb1b9d9e1af060017709335_-1689_-1541',
-    army_id='5fb1b9d9e1af060017709335'
-  },
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf7f_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf7f],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf80_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf80],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf82],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf84],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf85],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf87],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf89],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf8b],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf8c],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf8e],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf90],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709335_camp],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709335_camp_pack_train],
-}
 if nil == armies["Cradle of Civilization"] then
   armies["Cradle of Civilization"] ={}
 end
@@ -86,6 +47,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af060017709335"] = {}
-army_dates["5fb1b9d9e1af060017709335"]["3000 BC to 1541 BC"] ="5fb1b9d9e1af060017709335"
-army_dates["5fb1b9d9e1af060017709335"]["3000 BC to 1690 BC"] ="5fb1b9d9e1af060017709335_-3000_-1690"
-army_dates["5fb1b9d9e1af060017709335"]["1689 BC to 1541 BC"] ="5fb1b9d9e1af060017709335_-1689_-1541"
+army_dates["5fb1b9d9e1af060017709335"]["3000 BC to 1541 BC"] = {
+  startDate=-3000,
+  endDate=-1541
+}
+army_dates["5fb1b9d9e1af060017709335"]["3000 BC to 1690 BC"] = {
+  startDate=-3000,
+  endDate=-1541
+}
+army_dates["5fb1b9d9e1af060017709335"]["1689 BC to 1541 BC"] = {
+  startDate=-3000,
+  endDate=-1541
+}

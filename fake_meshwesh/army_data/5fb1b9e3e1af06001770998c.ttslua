@@ -4,7 +4,10 @@ army['5fb1b9e3e1af06001770998c']={
   data={
     name='Later Visigoth  419 to 720 AD',
     id='5fb1b9e3e1af06001770998c',
-    army_id='5fb1b9e3e1af06001770998c'
+    dateRange={
+      startDate=419,
+      endDate=720,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ee1af06001770d732_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d732],
@@ -22,40 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e3e1af06001770998c"] = army["5fb1b9e3e1af06001770998c"]
-army['5fb1b9e3e1af06001770998c_419_621']={
-  data={
-    name='Later Visigoth 419 AD to 621 AD',
-    id='5fb1b9e3e1af06001770998c_419_621',
-    army_id='5fb1b9e3e1af06001770998c'
-  },
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d732_general],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d732],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d734],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d736],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d738],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d73a],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d73c],
-  g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp],
-  g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp_pack_train],
-}
-army['5fb1b9e3e1af06001770998c_622_720']={
-  data={
-    name='Later Visigoth 622 AD to 720 AD',
-    id='5fb1b9e3e1af06001770998c_622_720',
-    army_id='5fb1b9e3e1af06001770998c'
-  },
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d732_general],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d732],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d734],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d736],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d738],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d73a],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d73c],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d73f],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d740],
-  g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp],
-  g_base_definitions[g_str_5fb1b9e3e1af06001770998c_camp_pack_train],
-}
 if nil == armies["Fall of Rome"] then
   armies["Fall of Rome"] ={}
 end
@@ -76,6 +45,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e3e1af06001770998c"] = {}
-army_dates["5fb1b9e3e1af06001770998c"]["419 AD to 720 AD"] ="5fb1b9e3e1af06001770998c"
-army_dates["5fb1b9e3e1af06001770998c"]["419 AD to 621 AD"] ="5fb1b9e3e1af06001770998c_419_621"
-army_dates["5fb1b9e3e1af06001770998c"]["622 AD to 720 AD"] ="5fb1b9e3e1af06001770998c_622_720"
+army_dates["5fb1b9e3e1af06001770998c"]["419 AD to 720 AD"] = {
+  startDate=419,
+  endDate=720
+}
+army_dates["5fb1b9e3e1af06001770998c"]["419 AD to 621 AD"] = {
+  startDate=419,
+  endDate=720
+}
+army_dates["5fb1b9e3e1af06001770998c"]["622 AD to 720 AD"] = {
+  startDate=419,
+  endDate=720
+}

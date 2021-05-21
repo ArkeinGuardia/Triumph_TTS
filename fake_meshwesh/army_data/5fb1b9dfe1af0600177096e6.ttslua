@@ -4,7 +4,10 @@ army['5fb1b9dfe1af0600177096e6']={
   data={
     name='Hellenistic Bosporan  348 to 11 BC',
     id='5fb1b9dfe1af0600177096e6',
-    army_id='5fb1b9dfe1af0600177096e6'
+    dateRange={
+      startDate=-348,
+      endDate=-11,
+    }
   },
   g_base_definitions[g_str_5fb1ba29e1af06001770cd7d_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd7d],
@@ -25,45 +28,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dfe1af0600177096e6"] = army["5fb1b9dfe1af0600177096e6"]
-army['5fb1b9dfe1af0600177096e6_-348_-85']={
-  data={
-    name='Hellenistic Bosporan 348 BC to 85 BC',
-    id='5fb1b9dfe1af0600177096e6_-348_-85',
-    army_id='5fb1b9dfe1af0600177096e6'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd7d_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd7d],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd7f],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd82],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd88],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd8a],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd8c],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd8e],
-  g_base_definitions[g_str_5fb1b9dfe1af0600177096e6_camp],
-  g_base_definitions[g_str_5fb1b9dfe1af0600177096e6_camp_fortified],
-  g_base_definitions[g_str_5fb1ba0ce1af06001770ab12],
-  g_base_definitions[g_str_5fb1ba0ce1af06001770ab14],
-}
-army['5fb1b9dfe1af0600177096e6_-84_-11']={
-  data={
-    name='Hellenistic Bosporan 84 BC to 11 BC',
-    id='5fb1b9dfe1af0600177096e6_-84_-11',
-    army_id='5fb1b9dfe1af0600177096e6'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd7d_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd7d],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd7f],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd85],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd86],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd88],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd8a],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd8c],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd8e],
-  g_base_definitions[g_str_5fb1b9dfe1af0600177096e6_camp],
-  g_base_definitions[g_str_5fb1b9dfe1af0600177096e6_camp_fortified],
-  g_base_definitions[g_str_5fb1ba0ce1af06001770ab12],
-  g_base_definitions[g_str_5fb1ba0ce1af06001770ab14],
-}
 if nil == armies["Alexander and Successors"] then
   armies["Alexander and Successors"] ={}
 end
@@ -84,6 +48,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dfe1af0600177096e6"] = {}
-army_dates["5fb1b9dfe1af0600177096e6"]["348 BC to 11 BC"] ="5fb1b9dfe1af0600177096e6"
-army_dates["5fb1b9dfe1af0600177096e6"]["348 BC to 85 BC"] ="5fb1b9dfe1af0600177096e6_-348_-85"
-army_dates["5fb1b9dfe1af0600177096e6"]["84 BC to 11 BC"] ="5fb1b9dfe1af0600177096e6_-84_-11"
+army_dates["5fb1b9dfe1af0600177096e6"]["348 BC to 11 BC"] = {
+  startDate=-348,
+  endDate=-11
+}
+army_dates["5fb1b9dfe1af0600177096e6"]["348 BC to 85 BC"] = {
+  startDate=-348,
+  endDate=-11
+}
+army_dates["5fb1b9dfe1af0600177096e6"]["84 BC to 11 BC"] = {
+  startDate=-348,
+  endDate=-11
+}

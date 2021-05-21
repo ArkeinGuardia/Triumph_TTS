@@ -4,7 +4,10 @@ army['5fb1b9dce1af06001770959d']={
   data={
     name='Warlike Gallic  400 to 100 BC',
     id='5fb1b9dce1af06001770959d',
-    army_id='5fb1b9dce1af06001770959d'
+    dateRange={
+      startDate=-400,
+      endDate=-100,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_mounted],
@@ -32,48 +35,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dce1af06001770959d"] = army["5fb1b9dce1af06001770959d"]
-army['5fb1b9dce1af06001770959d_-400_-301']={
-  data={
-    name='Warlike Gallic 400 BC to 301 BC',
-    id='5fb1b9dce1af06001770959d_-400_-301',
-    army_id='5fb1b9dce1af06001770959d'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_mounted],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_general_dismounted],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c87f],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_mounted],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c87f_dismounted],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c889],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c88b_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c88b],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c88d],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c88f],
-  g_base_definitions[g_str_5fb1b9dce1af06001770959d_camp],
-  g_base_definitions[g_str_5fb1b9dce1af06001770959d_camp_fortified],
-}
-army['5fb1b9dce1af06001770959d_-300_-100']={
-  data={
-    name='Warlike Gallic 300 BC to 100 BC',
-    id='5fb1b9dce1af06001770959d_-300_-100',
-    army_id='5fb1b9dce1af06001770959d'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_mounted],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c883_general_dismounted],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c883],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c883_mounted],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c883_dismounted],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c887_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c887],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c889],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c88b_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c88b],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c88d],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c88f],
-  g_base_definitions[g_str_5fb1b9dce1af06001770959d_camp],
-  g_base_definitions[g_str_5fb1b9dce1af06001770959d_camp_fortified],
-}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -90,6 +51,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dce1af06001770959d"] = {}
-army_dates["5fb1b9dce1af06001770959d"]["400 BC to 100 BC"] ="5fb1b9dce1af06001770959d"
-army_dates["5fb1b9dce1af06001770959d"]["400 BC to 301 BC"] ="5fb1b9dce1af06001770959d_-400_-301"
-army_dates["5fb1b9dce1af06001770959d"]["300 BC to 100 BC"] ="5fb1b9dce1af06001770959d_-300_-100"
+army_dates["5fb1b9dce1af06001770959d"]["400 BC to 100 BC"] = {
+  startDate=-400,
+  endDate=-100
+}
+army_dates["5fb1b9dce1af06001770959d"]["400 BC to 301 BC"] = {
+  startDate=-400,
+  endDate=-100
+}
+army_dates["5fb1b9dce1af06001770959d"]["300 BC to 100 BC"] = {
+  startDate=-400,
+  endDate=-100
+}

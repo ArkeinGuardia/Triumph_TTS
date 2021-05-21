@@ -4,7 +4,10 @@ army['5fb1b9dde1af0600177095c0']={
   data={
     name='Polybian Roman  275 to 105 BC',
     id='5fb1b9dde1af0600177095c0',
-    army_id='5fb1b9dde1af0600177095c0'
+    dateRange={
+      startDate=-275,
+      endDate=-105,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c8e2],
@@ -26,65 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dde1af0600177095c0"] = army["5fb1b9dde1af0600177095c0"]
-army['5fb1b9dde1af0600177095c0_-275_-226']={
-  data={
-    name='Polybian Roman 275 BC to 226 BC',
-    id='5fb1b9dde1af0600177095c0_-275_-226',
-    army_id='5fb1b9dde1af0600177095c0'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ed],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f6],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f8],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095c0_-225_-211']={
-  data={
-    name='Polybian Roman 225 BC to 211 BC',
-    id='5fb1b9dde1af0600177095c0_-225_-211',
-    army_id='5fb1b9dde1af0600177095c0'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ea],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ed],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f6],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f8],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8fb],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095c0_-210_-105']={
-  data={
-    name='Polybian Roman 210 BC to 105 BC',
-    id='5fb1b9dde1af0600177095c0_-210_-105',
-    army_id='5fb1b9dde1af0600177095c0'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f0],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f6],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f8],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_pack_train],
-}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -101,7 +45,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dde1af0600177095c0"] = {}
-army_dates["5fb1b9dde1af0600177095c0"]["275 BC to 105 BC"] ="5fb1b9dde1af0600177095c0"
-army_dates["5fb1b9dde1af0600177095c0"]["275 BC to 226 BC"] ="5fb1b9dde1af0600177095c0_-275_-226"
-army_dates["5fb1b9dde1af0600177095c0"]["225 BC to 211 BC"] ="5fb1b9dde1af0600177095c0_-225_-211"
-army_dates["5fb1b9dde1af0600177095c0"]["210 BC to 105 BC"] ="5fb1b9dde1af0600177095c0_-210_-105"
+army_dates["5fb1b9dde1af0600177095c0"]["275 BC to 105 BC"] = {
+  startDate=-275,
+  endDate=-105
+}
+army_dates["5fb1b9dde1af0600177095c0"]["275 BC to 226 BC"] = {
+  startDate=-275,
+  endDate=-105
+}
+army_dates["5fb1b9dde1af0600177095c0"]["225 BC to 211 BC"] = {
+  startDate=-275,
+  endDate=-105
+}
+army_dates["5fb1b9dde1af0600177095c0"]["210 BC to 105 BC"] = {
+  startDate=-275,
+  endDate=-105
+}

@@ -4,7 +4,10 @@ army['5fb1b9ede1af060017709fb6']={
   data={
     name='Later Crusader  1128 to 1303 AD',
     id='5fb1b9ede1af060017709fb6',
-    army_id='5fb1b9ede1af060017709fb6'
+    dateRange={
+      startDate=1128,
+      endDate=1303,
+    }
   },
   g_base_definitions[g_str_5fb1ba3be1af06001770eed0_general],
   g_base_definitions[g_str_5fb1ba3be1af06001770eed0],
@@ -26,45 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709fb6"] = army["5fb1b9ede1af060017709fb6"]
-army['5fb1b9ede1af060017709fb6_1128_1190']={
-  data={
-    name='Later Crusader 1128 AD to 1190 AD',
-    id='5fb1b9ede1af060017709fb6_1128_1190',
-    army_id='5fb1b9ede1af060017709fb6'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed0_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed0],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed3],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed5],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed7],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eee1],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_pack_train],
-}
-army['5fb1b9ede1af060017709fb6_1191_1303']={
-  data={
-    name='Later Crusader 1191 AD to 1303 AD',
-    id='5fb1b9ede1af060017709fb6_1191_1303',
-    army_id='5fb1b9ede1af060017709fb6'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed0_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed0],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed3],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed5],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed7],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eede],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eedf],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eee1],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -89,6 +53,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709fb6"] = {}
-army_dates["5fb1b9ede1af060017709fb6"]["1128 AD to 1303 AD"] ="5fb1b9ede1af060017709fb6"
-army_dates["5fb1b9ede1af060017709fb6"]["1128 AD to 1190 AD"] ="5fb1b9ede1af060017709fb6_1128_1190"
-army_dates["5fb1b9ede1af060017709fb6"]["1191 AD to 1303 AD"] ="5fb1b9ede1af060017709fb6_1191_1303"
+army_dates["5fb1b9ede1af060017709fb6"]["1128 AD to 1303 AD"] = {
+  startDate=1128,
+  endDate=1303
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1128 AD to 1190 AD"] = {
+  startDate=1128,
+  endDate=1303
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1191 AD to 1303 AD"] = {
+  startDate=1128,
+  endDate=1303
+}

@@ -4,7 +4,10 @@ army['5fb1b9dee1af0600177096c8']={
   data={
     name='Attalid Pergamene  263 to 129 BC',
     id='5fb1b9dee1af0600177096c8',
-    army_id='5fb1b9dee1af0600177096c8'
+    dateRange={
+      startDate=-263,
+      endDate=-129,
+    }
   },
   g_base_definitions[g_str_5fb1ba29e1af06001770cd1a_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770cd1a],
@@ -30,54 +33,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dee1af0600177096c8"] = army["5fb1b9dee1af0600177096c8"]
-army['5fb1b9dee1af0600177096c8_-263_-190']={
-  data={
-    name='Attalid Pergamene 263 BC to 190 BC',
-    id='5fb1b9dee1af0600177096c8_-263_-190',
-    army_id='5fb1b9dee1af0600177096c8'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1a_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1a],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1b_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1b],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1d_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1d],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1f],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd21],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd23],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd25],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd27],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd29],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd2b],
-  g_base_definitions[g_str_5fb1b9dee1af0600177096c8_camp],
-  g_base_definitions[g_str_5fb1b9dee1af0600177096c8_camp_pack_train],
-}
-army['5fb1b9dee1af0600177096c8_-189_-129']={
-  data={
-    name='Attalid Pergamene 189 BC to 129 BC',
-    id='5fb1b9dee1af0600177096c8_-189_-129',
-    army_id='5fb1b9dee1af0600177096c8'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1a_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1a],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1b_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1b],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1d_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1d],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd1f],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd21],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd23],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd25],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd27],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd29],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd2b],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd2e],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd31],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd31_elephant_screen],
-  g_base_definitions[g_str_5fb1ba29e1af06001770cd35],
-  g_base_definitions[g_str_5fb1b9dee1af0600177096c8_camp],
-  g_base_definitions[g_str_5fb1b9dee1af0600177096c8_camp_pack_train],
-}
 if nil == armies["Hellenistic World"] then
   armies["Hellenistic World"] ={}
 end
@@ -90,6 +45,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dee1af0600177096c8"] = {}
-army_dates["5fb1b9dee1af0600177096c8"]["263 BC to 129 BC"] ="5fb1b9dee1af0600177096c8"
-army_dates["5fb1b9dee1af0600177096c8"]["263 BC to 190 BC"] ="5fb1b9dee1af0600177096c8_-263_-190"
-army_dates["5fb1b9dee1af0600177096c8"]["189 BC to 129 BC"] ="5fb1b9dee1af0600177096c8_-189_-129"
+army_dates["5fb1b9dee1af0600177096c8"]["263 BC to 129 BC"] = {
+  startDate=-263,
+  endDate=-129
+}
+army_dates["5fb1b9dee1af0600177096c8"]["263 BC to 190 BC"] = {
+  startDate=-263,
+  endDate=-129
+}
+army_dates["5fb1b9dee1af0600177096c8"]["189 BC to 129 BC"] = {
+  startDate=-263,
+  endDate=-129
+}

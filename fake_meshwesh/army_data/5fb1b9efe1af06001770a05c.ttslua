@@ -4,7 +4,10 @@ army['5fb1b9efe1af06001770a05c']={
   data={
     name='Qara-Khitan  1124 to 1211 AD',
     id='5fb1b9efe1af06001770a05c',
-    army_id='5fb1b9efe1af06001770a05c'
+    dateRange={
+      startDate=1124,
+      endDate=1211,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5],
@@ -23,59 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9efe1af06001770a05c"] = army["5fb1b9efe1af06001770a05c"]
-army['5fb1b9efe1af06001770a05c_1124_1131']={
-  data={
-    name='Qara-Khitan 1124 AD to 1131 AD',
-    id='5fb1b9efe1af06001770a05c_1124_1131',
-    army_id='5fb1b9efe1af06001770a05c'
-  },
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ae],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1b0],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp_pack_train],
-}
-army['5fb1b9efe1af06001770a05c_1132_1210']={
-  data={
-    name='Qara-Khitan 1132 AD to 1210 AD',
-    id='5fb1b9efe1af06001770a05c_1132_1210',
-    army_id='5fb1b9efe1af06001770a05c'
-  },
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ac],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ae],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1b0],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp_pack_train],
-}
-army['5fb1b9efe1af06001770a05c_1211_1211']={
-  data={
-    name='Qara-Khitan 1211 AD',
-    id='5fb1b9efe1af06001770a05c_1211_1211',
-    army_id='5fb1b9efe1af06001770a05c'
-  },
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a5],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a7],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9_general],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1a9],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1ae],
-  g_base_definitions[g_str_5fb1ba3ce1af06001770f1b0],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a05c_camp_pack_train],
-}
 if nil == armies["Silk Road"] then
   armies["Silk Road"] ={}
 end
@@ -88,7 +38,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9efe1af06001770a05c"] = {}
-army_dates["5fb1b9efe1af06001770a05c"]["1124 AD to 1211 AD"] ="5fb1b9efe1af06001770a05c"
-army_dates["5fb1b9efe1af06001770a05c"]["1124 AD to 1131 AD"] ="5fb1b9efe1af06001770a05c_1124_1131"
-army_dates["5fb1b9efe1af06001770a05c"]["1132 AD to 1210 AD"] ="5fb1b9efe1af06001770a05c_1132_1210"
-army_dates["5fb1b9efe1af06001770a05c"]["1211 AD"] ="5fb1b9efe1af06001770a05c_1211_1211"
+army_dates["5fb1b9efe1af06001770a05c"]["1124 AD to 1211 AD"] = {
+  startDate=1124,
+  endDate=1211
+}
+army_dates["5fb1b9efe1af06001770a05c"]["1124 AD to 1131 AD"] = {
+  startDate=1124,
+  endDate=1211
+}
+army_dates["5fb1b9efe1af06001770a05c"]["1132 AD to 1210 AD"] = {
+  startDate=1124,
+  endDate=1211
+}
+army_dates["5fb1b9efe1af06001770a05c"]["1211 AD"] = {
+  startDate=1124,
+  endDate=1211
+}

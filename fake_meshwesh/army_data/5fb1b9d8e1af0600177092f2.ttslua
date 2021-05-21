@@ -4,7 +4,10 @@ army['5fb1b9d8e1af0600177092f2']={
   data={
     name='Amurru and Early Aramaean  2000 to 747 BC',
     id='5fb1b9d8e1af0600177092f2',
-    army_id='5fb1b9d8e1af0600177092f2'
+    dateRange={
+      startDate=-2000,
+      endDate=-747,
+    }
   },
   g_base_definitions[g_str_5fb1ba1fe1af06001770be9f_general],
   g_base_definitions[g_str_5fb1ba1fe1af06001770be9f],
@@ -24,45 +27,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9d8e1af0600177092f2"] = army["5fb1b9d8e1af0600177092f2"]
-army['5fb1b9d8e1af0600177092f2_-2000_-1101']={
-  data={
-    name='Amurru and Early Aramaean 2000 BC to 1101 BC',
-    id='5fb1b9d8e1af0600177092f2_-2000_-1101',
-    army_id='5fb1b9d8e1af0600177092f2'
-  },
-  g_base_definitions[g_str_5fb1ba1fe1af06001770be9f_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770be9f],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea0_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea0],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea2_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea2],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea9],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770beab],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bead],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770beae],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092f2_camp],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092f2_camp_pack_train],
-}
-army['5fb1b9d8e1af0600177092f2_-1100_-747']={
-  data={
-    name='Amurru and Early Aramaean 1100 BC to 747 BC',
-    id='5fb1b9d8e1af0600177092f2_-1100_-747',
-    army_id='5fb1b9d8e1af0600177092f2'
-  },
-  g_base_definitions[g_str_5fb1ba1fe1af06001770be9f_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770be9f],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea0_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea0],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea2_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea2],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea6],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bea9],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770beab],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bead],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770beae],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092f2_camp],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092f2_camp_pack_train],
-}
 if nil == armies["Cradle of Civilization"] then
   armies["Cradle of Civilization"] ={}
 end
@@ -83,6 +47,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d8e1af0600177092f2"] = {}
-army_dates["5fb1b9d8e1af0600177092f2"]["2000 BC to 747 BC"] ="5fb1b9d8e1af0600177092f2"
-army_dates["5fb1b9d8e1af0600177092f2"]["2000 BC to 1101 BC"] ="5fb1b9d8e1af0600177092f2_-2000_-1101"
-army_dates["5fb1b9d8e1af0600177092f2"]["1100 BC to 747 BC"] ="5fb1b9d8e1af0600177092f2_-1100_-747"
+army_dates["5fb1b9d8e1af0600177092f2"]["2000 BC to 747 BC"] = {
+  startDate=-2000,
+  endDate=-747
+}
+army_dates["5fb1b9d8e1af0600177092f2"]["2000 BC to 1101 BC"] = {
+  startDate=-2000,
+  endDate=-747
+}
+army_dates["5fb1b9d8e1af0600177092f2"]["1100 BC to 747 BC"] = {
+  startDate=-2000,
+  endDate=-747
+}

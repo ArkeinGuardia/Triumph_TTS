@@ -4,7 +4,10 @@ army['5fb1b9dfe1af060017709709']={
   data={
     name='Later Seleucid  166 to 69 BC',
     id='5fb1b9dfe1af060017709709',
-    army_id='5fb1b9dfe1af060017709709'
+    dateRange={
+      startDate=-166,
+      endDate=-69,
+    }
   },
   g_base_definitions[g_str_5fb1ba29e1af06001770ce25_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770ce25],
@@ -34,65 +37,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dfe1af060017709709"] = army["5fb1b9dfe1af060017709709"]
-army['5fb1b9dfe1af060017709709_-166_-162']={
-  data={
-    name='Later Seleucid 166 BC to 162 BC',
-    id='5fb1b9dfe1af060017709709_-166_-162',
-    army_id='5fb1b9dfe1af060017709709'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce25_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce25],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce27_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce27],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce29],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce2a],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce2c],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce2e],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce2e_elephant_screen],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce31],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce33],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce35],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce37],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce39],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce3b],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce3d],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce3f],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce42],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce45],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce47],
-  g_base_definitions[g_str_5fb1b9dfe1af060017709709_camp],
-  g_base_definitions[g_str_5fb1b9dfe1af060017709709_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dfe1af060017709709_camp_pack_train],
-}
-army['5fb1b9dfe1af060017709709_-161_-69']={
-  data={
-    name='Later Seleucid 161 BC to 69 BC',
-    id='5fb1b9dfe1af060017709709_-161_-69',
-    army_id='5fb1b9dfe1af060017709709'
-  },
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce25_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce25],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce27_general],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce27],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce29],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce2a],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce2c],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce2e],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce2e_elephant_screen],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce31],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce33],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce35],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce37],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce39],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce3b],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce3d],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce3f],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce45],
-  g_base_definitions[g_str_5fb1ba29e1af06001770ce47],
-  g_base_definitions[g_str_5fb1b9dfe1af060017709709_camp],
-  g_base_definitions[g_str_5fb1b9dfe1af060017709709_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dfe1af060017709709_camp_pack_train],
-}
 if nil == armies["Hellenistic World"] then
   armies["Hellenistic World"] ={}
 end
@@ -105,6 +49,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dfe1af060017709709"] = {}
-army_dates["5fb1b9dfe1af060017709709"]["166 BC to 69 BC"] ="5fb1b9dfe1af060017709709"
-army_dates["5fb1b9dfe1af060017709709"]["166 BC to 162 BC"] ="5fb1b9dfe1af060017709709_-166_-162"
-army_dates["5fb1b9dfe1af060017709709"]["161 BC to 69 BC"] ="5fb1b9dfe1af060017709709_-161_-69"
+army_dates["5fb1b9dfe1af060017709709"]["166 BC to 69 BC"] = {
+  startDate=-166,
+  endDate=-69
+}
+army_dates["5fb1b9dfe1af060017709709"]["166 BC to 162 BC"] = {
+  startDate=-166,
+  endDate=-69
+}
+army_dates["5fb1b9dfe1af060017709709"]["161 BC to 69 BC"] = {
+  startDate=-166,
+  endDate=-69
+}

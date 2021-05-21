@@ -4,7 +4,10 @@ army['5fb1b9ede1af060017709f3b']={
   data={
     name='Hamdanids of Aleppo  945 to 965 AD',
     id='5fb1b9ede1af060017709f3b',
-    army_id='5fb1b9ede1af060017709f3b'
+    dateRange={
+      startDate=945,
+      endDate=965,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb],
@@ -27,48 +30,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709f3b"] = army["5fb1b9ede1af060017709f3b"]
-army['5fb1b9ede1af060017709f3b_945_963']={
-  data={
-    name='Hamdanids of Aleppo 945 AD to 963 AD',
-    id='5fb1b9ede1af060017709f3b_945_963',
-    army_id='5fb1b9ede1af060017709f3b'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed01],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed04],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed04_light_camelry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed07],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp_pack_train],
-}
-army['5fb1b9ede1af060017709f3b_964_965']={
-  data={
-    name='Hamdanids of Aleppo 964 AD to 965 AD',
-    id='5fb1b9ede1af060017709f3b_964_965',
-    army_id='5fb1b9ede1af060017709f3b'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed01],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed04],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed04_light_camelry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed07],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0a_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0a],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0b_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0b],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -81,6 +42,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709f3b"] = {}
-army_dates["5fb1b9ede1af060017709f3b"]["945 AD to 965 AD"] ="5fb1b9ede1af060017709f3b"
-army_dates["5fb1b9ede1af060017709f3b"]["945 AD to 963 AD"] ="5fb1b9ede1af060017709f3b_945_963"
-army_dates["5fb1b9ede1af060017709f3b"]["964 AD to 965 AD"] ="5fb1b9ede1af060017709f3b_964_965"
+army_dates["5fb1b9ede1af060017709f3b"]["945 AD to 965 AD"] = {
+  startDate=945,
+  endDate=965
+}
+army_dates["5fb1b9ede1af060017709f3b"]["945 AD to 963 AD"] = {
+  startDate=945,
+  endDate=965
+}
+army_dates["5fb1b9ede1af060017709f3b"]["964 AD to 965 AD"] = {
+  startDate=945,
+  endDate=965
+}

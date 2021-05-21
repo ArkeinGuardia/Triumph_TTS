@@ -4,7 +4,10 @@ army['5fb1b9ede1af060017709f93']={
   data={
     name='Later Georgian  1121 to 1683 AD',
     id='5fb1b9ede1af060017709f93',
-    army_id='5fb1b9ede1af060017709f93'
+    dateRange={
+      startDate=1121,
+      endDate=1683,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee62_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee62],
@@ -23,43 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709f93"] = army["5fb1b9ede1af060017709f93"]
-army['5fb1b9ede1af060017709f93_1121_1144']={
-  data={
-    name='Later Georgian 1121 AD to 1144 AD',
-    id='5fb1b9ede1af060017709f93_1121_1144',
-    army_id='5fb1b9ede1af060017709f93'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee62_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee62],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee65],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee67_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee67],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee69],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6d],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6f],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee72],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp_pack_train],
-}
-army['5fb1b9ede1af060017709f93_1145_1683']={
-  data={
-    name='Later Georgian 1145 AD to 1683 AD',
-    id='5fb1b9ede1af060017709f93_1145_1683',
-    army_id='5fb1b9ede1af060017709f93'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee62_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee62],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee67_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee67],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee69],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6d],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6f],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee72],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -84,6 +50,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709f93"] = {}
-army_dates["5fb1b9ede1af060017709f93"]["1121 AD to 1683 AD"] ="5fb1b9ede1af060017709f93"
-army_dates["5fb1b9ede1af060017709f93"]["1121 AD to 1144 AD"] ="5fb1b9ede1af060017709f93_1121_1144"
-army_dates["5fb1b9ede1af060017709f93"]["1145 AD to 1683 AD"] ="5fb1b9ede1af060017709f93_1145_1683"
+army_dates["5fb1b9ede1af060017709f93"]["1121 AD to 1683 AD"] = {
+  startDate=1121,
+  endDate=1683
+}
+army_dates["5fb1b9ede1af060017709f93"]["1121 AD to 1144 AD"] = {
+  startDate=1121,
+  endDate=1683
+}
+army_dates["5fb1b9ede1af060017709f93"]["1145 AD to 1683 AD"] = {
+  startDate=1121,
+  endDate=1683
+}

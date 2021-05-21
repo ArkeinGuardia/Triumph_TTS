@@ -4,7 +4,10 @@ army['5fb1b9f4e1af06001770a336']={
   data={
     name='Shilla Korean  300 to 935 AD',
     id='5fb1b9f4e1af06001770a336',
-    army_id='5fb1b9f4e1af06001770a336'
+    dateRange={
+      startDate=300,
+      endDate=935,
+    }
   },
   g_base_definitions[g_str_5fb1ba42e1af06001770fc16_general],
   g_base_definitions[g_str_5fb1ba42e1af06001770fc16],
@@ -28,60 +31,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f4e1af06001770a336"] = army["5fb1b9f4e1af06001770a336"]
-army['5fb1b9f4e1af06001770a336_300_405']={
-  data={
-    name='Shilla Korean 300 AD to 405 AD',
-    id='5fb1b9f4e1af06001770a336_300_405',
-    army_id='5fb1b9f4e1af06001770a336'
-  },
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc16_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc16],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc27],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc29],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2b],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2d],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp_fortified],
-}
-army['5fb1b9f4e1af06001770a336_406_670']={
-  data={
-    name='Shilla Korean 406 AD to 670 AD',
-    id='5fb1b9f4e1af06001770a336_406_670',
-    army_id='5fb1b9f4e1af06001770a336'
-  },
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc27],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc29],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2b],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2d],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp_fortified],
-}
-army['5fb1b9f4e1af06001770a336_671_935']={
-  data={
-    name='Shilla Korean 671 AD to 935 AD',
-    id='5fb1b9f4e1af06001770a336_671_935',
-    army_id='5fb1b9f4e1af06001770a336'
-  },
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1f_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1f],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc22_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc22],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc25],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc27],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc29],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2b],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2d],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp_fortified],
-}
 if nil == armies["Korea and Japan"] then
   armies["Korea and Japan"] ={}
 end
@@ -102,7 +51,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f4e1af06001770a336"] = {}
-army_dates["5fb1b9f4e1af06001770a336"]["300 AD to 935 AD"] ="5fb1b9f4e1af06001770a336"
-army_dates["5fb1b9f4e1af06001770a336"]["300 AD to 405 AD"] ="5fb1b9f4e1af06001770a336_300_405"
-army_dates["5fb1b9f4e1af06001770a336"]["406 AD to 670 AD"] ="5fb1b9f4e1af06001770a336_406_670"
-army_dates["5fb1b9f4e1af06001770a336"]["671 AD to 935 AD"] ="5fb1b9f4e1af06001770a336_671_935"
+army_dates["5fb1b9f4e1af06001770a336"]["300 AD to 935 AD"] = {
+  startDate=300,
+  endDate=935
+}
+army_dates["5fb1b9f4e1af06001770a336"]["300 AD to 405 AD"] = {
+  startDate=300,
+  endDate=935
+}
+army_dates["5fb1b9f4e1af06001770a336"]["406 AD to 670 AD"] = {
+  startDate=300,
+  endDate=935
+}
+army_dates["5fb1b9f4e1af06001770a336"]["671 AD to 935 AD"] = {
+  startDate=300,
+  endDate=935
+}

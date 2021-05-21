@@ -4,7 +4,10 @@ army['5fb1b9e5e1af060017709abd']={
   data={
     name='Dark Ages Welsh  580 to 1149 AD',
     id='5fb1b9e5e1af060017709abd',
-    army_id='5fb1b9e5e1af060017709abd'
+    dateRange={
+      startDate=580,
+      endDate=1149,
+    }
   },
   g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general],
   g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_mounted],
@@ -25,44 +28,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e5e1af060017709abd"] = army["5fb1b9e5e1af060017709abd"]
-army['5fb1b9e5e1af060017709abd_580_841']={
-  data={
-    name='Dark Ages Welsh 580 AD to 841 AD',
-    id='5fb1b9e5e1af060017709abd_580_841',
-    army_id='5fb1b9e5e1af060017709abd'
-  },
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_mounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_dismounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_mounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_dismounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dada],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dadc],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp_pack_train],
-}
-army['5fb1b9e5e1af060017709abd_842_1149']={
-  data={
-    name='Dark Ages Welsh 842 AD to 1149 AD',
-    id='5fb1b9e5e1af060017709abd_842_1149',
-    army_id='5fb1b9e5e1af060017709abd'
-  },
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_mounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_general_dismounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_mounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dad7_dismounted],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dada],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dadc],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dadf],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dae0],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dae4],
-  g_base_definitions[g_str_5fb1ba30e1af06001770dae8],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709abd_camp_pack_train],
-}
 if nil == armies["Viking Seas"] then
   armies["Viking Seas"] ={}
 end
@@ -75,6 +40,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e5e1af060017709abd"] = {}
-army_dates["5fb1b9e5e1af060017709abd"]["580 AD to 1149 AD"] ="5fb1b9e5e1af060017709abd"
-army_dates["5fb1b9e5e1af060017709abd"]["580 AD to 841 AD"] ="5fb1b9e5e1af060017709abd_580_841"
-army_dates["5fb1b9e5e1af060017709abd"]["842 AD to 1149 AD"] ="5fb1b9e5e1af060017709abd_842_1149"
+army_dates["5fb1b9e5e1af060017709abd"]["580 AD to 1149 AD"] = {
+  startDate=580,
+  endDate=1149
+}
+army_dates["5fb1b9e5e1af060017709abd"]["580 AD to 841 AD"] = {
+  startDate=580,
+  endDate=1149
+}
+army_dates["5fb1b9e5e1af060017709abd"]["842 AD to 1149 AD"] = {
+  startDate=580,
+  endDate=1149
+}

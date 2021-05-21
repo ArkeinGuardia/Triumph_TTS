@@ -4,7 +4,10 @@ army['5fb1b9dde1af0600177095ce']={
   data={
     name='Early Atropatene  320 to 145 BC',
     id='5fb1b9dde1af0600177095ce',
-    army_id='5fb1b9dde1af0600177095ce'
+    dateRange={
+      startDate=-320,
+      endDate=-145,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770c939_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c939],
@@ -22,61 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dde1af0600177095ce"] = army["5fb1b9dde1af0600177095ce"]
-army['5fb1b9dde1af0600177095ce_-321_-321']={
-  data={
-    name='Early Atropatene 321 BC',
-    id='5fb1b9dde1af0600177095ce_-321_-321',
-    army_id='5fb1b9dde1af0600177095ce'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c939_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c939],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ce_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ce_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095ce_-320_-301']={
-  data={
-    name='Early Atropatene 320 BC to 301 BC',
-    id='5fb1b9dde1af0600177095ce_-320_-301',
-    army_id='5fb1b9dde1af0600177095ce'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c939_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c939],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c93f],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c941],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c943],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c945],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ce_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ce_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095ce_-300_-212']={
-  data={
-    name='Early Atropatene 300 BC to 212 BC',
-    id='5fb1b9dde1af0600177095ce_-300_-212',
-    army_id='5fb1b9dde1af0600177095ce'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c93c_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c93c],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c93d],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c93f],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c941],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c943],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c945],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ce_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ce_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095ce_-211_-145']={
-  data={
-    name='Early Atropatene 211 BC to 145 BC',
-    id='5fb1b9dde1af0600177095ce_-211_-145',
-    army_id='5fb1b9dde1af0600177095ce'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c93f],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c941],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c943],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c945],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ce_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095ce_camp_pack_train],
-}
 if nil == armies["Alexander and Successors"] then
   armies["Alexander and Successors"] ={}
 end
@@ -93,8 +41,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dde1af0600177095ce"] = {}
-army_dates["5fb1b9dde1af0600177095ce"]["320 BC to 145 BC"] ="5fb1b9dde1af0600177095ce"
-army_dates["5fb1b9dde1af0600177095ce"]["321 BC"] ="5fb1b9dde1af0600177095ce_-321_-321"
-army_dates["5fb1b9dde1af0600177095ce"]["320 BC to 301 BC"] ="5fb1b9dde1af0600177095ce_-320_-301"
-army_dates["5fb1b9dde1af0600177095ce"]["300 BC to 212 BC"] ="5fb1b9dde1af0600177095ce_-300_-212"
-army_dates["5fb1b9dde1af0600177095ce"]["211 BC to 145 BC"] ="5fb1b9dde1af0600177095ce_-211_-145"
+army_dates["5fb1b9dde1af0600177095ce"]["320 BC to 145 BC"] = {
+  startDate=-320,
+  endDate=-145
+}
+army_dates["5fb1b9dde1af0600177095ce"]["321 BC"] = {
+  startDate=-320,
+  endDate=-145
+}
+army_dates["5fb1b9dde1af0600177095ce"]["320 BC to 301 BC"] = {
+  startDate=-320,
+  endDate=-145
+}
+army_dates["5fb1b9dde1af0600177095ce"]["300 BC to 212 BC"] = {
+  startDate=-320,
+  endDate=-145
+}
+army_dates["5fb1b9dde1af0600177095ce"]["211 BC to 145 BC"] = {
+  startDate=-320,
+  endDate=-145
+}

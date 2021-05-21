@@ -4,7 +4,10 @@ army['5fb1b9e5e1af060017709acf']={
   data={
     name='Middle Anglo-Saxon  617 to 1016 AD',
     id='5fb1b9e5e1af060017709acf',
-    army_id='5fb1b9e5e1af060017709acf'
+    dateRange={
+      startDate=617,
+      endDate=1016,
+    }
   },
   g_base_definitions[g_str_5fb1ba31e1af06001770db27_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db27],
@@ -27,50 +30,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e5e1af060017709acf"] = army["5fb1b9e5e1af060017709acf"]
-army['5fb1b9e5e1af060017709acf_531_616']={
-  data={
-    name='Middle Anglo-Saxon 531 AD to 616 AD',
-    id='5fb1b9e5e1af060017709acf_531_616',
-    army_id='5fb1b9e5e1af060017709acf'
-  },
-  g_base_definitions[g_str_5fb1ba31e1af06001770db27_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db27],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709acf_camp],
-}
-army['5fb1b9e5e1af060017709acf_617_849']={
-  data={
-    name='Middle Anglo-Saxon 617 AD to 849 AD',
-    id='5fb1b9e5e1af060017709acf_617_849',
-    army_id='5fb1b9e5e1af060017709acf'
-  },
-  g_base_definitions[g_str_5fb1ba31e1af06001770db2a_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db2a],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db2b_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db2b],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db31_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db31],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db33],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db35],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db37],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709acf_camp],
-}
-army['5fb1b9e5e1af060017709acf_850_1016']={
-  data={
-    name='Middle Anglo-Saxon 850 AD to 1016 AD',
-    id='5fb1b9e5e1af060017709acf_850_1016',
-    army_id='5fb1b9e5e1af060017709acf'
-  },
-  g_base_definitions[g_str_5fb1ba31e1af06001770db2e_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db2e],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db2f_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db2f],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db31_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db31],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db33],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db35],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db37],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709acf_camp],
-}
 if nil == armies["Viking Seas"] then
   armies["Viking Seas"] ={}
 end
@@ -83,7 +42,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e5e1af060017709acf"] = {}
-army_dates["5fb1b9e5e1af060017709acf"]["617 AD to 1016 AD"] ="5fb1b9e5e1af060017709acf"
-army_dates["5fb1b9e5e1af060017709acf"]["531 AD to 616 AD"] ="5fb1b9e5e1af060017709acf_531_616"
-army_dates["5fb1b9e5e1af060017709acf"]["617 AD to 849 AD"] ="5fb1b9e5e1af060017709acf_617_849"
-army_dates["5fb1b9e5e1af060017709acf"]["850 AD to 1016 AD"] ="5fb1b9e5e1af060017709acf_850_1016"
+army_dates["5fb1b9e5e1af060017709acf"]["617 AD to 1016 AD"] = {
+  startDate=617,
+  endDate=1016
+}
+army_dates["5fb1b9e5e1af060017709acf"]["531 AD to 616 AD"] = {
+  startDate=617,
+  endDate=1016
+}
+army_dates["5fb1b9e5e1af060017709acf"]["617 AD to 849 AD"] = {
+  startDate=617,
+  endDate=1016
+}
+army_dates["5fb1b9e5e1af060017709acf"]["850 AD to 1016 AD"] = {
+  startDate=617,
+  endDate=1016
+}

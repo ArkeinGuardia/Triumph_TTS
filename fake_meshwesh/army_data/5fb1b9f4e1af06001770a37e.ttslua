@@ -4,7 +4,10 @@ army['5fb1b9f4e1af06001770a37e']={
   data={
     name='Olmec  1150 to 400 BC',
     id='5fb1b9f4e1af06001770a37e',
-    army_id='5fb1b9f4e1af06001770a37e'
+    dateRange={
+      startDate=-1150,
+      endDate=-400,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fcf5_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fcf5],
@@ -17,31 +20,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f4e1af06001770a37e"] = army["5fb1b9f4e1af06001770a37e"]
-army['5fb1b9f4e1af06001770a37e_-1150_-900']={
-  data={
-    name='Olmec 1150 BC to 900 BC',
-    id='5fb1b9f4e1af06001770a37e_-1150_-900',
-    army_id='5fb1b9f4e1af06001770a37e'
-  },
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf5_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf5],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf7_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf7],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a37e_camp],
-}
-army['5fb1b9f4e1af06001770a37e_-899_-400']={
-  data={
-    name='Olmec 899 BC to 400 BC',
-    id='5fb1b9f4e1af06001770a37e_-899_-400',
-    army_id='5fb1b9f4e1af06001770a37e'
-  },
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf5_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf5],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf7_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf7],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcfa],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a37e_camp],
-}
 if nil == armies["New World"] then
   armies["New World"] ={}
 end
@@ -58,6 +36,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f4e1af06001770a37e"] = {}
-army_dates["5fb1b9f4e1af06001770a37e"]["1150 BC to 400 BC"] ="5fb1b9f4e1af06001770a37e"
-army_dates["5fb1b9f4e1af06001770a37e"]["1150 BC to 900 BC"] ="5fb1b9f4e1af06001770a37e_-1150_-900"
-army_dates["5fb1b9f4e1af06001770a37e"]["899 BC to 400 BC"] ="5fb1b9f4e1af06001770a37e_-899_-400"
+army_dates["5fb1b9f4e1af06001770a37e"]["1150 BC to 400 BC"] = {
+  startDate=-1150,
+  endDate=-400
+}
+army_dates["5fb1b9f4e1af06001770a37e"]["1150 BC to 900 BC"] = {
+  startDate=-1150,
+  endDate=-400
+}
+army_dates["5fb1b9f4e1af06001770a37e"]["899 BC to 400 BC"] = {
+  startDate=-1150,
+  endDate=-400
+}

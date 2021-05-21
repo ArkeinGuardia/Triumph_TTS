@@ -798,35 +798,6 @@ def date_string(startDate, endDate) :
   else:
     return "%s to %s" % (year_string(startDate), year_string(endDate))
 
-def generate_army_for_date(file, army_json, startDate, endDate, base_definitions)  :
-  army_id = army_json['id'] + "_" + str(startDate) + "_" + str(endDate)
-  
-  army_name =  army_json['name'] + " " + date_string(startDate, endDate)
-
-  file.write("army['%s']={\n" % (army_id))
-  file.write("  data={\n")
-  # TODO Invasion
-  # TODO maneuver
-  # TODO terrain
-  # TODO list
-
-  #escape quotes
-  name = army_name.replace("'", "\\'")
-
-  file.write("    name='%s',\n" %(name))
-  file.write("    id='%s',\n" %(army_id))
-  file.write("    army_id='%s'\n" %(army_json['id']))
-  file.write("  },\n")
-
-  # Bases that make up the army
-  for definition in base_definitions  :
-    troop_option = get_troop_option(army_json, definition)
-    if is_option_in_date_range(troop_option, startDate, endDate) :
-      id = definition['id']
-      file.write("  g_base_definitions[g_str_%s],\n" %(id))
-  file.write("}\n")
-
-  return army_id
 
 def get_optional_contingents(army_ally_options_json):
   """Extract the ally_army options for the ally's that are internal. """
@@ -877,7 +848,11 @@ def generate_army(army_id) :
   
       file.write("    name='%s',\n" %(name))
       file.write("    id='%s',\n" %(army_id))
-      file.write("    army_id='%s'\n" %(army_id))
+      file.write("    dateRange={\n")
+      file.write("      startDate=%d,\n" % 
+        (army_json['dateRange']['startDate']))
+      file.write("      endDate=%d,\n"  % (army_json['dateRange']['endDate']))
+      file.write("    }\n")
       file.write("  },\n")
   
       # Bases that make up the army
@@ -920,14 +895,19 @@ def generate_army(army_id) :
             dates.append(endDate+1)
       dates = sorted(set(dates))
   
+      # dates are kept in order, but there is one extra entry
+      # at the beginning that keeps the entire range.
       date_map = []
-      date_map.append( (date_string(army_startDate, army_endDate), army_id))
+      date_map.append( (
+        date_string(army_startDate, army_endDate), 
+        [army_startDate, army_endDate]) )
   
       start = dates[0]
       for end in dates[1:] :
         if start != army_startDate or end != (army_endDate+1) :
-          id = generate_army_for_date(file, army_json, start, end-1, definitions)
-          date_map.append( (date_string(start, end-1), id))
+          date_map.append( (
+            date_string(start, end-1), 
+            [army_startDate, army_endDate] ))
           start = end 
   
       for army_theme in army_theme_json :
@@ -950,8 +930,12 @@ def generate_army(army_id) :
       file.write("if nil == army_dates then\n  army_dates={}\nend\n")
       file.write("army_dates[\"%s\"] = {}\n" % (army_id))
       for date_entry in date_map:
-        (years, id) = date_entry
-        file.write("army_dates[\"%s\"][\"%s\"] =\"%s\"\n" % (army_id, years, id))
+        (years, dateRange) = date_entry
+        (startDate, endDate) = dateRange
+        file.write("army_dates[\"%s\"][\"%s\"] = {\n" %  (army_id, years))
+        file.write("  startDate=%d,\n" %  (startDate))
+        file.write("  endDate=%d\n" %  (endDate))
+        file.write("}\n")
 
 def generate_ally_base_definitions(army_id) :
   """Generate any base definitions for an armies allies that have 

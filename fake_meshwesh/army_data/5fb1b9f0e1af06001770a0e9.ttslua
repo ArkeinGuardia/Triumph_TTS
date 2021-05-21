@@ -4,7 +4,10 @@ army['5fb1b9f0e1af06001770a0e9']={
   data={
     name='Khmer  605 to 1431 AD',
     id='5fb1b9f0e1af06001770a0e9',
-    army_id='5fb1b9f0e1af06001770a0e9'
+    dateRange={
+      startDate=605,
+      endDate=1431,
+    }
   },
   g_base_definitions[g_str_5fb1ba3de1af06001770f3c7_general],
   g_base_definitions[g_str_5fb1ba3de1af06001770f3c7],
@@ -30,57 +33,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f0e1af06001770a0e9"] = army["5fb1b9f0e1af06001770a0e9"]
-army['5fb1b9f0e1af06001770a0e9_605_1170']={
-  data={
-    name='Khmer 605 AD to 1170 AD',
-    id='5fb1b9f0e1af06001770a0e9_605_1170',
-    army_id='5fb1b9f0e1af06001770a0e9'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3c7_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3c7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ca_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ca],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3cc],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ce],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d1],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d5],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d7_elephant_screen],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3da],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3dc],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3de],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e1],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e3],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp_pack_train],
-}
-army['5fb1b9f0e1af06001770a0e9_1171_1431']={
-  data={
-    name='Khmer 1171 AD to 1431 AD',
-    id='5fb1b9f0e1af06001770a0e9_1171_1431',
-    army_id='5fb1b9f0e1af06001770a0e9'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3c7_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3c7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ca_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ca],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3cc],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ce],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d1],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d5],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d7_elephant_screen],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3da],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3dc],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3de],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e1],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e6],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp_pack_train],
-}
 if nil == armies["Monsoon Region"] then
   armies["Monsoon Region"] ={}
 end
@@ -97,6 +49,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f0e1af06001770a0e9"] = {}
-army_dates["5fb1b9f0e1af06001770a0e9"]["605 AD to 1431 AD"] ="5fb1b9f0e1af06001770a0e9"
-army_dates["5fb1b9f0e1af06001770a0e9"]["605 AD to 1170 AD"] ="5fb1b9f0e1af06001770a0e9_605_1170"
-army_dates["5fb1b9f0e1af06001770a0e9"]["1171 AD to 1431 AD"] ="5fb1b9f0e1af06001770a0e9_1171_1431"
+army_dates["5fb1b9f0e1af06001770a0e9"]["605 AD to 1431 AD"] = {
+  startDate=605,
+  endDate=1431
+}
+army_dates["5fb1b9f0e1af06001770a0e9"]["605 AD to 1170 AD"] = {
+  startDate=605,
+  endDate=1431
+}
+army_dates["5fb1b9f0e1af06001770a0e9"]["1171 AD to 1431 AD"] = {
+  startDate=605,
+  endDate=1431
+}

@@ -4,7 +4,10 @@ army['5fb1b9d8e1af0600177092d8']={
   data={
     name='Melukhkhan and Pre-Vedic Indian  2700 to 1500 BC',
     id='5fb1b9d8e1af0600177092d8',
-    army_id='5fb1b9d8e1af0600177092d8'
+    dateRange={
+      startDate=-2700,
+      endDate=-1500,
+    }
   },
   g_base_definitions[g_str_5fb1ba1ee1af06001770be37_general],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be37],
@@ -21,38 +24,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9d8e1af0600177092d8"] = army["5fb1b9d8e1af0600177092d8"]
-army['5fb1b9d8e1af0600177092d8_-2700_-1901']={
-  data={
-    name='Melukhkhan and Pre-Vedic Indian 2700 BC to 1901 BC',
-    id='5fb1b9d8e1af0600177092d8_-2700_-1901',
-    army_id='5fb1b9d8e1af0600177092d8'
-  },
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be37_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be37],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be38_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be38],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be3b_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be3b],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be3d],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be3f],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be41],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092d8_camp],
-}
-army['5fb1b9d8e1af0600177092d8_-1900_-1500']={
-  data={
-    name='Melukhkhan and Pre-Vedic Indian 1900 BC to 1500 BC',
-    id='5fb1b9d8e1af0600177092d8_-1900_-1500',
-    army_id='5fb1b9d8e1af0600177092d8'
-  },
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be37_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be37],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be38_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be38],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be3d],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be3f],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be41],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092d8_camp],
-}
 if nil == armies["Cradle of Civilization"] then
   armies["Cradle of Civilization"] ={}
 end
@@ -65,6 +36,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d8e1af0600177092d8"] = {}
-army_dates["5fb1b9d8e1af0600177092d8"]["2700 BC to 1500 BC"] ="5fb1b9d8e1af0600177092d8"
-army_dates["5fb1b9d8e1af0600177092d8"]["2700 BC to 1901 BC"] ="5fb1b9d8e1af0600177092d8_-2700_-1901"
-army_dates["5fb1b9d8e1af0600177092d8"]["1900 BC to 1500 BC"] ="5fb1b9d8e1af0600177092d8_-1900_-1500"
+army_dates["5fb1b9d8e1af0600177092d8"]["2700 BC to 1500 BC"] = {
+  startDate=-2700,
+  endDate=-1500
+}
+army_dates["5fb1b9d8e1af0600177092d8"]["2700 BC to 1901 BC"] = {
+  startDate=-2700,
+  endDate=-1500
+}
+army_dates["5fb1b9d8e1af0600177092d8"]["1900 BC to 1500 BC"] = {
+  startDate=-2700,
+  endDate=-1500
+}
