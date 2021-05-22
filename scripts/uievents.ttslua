@@ -180,6 +180,7 @@ function on_load_army(player, value, id)
       command,
       army_nb)
     army_nb = army_nb + 1
+    set_tablet(is_red_player, army[g_army_id_selected])
 
     -- Spawn the allies
     print(160, "g_selected_allies=", g_selected_allies)
