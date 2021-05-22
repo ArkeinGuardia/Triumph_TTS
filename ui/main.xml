@@ -17,7 +17,7 @@
     </VerticalLayout>
 </Panel>
 
-<Panel id="panel_dba_orders" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true">
+<Panel id="panel_dba_orders" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
     <VerticalLayout>
         <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
         <Button id="button_move_forward" onClick="move_bases">Move 4 MU</Button>
@@ -216,25 +216,23 @@
               <Text fontSize="20" alignment="MiddleLeft">Allies</Text>
           </Cell>
           <Cell columnSpan="17" dontUseTableCellBackground="true">
-            <VerticalScrollView>
-              <VerticalLayout childForceExpandHeight="false">
-                <Toggle id="toggle_ally_army_1" isOn="false" onValueChanged="on_toggle_ally_army_1">army1</Toggle>
-                <Toggle id="toggle_ally_army_2" isOn="false" onValueChanged="on_toggle_ally_army_2">army2</Toggle>
-                <Toggle id="toggle_ally_army_3" isOn="false" onValueChanged="on_toggle_ally_army_3">army3</Toggle>
-                <Toggle id="toggle_ally_army_4" isOn="false" onValueChanged="on_toggle_ally_army_4">army4</Toggle>
-                <Toggle id="toggle_ally_army_5" isOn="false" onValueChanged="on_toggle_ally_army_5">army5</Toggle>
-                <Toggle id="toggle_ally_army_6" isOn="false" onValueChanged="on_toggle_ally_army_6">army6</Toggle>
-                <Toggle id="toggle_ally_army_7" isOn="false" onValueChanged="on_toggle_ally_army_7">army7</Toggle>
-                <Toggle id="toggle_ally_army_8" isOn="false" onValueChanged="on_toggle_ally_army_8">army8</Toggle>
-                <Toggle id="toggle_ally_army_9" isOn="false" onValueChanged="on_toggle_ally_army_9">army9</Toggle>
-                <Toggle id="toggle_ally_army_10" isOn="false" onValueChanged="on_toggle_ally_army_10">army10</Toggle>
-                <Toggle id="toggle_ally_army_11" isOn="false" onValueChanged="on_toggle_ally_army_11">army11</Toggle>
-                <Toggle id="toggle_ally_army_12" isOn="false" onValueChanged="on_toggle_ally_army_12">army12</Toggle>
-                <Toggle id="toggle_ally_army_13" isOn="false" onValueChanged="on_toggle_ally_army_130">army13</Toggle>
-                <Toggle id="toggle_ally_army_14" isOn="false" onValueChanged="on_toggle_ally_army_14">army14</Toggle>
-                <Toggle id="toggle_ally_army_15" isOn="false" onValueChanged="on_toggle_ally_army_15">army15</Toggle>
-              </VerticalLayout>
-            </VerticalScrollView>
+            <VerticalLayout childForceExpandHeight="false" childAlignment="UpperLeft">
+                <Toggle id="toggle_ally_army_1"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army1</Toggle>
+                <Toggle id="toggle_ally_army_2"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army2</Toggle>
+                <Toggle id="toggle_ally_army_3"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army3</Toggle>
+                <Toggle id="toggle_ally_army_4"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army4</Toggle>
+                <Toggle id="toggle_ally_army_5"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army5</Toggle>
+                <Toggle id="toggle_ally_army_6"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army6</Toggle>
+                <Toggle id="toggle_ally_army_7"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army7</Toggle>
+                <Toggle id="toggle_ally_army_8"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army8</Toggle>
+                <Toggle id="toggle_ally_army_9"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army9</Toggle>
+                <Toggle id="toggle_ally_army_10" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army10</Toggle>
+                <Toggle id="toggle_ally_army_11" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army11</Toggle>
+                <Toggle id="toggle_ally_army_12" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army12</Toggle>
+                <Toggle id="toggle_ally_army_13" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army13</Toggle>
+                <Toggle id="toggle_ally_army_14" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army14</Toggle>
+                <Toggle id="toggle_ally_army_15" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army15</Toggle>
+            </VerticalLayout>
           </Cell>
         </Row>
         <Row preferredHeight="40">

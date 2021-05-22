@@ -143,16 +143,31 @@ function filter_base_definitions_by_date(army, date_range)
   return filtered
 end
 
+
 function on_load_army(player, value, id)
+  -- TODO g_command_spawn_army_selected needs to be computed
     print(150, " g_year_selected=",g_year_selected, " is_grand_triumph=",g_game_settings['is_grand_triumph'])
     local date_range = army_dates[g_army_id_selected][g_year_selected]
-    local army = filter_base_definitions_by_date(
+    local filtered_army = filter_base_definitions_by_date(
       army[g_army_id_selected],
       date_range)
     spawn_army(
-      army,
+      filtered_army,
       g_color_spawn_army_selected == 'Red',
       g_command_spawn_army_selected)
+
+    -- Spawn the allies
+    print(160, "g_selected_allies=", g_selected_allies)
+    for _, ally_army in pairs(g_selected_allies) do
+        print(166, " ally_army=", ally_army)
+        local filtered_army = filter_base_definitions_by_date(
+          ally_army,
+          date_range)
+        spawn_army(
+          filtered_army,
+          g_color_spawn_army_selected == 'Red',
+          g_command_spawn_army_selected)
+    end
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
     UI.setAttribute('panel_dba_troop_selection_bg', 'active', false)
@@ -428,11 +443,93 @@ function update_player_menu()
   end
 end
 
+-- Return the ID to use for an army for an ally when referencing armies[]
+-- army_id: Identity pf the army that has an ally
+-- ally_id: Identify of the ally
+-- return: identifier to use in armies[]
+function get_ally_army_id(army_id, ally_id)
+  if g_game_settings['is_grand_triumph'] then
+    return ally_id
+  end
+  return army_id .. "_ally_" .. ally_id
+end
+
+-- Ally army id based on the UI id
+g_allies_menu = {}
+g_selected_allies = {}
+
+
+function on_toggle_ally_army(player, value, id)
+  print("470 value=", value, " id=", id)
+  local army_id = g_allies_menu[id]
+  local ally_army = nil
+  if value then
+    ally_army = army[army_id]
+  end
+  g_selected_allies[id] = ally_army
+end
+
+
 function update_allies_menu()
-  print("TODO update_allies_menu")
+  print("IN update_allies_menu")
   print(433, " g_year_selected=",g_year_selected, " is_grand_triumph=",g_game_settings['is_grand_triumph'])
   local date_range = army_dates[g_army_id_selected][g_year_selected]
   print("435 startDate=", date_range.startDate, ' endDate=', date_range.endDate)
+  g_allies_menu = {}
+  g_selected_allies = {}
+  local entry=1
+  if g_game_settings['is_grand_triumph'] then
+    print(453)
+    local army_name = army[g_army_id_selected]['data']['name']
+    print(455)
+
+    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    UI.setAttribute(ui_id, "text", army_name)
+    UI.setAttribute(ui_id, "active", true)
+    UI.setAttribute(ui_id, "isOn", "false")
+    g_allies_menu[ui_id] = g_army_id_selected
+    entry = entry + 1
+
+    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    UI.setAttribute(ui_id, "text", army_name)
+    UI.setAttribute(ui_id, "active", true)
+    UI.setAttribute(ui_id, "isOn", "false")
+    g_allies_menu[ui_id] = g_army_id_selected
+    entry = entry + 1
+    print(465)
+  end
+  print(467)
+  for _, ally in ipairs(allies[g_army_id_selected]) do
+    print(449, "ally=")
+    table_print(ally)
+    if date_ranges_intersect( date_range, ally['dateRange']) then
+      print(480)
+      local ally_id = ally['id']
+      local ally_army_id = get_ally_army_id(g_army_id_selected, ally_id)
+      local ally_army = army[ally_army_id]
+      if nil == ally_army then
+        print_error("Cannot find army " .. tostring(ally_army_id))
+      else
+        local ally_army_data = ally_army['data']
+        print(488)
+        local ally_army_name = ally_army_data['name']
+        print(490)
+        local ui_id = "toggle_ally_army_" .. tostring(entry)
+        UI.setAttribute(ui_id, "text", ally_army_name)
+        UI.setAttribute(ui_id, "active", true)
+        UI.setAttribute(ui_id, "isOn", "false")
+        g_allies_menu[ui_id] = ally_army_id
+        print(494)
+        entry = entry + 1
+      end
+    end
+  end
+  while entry <= 15 do
+    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    UI.setAttribute(ui_id, "active", false)
+    UI.setAttribute(ui_id, "isOn", "false")
+    entry = entry + 1
+  end
 end
 
 function on_theme_selected(player, value, id)
