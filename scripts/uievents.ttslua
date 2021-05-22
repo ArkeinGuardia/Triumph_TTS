@@ -143,18 +143,42 @@ function filter_base_definitions_by_date(army, date_range)
   return filtered
 end
 
+function get_command_color(army_nb)
+  if (g_color_spawn_army_selected == 'Red') then
+    if army_nb == 1 then
+      return "Red"
+    elseif army_nb == 2 then
+      return "Yellow"
+    else
+      return "Orange"
+    end
+  else
+    if army_nb == 1 then
+      return "Blue"
+    elseif army_nb == 2 then
+      return "Green"
+    else
+      return "Purple"
+    end
+  end
+end
+
 
 function on_load_army(player, value, id)
   -- TODO g_command_spawn_army_selected needs to be computed
     print(150, " g_year_selected=",g_year_selected, " is_grand_triumph=",g_game_settings['is_grand_triumph'])
     local date_range = army_dates[g_army_id_selected][g_year_selected]
+    local army_nb = 1
+
     local filtered_army = filter_base_definitions_by_date(
       army[g_army_id_selected],
       date_range)
+    local command = get_command_color(army_nb)
     spawn_army(
       filtered_army,
       g_color_spawn_army_selected == 'Red',
-      g_command_spawn_army_selected)
+      command)
+    army_nb = army_nb + 1
 
     -- Spawn the allies
     print(160, "g_selected_allies=", g_selected_allies)
@@ -163,10 +187,12 @@ function on_load_army(player, value, id)
         local filtered_army = filter_base_definitions_by_date(
           ally_army,
           date_range)
+        local command = get_command_color(army_nb)
         spawn_army(
           filtered_army,
           g_color_spawn_army_selected == 'Red',
-          g_command_spawn_army_selected)
+          command)
+          army_nb = army_nb + 1
     end
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
@@ -565,10 +591,6 @@ function on_playercolor_selected(player, value, id)
     g_color_spawn_army_selected = value
 end
 
-g_command_spawn_army_selected = 'None'
-function on_command_selected(player, value, id)
-    g_command_spawn_army_selected = value
-end
 
 function add_pip(player, value, id)
     if value == 'red' then
