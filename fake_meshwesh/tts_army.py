@@ -236,7 +236,7 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type, battle
     dismounted['name'] = troop_type_to_name(dismounted['name']) + " General"
 
 
-  # Calculate the points for being able to dismount 
+  # Calculate the points for being able to dismount
   mounted_points = get_points_for_troop_type(base_definition['troop_type'])
   dismounted_points = get_points_for_troop_type(dismount_type)
   points = max(mounted_points, dismounted_points) + 0.5
@@ -245,23 +245,23 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type, battle
 
   if 'description' not in mounted :
     mounted['description'] = ""
-  else:   
+  else:
     mounted['description'] += "\\n"
-  
+
   if 'description' not in dismounted :
     dismounted['description'] = ""
   else:
     dismounted['description'] += "\\n"
-  
+
   mounted['description'] += "Deployment dismounting as " + dismount_type
   dismounted['description'] += "Deployment dismounted from " + mounted['name']
 
   mounted['dismount_as'] = "g_str_" + dismounted['id']
   dismounted['dismounted_from'] = "g_str_" + mounted['id']
-  write_base_definition_id(file, dismounted) 
-  write_base_definition_id(file, mounted) 
-  write_base_definition_details(file, dismounted) 
-  write_base_definition_details(file, mounted) 
+  write_base_definition_id(file, dismounted)
+  write_base_definition_id(file, mounted)
+  write_base_definition_details(file, dismounted)
+  write_base_definition_details(file, mounted)
 
   return (mounted, dismounted)
 
@@ -298,23 +298,23 @@ def write_mid_battle_dismounting_as(file, base_definition, dismount_type, battle
 
   if 'description' not in mounted :
     mounted['description'] = ""
-  else:   
+  else:
     mounted['description'] += "\\n"
-  
+
   if 'description' not in dismounted :
     dismounted['description'] = ""
   else:
     dismounted['description'] += "\\n"
-  
+
   mounted['description'] += "Mid-battle dismounting as " + dismount_type
   dismounted['description'] += "Mid-battle dismounted from " + mounted['name']
 
   mounted['dismount_as'] = "g_str_" + dismounted['id']
   dismounted['dismounted_from'] = "g_str_" + mounted['id']
-  write_base_definition_id(file, dismounted) 
-  write_base_definition_id(file, mounted) 
-  write_base_definition_details(file, dismounted) 
-  write_base_definition_details(file, mounted) 
+  write_base_definition_id(file, dismounted)
+  write_base_definition_id(file, mounted)
+  write_base_definition_details(file, dismounted)
+  write_base_definition_details(file, mounted)
 
   return (mounted, dismounted)
 
@@ -324,7 +324,7 @@ def write_mid_battle_dismounting(file, base_definition, battle_card) :
   if note is None:
     # Feudal German Kings or Emperors is missing dismount type
     return []
-  else:  
+  else:
     dismount_type = get_dismounting_type(base_definition, note)
     return write_mid_battle_dismounting_as(file, base_definition, dismount_type, battle_card)
 
@@ -366,12 +366,12 @@ def write_mobile_infantry(file, base_definition, battle_card):
   dismounted['dismounted_from'] = "g_str_" + mounted['id']
 
   mounted['mobile_infantry'] = True
-  
-  write_base_definition_id(file, dismounted) 
-  write_base_definition_id(file, mounted) 
-  write_base_definition_details(file, dismounted) 
-  write_base_definition_details(file, mounted) 
-  
+
+  write_base_definition_id(file, dismounted)
+  write_base_definition_id(file, mounted)
+  write_base_definition_details(file, dismounted)
+  write_base_definition_details(file, mounted)
+
   return [ mounted, dismounted]
 
 
@@ -394,7 +394,7 @@ def write_armored_camelry(file, base_definition, battle_card) :
   camels['description'] += "Armored Camelry"
 
   camels['armored_camelry'] = True
-  write_base_definition(file, camels) 
+  write_base_definition(file, camels)
   return [ camels ]
 
 
@@ -417,7 +417,7 @@ def write_light_camelry(file, base_definition, battle_card) :
   camels['description'] += "Light Camelry"
 
   camels['light_camelry'] = True
-  write_base_definition(file, camels) 
+  write_base_definition(file, camels)
   return [ camels ]
 
 
@@ -440,7 +440,7 @@ def write_charging_camelry(file, base_definition, battle_card) :
   camels['description'] += "Charging Camelry"
 
   camels['charging_camelry'] = True
-  write_base_definition(file, camels) 
+  write_base_definition(file, camels)
   return [ camels ]
 
 def write_elephant_screen(file, base_definition, battle_card) :
@@ -462,7 +462,7 @@ def write_elephant_screen(file, base_definition, battle_card) :
   with_elephants['description'] += "Elephant Screen"
 
   with_elephants['elephant_screen'] = True
-  write_base_definition(file, with_elephants) 
+  write_base_definition(file, with_elephants)
 
   elephant_screen_counter = {
     'name' : 'Elephant Screen',
@@ -501,7 +501,7 @@ def write_plaustrella(file, base_definition, battle_card) :
   plaustrella['description'] += "Plaustrella"
 
   plaustrella['plaustrella'] = True
-  write_base_definition(file, plaustrella) 
+  write_base_definition(file, plaustrella)
   return [ plaustrella ]
 
 
@@ -512,7 +512,7 @@ def write_fortified_camp(file, camp_definition, battle_card) :
 
   fort['fortified_camp'] = True
   fort['description'] = "Fortified camp"
-  write_base_definition(file, fort) 
+  write_base_definition(file, fort)
   return [ fort ]
 
 def write_pack_train_and_herds(file, camp_definition, battle_card) :
@@ -522,7 +522,7 @@ def write_pack_train_and_herds(file, camp_definition, battle_card) :
 
   pack_train['pack_train'] = True
   pack_train['description'] = "Pack Train"
-  write_base_definition(file, pack_train) 
+  write_base_definition(file, pack_train)
   return [ pack_train ]
 
 def write_standard_wagon(file, camp_definition, battle_card) :
@@ -532,7 +532,7 @@ def write_standard_wagon(file, camp_definition, battle_card) :
 
   wagon['standard_wagon'] = True
   wagon['description'] = "Standard Wagon"
-  write_base_definition(file, wagon) 
+  write_base_definition(file, wagon)
   return [ wagon ]
 
 def create_base_definition(troop_option, troop_entry) :
@@ -546,7 +546,7 @@ def create_base_definition(troop_option, troop_entry) :
     description = "Lithuanian horsemen"
   else :
     description = troop_option['description']
-  
+
 
   troop_type = troop_entry['troopTypeCode']
   name = troop_type_to_name(troop_type)
@@ -554,8 +554,8 @@ def create_base_definition(troop_option, troop_entry) :
   troop_option_id = troop_option['_id']
 
   base_definition = {
-    'id': id, 'name':name, 'troop_type':troop_type, 
-    'min':min, 'max':max, 
+    'id': id, 'name':name, 'troop_type':troop_type,
+    'min':min, 'max':max,
     'description':description,
     'troop_option_id': troop_option_id }
 
@@ -609,7 +609,7 @@ def get_general_troop_type_codes(army) :
   codes = {}
   if 'troopEntriesForGeneral' not in army :
     return codes
-    
+
   for troop_entry_for_general in army['troopEntriesForGeneral'] :
     for troop_entry in troop_entry_for_general['troopEntries'] :
       troop_type = troop_entry['troopTypeCode']
@@ -624,7 +624,7 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
   for battle_card in troop_entry['battleCardEntries'] :
     code = battle_card['battleCardCode']
     note = battle_card['note']
-    if code == "DD" :        
+    if code == "DD" :
       id = troop_entry['_id']
       if id == '5fb1ba37e1af06001770e72d' :
         # "German or Polish men-at-arms"
@@ -676,11 +676,11 @@ def base_definitions(file, army, troop_option) :
   generals = get_general_troop_type_codes(army)
 
   for troop_entry in troop_option['troopEntries'] :
-    # Push down the battle cards 
+    # Push down the battle cards
     troop_entry['battleCardEntries'] = troop_option['battleCardEntries']
 
     if troop_entry['troopTypeCode'] in generals :
-      base_definition = create_base_definition(troop_option, troop_entry)    
+      base_definition = create_base_definition(troop_option, troop_entry)
       base_definition['max'] = 1
       base_definition['general'] = True
       base_definition['name'] = base_definition['name'] + " General"
@@ -688,8 +688,8 @@ def base_definitions(file, army, troop_option) :
       result.append(base_definition)
       extra = write_battle_cards(file, army, troop_option, troop_entry, base_definition)
       result.extend(extra)
-    
-    base_definition = create_base_definition(troop_option, troop_entry)    
+
+    base_definition = create_base_definition(troop_option, troop_entry)
     result.append(base_definition)
     extra = write_battle_cards(file, army, troop_option, troop_entry, base_definition)
     result.extend(extra)
@@ -814,17 +814,17 @@ def get_optional_contingents(army_ally_options_json):
 def generate_army(army_id) :
   army_json = read_army_json(army_id)
   army_theme_json = read_army_theme_json(army_id)
-  army_ally_options_json  = read_army_ally_options(army_id) 
+  army_ally_options_json  = read_army_ally_options(army_id)
 
   optional_contingents = get_optional_contingents(army_ally_options_json)
 
   base_definition_file_name = os.path.join(
-    "army_data", 
+    "army_data",
     army_id + "_base_definitions.ttslua")
   file_name = os.path.join("army_data", army_id + ".ttslua")
   with open(base_definition_file_name, "a") as base_definitions_file :
     with open(file_name, "a") as file :
-  
+
       army_name =  army_json['derivedData']['extendedName']
       file.write("-- %s %s\n\n" % (army_id, army_name))
       definitions = generate_base_definitions(
@@ -835,44 +835,44 @@ def generate_army(army_id) :
           defs = base_definitions(
             base_definitions_file, army_json, troop_option)
           definitions.extend(defs)
-  
+
       file.write("army['%s']={\n" % (army_id))
       file.write("  data={\n")
       # TODO Invasion
       # TODO maneuver
       # TODO terrain
       # TODO list
-  
+
       #escape quotes
       name = army_name.replace("'", "\\'")
-  
+
       file.write("    name='%s',\n" %(name))
       file.write("    id='%s',\n" %(army_id))
       file.write("    dateRange={\n")
-      file.write("      startDate=%d,\n" % 
+      file.write("      startDate=%d,\n" %
         (army_json['dateRange']['startDate']))
       file.write("      endDate=%d,\n"  % (army_json['dateRange']['endDate']))
       file.write("    }\n")
       file.write("  },\n")
-  
+
       # Bases that make up the army
       for definition in definitions  :
         id = definition['id']
         file.write("  g_base_definitions[g_str_%s],\n" %(id))
       file.write("}\n")
-  
-      # Meshwesh is in front so it will be the first entry in the 
+
+      # Meshwesh is in front so it will be the first entry in the
       # dialog otherwise it will be the second which just looks weird.
       file.write('if nil == armies[\"Meshwesh id\"] then\n')
       file.write('  armies[\"Meshwesh id\"] ={}\n')
       file.write('end\n')
-      file.write('armies[\"Meshwesh id\"][\"%s\"] = army[\"%s\"]\n' % 
+      file.write('armies[\"Meshwesh id\"][\"%s\"] = army[\"%s\"]\n' %
         (army_id, army_id))
-  
-  
+
+
       # Look for date ranges
-  
-  
+
+
       if "dateRanges" not in army_json :
         raise("No army date ranges in " + army_id)
       army_date_ranges = army_json['dateRanges']
@@ -881,8 +881,8 @@ def generate_army(army_id) :
       army_date_range = army_date_ranges[0]
       army_startDate = int(army_date_range['startDate'])
       army_endDate = int(army_date_range['endDate'])
-  
-      
+
+
       dates = [army_startDate, army_endDate+1]
       troop_options = army_json['troopOptions']
       for troop_option in  troop_options :
@@ -894,39 +894,39 @@ def generate_army(army_id) :
             dates.append(startDate)
             dates.append(endDate+1)
       dates = sorted(set(dates))
-  
+
       # dates are kept in order, but there is one extra entry
       # at the beginning that keeps the entire range.
       date_map = []
       date_map.append( (
-        date_string(army_startDate, army_endDate), 
+        date_string(army_startDate, army_endDate),
         [army_startDate, army_endDate]) )
-  
+
       start = dates[0]
       for end in dates[1:] :
         if start != army_startDate or end != (army_endDate+1) :
           date_map.append( (
-            date_string(start, end-1), 
-            [army_startDate, army_endDate] ))
-          start = end 
-  
+            date_string(start, end-1),
+            [start, end-1] ))
+          start = end
+
       for army_theme in army_theme_json :
         theme_name = army_theme["name"]
-  
-        file.write('if nil == armies[\"%s\"] then\n' % 
+
+        file.write('if nil == armies[\"%s\"] then\n' %
           (theme_name))
-        file.write('  armies[\"%s\"] ={}\n' % 
+        file.write('  armies[\"%s\"] ={}\n' %
           (theme_name))
         file.write('end\n')
-        file.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' % 
+        file.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' %
           (theme_name, name, army_id))
-  
+
       file.write('if nil == armies[\"All\"] then\n')
       file.write('  armies[\"All\"] ={}\n')
       file.write('end\n')
-      file.write('armies[\"All\"][\"%s\"] = army[\"%s\"]\n' % 
+      file.write('armies[\"All\"][\"%s\"] = army[\"%s\"]\n' %
           (name, army_id))
-  
+
       file.write("if nil == army_dates then\n  army_dates={}\nend\n")
       file.write("army_dates[\"%s\"] = {}\n" % (army_id))
       for date_entry in date_map:
@@ -938,12 +938,12 @@ def generate_army(army_id) :
         file.write("}\n")
 
 def generate_ally_base_definitions(army_id) :
-  """Generate any base definitions for an armies allies that have 
+  """Generate any base definitions for an armies allies that have
      not yet been generated.
   """
   file_name = os.path.join("army_data", army_id + "_base_definitions.ttslua")
   with open(file_name, "a") as file :
-    army_ally_options_json  = read_army_ally_options(army_id) 
+    army_ally_options_json  = read_army_ally_options(army_id)
     if 'allyEntries' not in army_ally_options_json :
       return
     for ally_entry in army_ally_options_json['allyEntries'] :
@@ -951,8 +951,8 @@ def generate_ally_base_definitions(army_id) :
       troopOptions =allyArmyList['troopOptions']
       for troop_option in troopOptions :
         for troop_entry in troop_options['troopEntries'] :
-          base_definition = create_base_definition(troop_option, troop_entry) 
-          write_base_definition(file, base_definition) 
+          base_definition = create_base_definition(troop_option, troop_entry)
+          write_base_definition(file, base_definition)
 
 def write_troop_option(file, troop_option) :
   file.write("troop_options['%s'] = {\n" % (troop_option['_id']))
@@ -977,7 +977,7 @@ def write_troop_options(army_id) :
     for troop_option in  troop_options :
       write_troop_option(file, troop_option)
     file.write("-- allies\n")
-    army_ally_options_json  = read_army_ally_options(army_id) 
+    army_ally_options_json  = read_army_ally_options(army_id)
     if 'allyEntries' in army_ally_options_json :
       for ally_entry in army_ally_options_json['allyEntries'] :
         allyArmyList = ally_entry['allyArmyList']
@@ -992,7 +992,7 @@ with open("army_data/all_armies.ttslua", "w") as all_armies:
   for army_entry in summary :
     army_id = army_entry['id']
     write_troop_options(army_id)
-  
+
   for army_entry in summary :
     army_id = army_entry['id']
     print(army_id)
@@ -1001,14 +1001,14 @@ with open("army_data/all_armies.ttslua", "w") as all_armies:
     except:
       print(army_entry['name'])
       raise
-  
+
   for army_entry in summary :
     army_id = army_entry['id']
     generate_ally_base_definitions(army_id)
-  
+
   for army_entry in summary :
     army_id = army_entry['id']
-  
+
   for army_entry in summary :
     army_id = army_entry['id']
     all_armies.write("#include %s_troop_options\n" % (army_id))
@@ -1018,4 +1018,3 @@ with open("army_data/all_armies.ttslua", "w") as all_armies:
   for army_entry in summary :
     army_id = army_entry['id']
     all_armies.write( "#include %s\n" % (army_id))
-
