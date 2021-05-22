@@ -177,7 +177,8 @@ function on_load_army(player, value, id)
     spawn_army(
       filtered_army,
       g_color_spawn_army_selected == 'Red',
-      command)
+      command,
+      army_nb)
     army_nb = army_nb + 1
 
     -- Spawn the allies
@@ -191,7 +192,8 @@ function on_load_army(player, value, id)
         spawn_army(
           filtered_army,
           g_color_spawn_army_selected == 'Red',
-          command)
+          command,
+          army_nb)
           army_nb = army_nb + 1
     end
 
@@ -486,10 +488,10 @@ g_selected_allies = {}
 
 
 function on_toggle_ally_army(player, value, id)
-  print("470 value=", value, " id=", id)
+  print("470 value=", value,"(",type(value),") id=", id)
   local army_id = g_allies_menu[id]
   local ally_army = nil
-  if value then
+  if value == "True" then
     ally_army = army[army_id]
   end
   g_selected_allies[id] = ally_army
