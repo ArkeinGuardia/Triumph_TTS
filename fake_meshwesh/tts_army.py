@@ -826,6 +826,22 @@ def get_dates_for_troop_options(troop_options) :
           dates.append(endDate+1)
     return dates
 
+def get_dates_for_optional_contingents(army_ally_options_json) :
+  """Even though the optional contingents are stored in the
+     allies file they are really part of the army.
+     @param army_ally_options_json Armies alies.
+     @return list of dates, unsorted, and possibly duplicated.
+  """
+  dates=[]
+  for ally in army_ally_options_json :
+    for allyEntry in ally['allyEntries'] :
+      allyArmyList=allyEntry['allyArmyList']
+      if "internalContingent" in allyArmyList and allyArmyList["internalContingent"]:
+          troopOptions =allyArmyList['troopOptions']
+          option_dates = get_dates_for_troop_options(troopOptions)
+          dates.extend(option_dates)
+  return dates
+
 def get_dates_for_triumph_allies(army_ally_options_json) :
   """Get the dates that the troop options have for the allies of
      an army.  Used for Triumph!.  Grand Triumph! uses the
@@ -879,6 +895,10 @@ def get_dates_for_army_no_allies(army_json) :
   troop_options = army_json['troopOptions']
   troop_option_dates = get_dates_for_troop_options(troop_options)
   dates.extend(troop_option_dates)
+
+  army_ally_options_json  = read_army_ally_options(army_id)
+  optioanl_dates = get_dates_for_optional_contingents(army_ally_options_json)
+  dates.extend(optioanl_dates)
   return dates
 
 
