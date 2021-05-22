@@ -809,6 +809,24 @@ def get_optional_contingents(army_ally_options_json):
         result.append(allyArmyList)
   return result
 
+def get_dates_for_troop_options(troop_options) :
+    """ Return the dates that are mentioned in the troop options
+        date ranges.
+        @param troop_options Troops to scan.
+        @return list of dates, unsorted, and possibly duplicated.
+    """
+    dates=[]
+    for troop_option in  troop_options :
+      if "dateRange" in troop_option :
+        date_range = troop_option['dateRange']
+        if date_range is not None:
+          startDate = int(date_range['startDate'])
+          endDate = int(date_range['endDate'])
+          dates.append(startDate)
+          dates.append(endDate+1)
+    return dates
+
+
 # Generate the LUA for an army
 # @param army_id Identifier for the army in Meshwesh
 def generate_army(army_id) :
@@ -885,14 +903,9 @@ def generate_army(army_id) :
 
       dates = [army_startDate, army_endDate+1]
       troop_options = army_json['troopOptions']
-      for troop_option in  troop_options :
-        if "dateRange" in troop_option :
-          date_range = troop_option['dateRange']
-          if date_range is not None:
-            startDate = int(date_range['startDate'])
-            endDate = int(date_range['endDate'])
-            dates.append(startDate)
-            dates.append(endDate+1)
+      troop_option_dates = get_dates_for_troop_options(troop_options)
+      dates.extend(troop_option_dates)
+
       dates = sorted(set(dates))
 
       # dates are kept in order, but there is one extra entry
