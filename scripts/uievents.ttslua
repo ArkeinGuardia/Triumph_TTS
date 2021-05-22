@@ -131,10 +131,13 @@ end
 --   should be filtered in.
 -- return: army with base definitions filterd
 function filter_base_definitions_by_date(army, date_range)
+  print("134 filter_base_definitions_by_date ")
+  table_print(date_range)
   filtered = deep_copy(army)
   for k,base_definition in pairs(filtered) do
     if k ~= "data" then
-      if not date_ranges_intersect(base_definition.dateRange, date_range) then
+      local base_definition_date_range = get_base_definition_date_range(base_definition)
+      if not date_ranges_intersect(base_definition_date_range, date_range) then
         filtered[k] = nil
       end
     end
@@ -143,14 +146,14 @@ function filter_base_definitions_by_date(army, date_range)
 end
 
 function on_load_army(player, value, id)
+  print(150, " g_year_selected=",g_year_selected)
     local date_range = army_dates[g_army_id_selected][g_year_selected]
     local army = filter_base_definitions_by_date(
-      army[g_army_id_selected], 
+      army[g_army_id_selected],
       date_range)
-
     spawn_army(
-      army, 
-      g_color_spawn_army_selected == 'Red', 
+      army,
+      g_color_spawn_army_selected == 'Red',
       g_command_spawn_army_selected)
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
@@ -447,6 +450,7 @@ end
 
 -- Display value in UI for the year that has been chossen to deploy.
 function on_year_selected(player, value, id)
+  print("454 on_year_selected ", tostring(player), ' ', tostring(value), ' ', tostring(id))
     g_year_selected = value
     update_deploy_army_dialog()
 end

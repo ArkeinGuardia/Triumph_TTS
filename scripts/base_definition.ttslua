@@ -1,0 +1,15 @@
+
+function get_base_definition_date_range(base_definition)
+  local troop_option = troop_options[base_definition.troop_option_id]
+  if troop_option == nil then
+    -- Used for things like camps that are not defined in Meshwesh
+    -- math.mininteger and math.maxinteger is nil on TTS
+    local result = {startDate=-9999,endDate=9999}
+    return result
+  end
+  if troop_option.dateRange ~= nil then
+    return troop_option.dateRange
+  end
+  print_error("troop option has no dateRange")
+  assert(false)
+end
