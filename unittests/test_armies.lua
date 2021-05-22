@@ -310,7 +310,7 @@ function test_spawn_army()
 
   -- Exercise
   for id,army_obj in pairs(army) do
-    spawn_army(army_obj, false, 'red')
+    spawn_army(army_obj, false, 'red', 1)
   end
 
   -- Cleanup
