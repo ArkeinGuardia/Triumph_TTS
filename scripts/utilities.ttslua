@@ -654,8 +654,13 @@ end
 -- `indent` sets the initial level of indentation.
 function table_print (tbl, indent)
   if not indent then indent = 0 end
+  local indent_str = string.rep("  ", indent)
+  if tbl == nil then
+    print(indent_str .. "nil")
+    return
+  end
   for k, v in pairs(tbl) do
-    formatting = string.rep("  ", indent) .. k .. ": "
+    formatting = indent_str .. k .. ": "
     if is_vec_2d(v) then
       print(formatting .. vec_2d_to_str(v))
     elseif is_vec_3d(v) then
