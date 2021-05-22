@@ -8,6 +8,7 @@
 troop_options={}
 g_base_definitions={}
 army={}
+
 #include scripts/data/data_settings
 #include scripts/data/data_tables
 #include scripts/data/data_terrain
@@ -31,18 +32,20 @@ army={}
 #include scripts/logic_tool_tips
 #include scripts/logic
 #include scripts/uievents
+#include scripts/wizard
 #include fake_meshwesh/army_data/all_armies
 #include scripts/data/data_models
 
 
 function onSave()
+  g_decorations['g_game_settings'] = g_game_settings
   local saved_data = JSON.encode(g_decorations)
   return saved_data
 end
 
 
 function onload(saved_data)
-    print_info('\n---------------------------------\nTriumph! v 2.0 build 20210430\n---------------------------------\n\nCheck the Notebook for instructions.')
+    print_info('\n---------------------------------\nTriumph! v 2.1 build 20210522\n---------------------------------\n\nCheck the Notebook for instructions.')
     Wait.time(main_loop, g_seconds_main_loop, -1)
     make_scenery_non_interactable()
     reset_state()
@@ -61,6 +64,18 @@ function onload(saved_data)
 
     set_tablet_homepage("red tablet")
     set_tablet_homepage("blue tablet")
+
+    -- Do not allow the Red player to roll the blud die, and the Blue
+    -- player cannot roll the red dice.
+    UI.setAttribute("button_roll_blue", "visibility", "Blue|White|Black")
+    UI.setAttribute("button_roll_red",  "visibility", "Red|White|Black")
+
+    if g_game_settings['show_wizard'] ~= false then
+      wizard_show()
+    else
+      UI.setAttribute("panel_dba_orders", "active", true)
+    end
+
 end
 
 function set_tablet_homepage(tablet_name)
@@ -84,6 +99,12 @@ function restore_extra_data(saved_data)
     return
   end
   g_decorations = extra
+  g_game_settings = g_decorations['g_game_settings']
+  if g_game_settings == nil then
+    g_game_settings = {}
+    g_game_settings['is_grand_triumph'] = false
+    g_game_settings['show_wizard'] = true
+  end
 end
 
 

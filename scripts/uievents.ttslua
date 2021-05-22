@@ -131,8 +131,6 @@ end
 --   should be filtered in.
 -- return: army with base definitions filterd
 function filter_base_definitions_by_date(army, date_range)
-  print("134 filter_base_definitions_by_date ")
-  table_print(date_range)
   filtered = deep_copy(army)
   for k,base_definition in pairs(filtered) do
     if k ~= "data" then
@@ -146,7 +144,7 @@ function filter_base_definitions_by_date(army, date_range)
 end
 
 function on_load_army(player, value, id)
-  print(150, " g_year_selected=",g_year_selected)
+    print(150, " g_year_selected=",g_year_selected, " is_grand_triumph=",g_game_settings['is_grand_triumph'])
     local date_range = army_dates[g_army_id_selected][g_year_selected]
     local army = filter_base_definitions_by_date(
       army[g_army_id_selected],
@@ -211,7 +209,10 @@ function update_deploy_army_dialog()
                         on_next_frame(function()
                           update_player_menu()
                           on_next_frame(function()
-                            UI.setAttribute('button_load_army', 'interactable', true)
+                            update_allies_menu()
+                            on_next_frame(function()
+                              UI.setAttribute('button_load_army', 'interactable', true)
+                            end)
                           end)
                         end)
                     end)
@@ -425,6 +426,13 @@ function update_player_menu()
   else
     set_options_dropdown_by_id('dropdown_playercolor', options, 2)
   end
+end
+
+function update_allies_menu()
+  print("TODO update_allies_menu")
+  print(433, " g_year_selected=",g_year_selected, " is_grand_triumph=",g_game_settings['is_grand_triumph'])
+  local date_range = army_dates[g_army_id_selected][g_year_selected]
+  print("435 startDate=", date_range.startDate, ' endDate=', date_range.endDate)
 end
 
 function on_theme_selected(player, value, id)
