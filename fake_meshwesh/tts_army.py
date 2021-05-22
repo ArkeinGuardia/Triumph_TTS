@@ -842,6 +842,45 @@ def get_dates_for_triumph_allies(army_ally_options_json) :
       dates.extend(option_dates)
   return dates
 
+def get_dates_for_grand_triumph_allies(army_ally_options_json) :
+  """Get the dates that the troop options have for the allies of
+     an army.  Used for Triumph!.  Grand Triumph! uses the
+     allies entire army, whose date are not include in this result.
+     @param army_ally_options_json Armies alies.
+     @return list of dates, unsorted, and possibly duplicated.
+  """
+  dates=[]
+  for ally in army_ally_options_json :
+    for allyEntry in ally['allyEntries'] :
+      allyArmyList=allyEntry['allyArmyList']
+      if 'armyListId' in allyArmyList :
+        ally_armyListId = allyArmyList['armyListId']
+        ally_army_json = read_army_json(ally_armyListId)
+        ally_dates = get_dates_for_army_no_allies(ally_army_json)
+        dates.extend(ally_dates)
+  return dates
+
+
+def get_dates_for_army_no_allies(army_json) :
+  """Get the dates that make up the army.  Includes the army date range,
+     and the date ranges of any troops.  But not the date ranges of
+     the allies.
+     @param army_json Army to query.
+     @return list of dates, unsorted, and possibly duplicated.
+  """
+  if "dateRange" not in army_json :
+    raise Exception("No army date range in " + army_id)
+  army_date_range = army_json['dateRange']
+  army_date_range = army_date_range
+  army_startDate = int(army_date_range['startDate'])
+  army_endDate = int(army_date_range['endDate'])
+
+  dates = [army_startDate, army_endDate+1]
+  troop_options = army_json['troopOptions']
+  troop_option_dates = get_dates_for_troop_options(troop_options)
+  dates.extend(troop_option_dates)
+  return dates
+
 
 # Generate the LUA for an army
 # @param army_id Identifier for the army in Meshwesh
@@ -905,22 +944,11 @@ def generate_army(army_id) :
 
 
       # Look for date ranges
-
-
-      if "dateRanges" not in army_json :
-        raise("No army date ranges in " + army_id)
+      dates = get_dates_for_army_no_allies(army_json)
       army_date_ranges = army_json['dateRanges']
-      if len(army_date_ranges) != 1 :
-        raise("wrong number of ranges")
       army_date_range = army_date_ranges[0]
       army_startDate = int(army_date_range['startDate'])
       army_endDate = int(army_date_range['endDate'])
-
-
-      dates = [army_startDate, army_endDate+1]
-      troop_options = army_json['troopOptions']
-      troop_option_dates = get_dates_for_troop_options(troop_options)
-      dates.extend(troop_option_dates)
 
       # Add the dates for the Triumph! allies
       ally_dates = get_dates_for_triumph_allies(army_ally_options_json)
@@ -929,7 +957,10 @@ def generate_army(army_id) :
             dates.append(d)
 
       # Add the dates for the Grand Triumph! allies.
-      # TODO
+      ally_dates = get_dates_for_grand_triumph_allies(army_ally_options_json)
+      for d in ally_dates :
+        if between(army_startDate, d, army_endDate) :
+            dates.append(d)
 
       dates = sorted(set(dates))
 
