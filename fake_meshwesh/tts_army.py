@@ -826,6 +826,22 @@ def get_dates_for_troop_options(troop_options) :
           dates.append(endDate+1)
     return dates
 
+def get_dates_for_triumph_allies(army_ally_options_json) :
+  """Get the dates that the troop options have for the allies of
+     an army.  Used for Triumph!.  Grand Triumph! uses the
+     allies entire army, whose date are not include in this result.
+     @param army_ally_options_json Armies alies.
+     @return list of dates, unsorted, and possibly duplicated.
+  """
+  dates=[]
+  for ally in army_ally_options_json :
+    for allyEntry in ally['allyEntries'] :
+      allyArmyList=allyEntry['allyArmyList']
+      troopOptions =allyArmyList['troopOptions']
+      option_dates = get_dates_for_troop_options(troopOptions)
+      dates.extend(option_dates)
+  return dates
+
 
 # Generate the LUA for an army
 # @param army_id Identifier for the army in Meshwesh
@@ -905,6 +921,15 @@ def generate_army(army_id) :
       troop_options = army_json['troopOptions']
       troop_option_dates = get_dates_for_troop_options(troop_options)
       dates.extend(troop_option_dates)
+
+      # Add the dates for the Triumph! allies
+      ally_dates = get_dates_for_triumph_allies(army_ally_options_json)
+      for d in ally_dates :
+        if between(army_startDate, d, army_endDate) :
+            dates.append(d)
+
+      # Add the dates for the Grand Triumph! allies.
+      # TODO
 
       dates = sorted(set(dates))
 
