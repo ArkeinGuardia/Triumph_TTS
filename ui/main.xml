@@ -1,10 +1,8 @@
 <!-- TODO Add more buttons and prettify -->
 
-<Panel id="panel_dba_orders_bg" width="230" height="400" rectAlignment="MiddleRight" color="#00000000" raycastTarget="true">
-    <Image image="rightside_menu_bg_v2"></Image>
-</Panel>
-
 <!-- Pannel to ask if we are playing Triumph! or Grand Triumph! -->
+
+
 <Panel id="wizard_panel_game" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
     <VerticalLayout>
       <ToggleGroup id="wizard_togglegroup_game" onValueChanged="on_wizard_togglegroup_game">
@@ -17,18 +15,32 @@
     </VerticalLayout>
 </Panel>
 
-<Panel id="panel_dba_orders" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+
+
+<Panel id="panel_dba_orders_bg" width="730" height="100" rectAlignment="LowerRight" color="#00000000" raycastTarget="true">
+    <Image image="rightbottomside_menu_bg_v3"></Image>
+</Panel>
+
+<Panel id="panel_dba_orders" width="730" height="90" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true">
     <VerticalLayout>
-        <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
-        <Button id="button_move_forward" onClick="move_bases">Move 4 MU</Button>
-        <Button id="button_wheel" onClick="on_wheel">Wheel Group</Button>
         <Button id="button_push_back" onClick="on_push_back">Push back Column</Button>
+        <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
+        <Button id="button_redo_move" onClick="on_redo_move">Redo</Button>
+    </VerticalLayout>
+    <VerticalLayout>
         <HorizontalLayout>
-            <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
-            <Button id="button_redo_move" onClick="on_redo_move">Redo</Button>
+            <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
         </HorizontalLayout>
+        <HorizontalLayout>
+            <Button id="button_move_forward" onClick="move_bases">Move 4 MU</Button>
+            <Button id="button_wheel" onClick="on_wheel">Wheel Group</Button>
+        </HorizontalLayout>
+    </VerticalLayout>
+    <VerticalLayout>
         <Button id="button_spawn_table" onClick="on_create_table_menu">Spawn table</Button>
         <Button id="button_create_army" onClick="create_army_options_menu">Deploy an army</Button>
+    </VerticalLayout>
+    <VerticalLayout>
         <Toggle id="toggle_zoc" isOn="false" onValueChanged="on_toggle_zoc">Do not show ZOC</Toggle>
         <Toggle id="toggle_deployment_lines" isOn="false" onValueChanged="on_toggle_deployment_lines">Do not show rulers</Toggle>
         <Toggle id="toggle_snapping" isOn="true" onValueChanged="on_toggle_snapping">Snap bases</Toggle>
