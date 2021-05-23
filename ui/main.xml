@@ -1,28 +1,34 @@
 <!-- TODO Add more buttons and prettify -->
 
-<Panel id="panel_dba_orders_bg" width="730" height="100" rectAlignment="LowerRight" color="#00000000" raycastTarget="true">
-    <Image image="rightbottomside_menu_bg_v3"></Image>
+<Panel id="panel_dba_orders_bg" width="230" height="400" rectAlignment="MiddleRight" color="#00000000" raycastTarget="true">
+    <Image image="rightside_menu_bg_v2"></Image>
 </Panel>
-<Panel id="panel_dba_orders" width="730" height="90" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true">
+
+<!-- Pannel to ask if we are playing Triumph! or Grand Triumph! -->
+<Panel id="wizard_panel_game" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
     <VerticalLayout>
+      <ToggleGroup id="wizard_togglegroup_game" onValueChanged="on_wizard_togglegroup_game">
+        <VerticalLayout>
+          <Toggle fontSize="16" id="wizard_togglegroup_game_triumph">Triumph!</Toggle>
+          <Toggle fontSize="16" id="wizard_togglegroup_game_grand_triumph">Grand Triumph!</Toggle>
+        </VerticalLayout>
+      </ToggleGroup>
+      <Button id="wizard_panel_game_next" onClick="on_wizard_button_forward_to_select_armies">Finsh</Button>
+    </VerticalLayout>
+</Panel>
+
+<Panel id="panel_dba_orders" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+    <VerticalLayout>
+        <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
+        <Button id="button_move_forward" onClick="move_bases">Move 4 MU</Button>
+        <Button id="button_wheel" onClick="on_wheel">Wheel Group</Button>
         <Button id="button_push_back" onClick="on_push_back">Push back Column</Button>
-        <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
-        <Button id="button_redo_move" onClick="on_redo_move">Redo</Button>
-    </VerticalLayout>
-    <VerticalLayout>
         <HorizontalLayout>
-            <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
-        </HorizontalLayout>        
-        <HorizontalLayout>
-            <Button id="button_move_forward" onClick="move_bases">Move 4 MU</Button>
-            <Button id="button_wheel" onClick="on_wheel">Wheel Group</Button>
+            <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
+            <Button id="button_redo_move" onClick="on_redo_move">Redo</Button>
         </HorizontalLayout>
-    </VerticalLayout>
-    <VerticalLayout>
         <Button id="button_spawn_table" onClick="on_create_table_menu">Spawn table</Button>
         <Button id="button_create_army" onClick="create_army_options_menu">Deploy an army</Button>
-    </VerticalLayout>
-    <VerticalLayout>
         <Toggle id="toggle_zoc" isOn="false" onValueChanged="on_toggle_zoc">Do not show ZOC</Toggle>
         <Toggle id="toggle_deployment_lines" isOn="false" onValueChanged="on_toggle_deployment_lines">Do not show rulers</Toggle>
         <Toggle id="toggle_snapping" isOn="true" onValueChanged="on_toggle_snapping">Snap bases</Toggle>
@@ -109,10 +115,7 @@
             </Cell>
         </Row>
         <Row>
-            <Cell columnSpan="3" dontUseTableCellBackground="true">
-                <Toggle id="toggle_double_dba" isOn="false" onValueChanged="on_toggle_table_double" fontSize="16">Grand Triumph</Toggle>
-            </Cell>
-            <Cell columnSpan="3" dontUseTableCellBackground="true">
+            <Cell columnSpan="6" dontUseTableCellBackground="true">
                 <Toggle id="toggle_3dterrain" isOn="true" onValueChanged="on_toggle_3dterrain" fontSize="16">Use 3D terrain</Toggle>
             </Cell>
         </Row>
@@ -142,14 +145,28 @@
     </TableLayout>
 </Panel>
 
-<Panel id="panel_dba_troop_selection_bg" width="800" height="660" rectAlignment="MiddleCenter" active="false" raycastTarget="true">
+<Panel id="panel_dba_troop_selection_bg" width="800" height="860" rectAlignment="MiddleCenter" active="false" raycastTarget="true">
     <Image image="select_army_bg_v2"></Image>
 </Panel>
-<Panel id="panel_dba_troop_selection" width="800" height="650" rectAlignment="MiddleCenter" color="#00000000" active="false" raycastTarget="true">
+<Panel id="panel_dba_troop_selection" width="800" height="850" rectAlignment="MiddleCenter" color="#00000000" active="false" raycastTarget="true">
     <TableLayout padding="50 50 80 50 " cellSpacing="20">
         <Row preferredHeight="40">
-            <Cell columnSpan="20" dontUseTableCellBackground="true">
+            <Cell columnSpan="10" dontUseTableCellBackground="true">
                 <Toggle id="toggle_filter_modes" onValueChanged="on_filter_models" alignment="MiddleLeft" fontSize="16">Filter armies with models</Toggle>
+            </Cell>
+            <Cell columnSpan="10" dontUseTableCellBackground="true">
+                <Toggle id="toggle_use_plain_bases" onValueChanged="on_use_plain_bases" alignment="MiddleLeft" fontSize="16">Use plain bases</Toggle>
+            </Cell>
+        </Row>
+        <Row preferredHeight="40">
+            <Cell columnSpan="3" dontUseTableCellBackground="true">
+                <Text fontSize="20" alignment="MiddleLeft">Player:</Text>
+            </Cell>
+            <Cell columnSpan="17" dontUseTableCellBackground="true">
+                <Dropdown id="dropdown_playercolor" onValueChanged="on_playercolor_selected" fontSize="20">
+                    <Option selected="true">Red</Option>
+                    <Option>Blue</Option>
+                </Dropdown>
             </Cell>
         </Row>
         <Row preferredHeight="40">
@@ -191,35 +208,29 @@
                 </Dropdown>
             </Cell>
         </Row>
-        <Row preferredHeight="40">
-            <Cell columnSpan="3" dontUseTableCellBackground="true">
-                <Text fontSize="20" alignment="MiddleLeft">Player:</Text>
-            </Cell>
-            <Cell columnSpan="17" dontUseTableCellBackground="true">
-                <Dropdown id="dropdown_playercolor" onValueChanged="on_playercolor_selected" fontSize="20">
-                    <Option selected="true">Red</Option>
-                    <Option>Blue</Option>
-                </Dropdown>
-            </Cell>
-        </Row>
-        <Row preferredHeight="40">
-            <Cell columnSpan="3" dontUseTableCellBackground="true">
-                <Text fontSize="20" alignment="MiddleLeft">Color:</Text>
-            </Cell>
-            <Cell columnSpan="17" dontUseTableCellBackground="true">
-                <Dropdown id="dropdown_command" onValueChanged="on_command_selected" fontSize="20">
-                    <Option selected="true">None</Option>
-                    <Option>Orange</Option>
-                    <Option>Yellow</Option>
-                    <Option>Green</Option>
-                    <Option>Purple</Option>
-                </Dropdown>
-            </Cell>
-        </Row>
-        <Row preferredHeight="40">
-            <Cell columnSpan="20" dontUseTableCellBackground="true">
-                <Toggle id="toggle_use_plain_bases" onValueChanged="on_use_plain_bases" alignment="MiddleLeft" fontSize="16">Use plain bases</Toggle>
-            </Cell>
+        <Row preferredHeight="320">
+          <Cell columnSpan="3" dontUseTableCellBackground="true">
+              <Text fontSize="20" alignment="MiddleLeft">Allies</Text>
+          </Cell>
+          <Cell columnSpan="17" dontUseTableCellBackground="true">
+            <VerticalLayout childForceExpandHeight="false" childAlignment="UpperLeft">
+                <Toggle id="toggle_ally_army_1"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army1</Toggle>
+                <Toggle id="toggle_ally_army_2"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army2</Toggle>
+                <Toggle id="toggle_ally_army_3"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army3</Toggle>
+                <Toggle id="toggle_ally_army_4"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army4</Toggle>
+                <Toggle id="toggle_ally_army_5"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army5</Toggle>
+                <Toggle id="toggle_ally_army_6"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army6</Toggle>
+                <Toggle id="toggle_ally_army_7"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army7</Toggle>
+                <Toggle id="toggle_ally_army_8"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army8</Toggle>
+                <Toggle id="toggle_ally_army_9"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army9</Toggle>
+                <Toggle id="toggle_ally_army_10" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army10</Toggle>
+                <Toggle id="toggle_ally_army_11" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army11</Toggle>
+                <Toggle id="toggle_ally_army_12" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army12</Toggle>
+                <Toggle id="toggle_ally_army_13" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army13</Toggle>
+                <Toggle id="toggle_ally_army_14" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army14</Toggle>
+                <Toggle id="toggle_ally_army_15" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army15</Toggle>
+            </VerticalLayout>
+          </Cell>
         </Row>
         <Row preferredHeight="40">
             <Cell columnSpan="5" dontUseTableCellBackground="true">
