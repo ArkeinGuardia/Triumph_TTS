@@ -249,7 +249,10 @@ function update_deploy_army_dialog()
                         on_next_frame(function()
                           update_player_menu()
                           on_next_frame(function()
-                            UI.setAttribute('button_load_army', 'interactable', true)
+                            update_allies_menu()
+                            on_next_frame(function()
+                              UI.setAttribute('button_load_army', 'interactable', true)
+                            end)
                           end)
                         end)
                     end)
@@ -492,6 +495,7 @@ end
 
 
 function update_allies_menu()
+  print("495 IN update allies menu")
   local date_range = army_dates[g_army_id_selected][g_year_selected]
   g_allies_menu = {}
   g_selected_allies = {}
@@ -532,12 +536,14 @@ function update_allies_menu()
       end
     end
   end
+  print("536 entry=", entry)
   while entry <= 15 do
     local ui_id = "toggle_ally_army_" .. tostring(entry)
     UI.setAttribute(ui_id, "active", false)
     UI.setAttribute(ui_id, "isOn", "false")
     entry = entry + 1
   end
+  print("542 OUT update allies menu")
 end
 
 function on_theme_selected(player, value, id)
