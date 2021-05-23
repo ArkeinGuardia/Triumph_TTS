@@ -2,6 +2,8 @@ g_wizard_exit_panel_fn = nil
 
 function wizard_show()
   UI.setAttribute("panel_dba_orders", "active", false)
+  UI.setAttribute("panel_wizard_bg", "active", true)
+
   g_game_settings['show_panel_current_movement'] = false
   wizard_show_panel_game()
 end
@@ -34,6 +36,7 @@ end
 
 function wizard_hide()
   wizard_show_panel(nil)
+  UI.setAttribute("panel_wizard_bg", "active", false)
   UI.setAttribute("panel_dba_orders", "active", true)
   g_game_settings['show_panel_current_movement'] = true
 end
