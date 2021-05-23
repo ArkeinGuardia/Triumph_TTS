@@ -14,6 +14,7 @@ g_troop_entry={}
 #include scripts/data/data_troops_greek_successors
 #include scripts/data/data_cheat_sheet
 #include scripts/base_cache
+#include scripts/base_definition
 #include scripts/log
 #include scripts/logic_decorations
 #include scripts/utilities_lua
@@ -31,23 +32,24 @@ g_troop_entry={}
 #include scripts/logic_snapping
 #include scripts/logic
 #include scripts/uievents
+#include scripts/wizard
 #include fake_meshwesh/army_data/all_armies
 #include scripts/data/data_models
 
 
 function onSave()
+  g_decorations['g_game_settings'] = g_game_settings
   local saved_data = JSON.encode(g_decorations)
   return saved_data
 end
 
 
 function onload(saved_data)
-    print_info('\n---------------------------------\nTriumph! v 2.0 build 20210430 beta\n---------------------------------\n\nCheck the Notebook for instructions.')
+    print_info('\n---------------------------------\nTriumph! v 2.1 build 20210521 alpha\n---------------------------------\n\nCheck the Notebook for instructions.')
     Wait.time(main_loop, g_seconds_main_loop, -1)
     make_scenery_non_interactable()
     reset_state()
     spawn_proxy_bases()
-    spawn_all_dice()
     print_tool_tip_status()
     restore_extra_data(saved_data)
 
@@ -59,8 +61,6 @@ function onload(saved_data)
       print_error("Unable to find terraom card")
     end
 
-    set_tablet_homepage("red tablet")
-    set_tablet_homepage("blue tablet")
 
     update_dead_zones()
 
@@ -68,6 +68,13 @@ function onload(saved_data)
     -- player cannot roll the red dice.
     UI.setAttribute("button_roll_blue", "visibility", "Blue|White|Black")
     UI.setAttribute("button_roll_red",  "visibility", "Red|White|Black")
+
+    spawn_all_dice()
+    if g_game_settings['show_wizard'] ~= false then
+      wizard_show()
+    else
+      UI.setAttribute("panel_dba_orders", "active", true)
+    end
 
     set_last_snapshot()
 end
@@ -93,6 +100,15 @@ function restore_extra_data(saved_data)
     return
   end
   g_decorations = extra
+  g_game_settings = g_decorations['g_game_settings']
+  if g_game_settings == nil then
+    -- initial settings 
+    g_game_settings = {}
+    g_game_settings['is_grand_triumph'] = false
+    g_game_settings['show_wizard'] = true
+    set_tablet_homepage("red tablet")
+    set_tablet_homepage("blue tablet")
+  end
 end
 
 
