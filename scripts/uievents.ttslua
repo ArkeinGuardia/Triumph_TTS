@@ -167,14 +167,14 @@ end
 function on_load_army(player, value, id)
     local date_range = army_dates[g_army_id_selected][g_year_selected]
     local army_nb = 1
-
+    local is_red_player = g_color_spawn_army_selected == 'Red'
     local filtered_army = filter_base_definitions_by_date(
       army[g_army_id_selected],
       date_range)
     local command = get_command_color(army_nb)
     spawn_army(
       filtered_army,
-      g_color_spawn_army_selected == 'Red',
+      is_red_player,
       command,
       army_nb)
     army_nb = army_nb + 1
@@ -495,7 +495,6 @@ end
 
 
 function update_allies_menu()
-  print("495 IN update allies menu")
   local date_range = army_dates[g_army_id_selected][g_year_selected]
   g_allies_menu = {}
   g_selected_allies = {}
@@ -536,14 +535,12 @@ function update_allies_menu()
       end
     end
   end
-  print("536 entry=", entry)
   while entry <= 15 do
     local ui_id = "toggle_ally_army_" .. tostring(entry)
     UI.setAttribute(ui_id, "active", false)
     UI.setAttribute(ui_id, "isOn", "false")
     entry = entry + 1
   end
-  print("542 OUT update allies menu")
 end
 
 function on_theme_selected(player, value, id)

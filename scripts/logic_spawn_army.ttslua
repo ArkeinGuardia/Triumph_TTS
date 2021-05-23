@@ -806,6 +806,7 @@ function set_tablet(is_red_player, army)
 
   local url = "https://meshwesh.wgcwar.com/armyList/" ..  army['data']['id'] .. "/explore"
   tablet.Browser.url = url
+  print_info(url)
 end
 
 -- Given an army object data, spawns it on the center of the table.
@@ -896,7 +897,6 @@ function spawn_army(army, is_red_player, command_color, army_nb)
         end
     end
 
-    set_tablet(is_red_player, army)
     update_tool_tips()
     print_important('Army deployed: ' .. army.data.name )
 end
