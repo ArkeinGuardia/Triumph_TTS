@@ -1,149 +1,13 @@
 -- 5fb1b9dae1af060017709418 Phrygian  850 to 676 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba22e1af06001770c2c5']= {
-  min=1,
-  max=2,
-  description='2- or 4-horse battle platforms with javelin-armed crewmen',
-}
-g_troop_entry['5fb1ba22e1af06001770c2c6']= {
-  troop_option='5fb1ba22e1af06001770c2c5',
-  troopTypeCode='BTX',
-}
-g_troop_option['5fb1ba22e1af06001770c2c7']= {
-  min=1,
-  max=3,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba22e1af06001770c2c8']= {
-  troop_option='5fb1ba22e1af06001770c2c7',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba22e1af06001770c2c9']= {
-  min=7,
-  max=14,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c2ca']= {
-  troop_option='5fb1ba22e1af06001770c2c9',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba22e1af06001770c2cb']= {
-  min=1,
-  max=5,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba22e1af06001770c2cc']= {
-  troop_option='5fb1ba22e1af06001770c2cb',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba22e1af06001770c2cd']= {
-  min=0,
-  max=3,
-  description='Javelinmen, some with shields',
-}
-g_troop_entry['5fb1ba22e1af06001770c2ce']= {
-  troop_option='5fb1ba22e1af06001770c2cd',
-  troopTypeCode='LFT',
-}
-g_troop_entry['5fb1ba22e1af06001770c2cf']= {
-  troop_option='5fb1ba22e1af06001770c2cd',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba22e1af06001770c2c6_general='5fb1ba22e1af06001770c2c6_general'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2c6_general]={
-  id=g_str_5fb1ba22e1af06001770c2c6_general,
-  name='Battle Taxi General',
-  min=1,
-  max=1,
-  description='2- or 4-horse battle platforms with javelin-armed crewmen',
-  general=true,
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba22e1af06001770c2c6='5fb1ba22e1af06001770c2c6'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2c6]={
-  id=g_str_5fb1ba22e1af06001770c2c6,
-  name='Battle Taxi',
-  min=1,
-  max=2,
-  description='2- or 4-horse battle platforms with javelin-armed crewmen',
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba22e1af06001770c2c8='5fb1ba22e1af06001770c2c8'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2c8]={
-  id=g_str_5fb1ba22e1af06001770c2c8,
-  name='Javelin Cavalry',
-  min=1,
-  max=3,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba22e1af06001770c2ca='5fb1ba22e1af06001770c2ca'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2ca]={
-  id=g_str_5fb1ba22e1af06001770c2ca,
-  name='Light Foot',
-  min=7,
-  max=14,
-  description='Spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba22e1af06001770c2cc='5fb1ba22e1af06001770c2cc'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2cc]={
-  id=g_str_5fb1ba22e1af06001770c2cc,
-  name='Skirmishers',
-  min=1,
-  max=5,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba22e1af06001770c2ce='5fb1ba22e1af06001770c2ce'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2ce]={
-  id=g_str_5fb1ba22e1af06001770c2ce,
-  name='Light Foot',
-  min=0,
-  max=3,
-  description='Javelinmen, some with shields',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba22e1af06001770c2cf='5fb1ba22e1af06001770c2cf'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2cf]={
-  id=g_str_5fb1ba22e1af06001770c2cf,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Javelinmen, some with shields',
-  troop_type="Rabble",
-}
-g_str_5fb1b9dae1af060017709418_camp='5fb1b9dae1af060017709418_camp'
-g_base_definitions[g_str_5fb1b9dae1af060017709418_camp]={
-  id=g_str_5fb1b9dae1af060017709418_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af060017709418_camp_pack_train='5fb1b9dae1af060017709418_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dae1af060017709418_camp_pack_train]={
-  id=g_str_5fb1b9dae1af060017709418_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dae1af060017709418']={
   data={
     name='Phrygian  850 to 676 BC',
     id='5fb1b9dae1af060017709418',
-    army_id='5fb1b9dae1af060017709418'
+    dateRange={
+      startDate=-850,
+      endDate=-676,
+    }
   },
   g_base_definitions[g_str_5fb1ba22e1af06001770c2c6_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c2c6],
@@ -171,4 +35,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af060017709418"] = {}
-army_dates["5fb1b9dae1af060017709418"]["850 BC to 676 BC"] ="5fb1b9dae1af060017709418"
+army_dates["5fb1b9dae1af060017709418"]["850 BC to 676 BC"] = {
+  startDate=-850,
+  endDate=-676
+}
+army_dates["5fb1b9dae1af060017709418"]["850 BC to 765 BC"] = {
+  startDate=-850,
+  endDate=-765
+}
+army_dates["5fb1b9dae1af060017709418"]["764 BC to 723 BC"] = {
+  startDate=-764,
+  endDate=-723
+}
+army_dates["5fb1b9dae1af060017709418"]["722 BC to 676 BC"] = {
+  startDate=-722,
+  endDate=-676
+}

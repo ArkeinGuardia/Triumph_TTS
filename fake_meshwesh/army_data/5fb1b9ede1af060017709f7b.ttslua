@@ -1,262 +1,13 @@
 -- 5fb1b9ede1af060017709f7b Seljuq Sultanates of Merv or Hamadan  1092 to 1194 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ae1af06001770ee0f']= {
-  min=1,
-  max=1,
-  description='Seljuq nobles and retainers, or Seljuq or Mamluk guard',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee10']= {
-  troop_option='5fb1ba3ae1af06001770ee0f',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ae1af06001770ee12']= {
-  min=1,
-  max=4,
-  description='Askar or ghulams',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee13']= {
-  troop_option='5fb1ba3ae1af06001770ee12',
-  troopTypeCode='ECV',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee14']= {
-  troop_option='5fb1ba3ae1af06001770ee12',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ae1af06001770ee16']= {
-  min=4,
-  max=7,
-  description='Turkoman horse archers',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee17']= {
-  troop_option='5fb1ba3ae1af06001770ee16',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ae1af06001770ee18']= {
-  min=0,
-  max=2,
-  description='Turkish, Armenian, or Kurdish light infantry',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee19']= {
-  troop_option='5fb1ba3ae1af06001770ee18',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3ae1af06001770ee1a']= {
-  min=0,
-  max=4,
-  description='Turkish, Armenian, or Kurdish bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee1b']= {
-  troop_option='5fb1ba3ae1af06001770ee1a',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3ae1af06001770ee1c']= {
-  min=0,
-  max=2,
-  description='Dailami zupin-men',
-  note='only Sultanate of Merv',
-  core='all',
-  startDate=1092,
-  endDate=1157,
-}
-g_troop_entry['5fb1ba3ae1af06001770ee1e']= {
-  troop_option='5fb1ba3ae1af06001770ee1c',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba3ae1af06001770ee20']= {
-  min=0,
-  max=2,
-  description='Syrian horsemen or bedouin Arabs',
-  note='only Sultanate of Hamadan',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee21']= {
-  troop_option='5fb1ba3ae1af06001770ee20',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3ae1af06001770ee22']= {
-  min=0,
-  max=2,
-  description='Ahdath militia',
-  note='only Sultanate of Hamadan',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee23']= {
-  troop_option='5fb1ba3ae1af06001770ee22',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba3ae1af06001770ee10_general='5fb1ba3ae1af06001770ee10_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee10_general]={
-  id=g_str_5fb1ba3ae1af06001770ee10_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Seljuq nobles and retainers, or Seljuq or Mamluk guard',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ee10='5fb1ba3ae1af06001770ee10'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee10]={
-  id=g_str_5fb1ba3ae1af06001770ee10,
-  name='Elite Cavalary',
-  min=1,
-  max=1,
-  description='Seljuq nobles and retainers, or Seljuq or Mamluk guard',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ee13_general='5fb1ba3ae1af06001770ee13_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee13_general]={
-  id=g_str_5fb1ba3ae1af06001770ee13_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Askar or ghulams',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ee13='5fb1ba3ae1af06001770ee13'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee13]={
-  id=g_str_5fb1ba3ae1af06001770ee13,
-  name='Elite Cavalary',
-  min=1,
-  max=4,
-  description='Askar or ghulams',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ee14_general='5fb1ba3ae1af06001770ee14_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee14_general]={
-  id=g_str_5fb1ba3ae1af06001770ee14_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Askar or ghulams',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ee14='5fb1ba3ae1af06001770ee14'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee14]={
-  id=g_str_5fb1ba3ae1af06001770ee14,
-  name='Horse Bow',
-  min=1,
-  max=4,
-  description='Askar or ghulams',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ee17_general='5fb1ba3ae1af06001770ee17_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee17_general]={
-  id=g_str_5fb1ba3ae1af06001770ee17_general,
-  name='Horse Bow General',
-  min=4,
-  max=1,
-  description='Turkoman horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ee17='5fb1ba3ae1af06001770ee17'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee17]={
-  id=g_str_5fb1ba3ae1af06001770ee17,
-  name='Horse Bow',
-  min=4,
-  max=7,
-  description='Turkoman horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ee19='5fb1ba3ae1af06001770ee19'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee19]={
-  id=g_str_5fb1ba3ae1af06001770ee19,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Turkish, Armenian, or Kurdish light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3ae1af06001770ee1b='5fb1ba3ae1af06001770ee1b'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee1b]={
-  id=g_str_5fb1ba3ae1af06001770ee1b,
-  name='Bow Levy',
-  min=0,
-  max=4,
-  description='Turkish, Armenian, or Kurdish bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3ae1af06001770ee1e='5fb1ba3ae1af06001770ee1e'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e]={
-  id=g_str_5fb1ba3ae1af06001770ee1e,
-  name='Raiders',
-  min=0,
-  max=2,
-  description='Dailami zupin-men',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry='5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry'
-g_str_5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry='5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry,
-  name='Raiders',
-  min=0,
-  max=2,
-  description='Dailami zupin-men\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry,
-  troop_type="Raiders",
-}
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry,
-  name='Raiders',
-  min=0,
-  max=2,
-  description='Dailami zupin-men\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ee21='5fb1ba3ae1af06001770ee21'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee21]={
-  id=g_str_5fb1ba3ae1af06001770ee21,
-  name='Javelin Cavalry',
-  min=0,
-  max=2,
-  description='Syrian horsemen or bedouin Arabs',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770ee23='5fb1ba3ae1af06001770ee23'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee23]={
-  id=g_str_5fb1ba3ae1af06001770ee23,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Ahdath militia',
-  troop_type="Horde",
-}
-g_str_5fb1b9ede1af060017709f7b_camp='5fb1b9ede1af060017709f7b_camp'
-g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp]={
-  id=g_str_5fb1b9ede1af060017709f7b_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709f7b_camp_pack_train='5fb1b9ede1af060017709f7b_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp_pack_train]={
-  id=g_str_5fb1b9ede1af060017709f7b_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ede1af060017709f7b']={
   data={
     name='Seljuq Sultanates of Merv or Hamadan  1092 to 1194 AD',
     id='5fb1b9ede1af060017709f7b',
-    army_id='5fb1b9ede1af060017709f7b'
+    dateRange={
+      startDate=1092,
+      endDate=1194,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee10_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee10],
@@ -280,54 +31,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709f7b"] = army["5fb1b9ede1af060017709f7b"]
-army['5fb1b9ede1af060017709f7b_1092_1157']={
-  data={
-    name='Seljuq Sultanates of Merv or Hamadan 1092 AD to 1157 AD',
-    id='5fb1b9ede1af060017709f7b_1092_1157',
-    army_id='5fb1b9ede1af060017709f7b'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee10_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee10],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee13_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee13],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee14_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee14],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee17_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee17],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee19],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee21],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee23],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp_pack_train],
-}
-army['5fb1b9ede1af060017709f7b_1158_1194']={
-  data={
-    name='Seljuq Sultanates of Merv or Hamadan 1158 AD to 1194 AD',
-    id='5fb1b9ede1af060017709f7b_1158_1194',
-    army_id='5fb1b9ede1af060017709f7b'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee10_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee10],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee13_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee13],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee14_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee14],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee17_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee17],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee19],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee1e_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee21],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee23],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f7b_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -348,6 +51,51 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709f7b"] = {}
-army_dates["5fb1b9ede1af060017709f7b"]["1092 AD to 1194 AD"] ="5fb1b9ede1af060017709f7b"
-army_dates["5fb1b9ede1af060017709f7b"]["1092 AD to 1157 AD"] ="5fb1b9ede1af060017709f7b_1092_1157"
-army_dates["5fb1b9ede1af060017709f7b"]["1158 AD to 1194 AD"] ="5fb1b9ede1af060017709f7b_1158_1194"
+army_dates["5fb1b9ede1af060017709f7b"]["1092 AD to 1194 AD"] = {
+  startDate=1092,
+  endDate=1194
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1092 AD to 1099 AD"] = {
+  startDate=1092,
+  endDate=1099
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1100 AD to 1116 AD"] = {
+  startDate=1100,
+  endDate=1116
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1117 AD to 1128 AD"] = {
+  startDate=1117,
+  endDate=1128
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1129 AD to 1141 AD"] = {
+  startDate=1129,
+  endDate=1141
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1142 AD to 1147 AD"] = {
+  startDate=1142,
+  endDate=1147
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1148 AD to 1150 AD"] = {
+  startDate=1148,
+  endDate=1150
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1151 AD to 1157 AD"] = {
+  startDate=1151,
+  endDate=1157
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1158 AD to 1173 AD"] = {
+  startDate=1158,
+  endDate=1173
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1174 AD to 1186 AD"] = {
+  startDate=1174,
+  endDate=1186
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1187 AD to 1191 AD"] = {
+  startDate=1187,
+  endDate=1191
+}
+army_dates["5fb1b9ede1af060017709f7b"]["1192 AD to 1194 AD"] = {
+  startDate=1192,
+  endDate=1194
+}

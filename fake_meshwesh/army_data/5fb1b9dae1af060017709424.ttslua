@@ -1,203 +1,13 @@
 -- 5fb1b9dae1af060017709424 Median Kingdom  620 to 550 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba22e1af06001770c2e8']= {
-  min=3,
-  max=6,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba22e1af06001770c2e9']= {
-  troop_option='5fb1ba22e1af06001770c2e8',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba22e1af06001770c2ea']= {
-  min=4,
-  max=10,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c2eb']= {
-  troop_option='5fb1ba22e1af06001770c2ea',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba22e1af06001770c2ed']= {
-  min=2,
-  max=4,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c2ee']= {
-  troop_option='5fb1ba22e1af06001770c2ed',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba22e1af06001770c2f0']= {
-  min=0,
-  max=2,
-  description='Armenian infantry',
-}
-g_troop_entry['5fb1ba22e1af06001770c2f1']= {
-  troop_option='5fb1ba22e1af06001770c2f0',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba22e1af06001770c2f2']= {
-  min=0,
-  max=2,
-  description='Parthian bowmen (or similar)',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c2f3']= {
-  troop_option='5fb1ba22e1af06001770c2f2',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba22e1af06001770c2f4']= {
-  min=0,
-  max=1,
-  description='Kaspian or Parikian infantry',
-}
-g_troop_entry['5fb1ba22e1af06001770c2f5']= {
-  troop_option='5fb1ba22e1af06001770c2f4',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba22e1af06001770c2f6']= {
-  min=0,
-  max=1,
-  description='Kaspian or Parikian horse archers',
-}
-g_troop_entry['5fb1ba22e1af06001770c2f7']= {
-  troop_option='5fb1ba22e1af06001770c2f6',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba22e1af06001770c2f8']= {
-  min=0,
-  max=2,
-  description='Levy leftovers',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c2f9']= {
-  troop_option='5fb1ba22e1af06001770c2f8',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba22e1af06001770c2e9_general='5fb1ba22e1af06001770c2e9_general'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2e9_general]={
-  id=g_str_5fb1ba22e1af06001770c2e9_general,
-  name='Javelin Cavalry General',
-  min=3,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba22e1af06001770c2e9='5fb1ba22e1af06001770c2e9'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2e9]={
-  id=g_str_5fb1ba22e1af06001770c2e9,
-  name='Javelin Cavalry',
-  min=3,
-  max=6,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba22e1af06001770c2eb='5fb1ba22e1af06001770c2eb'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2eb]={
-  id=g_str_5fb1ba22e1af06001770c2eb,
-  name='Heavy Foot',
-  min=4,
-  max=10,
-  description='Spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba22e1af06001770c2ee='5fb1ba22e1af06001770c2ee'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2ee]={
-  id=g_str_5fb1ba22e1af06001770c2ee,
-  name='Bow Levy',
-  min=2,
-  max=4,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba22e1af06001770c2f1='5fb1ba22e1af06001770c2f1'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2f1]={
-  id=g_str_5fb1ba22e1af06001770c2f1,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Armenian infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba22e1af06001770c2f3='5fb1ba22e1af06001770c2f3'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2f3]={
-  id=g_str_5fb1ba22e1af06001770c2f3,
-  name='Archers',
-  min=0,
-  max=2,
-  description='Parthian bowmen (or similar)',
-  troop_type="Archers",
-}
-g_str_5fb1ba22e1af06001770c2f5='5fb1ba22e1af06001770c2f5'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2f5]={
-  id=g_str_5fb1ba22e1af06001770c2f5,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Kaspian or Parikian infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba22e1af06001770c2f7='5fb1ba22e1af06001770c2f7'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2f7]={
-  id=g_str_5fb1ba22e1af06001770c2f7,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Kaspian or Parikian horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba22e1af06001770c2f9='5fb1ba22e1af06001770c2f9'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2f9]={
-  id=g_str_5fb1ba22e1af06001770c2f9,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levy leftovers',
-  troop_type="Horde",
-}
-g_str_5fb1b9dae1af060017709424_camp='5fb1b9dae1af060017709424_camp'
-g_base_definitions[g_str_5fb1b9dae1af060017709424_camp]={
-  id=g_str_5fb1b9dae1af060017709424_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af060017709424_camp_fortified='5fb1b9dae1af060017709424_camp_fortified'
-g_base_definitions[g_str_5fb1b9dae1af060017709424_camp_fortified]={
-  id=g_str_5fb1b9dae1af060017709424_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af060017709424_camp_pack_train='5fb1b9dae1af060017709424_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dae1af060017709424_camp_pack_train]={
-  id=g_str_5fb1b9dae1af060017709424_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dae1af060017709424']={
   data={
     name='Median Kingdom  620 to 550 BC',
     id='5fb1b9dae1af060017709424',
-    army_id='5fb1b9dae1af060017709424'
+    dateRange={
+      startDate=-620,
+      endDate=-550,
+    }
   },
   g_base_definitions[g_str_5fb1ba22e1af06001770c2e9_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c2e9],
@@ -228,4 +38,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af060017709424"] = {}
-army_dates["5fb1b9dae1af060017709424"]["620 BC to 550 BC"] ="5fb1b9dae1af060017709424"
+army_dates["5fb1b9dae1af060017709424"]["620 BC to 550 BC"] = {
+  startDate=-620,
+  endDate=-550
+}
+army_dates["5fb1b9dae1af060017709424"]["620 BC to 610 BC"] = {
+  startDate=-620,
+  endDate=-610
+}
+army_dates["5fb1b9dae1af060017709424"]["609 BC to 605 BC"] = {
+  startDate=-609,
+  endDate=-605
+}
+army_dates["5fb1b9dae1af060017709424"]["604 BC to 550 BC"] = {
+  startDate=-604,
+  endDate=-550
+}

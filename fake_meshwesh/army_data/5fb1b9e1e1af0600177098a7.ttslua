@@ -1,263 +1,13 @@
 -- 5fb1b9e1e1af0600177098a7 Late Imperial Roman West  307 to 408 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ce1af06001770d3e5']= {
-  min=1,
-  max=3,
-  description='Legionarii',
-  core='all',
-}
-g_troop_entry['5fb1ba2ce1af06001770d3e6']= {
-  troop_option='5fb1ba2ce1af06001770d3e5',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba2ce1af06001770d3e9']= {
-  min=1,
-  max=3,
-  description='Auxilia Palatina',
-  core='all',
-}
-g_troop_entry['5fb1ba2ce1af06001770d3ea']= {
-  troop_option='5fb1ba2ce1af06001770d3e9',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba2ce1af06001770d3ec']= {
-  min=1,
-  max=3,
-  description='Equites',
-}
-g_troop_entry['5fb1ba2ce1af06001770d3ed']= {
-  troop_option='5fb1ba2ce1af06001770d3ec',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2ce1af06001770d3ee']= {
-  min=0,
-  max=1,
-  description='Border Alae',
-}
-g_troop_entry['5fb1ba2ce1af06001770d3ef']= {
-  troop_option='5fb1ba2ce1af06001770d3ee',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba2ce1af06001770d3f0']= {
-  min=0,
-  max=1,
-  description='Catafractarii or Comites Alanii',
-  startDate=381,
-  endDate=408,
-}
-g_troop_entry['5fb1ba2ce1af06001770d3f2']= {
-  troop_option='5fb1ba2ce1af06001770d3f0',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba2ce1af06001770d3f3']= {
-  min=0,
-  max=2,
-  description='Border legionarii',
-  core='all',
-}
-g_troop_entry['5fb1ba2ce1af06001770d3f4']= {
-  troop_option='5fb1ba2ce1af06001770d3f3',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2ce1af06001770d3f5']= {
-  min=0,
-  max=2,
-  description='Border auxilia',
-}
-g_troop_entry['5fb1ba2ce1af06001770d3f6']= {
-  troop_option='5fb1ba2ce1af06001770d3f5',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2ce1af06001770d3f8']= {
-  min=1,
-  max=2,
-  description='Skirmishing legion and auxiliary bowmen',
-}
-g_troop_entry['5fb1ba2ce1af06001770d3f9']= {
-  troop_option='5fb1ba2ce1af06001770d3f8',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba2ce1af06001770d3fb']= {
-  min=1,
-  max=2,
-  description='Germanic foot fighting fiercely in native style',
-  core='all',
-  startDate=395,
-  endDate=408,
-}
-g_troop_entry['5fb1ba2ce1af06001770d3fd']= {
-  troop_option='5fb1ba2ce1af06001770d3fb',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba2ce1af06001770d3fe']= {
-  min=0,
-  max=2,
-  description='Bolt shooters and stone throwers',
-}
-g_troop_entry['5fb1ba2ce1af06001770d3ff']= {
-  troop_option='5fb1ba2ce1af06001770d3fe',
-  troopTypeCode='ART',
-}
-g_str_5fb1ba2ce1af06001770d3e6_general='5fb1ba2ce1af06001770d3e6_general'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6_general]={
-  id=g_str_5fb1ba2ce1af06001770d3e6_general,
-  name='Elite Foot General',
-  min=1,
-  max=1,
-  description='Legionarii',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba2ce1af06001770d3e6='5fb1ba2ce1af06001770d3e6'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6]={
-  id=g_str_5fb1ba2ce1af06001770d3e6,
-  name='Elite Foot',
-  min=1,
-  max=3,
-  description='Legionarii',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba2ce1af06001770d3ea_general='5fb1ba2ce1af06001770d3ea_general'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3ea_general]={
-  id=g_str_5fb1ba2ce1af06001770d3ea_general,
-  name='Raiders General',
-  min=1,
-  max=1,
-  description='Auxilia Palatina',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba2ce1af06001770d3ea='5fb1ba2ce1af06001770d3ea'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3ea]={
-  id=g_str_5fb1ba2ce1af06001770d3ea,
-  name='Raiders',
-  min=1,
-  max=3,
-  description='Auxilia Palatina',
-  troop_type="Raiders",
-}
-g_str_5fb1ba2ce1af06001770d3ed_general='5fb1ba2ce1af06001770d3ed_general'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3ed_general]={
-  id=g_str_5fb1ba2ce1af06001770d3ed_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Equites',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2ce1af06001770d3ed='5fb1ba2ce1af06001770d3ed'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3ed]={
-  id=g_str_5fb1ba2ce1af06001770d3ed,
-  name='Javelin Cavalry',
-  min=1,
-  max=3,
-  description='Equites',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2ce1af06001770d3ef='5fb1ba2ce1af06001770d3ef'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3ef]={
-  id=g_str_5fb1ba2ce1af06001770d3ef,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Border Alae',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba2ce1af06001770d3f2='5fb1ba2ce1af06001770d3f2'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3f2]={
-  id=g_str_5fb1ba2ce1af06001770d3f2,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Catafractarii or Comites Alanii',
-  troop_type="Knights",
-}
-g_str_5fb1ba2ce1af06001770d3f4='5fb1ba2ce1af06001770d3f4'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3f4]={
-  id=g_str_5fb1ba2ce1af06001770d3f4,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Border legionarii',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2ce1af06001770d3f6='5fb1ba2ce1af06001770d3f6'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3f6]={
-  id=g_str_5fb1ba2ce1af06001770d3f6,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Border auxilia',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2ce1af06001770d3f9='5fb1ba2ce1af06001770d3f9'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3f9]={
-  id=g_str_5fb1ba2ce1af06001770d3f9,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Skirmishing legion and auxiliary bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2ce1af06001770d3fd='5fb1ba2ce1af06001770d3fd'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3fd]={
-  id=g_str_5fb1ba2ce1af06001770d3fd,
-  name='Warriors',
-  min=1,
-  max=2,
-  description='Germanic foot fighting fiercely in native style',
-  troop_type="Warriors",
-}
-g_str_5fb1ba2ce1af06001770d3ff='5fb1ba2ce1af06001770d3ff'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d3ff]={
-  id=g_str_5fb1ba2ce1af06001770d3ff,
-  name='Artillery',
-  min=0,
-  max=2,
-  description='Bolt shooters and stone throwers',
-  troop_type="Artillery",
-}
-g_str_5fb1b9e1e1af0600177098a7_camp='5fb1b9e1e1af0600177098a7_camp'
-g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp]={
-  id=g_str_5fb1b9e1e1af0600177098a7_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e1e1af0600177098a7_camp_fortified='5fb1b9e1e1af0600177098a7_camp_fortified'
-g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp_fortified]={
-  id=g_str_5fb1b9e1e1af0600177098a7_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e1e1af0600177098a7_camp_pack_train='5fb1b9e1e1af0600177098a7_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp_pack_train]={
-  id=g_str_5fb1b9e1e1af0600177098a7_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e1e1af0600177098a7']={
   data={
     name='Late Imperial Roman West  307 to 408 AD',
     id='5fb1b9e1e1af0600177098a7',
-    army_id='5fb1b9e1e1af0600177098a7'
+    dateRange={
+      startDate=307,
+      endDate=408,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6],
@@ -280,75 +30,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e1e1af0600177098a7"] = army["5fb1b9e1e1af0600177098a7"]
-army['5fb1b9e1e1af0600177098a7_307_380']={
-  data={
-    name='Late Imperial Roman West 307 AD to 380 AD',
-    id='5fb1b9e1e1af0600177098a7_307_380',
-    army_id='5fb1b9e1e1af0600177098a7'
-  },
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ea_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ea],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ed_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ed],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ef],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f2],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f4],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f6],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f9],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3fd],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ff],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp_pack_train],
-}
-army['5fb1b9e1e1af0600177098a7_381_394']={
-  data={
-    name='Late Imperial Roman West 381 AD to 394 AD',
-    id='5fb1b9e1e1af0600177098a7_381_394',
-    army_id='5fb1b9e1e1af0600177098a7'
-  },
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ea_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ea],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ed_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ed],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ef],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f2],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f4],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f6],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f9],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3fd],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ff],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp_pack_train],
-}
-army['5fb1b9e1e1af0600177098a7_395_408']={
-  data={
-    name='Late Imperial Roman West 395 AD to 408 AD',
-    id='5fb1b9e1e1af0600177098a7_395_408',
-    army_id='5fb1b9e1e1af0600177098a7'
-  },
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3e6],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ea_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ea],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ed_general],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ed],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ef],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f2],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f4],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f6],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3f9],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3fd],
-  g_base_definitions[g_str_5fb1ba2ce1af06001770d3ff],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e1e1af0600177098a7_camp_pack_train],
-}
 if nil == armies["Fall of Rome"] then
   armies["Fall of Rome"] ={}
 end
@@ -361,7 +42,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e1e1af0600177098a7"] = {}
-army_dates["5fb1b9e1e1af0600177098a7"]["307 AD to 408 AD"] ="5fb1b9e1e1af0600177098a7"
-army_dates["5fb1b9e1e1af0600177098a7"]["307 AD to 380 AD"] ="5fb1b9e1e1af0600177098a7_307_380"
-army_dates["5fb1b9e1e1af0600177098a7"]["381 AD to 394 AD"] ="5fb1b9e1e1af0600177098a7_381_394"
-army_dates["5fb1b9e1e1af0600177098a7"]["395 AD to 408 AD"] ="5fb1b9e1e1af0600177098a7_395_408"
+army_dates["5fb1b9e1e1af0600177098a7"]["307 AD to 408 AD"] = {
+  startDate=307,
+  endDate=408
+}
+army_dates["5fb1b9e1e1af0600177098a7"]["307 AD to 380 AD"] = {
+  startDate=307,
+  endDate=380
+}
+army_dates["5fb1b9e1e1af0600177098a7"]["381 AD to 393 AD"] = {
+  startDate=381,
+  endDate=393
+}
+army_dates["5fb1b9e1e1af0600177098a7"]["394 AD"] = {
+  startDate=394,
+  endDate=394
+}
+army_dates["5fb1b9e1e1af0600177098a7"]["395 AD to 408 AD"] = {
+  startDate=395,
+  endDate=408
+}

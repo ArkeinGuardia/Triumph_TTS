@@ -1,267 +1,13 @@
 -- 5fb1b9dde1af0600177095c0 Polybian Roman  275 to 105 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba27e1af06001770c8e1']= {
-  min=1,
-  max=1,
-  description='Roman, Gallic, Spanish, and effective allied horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba27e1af06001770c8e2']= {
-  troop_option='5fb1ba27e1af06001770c8e1',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba27e1af06001770c8e3']= {
-  min=4,
-  max=10,
-  description='Legionaries',
-  core='all',
-}
-g_troop_entry['5fb1ba27e1af06001770c8e4']= {
-  troop_option='5fb1ba27e1af06001770c8e3',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8e6']= {
-  min=0,
-  max=2,
-  description='Raw, mutinous, or recently recruited legionaries',
-  core='all',
-}
-g_troop_entry['5fb1ba27e1af06001770c8e7']= {
-  troop_option='5fb1ba27e1af06001770c8e6',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8e8']= {
-  min=0,
-  max=8,
-  description='Large numbers of recently recruited legionaries',
-  note='only in Italy',
-  core='all',
-  startDate=-225,
-  endDate=-211,
-}
-g_troop_entry['5fb1ba27e1af06001770c8ea']= {
-  troop_option='5fb1ba27e1af06001770c8e8',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8eb']= {
-  min=1,
-  max=4,
-  description='Leves',
-  startDate=-275,
-  endDate=-211,
-}
-g_troop_entry['5fb1ba27e1af06001770c8ed']= {
-  troop_option='5fb1ba27e1af06001770c8eb',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba27e1af06001770c8ee']= {
-  min=1,
-  max=4,
-  description='Velites',
-  startDate=-210,
-  endDate=-105,
-}
-g_troop_entry['5fb1ba27e1af06001770c8f0']= {
-  troop_option='5fb1ba27e1af06001770c8ee',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8f1']= {
-  min=0,
-  max=2,
-  description='Italian allied horsemen or hamippoi (light foot mixed with cavalry)',
-}
-g_troop_entry['5fb1ba27e1af06001770c8f2']= {
-  troop_option='5fb1ba27e1af06001770c8f1',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba27e1af06001770c8f3']= {
-  min=0,
-  max=1,
-  description='Italian allied light infantry',
-}
-g_troop_entry['5fb1ba27e1af06001770c8f4']= {
-  troop_option='5fb1ba27e1af06001770c8f3',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8f5']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba27e1af06001770c8f6']= {
-  troop_option='5fb1ba27e1af06001770c8f5',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba27e1af06001770c8f7']= {
-  min=0,
-  max=1,
-  description='Spanish or Illyrian light infantry',
-}
-g_troop_entry['5fb1ba27e1af06001770c8f8']= {
-  troop_option='5fb1ba27e1af06001770c8f7',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8f9']= {
-  min=0,
-  max=1,
-  description='Gallic tribesmen',
-  note='only in Italy',
-  startDate=-225,
-  endDate=-211,
-}
-g_troop_entry['5fb1ba27e1af06001770c8fb']= {
-  troop_option='5fb1ba27e1af06001770c8f9',
-  troopTypeCode='WRR',
-}
-g_str_5fb1ba27e1af06001770c8e2_general='5fb1ba27e1af06001770c8e2_general'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general]={
-  id=g_str_5fb1ba27e1af06001770c8e2_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Roman, Gallic, Spanish, and effective allied horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770c8e2='5fb1ba27e1af06001770c8e2'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8e2]={
-  id=g_str_5fb1ba27e1af06001770c8e2,
-  name='Javelin Cavalry',
-  min=1,
-  max=1,
-  description='Roman, Gallic, Spanish, and effective allied horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770c8e4='5fb1ba27e1af06001770c8e4'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8e4]={
-  id=g_str_5fb1ba27e1af06001770c8e4,
-  name='Elite Foot',
-  min=4,
-  max=10,
-  description='Legionaries',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba27e1af06001770c8e7='5fb1ba27e1af06001770c8e7'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8e7]={
-  id=g_str_5fb1ba27e1af06001770c8e7,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Raw, mutinous, or recently recruited legionaries',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba27e1af06001770c8ea='5fb1ba27e1af06001770c8ea'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8ea]={
-  id=g_str_5fb1ba27e1af06001770c8ea,
-  name='Heavy Foot',
-  min=0,
-  max=8,
-  description='Large numbers of recently recruited legionaries',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba27e1af06001770c8ed='5fb1ba27e1af06001770c8ed'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8ed]={
-  id=g_str_5fb1ba27e1af06001770c8ed,
-  name='Rabble',
-  min=1,
-  max=4,
-  description='Leves',
-  troop_type="Rabble",
-}
-g_str_5fb1ba27e1af06001770c8f0='5fb1ba27e1af06001770c8f0'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8f0]={
-  id=g_str_5fb1ba27e1af06001770c8f0,
-  name='Light Foot',
-  min=1,
-  max=4,
-  description='Velites',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba27e1af06001770c8f2='5fb1ba27e1af06001770c8f2'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8f2]={
-  id=g_str_5fb1ba27e1af06001770c8f2,
-  name='Bad Horse',
-  min=0,
-  max=2,
-  description='Italian allied horsemen or hamippoi (light foot mixed with cavalry)',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba27e1af06001770c8f4='5fb1ba27e1af06001770c8f4'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8f4]={
-  id=g_str_5fb1ba27e1af06001770c8f4,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Italian allied light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba27e1af06001770c8f6='5fb1ba27e1af06001770c8f6'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8f6]={
-  id=g_str_5fb1ba27e1af06001770c8f6,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba27e1af06001770c8f8='5fb1ba27e1af06001770c8f8'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8f8]={
-  id=g_str_5fb1ba27e1af06001770c8f8,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Spanish or Illyrian light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba27e1af06001770c8fb='5fb1ba27e1af06001770c8fb'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8fb]={
-  id=g_str_5fb1ba27e1af06001770c8fb,
-  name='Warriors',
-  min=0,
-  max=1,
-  description='Gallic tribesmen',
-  troop_type="Warriors",
-}
-g_str_5fb1b9dde1af0600177095c0_camp='5fb1b9dde1af0600177095c0_camp'
-g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp]={
-  id=g_str_5fb1b9dde1af0600177095c0_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dde1af0600177095c0_camp_fortified='5fb1b9dde1af0600177095c0_camp_fortified'
-g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_fortified]={
-  id=g_str_5fb1b9dde1af0600177095c0_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9dde1af0600177095c0_camp_pack_train='5fb1b9dde1af0600177095c0_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_pack_train]={
-  id=g_str_5fb1b9dde1af0600177095c0_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dde1af0600177095c0']={
   data={
     name='Polybian Roman  275 to 105 BC',
     id='5fb1b9dde1af0600177095c0',
-    army_id='5fb1b9dde1af0600177095c0'
+    dateRange={
+      startDate=-275,
+      endDate=-105,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c8e2],
@@ -283,72 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dde1af0600177095c0"] = army["5fb1b9dde1af0600177095c0"]
-army['5fb1b9dde1af0600177095c0_-275_-226']={
-  data={
-    name='Polybian Roman 275 BC to 226 BC',
-    id='5fb1b9dde1af0600177095c0_-275_-226',
-    army_id='5fb1b9dde1af0600177095c0'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ea],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ed],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f0],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f6],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f8],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8fb],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095c0_-225_-211']={
-  data={
-    name='Polybian Roman 225 BC to 211 BC',
-    id='5fb1b9dde1af0600177095c0_-225_-211',
-    army_id='5fb1b9dde1af0600177095c0'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ea],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ed],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f0],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f6],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f8],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8fb],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_pack_train],
-}
-army['5fb1b9dde1af0600177095c0_-210_-105']={
-  data={
-    name='Polybian Roman 210 BC to 105 BC',
-    id='5fb1b9dde1af0600177095c0_-210_-105',
-    army_id='5fb1b9dde1af0600177095c0'
-  },
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2_general],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8e7],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ea],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8ed],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f0],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f2],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f4],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f6],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8f8],
-  g_base_definitions[g_str_5fb1ba27e1af06001770c8fb],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dde1af0600177095c0_camp_pack_train],
-}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -365,7 +45,71 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dde1af0600177095c0"] = {}
-army_dates["5fb1b9dde1af0600177095c0"]["275 BC to 105 BC"] ="5fb1b9dde1af0600177095c0"
-army_dates["5fb1b9dde1af0600177095c0"]["275 BC to 226 BC"] ="5fb1b9dde1af0600177095c0_-275_-226"
-army_dates["5fb1b9dde1af0600177095c0"]["225 BC to 211 BC"] ="5fb1b9dde1af0600177095c0_-225_-211"
-army_dates["5fb1b9dde1af0600177095c0"]["210 BC to 105 BC"] ="5fb1b9dde1af0600177095c0_-210_-105"
+army_dates["5fb1b9dde1af0600177095c0"]["275 BC to 105 BC"] = {
+  startDate=-275,
+  endDate=-105
+}
+army_dates["5fb1b9dde1af0600177095c0"]["275 BC to 264 BC"] = {
+  startDate=-275,
+  endDate=-264
+}
+army_dates["5fb1b9dde1af0600177095c0"]["263 BC to 241 BC"] = {
+  startDate=-263,
+  endDate=-241
+}
+army_dates["5fb1b9dde1af0600177095c0"]["240 BC to 226 BC"] = {
+  startDate=-240,
+  endDate=-226
+}
+army_dates["5fb1b9dde1af0600177095c0"]["225 BC to 216 BC"] = {
+  startDate=-225,
+  endDate=-216
+}
+army_dates["5fb1b9dde1af0600177095c0"]["215 BC to 214 BC"] = {
+  startDate=-215,
+  endDate=-214
+}
+army_dates["5fb1b9dde1af0600177095c0"]["213 BC"] = {
+  startDate=-213,
+  endDate=-213
+}
+army_dates["5fb1b9dde1af0600177095c0"]["212 BC to 211 BC"] = {
+  startDate=-212,
+  endDate=-211
+}
+army_dates["5fb1b9dde1af0600177095c0"]["210 BC to 208 BC"] = {
+  startDate=-210,
+  endDate=-208
+}
+army_dates["5fb1b9dde1af0600177095c0"]["207 BC to 205 BC"] = {
+  startDate=-207,
+  endDate=-205
+}
+army_dates["5fb1b9dde1af0600177095c0"]["204 BC to 202 BC"] = {
+  startDate=-204,
+  endDate=-202
+}
+army_dates["5fb1b9dde1af0600177095c0"]["201 BC to 199 BC"] = {
+  startDate=-201,
+  endDate=-199
+}
+army_dates["5fb1b9dde1af0600177095c0"]["198 BC to 190 BC"] = {
+  startDate=-198,
+  endDate=-190
+}
+army_dates["5fb1b9dde1af0600177095c0"]["189 BC to 146 BC"] = {
+  startDate=-189,
+  endDate=-146
+}
+army_dates["5fb1b9dde1af0600177095c0"]["145 BC to 129 BC"] = {
+  startDate=-145,
+  endDate=-129
+}
+army_dates["5fb1b9dde1af0600177095c0"]["128 BC to 118 BC"] = {
+  startDate=-128,
+  endDate=-118
+}
+army_dates["5fb1b9dde1af0600177095c0"]["117 BC to 105 BC"] = {
+  startDate=-117,
+  endDate=-105
+}

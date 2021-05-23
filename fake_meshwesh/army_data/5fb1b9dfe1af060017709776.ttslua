@@ -1,163 +1,13 @@
 -- 5fb1b9dfe1af060017709776 Massagetae  550 to 150 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ae1af06001770cffd']= {
-  min=1,
-  max=3,
-  description='Noble horsemen, some with horse armor',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770cffe']= {
-  troop_option='5fb1ba2ae1af06001770cffd',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba2ae1af06001770cfff']= {
-  min=4,
-  max=9,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba2ae1af06001770d000']= {
-  troop_option='5fb1ba2ae1af06001770cfff',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba2ae1af06001770d001']= {
-  min=2,
-  max=4,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770d002']= {
-  troop_option='5fb1ba2ae1af06001770d001',
-  troopTypeCode='ARC',
-}
-g_troop_entry['5fb1ba2ae1af06001770d003']= {
-  troop_option='5fb1ba2ae1af06001770d001',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2ae1af06001770d004']= {
-  min=0,
-  max=1,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba2ae1af06001770d005']= {
-  troop_option='5fb1ba2ae1af06001770d004',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba2ae1af06001770d006']= {
-  min=1,
-  max=3,
-  description='Tribal or subject infantry',
-}
-g_troop_entry['5fb1ba2ae1af06001770d007']= {
-  troop_option='5fb1ba2ae1af06001770d006',
-  troopTypeCode='HRD',
-}
-g_troop_entry['5fb1ba2ae1af06001770d008']= {
-  troop_option='5fb1ba2ae1af06001770d006',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba2ae1af06001770cffe_general='5fb1ba2ae1af06001770cffe_general'
-g_base_definitions[g_str_5fb1ba2ae1af06001770cffe_general]={
-  id=g_str_5fb1ba2ae1af06001770cffe_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Noble horsemen, some with horse armor',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba2ae1af06001770cffe='5fb1ba2ae1af06001770cffe'
-g_base_definitions[g_str_5fb1ba2ae1af06001770cffe]={
-  id=g_str_5fb1ba2ae1af06001770cffe,
-  name='Elite Cavalary',
-  min=1,
-  max=3,
-  description='Noble horsemen, some with horse armor',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba2ae1af06001770d000='5fb1ba2ae1af06001770d000'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d000]={
-  id=g_str_5fb1ba2ae1af06001770d000,
-  name='Horse Bow',
-  min=4,
-  max=9,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba2ae1af06001770d002='5fb1ba2ae1af06001770d002'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d002]={
-  id=g_str_5fb1ba2ae1af06001770d002,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba2ae1af06001770d003='5fb1ba2ae1af06001770d003'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d003]={
-  id=g_str_5fb1ba2ae1af06001770d003,
-  name='Bow Levy',
-  min=2,
-  max=4,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2ae1af06001770d005='5fb1ba2ae1af06001770d005'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d005]={
-  id=g_str_5fb1ba2ae1af06001770d005,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2ae1af06001770d007='5fb1ba2ae1af06001770d007'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d007]={
-  id=g_str_5fb1ba2ae1af06001770d007,
-  name='Horde',
-  min=1,
-  max=3,
-  description='Tribal or subject infantry',
-  troop_type="Horde",
-}
-g_str_5fb1ba2ae1af06001770d008='5fb1ba2ae1af06001770d008'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d008]={
-  id=g_str_5fb1ba2ae1af06001770d008,
-  name='Light Foot',
-  min=1,
-  max=3,
-  description='Tribal or subject infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9dfe1af060017709776_camp='5fb1b9dfe1af060017709776_camp'
-g_base_definitions[g_str_5fb1b9dfe1af060017709776_camp]={
-  id=g_str_5fb1b9dfe1af060017709776_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dfe1af060017709776_camp_pack_train='5fb1b9dfe1af060017709776_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dfe1af060017709776_camp_pack_train]={
-  id=g_str_5fb1b9dfe1af060017709776_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dfe1af060017709776']={
   data={
     name='Massagetae  550 to 150 BC',
     id='5fb1b9dfe1af060017709776',
-    army_id='5fb1b9dfe1af060017709776'
+    dateRange={
+      startDate=-550,
+      endDate=-150,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ae1af06001770cffe_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770cffe],
@@ -190,4 +40,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dfe1af060017709776"] = {}
-army_dates["5fb1b9dfe1af060017709776"]["550 BC to 150 BC"] ="5fb1b9dfe1af060017709776"
+army_dates["5fb1b9dfe1af060017709776"]["550 BC to 150 BC"] = {
+  startDate=-550,
+  endDate=-150
+}
+army_dates["5fb1b9dfe1af060017709776"]["550 BC to 501 BC"] = {
+  startDate=-550,
+  endDate=-501
+}
+army_dates["5fb1b9dfe1af060017709776"]["500 BC to 170 BC"] = {
+  startDate=-500,
+  endDate=-170
+}
+army_dates["5fb1b9dfe1af060017709776"]["169 BC to 150 BC"] = {
+  startDate=-169,
+  endDate=-150
+}

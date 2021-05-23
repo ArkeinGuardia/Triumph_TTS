@@ -1,193 +1,13 @@
 -- 5fb1b9e0e1af060017709792 Sangam Era Tamil  175 BC to 300 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ae1af06001770d04d']= {
-  min=2,
-  max=3,
-  description='War elephants',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770d04e']= {
-  troop_option='5fb1ba2ae1af06001770d04d',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba2ae1af06001770d050']= {
-  min=0,
-  max=1,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba2ae1af06001770d051']= {
-  troop_option='5fb1ba2ae1af06001770d050',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba2ae1af06001770d052']= {
-  min=5,
-  max=10,
-  description='Swordsmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770d053']= {
-  troop_option='5fb1ba2ae1af06001770d052',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba2ae1af06001770d055']= {
-  min=0,
-  max=3,
-  description='Wild tribesmen',
-}
-g_troop_entry['5fb1ba2ae1af06001770d056']= {
-  troop_option='5fb1ba2ae1af06001770d055',
-  troopTypeCode='LFT',
-}
-g_troop_entry['5fb1ba2ae1af06001770d057']= {
-  troop_option='5fb1ba2ae1af06001770d055',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba2ae1af06001770d058']= {
-  min=1,
-  max=3,
-  description='Villikal bowmen',
-}
-g_troop_entry['5fb1ba2ae1af06001770d059']= {
-  troop_option='5fb1ba2ae1af06001770d058',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba2ae1af06001770d05a']= {
-  min=0,
-  max=1,
-  description='Maiden guard',
-  core='all',
-  startDate=-140,
-  endDate=300,
-}
-g_troop_entry['5fb1ba2ae1af06001770d05c']= {
-  troop_option='5fb1ba2ae1af06001770d05a',
-  troopTypeCode='SPR',
-}
-g_troop_entry['5fb1ba2ae1af06001770d05d']= {
-  troop_option='5fb1ba2ae1af06001770d05a',
-  troopTypeCode='RDR',
-}
-g_str_5fb1ba2ae1af06001770d04e_general='5fb1ba2ae1af06001770d04e_general'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d04e_general]={
-  id=g_str_5fb1ba2ae1af06001770d04e_general,
-  name='Elephants General',
-  min=2,
-  max=1,
-  description='War elephants',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba2ae1af06001770d04e='5fb1ba2ae1af06001770d04e'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d04e]={
-  id=g_str_5fb1ba2ae1af06001770d04e,
-  name='Elephants',
-  min=2,
-  max=3,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba2ae1af06001770d051='5fb1ba2ae1af06001770d051'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d051]={
-  id=g_str_5fb1ba2ae1af06001770d051,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba2ae1af06001770d053='5fb1ba2ae1af06001770d053'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d053]={
-  id=g_str_5fb1ba2ae1af06001770d053,
-  name='Warband',
-  min=5,
-  max=10,
-  description='Swordsmen',
-  troop_type="Warband",
-}
-g_str_5fb1ba2ae1af06001770d053_elephant_screen='5fb1ba2ae1af06001770d053_elephant_screen'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d053_elephant_screen]={
-  id=g_str_5fb1ba2ae1af06001770d053_elephant_screen,
-  name='Warband',
-  min=5,
-  max=10,
-  description='Swordsmen\nElephant Screen',
-  elephant_screen=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba2ae1af06001770d053_elephant_screen_elephant_screen_counter='5fb1ba2ae1af06001770d053_elephant_screen_elephant_screen_counter'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d053_elephant_screen_elephant_screen_counter]={
-  id=g_str_5fb1ba2ae1af06001770d053_elephant_screen_elephant_screen_counter,
-  name='Elephant Screen',
-  min=5,
-  max=10,
-  description='',
-  troop_type="Elephant Screen Counter",
-}
-g_str_5fb1ba2ae1af06001770d056='5fb1ba2ae1af06001770d056'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d056]={
-  id=g_str_5fb1ba2ae1af06001770d056,
-  name='Light Foot',
-  min=0,
-  max=3,
-  description='Wild tribesmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2ae1af06001770d057='5fb1ba2ae1af06001770d057'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d057]={
-  id=g_str_5fb1ba2ae1af06001770d057,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Wild tribesmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2ae1af06001770d059='5fb1ba2ae1af06001770d059'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d059]={
-  id=g_str_5fb1ba2ae1af06001770d059,
-  name='Archers',
-  min=1,
-  max=3,
-  description='Villikal bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba2ae1af06001770d05c='5fb1ba2ae1af06001770d05c'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d05c]={
-  id=g_str_5fb1ba2ae1af06001770d05c,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Maiden guard',
-  troop_type="Spears",
-}
-g_str_5fb1ba2ae1af06001770d05d='5fb1ba2ae1af06001770d05d'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d05d]={
-  id=g_str_5fb1ba2ae1af06001770d05d,
-  name='Raiders',
-  min=0,
-  max=1,
-  description='Maiden guard',
-  troop_type="Raiders",
-}
-g_str_5fb1b9e0e1af060017709792_camp='5fb1b9e0e1af060017709792_camp'
-g_base_definitions[g_str_5fb1b9e0e1af060017709792_camp]={
-  id=g_str_5fb1b9e0e1af060017709792_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e0e1af060017709792']={
   data={
     name='Sangam Era Tamil  175 BC to 300 AD',
     id='5fb1b9e0e1af060017709792',
-    army_id='5fb1b9e0e1af060017709792'
+    dateRange={
+      startDate=-175,
+      endDate=300,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ae1af06001770d04e_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d04e],
@@ -205,42 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e0e1af060017709792"] = army["5fb1b9e0e1af060017709792"]
-army['5fb1b9e0e1af060017709792_-175_-141']={
-  data={
-    name='Sangam Era Tamil 175 BC to 141 BC',
-    id='5fb1b9e0e1af060017709792_-175_-141',
-    army_id='5fb1b9e0e1af060017709792'
-  },
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d04e_general],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d04e],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d051],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d053],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d053_elephant_screen],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d056],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d057],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d059],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d05c],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d05d],
-  g_base_definitions[g_str_5fb1b9e0e1af060017709792_camp],
-}
-army['5fb1b9e0e1af060017709792_-140_300']={
-  data={
-    name='Sangam Era Tamil 140 BC to 300 AD',
-    id='5fb1b9e0e1af060017709792_-140_300',
-    army_id='5fb1b9e0e1af060017709792'
-  },
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d04e_general],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d04e],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d051],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d053],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d053_elephant_screen],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d056],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d057],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d059],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d05c],
-  g_base_definitions[g_str_5fb1ba2ae1af06001770d05d],
-  g_base_definitions[g_str_5fb1b9e0e1af060017709792_camp],
-}
 if nil == armies["India and the Khyber Pass"] then
   armies["India and the Khyber Pass"] ={}
 end
@@ -253,6 +37,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e0e1af060017709792"] = {}
-army_dates["5fb1b9e0e1af060017709792"]["175 BC to 300 AD"] ="5fb1b9e0e1af060017709792"
-army_dates["5fb1b9e0e1af060017709792"]["175 BC to 141 BC"] ="5fb1b9e0e1af060017709792_-175_-141"
-army_dates["5fb1b9e0e1af060017709792"]["140 BC to 300 AD"] ="5fb1b9e0e1af060017709792_-140_300"
+army_dates["5fb1b9e0e1af060017709792"]["175 BC to 300 AD"] = {
+  startDate=-175,
+  endDate=300
+}
+army_dates["5fb1b9e0e1af060017709792"]["175 BC to 141 BC"] = {
+  startDate=-175,
+  endDate=-141
+}
+army_dates["5fb1b9e0e1af060017709792"]["140 BC to 300 AD"] = {
+  startDate=-140,
+  endDate=300
+}

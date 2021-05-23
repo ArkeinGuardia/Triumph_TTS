@@ -1,90 +1,13 @@
 -- 5fb1b9e3e1af06001770999c Early Lombard in Italy  568 to 584 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ee1af06001770d762']= {
-  min=3,
-  max=5,
-  description='Noble horsemen',
-}
-g_troop_entry['5fb1ba2ee1af06001770d763']= {
-  troop_option='5fb1ba2ee1af06001770d762',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba2ee1af06001770d764']= {
-  min=4,
-  max=8,
-  description='Followers',
-}
-g_troop_entry['5fb1ba2ee1af06001770d765']= {
-  troop_option='5fb1ba2ee1af06001770d764',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2ee1af06001770d766']= {
-  min=2,
-  max=6,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2ee1af06001770d767']= {
-  troop_option='5fb1ba2ee1af06001770d766',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba2ee1af06001770d763_general='5fb1ba2ee1af06001770d763_general'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d763_general]={
-  id=g_str_5fb1ba2ee1af06001770d763_general,
-  name='Knights General',
-  min=3,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba2ee1af06001770d763='5fb1ba2ee1af06001770d763'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d763]={
-  id=g_str_5fb1ba2ee1af06001770d763,
-  name='Knights',
-  min=3,
-  max=5,
-  description='Noble horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba2ee1af06001770d765='5fb1ba2ee1af06001770d765'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d765]={
-  id=g_str_5fb1ba2ee1af06001770d765,
-  name='Javelin Cavalry',
-  min=4,
-  max=8,
-  description='Followers',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2ee1af06001770d767='5fb1ba2ee1af06001770d767'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d767]={
-  id=g_str_5fb1ba2ee1af06001770d767,
-  name='Bow Levy',
-  min=2,
-  max=6,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9e3e1af06001770999c_camp='5fb1b9e3e1af06001770999c_camp'
-g_base_definitions[g_str_5fb1b9e3e1af06001770999c_camp]={
-  id=g_str_5fb1b9e3e1af06001770999c_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e3e1af06001770999c']={
   data={
     name='Early Lombard in Italy  568 to 584 AD',
     id='5fb1b9e3e1af06001770999c',
-    army_id='5fb1b9e3e1af06001770999c'
+    dateRange={
+      startDate=568,
+      endDate=584,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ee1af06001770d763_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d763],
@@ -112,4 +35,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e3e1af06001770999c"] = {}
-army_dates["5fb1b9e3e1af06001770999c"]["568 AD to 584 AD"] ="5fb1b9e3e1af06001770999c"
+army_dates["5fb1b9e3e1af06001770999c"]["568 AD to 584 AD"] = {
+  startDate=568,
+  endDate=584
+}
+army_dates["5fb1b9e3e1af06001770999c"]["568 AD to 574 AD"] = {
+  startDate=568,
+  endDate=574
+}
+army_dates["5fb1b9e3e1af06001770999c"]["575 AD to 583 AD"] = {
+  startDate=575,
+  endDate=583
+}
+army_dates["5fb1b9e3e1af06001770999c"]["584 AD"] = {
+  startDate=584,
+  endDate=584
+}

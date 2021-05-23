@@ -1,128 +1,13 @@
 -- 5fb1b9e8e1af060017709c63 Jacquerie  1358 to 1358 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba33e1af06001770e0c3']= {
-  min=1,
-  max=2,
-  description='Parisian Communes',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770e0c4']= {
-  troop_option='5fb1ba33e1af06001770e0c3',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba33e1af06001770e0c5']= {
-  min=0,
-  max=1,
-  description='Sympathetic local gentry',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770e0c6']= {
-  troop_option='5fb1ba33e1af06001770e0c5',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba33e1af06001770e0c7']= {
-  min=0,
-  max=1,
-  description='Mixed peasant and townsmen scouts on horses',
-}
-g_troop_entry['5fb1ba33e1af06001770e0c8']= {
-  troop_option='5fb1ba33e1af06001770e0c7',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba33e1af06001770e0c9']= {
-  min=5,
-  max=9,
-  description='Peasant bowmen and crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770e0ca']= {
-  troop_option='5fb1ba33e1af06001770e0c9',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba33e1af06001770e0cb']= {
-  min=9,
-  max=18,
-  description='Beauvais peasantry',
-}
-g_troop_entry['5fb1ba33e1af06001770e0cc']= {
-  troop_option='5fb1ba33e1af06001770e0cb',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba33e1af06001770e0c4_general='5fb1ba33e1af06001770e0c4_general'
-g_base_definitions[g_str_5fb1ba33e1af06001770e0c4_general]={
-  id=g_str_5fb1ba33e1af06001770e0c4_general,
-  name='Heavy Foot General',
-  min=1,
-  max=1,
-  description='Parisian Communes',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba33e1af06001770e0c4='5fb1ba33e1af06001770e0c4'
-g_base_definitions[g_str_5fb1ba33e1af06001770e0c4]={
-  id=g_str_5fb1ba33e1af06001770e0c4,
-  name='Heavy Foot',
-  min=1,
-  max=2,
-  description='Parisian Communes',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba33e1af06001770e0c6='5fb1ba33e1af06001770e0c6'
-g_base_definitions[g_str_5fb1ba33e1af06001770e0c6]={
-  id=g_str_5fb1ba33e1af06001770e0c6,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Sympathetic local gentry',
-  troop_type="Knights",
-}
-g_str_5fb1ba33e1af06001770e0c8='5fb1ba33e1af06001770e0c8'
-g_base_definitions[g_str_5fb1ba33e1af06001770e0c8]={
-  id=g_str_5fb1ba33e1af06001770e0c8,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Mixed peasant and townsmen scouts on horses',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba33e1af06001770e0ca='5fb1ba33e1af06001770e0ca'
-g_base_definitions[g_str_5fb1ba33e1af06001770e0ca]={
-  id=g_str_5fb1ba33e1af06001770e0ca,
-  name='Bow Levy',
-  min=5,
-  max=9,
-  description='Peasant bowmen and crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba33e1af06001770e0cc='5fb1ba33e1af06001770e0cc'
-g_base_definitions[g_str_5fb1ba33e1af06001770e0cc]={
-  id=g_str_5fb1ba33e1af06001770e0cc,
-  name='Rabble',
-  min=9,
-  max=18,
-  description='Beauvais peasantry',
-  troop_type="Rabble",
-}
-g_str_5fb1b9e8e1af060017709c63_camp='5fb1b9e8e1af060017709c63_camp'
-g_base_definitions[g_str_5fb1b9e8e1af060017709c63_camp]={
-  id=g_str_5fb1b9e8e1af060017709c63_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e8e1af060017709c63']={
   data={
     name='Jacquerie  1358 to 1358 AD',
     id='5fb1b9e8e1af060017709c63',
-    army_id='5fb1b9e8e1af060017709c63'
+    dateRange={
+      startDate=1358,
+      endDate=1358,
+    }
   },
   g_base_definitions[g_str_5fb1ba33e1af06001770e0c4_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770e0c4],
@@ -152,4 +37,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e8e1af060017709c63"] = {}
-army_dates["5fb1b9e8e1af060017709c63"]["1358 AD"] ="5fb1b9e8e1af060017709c63"
+army_dates["5fb1b9e8e1af060017709c63"]["1358 AD"] = {
+  startDate=1358,
+  endDate=1358
+}

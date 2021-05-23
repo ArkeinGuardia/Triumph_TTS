@@ -1,167 +1,13 @@
 -- 5fb1b9dae1af0600177093f2 Early Cypriot and Phoenician  1000 to 665 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba21e1af06001770c20a']= {
-  min=1,
-  max=2,
-  description='2-horse chariots with two crewmen (4 horses and three crew after 800 BC)',
-}
-g_troop_entry['5fb1ba21e1af06001770c20b']= {
-  troop_option='5fb1ba21e1af06001770c20a',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba21e1af06001770c20c']= {
-  min=0,
-  max=1,
-  description='Mounted fighters',
-  startDate=-900,
-  endDate=-665,
-}
-g_troop_entry['5fb1ba21e1af06001770c20e']= {
-  troop_option='5fb1ba21e1af06001770c20c',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba21e1af06001770c20f']= {
-  min=6,
-  max=15,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c210']= {
-  troop_option='5fb1ba21e1af06001770c20f',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba21e1af06001770c211']= {
-  min=1,
-  max=4,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c212']= {
-  troop_option='5fb1ba21e1af06001770c211',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba21e1af06001770c213']= {
-  min=0,
-  max=2,
-  description='Slingers',
-}
-g_troop_entry['5fb1ba21e1af06001770c214']= {
-  troop_option='5fb1ba21e1af06001770c213',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba21e1af06001770c215']= {
-  min=0,
-  max=2,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba21e1af06001770c216']= {
-  troop_option='5fb1ba21e1af06001770c215',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba21e1af06001770c20b_general='5fb1ba21e1af06001770c20b_general'
-g_base_definitions[g_str_5fb1ba21e1af06001770c20b_general]={
-  id=g_str_5fb1ba21e1af06001770c20b_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='2-horse chariots with two crewmen (4 horses and three crew after 800 BC)',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba21e1af06001770c20b='5fb1ba21e1af06001770c20b'
-g_base_definitions[g_str_5fb1ba21e1af06001770c20b]={
-  id=g_str_5fb1ba21e1af06001770c20b,
-  name='Chariots',
-  min=1,
-  max=2,
-  description='2-horse chariots with two crewmen (4 horses and three crew after 800 BC)',
-  troop_type="Chariots",
-}
-g_str_5fb1ba21e1af06001770c20e_general='5fb1ba21e1af06001770c20e_general'
-g_base_definitions[g_str_5fb1ba21e1af06001770c20e_general]={
-  id=g_str_5fb1ba21e1af06001770c20e_general,
-  name='Bad Horse General',
-  min=0,
-  max=1,
-  description='Mounted fighters',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba21e1af06001770c20e='5fb1ba21e1af06001770c20e'
-g_base_definitions[g_str_5fb1ba21e1af06001770c20e]={
-  id=g_str_5fb1ba21e1af06001770c20e,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Mounted fighters',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba21e1af06001770c210='5fb1ba21e1af06001770c210'
-g_base_definitions[g_str_5fb1ba21e1af06001770c210]={
-  id=g_str_5fb1ba21e1af06001770c210,
-  name='Light Foot',
-  min=6,
-  max=15,
-  description='Spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba21e1af06001770c212='5fb1ba21e1af06001770c212'
-g_base_definitions[g_str_5fb1ba21e1af06001770c212]={
-  id=g_str_5fb1ba21e1af06001770c212,
-  name='Bow Levy',
-  min=1,
-  max=4,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba21e1af06001770c214='5fb1ba21e1af06001770c214'
-g_base_definitions[g_str_5fb1ba21e1af06001770c214]={
-  id=g_str_5fb1ba21e1af06001770c214,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba21e1af06001770c216='5fb1ba21e1af06001770c216'
-g_base_definitions[g_str_5fb1ba21e1af06001770c216]={
-  id=g_str_5fb1ba21e1af06001770c216,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9dae1af0600177093f2_camp='5fb1b9dae1af0600177093f2_camp'
-g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp]={
-  id=g_str_5fb1b9dae1af0600177093f2_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af0600177093f2_camp_pack_train='5fb1b9dae1af0600177093f2_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp_pack_train]={
-  id=g_str_5fb1b9dae1af0600177093f2_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dae1af0600177093f2']={
   data={
     name='Early Cypriot and Phoenician  1000 to 665 BC',
     id='5fb1b9dae1af0600177093f2',
-    army_id='5fb1b9dae1af0600177093f2'
+    dateRange={
+      startDate=-1000,
+      endDate=-665,
+    }
   },
   g_base_definitions[g_str_5fb1ba21e1af06001770c20b_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c20b],
@@ -178,40 +24,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dae1af0600177093f2"] = army["5fb1b9dae1af0600177093f2"]
-army['5fb1b9dae1af0600177093f2_-1000_-901']={
-  data={
-    name='Early Cypriot and Phoenician 1000 BC to 901 BC',
-    id='5fb1b9dae1af0600177093f2_-1000_-901',
-    army_id='5fb1b9dae1af0600177093f2'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c20b_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c20b],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c20e_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c20e],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c210],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c212],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c214],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c216],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp_pack_train],
-}
-army['5fb1b9dae1af0600177093f2_-900_-665']={
-  data={
-    name='Early Cypriot and Phoenician 900 BC to 665 BC',
-    id='5fb1b9dae1af0600177093f2_-900_-665',
-    army_id='5fb1b9dae1af0600177093f2'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c20b_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c20b],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c20e_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c20e],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c210],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c212],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c214],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c216],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093f2_camp_pack_train],
-}
 if nil == armies["Assyrian Empire"] then
   armies["Assyrian Empire"] ={}
 end
@@ -228,6 +40,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af0600177093f2"] = {}
-army_dates["5fb1b9dae1af0600177093f2"]["1000 BC to 665 BC"] ="5fb1b9dae1af0600177093f2"
-army_dates["5fb1b9dae1af0600177093f2"]["1000 BC to 901 BC"] ="5fb1b9dae1af0600177093f2_-1000_-901"
-army_dates["5fb1b9dae1af0600177093f2"]["900 BC to 665 BC"] ="5fb1b9dae1af0600177093f2_-900_-665"
+army_dates["5fb1b9dae1af0600177093f2"]["1000 BC to 665 BC"] = {
+  startDate=-1000,
+  endDate=-665
+}
+army_dates["5fb1b9dae1af0600177093f2"]["1000 BC to 901 BC"] = {
+  startDate=-1000,
+  endDate=-901
+}
+army_dates["5fb1b9dae1af0600177093f2"]["900 BC to 725 BC"] = {
+  startDate=-900,
+  endDate=-725
+}
+army_dates["5fb1b9dae1af0600177093f2"]["724 BC to 665 BC"] = {
+  startDate=-724,
+  endDate=-665
+}

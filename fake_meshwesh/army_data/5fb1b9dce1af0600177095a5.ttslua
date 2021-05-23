@@ -1,149 +1,13 @@
 -- 5fb1b9dce1af0600177095a5 Sedentary Gallic  99 to 50 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba27e1af06001770c89a']= {
-  min=1,
-  max=3,
-  description='Noble horsemen',
-}
-g_troop_entry['5fb1ba27e1af06001770c89b']= {
-  troop_option='5fb1ba27e1af06001770c89a',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba27e1af06001770c89c']= {
-  min=0,
-  max=3,
-  description='Unshielded horsemen',
-}
-g_troop_entry['5fb1ba27e1af06001770c89d']= {
-  troop_option='5fb1ba27e1af06001770c89c',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba27e1af06001770c89e']= {
-  min=8,
-  max=14,
-  description='Fierce fighters',
-  note='Helvetii or Belgae',
-  core='all',
-}
-g_troop_entry['5fb1ba27e1af06001770c89f']= {
-  troop_option='5fb1ba27e1af06001770c89e',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba27e1af06001770c8a0']= {
-  min=8,
-  max=14,
-  description='Sedentary infantry',
-  note='all except Helvetii or Belgae',
-  core='all',
-}
-g_troop_entry['5fb1ba27e1af06001770c8a1']= {
-  troop_option='5fb1ba27e1af06001770c8a0',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8a2']= {
-  min=1,
-  max=3,
-  description='Poorly equipped and trained bowmen, slingers, and unshielded javelinmen',
-}
-g_troop_entry['5fb1ba27e1af06001770c8a3']= {
-  troop_option='5fb1ba27e1af06001770c8a2',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba27e1af06001770c89b_general='5fb1ba27e1af06001770c89b_general'
-g_base_definitions[g_str_5fb1ba27e1af06001770c89b_general]={
-  id=g_str_5fb1ba27e1af06001770c89b_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770c89b='5fb1ba27e1af06001770c89b'
-g_base_definitions[g_str_5fb1ba27e1af06001770c89b]={
-  id=g_str_5fb1ba27e1af06001770c89b,
-  name='Javelin Cavalry',
-  min=1,
-  max=3,
-  description='Noble horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770c89d='5fb1ba27e1af06001770c89d'
-g_base_definitions[g_str_5fb1ba27e1af06001770c89d]={
-  id=g_str_5fb1ba27e1af06001770c89d,
-  name='Bad Horse',
-  min=0,
-  max=3,
-  description='Unshielded horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba27e1af06001770c89f_general='5fb1ba27e1af06001770c89f_general'
-g_base_definitions[g_str_5fb1ba27e1af06001770c89f_general]={
-  id=g_str_5fb1ba27e1af06001770c89f_general,
-  name='Warriors General',
-  min=8,
-  max=1,
-  description='Fierce fighters',
-  general=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba27e1af06001770c89f='5fb1ba27e1af06001770c89f'
-g_base_definitions[g_str_5fb1ba27e1af06001770c89f]={
-  id=g_str_5fb1ba27e1af06001770c89f,
-  name='Warriors',
-  min=8,
-  max=14,
-  description='Fierce fighters',
-  troop_type="Warriors",
-}
-g_str_5fb1ba27e1af06001770c8a1='5fb1ba27e1af06001770c8a1'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8a1]={
-  id=g_str_5fb1ba27e1af06001770c8a1,
-  name='Light Foot',
-  min=8,
-  max=14,
-  description='Sedentary infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba27e1af06001770c8a3='5fb1ba27e1af06001770c8a3'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8a3]={
-  id=g_str_5fb1ba27e1af06001770c8a3,
-  name='Rabble',
-  min=1,
-  max=3,
-  description='Poorly equipped and trained bowmen, slingers, and unshielded javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9dce1af0600177095a5_camp='5fb1b9dce1af0600177095a5_camp'
-g_base_definitions[g_str_5fb1b9dce1af0600177095a5_camp]={
-  id=g_str_5fb1b9dce1af0600177095a5_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dce1af0600177095a5_camp_fortified='5fb1b9dce1af0600177095a5_camp_fortified'
-g_base_definitions[g_str_5fb1b9dce1af0600177095a5_camp_fortified]={
-  id=g_str_5fb1b9dce1af0600177095a5_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9dce1af0600177095a5']={
   data={
     name='Sedentary Gallic  99 to 50 BC',
     id='5fb1b9dce1af0600177095a5',
-    army_id='5fb1b9dce1af0600177095a5'
+    dateRange={
+      startDate=-99,
+      endDate=-50,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770c89b_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c89b],
@@ -171,4 +35,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dce1af0600177095a5"] = {}
-army_dates["5fb1b9dce1af0600177095a5"]["99 BC to 50 BC"] ="5fb1b9dce1af0600177095a5"
+army_dates["5fb1b9dce1af0600177095a5"]["99 BC to 50 BC"] = {
+  startDate=-99,
+  endDate=-50
+}
+army_dates["5fb1b9dce1af0600177095a5"]["99 BC to 72 BC"] = {
+  startDate=-99,
+  endDate=-72
+}
+army_dates["5fb1b9dce1af0600177095a5"]["71 BC to 61 BC"] = {
+  startDate=-71,
+  endDate=-61
+}
+army_dates["5fb1b9dce1af0600177095a5"]["60 BC to 50 BC"] = {
+  startDate=-60,
+  endDate=-50
+}

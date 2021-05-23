@@ -1,137 +1,13 @@
 -- 5fb1b9f5e1af06001770a431 Mound Builder American  1100 to 1701 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba44e1af06001770fe1c']= {
-  min=0,
-  max=1,
-  description='Guard bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fe1d']= {
-  troop_option='5fb1ba44e1af06001770fe1c',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba44e1af06001770fe1e']= {
-  min=1,
-  max=3,
-  description='Nobles wearing rawhide armor armed with spear and club',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fe1f']= {
-  troop_option='5fb1ba44e1af06001770fe1e',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba44e1af06001770fe20']= {
-  min=7,
-  max=20,
-  description='Honored Men',
-}
-g_troop_entry['5fb1ba44e1af06001770fe21']= {
-  troop_option='5fb1ba44e1af06001770fe20',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba44e1af06001770fe22']= {
-  min=0,
-  max=4,
-  description='Scouts and flankers armed with bow or atlatl',
-}
-g_troop_entry['5fb1ba44e1af06001770fe23']= {
-  troop_option='5fb1ba44e1af06001770fe22',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba44e1af06001770fe24']= {
-  min=3,
-  max=6,
-  description='Stinkards',
-}
-g_troop_entry['5fb1ba44e1af06001770fe25']= {
-  troop_option='5fb1ba44e1af06001770fe24',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba44e1af06001770fe1d_general='5fb1ba44e1af06001770fe1d_general'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe1d_general]={
-  id=g_str_5fb1ba44e1af06001770fe1d_general,
-  name='Archers General',
-  min=0,
-  max=1,
-  description='Guard bowmen',
-  general=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba44e1af06001770fe1d='5fb1ba44e1af06001770fe1d'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe1d]={
-  id=g_str_5fb1ba44e1af06001770fe1d,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Guard bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba44e1af06001770fe1f_general='5fb1ba44e1af06001770fe1f_general'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe1f_general]={
-  id=g_str_5fb1ba44e1af06001770fe1f_general,
-  name='Heavy Foot General',
-  min=1,
-  max=1,
-  description='Nobles wearing rawhide armor armed with spear and club',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba44e1af06001770fe1f='5fb1ba44e1af06001770fe1f'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe1f]={
-  id=g_str_5fb1ba44e1af06001770fe1f,
-  name='Heavy Foot',
-  min=1,
-  max=3,
-  description='Nobles wearing rawhide armor armed with spear and club',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba44e1af06001770fe21='5fb1ba44e1af06001770fe21'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe21]={
-  id=g_str_5fb1ba44e1af06001770fe21,
-  name='Bow Levy',
-  min=7,
-  max=20,
-  description='Honored Men',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba44e1af06001770fe23='5fb1ba44e1af06001770fe23'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe23]={
-  id=g_str_5fb1ba44e1af06001770fe23,
-  name='Skirmishers',
-  min=0,
-  max=4,
-  description='Scouts and flankers armed with bow or atlatl',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba44e1af06001770fe25='5fb1ba44e1af06001770fe25'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe25]={
-  id=g_str_5fb1ba44e1af06001770fe25,
-  name='Rabble',
-  min=3,
-  max=6,
-  description='Stinkards',
-  troop_type="Rabble",
-}
-g_str_5fb1b9f5e1af06001770a431_camp='5fb1b9f5e1af06001770a431_camp'
-g_base_definitions[g_str_5fb1b9f5e1af06001770a431_camp]={
-  id=g_str_5fb1b9f5e1af06001770a431_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f5e1af06001770a431']={
   data={
     name='Mound Builder American  1100 to 1701 AD',
     id='5fb1b9f5e1af06001770a431',
-    army_id='5fb1b9f5e1af06001770a431'
+    dateRange={
+      startDate=1100,
+      endDate=1701,
+    }
   },
   g_base_definitions[g_str_5fb1ba44e1af06001770fe1d_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe1d],
@@ -162,4 +38,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f5e1af06001770a431"] = {}
-army_dates["5fb1b9f5e1af06001770a431"]["1100 AD to 1701 AD"] ="5fb1b9f5e1af06001770a431"
+army_dates["5fb1b9f5e1af06001770a431"]["1100 AD to 1701 AD"] = {
+  startDate=1100,
+  endDate=1701
+}

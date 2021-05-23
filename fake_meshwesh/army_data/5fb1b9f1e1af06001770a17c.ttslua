@@ -1,156 +1,13 @@
 -- 5fb1b9f1e1af06001770a17c Early Warring States Chinese  480 to 356 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ee1af06001770f58e']= {
-  min=1,
-  max=2,
-  description='4-horse chariots',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f58f']= {
-  troop_option='5fb1ba3ee1af06001770f58e',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba3ee1af06001770f590']= {
-  min=6,
-  max=13,
-  description='Infantry armed with halberds or spears',
-}
-g_troop_entry['5fb1ba3ee1af06001770f591']= {
-  troop_option='5fb1ba3ee1af06001770f590',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba3ee1af06001770f593']= {
-  min=1,
-  max=4,
-  description='Supporting bowmen',
-}
-g_troop_entry['5fb1ba3ee1af06001770f594']= {
-  troop_option='5fb1ba3ee1af06001770f593',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ee1af06001770f596']= {
-  min=0,
-  max=1,
-  description='Formed crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f597']= {
-  troop_option='5fb1ba3ee1af06001770f596',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3ee1af06001770f598']= {
-  min=0,
-  max=1,
-  description='Skirmishing bowmen or crossbowmen',
-}
-g_troop_entry['5fb1ba3ee1af06001770f599']= {
-  troop_option='5fb1ba3ee1af06001770f598',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ee1af06001770f59a']= {
-  min=0,
-  max=2,
-  description='Southern fierce tribesmen',
-  note='only Chu or Yue',
-}
-g_troop_entry['5fb1ba3ee1af06001770f59b']= {
-  troop_option='5fb1ba3ee1af06001770f59a',
-  troopTypeCode='WBD',
-}
-g_str_5fb1ba3ee1af06001770f58f_general='5fb1ba3ee1af06001770f58f_general'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f58f_general]={
-  id=g_str_5fb1ba3ee1af06001770f58f_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='4-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba3ee1af06001770f58f='5fb1ba3ee1af06001770f58f'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f58f]={
-  id=g_str_5fb1ba3ee1af06001770f58f,
-  name='Chariots',
-  min=1,
-  max=2,
-  description='4-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba3ee1af06001770f591='5fb1ba3ee1af06001770f591'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f591]={
-  id=g_str_5fb1ba3ee1af06001770f591,
-  name='Light Spear',
-  min=6,
-  max=13,
-  description='Infantry armed with halberds or spears',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba3ee1af06001770f594='5fb1ba3ee1af06001770f594'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f594]={
-  id=g_str_5fb1ba3ee1af06001770f594,
-  name='Skirmishers',
-  min=1,
-  max=4,
-  description='Supporting bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ee1af06001770f597='5fb1ba3ee1af06001770f597'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f597]={
-  id=g_str_5fb1ba3ee1af06001770f597,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Formed crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3ee1af06001770f599='5fb1ba3ee1af06001770f599'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f599]={
-  id=g_str_5fb1ba3ee1af06001770f599,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Skirmishing bowmen or crossbowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ee1af06001770f59b='5fb1ba3ee1af06001770f59b'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f59b]={
-  id=g_str_5fb1ba3ee1af06001770f59b,
-  name='Warband',
-  min=0,
-  max=2,
-  description='Southern fierce tribesmen',
-  troop_type="Warband",
-}
-g_str_5fb1b9f1e1af06001770a17c_camp='5fb1b9f1e1af06001770a17c_camp'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a17c_camp]={
-  id=g_str_5fb1b9f1e1af06001770a17c_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f1e1af06001770a17c_camp_fortified='5fb1b9f1e1af06001770a17c_camp_fortified'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a17c_camp_fortified]={
-  id=g_str_5fb1b9f1e1af06001770a17c_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9f1e1af06001770a17c']={
   data={
     name='Early Warring States Chinese  480 to 356 BC',
     id='5fb1b9f1e1af06001770a17c',
-    army_id='5fb1b9f1e1af06001770a17c'
+    dateRange={
+      startDate=-480,
+      endDate=-356,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ee1af06001770f58f_general],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f58f],
@@ -186,4 +43,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f1e1af06001770a17c"] = {}
-army_dates["5fb1b9f1e1af06001770a17c"]["480 BC to 356 BC"] ="5fb1b9f1e1af06001770a17c"
+army_dates["5fb1b9f1e1af06001770a17c"]["480 BC to 356 BC"] = {
+  startDate=-480,
+  endDate=-356
+}

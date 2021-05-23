@@ -1,132 +1,13 @@
 -- 5fb1b9f6e1af06001770a46a Chimu Empire  1100 to 1480 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba44e1af06001770fe64']= {
-  min=1,
-  max=2,
-  description='Nobles wearing textile or copper armor armed with large hardwood clubs',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fe65']= {
-  troop_option='5fb1ba44e1af06001770fe64',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba44e1af06001770fe66']= {
-  min=8,
-  max=14,
-  description='Infantry armed with small clubs and spears and small round shields',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fe67']= {
-  troop_option='5fb1ba44e1af06001770fe66',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba44e1af06001770fe68']= {
-  min=0,
-  max=5,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba44e1af06001770fe69']= {
-  troop_option='5fb1ba44e1af06001770fe68',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba44e1af06001770fe6a']= {
-  min=0,
-  max=1,
-  description='Tallanes noble hostages',
-  core='all',
-  startDate=1465,
-  endDate=1467,
-}
-g_troop_entry['5fb1ba44e1af06001770fe6c']= {
-  troop_option='5fb1ba44e1af06001770fe6a',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba44e1af06001770fe6d']= {
-  min=0,
-  max=4,
-  description='Conchoco barbarian vassals',
-  startDate=1465,
-  endDate=1467,
-}
-g_troop_entry['5fb1ba44e1af06001770fe6f']= {
-  troop_option='5fb1ba44e1af06001770fe6d',
-  troopTypeCode='WBD',
-}
-g_str_5fb1ba44e1af06001770fe65_general='5fb1ba44e1af06001770fe65_general'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe65_general]={
-  id=g_str_5fb1ba44e1af06001770fe65_general,
-  name='Raiders General',
-  min=1,
-  max=1,
-  description='Nobles wearing textile or copper armor armed with large hardwood clubs',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba44e1af06001770fe65='5fb1ba44e1af06001770fe65'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe65]={
-  id=g_str_5fb1ba44e1af06001770fe65,
-  name='Raiders',
-  min=1,
-  max=2,
-  description='Nobles wearing textile or copper armor armed with large hardwood clubs',
-  troop_type="Raiders",
-}
-g_str_5fb1ba44e1af06001770fe67='5fb1ba44e1af06001770fe67'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe67]={
-  id=g_str_5fb1ba44e1af06001770fe67,
-  name='Light Foot',
-  min=8,
-  max=14,
-  description='Infantry armed with small clubs and spears and small round shields',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba44e1af06001770fe69='5fb1ba44e1af06001770fe69'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe69]={
-  id=g_str_5fb1ba44e1af06001770fe69,
-  name='Skirmishers',
-  min=0,
-  max=5,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba44e1af06001770fe6c='5fb1ba44e1af06001770fe6c'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe6c]={
-  id=g_str_5fb1ba44e1af06001770fe6c,
-  name='Elite Foot',
-  min=0,
-  max=1,
-  description='Tallanes noble hostages',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba44e1af06001770fe6f='5fb1ba44e1af06001770fe6f'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe6f]={
-  id=g_str_5fb1ba44e1af06001770fe6f,
-  name='Warband',
-  min=0,
-  max=4,
-  description='Conchoco barbarian vassals',
-  troop_type="Warband",
-}
-g_str_5fb1b9f6e1af06001770a46a_camp='5fb1b9f6e1af06001770a46a_camp'
-g_base_definitions[g_str_5fb1b9f6e1af06001770a46a_camp]={
-  id=g_str_5fb1b9f6e1af06001770a46a_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f6e1af06001770a46a']={
   data={
     name='Chimu Empire  1100 to 1480 AD',
     id='5fb1b9f6e1af06001770a46a',
-    army_id='5fb1b9f6e1af06001770a46a'
+    dateRange={
+      startDate=1100,
+      endDate=1480,
+    }
   },
   g_base_definitions[g_str_5fb1ba44e1af06001770fe65_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe65],
@@ -140,48 +21,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f6e1af06001770a46a"] = army["5fb1b9f6e1af06001770a46a"]
-army['5fb1b9f6e1af06001770a46a_1100_1464']={
-  data={
-    name='Chimu Empire 1100 AD to 1464 AD',
-    id='5fb1b9f6e1af06001770a46a_1100_1464',
-    army_id='5fb1b9f6e1af06001770a46a'
-  },
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe65_general],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe65],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe67],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe69],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe6c],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe6f],
-  g_base_definitions[g_str_5fb1b9f6e1af06001770a46a_camp],
-}
-army['5fb1b9f6e1af06001770a46a_1465_1467']={
-  data={
-    name='Chimu Empire 1465 AD to 1467 AD',
-    id='5fb1b9f6e1af06001770a46a_1465_1467',
-    army_id='5fb1b9f6e1af06001770a46a'
-  },
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe65_general],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe65],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe67],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe69],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe6c],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe6f],
-  g_base_definitions[g_str_5fb1b9f6e1af06001770a46a_camp],
-}
-army['5fb1b9f6e1af06001770a46a_1468_1480']={
-  data={
-    name='Chimu Empire 1468 AD to 1480 AD',
-    id='5fb1b9f6e1af06001770a46a_1468_1480',
-    army_id='5fb1b9f6e1af06001770a46a'
-  },
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe65_general],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe65],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe67],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe69],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe6c],
-  g_base_definitions[g_str_5fb1ba44e1af06001770fe6f],
-  g_base_definitions[g_str_5fb1b9f6e1af06001770a46a_camp],
-}
 if nil == armies["Andes and Amazon"] then
   armies["Andes and Amazon"] ={}
 end
@@ -194,7 +33,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f6e1af06001770a46a"] = {}
-army_dates["5fb1b9f6e1af06001770a46a"]["1100 AD to 1480 AD"] ="5fb1b9f6e1af06001770a46a"
-army_dates["5fb1b9f6e1af06001770a46a"]["1100 AD to 1464 AD"] ="5fb1b9f6e1af06001770a46a_1100_1464"
-army_dates["5fb1b9f6e1af06001770a46a"]["1465 AD to 1467 AD"] ="5fb1b9f6e1af06001770a46a_1465_1467"
-army_dates["5fb1b9f6e1af06001770a46a"]["1468 AD to 1480 AD"] ="5fb1b9f6e1af06001770a46a_1468_1480"
+army_dates["5fb1b9f6e1af06001770a46a"]["1100 AD to 1480 AD"] = {
+  startDate=1100,
+  endDate=1480
+}
+army_dates["5fb1b9f6e1af06001770a46a"]["1100 AD to 1464 AD"] = {
+  startDate=1100,
+  endDate=1464
+}
+army_dates["5fb1b9f6e1af06001770a46a"]["1465 AD to 1467 AD"] = {
+  startDate=1465,
+  endDate=1467
+}
+army_dates["5fb1b9f6e1af06001770a46a"]["1468 AD to 1480 AD"] = {
+  startDate=1468,
+  endDate=1480
+}

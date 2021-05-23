@@ -1,173 +1,13 @@
 -- 5fb1b9e5e1af060017709a8f Later Magyar  896 to 1003 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba30e1af06001770da53']= {
-  min=1,
-  max=2,
-  description='Kavar guards and fierce-charging nobles',
-  core='all',
-}
-g_troop_entry['5fb1ba30e1af06001770da54']= {
-  troop_option='5fb1ba30e1af06001770da53',
-  troopTypeCode='ECV',
-}
-g_troop_entry['5fb1ba30e1af06001770da55']= {
-  troop_option='5fb1ba30e1af06001770da53',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba30e1af06001770da56']= {
-  min=1,
-  max=2,
-  description='Gentry',
-  core='all',
-}
-g_troop_entry['5fb1ba30e1af06001770da57']= {
-  troop_option='5fb1ba30e1af06001770da56',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba30e1af06001770da58']= {
-  min=1,
-  max=2,
-  description='Szekely',
-}
-g_troop_entry['5fb1ba30e1af06001770da59']= {
-  troop_option='5fb1ba30e1af06001770da58',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba30e1af06001770da5a']= {
-  min=5,
-  max=9,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba30e1af06001770da5b']= {
-  troop_option='5fb1ba30e1af06001770da5a',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba30e1af06001770da5c']= {
-  min=0,
-  max=2,
-  description='Lower class Slavic infantry',
-}
-g_troop_entry['5fb1ba30e1af06001770da5d']= {
-  troop_option='5fb1ba30e1af06001770da5c',
-  troopTypeCode='RBL',
-}
-g_troop_entry['5fb1ba30e1af06001770da5e']= {
-  troop_option='5fb1ba30e1af06001770da5c',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba30e1af06001770da54_general='5fb1ba30e1af06001770da54_general'
-g_base_definitions[g_str_5fb1ba30e1af06001770da54_general]={
-  id=g_str_5fb1ba30e1af06001770da54_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Kavar guards and fierce-charging nobles',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba30e1af06001770da54='5fb1ba30e1af06001770da54'
-g_base_definitions[g_str_5fb1ba30e1af06001770da54]={
-  id=g_str_5fb1ba30e1af06001770da54,
-  name='Elite Cavalary',
-  min=1,
-  max=2,
-  description='Kavar guards and fierce-charging nobles',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba30e1af06001770da55_general='5fb1ba30e1af06001770da55_general'
-g_base_definitions[g_str_5fb1ba30e1af06001770da55_general]={
-  id=g_str_5fb1ba30e1af06001770da55_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Kavar guards and fierce-charging nobles',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba30e1af06001770da55='5fb1ba30e1af06001770da55'
-g_base_definitions[g_str_5fb1ba30e1af06001770da55]={
-  id=g_str_5fb1ba30e1af06001770da55,
-  name='Knights',
-  min=1,
-  max=2,
-  description='Kavar guards and fierce-charging nobles',
-  troop_type="Knights",
-}
-g_str_5fb1ba30e1af06001770da57='5fb1ba30e1af06001770da57'
-g_base_definitions[g_str_5fb1ba30e1af06001770da57]={
-  id=g_str_5fb1ba30e1af06001770da57,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Gentry',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba30e1af06001770da59='5fb1ba30e1af06001770da59'
-g_base_definitions[g_str_5fb1ba30e1af06001770da59]={
-  id=g_str_5fb1ba30e1af06001770da59,
-  name='Horse Bow',
-  min=1,
-  max=2,
-  description='Szekely',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba30e1af06001770da5b='5fb1ba30e1af06001770da5b'
-g_base_definitions[g_str_5fb1ba30e1af06001770da5b]={
-  id=g_str_5fb1ba30e1af06001770da5b,
-  name='Horse Bow',
-  min=5,
-  max=9,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba30e1af06001770da5d='5fb1ba30e1af06001770da5d'
-g_base_definitions[g_str_5fb1ba30e1af06001770da5d]={
-  id=g_str_5fb1ba30e1af06001770da5d,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Lower class Slavic infantry',
-  troop_type="Rabble",
-}
-g_str_5fb1ba30e1af06001770da5e='5fb1ba30e1af06001770da5e'
-g_base_definitions[g_str_5fb1ba30e1af06001770da5e]={
-  id=g_str_5fb1ba30e1af06001770da5e,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Lower class Slavic infantry',
-  troop_type="Horde",
-}
-g_str_5fb1b9e5e1af060017709a8f_camp='5fb1b9e5e1af060017709a8f_camp'
-g_base_definitions[g_str_5fb1b9e5e1af060017709a8f_camp]={
-  id=g_str_5fb1b9e5e1af060017709a8f_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e5e1af060017709a8f_camp_pack_train='5fb1b9e5e1af060017709a8f_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e5e1af060017709a8f_camp_pack_train]={
-  id=g_str_5fb1b9e5e1af060017709a8f_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e5e1af060017709a8f']={
   data={
     name='Later Magyar  896 to 1003 AD',
     id='5fb1b9e5e1af060017709a8f',
-    army_id='5fb1b9e5e1af060017709a8f'
+    dateRange={
+      startDate=896,
+      endDate=1003,
+    }
   },
   g_base_definitions[g_str_5fb1ba30e1af06001770da54_general],
   g_base_definitions[g_str_5fb1ba30e1af06001770da54],
@@ -197,4 +37,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e5e1af060017709a8f"] = {}
-army_dates["5fb1b9e5e1af060017709a8f"]["896 AD to 1003 AD"] ="5fb1b9e5e1af060017709a8f"
+army_dates["5fb1b9e5e1af060017709a8f"]["896 AD to 1003 AD"] = {
+  startDate=896,
+  endDate=1003
+}

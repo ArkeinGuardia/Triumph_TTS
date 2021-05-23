@@ -1,91 +1,13 @@
 -- 5fb1b9f0e1af06001770a149 Other Early Chinese Border Tribes  2000 to 315 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ee1af06001770f510']= {
-  min=10,
-  max=14,
-  description='Fierce tribal foot',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f511']= {
-  troop_option='5fb1ba3ee1af06001770f510',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba3ee1af06001770f512']= {
-  min=2,
-  max=4,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba3ee1af06001770f513']= {
-  troop_option='5fb1ba3ee1af06001770f512',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ee1af06001770f514']= {
-  min=0,
-  max=2,
-  description='Levies, families, ill-equipped tribesmen and the like',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f515']= {
-  troop_option='5fb1ba3ee1af06001770f514',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba3ee1af06001770f511_general='5fb1ba3ee1af06001770f511_general'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f511_general]={
-  id=g_str_5fb1ba3ee1af06001770f511_general,
-  name='Warband General',
-  min=10,
-  max=1,
-  description='Fierce tribal foot',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba3ee1af06001770f511='5fb1ba3ee1af06001770f511'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f511]={
-  id=g_str_5fb1ba3ee1af06001770f511,
-  name='Warband',
-  min=10,
-  max=14,
-  description='Fierce tribal foot',
-  troop_type="Warband",
-}
-g_str_5fb1ba3ee1af06001770f513='5fb1ba3ee1af06001770f513'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f513]={
-  id=g_str_5fb1ba3ee1af06001770f513,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ee1af06001770f515='5fb1ba3ee1af06001770f515'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f515]={
-  id=g_str_5fb1ba3ee1af06001770f515,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levies, families, ill-equipped tribesmen and the like',
-  troop_type="Horde",
-}
-g_str_5fb1b9f0e1af06001770a149_camp='5fb1b9f0e1af06001770a149_camp'
-g_base_definitions[g_str_5fb1b9f0e1af06001770a149_camp]={
-  id=g_str_5fb1b9f0e1af06001770a149_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f0e1af06001770a149']={
   data={
     name='Other Early Chinese Border Tribes  2000 to 315 BC',
     id='5fb1b9f0e1af06001770a149',
-    army_id='5fb1b9f0e1af06001770a149'
+    dateRange={
+      startDate=-2000,
+      endDate=-315,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ee1af06001770f511_general],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f511],
@@ -113,4 +35,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f0e1af06001770a149"] = {}
-army_dates["5fb1b9f0e1af06001770a149"]["2000 BC to 315 BC"] ="5fb1b9f0e1af06001770a149"
+army_dates["5fb1b9f0e1af06001770a149"]["2000 BC to 315 BC"] = {
+  startDate=-2000,
+  endDate=-315
+}
+army_dates["5fb1b9f0e1af06001770a149"]["2000 BC to 1101 BC"] = {
+  startDate=-2000,
+  endDate=-1101
+}
+army_dates["5fb1b9f0e1af06001770a149"]["1100 BC to 771 BC"] = {
+  startDate=-1100,
+  endDate=-771
+}
+army_dates["5fb1b9f0e1af06001770a149"]["770 BC to 550 BC"] = {
+  startDate=-770,
+  endDate=-550
+}
+army_dates["5fb1b9f0e1af06001770a149"]["549 BC to 315 BC"] = {
+  startDate=-549,
+  endDate=-315
+}

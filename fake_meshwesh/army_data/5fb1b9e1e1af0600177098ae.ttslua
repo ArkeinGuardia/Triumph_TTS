@@ -1,152 +1,13 @@
 -- 5fb1b9e1e1af0600177098ae Tervingi or Early Visigoth  200 to 407 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ce1af06001770d40b']= {
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba2ce1af06001770d40c']= {
-  troop_option='5fb1ba2ce1af06001770d40b',
-  troopTypeCode='KNT',
-}
-g_troop_entry['5fb1ba2ce1af06001770d40d']= {
-  troop_option='5fb1ba2ce1af06001770d40b',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2ce1af06001770d40e']= {
-  min=8,
-  max=16,
-  description='Fierce fighting infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba2ce1af06001770d40f']= {
-  troop_option='5fb1ba2ce1af06001770d40e',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba2ce1af06001770d410']= {
-  min=0,
-  max=1,
-  description='Close-order bowmen',
-}
-g_troop_entry['5fb1ba2ce1af06001770d411']= {
-  troop_option='5fb1ba2ce1af06001770d410',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2ce1af06001770d412']= {
-  min=0,
-  max=4,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba2ce1af06001770d413']= {
-  troop_option='5fb1ba2ce1af06001770d412',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba2ce1af06001770d40c_general='5fb1ba2ce1af06001770d40c_general'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d40c_general]={
-  id=g_str_5fb1ba2ce1af06001770d40c_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba2ce1af06001770d40c='5fb1ba2ce1af06001770d40c'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d40c]={
-  id=g_str_5fb1ba2ce1af06001770d40c,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba2ce1af06001770d40d_general='5fb1ba2ce1af06001770d40d_general'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d40d_general]={
-  id=g_str_5fb1ba2ce1af06001770d40d_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2ce1af06001770d40d='5fb1ba2ce1af06001770d40d'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d40d]={
-  id=g_str_5fb1ba2ce1af06001770d40d,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2ce1af06001770d40f_general='5fb1ba2ce1af06001770d40f_general'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d40f_general]={
-  id=g_str_5fb1ba2ce1af06001770d40f_general,
-  name='Warriors General',
-  min=8,
-  max=1,
-  description='Fierce fighting infantry',
-  general=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba2ce1af06001770d40f='5fb1ba2ce1af06001770d40f'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d40f]={
-  id=g_str_5fb1ba2ce1af06001770d40f,
-  name='Warriors',
-  min=8,
-  max=16,
-  description='Fierce fighting infantry',
-  troop_type="Warriors",
-}
-g_str_5fb1ba2ce1af06001770d411='5fb1ba2ce1af06001770d411'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d411]={
-  id=g_str_5fb1ba2ce1af06001770d411,
-  name='Bow Levy',
-  min=0,
-  max=1,
-  description='Close-order bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2ce1af06001770d413='5fb1ba2ce1af06001770d413'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d413]={
-  id=g_str_5fb1ba2ce1af06001770d413,
-  name='Skirmishers',
-  min=0,
-  max=4,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e1e1af0600177098ae_camp='5fb1b9e1e1af0600177098ae_camp'
-g_base_definitions[g_str_5fb1b9e1e1af0600177098ae_camp]={
-  id=g_str_5fb1b9e1e1af0600177098ae_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e1e1af0600177098ae_camp_fortified='5fb1b9e1e1af0600177098ae_camp_fortified'
-g_base_definitions[g_str_5fb1b9e1e1af0600177098ae_camp_fortified]={
-  id=g_str_5fb1b9e1e1af0600177098ae_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e1e1af0600177098ae']={
   data={
     name='Tervingi or Early Visigoth  200 to 407 AD',
     id='5fb1b9e1e1af0600177098ae',
-    army_id='5fb1b9e1e1af0600177098ae'
+    dateRange={
+      startDate=200,
+      endDate=407,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ce1af06001770d40c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d40c],
@@ -179,4 +40,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e1e1af0600177098ae"] = {}
-army_dates["5fb1b9e1e1af0600177098ae"]["200 AD to 407 AD"] ="5fb1b9e1e1af0600177098ae"
+army_dates["5fb1b9e1e1af0600177098ae"]["200 AD to 407 AD"] = {
+  startDate=200,
+  endDate=407
+}
+army_dates["5fb1b9e1e1af0600177098ae"]["200 AD to 252 AD"] = {
+  startDate=200,
+  endDate=252
+}
+army_dates["5fb1b9e1e1af0600177098ae"]["253 AD to 375 AD"] = {
+  startDate=253,
+  endDate=375
+}
+army_dates["5fb1b9e1e1af0600177098ae"]["376 AD to 380 AD"] = {
+  startDate=376,
+  endDate=380
+}
+army_dates["5fb1b9e1e1af0600177098ae"]["381 AD to 407 AD"] = {
+  startDate=381,
+  endDate=407
+}

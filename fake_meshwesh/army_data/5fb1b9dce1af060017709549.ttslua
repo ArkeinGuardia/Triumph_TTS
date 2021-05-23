@@ -1,90 +1,13 @@
 -- 5fb1b9dce1af060017709549 Samnite  355 to 272 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba26e1af06001770c735']= {
-  min=1,
-  max=1,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba26e1af06001770c736']= {
-  troop_option='5fb1ba26e1af06001770c735',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba26e1af06001770c737']= {
-  min=6,
-  max=11,
-  description='Infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba26e1af06001770c738']= {
-  troop_option='5fb1ba26e1af06001770c737',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba26e1af06001770c739']= {
-  min=0,
-  max=2,
-  description='Scouts and javelinmen',
-}
-g_troop_entry['5fb1ba26e1af06001770c73a']= {
-  troop_option='5fb1ba26e1af06001770c739',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba26e1af06001770c736_general='5fb1ba26e1af06001770c736_general'
-g_base_definitions[g_str_5fb1ba26e1af06001770c736_general]={
-  id=g_str_5fb1ba26e1af06001770c736_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba26e1af06001770c736='5fb1ba26e1af06001770c736'
-g_base_definitions[g_str_5fb1ba26e1af06001770c736]={
-  id=g_str_5fb1ba26e1af06001770c736,
-  name='Javelin Cavalry',
-  min=1,
-  max=1,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba26e1af06001770c738='5fb1ba26e1af06001770c738'
-g_base_definitions[g_str_5fb1ba26e1af06001770c738]={
-  id=g_str_5fb1ba26e1af06001770c738,
-  name='Raiders',
-  min=6,
-  max=11,
-  description='Infantry',
-  troop_type="Raiders",
-}
-g_str_5fb1ba26e1af06001770c73a='5fb1ba26e1af06001770c73a'
-g_base_definitions[g_str_5fb1ba26e1af06001770c73a]={
-  id=g_str_5fb1ba26e1af06001770c73a,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Scouts and javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9dce1af060017709549_camp='5fb1b9dce1af060017709549_camp'
-g_base_definitions[g_str_5fb1b9dce1af060017709549_camp]={
-  id=g_str_5fb1b9dce1af060017709549_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9dce1af060017709549']={
   data={
     name='Samnite  355 to 272 BC',
     id='5fb1b9dce1af060017709549',
-    army_id='5fb1b9dce1af060017709549'
+    dateRange={
+      startDate=-355,
+      endDate=-272,
+    }
   },
   g_base_definitions[g_str_5fb1ba26e1af06001770c736_general],
   g_base_definitions[g_str_5fb1ba26e1af06001770c736],
@@ -108,4 +31,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dce1af060017709549"] = {}
-army_dates["5fb1b9dce1af060017709549"]["355 BC to 272 BC"] ="5fb1b9dce1af060017709549"
+army_dates["5fb1b9dce1af060017709549"]["355 BC to 272 BC"] = {
+  startDate=-355,
+  endDate=-272
+}
+army_dates["5fb1b9dce1af060017709549"]["355 BC to 341 BC"] = {
+  startDate=-355,
+  endDate=-341
+}
+army_dates["5fb1b9dce1af060017709549"]["340 BC to 301 BC"] = {
+  startDate=-340,
+  endDate=-301
+}
+army_dates["5fb1b9dce1af060017709549"]["300 BC to 290 BC"] = {
+  startDate=-300,
+  endDate=-290
+}
+army_dates["5fb1b9dce1af060017709549"]["289 BC to 280 BC"] = {
+  startDate=-289,
+  endDate=-280
+}
+army_dates["5fb1b9dce1af060017709549"]["279 BC to 276 BC"] = {
+  startDate=-279,
+  endDate=-276
+}
+army_dates["5fb1b9dce1af060017709549"]["275 BC to 272 BC"] = {
+  startDate=-275,
+  endDate=-272
+}

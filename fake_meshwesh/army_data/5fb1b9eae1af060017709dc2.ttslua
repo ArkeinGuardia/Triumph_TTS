@@ -1,189 +1,13 @@
 -- 5fb1b9eae1af060017709dc2 Early Medieval Scandinavian  1280 to 1390 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba36e1af06001770e69a']= {
-  min=0,
-  max=2,
-  description='Fraelse and Smaasvenner',
-}
-g_troop_entry['5fb1ba36e1af06001770e69b']= {
-  troop_option='5fb1ba36e1af06001770e69a',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba36e1af06001770e69d']= {
-  min=0,
-  max=1,
-  description='Skyttar armored crossbowmen on horses',
-}
-g_troop_entry['5fb1ba36e1af06001770e69e']= {
-  troop_option='5fb1ba36e1af06001770e69d',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba36e1af06001770e69f']= {
-  min=6,
-  max=16,
-  description='Leidang',
-  core='all',
-}
-g_troop_entry['5fb1ba36e1af06001770e6a0']= {
-  troop_option='5fb1ba36e1af06001770e69f',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba36e1af06001770e6a2']= {
-  min=0,
-  max=2,
-  description='Leidang bowmen',
-}
-g_troop_entry['5fb1ba36e1af06001770e6a3']= {
-  troop_option='5fb1ba36e1af06001770e6a2',
-  troopTypeCode='ARC',
-}
-g_troop_entry['5fb1ba36e1af06001770e6a4']= {
-  troop_option='5fb1ba36e1af06001770e6a2',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba36e1af06001770e69b_general='5fb1ba36e1af06001770e69b_general'
-g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general]={
-  id=g_str_5fb1ba36e1af06001770e69b_general,
-  name='Bad Horse General',
-  min=0,
-  max=1,
-  description='Fraelse and Smaasvenner',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba36e1af06001770e69b_general_dismounted='5fb1ba36e1af06001770e69b_general_dismounted'
-g_str_5fb1ba36e1af06001770e69b_general_mounted='5fb1ba36e1af06001770e69b_general_mounted'
-g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general_dismounted]={
-  id=g_str_5fb1ba36e1af06001770e69b_general_dismounted,
-  name='Elite Foot General',
-  min=0,
-  max=1,
-  description='Fraelse and Smaasvenner\nDeployment dismounted from Bad Horse General',
-  points=4,
-  dismounted_from=g_str_5fb1ba36e1af06001770e69b_general_mounted,
-  general=true,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general_mounted]={
-  id=g_str_5fb1ba36e1af06001770e69b_general_mounted,
-  name='Bad Horse General',
-  min=0,
-  max=1,
-  description='Fraelse and Smaasvenner\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba36e1af06001770e69b_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba36e1af06001770e69b='5fb1ba36e1af06001770e69b'
-g_base_definitions[g_str_5fb1ba36e1af06001770e69b]={
-  id=g_str_5fb1ba36e1af06001770e69b,
-  name='Bad Horse',
-  min=0,
-  max=2,
-  description='Fraelse and Smaasvenner',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba36e1af06001770e69b_dismounted='5fb1ba36e1af06001770e69b_dismounted'
-g_str_5fb1ba36e1af06001770e69b_mounted='5fb1ba36e1af06001770e69b_mounted'
-g_base_definitions[g_str_5fb1ba36e1af06001770e69b_dismounted]={
-  id=g_str_5fb1ba36e1af06001770e69b_dismounted,
-  name='Elite Foot',
-  min=0,
-  max=2,
-  description='Fraelse and Smaasvenner\nDeployment dismounted from Bad Horse',
-  points=4,
-  dismounted_from=g_str_5fb1ba36e1af06001770e69b_mounted,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba36e1af06001770e69b_mounted]={
-  id=g_str_5fb1ba36e1af06001770e69b_mounted,
-  name='Bad Horse',
-  min=0,
-  max=2,
-  description='Fraelse and Smaasvenner\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba36e1af06001770e69b_dismounted,
-  deployment_dismounting=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba36e1af06001770e69e_general='5fb1ba36e1af06001770e69e_general'
-g_base_definitions[g_str_5fb1ba36e1af06001770e69e_general]={
-  id=g_str_5fb1ba36e1af06001770e69e_general,
-  name='Bad Horse General',
-  min=0,
-  max=1,
-  description='Skyttar armored crossbowmen on horses',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba36e1af06001770e69e='5fb1ba36e1af06001770e69e'
-g_base_definitions[g_str_5fb1ba36e1af06001770e69e]={
-  id=g_str_5fb1ba36e1af06001770e69e,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Skyttar armored crossbowmen on horses',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba36e1af06001770e6a0_general='5fb1ba36e1af06001770e6a0_general'
-g_base_definitions[g_str_5fb1ba36e1af06001770e6a0_general]={
-  id=g_str_5fb1ba36e1af06001770e6a0_general,
-  name='Heavy Foot General',
-  min=6,
-  max=1,
-  description='Leidang',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba36e1af06001770e6a0='5fb1ba36e1af06001770e6a0'
-g_base_definitions[g_str_5fb1ba36e1af06001770e6a0]={
-  id=g_str_5fb1ba36e1af06001770e6a0,
-  name='Heavy Foot',
-  min=6,
-  max=16,
-  description='Leidang',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba36e1af06001770e6a3='5fb1ba36e1af06001770e6a3'
-g_base_definitions[g_str_5fb1ba36e1af06001770e6a3]={
-  id=g_str_5fb1ba36e1af06001770e6a3,
-  name='Archers',
-  min=0,
-  max=2,
-  description='Leidang bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba36e1af06001770e6a4='5fb1ba36e1af06001770e6a4'
-g_base_definitions[g_str_5fb1ba36e1af06001770e6a4]={
-  id=g_str_5fb1ba36e1af06001770e6a4,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Leidang bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9eae1af060017709dc2_camp='5fb1b9eae1af060017709dc2_camp'
-g_base_definitions[g_str_5fb1b9eae1af060017709dc2_camp]={
-  id=g_str_5fb1b9eae1af060017709dc2_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9eae1af060017709dc2']={
   data={
     name='Early Medieval Scandinavian  1280 to 1390 AD',
     id='5fb1b9eae1af060017709dc2',
-    army_id='5fb1b9eae1af060017709dc2'
+    dateRange={
+      startDate=1280,
+      endDate=1390,
+    }
   },
   g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general],
   g_base_definitions[g_str_5fb1ba36e1af06001770e69b_general_mounted],
@@ -223,4 +47,27 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9eae1af060017709dc2"] = {}
-army_dates["5fb1b9eae1af060017709dc2"]["1280 AD to 1390 AD"] ="5fb1b9eae1af060017709dc2"
+army_dates["5fb1b9eae1af060017709dc2"]["1280 AD to 1390 AD"] = {
+  startDate=1280,
+  endDate=1390
+}
+army_dates["5fb1b9eae1af060017709dc2"]["1280 AD to 1320 AD"] = {
+  startDate=1280,
+  endDate=1320
+}
+army_dates["5fb1b9eae1af060017709dc2"]["1321 AD to 1332 AD"] = {
+  startDate=1321,
+  endDate=1332
+}
+army_dates["5fb1b9eae1af060017709dc2"]["1333 AD to 1349 AD"] = {
+  startDate=1333,
+  endDate=1349
+}
+army_dates["5fb1b9eae1af060017709dc2"]["1350 AD to 1375 AD"] = {
+  startDate=1350,
+  endDate=1375
+}
+army_dates["5fb1b9eae1af060017709dc2"]["1376 AD to 1390 AD"] = {
+  startDate=1376,
+  endDate=1390
+}

@@ -1,180 +1,13 @@
 -- 5fb1b9dae1af0600177093c2 Vedic Indian  1500 to 512 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba21e1af06001770c138']= {
-  min=3,
-  max=6,
-  description='2-wheeled chariots with heroic bowmen and driver',
-}
-g_troop_entry['5fb1ba21e1af06001770c139']= {
-  troop_option='5fb1ba21e1af06001770c138',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba21e1af06001770c13a']= {
-  min=0,
-  max=1,
-  description='Mounted fighters',
-  startDate=-900,
-  endDate=-512,
-}
-g_troop_entry['5fb1ba21e1af06001770c13c']= {
-  troop_option='5fb1ba21e1af06001770c13a',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba21e1af06001770c13d']= {
-  min=8,
-  max=16,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c13e']= {
-  troop_option='5fb1ba21e1af06001770c13d',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba21e1af06001770c13f']= {
-  min=0,
-  max=1,
-  description='Slingers',
-}
-g_troop_entry['5fb1ba21e1af06001770c140']= {
-  troop_option='5fb1ba21e1af06001770c13f',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba21e1af06001770c141']= {
-  min=0,
-  max=3,
-  description='Followers',
-  startDate=-1500,
-  endDate=-1100,
-}
-g_troop_entry['5fb1ba21e1af06001770c143']= {
-  troop_option='5fb1ba21e1af06001770c141',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba21e1af06001770c144']= {
-  min=0,
-  max=1,
-  description='Followers',
-  startDate=-1099,
-  endDate=-512,
-}
-g_troop_entry['5fb1ba21e1af06001770c146']= {
-  troop_option='5fb1ba21e1af06001770c144',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba21e1af06001770c147']= {
-  min=0,
-  max=1,
-  description='Indian war elephants',
-  startDate=-899,
-  endDate=-512,
-}
-g_troop_entry['5fb1ba21e1af06001770c149']= {
-  troop_option='5fb1ba21e1af06001770c147',
-  troopTypeCode='ELE',
-}
-g_str_5fb1ba21e1af06001770c139_general='5fb1ba21e1af06001770c139_general'
-g_base_definitions[g_str_5fb1ba21e1af06001770c139_general]={
-  id=g_str_5fb1ba21e1af06001770c139_general,
-  name='Chariots General',
-  min=3,
-  max=1,
-  description='2-wheeled chariots with heroic bowmen and driver',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba21e1af06001770c139='5fb1ba21e1af06001770c139'
-g_base_definitions[g_str_5fb1ba21e1af06001770c139]={
-  id=g_str_5fb1ba21e1af06001770c139,
-  name='Chariots',
-  min=3,
-  max=6,
-  description='2-wheeled chariots with heroic bowmen and driver',
-  troop_type="Chariots",
-}
-g_str_5fb1ba21e1af06001770c13c='5fb1ba21e1af06001770c13c'
-g_base_definitions[g_str_5fb1ba21e1af06001770c13c]={
-  id=g_str_5fb1ba21e1af06001770c13c,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Mounted fighters',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba21e1af06001770c13e='5fb1ba21e1af06001770c13e'
-g_base_definitions[g_str_5fb1ba21e1af06001770c13e]={
-  id=g_str_5fb1ba21e1af06001770c13e,
-  name='Bow Levy',
-  min=8,
-  max=16,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba21e1af06001770c140='5fb1ba21e1af06001770c140'
-g_base_definitions[g_str_5fb1ba21e1af06001770c140]={
-  id=g_str_5fb1ba21e1af06001770c140,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba21e1af06001770c143='5fb1ba21e1af06001770c143'
-g_base_definitions[g_str_5fb1ba21e1af06001770c143]={
-  id=g_str_5fb1ba21e1af06001770c143,
-  name='Horde',
-  min=0,
-  max=3,
-  description='Followers',
-  troop_type="Horde",
-}
-g_str_5fb1ba21e1af06001770c146='5fb1ba21e1af06001770c146'
-g_base_definitions[g_str_5fb1ba21e1af06001770c146]={
-  id=g_str_5fb1ba21e1af06001770c146,
-  name='Horde',
-  min=0,
-  max=1,
-  description='Followers',
-  troop_type="Horde",
-}
-g_str_5fb1ba21e1af06001770c149='5fb1ba21e1af06001770c149'
-g_base_definitions[g_str_5fb1ba21e1af06001770c149]={
-  id=g_str_5fb1ba21e1af06001770c149,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='Indian war elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1b9dae1af0600177093c2_camp='5fb1b9dae1af0600177093c2_camp'
-g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp]={
-  id=g_str_5fb1b9dae1af0600177093c2_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af0600177093c2_camp_pack_train='5fb1b9dae1af0600177093c2_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp_pack_train]={
-  id=g_str_5fb1b9dae1af0600177093c2_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dae1af0600177093c2']={
   data={
     name='Vedic Indian  1500 to 512 BC',
     id='5fb1b9dae1af0600177093c2',
-    army_id='5fb1b9dae1af0600177093c2'
+    dateRange={
+      startDate=-1500,
+      endDate=-512,
+    }
   },
   g_base_definitions[g_str_5fb1ba21e1af06001770c139_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c139],
@@ -191,74 +24,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dae1af0600177093c2"] = army["5fb1b9dae1af0600177093c2"]
-army['5fb1b9dae1af0600177093c2_-1500_-1100']={
-  data={
-    name='Vedic Indian 1500 BC to 1100 BC',
-    id='5fb1b9dae1af0600177093c2_-1500_-1100',
-    army_id='5fb1b9dae1af0600177093c2'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c139_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c139],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c13c],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c13e],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c140],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c143],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c146],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c149],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp_pack_train],
-}
-army['5fb1b9dae1af0600177093c2_-1099_-901']={
-  data={
-    name='Vedic Indian 1099 BC to 901 BC',
-    id='5fb1b9dae1af0600177093c2_-1099_-901',
-    army_id='5fb1b9dae1af0600177093c2'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c139_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c139],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c13c],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c13e],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c140],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c143],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c146],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c149],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp_pack_train],
-}
-army['5fb1b9dae1af0600177093c2_-900_-900']={
-  data={
-    name='Vedic Indian 900 BC',
-    id='5fb1b9dae1af0600177093c2_-900_-900',
-    army_id='5fb1b9dae1af0600177093c2'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c139_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c139],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c13c],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c13e],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c140],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c143],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c146],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c149],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp_pack_train],
-}
-army['5fb1b9dae1af0600177093c2_-899_-512']={
-  data={
-    name='Vedic Indian 899 BC to 512 BC',
-    id='5fb1b9dae1af0600177093c2_-899_-512',
-    army_id='5fb1b9dae1af0600177093c2'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c139_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c139],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c13c],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c13e],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c140],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c143],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c146],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c149],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp],
-  g_base_definitions[g_str_5fb1b9dae1af0600177093c2_camp_pack_train],
-}
 if nil == armies["Chariot Supremacy"] then
   armies["Chariot Supremacy"] ={}
 end
@@ -271,8 +36,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af0600177093c2"] = {}
-army_dates["5fb1b9dae1af0600177093c2"]["1500 BC to 512 BC"] ="5fb1b9dae1af0600177093c2"
-army_dates["5fb1b9dae1af0600177093c2"]["1500 BC to 1100 BC"] ="5fb1b9dae1af0600177093c2_-1500_-1100"
-army_dates["5fb1b9dae1af0600177093c2"]["1099 BC to 901 BC"] ="5fb1b9dae1af0600177093c2_-1099_-901"
-army_dates["5fb1b9dae1af0600177093c2"]["900 BC"] ="5fb1b9dae1af0600177093c2_-900_-900"
-army_dates["5fb1b9dae1af0600177093c2"]["899 BC to 512 BC"] ="5fb1b9dae1af0600177093c2_-899_-512"
+army_dates["5fb1b9dae1af0600177093c2"]["1500 BC to 512 BC"] = {
+  startDate=-1500,
+  endDate=-512
+}
+army_dates["5fb1b9dae1af0600177093c2"]["1500 BC to 1100 BC"] = {
+  startDate=-1500,
+  endDate=-1100
+}
+army_dates["5fb1b9dae1af0600177093c2"]["1099 BC to 901 BC"] = {
+  startDate=-1099,
+  endDate=-901
+}
+army_dates["5fb1b9dae1af0600177093c2"]["900 BC"] = {
+  startDate=-900,
+  endDate=-900
+}
+army_dates["5fb1b9dae1af0600177093c2"]["899 BC to 512 BC"] = {
+  startDate=-899,
+  endDate=-512
+}

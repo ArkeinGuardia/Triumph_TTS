@@ -1,99 +1,13 @@
 -- 5fb1b9f6e1af06001770a4c7 Caribean Indians: Caribs  1200 to 1700 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba45e1af06001770fefc']= {
-  min=2,
-  max=6,
-  description='Fighters with penis sheath armed with boutou',
-}
-g_troop_entry['5fb1ba45e1af06001770fefd']= {
-  troop_option='5fb1ba45e1af06001770fefc',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba45e1af06001770fefe']= {
-  min=8,
-  max=14,
-  description='Bowmen shooting unfletched poisoned arrows',
-}
-g_troop_entry['5fb1ba45e1af06001770feff']= {
-  troop_option='5fb1ba45e1af06001770fefe',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba45e1af06001770ff00']= {
-  min=4,
-  max=8,
-  description='Foot armed with javelins, sticks, and rocks',
-}
-g_troop_entry['5fb1ba45e1af06001770ff01']= {
-  troop_option='5fb1ba45e1af06001770ff00',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba45e1af06001770fefd_general='5fb1ba45e1af06001770fefd_general'
-g_base_definitions[g_str_5fb1ba45e1af06001770fefd_general]={
-  id=g_str_5fb1ba45e1af06001770fefd_general,
-  name='Raiders General',
-  min=2,
-  max=1,
-  description='Fighters with penis sheath armed with boutou',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba45e1af06001770fefd='5fb1ba45e1af06001770fefd'
-g_base_definitions[g_str_5fb1ba45e1af06001770fefd]={
-  id=g_str_5fb1ba45e1af06001770fefd,
-  name='Raiders',
-  min=2,
-  max=6,
-  description='Fighters with penis sheath armed with boutou',
-  troop_type="Raiders",
-}
-g_str_5fb1ba45e1af06001770feff='5fb1ba45e1af06001770feff'
-g_base_definitions[g_str_5fb1ba45e1af06001770feff]={
-  id=g_str_5fb1ba45e1af06001770feff,
-  name='Bow Levy',
-  min=8,
-  max=14,
-  description='Bowmen shooting unfletched poisoned arrows',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba45e1af06001770ff01='5fb1ba45e1af06001770ff01'
-g_base_definitions[g_str_5fb1ba45e1af06001770ff01]={
-  id=g_str_5fb1ba45e1af06001770ff01,
-  name='Rabble',
-  min=4,
-  max=8,
-  description='Foot armed with javelins, sticks, and rocks',
-  troop_type="Rabble",
-}
-g_str_5fb1b9f6e1af06001770a4c7_camp='5fb1b9f6e1af06001770a4c7_camp'
-g_base_definitions[g_str_5fb1b9f6e1af06001770a4c7_camp]={
-  id=g_str_5fb1b9f6e1af06001770a4c7_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f6e1af06001770a4c7_camp_pack_train='5fb1b9f6e1af06001770a4c7_camp_pack_train'
-g_base_definitions[g_str_5fb1b9f6e1af06001770a4c7_camp_pack_train]={
-  id=g_str_5fb1b9f6e1af06001770a4c7_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9f6e1af06001770a4c7']={
   data={
     name='Caribean Indians: Caribs  1200 to 1700 AD',
     id='5fb1b9f6e1af06001770a4c7',
-    army_id='5fb1b9f6e1af06001770a4c7'
+    dateRange={
+      startDate=1200,
+      endDate=1700,
+    }
   },
   g_base_definitions[g_str_5fb1ba45e1af06001770fefd_general],
   g_base_definitions[g_str_5fb1ba45e1af06001770fefd],
@@ -122,4 +36,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f6e1af06001770a4c7"] = {}
-army_dates["5fb1b9f6e1af06001770a4c7"]["1200 AD to 1700 AD"] ="5fb1b9f6e1af06001770a4c7"
+army_dates["5fb1b9f6e1af06001770a4c7"]["1200 AD to 1700 AD"] = {
+  startDate=1200,
+  endDate=1700
+}

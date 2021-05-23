@@ -1,148 +1,13 @@
 -- 5fb1b9e1e1af06001770981f Spartacus  74 to 71 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2be1af06001770d211']= {
-  min=1,
-  max=1,
-  description='Ex-gladiators and veteran war prisoners with Roman equipment',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d212']= {
-  troop_option='5fb1ba2be1af06001770d211',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba2be1af06001770d214']= {
-  min=0,
-  max=1,
-  description='Gallic and German horsemen',
-}
-g_troop_entry['5fb1ba2be1af06001770d215']= {
-  troop_option='5fb1ba2be1af06001770d214',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2be1af06001770d216']= {
-  min=4,
-  max=10,
-  description='Ex-slaves with Roman equipment',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d217']= {
-  troop_option='5fb1ba2be1af06001770d216',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2be1af06001770d218']= {
-  min=0,
-  max=2,
-  description='Ex-slaves, Gallic and German fierce fighters',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d219']= {
-  troop_option='5fb1ba2be1af06001770d218',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba2be1af06001770d21a']= {
-  min=6,
-  max=16,
-  description='Ex-slaves, shepherds and herdsmen, bandits',
-}
-g_troop_entry['5fb1ba2be1af06001770d21b']= {
-  troop_option='5fb1ba2be1af06001770d21a',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba2be1af06001770d212_general='5fb1ba2be1af06001770d212_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d212_general]={
-  id=g_str_5fb1ba2be1af06001770d212_general,
-  name='Elite Foot General',
-  min=1,
-  max=1,
-  description='Ex-gladiators and veteran war prisoners with Roman equipment',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba2be1af06001770d212='5fb1ba2be1af06001770d212'
-g_base_definitions[g_str_5fb1ba2be1af06001770d212]={
-  id=g_str_5fb1ba2be1af06001770d212,
-  name='Elite Foot',
-  min=1,
-  max=1,
-  description='Ex-gladiators and veteran war prisoners with Roman equipment',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba2be1af06001770d215_general='5fb1ba2be1af06001770d215_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d215_general]={
-  id=g_str_5fb1ba2be1af06001770d215_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Gallic and German horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d215='5fb1ba2be1af06001770d215'
-g_base_definitions[g_str_5fb1ba2be1af06001770d215]={
-  id=g_str_5fb1ba2be1af06001770d215,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Gallic and German horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d217='5fb1ba2be1af06001770d217'
-g_base_definitions[g_str_5fb1ba2be1af06001770d217]={
-  id=g_str_5fb1ba2be1af06001770d217,
-  name='Heavy Foot',
-  min=4,
-  max=10,
-  description='Ex-slaves with Roman equipment',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2be1af06001770d219='5fb1ba2be1af06001770d219'
-g_base_definitions[g_str_5fb1ba2be1af06001770d219]={
-  id=g_str_5fb1ba2be1af06001770d219,
-  name='Warriors',
-  min=0,
-  max=2,
-  description='Ex-slaves, Gallic and German fierce fighters',
-  troop_type="Warriors",
-}
-g_str_5fb1ba2be1af06001770d21b='5fb1ba2be1af06001770d21b'
-g_base_definitions[g_str_5fb1ba2be1af06001770d21b]={
-  id=g_str_5fb1ba2be1af06001770d21b,
-  name='Rabble',
-  min=6,
-  max=16,
-  description='Ex-slaves, shepherds and herdsmen, bandits',
-  troop_type="Rabble",
-}
-g_str_5fb1b9e1e1af06001770981f_camp='5fb1b9e1e1af06001770981f_camp'
-g_base_definitions[g_str_5fb1b9e1e1af06001770981f_camp]={
-  id=g_str_5fb1b9e1e1af06001770981f_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e1e1af06001770981f_camp_fortified='5fb1b9e1e1af06001770981f_camp_fortified'
-g_base_definitions[g_str_5fb1b9e1e1af06001770981f_camp_fortified]={
-  id=g_str_5fb1b9e1e1af06001770981f_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e1e1af06001770981f']={
   data={
     name='Spartacus  74 to 71 BC',
     id='5fb1b9e1e1af06001770981f',
-    army_id='5fb1b9e1e1af06001770981f'
+    dateRange={
+      startDate=-74,
+      endDate=-71,
+    }
   },
   g_base_definitions[g_str_5fb1ba2be1af06001770d212_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d212],
@@ -170,4 +35,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e1e1af06001770981f"] = {}
-army_dates["5fb1b9e1e1af06001770981f"]["74 BC to 71 BC"] ="5fb1b9e1e1af06001770981f"
+army_dates["5fb1b9e1e1af06001770981f"]["74 BC to 71 BC"] = {
+  startDate=-74,
+  endDate=-71
+}

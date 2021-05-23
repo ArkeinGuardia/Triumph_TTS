@@ -1,162 +1,13 @@
 -- 5fb1b9d9e1af060017709327 Bronze Age Zagros and Anatolian Highlanders  3000 to 950 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba1fe1af06001770bf50']= {
-  min=1,
-  max=2,
-  description='Bodyguards',
-  core='all',
-}
-g_troop_entry['5fb1ba1fe1af06001770bf51']= {
-  troop_option='5fb1ba1fe1af06001770bf50',
-  troopTypeCode='RDR',
-}
-g_troop_entry['5fb1ba1fe1af06001770bf52']= {
-  troop_option='5fb1ba1fe1af06001770bf50',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba1fe1af06001770bf53']= {
-  min=8,
-  max=20,
-  description='Unshielded javelinmen',
-}
-g_troop_entry['5fb1ba1fe1af06001770bf54']= {
-  troop_option='5fb1ba1fe1af06001770bf53',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba1fe1af06001770bf55']= {
-  min=0,
-  max=3,
-  description='Javelinmen with shields',
-  core='all',
-  startDate=-1500,
-  endDate=-950,
-}
-g_troop_entry['5fb1ba1fe1af06001770bf57']= {
-  troop_option='5fb1ba1fe1af06001770bf55',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba1fe1af06001770bf58']= {
-  min=4,
-  max=12,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba1fe1af06001770bf59']= {
-  troop_option='5fb1ba1fe1af06001770bf58',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba1fe1af06001770bf5a']= {
-  min=0,
-  max=2,
-  description='Slingers',
-}
-g_troop_entry['5fb1ba1fe1af06001770bf5b']= {
-  troop_option='5fb1ba1fe1af06001770bf5a',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba1fe1af06001770bf51_general='5fb1ba1fe1af06001770bf51_general'
-g_base_definitions[g_str_5fb1ba1fe1af06001770bf51_general]={
-  id=g_str_5fb1ba1fe1af06001770bf51_general,
-  name='Raiders General',
-  min=1,
-  max=1,
-  description='Bodyguards',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba1fe1af06001770bf51='5fb1ba1fe1af06001770bf51'
-g_base_definitions[g_str_5fb1ba1fe1af06001770bf51]={
-  id=g_str_5fb1ba1fe1af06001770bf51,
-  name='Raiders',
-  min=1,
-  max=2,
-  description='Bodyguards',
-  troop_type="Raiders",
-}
-g_str_5fb1ba1fe1af06001770bf52_general='5fb1ba1fe1af06001770bf52_general'
-g_base_definitions[g_str_5fb1ba1fe1af06001770bf52_general]={
-  id=g_str_5fb1ba1fe1af06001770bf52_general,
-  name='Archers General',
-  min=1,
-  max=1,
-  description='Bodyguards',
-  general=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba1fe1af06001770bf52='5fb1ba1fe1af06001770bf52'
-g_base_definitions[g_str_5fb1ba1fe1af06001770bf52]={
-  id=g_str_5fb1ba1fe1af06001770bf52,
-  name='Archers',
-  min=1,
-  max=2,
-  description='Bodyguards',
-  troop_type="Archers",
-}
-g_str_5fb1ba1fe1af06001770bf54='5fb1ba1fe1af06001770bf54'
-g_base_definitions[g_str_5fb1ba1fe1af06001770bf54]={
-  id=g_str_5fb1ba1fe1af06001770bf54,
-  name='Rabble',
-  min=8,
-  max=20,
-  description='Unshielded javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba1fe1af06001770bf57='5fb1ba1fe1af06001770bf57'
-g_base_definitions[g_str_5fb1ba1fe1af06001770bf57]={
-  id=g_str_5fb1ba1fe1af06001770bf57,
-  name='Light Foot',
-  min=0,
-  max=3,
-  description='Javelinmen with shields',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba1fe1af06001770bf59='5fb1ba1fe1af06001770bf59'
-g_base_definitions[g_str_5fb1ba1fe1af06001770bf59]={
-  id=g_str_5fb1ba1fe1af06001770bf59,
-  name='Bow Levy',
-  min=4,
-  max=12,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba1fe1af06001770bf5b='5fb1ba1fe1af06001770bf5b'
-g_base_definitions[g_str_5fb1ba1fe1af06001770bf5b]={
-  id=g_str_5fb1ba1fe1af06001770bf5b,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9d9e1af060017709327_camp='5fb1b9d9e1af060017709327_camp'
-g_base_definitions[g_str_5fb1b9d9e1af060017709327_camp]={
-  id=g_str_5fb1b9d9e1af060017709327_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9d9e1af060017709327_camp_pack_train='5fb1b9d9e1af060017709327_camp_pack_train'
-g_base_definitions[g_str_5fb1b9d9e1af060017709327_camp_pack_train]={
-  id=g_str_5fb1b9d9e1af060017709327_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9d9e1af060017709327']={
   data={
     name='Bronze Age Zagros and Anatolian Highlanders  3000 to 950 BC',
     id='5fb1b9d9e1af060017709327',
-    army_id='5fb1b9d9e1af060017709327'
+    dateRange={
+      startDate=-3000,
+      endDate=-950,
+    }
   },
   g_base_definitions[g_str_5fb1ba1fe1af06001770bf51_general],
   g_base_definitions[g_str_5fb1ba1fe1af06001770bf51],
@@ -173,40 +24,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9d9e1af060017709327"] = army["5fb1b9d9e1af060017709327"]
-army['5fb1b9d9e1af060017709327_-3000_-1501']={
-  data={
-    name='Bronze Age Zagros and Anatolian Highlanders 3000 BC to 1501 BC',
-    id='5fb1b9d9e1af060017709327_-3000_-1501',
-    army_id='5fb1b9d9e1af060017709327'
-  },
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf51_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf51],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf52_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf52],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf54],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf57],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf59],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf5b],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709327_camp],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709327_camp_pack_train],
-}
-army['5fb1b9d9e1af060017709327_-1500_-950']={
-  data={
-    name='Bronze Age Zagros and Anatolian Highlanders 1500 BC to 950 BC',
-    id='5fb1b9d9e1af060017709327_-1500_-950',
-    army_id='5fb1b9d9e1af060017709327'
-  },
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf51_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf51],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf52_general],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf52],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf54],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf57],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf59],
-  g_base_definitions[g_str_5fb1ba1fe1af06001770bf5b],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709327_camp],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709327_camp_pack_train],
-}
 if nil == armies["Cradle of Civilization"] then
   armies["Cradle of Civilization"] ={}
 end
@@ -227,6 +44,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af060017709327"] = {}
-army_dates["5fb1b9d9e1af060017709327"]["3000 BC to 950 BC"] ="5fb1b9d9e1af060017709327"
-army_dates["5fb1b9d9e1af060017709327"]["3000 BC to 1501 BC"] ="5fb1b9d9e1af060017709327_-3000_-1501"
-army_dates["5fb1b9d9e1af060017709327"]["1500 BC to 950 BC"] ="5fb1b9d9e1af060017709327_-1500_-950"
+army_dates["5fb1b9d9e1af060017709327"]["3000 BC to 950 BC"] = {
+  startDate=-3000,
+  endDate=-950
+}
+army_dates["5fb1b9d9e1af060017709327"]["3000 BC to 1501 BC"] = {
+  startDate=-3000,
+  endDate=-1501
+}
+army_dates["5fb1b9d9e1af060017709327"]["1500 BC to 950 BC"] = {
+  startDate=-1500,
+  endDate=-950
+}

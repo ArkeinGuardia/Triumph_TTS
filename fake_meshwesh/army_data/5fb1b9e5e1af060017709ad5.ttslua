@@ -1,200 +1,13 @@
 -- 5fb1b9e5e1af060017709ad5 Anglo-Danish  1016 to 1075 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba31e1af06001770db46']= {
-  min=2,
-  max=3,
-  description='Huscarles or huscarles on horses',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770db47']= {
-  troop_option='5fb1ba31e1af06001770db46',
-  troopTypeCode='EFT',
-}
-g_troop_entry['5fb1ba31e1af06001770db48']= {
-  troop_option='5fb1ba31e1af06001770db46',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba31e1af06001770db49']= {
-  min=0,
-  max=1,
-  description='Norman men-at-arms',
-  startDate=1042,
-  endDate=1065,
-}
-g_troop_entry['5fb1ba31e1af06001770db4b']= {
-  troop_option='5fb1ba31e1af06001770db49',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba31e1af06001770db4c']= {
-  min=5,
-  max=8,
-  description='Select fyrd',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770db4d']= {
-  troop_option='5fb1ba31e1af06001770db4c',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba31e1af06001770db4f']= {
-  min=0,
-  max=12,
-  description='Great fyrd',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770db50']= {
-  troop_option='5fb1ba31e1af06001770db4f',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba31e1af06001770db51']= {
-  min=0,
-  max=4,
-  description='Great fyrd dregs',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770db52']= {
-  troop_option='5fb1ba31e1af06001770db51',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba31e1af06001770db53']= {
-  min=0,
-  max=2,
-  description='Skirmishing slingers or bowmen',
-}
-g_troop_entry['5fb1ba31e1af06001770db54']= {
-  troop_option='5fb1ba31e1af06001770db53',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba31e1af06001770db56']= {
-  min=0,
-  max=2,
-  description='Scouts and javelinmen',
-}
-g_troop_entry['5fb1ba31e1af06001770db57']= {
-  troop_option='5fb1ba31e1af06001770db56',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba31e1af06001770db47_general='5fb1ba31e1af06001770db47_general'
-g_base_definitions[g_str_5fb1ba31e1af06001770db47_general]={
-  id=g_str_5fb1ba31e1af06001770db47_general,
-  name='Elite Foot General',
-  min=2,
-  max=1,
-  description='Huscarles or huscarles on horses',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba31e1af06001770db47='5fb1ba31e1af06001770db47'
-g_base_definitions[g_str_5fb1ba31e1af06001770db47]={
-  id=g_str_5fb1ba31e1af06001770db47,
-  name='Elite Foot',
-  min=2,
-  max=3,
-  description='Huscarles or huscarles on horses',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba31e1af06001770db48_general='5fb1ba31e1af06001770db48_general'
-g_base_definitions[g_str_5fb1ba31e1af06001770db48_general]={
-  id=g_str_5fb1ba31e1af06001770db48_general,
-  name='Bad Horse General',
-  min=2,
-  max=1,
-  description='Huscarles or huscarles on horses',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba31e1af06001770db48='5fb1ba31e1af06001770db48'
-g_base_definitions[g_str_5fb1ba31e1af06001770db48]={
-  id=g_str_5fb1ba31e1af06001770db48,
-  name='Bad Horse',
-  min=2,
-  max=3,
-  description='Huscarles or huscarles on horses',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba31e1af06001770db4b_general='5fb1ba31e1af06001770db4b_general'
-g_base_definitions[g_str_5fb1ba31e1af06001770db4b_general]={
-  id=g_str_5fb1ba31e1af06001770db4b_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Norman men-at-arms',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770db4b='5fb1ba31e1af06001770db4b'
-g_base_definitions[g_str_5fb1ba31e1af06001770db4b]={
-  id=g_str_5fb1ba31e1af06001770db4b,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Norman men-at-arms',
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770db4d='5fb1ba31e1af06001770db4d'
-g_base_definitions[g_str_5fb1ba31e1af06001770db4d]={
-  id=g_str_5fb1ba31e1af06001770db4d,
-  name='Heavy Foot',
-  min=5,
-  max=8,
-  description='Select fyrd',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba31e1af06001770db50='5fb1ba31e1af06001770db50'
-g_base_definitions[g_str_5fb1ba31e1af06001770db50]={
-  id=g_str_5fb1ba31e1af06001770db50,
-  name='Heavy Foot',
-  min=0,
-  max=12,
-  description='Great fyrd',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba31e1af06001770db52='5fb1ba31e1af06001770db52'
-g_base_definitions[g_str_5fb1ba31e1af06001770db52]={
-  id=g_str_5fb1ba31e1af06001770db52,
-  name='Horde',
-  min=0,
-  max=4,
-  description='Great fyrd dregs',
-  troop_type="Horde",
-}
-g_str_5fb1ba31e1af06001770db54='5fb1ba31e1af06001770db54'
-g_base_definitions[g_str_5fb1ba31e1af06001770db54]={
-  id=g_str_5fb1ba31e1af06001770db54,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing slingers or bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba31e1af06001770db57='5fb1ba31e1af06001770db57'
-g_base_definitions[g_str_5fb1ba31e1af06001770db57]={
-  id=g_str_5fb1ba31e1af06001770db57,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Scouts and javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9e5e1af060017709ad5_camp='5fb1b9e5e1af060017709ad5_camp'
-g_base_definitions[g_str_5fb1b9e5e1af060017709ad5_camp]={
-  id=g_str_5fb1b9e5e1af060017709ad5_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e5e1af060017709ad5']={
   data={
     name='Anglo-Danish  1016 to 1075 AD',
     id='5fb1b9e5e1af060017709ad5',
-    army_id='5fb1b9e5e1af060017709ad5'
+    dateRange={
+      startDate=1016,
+      endDate=1075,
+    }
   },
   g_base_definitions[g_str_5fb1ba31e1af06001770db47_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770db47],
@@ -213,63 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e5e1af060017709ad5"] = army["5fb1b9e5e1af060017709ad5"]
-army['5fb1b9e5e1af060017709ad5_1016_1041']={
-  data={
-    name='Anglo-Danish 1016 AD to 1041 AD',
-    id='5fb1b9e5e1af060017709ad5_1016_1041',
-    army_id='5fb1b9e5e1af060017709ad5'
-  },
-  g_base_definitions[g_str_5fb1ba31e1af06001770db47_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db47],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db48_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db48],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4b_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4b],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4d],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db50],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db52],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db54],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db57],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709ad5_camp],
-}
-army['5fb1b9e5e1af060017709ad5_1042_1065']={
-  data={
-    name='Anglo-Danish 1042 AD to 1065 AD',
-    id='5fb1b9e5e1af060017709ad5_1042_1065',
-    army_id='5fb1b9e5e1af060017709ad5'
-  },
-  g_base_definitions[g_str_5fb1ba31e1af06001770db47_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db47],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db48_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db48],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4b_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4b],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4d],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db50],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db52],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db54],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db57],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709ad5_camp],
-}
-army['5fb1b9e5e1af060017709ad5_1066_1075']={
-  data={
-    name='Anglo-Danish 1066 AD to 1075 AD',
-    id='5fb1b9e5e1af060017709ad5_1066_1075',
-    army_id='5fb1b9e5e1af060017709ad5'
-  },
-  g_base_definitions[g_str_5fb1ba31e1af06001770db47_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db47],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db48_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db48],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4b_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4b],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db4d],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db50],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db52],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db54],
-  g_base_definitions[g_str_5fb1ba31e1af06001770db57],
-  g_base_definitions[g_str_5fb1b9e5e1af060017709ad5_camp],
-}
 if nil == armies["Viking Seas"] then
   armies["Viking Seas"] ={}
 end
@@ -282,7 +38,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e5e1af060017709ad5"] = {}
-army_dates["5fb1b9e5e1af060017709ad5"]["1016 AD to 1075 AD"] ="5fb1b9e5e1af060017709ad5"
-army_dates["5fb1b9e5e1af060017709ad5"]["1016 AD to 1041 AD"] ="5fb1b9e5e1af060017709ad5_1016_1041"
-army_dates["5fb1b9e5e1af060017709ad5"]["1042 AD to 1065 AD"] ="5fb1b9e5e1af060017709ad5_1042_1065"
-army_dates["5fb1b9e5e1af060017709ad5"]["1066 AD to 1075 AD"] ="5fb1b9e5e1af060017709ad5_1066_1075"
+army_dates["5fb1b9e5e1af060017709ad5"]["1016 AD to 1075 AD"] = {
+  startDate=1016,
+  endDate=1075
+}
+army_dates["5fb1b9e5e1af060017709ad5"]["1016 AD to 1041 AD"] = {
+  startDate=1016,
+  endDate=1041
+}
+army_dates["5fb1b9e5e1af060017709ad5"]["1042 AD to 1052 AD"] = {
+  startDate=1042,
+  endDate=1052
+}
+army_dates["5fb1b9e5e1af060017709ad5"]["1053 AD to 1065 AD"] = {
+  startDate=1053,
+  endDate=1065
+}
+army_dates["5fb1b9e5e1af060017709ad5"]["1066 AD to 1075 AD"] = {
+  startDate=1066,
+  endDate=1075
+}

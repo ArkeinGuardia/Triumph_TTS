@@ -1,151 +1,13 @@
 -- 5fb1b9dde1af060017709630 Illyrian  700 BC to 10 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba28e1af06001770caf3']= {
-  min=0,
-  max=1,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba28e1af06001770caf4']= {
-  troop_option='5fb1ba28e1af06001770caf3',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba28e1af06001770caf5']= {
-  min=9,
-  max=16,
-  description='Light infantry and their armed slaves',
-  core='all',
-}
-g_troop_entry['5fb1ba28e1af06001770caf6']= {
-  troop_option='5fb1ba28e1af06001770caf5',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba28e1af06001770caf7']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen or slingers',
-}
-g_troop_entry['5fb1ba28e1af06001770caf8']= {
-  troop_option='5fb1ba28e1af06001770caf7',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba28e1af06001770caf9']= {
-  min=0,
-  max=3,
-  description='Javelinmen and shielded javelinmen',
-}
-g_troop_entry['5fb1ba28e1af06001770cafa']= {
-  troop_option='5fb1ba28e1af06001770caf9',
-  troopTypeCode='RBL',
-}
-g_troop_entry['5fb1ba28e1af06001770cafb']= {
-  troop_option='5fb1ba28e1af06001770caf9',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba28e1af06001770caf4_general='5fb1ba28e1af06001770caf4_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770caf4_general]={
-  id=g_str_5fb1ba28e1af06001770caf4_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770caf4='5fb1ba28e1af06001770caf4'
-g_base_definitions[g_str_5fb1ba28e1af06001770caf4]={
-  id=g_str_5fb1ba28e1af06001770caf4,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770caf6_general='5fb1ba28e1af06001770caf6_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770caf6_general]={
-  id=g_str_5fb1ba28e1af06001770caf6_general,
-  name='Light Foot General',
-  min=9,
-  max=1,
-  description='Light infantry and their armed slaves',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770caf6='5fb1ba28e1af06001770caf6'
-g_base_definitions[g_str_5fb1ba28e1af06001770caf6]={
-  id=g_str_5fb1ba28e1af06001770caf6,
-  name='Light Foot',
-  min=9,
-  max=16,
-  description='Light infantry and their armed slaves',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770caf8='5fb1ba28e1af06001770caf8'
-g_base_definitions[g_str_5fb1ba28e1af06001770caf8]={
-  id=g_str_5fb1ba28e1af06001770caf8,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing bowmen or slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba28e1af06001770cafa='5fb1ba28e1af06001770cafa'
-g_base_definitions[g_str_5fb1ba28e1af06001770cafa]={
-  id=g_str_5fb1ba28e1af06001770cafa,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Javelinmen and shielded javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba28e1af06001770cafb_general='5fb1ba28e1af06001770cafb_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cafb_general]={
-  id=g_str_5fb1ba28e1af06001770cafb_general,
-  name='Light Foot General',
-  min=0,
-  max=1,
-  description='Javelinmen and shielded javelinmen',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cafb='5fb1ba28e1af06001770cafb'
-g_base_definitions[g_str_5fb1ba28e1af06001770cafb]={
-  id=g_str_5fb1ba28e1af06001770cafb,
-  name='Light Foot',
-  min=0,
-  max=3,
-  description='Javelinmen and shielded javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9dde1af060017709630_camp='5fb1b9dde1af060017709630_camp'
-g_base_definitions[g_str_5fb1b9dde1af060017709630_camp]={
-  id=g_str_5fb1b9dde1af060017709630_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dde1af060017709630_camp_pack_train='5fb1b9dde1af060017709630_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dde1af060017709630_camp_pack_train]={
-  id=g_str_5fb1b9dde1af060017709630_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dde1af060017709630']={
   data={
     name='Illyrian  700 BC to 10 AD',
     id='5fb1b9dde1af060017709630',
-    army_id='5fb1b9dde1af060017709630'
+    dateRange={
+      startDate=-700,
+      endDate=10,
+    }
   },
   g_base_definitions[g_str_5fb1ba28e1af06001770caf4_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770caf4],
@@ -186,4 +48,51 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dde1af060017709630"] = {}
-army_dates["5fb1b9dde1af060017709630"]["700 BC to 10 AD"] ="5fb1b9dde1af060017709630"
+army_dates["5fb1b9dde1af060017709630"]["700 BC to 10 AD"] = {
+  startDate=-700,
+  endDate=10
+}
+army_dates["5fb1b9dde1af060017709630"]["700 BC to 411 BC"] = {
+  startDate=-700,
+  endDate=-411
+}
+army_dates["5fb1b9dde1af060017709630"]["410 BC to 386 BC"] = {
+  startDate=-410,
+  endDate=-386
+}
+army_dates["5fb1b9dde1af060017709630"]["385 BC"] = {
+  startDate=-385,
+  endDate=-385
+}
+army_dates["5fb1b9dde1af060017709630"]["384 BC to 276 BC"] = {
+  startDate=-384,
+  endDate=-276
+}
+army_dates["5fb1b9dde1af060017709630"]["275 BC to 226 BC"] = {
+  startDate=-275,
+  endDate=-226
+}
+army_dates["5fb1b9dde1af060017709630"]["225 BC to 218 BC"] = {
+  startDate=-225,
+  endDate=-218
+}
+army_dates["5fb1b9dde1af060017709630"]["217 BC"] = {
+  startDate=-217,
+  endDate=-217
+}
+army_dates["5fb1b9dde1af060017709630"]["216 BC to 211 BC"] = {
+  startDate=-216,
+  endDate=-211
+}
+army_dates["5fb1b9dde1af060017709630"]["210 BC"] = {
+  startDate=-210,
+  endDate=-210
+}
+army_dates["5fb1b9dde1af060017709630"]["209 BC to 105 BC"] = {
+  startDate=-209,
+  endDate=-105
+}
+army_dates["5fb1b9dde1af060017709630"]["104 BC to 10 AD"] = {
+  startDate=-104,
+  endDate=10
+}

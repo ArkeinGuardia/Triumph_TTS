@@ -1,172 +1,13 @@
 -- 5fb1b9d9e1af06001770934f Early Nine Bows Libyan  2159 to 1214 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba20e1af06001770bfc9']= {
-  min=0,
-  max=1,
-  description='Bodyguard swordsmen',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770bfca']= {
-  troop_option='5fb1ba20e1af06001770bfc9',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba20e1af06001770bfcb']= {
-  min=1,
-  max=1,
-  description='2-horse chariots; javelin crew',
-  core='all',
-  startDate=-1250,
-  endDate=-1214,
-}
-g_troop_entry['5fb1ba20e1af06001770bfcd']= {
-  troop_option='5fb1ba20e1af06001770bfcb',
-  troopTypeCode='BTX',
-}
-g_troop_option['5fb1ba20e1af06001770bfce']= {
-  min=10,
-  max=22,
-  description='Tribesmen armed with javelins, throwing sticks, and clubs',
-}
-g_troop_entry['5fb1ba20e1af06001770bfcf']= {
-  troop_option='5fb1ba20e1af06001770bfce',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba20e1af06001770bfd0']= {
-  min=2,
-  max=6,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba20e1af06001770bfd1']= {
-  troop_option='5fb1ba20e1af06001770bfd0',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba20e1af06001770bfd2']= {
-  troop_option='5fb1ba20e1af06001770bfd0',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba20e1af06001770bfd3']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba20e1af06001770bfd4']= {
-  troop_option='5fb1ba20e1af06001770bfd3',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba20e1af06001770bfca_general='5fb1ba20e1af06001770bfca_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfca_general]={
-  id=g_str_5fb1ba20e1af06001770bfca_general,
-  name='Warband General',
-  min=0,
-  max=1,
-  description='Bodyguard swordsmen',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba20e1af06001770bfca='5fb1ba20e1af06001770bfca'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfca]={
-  id=g_str_5fb1ba20e1af06001770bfca,
-  name='Warband',
-  min=0,
-  max=1,
-  description='Bodyguard swordsmen',
-  troop_type="Warband",
-}
-g_str_5fb1ba20e1af06001770bfcd_general='5fb1ba20e1af06001770bfcd_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfcd_general]={
-  id=g_str_5fb1ba20e1af06001770bfcd_general,
-  name='Battle Taxi General',
-  min=1,
-  max=1,
-  description='2-horse chariots; javelin crew',
-  general=true,
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba20e1af06001770bfcd='5fb1ba20e1af06001770bfcd'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfcd]={
-  id=g_str_5fb1ba20e1af06001770bfcd,
-  name='Battle Taxi',
-  min=1,
-  max=1,
-  description='2-horse chariots; javelin crew',
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba20e1af06001770bfcf_general='5fb1ba20e1af06001770bfcf_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfcf_general]={
-  id=g_str_5fb1ba20e1af06001770bfcf_general,
-  name='Rabble General',
-  min=10,
-  max=1,
-  description='Tribesmen armed with javelins, throwing sticks, and clubs',
-  general=true,
-  troop_type="Rabble",
-}
-g_str_5fb1ba20e1af06001770bfcf='5fb1ba20e1af06001770bfcf'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfcf]={
-  id=g_str_5fb1ba20e1af06001770bfcf,
-  name='Rabble',
-  min=10,
-  max=22,
-  description='Tribesmen armed with javelins, throwing sticks, and clubs',
-  troop_type="Rabble",
-}
-g_str_5fb1ba20e1af06001770bfd1='5fb1ba20e1af06001770bfd1'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfd1]={
-  id=g_str_5fb1ba20e1af06001770bfd1,
-  name='Skirmishers',
-  min=2,
-  max=6,
-  description='Bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba20e1af06001770bfd2='5fb1ba20e1af06001770bfd2'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfd2]={
-  id=g_str_5fb1ba20e1af06001770bfd2,
-  name='Bow Levy',
-  min=2,
-  max=6,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba20e1af06001770bfd4='5fb1ba20e1af06001770bfd4'
-g_base_definitions[g_str_5fb1ba20e1af06001770bfd4]={
-  id=g_str_5fb1ba20e1af06001770bfd4,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9d9e1af06001770934f_camp='5fb1b9d9e1af06001770934f_camp'
-g_base_definitions[g_str_5fb1b9d9e1af06001770934f_camp]={
-  id=g_str_5fb1b9d9e1af06001770934f_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9d9e1af06001770934f_camp_pack_train='5fb1b9d9e1af06001770934f_camp_pack_train'
-g_base_definitions[g_str_5fb1b9d9e1af06001770934f_camp_pack_train]={
-  id=g_str_5fb1b9d9e1af06001770934f_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9d9e1af06001770934f']={
   data={
     name='Early Nine Bows Libyan  2159 to 1214 BC',
     id='5fb1b9d9e1af06001770934f',
-    army_id='5fb1b9d9e1af06001770934f'
+    dateRange={
+      startDate=-2159,
+      endDate=-1214,
+    }
   },
   g_base_definitions[g_str_5fb1ba20e1af06001770bfca_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770bfca],
@@ -184,42 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9d9e1af06001770934f"] = army["5fb1b9d9e1af06001770934f"]
-army['5fb1b9d9e1af06001770934f_-2159_-1251']={
-  data={
-    name='Early Nine Bows Libyan 2159 BC to 1251 BC',
-    id='5fb1b9d9e1af06001770934f_-2159_-1251',
-    army_id='5fb1b9d9e1af06001770934f'
-  },
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfca_general],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfca],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfcd_general],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfcd],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfcf_general],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfcf],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfd1],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfd2],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfd4],
-  g_base_definitions[g_str_5fb1b9d9e1af06001770934f_camp],
-  g_base_definitions[g_str_5fb1b9d9e1af06001770934f_camp_pack_train],
-}
-army['5fb1b9d9e1af06001770934f_-1250_-1214']={
-  data={
-    name='Early Nine Bows Libyan 1250 BC to 1214 BC',
-    id='5fb1b9d9e1af06001770934f_-1250_-1214',
-    army_id='5fb1b9d9e1af06001770934f'
-  },
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfca_general],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfca],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfcd_general],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfcd],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfcf_general],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfcf],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfd1],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfd2],
-  g_base_definitions[g_str_5fb1ba20e1af06001770bfd4],
-  g_base_definitions[g_str_5fb1b9d9e1af06001770934f_camp],
-  g_base_definitions[g_str_5fb1b9d9e1af06001770934f_camp_pack_train],
-}
 if nil == armies["Cradle of Civilization"] then
   armies["Cradle of Civilization"] ={}
 end
@@ -236,6 +41,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af06001770934f"] = {}
-army_dates["5fb1b9d9e1af06001770934f"]["2159 BC to 1214 BC"] ="5fb1b9d9e1af06001770934f"
-army_dates["5fb1b9d9e1af06001770934f"]["2159 BC to 1251 BC"] ="5fb1b9d9e1af06001770934f_-2159_-1251"
-army_dates["5fb1b9d9e1af06001770934f"]["1250 BC to 1214 BC"] ="5fb1b9d9e1af06001770934f_-1250_-1214"
+army_dates["5fb1b9d9e1af06001770934f"]["2159 BC to 1214 BC"] = {
+  startDate=-2159,
+  endDate=-1214
+}
+army_dates["5fb1b9d9e1af06001770934f"]["2159 BC to 1251 BC"] = {
+  startDate=-2159,
+  endDate=-1251
+}
+army_dates["5fb1b9d9e1af06001770934f"]["1250 BC to 1214 BC"] = {
+  startDate=-1250,
+  endDate=-1214
+}

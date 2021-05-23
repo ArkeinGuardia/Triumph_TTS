@@ -1,119 +1,13 @@
 -- 5fb1b9e4e1af060017709a11 First Bulgar Empire  853 to 1018 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2fe1af06001770d8b4']= {
-  min=1,
-  max=5,
-  description='Charging boyar horsemen',
-}
-g_troop_entry['5fb1ba2fe1af06001770d8b5']= {
-  troop_option='5fb1ba2fe1af06001770d8b4',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba2fe1af06001770d8b6']= {
-  min=3,
-  max=5,
-  description='Bulgar horse archers',
-}
-g_troop_entry['5fb1ba2fe1af06001770d8b7']= {
-  troop_option='5fb1ba2fe1af06001770d8b6',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba2fe1af06001770d8b8']= {
-  min=4,
-  max=8,
-  description='Peasant and town militia spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2fe1af06001770d8b9']= {
-  troop_option='5fb1ba2fe1af06001770d8b8',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2fe1af06001770d8ba']= {
-  min=0,
-  max=2,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2fe1af06001770d8bb']= {
-  troop_option='5fb1ba2fe1af06001770d8ba',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba2fe1af06001770d8b5_general='5fb1ba2fe1af06001770d8b5_general'
-g_base_definitions[g_str_5fb1ba2fe1af06001770d8b5_general]={
-  id=g_str_5fb1ba2fe1af06001770d8b5_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Charging boyar horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba2fe1af06001770d8b5='5fb1ba2fe1af06001770d8b5'
-g_base_definitions[g_str_5fb1ba2fe1af06001770d8b5]={
-  id=g_str_5fb1ba2fe1af06001770d8b5,
-  name='Knights',
-  min=1,
-  max=5,
-  description='Charging boyar horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba2fe1af06001770d8b7='5fb1ba2fe1af06001770d8b7'
-g_base_definitions[g_str_5fb1ba2fe1af06001770d8b7]={
-  id=g_str_5fb1ba2fe1af06001770d8b7,
-  name='Horse Bow',
-  min=3,
-  max=5,
-  description='Bulgar horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba2fe1af06001770d8b9='5fb1ba2fe1af06001770d8b9'
-g_base_definitions[g_str_5fb1ba2fe1af06001770d8b9]={
-  id=g_str_5fb1ba2fe1af06001770d8b9,
-  name='Heavy Foot',
-  min=4,
-  max=8,
-  description='Peasant and town militia spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2fe1af06001770d8bb='5fb1ba2fe1af06001770d8bb'
-g_base_definitions[g_str_5fb1ba2fe1af06001770d8bb]={
-  id=g_str_5fb1ba2fe1af06001770d8bb,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9e4e1af060017709a11_camp='5fb1b9e4e1af060017709a11_camp'
-g_base_definitions[g_str_5fb1b9e4e1af060017709a11_camp]={
-  id=g_str_5fb1b9e4e1af060017709a11_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e4e1af060017709a11_camp_pack_train='5fb1b9e4e1af060017709a11_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e4e1af060017709a11_camp_pack_train]={
-  id=g_str_5fb1b9e4e1af060017709a11_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e4e1af060017709a11']={
   data={
     name='First Bulgar Empire  853 to 1018 AD',
     id='5fb1b9e4e1af060017709a11',
-    army_id='5fb1b9e4e1af060017709a11'
+    dateRange={
+      startDate=853,
+      endDate=1018,
+    }
   },
   g_base_definitions[g_str_5fb1ba2fe1af06001770d8b5_general],
   g_base_definitions[g_str_5fb1ba2fe1af06001770d8b5],
@@ -143,4 +37,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e4e1af060017709a11"] = {}
-army_dates["5fb1b9e4e1af060017709a11"]["853 AD to 1018 AD"] ="5fb1b9e4e1af060017709a11"
+army_dates["5fb1b9e4e1af060017709a11"]["853 AD to 1018 AD"] = {
+  startDate=853,
+  endDate=1018
+}
+army_dates["5fb1b9e4e1af060017709a11"]["853 AD to 895 AD"] = {
+  startDate=853,
+  endDate=895
+}
+army_dates["5fb1b9e4e1af060017709a11"]["896 AD"] = {
+  startDate=896,
+  endDate=896
+}
+army_dates["5fb1b9e4e1af060017709a11"]["897 AD to 1018 AD"] = {
+  startDate=897,
+  endDate=1018
+}

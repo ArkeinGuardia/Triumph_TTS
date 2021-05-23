@@ -1,172 +1,13 @@
 -- 5fb1b9dfe1af06001770977d Early Graeco-Bactrian  260 to 151 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ae1af06001770d00e']= {
-  min=2,
-  max=4,
-  description='Iranian lancers',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770d00f']= {
-  troop_option='5fb1ba2ae1af06001770d00e',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba2ae1af06001770d010']= {
-  min=2,
-  max=5,
-  description='Bactrian, Arachosian, or similar light horsemen',
-}
-g_troop_entry['5fb1ba2ae1af06001770d011']= {
-  troop_option='5fb1ba2ae1af06001770d010',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2ae1af06001770d012']= {
-  min=0,
-  max=1,
-  description='Saka horse archers',
-}
-g_troop_entry['5fb1ba2ae1af06001770d013']= {
-  troop_option='5fb1ba2ae1af06001770d012',
-  troopTypeCode='HBW',
-}
-g_str_5fb1ba2ae1af06001770d00f_general='5fb1ba2ae1af06001770d00f_general'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d00f_general]={
-  id=g_str_5fb1ba2ae1af06001770d00f_general,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Iranian lancers',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba2ae1af06001770d00f='5fb1ba2ae1af06001770d00f'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d00f]={
-  id=g_str_5fb1ba2ae1af06001770d00f,
-  name='Knights',
-  min=2,
-  max=4,
-  description='Iranian lancers',
-  troop_type="Knights",
-}
-g_str_5fb1ba2ae1af06001770d011='5fb1ba2ae1af06001770d011'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d011]={
-  id=g_str_5fb1ba2ae1af06001770d011,
-  name='Javelin Cavalry',
-  min=2,
-  max=5,
-  description='Bactrian, Arachosian, or similar light horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2ae1af06001770d013='5fb1ba2ae1af06001770d013'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d013]={
-  id=g_str_5fb1ba2ae1af06001770d013,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Saka horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1b9dfe1af06001770977d_camp='5fb1b9dfe1af06001770977d_camp'
-g_base_definitions[g_str_5fb1b9dfe1af06001770977d_camp]={
-  id=g_str_5fb1b9dfe1af06001770977d_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dfe1af06001770977d_camp_pack_train='5fb1b9dfe1af06001770977d_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dfe1af06001770977d_camp_pack_train]={
-  id=g_str_5fb1b9dfe1af06001770977d_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
-g_str_5fb1ba0de1af06001770abe0='5fb1ba0de1af06001770abe0'
-g_base_definitions[g_str_5fb1ba0de1af06001770abe0]={
-  id=g_str_5fb1ba0de1af06001770abe0,
-  name='Pikes',
-  min=2,
-  max=4,
-  description='Phalanx',
-  troop_type="Pikes",
-}
-g_str_5fb1ba0de1af06001770abe2='5fb1ba0de1af06001770abe2'
-g_base_definitions[g_str_5fb1ba0de1af06001770abe2]={
-  id=g_str_5fb1ba0de1af06001770abe2,
-  name='Raiders',
-  min=0,
-  max=2,
-  description='Pisidian settler thureophoroi',
-  troop_type="Raiders",
-}
-g_str_5fb1ba0de1af06001770abe4='5fb1ba0de1af06001770abe4'
-g_base_definitions[g_str_5fb1ba0de1af06001770abe4]={
-  id=g_str_5fb1ba0de1af06001770abe4,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Cretans',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba0de1af06001770abe6='5fb1ba0de1af06001770abe6'
-g_base_definitions[g_str_5fb1ba0de1af06001770abe6]={
-  id=g_str_5fb1ba0de1af06001770abe6,
-  name='Light Spear',
-  min=1,
-  max=3,
-  description='Mountain Indian spearmen',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba0de1af06001770abe8='5fb1ba0de1af06001770abe8'
-g_base_definitions[g_str_5fb1ba0de1af06001770abe8]={
-  id=g_str_5fb1ba0de1af06001770abe8,
-  name='Skirmishers',
-  min=1,
-  max=3,
-  description='Mountain Indian bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba0de1af06001770abe9='5fb1ba0de1af06001770abe9'
-g_base_definitions[g_str_5fb1ba0de1af06001770abe9]={
-  id=g_str_5fb1ba0de1af06001770abe9,
-  name='Archers',
-  min=1,
-  max=3,
-  description='Mountain Indian bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba0de1af06001770abea='5fb1ba0de1af06001770abea'
-g_base_definitions[g_str_5fb1ba0de1af06001770abea]={
-  id=g_str_5fb1ba0de1af06001770abea,
-  name='Bow Levy',
-  min=1,
-  max=3,
-  description='Mountain Indian bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba0de1af06001770abec='5fb1ba0de1af06001770abec'
-g_base_definitions[g_str_5fb1ba0de1af06001770abec]={
-  id=g_str_5fb1ba0de1af06001770abec,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='War elephants',
-  troop_type="Elephants",
-}
 army['5fb1b9dfe1af06001770977d']={
   data={
     name='Early Graeco-Bactrian  260 to 151 BC',
     id='5fb1b9dfe1af06001770977d',
-    army_id='5fb1b9dfe1af06001770977d'
+    dateRange={
+      startDate=-260,
+      endDate=-151,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ae1af06001770d00f_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d00f],
@@ -203,4 +44,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dfe1af06001770977d"] = {}
-army_dates["5fb1b9dfe1af06001770977d"]["260 BC to 151 BC"] ="5fb1b9dfe1af06001770977d"
+army_dates["5fb1b9dfe1af06001770977d"]["260 BC to 151 BC"] = {
+  startDate=-260,
+  endDate=-151
+}

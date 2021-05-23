@@ -1,358 +1,13 @@
 -- 5fb1b9ede1af060017709f5a Buyid or other Dailami Dynasties  927 to 1090 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ae1af06001770ed5b']= {
-  min=4,
-  max=8,
-  description='Dailami zupin-men',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed5c']= {
-  troop_option='5fb1ba3ae1af06001770ed5b',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba3ae1af06001770ed5f']= {
-  min=2,
-  max=4,
-  description='Dailami bowmen or crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed60']= {
-  troop_option='5fb1ba3ae1af06001770ed5f',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed61']= {
-  troop_option='5fb1ba3ae1af06001770ed5f',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3ae1af06001770ed64']= {
-  min=0,
-  max=2,
-  description='Palace ghulams',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed65']= {
-  troop_option='5fb1ba3ae1af06001770ed64',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ae1af06001770ed67']= {
-  min=0,
-  max=1,
-  description='Junior ghulams',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed68']= {
-  troop_option='5fb1ba3ae1af06001770ed67',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ae1af06001770ed69']= {
-  min=0,
-  max=4,
-  description='Kurdish horsemen',
-  note='only Buyids of Baghdad',
-  startDate=946,
-  endDate=1059,
-}
-g_troop_entry['5fb1ba3ae1af06001770ed6b']= {
-  troop_option='5fb1ba3ae1af06001770ed69',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ae1af06001770ed6d']= {
-  min=0,
-  max=1,
-  description='Kurdish horsemen',
-  note='not Buyids of Baghdad',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed6e']= {
-  troop_option='5fb1ba3ae1af06001770ed6d',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ae1af06001770ed70']= {
-  min=0,
-  max=1,
-  description='Bedouin horsemen',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed71']= {
-  troop_option='5fb1ba3ae1af06001770ed70',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3ae1af06001770ed72']= {
-  min=0,
-  max=1,
-  description='Indian Zott mercenaries',
-  note='only Buyids of Baghdad',
-  startDate=946,
-  endDate=1059,
-}
-g_troop_entry['5fb1ba3ae1af06001770ed74']= {
-  troop_option='5fb1ba3ae1af06001770ed72',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba3ae1af06001770ed75']= {
-  min=0,
-  max=2,
-  description='Baghdad religious factions',
-  note='only Buyids of Baghdad',
-  startDate=946,
-  endDate=1059,
-}
-g_troop_entry['5fb1ba3ae1af06001770ed77']= {
-  troop_option='5fb1ba3ae1af06001770ed75',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba3ae1af06001770ed5c_general='5fb1ba3ae1af06001770ed5c_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general]={
-  id=g_str_5fb1ba3ae1af06001770ed5c_general,
-  name='Raiders General',
-  min=4,
-  max=1,
-  description='Dailami zupin-men',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ed5c_general_dismounted_mobile_infantry='5fb1ba3ae1af06001770ed5c_general_dismounted_mobile_infantry'
-g_str_5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry='5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ed5c_general_dismounted_mobile_infantry,
-  name='Raiders General',
-  min=4,
-  max=1,
-  description='Dailami zupin-men\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry,
-  general=true,
-  troop_type="Raiders",
-}
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry,
-  name='Raiders General',
-  min=4,
-  max=1,
-  description='Dailami zupin-men\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba3ae1af06001770ed5c_general_dismounted_mobile_infantry,
-  general=true,
-  mobile_infantry=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ed5c='5fb1ba3ae1af06001770ed5c'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c]={
-  id=g_str_5fb1ba3ae1af06001770ed5c,
-  name='Raiders',
-  min=4,
-  max=8,
-  description='Dailami zupin-men',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ed5c_dismounted_mobile_infantry='5fb1ba3ae1af06001770ed5c_dismounted_mobile_infantry'
-g_str_5fb1ba3ae1af06001770ed5c_mounted_mobile_infantry='5fb1ba3ae1af06001770ed5c_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ed5c_dismounted_mobile_infantry,
-  name='Raiders',
-  min=4,
-  max=8,
-  description='Dailami zupin-men\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba3ae1af06001770ed5c_mounted_mobile_infantry,
-  troop_type="Raiders",
-}
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_mounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ed5c_mounted_mobile_infantry,
-  name='Raiders',
-  min=4,
-  max=8,
-  description='Dailami zupin-men\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba3ae1af06001770ed5c_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ed60='5fb1ba3ae1af06001770ed60'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed60]={
-  id=g_str_5fb1ba3ae1af06001770ed60,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Dailami bowmen or crossbowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ae1af06001770ed60_dismounted_mobile_infantry='5fb1ba3ae1af06001770ed60_dismounted_mobile_infantry'
-g_str_5fb1ba3ae1af06001770ed60_mounted_mobile_infantry='5fb1ba3ae1af06001770ed60_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed60_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ed60_dismounted_mobile_infantry,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Dailami bowmen or crossbowmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba3ae1af06001770ed60_mounted_mobile_infantry,
-  troop_type="Skirmishers",
-}
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed60_mounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ed60_mounted_mobile_infantry,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Dailami bowmen or crossbowmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba3ae1af06001770ed60_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ae1af06001770ed61='5fb1ba3ae1af06001770ed61'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed61]={
-  id=g_str_5fb1ba3ae1af06001770ed61,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Dailami bowmen or crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3ae1af06001770ed61_dismounted_mobile_infantry='5fb1ba3ae1af06001770ed61_dismounted_mobile_infantry'
-g_str_5fb1ba3ae1af06001770ed61_mounted_mobile_infantry='5fb1ba3ae1af06001770ed61_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed61_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ed61_dismounted_mobile_infantry,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Dailami bowmen or crossbowmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba3ae1af06001770ed61_mounted_mobile_infantry,
-  troop_type="Archers",
-}
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed61_mounted_mobile_infantry]={
-  id=g_str_5fb1ba3ae1af06001770ed61_mounted_mobile_infantry,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Dailami bowmen or crossbowmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba3ae1af06001770ed61_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba3ae1af06001770ed65_general='5fb1ba3ae1af06001770ed65_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed65_general]={
-  id=g_str_5fb1ba3ae1af06001770ed65_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Palace ghulams',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed65='5fb1ba3ae1af06001770ed65'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed65]={
-  id=g_str_5fb1ba3ae1af06001770ed65,
-  name='Elite Cavalary',
-  min=0,
-  max=2,
-  description='Palace ghulams',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed68='5fb1ba3ae1af06001770ed68'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed68]={
-  id=g_str_5fb1ba3ae1af06001770ed68,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Junior ghulams',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ed6b_general='5fb1ba3ae1af06001770ed6b_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed6b_general]={
-  id=g_str_5fb1ba3ae1af06001770ed6b_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Kurdish horsemen',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed6b='5fb1ba3ae1af06001770ed6b'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed6b]={
-  id=g_str_5fb1ba3ae1af06001770ed6b,
-  name='Elite Cavalary',
-  min=0,
-  max=4,
-  description='Kurdish horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed6e_general='5fb1ba3ae1af06001770ed6e_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed6e_general]={
-  id=g_str_5fb1ba3ae1af06001770ed6e_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Kurdish horsemen',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed6e='5fb1ba3ae1af06001770ed6e'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed6e]={
-  id=g_str_5fb1ba3ae1af06001770ed6e,
-  name='Elite Cavalary',
-  min=0,
-  max=1,
-  description='Kurdish horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed71='5fb1ba3ae1af06001770ed71'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed71]={
-  id=g_str_5fb1ba3ae1af06001770ed71,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Bedouin horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770ed74_general='5fb1ba3ae1af06001770ed74_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed74_general]={
-  id=g_str_5fb1ba3ae1af06001770ed74_general,
-  name='Raiders General',
-  min=0,
-  max=1,
-  description='Indian Zott mercenaries',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ed74='5fb1ba3ae1af06001770ed74'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed74]={
-  id=g_str_5fb1ba3ae1af06001770ed74,
-  name='Raiders',
-  min=0,
-  max=1,
-  description='Indian Zott mercenaries',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ed77='5fb1ba3ae1af06001770ed77'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed77]={
-  id=g_str_5fb1ba3ae1af06001770ed77,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Baghdad religious factions',
-  troop_type="Rabble",
-}
-g_str_5fb1b9ede1af060017709f5a_camp='5fb1b9ede1af060017709f5a_camp'
-g_base_definitions[g_str_5fb1b9ede1af060017709f5a_camp]={
-  id=g_str_5fb1b9ede1af060017709f5a_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709f5a_camp_pack_train='5fb1b9ede1af060017709f5a_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ede1af060017709f5a_camp_pack_train]={
-  id=g_str_5fb1b9ede1af060017709f5a_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ede1af060017709f5a']={
   data={
     name='Buyid or other Dailami Dynasties  927 to 1090 AD',
     id='5fb1b9ede1af060017709f5a',
-    army_id='5fb1b9ede1af060017709f5a'
+    dateRange={
+      startDate=927,
+      endDate=1090,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry],
@@ -384,102 +39,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709f5a"] = army["5fb1b9ede1af060017709f5a"]
-army['5fb1b9ede1af060017709f5a_927_945']={
-  data={
-    name='Buyid or other Dailami Dynasties 927 AD to 945 AD',
-    id='5fb1b9ede1af060017709f5a_927_945',
-    army_id='5fb1b9ede1af060017709f5a'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed65_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed65],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed68],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6b_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6e_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6e],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed71],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed74_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed74],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed77],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f5a_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f5a_camp_pack_train],
-}
-army['5fb1b9ede1af060017709f5a_946_1059']={
-  data={
-    name='Buyid or other Dailami Dynasties 946 AD to 1059 AD',
-    id='5fb1b9ede1af060017709f5a_946_1059',
-    army_id='5fb1b9ede1af060017709f5a'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed65_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed65],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed68],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6b_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6e_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6e],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed71],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed74_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed74],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed77],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f5a_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f5a_camp_pack_train],
-}
-army['5fb1b9ede1af060017709f5a_1060_1090']={
-  data={
-    name='Buyid or other Dailami Dynasties 1060 AD to 1090 AD',
-    id='5fb1b9ede1af060017709f5a_1060_1090',
-    army_id='5fb1b9ede1af060017709f5a'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_general_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed5c_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed60_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed61_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed65_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed65],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed68],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6b_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6e_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed6e],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed71],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed74_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed74],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed77],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f5a_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f5a_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -492,7 +51,63 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709f5a"] = {}
-army_dates["5fb1b9ede1af060017709f5a"]["927 AD to 1090 AD"] ="5fb1b9ede1af060017709f5a"
-army_dates["5fb1b9ede1af060017709f5a"]["927 AD to 945 AD"] ="5fb1b9ede1af060017709f5a_927_945"
-army_dates["5fb1b9ede1af060017709f5a"]["946 AD to 1059 AD"] ="5fb1b9ede1af060017709f5a_946_1059"
-army_dates["5fb1b9ede1af060017709f5a"]["1060 AD to 1090 AD"] ="5fb1b9ede1af060017709f5a_1060_1090"
+army_dates["5fb1b9ede1af060017709f5a"]["927 AD to 1090 AD"] = {
+  startDate=927,
+  endDate=1090
+}
+army_dates["5fb1b9ede1af060017709f5a"]["927 AD to 945 AD"] = {
+  startDate=927,
+  endDate=945
+}
+army_dates["5fb1b9ede1af060017709f5a"]["946 AD to 949 AD"] = {
+  startDate=946,
+  endDate=949
+}
+army_dates["5fb1b9ede1af060017709f5a"]["950 AD to 968 AD"] = {
+  startDate=950,
+  endDate=968
+}
+army_dates["5fb1b9ede1af060017709f5a"]["969 AD to 973 AD"] = {
+  startDate=969,
+  endDate=973
+}
+army_dates["5fb1b9ede1af060017709f5a"]["974 AD to 975 AD"] = {
+  startDate=974,
+  endDate=975
+}
+army_dates["5fb1b9ede1af060017709f5a"]["976 AD to 979 AD"] = {
+  startDate=976,
+  endDate=979
+}
+army_dates["5fb1b9ede1af060017709f5a"]["980 AD to 999 AD"] = {
+  startDate=980,
+  endDate=999
+}
+army_dates["5fb1b9ede1af060017709f5a"]["1000 AD to 1003 AD"] = {
+  startDate=1000,
+  endDate=1003
+}
+army_dates["5fb1b9ede1af060017709f5a"]["1004 AD to 1008 AD"] = {
+  startDate=1004,
+  endDate=1008
+}
+army_dates["5fb1b9ede1af060017709f5a"]["1009 AD to 1045 AD"] = {
+  startDate=1009,
+  endDate=1045
+}
+army_dates["5fb1b9ede1af060017709f5a"]["1046 AD to 1059 AD"] = {
+  startDate=1046,
+  endDate=1059
+}
+army_dates["5fb1b9ede1af060017709f5a"]["1060 AD to 1073 AD"] = {
+  startDate=1060,
+  endDate=1073
+}
+army_dates["5fb1b9ede1af060017709f5a"]["1074 AD to 1085 AD"] = {
+  startDate=1074,
+  endDate=1085
+}
+army_dates["5fb1b9ede1af060017709f5a"]["1086 AD to 1090 AD"] = {
+  startDate=1086,
+  endDate=1090
+}

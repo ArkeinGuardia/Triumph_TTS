@@ -1,171 +1,13 @@
 -- 5fb1b9e6e1af060017709b89 Empire of Mali  1235 to 1430 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba32e1af06001770ddb6']= {
-  min=1,
-  max=3,
-  description='Horsemen',
-  startDate=1235,
-  endDate=1255,
-}
-g_troop_entry['5fb1ba32e1af06001770ddb8']= {
-  troop_option='5fb1ba32e1af06001770ddb6',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba32e1af06001770ddb9']= {
-  min=1,
-  max=2,
-  description='Horsemen',
-  startDate=1256,
-  endDate=1430,
-}
-g_troop_entry['5fb1ba32e1af06001770ddbb']= {
-  troop_option='5fb1ba32e1af06001770ddb9',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba32e1af06001770ddbc']= {
-  min=1,
-  max=4,
-  description='Javelinmen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770ddbd']= {
-  troop_option='5fb1ba32e1af06001770ddbc',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba32e1af06001770ddbe']= {
-  min=9,
-  max=20,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770ddbf']= {
-  troop_option='5fb1ba32e1af06001770ddbe',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba32e1af06001770ddc0']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba32e1af06001770ddc1']= {
-  troop_option='5fb1ba32e1af06001770ddc0',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba32e1af06001770ddb8_general='5fb1ba32e1af06001770ddb8_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770ddb8_general]={
-  id=g_str_5fb1ba32e1af06001770ddb8_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770ddb8='5fb1ba32e1af06001770ddb8'
-g_base_definitions[g_str_5fb1ba32e1af06001770ddb8]={
-  id=g_str_5fb1ba32e1af06001770ddb8,
-  name='Javelin Cavalry',
-  min=1,
-  max=3,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770ddbb_general='5fb1ba32e1af06001770ddbb_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770ddbb_general]={
-  id=g_str_5fb1ba32e1af06001770ddbb_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770ddbb='5fb1ba32e1af06001770ddbb'
-g_base_definitions[g_str_5fb1ba32e1af06001770ddbb]={
-  id=g_str_5fb1ba32e1af06001770ddbb,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770ddbd_general='5fb1ba32e1af06001770ddbd_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770ddbd_general]={
-  id=g_str_5fb1ba32e1af06001770ddbd_general,
-  name='Light Foot General',
-  min=1,
-  max=1,
-  description='Javelinmen',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba32e1af06001770ddbd='5fb1ba32e1af06001770ddbd'
-g_base_definitions[g_str_5fb1ba32e1af06001770ddbd]={
-  id=g_str_5fb1ba32e1af06001770ddbd,
-  name='Light Foot',
-  min=1,
-  max=4,
-  description='Javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba32e1af06001770ddbf='5fb1ba32e1af06001770ddbf'
-g_base_definitions[g_str_5fb1ba32e1af06001770ddbf]={
-  id=g_str_5fb1ba32e1af06001770ddbf,
-  name='Bow Levy',
-  min=9,
-  max=20,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba32e1af06001770ddc1='5fb1ba32e1af06001770ddc1'
-g_base_definitions[g_str_5fb1ba32e1af06001770ddc1]={
-  id=g_str_5fb1ba32e1af06001770ddc1,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e6e1af060017709b89_camp='5fb1b9e6e1af060017709b89_camp'
-g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp]={
-  id=g_str_5fb1b9e6e1af060017709b89_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e6e1af060017709b89_camp_fortified='5fb1b9e6e1af060017709b89_camp_fortified'
-g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp_fortified]={
-  id=g_str_5fb1b9e6e1af060017709b89_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e6e1af060017709b89_camp_pack_train='5fb1b9e6e1af060017709b89_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp_pack_train]={
-  id=g_str_5fb1b9e6e1af060017709b89_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e6e1af060017709b89']={
   data={
     name='Empire of Mali  1235 to 1430 AD',
     id='5fb1b9e6e1af060017709b89',
-    army_id='5fb1b9e6e1af060017709b89'
+    dateRange={
+      startDate=1235,
+      endDate=1430,
+    }
   },
   g_base_definitions[g_str_5fb1ba32e1af06001770ddb8_general],
   g_base_definitions[g_str_5fb1ba32e1af06001770ddb8],
@@ -183,42 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e6e1af060017709b89"] = army["5fb1b9e6e1af060017709b89"]
-army['5fb1b9e6e1af060017709b89_1235_1255']={
-  data={
-    name='Empire of Mali 1235 AD to 1255 AD',
-    id='5fb1b9e6e1af060017709b89_1235_1255',
-    army_id='5fb1b9e6e1af060017709b89'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddb8_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddb8],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbb_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbb],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbd_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbd],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbf],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddc1],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp_pack_train],
-}
-army['5fb1b9e6e1af060017709b89_1256_1430']={
-  data={
-    name='Empire of Mali 1256 AD to 1430 AD',
-    id='5fb1b9e6e1af060017709b89_1256_1430',
-    army_id='5fb1b9e6e1af060017709b89'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddb8_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddb8],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbb_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbb],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbd_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbd],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddbf],
-  g_base_definitions[g_str_5fb1ba32e1af06001770ddc1],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b89_camp_pack_train],
-}
 if nil == armies["Sahel Africa"] then
   armies["Sahel Africa"] ={}
 end
@@ -231,6 +37,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e6e1af060017709b89"] = {}
-army_dates["5fb1b9e6e1af060017709b89"]["1235 AD to 1430 AD"] ="5fb1b9e6e1af060017709b89"
-army_dates["5fb1b9e6e1af060017709b89"]["1235 AD to 1255 AD"] ="5fb1b9e6e1af060017709b89_1235_1255"
-army_dates["5fb1b9e6e1af060017709b89"]["1256 AD to 1430 AD"] ="5fb1b9e6e1af060017709b89_1256_1430"
+army_dates["5fb1b9e6e1af060017709b89"]["1235 AD to 1430 AD"] = {
+  startDate=1235,
+  endDate=1430
+}
+army_dates["5fb1b9e6e1af060017709b89"]["1235 AD to 1255 AD"] = {
+  startDate=1235,
+  endDate=1255
+}
+army_dates["5fb1b9e6e1af060017709b89"]["1256 AD to 1430 AD"] = {
+  startDate=1256,
+  endDate=1430
+}

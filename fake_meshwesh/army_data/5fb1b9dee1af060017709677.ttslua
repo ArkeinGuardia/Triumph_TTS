@@ -1,264 +1,13 @@
 -- 5fb1b9dee1af060017709677 Pyrrhic  300 to 272 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba28e1af06001770cbff']= {
-  min=1,
-  max=1,
-  description='Epeirot or Macedonian horsemen',
-  startDate=-300,
-  endDate=-275,
-}
-g_troop_entry['5fb1ba28e1af06001770cc01']= {
-  troop_option='5fb1ba28e1af06001770cbff',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba28e1af06001770cc02']= {
-  min=1,
-  max=2,
-  description='Thessalian, Oscan, or Greek ally horsemen',
-  startDate=-300,
-  endDate=-275,
-}
-g_troop_entry['5fb1ba28e1af06001770cc04']= {
-  troop_option='5fb1ba28e1af06001770cc02',
-  troopTypeCode='JCV',
-}
-g_troop_entry['5fb1ba28e1af06001770cc05']= {
-  troop_option='5fb1ba28e1af06001770cc02',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba28e1af06001770cc06']= {
-  min=2,
-  max=3,
-  description='Horsemen with shields in Tarentine style',
-  startDate=-274,
-  endDate=-272,
-}
-g_troop_entry['5fb1ba28e1af06001770cc08']= {
-  troop_option='5fb1ba28e1af06001770cc06',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba28e1af06001770cc09']= {
-  min=4,
-  max=12,
-  description='Phalanx',
-  core='all',
-}
-g_troop_entry['5fb1ba28e1af06001770cc0a']= {
-  troop_option='5fb1ba28e1af06001770cc09',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba28e1af06001770cc0c']= {
-  min=2,
-  max=4,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba28e1af06001770cc0d']= {
-  troop_option='5fb1ba28e1af06001770cc0c',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba28e1af06001770cc0e']= {
-  min=0,
-  max=3,
-  description='Greek, Italiote, or Oscan javelinmen',
-}
-g_troop_entry['5fb1ba28e1af06001770cc0f']= {
-  troop_option='5fb1ba28e1af06001770cc0e',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba28e1af06001770cc10']= {
-  min=0,
-  max=1,
-  description='War elephants',
-  core='all',
-  startDate=-287,
-  endDate=-272,
-}
-g_troop_entry['5fb1ba28e1af06001770cc12']= {
-  troop_option='5fb1ba28e1af06001770cc10',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba28e1af06001770cc14']= {
-  min=0,
-  max=2,
-  description='Galatian fierce fighters',
-  core='all',
-  startDate=-274,
-  endDate=-272,
-}
-g_troop_entry['5fb1ba28e1af06001770cc16']= {
-  troop_option='5fb1ba28e1af06001770cc14',
-  troopTypeCode='WRR',
-}
-g_str_5fb1ba28e1af06001770cc01_general='5fb1ba28e1af06001770cc01_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc01_general]={
-  id=g_str_5fb1ba28e1af06001770cc01_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Epeirot or Macedonian horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba28e1af06001770cc01='5fb1ba28e1af06001770cc01'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc01]={
-  id=g_str_5fb1ba28e1af06001770cc01,
-  name='Knights',
-  min=1,
-  max=1,
-  description='Epeirot or Macedonian horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba28e1af06001770cc04_general='5fb1ba28e1af06001770cc04_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc04_general]={
-  id=g_str_5fb1ba28e1af06001770cc04_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Thessalian, Oscan, or Greek ally horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cc04='5fb1ba28e1af06001770cc04'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc04]={
-  id=g_str_5fb1ba28e1af06001770cc04,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Thessalian, Oscan, or Greek ally horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cc05='5fb1ba28e1af06001770cc05'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc05]={
-  id=g_str_5fb1ba28e1af06001770cc05,
-  name='Bad Horse',
-  min=1,
-  max=2,
-  description='Thessalian, Oscan, or Greek ally horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba28e1af06001770cc08_general='5fb1ba28e1af06001770cc08_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc08_general]={
-  id=g_str_5fb1ba28e1af06001770cc08_general,
-  name='Javelin Cavalry General',
-  min=2,
-  max=1,
-  description='Horsemen with shields in Tarentine style',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cc08='5fb1ba28e1af06001770cc08'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc08]={
-  id=g_str_5fb1ba28e1af06001770cc08,
-  name='Javelin Cavalry',
-  min=2,
-  max=3,
-  description='Horsemen with shields in Tarentine style',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cc0a='5fb1ba28e1af06001770cc0a'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc0a]={
-  id=g_str_5fb1ba28e1af06001770cc0a,
-  name='Pikes',
-  min=4,
-  max=12,
-  description='Phalanx',
-  troop_type="Pikes",
-}
-g_str_5fb1ba28e1af06001770cc0a_elephant_screen='5fb1ba28e1af06001770cc0a_elephant_screen'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc0a_elephant_screen]={
-  id=g_str_5fb1ba28e1af06001770cc0a_elephant_screen,
-  name='Pikes',
-  min=4,
-  max=12,
-  description='Phalanx\nElephant Screen',
-  elephant_screen=true,
-  troop_type="Pikes",
-}
-g_str_5fb1ba28e1af06001770cc0a_elephant_screen_elephant_screen_counter='5fb1ba28e1af06001770cc0a_elephant_screen_elephant_screen_counter'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc0a_elephant_screen_elephant_screen_counter]={
-  id=g_str_5fb1ba28e1af06001770cc0a_elephant_screen_elephant_screen_counter,
-  name='Elephant Screen',
-  min=4,
-  max=12,
-  description='',
-  troop_type="Elephant Screen Counter",
-}
-g_str_5fb1ba28e1af06001770cc0d='5fb1ba28e1af06001770cc0d'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc0d]={
-  id=g_str_5fb1ba28e1af06001770cc0d,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba28e1af06001770cc0f='5fb1ba28e1af06001770cc0f'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc0f]={
-  id=g_str_5fb1ba28e1af06001770cc0f,
-  name='Light Foot',
-  min=0,
-  max=3,
-  description='Greek, Italiote, or Oscan javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cc12='5fb1ba28e1af06001770cc12'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc12]={
-  id=g_str_5fb1ba28e1af06001770cc12,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba28e1af06001770cc16='5fb1ba28e1af06001770cc16'
-g_base_definitions[g_str_5fb1ba28e1af06001770cc16]={
-  id=g_str_5fb1ba28e1af06001770cc16,
-  name='Warriors',
-  min=0,
-  max=2,
-  description='Galatian fierce fighters',
-  troop_type="Warriors",
-}
-g_str_5fb1b9dee1af060017709677_camp='5fb1b9dee1af060017709677_camp'
-g_base_definitions[g_str_5fb1b9dee1af060017709677_camp]={
-  id=g_str_5fb1b9dee1af060017709677_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dee1af060017709677_camp_fortified='5fb1b9dee1af060017709677_camp_fortified'
-g_base_definitions[g_str_5fb1b9dee1af060017709677_camp_fortified]={
-  id=g_str_5fb1b9dee1af060017709677_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9dee1af060017709677_camp_pack_train='5fb1b9dee1af060017709677_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dee1af060017709677_camp_pack_train]={
-  id=g_str_5fb1b9dee1af060017709677_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dee1af060017709677']={
   data={
     name='Pyrrhic  300 to 272 BC',
     id='5fb1b9dee1af060017709677',
-    army_id='5fb1b9dee1af060017709677'
+    dateRange={
+      startDate=-300,
+      endDate=-272,
+    }
   },
   g_base_definitions[g_str_5fb1ba28e1af06001770cc01_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770cc01],
@@ -281,75 +30,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dee1af060017709677"] = army["5fb1b9dee1af060017709677"]
-army['5fb1b9dee1af060017709677_-300_-288']={
-  data={
-    name='Pyrrhic 300 BC to 288 BC',
-    id='5fb1b9dee1af060017709677_-300_-288',
-    army_id='5fb1b9dee1af060017709677'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc01_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc01],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc04_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc04],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc05],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc08_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc08],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0a],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0a_elephant_screen],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0d],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0f],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc12],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc16],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp_pack_train],
-}
-army['5fb1b9dee1af060017709677_-287_-275']={
-  data={
-    name='Pyrrhic 287 BC to 275 BC',
-    id='5fb1b9dee1af060017709677_-287_-275',
-    army_id='5fb1b9dee1af060017709677'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc01_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc01],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc04_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc04],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc05],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc08_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc08],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0a],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0a_elephant_screen],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0d],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0f],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc12],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc16],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp_pack_train],
-}
-army['5fb1b9dee1af060017709677_-274_-272']={
-  data={
-    name='Pyrrhic 274 BC to 272 BC',
-    id='5fb1b9dee1af060017709677_-274_-272',
-    army_id='5fb1b9dee1af060017709677'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc01_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc01],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc04_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc04],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc05],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc08_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc08],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0a],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0a_elephant_screen],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0d],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc0f],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc12],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cc16],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dee1af060017709677_camp_pack_train],
-}
 if nil == armies["Alexander and Successors"] then
   armies["Alexander and Successors"] ={}
 end
@@ -366,7 +46,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dee1af060017709677"] = {}
-army_dates["5fb1b9dee1af060017709677"]["300 BC to 272 BC"] ="5fb1b9dee1af060017709677"
-army_dates["5fb1b9dee1af060017709677"]["300 BC to 288 BC"] ="5fb1b9dee1af060017709677_-300_-288"
-army_dates["5fb1b9dee1af060017709677"]["287 BC to 275 BC"] ="5fb1b9dee1af060017709677_-287_-275"
-army_dates["5fb1b9dee1af060017709677"]["274 BC to 272 BC"] ="5fb1b9dee1af060017709677_-274_-272"
+army_dates["5fb1b9dee1af060017709677"]["300 BC to 272 BC"] = {
+  startDate=-300,
+  endDate=-272
+}
+army_dates["5fb1b9dee1af060017709677"]["300 BC to 295 BC"] = {
+  startDate=-300,
+  endDate=-295
+}
+army_dates["5fb1b9dee1af060017709677"]["294 BC"] = {
+  startDate=-294,
+  endDate=-294
+}
+army_dates["5fb1b9dee1af060017709677"]["293 BC to 288 BC"] = {
+  startDate=-293,
+  endDate=-288
+}
+army_dates["5fb1b9dee1af060017709677"]["287 BC to 281 BC"] = {
+  startDate=-287,
+  endDate=-281
+}
+army_dates["5fb1b9dee1af060017709677"]["280 BC to 275 BC"] = {
+  startDate=-280,
+  endDate=-275
+}
+army_dates["5fb1b9dee1af060017709677"]["274 BC to 272 BC"] = {
+  startDate=-274,
+  endDate=-272
+}

@@ -1,162 +1,13 @@
 -- 5fb1b9e0e1af0600177097c0 Parthian  250 BC to 225 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ae1af06001770d0cb']= {
-  min=1,
-  max=4,
-  description='Cataphracts',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770d0cc']= {
-  troop_option='5fb1ba2ae1af06001770d0cb',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba2ae1af06001770d0ce']= {
-  min=5,
-  max=11,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba2ae1af06001770d0cf']= {
-  troop_option='5fb1ba2ae1af06001770d0ce',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba2ae1af06001770d0d0']= {
-  min=0,
-  max=2,
-  description='City garrisons or militia',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770d0d1']= {
-  troop_option='5fb1ba2ae1af06001770d0d0',
-  troopTypeCode='RBL',
-}
-g_troop_entry['5fb1ba2ae1af06001770d0d2']= {
-  troop_option='5fb1ba2ae1af06001770d0d0',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2ae1af06001770d0d3']= {
-  min=0,
-  max=5,
-  description='City dwellers skirmishing with javelins, bows or slings',
-}
-g_troop_entry['5fb1ba2ae1af06001770d0d4']= {
-  troop_option='5fb1ba2ae1af06001770d0d3',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba2ae1af06001770d0cc_general='5fb1ba2ae1af06001770d0cc_general'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc_general]={
-  id=g_str_5fb1ba2ae1af06001770d0cc_general,
-  name='Cataphracts General',
-  min=1,
-  max=1,
-  description='Cataphracts',
-  general=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba2ae1af06001770d0cc_general_armored_camelry='5fb1ba2ae1af06001770d0cc_general_armored_camelry'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc_general_armored_camelry]={
-  id=g_str_5fb1ba2ae1af06001770d0cc_general_armored_camelry,
-  name='Cataphracts General',
-  min=0,
-  max=1,
-  description='Cataphracts\nArmored Camelry',
-  general=true,
-  armored_camelry=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba2ae1af06001770d0cc='5fb1ba2ae1af06001770d0cc'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc]={
-  id=g_str_5fb1ba2ae1af06001770d0cc,
-  name='Cataphracts',
-  min=1,
-  max=4,
-  description='Cataphracts',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba2ae1af06001770d0cc_armored_camelry='5fb1ba2ae1af06001770d0cc_armored_camelry'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc_armored_camelry]={
-  id=g_str_5fb1ba2ae1af06001770d0cc_armored_camelry,
-  name='Cataphracts',
-  min=0,
-  max=1,
-  description='Cataphracts\nArmored Camelry',
-  armored_camelry=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba2ae1af06001770d0cf='5fb1ba2ae1af06001770d0cf'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0cf]={
-  id=g_str_5fb1ba2ae1af06001770d0cf,
-  name='Horse Bow',
-  min=5,
-  max=11,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba2ae1af06001770d0d1='5fb1ba2ae1af06001770d0d1'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0d1]={
-  id=g_str_5fb1ba2ae1af06001770d0d1,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='City garrisons or militia',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2ae1af06001770d0d2='5fb1ba2ae1af06001770d0d2'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0d2]={
-  id=g_str_5fb1ba2ae1af06001770d0d2,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='City garrisons or militia',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2ae1af06001770d0d4='5fb1ba2ae1af06001770d0d4'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d0d4]={
-  id=g_str_5fb1ba2ae1af06001770d0d4,
-  name='Skirmishers',
-  min=0,
-  max=5,
-  description='City dwellers skirmishing with javelins, bows or slings',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e0e1af0600177097c0_camp='5fb1b9e0e1af0600177097c0_camp'
-g_base_definitions[g_str_5fb1b9e0e1af0600177097c0_camp]={
-  id=g_str_5fb1b9e0e1af0600177097c0_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e0e1af0600177097c0_camp_pack_train='5fb1b9e0e1af0600177097c0_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e0e1af0600177097c0_camp_pack_train]={
-  id=g_str_5fb1b9e0e1af0600177097c0_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
-g_str_5fb1ba0de1af06001770ac57='5fb1ba0de1af06001770ac57'
-g_base_definitions[g_str_5fb1ba0de1af06001770ac57]={
-  id=g_str_5fb1ba0de1af06001770ac57,
-  name='Light Foot',
-  min=2,
-  max=4,
-  description='Hyrkanian mountain tribesmen',
-  troop_type="Light Foot",
-}
 army['5fb1b9e0e1af0600177097c0']={
   data={
     name='Parthian  250 BC to 225 AD',
     id='5fb1b9e0e1af0600177097c0',
-    army_id='5fb1b9e0e1af0600177097c0'
+    dateRange={
+      startDate=-250,
+      endDate=225,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d0cc_general_armored_camelry],
@@ -194,4 +45,107 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e0e1af0600177097c0"] = {}
-army_dates["5fb1b9e0e1af0600177097c0"]["250 BC to 225 AD"] ="5fb1b9e0e1af0600177097c0"
+army_dates["5fb1b9e0e1af0600177097c0"]["250 BC to 225 AD"] = {
+  startDate=-250,
+  endDate=225
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["250 BC to 167 BC"] = {
+  startDate=-250,
+  endDate=-167
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["166 BC to 164 BC"] = {
+  startDate=-166,
+  endDate=-164
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["163 BC to 162 BC"] = {
+  startDate=-163,
+  endDate=-162
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["161 BC to 148 BC"] = {
+  startDate=-161,
+  endDate=-148
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["147 BC to 131 BC"] = {
+  startDate=-147,
+  endDate=-131
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["130 BC"] = {
+  startDate=-130,
+  endDate=-130
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["129 BC"] = {
+  startDate=-129,
+  endDate=-129
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["128 BC to 127 BC"] = {
+  startDate=-128,
+  endDate=-127
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["126 BC to 106 BC"] = {
+  startDate=-126,
+  endDate=-106
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["105 BC to 84 BC"] = {
+  startDate=-105,
+  endDate=-84
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["83 BC to 80 BC"] = {
+  startDate=-83,
+  endDate=-80
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["79 BC to 71 BC"] = {
+  startDate=-79,
+  endDate=-71
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["70 BC to 69 BC"] = {
+  startDate=-70,
+  endDate=-69
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["68 BC to 41 BC"] = {
+  startDate=-68,
+  endDate=-41
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["40 BC to 39 BC"] = {
+  startDate=-40,
+  endDate=-39
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["38 BC to 35 BC"] = {
+  startDate=-38,
+  endDate=-35
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["34 BC to 25 BC"] = {
+  startDate=-34,
+  endDate=-25
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["24 BC to 17 AD"] = {
+  startDate=-24,
+  endDate=17
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["18 AD to 34 AD"] = {
+  startDate=18,
+  endDate=34
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["35 AD"] = {
+  startDate=35,
+  endDate=35
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["36 AD to 41 AD"] = {
+  startDate=36,
+  endDate=41
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["42 AD to 50 AD"] = {
+  startDate=42,
+  endDate=50
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["51 AD to 65 AD"] = {
+  startDate=51,
+  endDate=65
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["66 AD to 72 AD"] = {
+  startDate=66,
+  endDate=72
+}
+army_dates["5fb1b9e0e1af0600177097c0"]["73 AD to 225 AD"] = {
+  startDate=73,
+  endDate=225
+}

@@ -1,137 +1,13 @@
 -- 5fb1b9dae1af06001770943e Later Neo-Babylonian  669 to 605 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba22e1af06001770c34c']= {
-  min=1,
-  max=2,
-  description='4-horse chariots with three crewmen or 2-horse chariots with two crewmen',
-}
-g_troop_entry['5fb1ba22e1af06001770c34d']= {
-  troop_option='5fb1ba22e1af06001770c34c',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba22e1af06001770c34e']= {
-  min=1,
-  max=1,
-  description='Qurbuti horsemen',
-}
-g_troop_entry['5fb1ba22e1af06001770c34f']= {
-  troop_option='5fb1ba22e1af06001770c34e',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba22e1af06001770c350']= {
-  min=0,
-  max=1,
-  description='Qurbuti, Chaldean, Aramaean, or militia horsemen',
-}
-g_troop_entry['5fb1ba22e1af06001770c351']= {
-  troop_option='5fb1ba22e1af06001770c350',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba22e1af06001770c352']= {
-  min=0,
-  max=2,
-  description='Qurbuti infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c353']= {
-  troop_option='5fb1ba22e1af06001770c352',
-  troopTypeCode='SPR',
-}
-g_troop_option['5fb1ba22e1af06001770c355']= {
-  min=10,
-  max=20,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c356']= {
-  troop_option='5fb1ba22e1af06001770c355',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba22e1af06001770c34d_general='5fb1ba22e1af06001770c34d_general'
-g_base_definitions[g_str_5fb1ba22e1af06001770c34d_general]={
-  id=g_str_5fb1ba22e1af06001770c34d_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='4-horse chariots with three crewmen or 2-horse chariots with two crewmen',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba22e1af06001770c34d='5fb1ba22e1af06001770c34d'
-g_base_definitions[g_str_5fb1ba22e1af06001770c34d]={
-  id=g_str_5fb1ba22e1af06001770c34d,
-  name='Chariots',
-  min=1,
-  max=2,
-  description='4-horse chariots with three crewmen or 2-horse chariots with two crewmen',
-  troop_type="Chariots",
-}
-g_str_5fb1ba22e1af06001770c34f='5fb1ba22e1af06001770c34f'
-g_base_definitions[g_str_5fb1ba22e1af06001770c34f]={
-  id=g_str_5fb1ba22e1af06001770c34f,
-  name='Javelin Cavalry',
-  min=1,
-  max=1,
-  description='Qurbuti horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba22e1af06001770c351='5fb1ba22e1af06001770c351'
-g_base_definitions[g_str_5fb1ba22e1af06001770c351]={
-  id=g_str_5fb1ba22e1af06001770c351,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Qurbuti, Chaldean, Aramaean, or militia horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba22e1af06001770c353='5fb1ba22e1af06001770c353'
-g_base_definitions[g_str_5fb1ba22e1af06001770c353]={
-  id=g_str_5fb1ba22e1af06001770c353,
-  name='Spears',
-  min=0,
-  max=2,
-  description='Qurbuti infantry',
-  troop_type="Spears",
-}
-g_str_5fb1ba22e1af06001770c356='5fb1ba22e1af06001770c356'
-g_base_definitions[g_str_5fb1ba22e1af06001770c356]={
-  id=g_str_5fb1ba22e1af06001770c356,
-  name='Bow Levy',
-  min=10,
-  max=20,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9dae1af06001770943e_camp='5fb1b9dae1af06001770943e_camp'
-g_base_definitions[g_str_5fb1b9dae1af06001770943e_camp]={
-  id=g_str_5fb1b9dae1af06001770943e_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af06001770943e_camp_pack_train='5fb1b9dae1af06001770943e_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dae1af06001770943e_camp_pack_train]={
-  id=g_str_5fb1b9dae1af06001770943e_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dae1af06001770943e']={
   data={
     name='Later Neo-Babylonian  669 to 605 BC',
     id='5fb1b9dae1af06001770943e',
-    army_id='5fb1b9dae1af06001770943e'
+    dateRange={
+      startDate=-669,
+      endDate=-605,
+    }
   },
   g_base_definitions[g_str_5fb1ba22e1af06001770c34d_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c34d],
@@ -158,4 +34,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af06001770943e"] = {}
-army_dates["5fb1b9dae1af06001770943e"]["669 BC to 605 BC"] ="5fb1b9dae1af06001770943e"
+army_dates["5fb1b9dae1af06001770943e"]["669 BC to 605 BC"] = {
+  startDate=-669,
+  endDate=-605
+}
+army_dates["5fb1b9dae1af06001770943e"]["669 BC to 652 BC"] = {
+  startDate=-669,
+  endDate=-652
+}
+army_dates["5fb1b9dae1af06001770943e"]["651 BC to 648 BC"] = {
+  startDate=-651,
+  endDate=-648
+}
+army_dates["5fb1b9dae1af06001770943e"]["647 BC to 639 BC"] = {
+  startDate=-647,
+  endDate=-639
+}
+army_dates["5fb1b9dae1af06001770943e"]["638 BC to 621 BC"] = {
+  startDate=-638,
+  endDate=-621
+}
+army_dates["5fb1b9dae1af06001770943e"]["620 BC"] = {
+  startDate=-620,
+  endDate=-620
+}
+army_dates["5fb1b9dae1af06001770943e"]["619 BC to 609 BC"] = {
+  startDate=-619,
+  endDate=-609
+}
+army_dates["5fb1b9dae1af06001770943e"]["608 BC to 605 BC"] = {
+  startDate=-608,
+  endDate=-605
+}

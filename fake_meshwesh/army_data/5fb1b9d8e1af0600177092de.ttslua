@@ -1,229 +1,13 @@
 -- 5fb1b9d8e1af0600177092de Sumerian Successor States  2028 to 1460 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba1ee1af06001770be47']= {
-  min=1,
-  max=1,
-  description='4-equid platform cars or royal retinue bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba1ee1af06001770be48']= {
-  troop_option='5fb1ba1ee1af06001770be47',
-  troopTypeCode='CHT',
-}
-g_troop_entry['5fb1ba1ee1af06001770be49']= {
-  troop_option='5fb1ba1ee1af06001770be47',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba1ee1af06001770be4a']= {
-  min=3,
-  max=10,
-  description='Militia spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba1ee1af06001770be4b']= {
-  troop_option='5fb1ba1ee1af06001770be4a',
-  troopTypeCode='PIK',
-  note='all',
-}
-g_troop_entry['5fb1ba1ee1af06001770be4c']= {
-  troop_option='5fb1ba1ee1af06001770be4a',
-  troopTypeCode='LSP',
-  note='all',
-}
-g_troop_entry['5fb1ba1ee1af06001770be4d']= {
-  troop_option='5fb1ba1ee1af06001770be4a',
-  troopTypeCode='HFT',
-  note='all',
-}
-g_troop_option['5fb1ba1ee1af06001770be4e']= {
-  min=1,
-  max=2,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba1ee1af06001770be4f']= {
-  troop_option='5fb1ba1ee1af06001770be4e',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba1ee1af06001770be50']= {
-  min=2,
-  max=4,
-  description='Slingers or skirmishing bowmen',
-}
-g_troop_entry['5fb1ba1ee1af06001770be51']= {
-  troop_option='5fb1ba1ee1af06001770be50',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba1ee1af06001770be52']= {
-  min=1,
-  max=4,
-  description='Zagros highlander or Elamite mercenaries',
-  core='all',
-}
-g_troop_entry['5fb1ba1ee1af06001770be53']= {
-  troop_option='5fb1ba1ee1af06001770be52',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba1ee1af06001770be54']= {
-  min=1,
-  max=1,
-  description='Zagros highlander or Turruku mercenaries',
-}
-g_troop_entry['5fb1ba1ee1af06001770be55']= {
-  troop_option='5fb1ba1ee1af06001770be54',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba1ee1af06001770be56']= {
-  min=1,
-  max=2,
-  description='Amurru mercenary javelinmen',
-  note='only Isin',
-  startDate=-2017,
-  endDate=-1794,
-}
-g_troop_entry['5fb1ba1ee1af06001770be58']= {
-  troop_option='5fb1ba1ee1af06001770be56',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba1ee1af06001770be48_general='5fb1ba1ee1af06001770be48_general'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be48_general]={
-  id=g_str_5fb1ba1ee1af06001770be48_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='4-equid platform cars or royal retinue bowmen',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba1ee1af06001770be48='5fb1ba1ee1af06001770be48'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be48]={
-  id=g_str_5fb1ba1ee1af06001770be48,
-  name='Chariots',
-  min=1,
-  max=1,
-  description='4-equid platform cars or royal retinue bowmen',
-  troop_type="Chariots",
-}
-g_str_5fb1ba1ee1af06001770be49_general='5fb1ba1ee1af06001770be49_general'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be49_general]={
-  id=g_str_5fb1ba1ee1af06001770be49_general,
-  name='Archers General',
-  min=1,
-  max=1,
-  description='4-equid platform cars or royal retinue bowmen',
-  general=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba1ee1af06001770be49='5fb1ba1ee1af06001770be49'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be49]={
-  id=g_str_5fb1ba1ee1af06001770be49,
-  name='Archers',
-  min=1,
-  max=1,
-  description='4-equid platform cars or royal retinue bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba1ee1af06001770be4b='5fb1ba1ee1af06001770be4b'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be4b]={
-  id=g_str_5fb1ba1ee1af06001770be4b,
-  name='Pikes',
-  min=3,
-  max=10,
-  description='Militia spearmen',
-  troop_type="Pikes",
-}
-g_str_5fb1ba1ee1af06001770be4c='5fb1ba1ee1af06001770be4c'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be4c]={
-  id=g_str_5fb1ba1ee1af06001770be4c,
-  name='Light Spear',
-  min=3,
-  max=10,
-  description='Militia spearmen',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba1ee1af06001770be4d='5fb1ba1ee1af06001770be4d'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be4d]={
-  id=g_str_5fb1ba1ee1af06001770be4d,
-  name='Heavy Foot',
-  min=3,
-  max=10,
-  description='Militia spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba1ee1af06001770be4f='5fb1ba1ee1af06001770be4f'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be4f]={
-  id=g_str_5fb1ba1ee1af06001770be4f,
-  name='Rabble',
-  min=1,
-  max=2,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba1ee1af06001770be51='5fb1ba1ee1af06001770be51'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be51]={
-  id=g_str_5fb1ba1ee1af06001770be51,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Slingers or skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba1ee1af06001770be53='5fb1ba1ee1af06001770be53'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be53]={
-  id=g_str_5fb1ba1ee1af06001770be53,
-  name='Bow Levy',
-  min=1,
-  max=4,
-  description='Zagros highlander or Elamite mercenaries',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba1ee1af06001770be55='5fb1ba1ee1af06001770be55'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be55]={
-  id=g_str_5fb1ba1ee1af06001770be55,
-  name='Rabble',
-  min=1,
-  max=1,
-  description='Zagros highlander or Turruku mercenaries',
-  troop_type="Rabble",
-}
-g_str_5fb1ba1ee1af06001770be58='5fb1ba1ee1af06001770be58'
-g_base_definitions[g_str_5fb1ba1ee1af06001770be58]={
-  id=g_str_5fb1ba1ee1af06001770be58,
-  name='Light Foot',
-  min=1,
-  max=2,
-  description='Amurru mercenary javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9d8e1af0600177092de_camp='5fb1b9d8e1af0600177092de_camp'
-g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp]={
-  id=g_str_5fb1b9d8e1af0600177092de_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9d8e1af0600177092de_camp_pack_train='5fb1b9d8e1af0600177092de_camp_pack_train'
-g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp_pack_train]={
-  id=g_str_5fb1b9d8e1af0600177092de_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9d8e1af0600177092de']={
   data={
     name='Sumerian Successor States  2028 to 1460 BC',
     id='5fb1b9d8e1af0600177092de',
-    army_id='5fb1b9d8e1af0600177092de'
+    dateRange={
+      startDate=-2028,
+      endDate=-1460,
+    }
   },
   g_base_definitions[g_str_5fb1ba1ee1af06001770be48_general],
   g_base_definitions[g_str_5fb1ba1ee1af06001770be48],
@@ -244,69 +28,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9d8e1af0600177092de"] = army["5fb1b9d8e1af0600177092de"]
-army['5fb1b9d8e1af0600177092de_-2028_-2018']={
-  data={
-    name='Sumerian Successor States 2028 BC to 2018 BC',
-    id='5fb1b9d8e1af0600177092de_-2028_-2018',
-    army_id='5fb1b9d8e1af0600177092de'
-  },
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be48_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be48],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be49_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be49],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4b],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4c],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4d],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4f],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be51],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be53],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be55],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be58],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp_pack_train],
-}
-army['5fb1b9d8e1af0600177092de_-2017_-1794']={
-  data={
-    name='Sumerian Successor States 2017 BC to 1794 BC',
-    id='5fb1b9d8e1af0600177092de_-2017_-1794',
-    army_id='5fb1b9d8e1af0600177092de'
-  },
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be48_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be48],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be49_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be49],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4b],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4c],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4d],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4f],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be51],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be53],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be55],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be58],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp_pack_train],
-}
-army['5fb1b9d8e1af0600177092de_-1793_-1460']={
-  data={
-    name='Sumerian Successor States 1793 BC to 1460 BC',
-    id='5fb1b9d8e1af0600177092de_-1793_-1460',
-    army_id='5fb1b9d8e1af0600177092de'
-  },
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be48_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be48],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be49_general],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be49],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4b],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4c],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4d],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be4f],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be51],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be53],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be55],
-  g_base_definitions[g_str_5fb1ba1ee1af06001770be58],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp],
-  g_base_definitions[g_str_5fb1b9d8e1af0600177092de_camp_pack_train],
-}
 if nil == armies["Cradle of Civilization"] then
   armies["Cradle of Civilization"] ={}
 end
@@ -323,7 +44,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d8e1af0600177092de"] = {}
-army_dates["5fb1b9d8e1af0600177092de"]["2028 BC to 1460 BC"] ="5fb1b9d8e1af0600177092de"
-army_dates["5fb1b9d8e1af0600177092de"]["2028 BC to 2018 BC"] ="5fb1b9d8e1af0600177092de_-2028_-2018"
-army_dates["5fb1b9d8e1af0600177092de"]["2017 BC to 1794 BC"] ="5fb1b9d8e1af0600177092de_-2017_-1794"
-army_dates["5fb1b9d8e1af0600177092de"]["1793 BC to 1460 BC"] ="5fb1b9d8e1af0600177092de_-1793_-1460"
+army_dates["5fb1b9d8e1af0600177092de"]["2028 BC to 1460 BC"] = {
+  startDate=-2028,
+  endDate=-1460
+}
+army_dates["5fb1b9d8e1af0600177092de"]["2028 BC to 2018 BC"] = {
+  startDate=-2028,
+  endDate=-2018
+}
+army_dates["5fb1b9d8e1af0600177092de"]["2017 BC to 2001 BC"] = {
+  startDate=-2017,
+  endDate=-2001
+}
+army_dates["5fb1b9d8e1af0600177092de"]["2000 BC to 1895 BC"] = {
+  startDate=-2000,
+  endDate=-1895
+}
+army_dates["5fb1b9d8e1af0600177092de"]["1894 BC to 1794 BC"] = {
+  startDate=-1894,
+  endDate=-1794
+}
+army_dates["5fb1b9d8e1af0600177092de"]["1793 BC to 1762 BC"] = {
+  startDate=-1793,
+  endDate=-1762
+}
+army_dates["5fb1b9d8e1af0600177092de"]["1761 BC to 1595 BC"] = {
+  startDate=-1761,
+  endDate=-1595
+}
+army_dates["5fb1b9d8e1af0600177092de"]["1594 BC to 1460 BC"] = {
+  startDate=-1594,
+  endDate=-1460
+}

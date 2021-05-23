@@ -1,212 +1,13 @@
 -- 5fb1b9dde1af060017709606 Later Hoplite Italiot, Siciliot, or Tarentine  448 to 225 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba27e1af06001770ca32']= {
-  min=2,
-  max=9,
-  description='Hoplites',
-  core='all',
-}
-g_troop_entry['5fb1ba27e1af06001770ca33']= {
-  troop_option='5fb1ba27e1af06001770ca32',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba27e1af06001770ca35']= {
-  min=1,
-  max=3,
-  description='Psiloi armed with javelins',
-}
-g_troop_entry['5fb1ba27e1af06001770ca36']= {
-  troop_option='5fb1ba27e1af06001770ca35',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba27e1af06001770ca37']= {
-  min=1,
-  max=5,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba27e1af06001770ca38']= {
-  troop_option='5fb1ba27e1af06001770ca37',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba27e1af06001770ca39']= {
-  min=0,
-  max=1,
-  description='Cretan or other skirmishing mercenary bowmen',
-}
-g_troop_entry['5fb1ba27e1af06001770ca3a']= {
-  troop_option='5fb1ba27e1af06001770ca39',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba27e1af06001770ca3b']= {
-  min=0,
-  max=2,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba27e1af06001770ca3c']= {
-  troop_option='5fb1ba27e1af06001770ca3b',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba27e1af06001770ca3d']= {
-  min=0,
-  max=12,
-  description='Mercenary hoplites',
-  core='all',
-}
-g_troop_entry['5fb1ba27e1af06001770ca3e']= {
-  troop_option='5fb1ba27e1af06001770ca3d',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba27e1af06001770ca3f']= {
-  min=0,
-  max=3,
-  description='Mercenary peltasts',
-}
-g_troop_entry['5fb1ba27e1af06001770ca40']= {
-  troop_option='5fb1ba27e1af06001770ca3f',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba27e1af06001770ca41']= {
-  min=0,
-  max=2,
-  description='Sikels',
-  note='only if Siciliot',
-}
-g_troop_entry['5fb1ba27e1af06001770ca42']= {
-  troop_option='5fb1ba27e1af06001770ca41',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba27e1af06001770ca33_general='5fb1ba27e1af06001770ca33_general'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca33_general]={
-  id=g_str_5fb1ba27e1af06001770ca33_general,
-  name='Heavy Foot General',
-  min=2,
-  max=1,
-  description='Hoplites',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba27e1af06001770ca33='5fb1ba27e1af06001770ca33'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca33]={
-  id=g_str_5fb1ba27e1af06001770ca33,
-  name='Heavy Foot',
-  min=2,
-  max=9,
-  description='Hoplites',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba27e1af06001770ca36='5fb1ba27e1af06001770ca36'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca36]={
-  id=g_str_5fb1ba27e1af06001770ca36,
-  name='Rabble',
-  min=1,
-  max=3,
-  description='Psiloi armed with javelins',
-  troop_type="Rabble",
-}
-g_str_5fb1ba27e1af06001770ca38_general='5fb1ba27e1af06001770ca38_general'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca38_general]={
-  id=g_str_5fb1ba27e1af06001770ca38_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770ca38='5fb1ba27e1af06001770ca38'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca38]={
-  id=g_str_5fb1ba27e1af06001770ca38,
-  name='Javelin Cavalry',
-  min=1,
-  max=5,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770ca3a='5fb1ba27e1af06001770ca3a'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca3a]={
-  id=g_str_5fb1ba27e1af06001770ca3a,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Cretan or other skirmishing mercenary bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba27e1af06001770ca3c='5fb1ba27e1af06001770ca3c'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca3c]={
-  id=g_str_5fb1ba27e1af06001770ca3c,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba27e1af06001770ca3e_general='5fb1ba27e1af06001770ca3e_general'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca3e_general]={
-  id=g_str_5fb1ba27e1af06001770ca3e_general,
-  name='Heavy Foot General',
-  min=0,
-  max=1,
-  description='Mercenary hoplites',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba27e1af06001770ca3e='5fb1ba27e1af06001770ca3e'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca3e]={
-  id=g_str_5fb1ba27e1af06001770ca3e,
-  name='Heavy Foot',
-  min=0,
-  max=12,
-  description='Mercenary hoplites',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba27e1af06001770ca40='5fb1ba27e1af06001770ca40'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca40]={
-  id=g_str_5fb1ba27e1af06001770ca40,
-  name='Light Foot',
-  min=0,
-  max=3,
-  description='Mercenary peltasts',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba27e1af06001770ca42='5fb1ba27e1af06001770ca42'
-g_base_definitions[g_str_5fb1ba27e1af06001770ca42]={
-  id=g_str_5fb1ba27e1af06001770ca42,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Sikels',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9dde1af060017709606_camp='5fb1b9dde1af060017709606_camp'
-g_base_definitions[g_str_5fb1b9dde1af060017709606_camp]={
-  id=g_str_5fb1b9dde1af060017709606_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dde1af060017709606_camp_pack_train='5fb1b9dde1af060017709606_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dde1af060017709606_camp_pack_train]={
-  id=g_str_5fb1b9dde1af060017709606_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dde1af060017709606']={
   data={
     name='Later Hoplite Italiot, Siciliot, or Tarentine  448 to 225 BC',
     id='5fb1b9dde1af060017709606',
-    army_id='5fb1b9dde1af060017709606'
+    dateRange={
+      startDate=-448,
+      endDate=-225,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770ca33_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770ca33],
@@ -246,4 +47,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dde1af060017709606"] = {}
-army_dates["5fb1b9dde1af060017709606"]["448 BC to 225 BC"] ="5fb1b9dde1af060017709606"
+army_dates["5fb1b9dde1af060017709606"]["448 BC to 225 BC"] = {
+  startDate=-448,
+  endDate=-225
+}
+army_dates["5fb1b9dde1af060017709606"]["448 BC to 421 BC"] = {
+  startDate=-448,
+  endDate=-421
+}
+army_dates["5fb1b9dde1af060017709606"]["420 BC to 392 BC"] = {
+  startDate=-420,
+  endDate=-392
+}
+army_dates["5fb1b9dde1af060017709606"]["391 BC to 371 BC"] = {
+  startDate=-391,
+  endDate=-371
+}
+army_dates["5fb1b9dde1af060017709606"]["370 BC to 344 BC"] = {
+  startDate=-370,
+  endDate=-344
+}
+army_dates["5fb1b9dde1af060017709606"]["343 BC"] = {
+  startDate=-343,
+  endDate=-343
+}
+army_dates["5fb1b9dde1af060017709606"]["342 BC to 225 BC"] = {
+  startDate=-342,
+  endDate=-225
+}

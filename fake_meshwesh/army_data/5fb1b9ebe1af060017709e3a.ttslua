@@ -1,82 +1,13 @@
 -- 5fb1b9ebe1af060017709e3a Rshtuni Armenian (all mounted)  639 to 717 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba37e1af06001770e85a']= {
-  min=2,
-  max=4,
-  description='Nakhararks',
-  core='all',
-}
-g_troop_entry['5fb1ba37e1af06001770e85b']= {
-  troop_option='5fb1ba37e1af06001770e85a',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba37e1af06001770e85c']= {
-  min=4,
-  max=8,
-  description='Lesser nakhararks and volunteer horse archers',
-}
-g_troop_entry['5fb1ba37e1af06001770e85d']= {
-  troop_option='5fb1ba37e1af06001770e85c',
-  troopTypeCode='HBW',
-}
-g_str_5fb1ba37e1af06001770e85b_general='5fb1ba37e1af06001770e85b_general'
-g_base_definitions[g_str_5fb1ba37e1af06001770e85b_general]={
-  id=g_str_5fb1ba37e1af06001770e85b_general,
-  name='Elite Cavalary General',
-  min=2,
-  max=1,
-  description='Nakhararks',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba37e1af06001770e85b='5fb1ba37e1af06001770e85b'
-g_base_definitions[g_str_5fb1ba37e1af06001770e85b]={
-  id=g_str_5fb1ba37e1af06001770e85b,
-  name='Elite Cavalary',
-  min=2,
-  max=4,
-  description='Nakhararks',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba37e1af06001770e85d='5fb1ba37e1af06001770e85d'
-g_base_definitions[g_str_5fb1ba37e1af06001770e85d]={
-  id=g_str_5fb1ba37e1af06001770e85d,
-  name='Horse Bow',
-  min=4,
-  max=8,
-  description='Lesser nakhararks and volunteer horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1b9ebe1af060017709e3a_camp='5fb1b9ebe1af060017709e3a_camp'
-g_base_definitions[g_str_5fb1b9ebe1af060017709e3a_camp]={
-  id=g_str_5fb1b9ebe1af060017709e3a_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ebe1af060017709e3a_camp_pack_train='5fb1b9ebe1af060017709e3a_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ebe1af060017709e3a_camp_pack_train]={
-  id=g_str_5fb1b9ebe1af060017709e3a_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ebe1af060017709e3a']={
   data={
     name='Rshtuni Armenian (all mounted)  639 to 717 AD',
     id='5fb1b9ebe1af060017709e3a',
-    army_id='5fb1b9ebe1af060017709e3a'
+    dateRange={
+      startDate=639,
+      endDate=717,
+    }
   },
   g_base_definitions[g_str_5fb1ba37e1af06001770e85b_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e85b],
@@ -104,4 +35,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ebe1af060017709e3a"] = {}
-army_dates["5fb1b9ebe1af060017709e3a"]["639 AD to 717 AD"] ="5fb1b9ebe1af060017709e3a"
+army_dates["5fb1b9ebe1af060017709e3a"]["639 AD to 717 AD"] = {
+  startDate=639,
+  endDate=717
+}
+army_dates["5fb1b9ebe1af060017709e3a"]["639 AD to 649 AD"] = {
+  startDate=639,
+  endDate=649
+}
+army_dates["5fb1b9ebe1af060017709e3a"]["650 AD to 651 AD"] = {
+  startDate=650,
+  endDate=651
+}
+army_dates["5fb1b9ebe1af060017709e3a"]["652 AD"] = {
+  startDate=652,
+  endDate=652
+}
+army_dates["5fb1b9ebe1af060017709e3a"]["653 AD"] = {
+  startDate=653,
+  endDate=653
+}
+army_dates["5fb1b9ebe1af060017709e3a"]["654 AD to 656 AD"] = {
+  startDate=654,
+  endDate=656
+}
+army_dates["5fb1b9ebe1af060017709e3a"]["657 AD to 660 AD"] = {
+  startDate=657,
+  endDate=660
+}
+army_dates["5fb1b9ebe1af060017709e3a"]["661 AD to 717 AD"] = {
+  startDate=661,
+  endDate=717
+}

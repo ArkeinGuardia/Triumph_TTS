@@ -1,268 +1,13 @@
 -- 5fb1b9e6e1af060017709b3a Later Hundred-Years War English  1415 to 1455 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba31e1af06001770dce1']= {
-  min=1,
-  max=2,
-  description='Men-at-arms',
-}
-g_troop_entry['5fb1ba31e1af06001770dce2']= {
-  troop_option='5fb1ba31e1af06001770dce1',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba31e1af06001770dce4']= {
-  min=0,
-  max=1,
-  description='Bombards',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770dce5']= {
-  troop_option='5fb1ba31e1af06001770dce4',
-  troopTypeCode='ART',
-}
-g_troop_option['5fb1ba31e1af06001770dce6']= {
-  min=4,
-  max=11,
-  description='English longbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770dce7']= {
-  troop_option='5fb1ba31e1af06001770dce6',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba31e1af06001770dce9']= {
-  min=0,
-  max=2,
-  description='English and Welsh longbowmen or Gascon crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770dcea']= {
-  troop_option='5fb1ba31e1af06001770dce9',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba31e1af06001770dceb']= {
-  min=0,
-  max=2,
-  description='Billmen',
-  core='all',
-  startDate=1423,
-  endDate=1455,
-}
-g_troop_entry['5fb1ba31e1af06001770dced']= {
-  troop_option='5fb1ba31e1af06001770dceb',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba31e1af06001770dcf0']= {
-  min=0,
-  max=1,
-  description='Gascon bidowers, Bretons, or Irish kerns',
-}
-g_troop_entry['5fb1ba31e1af06001770dcf1']= {
-  troop_option='5fb1ba31e1af06001770dcf0',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba31e1af06001770dcf2']= {
-  min=0,
-  max=1,
-  description='Gascon and False-French town militia',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770dcf3']= {
-  troop_option='5fb1ba31e1af06001770dcf2',
-  troopTypeCode='HFT',
-}
-g_str_5fb1ba31e1af06001770dce2_general='5fb1ba31e1af06001770dce2_general'
-g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general]={
-  id=g_str_5fb1ba31e1af06001770dce2_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Men-at-arms',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770dce2_general_dismounted='5fb1ba31e1af06001770dce2_general_dismounted'
-g_str_5fb1ba31e1af06001770dce2_general_mounted='5fb1ba31e1af06001770dce2_general_mounted'
-g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general_dismounted]={
-  id=g_str_5fb1ba31e1af06001770dce2_general_dismounted,
-  name='Elite Foot General',
-  min=1,
-  max=1,
-  description='Men-at-arms\nDeployment dismounted from Knights General',
-  points=4,
-  dismounted_from=g_str_5fb1ba31e1af06001770dce2_general_mounted,
-  general=true,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general_mounted]={
-  id=g_str_5fb1ba31e1af06001770dce2_general_mounted,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Men-at-arms\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba31e1af06001770dce2_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770dce2='5fb1ba31e1af06001770dce2'
-g_base_definitions[g_str_5fb1ba31e1af06001770dce2]={
-  id=g_str_5fb1ba31e1af06001770dce2,
-  name='Knights',
-  min=1,
-  max=2,
-  description='Men-at-arms',
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770dce2_dismounted='5fb1ba31e1af06001770dce2_dismounted'
-g_str_5fb1ba31e1af06001770dce2_mounted='5fb1ba31e1af06001770dce2_mounted'
-g_base_definitions[g_str_5fb1ba31e1af06001770dce2_dismounted]={
-  id=g_str_5fb1ba31e1af06001770dce2_dismounted,
-  name='Elite Foot',
-  min=1,
-  max=2,
-  description='Men-at-arms\nDeployment dismounted from Knights',
-  points=4,
-  dismounted_from=g_str_5fb1ba31e1af06001770dce2_mounted,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba31e1af06001770dce2_mounted]={
-  id=g_str_5fb1ba31e1af06001770dce2_mounted,
-  name='Knights',
-  min=1,
-  max=2,
-  description='Men-at-arms\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba31e1af06001770dce2_dismounted,
-  deployment_dismounting=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770dce5='5fb1ba31e1af06001770dce5'
-g_base_definitions[g_str_5fb1ba31e1af06001770dce5]={
-  id=g_str_5fb1ba31e1af06001770dce5,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Bombards',
-  troop_type="Artillery",
-}
-g_str_5fb1ba31e1af06001770dce7='5fb1ba31e1af06001770dce7'
-g_base_definitions[g_str_5fb1ba31e1af06001770dce7]={
-  id=g_str_5fb1ba31e1af06001770dce7,
-  name='Archers',
-  min=4,
-  max=11,
-  description='English longbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba31e1af06001770dce7_dismounted_mobile_infantry='5fb1ba31e1af06001770dce7_dismounted_mobile_infantry'
-g_str_5fb1ba31e1af06001770dce7_mounted_mobile_infantry='5fb1ba31e1af06001770dce7_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba31e1af06001770dce7_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba31e1af06001770dce7_dismounted_mobile_infantry,
-  name='Archers',
-  min=4,
-  max=11,
-  description='English longbowmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba31e1af06001770dce7_mounted_mobile_infantry,
-  troop_type="Archers",
-}
-g_base_definitions[g_str_5fb1ba31e1af06001770dce7_mounted_mobile_infantry]={
-  id=g_str_5fb1ba31e1af06001770dce7_mounted_mobile_infantry,
-  name='Archers',
-  min=4,
-  max=11,
-  description='English longbowmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba31e1af06001770dce7_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba31e1af06001770dcea='5fb1ba31e1af06001770dcea'
-g_base_definitions[g_str_5fb1ba31e1af06001770dcea]={
-  id=g_str_5fb1ba31e1af06001770dcea,
-  name='Archers',
-  min=0,
-  max=2,
-  description='English and Welsh longbowmen or Gascon crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba31e1af06001770dced='5fb1ba31e1af06001770dced'
-g_base_definitions[g_str_5fb1ba31e1af06001770dced]={
-  id=g_str_5fb1ba31e1af06001770dced,
-  name='Elite Foot',
-  min=0,
-  max=2,
-  description='Billmen',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba31e1af06001770dced_dismounted_mobile_infantry='5fb1ba31e1af06001770dced_dismounted_mobile_infantry'
-g_str_5fb1ba31e1af06001770dced_mounted_mobile_infantry='5fb1ba31e1af06001770dced_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba31e1af06001770dced_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba31e1af06001770dced_dismounted_mobile_infantry,
-  name='Elite Foot',
-  min=0,
-  max=1,
-  description='Billmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba31e1af06001770dced_mounted_mobile_infantry,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba31e1af06001770dced_mounted_mobile_infantry]={
-  id=g_str_5fb1ba31e1af06001770dced_mounted_mobile_infantry,
-  name='Elite Foot',
-  min=0,
-  max=1,
-  description='Billmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba31e1af06001770dced_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba31e1af06001770dcf1='5fb1ba31e1af06001770dcf1'
-g_base_definitions[g_str_5fb1ba31e1af06001770dcf1]={
-  id=g_str_5fb1ba31e1af06001770dcf1,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Gascon bidowers, Bretons, or Irish kerns',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba31e1af06001770dcf3='5fb1ba31e1af06001770dcf3'
-g_base_definitions[g_str_5fb1ba31e1af06001770dcf3]={
-  id=g_str_5fb1ba31e1af06001770dcf3,
-  name='Heavy Foot',
-  min=0,
-  max=1,
-  description='Gascon and False-French town militia',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1b9e6e1af060017709b3a_camp='5fb1b9e6e1af060017709b3a_camp'
-g_base_definitions[g_str_5fb1b9e6e1af060017709b3a_camp]={
-  id=g_str_5fb1b9e6e1af060017709b3a_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e6e1af060017709b3a_camp_fortified='5fb1b9e6e1af060017709b3a_camp_fortified'
-g_base_definitions[g_str_5fb1b9e6e1af060017709b3a_camp_fortified]={
-  id=g_str_5fb1b9e6e1af060017709b3a_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e6e1af060017709b3a']={
   data={
     name='Later Hundred-Years War English  1415 to 1455 AD',
     id='5fb1b9e6e1af060017709b3a',
-    army_id='5fb1b9e6e1af060017709b3a'
+    dateRange={
+      startDate=1415,
+      endDate=1455,
+    }
   },
   g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general_mounted],
@@ -287,56 +32,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e6e1af060017709b3a"] = army["5fb1b9e6e1af060017709b3a"]
-army['5fb1b9e6e1af060017709b3a_1415_1422']={
-  data={
-    name='Later Hundred-Years War English 1415 AD to 1422 AD',
-    id='5fb1b9e6e1af060017709b3a_1415_1422',
-    army_id='5fb1b9e6e1af060017709b3a'
-  },
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general_mounted],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general_dismounted],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_mounted],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_dismounted],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce5],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce7],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce7_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce7_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dcea],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dced],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dced_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dced_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dcf1],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dcf3],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b3a_camp],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b3a_camp_fortified],
-}
-army['5fb1b9e6e1af060017709b3a_1423_1455']={
-  data={
-    name='Later Hundred-Years War English 1423 AD to 1455 AD',
-    id='5fb1b9e6e1af060017709b3a_1423_1455',
-    army_id='5fb1b9e6e1af060017709b3a'
-  },
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general_mounted],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_general_dismounted],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_mounted],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce2_dismounted],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce5],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce7],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce7_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dce7_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dcea],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dced],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dced_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dced_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dcf1],
-  g_base_definitions[g_str_5fb1ba31e1af06001770dcf3],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b3a_camp],
-  g_base_definitions[g_str_5fb1b9e6e1af060017709b3a_camp_fortified],
-}
 if nil == armies["Embattled Isle"] then
   armies["Embattled Isle"] ={}
 end
@@ -357,6 +52,27 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e6e1af060017709b3a"] = {}
-army_dates["5fb1b9e6e1af060017709b3a"]["1415 AD to 1455 AD"] ="5fb1b9e6e1af060017709b3a"
-army_dates["5fb1b9e6e1af060017709b3a"]["1415 AD to 1422 AD"] ="5fb1b9e6e1af060017709b3a_1415_1422"
-army_dates["5fb1b9e6e1af060017709b3a"]["1423 AD to 1455 AD"] ="5fb1b9e6e1af060017709b3a_1423_1455"
+army_dates["5fb1b9e6e1af060017709b3a"]["1415 AD to 1455 AD"] = {
+  startDate=1415,
+  endDate=1455
+}
+army_dates["5fb1b9e6e1af060017709b3a"]["1415 AD to 1419 AD"] = {
+  startDate=1415,
+  endDate=1419
+}
+army_dates["5fb1b9e6e1af060017709b3a"]["1420 AD to 1422 AD"] = {
+  startDate=1420,
+  endDate=1422
+}
+army_dates["5fb1b9e6e1af060017709b3a"]["1423 AD to 1431 AD"] = {
+  startDate=1423,
+  endDate=1431
+}
+army_dates["5fb1b9e6e1af060017709b3a"]["1432 AD to 1435 AD"] = {
+  startDate=1432,
+  endDate=1435
+}
+army_dates["5fb1b9e6e1af060017709b3a"]["1436 AD to 1455 AD"] = {
+  startDate=1436,
+  endDate=1455
+}

@@ -1,334 +1,13 @@
 -- 5fb1b9f0e1af06001770a0e9 Khmer  605 to 1431 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3de1af06001770f3c6']= {
-  min=2,
-  max=3,
-  description='War elephants',
-  core='all',
-}
-g_troop_entry['5fb1ba3de1af06001770f3c7']= {
-  troop_option='5fb1ba3de1af06001770f3c6',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba3de1af06001770f3c9']= {
-  min=0,
-  max=1,
-  description='2-horse chariots with bow-armed crew',
-}
-g_troop_entry['5fb1ba3de1af06001770f3ca']= {
-  troop_option='5fb1ba3de1af06001770f3c9',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba3de1af06001770f3cb']= {
-  min=0,
-  max=1,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba3de1af06001770f3cc']= {
-  troop_option='5fb1ba3de1af06001770f3cb',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba3de1af06001770f3cd']= {
-  min=2,
-  max=4,
-  description='Jacketed spearmen with long shield',
-  core='all',
-}
-g_troop_entry['5fb1ba3de1af06001770f3ce']= {
-  troop_option='5fb1ba3de1af06001770f3cd',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba3de1af06001770f3d0']= {
-  min=1,
-  max=2,
-  description='Jacketed spearmen with small round shield',
-  core='all',
-}
-g_troop_entry['5fb1ba3de1af06001770f3d1']= {
-  troop_option='5fb1ba3de1af06001770f3d0',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3de1af06001770f3d2']= {
-  min=0,
-  max=1,
-  description='Ph\'kak-men',
-  core='all',
-}
-g_troop_entry['5fb1ba3de1af06001770f3d3']= {
-  troop_option='5fb1ba3de1af06001770f3d2',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba3de1af06001770f3d4']= {
-  min=0,
-  max=1,
-  description='Maiden guard infantry',
-}
-g_troop_entry['5fb1ba3de1af06001770f3d5']= {
-  troop_option='5fb1ba3de1af06001770f3d4',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3de1af06001770f3d6']= {
-  min=3,
-  max=6,
-  description='Unarmored spearmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f3d7']= {
-  troop_option='5fb1ba3de1af06001770f3d6',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3de1af06001770f3d9']= {
-  min=0,
-  max=1,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f3da']= {
-  troop_option='5fb1ba3de1af06001770f3d9',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba3de1af06001770f3db']= {
-  min=0,
-  max=1,
-  description='Thai fighter allies',
-}
-g_troop_entry['5fb1ba3de1af06001770f3dc']= {
-  troop_option='5fb1ba3de1af06001770f3db',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba3de1af06001770f3dd']= {
-  min=2,
-  max=4,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f3de']= {
-  troop_option='5fb1ba3de1af06001770f3dd',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3de1af06001770f3e0']= {
-  min=0,
-  max=1,
-  description='Bowmen protected by pavises',
-  core='all',
-}
-g_troop_entry['5fb1ba3de1af06001770f3e1']= {
-  troop_option='5fb1ba3de1af06001770f3e0',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3de1af06001770f3e2']= {
-  min=0,
-  max=1,
-  description='Skirmishing crossbowmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f3e3']= {
-  troop_option='5fb1ba3de1af06001770f3e2',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3de1af06001770f3e4']= {
-  min=0,
-  max=1,
-  description='Wheeled or elephant-mounted Song-style ballista',
-  core='all',
-  startDate=1171,
-  endDate=1431,
-}
-g_troop_entry['5fb1ba3de1af06001770f3e6']= {
-  troop_option='5fb1ba3de1af06001770f3e4',
-  troopTypeCode='ART',
-}
-g_str_5fb1ba3de1af06001770f3c7_general='5fb1ba3de1af06001770f3c7_general'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3c7_general]={
-  id=g_str_5fb1ba3de1af06001770f3c7_general,
-  name='Elephants General',
-  min=2,
-  max=1,
-  description='War elephants',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba3de1af06001770f3c7='5fb1ba3de1af06001770f3c7'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3c7]={
-  id=g_str_5fb1ba3de1af06001770f3c7,
-  name='Elephants',
-  min=2,
-  max=3,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba3de1af06001770f3ca_general='5fb1ba3de1af06001770f3ca_general'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3ca_general]={
-  id=g_str_5fb1ba3de1af06001770f3ca_general,
-  name='Chariots General',
-  min=0,
-  max=1,
-  description='2-horse chariots with bow-armed crew',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba3de1af06001770f3ca='5fb1ba3de1af06001770f3ca'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3ca]={
-  id=g_str_5fb1ba3de1af06001770f3ca,
-  name='Chariots',
-  min=0,
-  max=1,
-  description='2-horse chariots with bow-armed crew',
-  troop_type="Chariots",
-}
-g_str_5fb1ba3de1af06001770f3cc='5fb1ba3de1af06001770f3cc'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3cc]={
-  id=g_str_5fb1ba3de1af06001770f3cc,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba3de1af06001770f3ce='5fb1ba3de1af06001770f3ce'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3ce]={
-  id=g_str_5fb1ba3de1af06001770f3ce,
-  name='Raiders',
-  min=2,
-  max=4,
-  description='Jacketed spearmen with long shield',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3de1af06001770f3d1='5fb1ba3de1af06001770f3d1'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3d1]={
-  id=g_str_5fb1ba3de1af06001770f3d1,
-  name='Light Foot',
-  min=1,
-  max=2,
-  description='Jacketed spearmen with small round shield',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3de1af06001770f3d3='5fb1ba3de1af06001770f3d3'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3d3]={
-  id=g_str_5fb1ba3de1af06001770f3d3,
-  name='Raiders',
-  min=0,
-  max=1,
-  description='Ph\'kak-men',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3de1af06001770f3d5='5fb1ba3de1af06001770f3d5'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3d5]={
-  id=g_str_5fb1ba3de1af06001770f3d5,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Maiden guard infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3de1af06001770f3d7='5fb1ba3de1af06001770f3d7'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3d7]={
-  id=g_str_5fb1ba3de1af06001770f3d7,
-  name='Light Foot',
-  min=3,
-  max=6,
-  description='Unarmored spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3de1af06001770f3d7_elephant_screen='5fb1ba3de1af06001770f3d7_elephant_screen'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3d7_elephant_screen]={
-  id=g_str_5fb1ba3de1af06001770f3d7_elephant_screen,
-  name='Light Foot',
-  min=3,
-  max=6,
-  description='Unarmored spearmen\nElephant Screen',
-  elephant_screen=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3de1af06001770f3d7_elephant_screen_elephant_screen_counter='5fb1ba3de1af06001770f3d7_elephant_screen_elephant_screen_counter'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3d7_elephant_screen_elephant_screen_counter]={
-  id=g_str_5fb1ba3de1af06001770f3d7_elephant_screen_elephant_screen_counter,
-  name='Elephant Screen',
-  min=3,
-  max=6,
-  description='',
-  troop_type="Elephant Screen Counter",
-}
-g_str_5fb1ba3de1af06001770f3da='5fb1ba3de1af06001770f3da'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3da]={
-  id=g_str_5fb1ba3de1af06001770f3da,
-  name='Rabble',
-  min=0,
-  max=1,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba3de1af06001770f3dc='5fb1ba3de1af06001770f3dc'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3dc]={
-  id=g_str_5fb1ba3de1af06001770f3dc,
-  name='Warband',
-  min=0,
-  max=1,
-  description='Thai fighter allies',
-  troop_type="Warband",
-}
-g_str_5fb1ba3de1af06001770f3de='5fb1ba3de1af06001770f3de'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3de]={
-  id=g_str_5fb1ba3de1af06001770f3de,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3de1af06001770f3e1='5fb1ba3de1af06001770f3e1'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3e1]={
-  id=g_str_5fb1ba3de1af06001770f3e1,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Bowmen protected by pavises',
-  troop_type="Archers",
-}
-g_str_5fb1ba3de1af06001770f3e3='5fb1ba3de1af06001770f3e3'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3e3]={
-  id=g_str_5fb1ba3de1af06001770f3e3,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Skirmishing crossbowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3de1af06001770f3e6='5fb1ba3de1af06001770f3e6'
-g_base_definitions[g_str_5fb1ba3de1af06001770f3e6]={
-  id=g_str_5fb1ba3de1af06001770f3e6,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Wheeled or elephant-mounted Song-style ballista',
-  troop_type="Artillery",
-}
-g_str_5fb1b9f0e1af06001770a0e9_camp='5fb1b9f0e1af06001770a0e9_camp'
-g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp]={
-  id=g_str_5fb1b9f0e1af06001770a0e9_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f0e1af06001770a0e9_camp_pack_train='5fb1b9f0e1af06001770a0e9_camp_pack_train'
-g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp_pack_train]={
-  id=g_str_5fb1b9f0e1af06001770a0e9_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9f0e1af06001770a0e9']={
   data={
     name='Khmer  605 to 1431 AD',
     id='5fb1b9f0e1af06001770a0e9',
-    army_id='5fb1b9f0e1af06001770a0e9'
+    dateRange={
+      startDate=605,
+      endDate=1431,
+    }
   },
   g_base_definitions[g_str_5fb1ba3de1af06001770f3c7_general],
   g_base_definitions[g_str_5fb1ba3de1af06001770f3c7],
@@ -354,58 +33,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f0e1af06001770a0e9"] = army["5fb1b9f0e1af06001770a0e9"]
-army['5fb1b9f0e1af06001770a0e9_605_1170']={
-  data={
-    name='Khmer 605 AD to 1170 AD',
-    id='5fb1b9f0e1af06001770a0e9_605_1170',
-    army_id='5fb1b9f0e1af06001770a0e9'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3c7_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3c7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ca_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ca],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3cc],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ce],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d1],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d5],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d7_elephant_screen],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3da],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3dc],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3de],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e1],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e6],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp_pack_train],
-}
-army['5fb1b9f0e1af06001770a0e9_1171_1431']={
-  data={
-    name='Khmer 1171 AD to 1431 AD',
-    id='5fb1b9f0e1af06001770a0e9_1171_1431',
-    army_id='5fb1b9f0e1af06001770a0e9'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3c7_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3c7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ca_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ca],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3cc],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3ce],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d1],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d5],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d7],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3d7_elephant_screen],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3da],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3dc],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3de],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e1],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e3],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f3e6],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a0e9_camp_pack_train],
-}
 if nil == armies["Monsoon Region"] then
   armies["Monsoon Region"] ={}
 end
@@ -422,6 +49,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f0e1af06001770a0e9"] = {}
-army_dates["5fb1b9f0e1af06001770a0e9"]["605 AD to 1431 AD"] ="5fb1b9f0e1af06001770a0e9"
-army_dates["5fb1b9f0e1af06001770a0e9"]["605 AD to 1170 AD"] ="5fb1b9f0e1af06001770a0e9_605_1170"
-army_dates["5fb1b9f0e1af06001770a0e9"]["1171 AD to 1431 AD"] ="5fb1b9f0e1af06001770a0e9_1171_1431"
+army_dates["5fb1b9f0e1af06001770a0e9"]["605 AD to 1431 AD"] = {
+  startDate=605,
+  endDate=1431
+}
+army_dates["5fb1b9f0e1af06001770a0e9"]["605 AD to 939 AD"] = {
+  startDate=605,
+  endDate=939
+}
+army_dates["5fb1b9f0e1af06001770a0e9"]["940 AD to 1043 AD"] = {
+  startDate=940,
+  endDate=1043
+}
+army_dates["5fb1b9f0e1af06001770a0e9"]["1044 AD to 1170 AD"] = {
+  startDate=1044,
+  endDate=1170
+}
+army_dates["5fb1b9f0e1af06001770a0e9"]["1171 AD to 1173 AD"] = {
+  startDate=1171,
+  endDate=1173
+}
+army_dates["5fb1b9f0e1af06001770a0e9"]["1174 AD to 1233 AD"] = {
+  startDate=1174,
+  endDate=1233
+}
+army_dates["5fb1b9f0e1af06001770a0e9"]["1234 AD to 1431 AD"] = {
+  startDate=1234,
+  endDate=1431
+}

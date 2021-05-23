@@ -1,137 +1,13 @@
 -- 5fb1b9f5e1af06001770a423 Tarascan, Tlaxcalan, or Toltec-Chichimec  1168 to 1521 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba44e1af06001770fdfd']= {
-  min=1,
-  max=3,
-  description='Suit-wearers',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fdfe']= {
-  troop_option='5fb1ba44e1af06001770fdfd',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba44e1af06001770fdff']= {
-  min=0,
-  max=5,
-  description='Bowmen protected by shield-bearers',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fe00']= {
-  troop_option='5fb1ba44e1af06001770fdff',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba44e1af06001770fe01']= {
-  min=8,
-  max=20,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba44e1af06001770fe02']= {
-  troop_option='5fb1ba44e1af06001770fe01',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba44e1af06001770fe03']= {
-  min=0,
-  max=1,
-  description='Otomi mercenaries',
-}
-g_troop_entry['5fb1ba44e1af06001770fe04']= {
-  troop_option='5fb1ba44e1af06001770fe03',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba44e1af06001770fe05']= {
-  min=0,
-  max=2,
-  description='Scouts',
-}
-g_troop_entry['5fb1ba44e1af06001770fe06']= {
-  troop_option='5fb1ba44e1af06001770fe05',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba44e1af06001770fdfe_general='5fb1ba44e1af06001770fdfe_general'
-g_base_definitions[g_str_5fb1ba44e1af06001770fdfe_general]={
-  id=g_str_5fb1ba44e1af06001770fdfe_general,
-  name='Raiders General',
-  min=1,
-  max=1,
-  description='Suit-wearers',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba44e1af06001770fdfe='5fb1ba44e1af06001770fdfe'
-g_base_definitions[g_str_5fb1ba44e1af06001770fdfe]={
-  id=g_str_5fb1ba44e1af06001770fdfe,
-  name='Raiders',
-  min=1,
-  max=3,
-  description='Suit-wearers',
-  troop_type="Raiders",
-}
-g_str_5fb1ba44e1af06001770fe00_general='5fb1ba44e1af06001770fe00_general'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe00_general]={
-  id=g_str_5fb1ba44e1af06001770fe00_general,
-  name='Archers General',
-  min=0,
-  max=1,
-  description='Bowmen protected by shield-bearers',
-  general=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba44e1af06001770fe00='5fb1ba44e1af06001770fe00'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe00]={
-  id=g_str_5fb1ba44e1af06001770fe00,
-  name='Archers',
-  min=0,
-  max=5,
-  description='Bowmen protected by shield-bearers',
-  troop_type="Archers",
-}
-g_str_5fb1ba44e1af06001770fe02='5fb1ba44e1af06001770fe02'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe02]={
-  id=g_str_5fb1ba44e1af06001770fe02,
-  name='Bow Levy',
-  min=8,
-  max=20,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba44e1af06001770fe04='5fb1ba44e1af06001770fe04'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe04]={
-  id=g_str_5fb1ba44e1af06001770fe04,
-  name='Warband',
-  min=0,
-  max=1,
-  description='Otomi mercenaries',
-  troop_type="Warband",
-}
-g_str_5fb1ba44e1af06001770fe06='5fb1ba44e1af06001770fe06'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe06]={
-  id=g_str_5fb1ba44e1af06001770fe06,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Scouts',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f5e1af06001770a423_camp='5fb1b9f5e1af06001770a423_camp'
-g_base_definitions[g_str_5fb1b9f5e1af06001770a423_camp]={
-  id=g_str_5fb1b9f5e1af06001770a423_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f5e1af06001770a423']={
   data={
     name='Tarascan, Tlaxcalan, or Toltec-Chichimec  1168 to 1521 AD',
     id='5fb1b9f5e1af06001770a423',
-    army_id='5fb1b9f5e1af06001770a423'
+    dateRange={
+      startDate=1168,
+      endDate=1521,
+    }
   },
   g_base_definitions[g_str_5fb1ba44e1af06001770fdfe_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fdfe],
@@ -162,4 +38,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f5e1af06001770a423"] = {}
-army_dates["5fb1b9f5e1af06001770a423"]["1168 AD to 1521 AD"] ="5fb1b9f5e1af06001770a423"
+army_dates["5fb1b9f5e1af06001770a423"]["1168 AD to 1521 AD"] = {
+  startDate=1168,
+  endDate=1521
+}
+army_dates["5fb1b9f5e1af06001770a423"]["1168 AD to 1200 AD"] = {
+  startDate=1168,
+  endDate=1200
+}
+army_dates["5fb1b9f5e1af06001770a423"]["1201 AD to 1500 AD"] = {
+  startDate=1201,
+  endDate=1500
+}
+army_dates["5fb1b9f5e1af06001770a423"]["1501 AD to 1521 AD"] = {
+  startDate=1501,
+  endDate=1521
+}

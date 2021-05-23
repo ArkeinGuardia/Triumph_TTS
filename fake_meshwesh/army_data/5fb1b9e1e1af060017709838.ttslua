@@ -1,169 +1,13 @@
 -- 5fb1b9e1e1af060017709838 Meroitic Kushite  592 BC to 350 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2be1af06001770d284']= {
-  min=0,
-  max=1,
-  description='War elephants',
-  core='all',
-  startDate=-299,
-  endDate=350,
-}
-g_troop_entry['5fb1ba2be1af06001770d286']= {
-  troop_option='5fb1ba2be1af06001770d284',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba2be1af06001770d287']= {
-  min=0,
-  max=1,
-  description='Meroitic horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d288']= {
-  troop_option='5fb1ba2be1af06001770d287',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2be1af06001770d289']= {
-  min=2,
-  max=4,
-  description='Meroitic bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d28a']= {
-  troop_option='5fb1ba2be1af06001770d289',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba2be1af06001770d28b']= {
-  min=6,
-  max=13,
-  description='Tribal foot armed with spear, axe, or sword',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d28c']= {
-  troop_option='5fb1ba2be1af06001770d28b',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2be1af06001770d28d']= {
-  min=0,
-  max=3,
-  description='Tribal bowmen',
-}
-g_troop_entry['5fb1ba2be1af06001770d28e']= {
-  troop_option='5fb1ba2be1af06001770d28d',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2be1af06001770d28f']= {
-  min=0,
-  max=2,
-  description='Trogodyte nomadic herdsman skirmishing bow',
-}
-g_troop_entry['5fb1ba2be1af06001770d290']= {
-  troop_option='5fb1ba2be1af06001770d28f',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba2be1af06001770d286_general='5fb1ba2be1af06001770d286_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d286_general]={
-  id=g_str_5fb1ba2be1af06001770d286_general,
-  name='Elephants General',
-  min=0,
-  max=1,
-  description='War elephants',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba2be1af06001770d286='5fb1ba2be1af06001770d286'
-g_base_definitions[g_str_5fb1ba2be1af06001770d286]={
-  id=g_str_5fb1ba2be1af06001770d286,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba2be1af06001770d288_general='5fb1ba2be1af06001770d288_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d288_general]={
-  id=g_str_5fb1ba2be1af06001770d288_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Meroitic horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d288='5fb1ba2be1af06001770d288'
-g_base_definitions[g_str_5fb1ba2be1af06001770d288]={
-  id=g_str_5fb1ba2be1af06001770d288,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Meroitic horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d28a_general='5fb1ba2be1af06001770d28a_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d28a_general]={
-  id=g_str_5fb1ba2be1af06001770d28a_general,
-  name='Archers General',
-  min=2,
-  max=1,
-  description='Meroitic bowmen',
-  general=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba2be1af06001770d28a='5fb1ba2be1af06001770d28a'
-g_base_definitions[g_str_5fb1ba2be1af06001770d28a]={
-  id=g_str_5fb1ba2be1af06001770d28a,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Meroitic bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba2be1af06001770d28c='5fb1ba2be1af06001770d28c'
-g_base_definitions[g_str_5fb1ba2be1af06001770d28c]={
-  id=g_str_5fb1ba2be1af06001770d28c,
-  name='Heavy Foot',
-  min=6,
-  max=13,
-  description='Tribal foot armed with spear, axe, or sword',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2be1af06001770d28e='5fb1ba2be1af06001770d28e'
-g_base_definitions[g_str_5fb1ba2be1af06001770d28e]={
-  id=g_str_5fb1ba2be1af06001770d28e,
-  name='Bow Levy',
-  min=0,
-  max=3,
-  description='Tribal bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2be1af06001770d290='5fb1ba2be1af06001770d290'
-g_base_definitions[g_str_5fb1ba2be1af06001770d290]={
-  id=g_str_5fb1ba2be1af06001770d290,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Trogodyte nomadic herdsman skirmishing bow',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e1e1af060017709838_camp='5fb1b9e1e1af060017709838_camp'
-g_base_definitions[g_str_5fb1b9e1e1af060017709838_camp]={
-  id=g_str_5fb1b9e1e1af060017709838_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e1e1af060017709838']={
   data={
     name='Meroitic Kushite  592 BC to 350 AD',
     id='5fb1b9e1e1af060017709838',
-    army_id='5fb1b9e1e1af060017709838'
+    dateRange={
+      startDate=-592,
+      endDate=350,
+    }
   },
   g_base_definitions[g_str_5fb1ba2be1af06001770d286_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d286],
@@ -180,40 +24,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e1e1af060017709838"] = army["5fb1b9e1e1af060017709838"]
-army['5fb1b9e1e1af060017709838_-592_-300']={
-  data={
-    name='Meroitic Kushite 592 BC to 300 BC',
-    id='5fb1b9e1e1af060017709838_-592_-300',
-    army_id='5fb1b9e1e1af060017709838'
-  },
-  g_base_definitions[g_str_5fb1ba2be1af06001770d286_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d286],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d288_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d288],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d28a_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d28a],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d28c],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d28e],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d290],
-  g_base_definitions[g_str_5fb1b9e1e1af060017709838_camp],
-}
-army['5fb1b9e1e1af060017709838_-299_350']={
-  data={
-    name='Meroitic Kushite 299 BC to 350 AD',
-    id='5fb1b9e1e1af060017709838_-299_350',
-    army_id='5fb1b9e1e1af060017709838'
-  },
-  g_base_definitions[g_str_5fb1ba2be1af06001770d286_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d286],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d288_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d288],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d28a_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d28a],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d28c],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d28e],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d290],
-  g_base_definitions[g_str_5fb1b9e1e1af060017709838_camp],
-}
 if nil == armies["Rise of Rome"] then
   armies["Rise of Rome"] ={}
 end
@@ -242,6 +52,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e1e1af060017709838"] = {}
-army_dates["5fb1b9e1e1af060017709838"]["592 BC to 350 AD"] ="5fb1b9e1e1af060017709838"
-army_dates["5fb1b9e1e1af060017709838"]["592 BC to 300 BC"] ="5fb1b9e1e1af060017709838_-592_-300"
-army_dates["5fb1b9e1e1af060017709838"]["299 BC to 350 AD"] ="5fb1b9e1e1af060017709838_-299_350"
+army_dates["5fb1b9e1e1af060017709838"]["592 BC to 350 AD"] = {
+  startDate=-592,
+  endDate=350
+}
+army_dates["5fb1b9e1e1af060017709838"]["592 BC to 300 BC"] = {
+  startDate=-592,
+  endDate=-300
+}
+army_dates["5fb1b9e1e1af060017709838"]["299 BC to 31 BC"] = {
+  startDate=-299,
+  endDate=-31
+}
+army_dates["5fb1b9e1e1af060017709838"]["30 BC to 350 AD"] = {
+  startDate=-30,
+  endDate=350
+}

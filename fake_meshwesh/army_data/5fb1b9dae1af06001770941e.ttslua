@@ -1,110 +1,13 @@
 -- 5fb1b9dae1af06001770941e Early Medes  835 to 621 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba22e1af06001770c2d7']= {
-  min=3,
-  max=6,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba22e1af06001770c2d8']= {
-  troop_option='5fb1ba22e1af06001770c2d7',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba22e1af06001770c2d9']= {
-  min=4,
-  max=10,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c2da']= {
-  troop_option='5fb1ba22e1af06001770c2d9',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba22e1af06001770c2dc']= {
-  min=2,
-  max=4,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba22e1af06001770c2dd']= {
-  troop_option='5fb1ba22e1af06001770c2dc',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba22e1af06001770c2d8_general='5fb1ba22e1af06001770c2d8_general'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2d8_general]={
-  id=g_str_5fb1ba22e1af06001770c2d8_general,
-  name='Javelin Cavalry General',
-  min=3,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba22e1af06001770c2d8='5fb1ba22e1af06001770c2d8'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2d8]={
-  id=g_str_5fb1ba22e1af06001770c2d8,
-  name='Javelin Cavalry',
-  min=3,
-  max=6,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba22e1af06001770c2da='5fb1ba22e1af06001770c2da'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2da]={
-  id=g_str_5fb1ba22e1af06001770c2da,
-  name='Light Foot',
-  min=4,
-  max=10,
-  description='Spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba22e1af06001770c2dd='5fb1ba22e1af06001770c2dd'
-g_base_definitions[g_str_5fb1ba22e1af06001770c2dd]={
-  id=g_str_5fb1ba22e1af06001770c2dd,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9dae1af06001770941e_camp='5fb1b9dae1af06001770941e_camp'
-g_base_definitions[g_str_5fb1b9dae1af06001770941e_camp]={
-  id=g_str_5fb1b9dae1af06001770941e_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af06001770941e_camp_fortified='5fb1b9dae1af06001770941e_camp_fortified'
-g_base_definitions[g_str_5fb1b9dae1af06001770941e_camp_fortified]={
-  id=g_str_5fb1b9dae1af06001770941e_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af06001770941e_camp_pack_train='5fb1b9dae1af06001770941e_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dae1af06001770941e_camp_pack_train]={
-  id=g_str_5fb1b9dae1af06001770941e_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dae1af06001770941e']={
   data={
     name='Early Medes  835 to 621 BC',
     id='5fb1b9dae1af06001770941e',
-    army_id='5fb1b9dae1af06001770941e'
+    dateRange={
+      startDate=-835,
+      endDate=-621,
+    }
   },
   g_base_definitions[g_str_5fb1ba22e1af06001770c2d8_general],
   g_base_definitions[g_str_5fb1ba22e1af06001770c2d8],
@@ -130,4 +33,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af06001770941e"] = {}
-army_dates["5fb1b9dae1af06001770941e"]["835 BC to 621 BC"] ="5fb1b9dae1af06001770941e"
+army_dates["5fb1b9dae1af06001770941e"]["835 BC to 621 BC"] = {
+  startDate=-835,
+  endDate=-621
+}
+army_dates["5fb1b9dae1af06001770941e"]["835 BC to 800 BC"] = {
+  startDate=-835,
+  endDate=-800
+}
+army_dates["5fb1b9dae1af06001770941e"]["799 BC to 750 BC"] = {
+  startDate=-799,
+  endDate=-750
+}
+army_dates["5fb1b9dae1af06001770941e"]["749 BC to 723 BC"] = {
+  startDate=-749,
+  endDate=-723
+}
+army_dates["5fb1b9dae1af06001770941e"]["722 BC to 711 BC"] = {
+  startDate=-722,
+  endDate=-711
+}
+army_dates["5fb1b9dae1af06001770941e"]["710 BC to 670 BC"] = {
+  startDate=-710,
+  endDate=-670
+}
+army_dates["5fb1b9dae1af06001770941e"]["669 BC to 621 BC"] = {
+  startDate=-669,
+  endDate=-621
+}

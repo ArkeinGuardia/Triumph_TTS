@@ -1,166 +1,13 @@
 -- 5fb1b9efe1af06001770a03e Jalayarid  1336 to 1432 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ce1af06001770f106']= {
-  min=1,
-  max=2,
-  description='Ghulams',
-  core='all',
-}
-g_troop_entry['5fb1ba3ce1af06001770f107']= {
-  troop_option='5fb1ba3ce1af06001770f106',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ce1af06001770f109']= {
-  min=0,
-  max=1,
-  description='Mongol armored horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ce1af06001770f10a']= {
-  troop_option='5fb1ba3ce1af06001770f109',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ce1af06001770f10b']= {
-  min=3,
-  max=9,
-  description='Mongol horse archers',
-}
-g_troop_entry['5fb1ba3ce1af06001770f10c']= {
-  troop_option='5fb1ba3ce1af06001770f10b',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ce1af06001770f10d']= {
-  min=0,
-  max=1,
-  description='Turkoman horse archers',
-}
-g_troop_entry['5fb1ba3ce1af06001770f10e']= {
-  troop_option='5fb1ba3ce1af06001770f10d',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ce1af06001770f10f']= {
-  min=1,
-  max=2,
-  description='Bedouin',
-}
-g_troop_entry['5fb1ba3ce1af06001770f110']= {
-  troop_option='5fb1ba3ce1af06001770f10f',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3ce1af06001770f111']= {
-  min=0,
-  max=2,
-  description='Foot',
-  core='all',
-}
-g_troop_entry['5fb1ba3ce1af06001770f112']= {
-  troop_option='5fb1ba3ce1af06001770f111',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba3ce1af06001770f107_general='5fb1ba3ce1af06001770f107_general'
-g_base_definitions[g_str_5fb1ba3ce1af06001770f107_general]={
-  id=g_str_5fb1ba3ce1af06001770f107_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Ghulams',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ce1af06001770f107='5fb1ba3ce1af06001770f107'
-g_base_definitions[g_str_5fb1ba3ce1af06001770f107]={
-  id=g_str_5fb1ba3ce1af06001770f107,
-  name='Elite Cavalary',
-  min=1,
-  max=2,
-  description='Ghulams',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ce1af06001770f10a_general='5fb1ba3ce1af06001770f10a_general'
-g_base_definitions[g_str_5fb1ba3ce1af06001770f10a_general]={
-  id=g_str_5fb1ba3ce1af06001770f10a_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Mongol armored horsemen',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ce1af06001770f10a='5fb1ba3ce1af06001770f10a'
-g_base_definitions[g_str_5fb1ba3ce1af06001770f10a]={
-  id=g_str_5fb1ba3ce1af06001770f10a,
-  name='Elite Cavalary',
-  min=0,
-  max=1,
-  description='Mongol armored horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ce1af06001770f10c='5fb1ba3ce1af06001770f10c'
-g_base_definitions[g_str_5fb1ba3ce1af06001770f10c]={
-  id=g_str_5fb1ba3ce1af06001770f10c,
-  name='Horse Bow',
-  min=3,
-  max=9,
-  description='Mongol horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ce1af06001770f10e='5fb1ba3ce1af06001770f10e'
-g_base_definitions[g_str_5fb1ba3ce1af06001770f10e]={
-  id=g_str_5fb1ba3ce1af06001770f10e,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Turkoman horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ce1af06001770f110='5fb1ba3ce1af06001770f110'
-g_base_definitions[g_str_5fb1ba3ce1af06001770f110]={
-  id=g_str_5fb1ba3ce1af06001770f110,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Bedouin',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ce1af06001770f112='5fb1ba3ce1af06001770f112'
-g_base_definitions[g_str_5fb1ba3ce1af06001770f112]={
-  id=g_str_5fb1ba3ce1af06001770f112,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Foot',
-  troop_type="Horde",
-}
-g_str_5fb1b9efe1af06001770a03e_camp='5fb1b9efe1af06001770a03e_camp'
-g_base_definitions[g_str_5fb1b9efe1af06001770a03e_camp]={
-  id=g_str_5fb1b9efe1af06001770a03e_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9efe1af06001770a03e_camp_pack_train='5fb1b9efe1af06001770a03e_camp_pack_train'
-g_base_definitions[g_str_5fb1b9efe1af06001770a03e_camp_pack_train]={
-  id=g_str_5fb1b9efe1af06001770a03e_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9efe1af06001770a03e']={
   data={
     name='Jalayarid  1336 to 1432 AD',
     id='5fb1b9efe1af06001770a03e',
-    army_id='5fb1b9efe1af06001770a03e'
+    dateRange={
+      startDate=1336,
+      endDate=1432,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ce1af06001770f107_general],
   g_base_definitions[g_str_5fb1ba3ce1af06001770f107],
@@ -189,4 +36,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9efe1af06001770a03e"] = {}
-army_dates["5fb1b9efe1af06001770a03e"]["1336 AD to 1432 AD"] ="5fb1b9efe1af06001770a03e"
+army_dates["5fb1b9efe1af06001770a03e"]["1336 AD to 1432 AD"] = {
+  startDate=1336,
+  endDate=1432
+}
+army_dates["5fb1b9efe1af06001770a03e"]["1336 AD to 1377 AD"] = {
+  startDate=1336,
+  endDate=1377
+}
+army_dates["5fb1b9efe1af06001770a03e"]["1378 AD to 1386 AD"] = {
+  startDate=1378,
+  endDate=1386
+}
+army_dates["5fb1b9efe1af06001770a03e"]["1387 AD to 1389 AD"] = {
+  startDate=1387,
+  endDate=1389
+}
+army_dates["5fb1b9efe1af06001770a03e"]["1390 AD to 1393 AD"] = {
+  startDate=1390,
+  endDate=1393
+}
+army_dates["5fb1b9efe1af06001770a03e"]["1394 AD to 1399 AD"] = {
+  startDate=1394,
+  endDate=1399
+}
+army_dates["5fb1b9efe1af06001770a03e"]["1400 AD to 1432 AD"] = {
+  startDate=1400,
+  endDate=1432
+}

@@ -1,118 +1,13 @@
 -- 5fb1b9f0e1af06001770a12f Guifang and Xianyun  1100 to 800 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ee1af06001770f4d6']= {
-  min=0,
-  max=1,
-  description='2-horse chariots',
-}
-g_troop_entry['5fb1ba3ee1af06001770f4d7']= {
-  troop_option='5fb1ba3ee1af06001770f4d6',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba3ee1af06001770f4d8']= {
-  min=8,
-  max=14,
-  description='Fierce tribesmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f4d9']= {
-  troop_option='5fb1ba3ee1af06001770f4d8',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba3ee1af06001770f4da']= {
-  min=2,
-  max=6,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba3ee1af06001770f4db']= {
-  troop_option='5fb1ba3ee1af06001770f4da',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ee1af06001770f4dc']= {
-  min=0,
-  max=2,
-  description='Levies, families, ill-equipped tribesmen and the like',
-}
-g_troop_entry['5fb1ba3ee1af06001770f4dd']= {
-  troop_option='5fb1ba3ee1af06001770f4dc',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba3ee1af06001770f4d7_general='5fb1ba3ee1af06001770f4d7_general'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4d7_general]={
-  id=g_str_5fb1ba3ee1af06001770f4d7_general,
-  name='Chariots General',
-  min=0,
-  max=1,
-  description='2-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba3ee1af06001770f4d7='5fb1ba3ee1af06001770f4d7'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4d7]={
-  id=g_str_5fb1ba3ee1af06001770f4d7,
-  name='Chariots',
-  min=0,
-  max=1,
-  description='2-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba3ee1af06001770f4d9_general='5fb1ba3ee1af06001770f4d9_general'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4d9_general]={
-  id=g_str_5fb1ba3ee1af06001770f4d9_general,
-  name='Warband General',
-  min=8,
-  max=1,
-  description='Fierce tribesmen',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba3ee1af06001770f4d9='5fb1ba3ee1af06001770f4d9'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4d9]={
-  id=g_str_5fb1ba3ee1af06001770f4d9,
-  name='Warband',
-  min=8,
-  max=14,
-  description='Fierce tribesmen',
-  troop_type="Warband",
-}
-g_str_5fb1ba3ee1af06001770f4db='5fb1ba3ee1af06001770f4db'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4db]={
-  id=g_str_5fb1ba3ee1af06001770f4db,
-  name='Skirmishers',
-  min=2,
-  max=6,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ee1af06001770f4dd='5fb1ba3ee1af06001770f4dd'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4dd]={
-  id=g_str_5fb1ba3ee1af06001770f4dd,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levies, families, ill-equipped tribesmen and the like',
-  troop_type="Horde",
-}
-g_str_5fb1b9f0e1af06001770a12f_camp='5fb1b9f0e1af06001770a12f_camp'
-g_base_definitions[g_str_5fb1b9f0e1af06001770a12f_camp]={
-  id=g_str_5fb1b9f0e1af06001770a12f_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f0e1af06001770a12f']={
   data={
     name='Guifang and Xianyun  1100 to 800 BC',
     id='5fb1b9f0e1af06001770a12f',
-    army_id='5fb1b9f0e1af06001770a12f'
+    dateRange={
+      startDate=-1100,
+      endDate=-800,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ee1af06001770f4d7_general],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f4d7],
@@ -138,4 +33,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f0e1af06001770a12f"] = {}
-army_dates["5fb1b9f0e1af06001770a12f"]["1100 BC to 800 BC"] ="5fb1b9f0e1af06001770a12f"
+army_dates["5fb1b9f0e1af06001770a12f"]["1100 BC to 800 BC"] = {
+  startDate=-1100,
+  endDate=-800
+}

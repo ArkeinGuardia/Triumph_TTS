@@ -1,131 +1,13 @@
 -- 5fb1b9f3e1af06001770a294 Tribal Mongolian  840 to 1218 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba40e1af06001770f969']= {
-  min=0,
-  max=1,
-  description='Khan\'s guard horsemen with Liao horse armor',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f96a']= {
-  troop_option='5fb1ba40e1af06001770f969',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba40e1af06001770f96b']= {
-  min=0,
-  max=2,
-  description='Tribal nobles and retainers',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f96c']= {
-  troop_option='5fb1ba40e1af06001770f96b',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba40e1af06001770f96d']= {
-  min=6,
-  max=12,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba40e1af06001770f96e']= {
-  troop_option='5fb1ba40e1af06001770f96d',
-  troopTypeCode='HBW',
-}
-g_str_5fb1ba40e1af06001770f96a_general='5fb1ba40e1af06001770f96a_general'
-g_base_definitions[g_str_5fb1ba40e1af06001770f96a_general]={
-  id=g_str_5fb1ba40e1af06001770f96a_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Khan\'s guard horsemen with Liao horse armor',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f96a='5fb1ba40e1af06001770f96a'
-g_base_definitions[g_str_5fb1ba40e1af06001770f96a]={
-  id=g_str_5fb1ba40e1af06001770f96a,
-  name='Elite Cavalary',
-  min=0,
-  max=1,
-  description='Khan\'s guard horsemen with Liao horse armor',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f96c_general='5fb1ba40e1af06001770f96c_general'
-g_base_definitions[g_str_5fb1ba40e1af06001770f96c_general]={
-  id=g_str_5fb1ba40e1af06001770f96c_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Tribal nobles and retainers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba40e1af06001770f96c='5fb1ba40e1af06001770f96c'
-g_base_definitions[g_str_5fb1ba40e1af06001770f96c]={
-  id=g_str_5fb1ba40e1af06001770f96c,
-  name='Horse Bow',
-  min=0,
-  max=2,
-  description='Tribal nobles and retainers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba40e1af06001770f96e_general='5fb1ba40e1af06001770f96e_general'
-g_base_definitions[g_str_5fb1ba40e1af06001770f96e_general]={
-  id=g_str_5fb1ba40e1af06001770f96e_general,
-  name='Horse Bow General',
-  min=6,
-  max=1,
-  description='Horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba40e1af06001770f96e='5fb1ba40e1af06001770f96e'
-g_base_definitions[g_str_5fb1ba40e1af06001770f96e]={
-  id=g_str_5fb1ba40e1af06001770f96e,
-  name='Horse Bow',
-  min=6,
-  max=12,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1b9f3e1af06001770a294_camp='5fb1b9f3e1af06001770a294_camp'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a294_camp]={
-  id=g_str_5fb1b9f3e1af06001770a294_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f3e1af06001770a294_camp_fortified='5fb1b9f3e1af06001770a294_camp_fortified'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a294_camp_fortified]={
-  id=g_str_5fb1b9f3e1af06001770a294_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9f3e1af06001770a294_camp_pack_train='5fb1b9f3e1af06001770a294_camp_pack_train'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a294_camp_pack_train]={
-  id=g_str_5fb1b9f3e1af06001770a294_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9f3e1af06001770a294']={
   data={
     name='Tribal Mongolian  840 to 1218 AD',
     id='5fb1b9f3e1af06001770a294',
-    army_id='5fb1b9f3e1af06001770a294'
+    dateRange={
+      startDate=840,
+      endDate=1218,
+    }
   },
   g_base_definitions[g_str_5fb1ba40e1af06001770f96a_general],
   g_base_definitions[g_str_5fb1ba40e1af06001770f96a],
@@ -153,4 +35,27 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f3e1af06001770a294"] = {}
-army_dates["5fb1b9f3e1af06001770a294"]["840 AD to 1218 AD"] ="5fb1b9f3e1af06001770a294"
+army_dates["5fb1b9f3e1af06001770a294"]["840 AD to 1218 AD"] = {
+  startDate=840,
+  endDate=1218
+}
+army_dates["5fb1b9f3e1af06001770a294"]["840 AD to 1123 AD"] = {
+  startDate=840,
+  endDate=1123
+}
+army_dates["5fb1b9f3e1af06001770a294"]["1124 AD to 1131 AD"] = {
+  startDate=1124,
+  endDate=1131
+}
+army_dates["5fb1b9f3e1af06001770a294"]["1132 AD to 1210 AD"] = {
+  startDate=1132,
+  endDate=1210
+}
+army_dates["5fb1b9f3e1af06001770a294"]["1211 AD"] = {
+  startDate=1211,
+  endDate=1211
+}
+army_dates["5fb1b9f3e1af06001770a294"]["1212 AD to 1218 AD"] = {
+  startDate=1212,
+  endDate=1218
+}

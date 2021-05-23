@@ -1,119 +1,13 @@
 -- 5fb1b9dfe1af0600177096f4 Siracae, Iazyges, Later Rhoxolani Sarmatian  310 BC to 375 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba29e1af06001770cdc1']= {
-  min=6,
-  max=12,
-  description='Lancers',
-  core='all',
-}
-g_troop_entry['5fb1ba29e1af06001770cdc2']= {
-  troop_option='5fb1ba29e1af06001770cdc1',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba29e1af06001770cdc3']= {
-  min=0,
-  max=1,
-  description='Mounted scouts and skirmishing horse archers',
-}
-g_troop_entry['5fb1ba29e1af06001770cdc4']= {
-  troop_option='5fb1ba29e1af06001770cdc3',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba29e1af06001770cdc5']= {
-  min=0,
-  max=2,
-  description='Peasant skirmishing bowmen',
-}
-g_troop_entry['5fb1ba29e1af06001770cdc6']= {
-  troop_option='5fb1ba29e1af06001770cdc5',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba29e1af06001770cdc7']= {
-  min=0,
-  max=2,
-  description='Massed levy',
-  core='all',
-}
-g_troop_entry['5fb1ba29e1af06001770cdc8']= {
-  troop_option='5fb1ba29e1af06001770cdc7',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba29e1af06001770cdc2_general='5fb1ba29e1af06001770cdc2_general'
-g_base_definitions[g_str_5fb1ba29e1af06001770cdc2_general]={
-  id=g_str_5fb1ba29e1af06001770cdc2_general,
-  name='Knights General',
-  min=6,
-  max=1,
-  description='Lancers',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba29e1af06001770cdc2='5fb1ba29e1af06001770cdc2'
-g_base_definitions[g_str_5fb1ba29e1af06001770cdc2]={
-  id=g_str_5fb1ba29e1af06001770cdc2,
-  name='Knights',
-  min=6,
-  max=12,
-  description='Lancers',
-  troop_type="Knights",
-}
-g_str_5fb1ba29e1af06001770cdc4='5fb1ba29e1af06001770cdc4'
-g_base_definitions[g_str_5fb1ba29e1af06001770cdc4]={
-  id=g_str_5fb1ba29e1af06001770cdc4,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Mounted scouts and skirmishing horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba29e1af06001770cdc6='5fb1ba29e1af06001770cdc6'
-g_base_definitions[g_str_5fb1ba29e1af06001770cdc6]={
-  id=g_str_5fb1ba29e1af06001770cdc6,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Peasant skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba29e1af06001770cdc8='5fb1ba29e1af06001770cdc8'
-g_base_definitions[g_str_5fb1ba29e1af06001770cdc8]={
-  id=g_str_5fb1ba29e1af06001770cdc8,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Massed levy',
-  troop_type="Horde",
-}
-g_str_5fb1b9dfe1af0600177096f4_camp='5fb1b9dfe1af0600177096f4_camp'
-g_base_definitions[g_str_5fb1b9dfe1af0600177096f4_camp]={
-  id=g_str_5fb1b9dfe1af0600177096f4_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dfe1af0600177096f4_camp_fortified='5fb1b9dfe1af0600177096f4_camp_fortified'
-g_base_definitions[g_str_5fb1b9dfe1af0600177096f4_camp_fortified]={
-  id=g_str_5fb1b9dfe1af0600177096f4_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9dfe1af0600177096f4']={
   data={
     name='Siracae, Iazyges, Later Rhoxolani Sarmatian  310 BC to 375 AD',
     id='5fb1b9dfe1af0600177096f4',
-    army_id='5fb1b9dfe1af0600177096f4'
+    dateRange={
+      startDate=-310,
+      endDate=375,
+    }
   },
   g_base_definitions[g_str_5fb1ba29e1af06001770cdc2_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770cdc2],
@@ -147,4 +41,43 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dfe1af0600177096f4"] = {}
-army_dates["5fb1b9dfe1af0600177096f4"]["310 BC to 375 AD"] ="5fb1b9dfe1af0600177096f4"
+army_dates["5fb1b9dfe1af0600177096f4"]["310 BC to 375 AD"] = {
+  startDate=-310,
+  endDate=375
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["310 BC to 116 BC"] = {
+  startDate=-310,
+  endDate=-116
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["115 BC to 49 AD"] = {
+  startDate=-115,
+  endDate=49
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["50 AD to 99 AD"] = {
+  startDate=50,
+  endDate=99
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["100 AD to 199 AD"] = {
+  startDate=100,
+  endDate=199
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["200 AD to 250 AD"] = {
+  startDate=200,
+  endDate=250
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["251 AD to 357 AD"] = {
+  startDate=251,
+  endDate=357
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["358 AD"] = {
+  startDate=358,
+  endDate=358
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["359 AD to 372 AD"] = {
+  startDate=359,
+  endDate=372
+}
+army_dates["5fb1b9dfe1af0600177096f4"]["373 AD to 375 AD"] = {
+  startDate=373,
+  endDate=375
+}

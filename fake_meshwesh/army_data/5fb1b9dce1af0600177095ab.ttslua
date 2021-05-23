@@ -1,184 +1,13 @@
 -- 5fb1b9dce1af0600177095ab Iberians  240 to 20 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba27e1af06001770c8ad']= {
-  min=1,
-  max=3,
-  description='',
-}
-g_troop_entry['5fb1ba27e1af06001770c8ae']= {
-  troop_option='5fb1ba27e1af06001770c8ad',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba27e1af06001770c8b0']= {
-  min=4,
-  max=12,
-  description='Scutarii',
-  core='all',
-}
-g_troop_entry['5fb1ba27e1af06001770c8b1']= {
-  troop_option='5fb1ba27e1af06001770c8b0',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8b2']= {
-  min=2,
-  max=4,
-  description='Caetrati',
-}
-g_troop_entry['5fb1ba27e1af06001770c8b3']= {
-  troop_option='5fb1ba27e1af06001770c8b2',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba27e1af06001770c8b4']= {
-  min=1,
-  max=2,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba27e1af06001770c8b5']= {
-  troop_option='5fb1ba27e1af06001770c8b4',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba27e1af06001770c8b6']= {
-  min=0,
-  max=3,
-  description='Mercenary Celtiberian scutarii',
-}
-g_troop_entry['5fb1ba27e1af06001770c8b7']= {
-  troop_option='5fb1ba27e1af06001770c8b6',
-  troopTypeCode='RDR',
-}
-g_str_5fb1ba27e1af06001770c8ae_general='5fb1ba27e1af06001770c8ae_general'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8ae_general]={
-  id=g_str_5fb1ba27e1af06001770c8ae_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770c8ae_general_dismounted='5fb1ba27e1af06001770c8ae_general_dismounted'
-g_str_5fb1ba27e1af06001770c8ae_general_mounted='5fb1ba27e1af06001770c8ae_general_mounted'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8ae_general_dismounted]={
-  id=g_str_5fb1ba27e1af06001770c8ae_general_dismounted,
-  name='Light Foot General',
-  min=1,
-  max=1,
-  description='\nDeployment dismounted from Javelin Cavalry General',
-  points=4,
-  dismounted_from=g_str_5fb1ba27e1af06001770c8ae_general_mounted,
-  general=true,
-  troop_type="Light Foot",
-}
-g_base_definitions[g_str_5fb1ba27e1af06001770c8ae_general_mounted]={
-  id=g_str_5fb1ba27e1af06001770c8ae_general_mounted,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='\nDeployment dismounting as Light Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba27e1af06001770c8ae_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770c8ae='5fb1ba27e1af06001770c8ae'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8ae]={
-  id=g_str_5fb1ba27e1af06001770c8ae,
-  name='Javelin Cavalry',
-  min=1,
-  max=3,
-  description='',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770c8ae_dismounted='5fb1ba27e1af06001770c8ae_dismounted'
-g_str_5fb1ba27e1af06001770c8ae_mounted='5fb1ba27e1af06001770c8ae_mounted'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8ae_dismounted]={
-  id=g_str_5fb1ba27e1af06001770c8ae_dismounted,
-  name='Light Foot',
-  min=1,
-  max=3,
-  description='\nDeployment dismounted from Javelin Cavalry',
-  points=4,
-  dismounted_from=g_str_5fb1ba27e1af06001770c8ae_mounted,
-  troop_type="Light Foot",
-}
-g_base_definitions[g_str_5fb1ba27e1af06001770c8ae_mounted]={
-  id=g_str_5fb1ba27e1af06001770c8ae_mounted,
-  name='Javelin Cavalry',
-  min=1,
-  max=3,
-  description='\nDeployment dismounting as Light Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba27e1af06001770c8ae_dismounted,
-  deployment_dismounting=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba27e1af06001770c8b1='5fb1ba27e1af06001770c8b1'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8b1]={
-  id=g_str_5fb1ba27e1af06001770c8b1,
-  name='Light Foot',
-  min=4,
-  max=12,
-  description='Scutarii',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba27e1af06001770c8b3='5fb1ba27e1af06001770c8b3'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8b3]={
-  id=g_str_5fb1ba27e1af06001770c8b3,
-  name='Light Foot',
-  min=2,
-  max=4,
-  description='Caetrati',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba27e1af06001770c8b5='5fb1ba27e1af06001770c8b5'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8b5]={
-  id=g_str_5fb1ba27e1af06001770c8b5,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba27e1af06001770c8b7='5fb1ba27e1af06001770c8b7'
-g_base_definitions[g_str_5fb1ba27e1af06001770c8b7]={
-  id=g_str_5fb1ba27e1af06001770c8b7,
-  name='Raiders',
-  min=0,
-  max=3,
-  description='Mercenary Celtiberian scutarii',
-  troop_type="Raiders",
-}
-g_str_5fb1b9dce1af0600177095ab_camp='5fb1b9dce1af0600177095ab_camp'
-g_base_definitions[g_str_5fb1b9dce1af0600177095ab_camp]={
-  id=g_str_5fb1b9dce1af0600177095ab_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dce1af0600177095ab_camp_pack_train='5fb1b9dce1af0600177095ab_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dce1af0600177095ab_camp_pack_train]={
-  id=g_str_5fb1b9dce1af0600177095ab_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dce1af0600177095ab']={
   data={
     name='Iberians  240 to 20 BC',
     id='5fb1b9dce1af0600177095ab',
-    army_id='5fb1b9dce1af0600177095ab'
+    dateRange={
+      startDate=-240,
+      endDate=-20,
+    }
   },
   g_base_definitions[g_str_5fb1ba27e1af06001770c8ae_general],
   g_base_definitions[g_str_5fb1ba27e1af06001770c8ae_general_mounted],
@@ -213,4 +42,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dce1af0600177095ab"] = {}
-army_dates["5fb1b9dce1af0600177095ab"]["240 BC to 20 BC"] ="5fb1b9dce1af0600177095ab"
+army_dates["5fb1b9dce1af0600177095ab"]["240 BC to 20 BC"] = {
+  startDate=-240,
+  endDate=-20
+}

@@ -1,194 +1,13 @@
 -- 5fb1b9ebe1af060017709e8c Romanian Frankish  1204 to 1432 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba38e1af06001770e9bb']= {
-  min=2,
-  max=4,
-  description='Feudal men-at-arms and esquires',
-  core='all',
-}
-g_troop_entry['5fb1ba38e1af06001770e9bc']= {
-  troop_option='5fb1ba38e1af06001770e9bb',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba38e1af06001770e9bd']= {
-  min=1,
-  max=2,
-  description='Greek archontes',
-}
-g_troop_entry['5fb1ba38e1af06001770e9be']= {
-  troop_option='5fb1ba38e1af06001770e9bd',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba38e1af06001770e9bf']= {
-  min=0,
-  max=1,
-  description='Byzantine prisoners',
-  startDate=1211,
-  endDate=1214,
-}
-g_troop_entry['5fb1ba38e1af06001770e9c1']= {
-  troop_option='5fb1ba38e1af06001770e9bf',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba38e1af06001770e9c2']= {
-  min=0,
-  max=2,
-  description='Frankish spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba38e1af06001770e9c3']= {
-  troop_option='5fb1ba38e1af06001770e9c2',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba38e1af06001770e9c4']= {
-  min=0,
-  max=2,
-  description='Frankish or Venetian crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba38e1af06001770e9c5']= {
-  troop_option='5fb1ba38e1af06001770e9c4',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba38e1af06001770e9c6']= {
-  min=0,
-  max=1,
-  description='Frankish or Melingoi bowmen',
-}
-g_troop_entry['5fb1ba38e1af06001770e9c7']= {
-  troop_option='5fb1ba38e1af06001770e9c6',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba38e1af06001770e9c8']= {
-  min=1,
-  max=2,
-  description='Melingoi javelinmen',
-}
-g_troop_entry['5fb1ba38e1af06001770e9c9']= {
-  troop_option='5fb1ba38e1af06001770e9c8',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba38e1af06001770e9ca']= {
-  min=3,
-  max=6,
-  description='Greek bowmen',
-}
-g_troop_entry['5fb1ba38e1af06001770e9cb']= {
-  troop_option='5fb1ba38e1af06001770e9ca',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba38e1af06001770e9bc_general='5fb1ba38e1af06001770e9bc_general'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general]={
-  id=g_str_5fb1ba38e1af06001770e9bc_general,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Feudal men-at-arms and esquires',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba38e1af06001770e9bc='5fb1ba38e1af06001770e9bc'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9bc]={
-  id=g_str_5fb1ba38e1af06001770e9bc,
-  name='Knights',
-  min=2,
-  max=4,
-  description='Feudal men-at-arms and esquires',
-  troop_type="Knights",
-}
-g_str_5fb1ba38e1af06001770e9be='5fb1ba38e1af06001770e9be'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9be]={
-  id=g_str_5fb1ba38e1af06001770e9be,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Greek archontes',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba38e1af06001770e9c1='5fb1ba38e1af06001770e9c1'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9c1]={
-  id=g_str_5fb1ba38e1af06001770e9c1,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Byzantine prisoners',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba38e1af06001770e9c3='5fb1ba38e1af06001770e9c3'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9c3]={
-  id=g_str_5fb1ba38e1af06001770e9c3,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Frankish spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba38e1af06001770e9c5='5fb1ba38e1af06001770e9c5'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9c5]={
-  id=g_str_5fb1ba38e1af06001770e9c5,
-  name='Archers',
-  min=0,
-  max=2,
-  description='Frankish or Venetian crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba38e1af06001770e9c7='5fb1ba38e1af06001770e9c7'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9c7]={
-  id=g_str_5fb1ba38e1af06001770e9c7,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Frankish or Melingoi bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba38e1af06001770e9c9='5fb1ba38e1af06001770e9c9'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9c9]={
-  id=g_str_5fb1ba38e1af06001770e9c9,
-  name='Light Foot',
-  min=1,
-  max=2,
-  description='Melingoi javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba38e1af06001770e9cb='5fb1ba38e1af06001770e9cb'
-g_base_definitions[g_str_5fb1ba38e1af06001770e9cb]={
-  id=g_str_5fb1ba38e1af06001770e9cb,
-  name='Bow Levy',
-  min=3,
-  max=6,
-  description='Greek bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9ebe1af060017709e8c_camp='5fb1b9ebe1af060017709e8c_camp'
-g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp]={
-  id=g_str_5fb1b9ebe1af060017709e8c_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ebe1af060017709e8c_camp_pack_train='5fb1b9ebe1af060017709e8c_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp_pack_train]={
-  id=g_str_5fb1b9ebe1af060017709e8c_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ebe1af060017709e8c']={
   data={
     name='Romanian Frankish  1204 to 1432 AD',
     id='5fb1b9ebe1af060017709e8c',
-    army_id='5fb1b9ebe1af060017709e8c'
+    dateRange={
+      startDate=1204,
+      endDate=1432,
+    }
   },
   g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general],
   g_base_definitions[g_str_5fb1ba38e1af06001770e9bc],
@@ -206,60 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ebe1af060017709e8c"] = army["5fb1b9ebe1af060017709e8c"]
-army['5fb1b9ebe1af060017709e8c_1204_1210']={
-  data={
-    name='Romanian Frankish 1204 AD to 1210 AD',
-    id='5fb1b9ebe1af060017709e8c_1204_1210',
-    army_id='5fb1b9ebe1af060017709e8c'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9be],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c1],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c9],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9cb],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp_pack_train],
-}
-army['5fb1b9ebe1af060017709e8c_1211_1214']={
-  data={
-    name='Romanian Frankish 1211 AD to 1214 AD',
-    id='5fb1b9ebe1af060017709e8c_1211_1214',
-    army_id='5fb1b9ebe1af060017709e8c'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9be],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c1],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c9],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9cb],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp_pack_train],
-}
-army['5fb1b9ebe1af060017709e8c_1215_1432']={
-  data={
-    name='Romanian Frankish 1215 AD to 1432 AD',
-    id='5fb1b9ebe1af060017709e8c_1215_1432',
-    army_id='5fb1b9ebe1af060017709e8c'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9bc],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9be],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c1],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c3],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c5],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c7],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9c9],
-  g_base_definitions[g_str_5fb1ba38e1af06001770e9cb],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e8c_camp_pack_train],
-}
 if nil == armies["Byzantium in Decay"] then
   armies["Byzantium in Decay"] ={}
 end
@@ -276,7 +41,131 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ebe1af060017709e8c"] = {}
-army_dates["5fb1b9ebe1af060017709e8c"]["1204 AD to 1432 AD"] ="5fb1b9ebe1af060017709e8c"
-army_dates["5fb1b9ebe1af060017709e8c"]["1204 AD to 1210 AD"] ="5fb1b9ebe1af060017709e8c_1204_1210"
-army_dates["5fb1b9ebe1af060017709e8c"]["1211 AD to 1214 AD"] ="5fb1b9ebe1af060017709e8c_1211_1214"
-army_dates["5fb1b9ebe1af060017709e8c"]["1215 AD to 1432 AD"] ="5fb1b9ebe1af060017709e8c_1215_1432"
+army_dates["5fb1b9ebe1af060017709e8c"]["1204 AD to 1432 AD"] = {
+  startDate=1204,
+  endDate=1432
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1204 AD to 1210 AD"] = {
+  startDate=1204,
+  endDate=1210
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1211 AD"] = {
+  startDate=1211,
+  endDate=1211
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1212 AD to 1213 AD"] = {
+  startDate=1212,
+  endDate=1213
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1214 AD"] = {
+  startDate=1214,
+  endDate=1214
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1215 AD to 1219 AD"] = {
+  startDate=1215,
+  endDate=1219
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1220 AD to 1229 AD"] = {
+  startDate=1220,
+  endDate=1229
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1230 AD to 1238 AD"] = {
+  startDate=1230,
+  endDate=1238
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1239 AD to 1243 AD"] = {
+  startDate=1239,
+  endDate=1243
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1244 AD to 1258 AD"] = {
+  startDate=1244,
+  endDate=1258
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1259 AD"] = {
+  startDate=1259,
+  endDate=1259
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1260 AD to 1261 AD"] = {
+  startDate=1260,
+  endDate=1261
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1262 AD to 1263 AD"] = {
+  startDate=1262,
+  endDate=1263
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1264 AD"] = {
+  startDate=1264,
+  endDate=1264
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1265 AD to 1269 AD"] = {
+  startDate=1265,
+  endDate=1269
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1270 AD to 1276 AD"] = {
+  startDate=1270,
+  endDate=1276
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1277 AD to 1301 AD"] = {
+  startDate=1277,
+  endDate=1301
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1302 AD to 1304 AD"] = {
+  startDate=1302,
+  endDate=1304
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1305 AD to 1309 AD"] = {
+  startDate=1305,
+  endDate=1309
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1310 AD"] = {
+  startDate=1310,
+  endDate=1310
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1311 AD to 1317 AD"] = {
+  startDate=1311,
+  endDate=1317
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1318 AD"] = {
+  startDate=1318,
+  endDate=1318
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1319 AD"] = {
+  startDate=1319,
+  endDate=1319
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1320 AD to 1340 AD"] = {
+  startDate=1320,
+  endDate=1340
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1341 AD to 1360 AD"] = {
+  startDate=1341,
+  endDate=1360
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1361 AD to 1376 AD"] = {
+  startDate=1361,
+  endDate=1376
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1377 AD to 1378 AD"] = {
+  startDate=1377,
+  endDate=1378
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1379 AD to 1388 AD"] = {
+  startDate=1379,
+  endDate=1388
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1389 AD to 1394 AD"] = {
+  startDate=1389,
+  endDate=1394
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1395 AD to 1419 AD"] = {
+  startDate=1395,
+  endDate=1419
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1420 AD to 1430 AD"] = {
+  startDate=1420,
+  endDate=1430
+}
+army_dates["5fb1b9ebe1af060017709e8c"]["1431 AD to 1432 AD"] = {
+  startDate=1431,
+  endDate=1432
+}

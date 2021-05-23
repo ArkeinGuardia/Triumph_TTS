@@ -1,215 +1,13 @@
 -- 5fb1b9dbe1af06001770945d Lydian  687 to 540 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba23e1af06001770c407']= {
-  min=2,
-  max=4,
-  description='Noble Lydian Horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba23e1af06001770c408']= {
-  troop_option='5fb1ba23e1af06001770c407',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba23e1af06001770c409']= {
-  min=0,
-  max=1,
-  description='2-horse chariots',
-  core='all',
-}
-g_troop_entry['5fb1ba23e1af06001770c40a']= {
-  troop_option='5fb1ba23e1af06001770c409',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba23e1af06001770c40b']= {
-  min=1,
-  max=2,
-  description='Phrygian or Paphlagonian light horsemen',
-}
-g_troop_entry['5fb1ba23e1af06001770c40c']= {
-  troop_option='5fb1ba23e1af06001770c40b',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba23e1af06001770c40d']= {
-  min=3,
-  max=8,
-  description='Lydian or Phrygian spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba23e1af06001770c40e']= {
-  troop_option='5fb1ba23e1af06001770c40d',
-  troopTypeCode='HFT',
-}
-g_troop_entry['5fb1ba23e1af06001770c40f']= {
-  troop_option='5fb1ba23e1af06001770c40d',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba23e1af06001770c410']= {
-  min=1,
-  max=3,
-  description='Lydian, Phrygian, or Mysian peltasts',
-}
-g_troop_entry['5fb1ba23e1af06001770c411']= {
-  troop_option='5fb1ba23e1af06001770c410',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba23e1af06001770c412']= {
-  min=0,
-  max=2,
-  description='Lydian or other skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba23e1af06001770c413']= {
-  troop_option='5fb1ba23e1af06001770c412',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba23e1af06001770c414']= {
-  min=0,
-  max=1,
-  description='Thracian or Bithynian light infantry',
-}
-g_troop_entry['5fb1ba23e1af06001770c415']= {
-  troop_option='5fb1ba23e1af06001770c414',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba23e1af06001770c416']= {
-  min=0,
-  max=1,
-  description='Skythian horse archer mercenaries',
-}
-g_troop_entry['5fb1ba23e1af06001770c417']= {
-  troop_option='5fb1ba23e1af06001770c416',
-  troopTypeCode='HBW',
-}
-g_str_5fb1ba23e1af06001770c408_general='5fb1ba23e1af06001770c408_general'
-g_base_definitions[g_str_5fb1ba23e1af06001770c408_general]={
-  id=g_str_5fb1ba23e1af06001770c408_general,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Noble Lydian Horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba23e1af06001770c408='5fb1ba23e1af06001770c408'
-g_base_definitions[g_str_5fb1ba23e1af06001770c408]={
-  id=g_str_5fb1ba23e1af06001770c408,
-  name='Knights',
-  min=2,
-  max=4,
-  description='Noble Lydian Horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba23e1af06001770c40a_general='5fb1ba23e1af06001770c40a_general'
-g_base_definitions[g_str_5fb1ba23e1af06001770c40a_general]={
-  id=g_str_5fb1ba23e1af06001770c40a_general,
-  name='Chariots General',
-  min=0,
-  max=1,
-  description='2-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba23e1af06001770c40a='5fb1ba23e1af06001770c40a'
-g_base_definitions[g_str_5fb1ba23e1af06001770c40a]={
-  id=g_str_5fb1ba23e1af06001770c40a,
-  name='Chariots',
-  min=0,
-  max=1,
-  description='2-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba23e1af06001770c40c='5fb1ba23e1af06001770c40c'
-g_base_definitions[g_str_5fb1ba23e1af06001770c40c]={
-  id=g_str_5fb1ba23e1af06001770c40c,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Phrygian or Paphlagonian light horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba23e1af06001770c40e='5fb1ba23e1af06001770c40e'
-g_base_definitions[g_str_5fb1ba23e1af06001770c40e]={
-  id=g_str_5fb1ba23e1af06001770c40e,
-  name='Heavy Foot',
-  min=3,
-  max=8,
-  description='Lydian or Phrygian spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba23e1af06001770c40f='5fb1ba23e1af06001770c40f'
-g_base_definitions[g_str_5fb1ba23e1af06001770c40f]={
-  id=g_str_5fb1ba23e1af06001770c40f,
-  name='Light Foot',
-  min=3,
-  max=8,
-  description='Lydian or Phrygian spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba23e1af06001770c411='5fb1ba23e1af06001770c411'
-g_base_definitions[g_str_5fb1ba23e1af06001770c411]={
-  id=g_str_5fb1ba23e1af06001770c411,
-  name='Light Foot',
-  min=1,
-  max=3,
-  description='Lydian, Phrygian, or Mysian peltasts',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba23e1af06001770c413='5fb1ba23e1af06001770c413'
-g_base_definitions[g_str_5fb1ba23e1af06001770c413]={
-  id=g_str_5fb1ba23e1af06001770c413,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Lydian or other skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba23e1af06001770c415='5fb1ba23e1af06001770c415'
-g_base_definitions[g_str_5fb1ba23e1af06001770c415]={
-  id=g_str_5fb1ba23e1af06001770c415,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Thracian or Bithynian light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba23e1af06001770c417='5fb1ba23e1af06001770c417'
-g_base_definitions[g_str_5fb1ba23e1af06001770c417]={
-  id=g_str_5fb1ba23e1af06001770c417,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Skythian horse archer mercenaries',
-  troop_type="Horse Bow",
-}
-g_str_5fb1b9dbe1af06001770945d_camp='5fb1b9dbe1af06001770945d_camp'
-g_base_definitions[g_str_5fb1b9dbe1af06001770945d_camp]={
-  id=g_str_5fb1b9dbe1af06001770945d_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dbe1af06001770945d_camp_pack_train='5fb1b9dbe1af06001770945d_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dbe1af06001770945d_camp_pack_train]={
-  id=g_str_5fb1b9dbe1af06001770945d_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dbe1af06001770945d']={
   data={
     name='Lydian  687 to 540 BC',
     id='5fb1b9dbe1af06001770945d',
-    army_id='5fb1b9dbe1af06001770945d'
+    dateRange={
+      startDate=-687,
+      endDate=-540,
+    }
   },
   g_base_definitions[g_str_5fb1ba23e1af06001770c408_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c408],
@@ -241,4 +39,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dbe1af06001770945d"] = {}
-army_dates["5fb1b9dbe1af06001770945d"]["687 BC to 540 BC"] ="5fb1b9dbe1af06001770945d"
+army_dates["5fb1b9dbe1af06001770945d"]["687 BC to 540 BC"] = {
+  startDate=-687,
+  endDate=-540
+}
+army_dates["5fb1b9dbe1af06001770945d"]["687 BC to 670 BC"] = {
+  startDate=-687,
+  endDate=-670
+}
+army_dates["5fb1b9dbe1af06001770945d"]["669 BC to 666 BC"] = {
+  startDate=-669,
+  endDate=-666
+}
+army_dates["5fb1b9dbe1af06001770945d"]["665 BC"] = {
+  startDate=-665,
+  endDate=-665
+}
+army_dates["5fb1b9dbe1af06001770945d"]["664 BC to 540 BC"] = {
+  startDate=-664,
+  endDate=-540
+}

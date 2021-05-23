@@ -1,304 +1,13 @@
 -- 5fb1b9e2e1af060017709948 Early Sassanid Persian  220 to 349 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2de1af06001770d623']= {
-  min=1,
-  max=3,
-  description='Asvaran catafractarii',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d624']= {
-  troop_option='5fb1ba2de1af06001770d623',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba2de1af06001770d625']= {
-  min=1,
-  max=4,
-  description='Asvaran clibinarii',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d626']= {
-  troop_option='5fb1ba2de1af06001770d625',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba2de1af06001770d628']= {
-  min=4,
-  max=10,
-  description='Retainer horse archers',
-}
-g_troop_entry['5fb1ba2de1af06001770d629']= {
-  troop_option='5fb1ba2de1af06001770d628',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba2de1af06001770d62a']= {
-  min=0,
-  max=2,
-  description='Paighan spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d62b']= {
-  troop_option='5fb1ba2de1af06001770d62a',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2de1af06001770d62d']= {
-  min=0,
-  max=4,
-  description='Paighan bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d62e']= {
-  troop_option='5fb1ba2de1af06001770d62d',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2de1af06001770d630']= {
-  min=0,
-  max=1,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba2de1af06001770d631']= {
-  troop_option='5fb1ba2de1af06001770d630',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba2de1af06001770d632']= {
-  min=0,
-  max=4,
-  description='Peasant throng',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d633']= {
-  troop_option='5fb1ba2de1af06001770d632',
-  troopTypeCode='HRD',
-}
-g_troop_entry['5fb1ba2de1af06001770d634']= {
-  troop_option='5fb1ba2de1af06001770d632',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba2de1af06001770d636']= {
-  min=0,
-  max=2,
-  description='War elephants',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d637']= {
-  troop_option='5fb1ba2de1af06001770d636',
-  troopTypeCode='ELE',
-}
-g_str_5fb1ba2de1af06001770d624_general='5fb1ba2de1af06001770d624_general'
-g_base_definitions[g_str_5fb1ba2de1af06001770d624_general]={
-  id=g_str_5fb1ba2de1af06001770d624_general,
-  name='Cataphracts General',
-  min=1,
-  max=1,
-  description='Asvaran catafractarii',
-  general=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba2de1af06001770d624='5fb1ba2de1af06001770d624'
-g_base_definitions[g_str_5fb1ba2de1af06001770d624]={
-  id=g_str_5fb1ba2de1af06001770d624,
-  name='Cataphracts',
-  min=1,
-  max=3,
-  description='Asvaran catafractarii',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba2de1af06001770d626_general='5fb1ba2de1af06001770d626_general'
-g_base_definitions[g_str_5fb1ba2de1af06001770d626_general]={
-  id=g_str_5fb1ba2de1af06001770d626_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Asvaran clibinarii',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba2de1af06001770d626='5fb1ba2de1af06001770d626'
-g_base_definitions[g_str_5fb1ba2de1af06001770d626]={
-  id=g_str_5fb1ba2de1af06001770d626,
-  name='Elite Cavalary',
-  min=1,
-  max=4,
-  description='Asvaran clibinarii',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba2de1af06001770d629='5fb1ba2de1af06001770d629'
-g_base_definitions[g_str_5fb1ba2de1af06001770d629]={
-  id=g_str_5fb1ba2de1af06001770d629,
-  name='Horse Bow',
-  min=4,
-  max=10,
-  description='Retainer horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba2de1af06001770d62b='5fb1ba2de1af06001770d62b'
-g_base_definitions[g_str_5fb1ba2de1af06001770d62b]={
-  id=g_str_5fb1ba2de1af06001770d62b,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Paighan spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2de1af06001770d62b_elephant_screen='5fb1ba2de1af06001770d62b_elephant_screen'
-g_base_definitions[g_str_5fb1ba2de1af06001770d62b_elephant_screen]={
-  id=g_str_5fb1ba2de1af06001770d62b_elephant_screen,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Paighan spearmen\nElephant Screen',
-  elephant_screen=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2de1af06001770d62b_elephant_screen_elephant_screen_counter='5fb1ba2de1af06001770d62b_elephant_screen_elephant_screen_counter'
-g_base_definitions[g_str_5fb1ba2de1af06001770d62b_elephant_screen_elephant_screen_counter]={
-  id=g_str_5fb1ba2de1af06001770d62b_elephant_screen_elephant_screen_counter,
-  name='Elephant Screen',
-  min=0,
-  max=2,
-  description='',
-  troop_type="Elephant Screen Counter",
-}
-g_str_5fb1ba2de1af06001770d62e='5fb1ba2de1af06001770d62e'
-g_base_definitions[g_str_5fb1ba2de1af06001770d62e]={
-  id=g_str_5fb1ba2de1af06001770d62e,
-  name='Bow Levy',
-  min=0,
-  max=4,
-  description='Paighan bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2de1af06001770d62e_elephant_screen='5fb1ba2de1af06001770d62e_elephant_screen'
-g_base_definitions[g_str_5fb1ba2de1af06001770d62e_elephant_screen]={
-  id=g_str_5fb1ba2de1af06001770d62e_elephant_screen,
-  name='Bow Levy',
-  min=0,
-  max=4,
-  description='Paighan bowmen\nElephant Screen',
-  elephant_screen=true,
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2de1af06001770d62e_elephant_screen_elephant_screen_counter='5fb1ba2de1af06001770d62e_elephant_screen_elephant_screen_counter'
-g_base_definitions[g_str_5fb1ba2de1af06001770d62e_elephant_screen_elephant_screen_counter]={
-  id=g_str_5fb1ba2de1af06001770d62e_elephant_screen_elephant_screen_counter,
-  name='Elephant Screen',
-  min=0,
-  max=4,
-  description='',
-  troop_type="Elephant Screen Counter",
-}
-g_str_5fb1ba2de1af06001770d631='5fb1ba2de1af06001770d631'
-g_base_definitions[g_str_5fb1ba2de1af06001770d631]={
-  id=g_str_5fb1ba2de1af06001770d631,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2de1af06001770d633='5fb1ba2de1af06001770d633'
-g_base_definitions[g_str_5fb1ba2de1af06001770d633]={
-  id=g_str_5fb1ba2de1af06001770d633,
-  name='Horde',
-  min=0,
-  max=4,
-  description='Peasant throng',
-  troop_type="Horde",
-}
-g_str_5fb1ba2de1af06001770d633_elephant_screen='5fb1ba2de1af06001770d633_elephant_screen'
-g_base_definitions[g_str_5fb1ba2de1af06001770d633_elephant_screen]={
-  id=g_str_5fb1ba2de1af06001770d633_elephant_screen,
-  name='Horde',
-  min=0,
-  max=4,
-  description='Peasant throng\nElephant Screen',
-  elephant_screen=true,
-  troop_type="Horde",
-}
-g_str_5fb1ba2de1af06001770d633_elephant_screen_elephant_screen_counter='5fb1ba2de1af06001770d633_elephant_screen_elephant_screen_counter'
-g_base_definitions[g_str_5fb1ba2de1af06001770d633_elephant_screen_elephant_screen_counter]={
-  id=g_str_5fb1ba2de1af06001770d633_elephant_screen_elephant_screen_counter,
-  name='Elephant Screen',
-  min=0,
-  max=4,
-  description='',
-  troop_type="Elephant Screen Counter",
-}
-g_str_5fb1ba2de1af06001770d634='5fb1ba2de1af06001770d634'
-g_base_definitions[g_str_5fb1ba2de1af06001770d634]={
-  id=g_str_5fb1ba2de1af06001770d634,
-  name='Rabble',
-  min=0,
-  max=4,
-  description='Peasant throng',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2de1af06001770d634_elephant_screen='5fb1ba2de1af06001770d634_elephant_screen'
-g_base_definitions[g_str_5fb1ba2de1af06001770d634_elephant_screen]={
-  id=g_str_5fb1ba2de1af06001770d634_elephant_screen,
-  name='Rabble',
-  min=0,
-  max=4,
-  description='Peasant throng\nElephant Screen',
-  elephant_screen=true,
-  troop_type="Rabble",
-}
-g_str_5fb1ba2de1af06001770d634_elephant_screen_elephant_screen_counter='5fb1ba2de1af06001770d634_elephant_screen_elephant_screen_counter'
-g_base_definitions[g_str_5fb1ba2de1af06001770d634_elephant_screen_elephant_screen_counter]={
-  id=g_str_5fb1ba2de1af06001770d634_elephant_screen_elephant_screen_counter,
-  name='Elephant Screen',
-  min=0,
-  max=4,
-  description='',
-  troop_type="Elephant Screen Counter",
-}
-g_str_5fb1ba2de1af06001770d637='5fb1ba2de1af06001770d637'
-g_base_definitions[g_str_5fb1ba2de1af06001770d637]={
-  id=g_str_5fb1ba2de1af06001770d637,
-  name='Elephants',
-  min=0,
-  max=2,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1b9e2e1af060017709948_camp='5fb1b9e2e1af060017709948_camp'
-g_base_definitions[g_str_5fb1b9e2e1af060017709948_camp]={
-  id=g_str_5fb1b9e2e1af060017709948_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e2e1af060017709948_camp_fortified='5fb1b9e2e1af060017709948_camp_fortified'
-g_base_definitions[g_str_5fb1b9e2e1af060017709948_camp_fortified]={
-  id=g_str_5fb1b9e2e1af060017709948_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e2e1af060017709948_camp_pack_train='5fb1b9e2e1af060017709948_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e2e1af060017709948_camp_pack_train]={
-  id=g_str_5fb1b9e2e1af060017709948_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e2e1af060017709948']={
   data={
     name='Early Sassanid Persian  220 to 349 AD',
     id='5fb1b9e2e1af060017709948',
-    army_id='5fb1b9e2e1af060017709948'
+    dateRange={
+      startDate=220,
+      endDate=349,
+    }
   },
   g_base_definitions[g_str_5fb1ba2de1af06001770d624_general],
   g_base_definitions[g_str_5fb1ba2de1af06001770d624],
@@ -339,4 +48,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e2e1af060017709948"] = {}
-army_dates["5fb1b9e2e1af060017709948"]["220 AD to 349 AD"] ="5fb1b9e2e1af060017709948"
+army_dates["5fb1b9e2e1af060017709948"]["220 AD to 349 AD"] = {
+  startDate=220,
+  endDate=349
+}
+army_dates["5fb1b9e2e1af060017709948"]["220 AD to 229 AD"] = {
+  startDate=220,
+  endDate=229
+}
+army_dates["5fb1b9e2e1af060017709948"]["230 AD to 244 AD"] = {
+  startDate=230,
+  endDate=244
+}
+army_dates["5fb1b9e2e1af060017709948"]["245 AD to 349 AD"] = {
+  startDate=245,
+  endDate=349
+}

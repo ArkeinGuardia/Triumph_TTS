@@ -1,122 +1,13 @@
 -- 5fb1b9e5e1af060017709a95 Pre-Viking Scandinavian  450 to 789 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba30e1af06001770da63']= {
-  min=1,
-  max=2,
-  description='Huscarles',
-  core='all',
-}
-g_troop_entry['5fb1ba30e1af06001770da64']= {
-  troop_option='5fb1ba30e1af06001770da63',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba30e1af06001770da65']= {
-  min=5,
-  max=14,
-  description='Bondi spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba30e1af06001770da66']= {
-  troop_option='5fb1ba30e1af06001770da65',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba30e1af06001770da67']= {
-  min=0,
-  max=2,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba30e1af06001770da68']= {
-  troop_option='5fb1ba30e1af06001770da67',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba30e1af06001770da69']= {
-  troop_option='5fb1ba30e1af06001770da67',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba30e1af06001770da6a']= {
-  min=0,
-  max=2,
-  description='Thralls, levy, and dregs',
-}
-g_troop_entry['5fb1ba30e1af06001770da6b']= {
-  troop_option='5fb1ba30e1af06001770da6a',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba30e1af06001770da64_general='5fb1ba30e1af06001770da64_general'
-g_base_definitions[g_str_5fb1ba30e1af06001770da64_general]={
-  id=g_str_5fb1ba30e1af06001770da64_general,
-  name='Elite Foot General',
-  min=1,
-  max=1,
-  description='Huscarles',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba30e1af06001770da64='5fb1ba30e1af06001770da64'
-g_base_definitions[g_str_5fb1ba30e1af06001770da64]={
-  id=g_str_5fb1ba30e1af06001770da64,
-  name='Elite Foot',
-  min=1,
-  max=2,
-  description='Huscarles',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba30e1af06001770da66='5fb1ba30e1af06001770da66'
-g_base_definitions[g_str_5fb1ba30e1af06001770da66]={
-  id=g_str_5fb1ba30e1af06001770da66,
-  name='Heavy Foot',
-  min=5,
-  max=14,
-  description='Bondi spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba30e1af06001770da68='5fb1ba30e1af06001770da68'
-g_base_definitions[g_str_5fb1ba30e1af06001770da68]={
-  id=g_str_5fb1ba30e1af06001770da68,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba30e1af06001770da69='5fb1ba30e1af06001770da69'
-g_base_definitions[g_str_5fb1ba30e1af06001770da69]={
-  id=g_str_5fb1ba30e1af06001770da69,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba30e1af06001770da6b='5fb1ba30e1af06001770da6b'
-g_base_definitions[g_str_5fb1ba30e1af06001770da6b]={
-  id=g_str_5fb1ba30e1af06001770da6b,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Thralls, levy, and dregs',
-  troop_type="Horde",
-}
-g_str_5fb1b9e5e1af060017709a95_camp='5fb1b9e5e1af060017709a95_camp'
-g_base_definitions[g_str_5fb1b9e5e1af060017709a95_camp]={
-  id=g_str_5fb1b9e5e1af060017709a95_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e5e1af060017709a95']={
   data={
     name='Pre-Viking Scandinavian  450 to 789 AD',
     id='5fb1b9e5e1af060017709a95',
-    army_id='5fb1b9e5e1af060017709a95'
+    dateRange={
+      startDate=450,
+      endDate=789,
+    }
   },
   g_base_definitions[g_str_5fb1ba30e1af06001770da64_general],
   g_base_definitions[g_str_5fb1ba30e1af06001770da64],
@@ -146,4 +37,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e5e1af060017709a95"] = {}
-army_dates["5fb1b9e5e1af060017709a95"]["450 AD to 789 AD"] ="5fb1b9e5e1af060017709a95"
+army_dates["5fb1b9e5e1af060017709a95"]["450 AD to 789 AD"] = {
+  startDate=450,
+  endDate=789
+}
+army_dates["5fb1b9e5e1af060017709a95"]["450 AD to 579 AD"] = {
+  startDate=450,
+  endDate=579
+}
+army_dates["5fb1b9e5e1af060017709a95"]["580 AD to 789 AD"] = {
+  startDate=580,
+  endDate=789
+}

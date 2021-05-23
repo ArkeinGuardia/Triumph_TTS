@@ -1,84 +1,13 @@
 -- 5fb1b9e3e1af0600177099c6 African Vandal  442 to 535 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ee1af06001770d7d8']= {
-  min=8,
-  max=12,
-  description='Charging Vandal horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba2ee1af06001770d7d9']= {
-  troop_option='5fb1ba2ee1af06001770d7d8',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba2ee1af06001770d7da']= {
-  min=0,
-  max=1,
-  description='Remnant Alan horse archers',
-  startDate=442,
-  endDate=499,
-}
-g_troop_entry['5fb1ba2ee1af06001770d7dc']= {
-  troop_option='5fb1ba2ee1af06001770d7da',
-  troopTypeCode='HBW',
-}
-g_str_5fb1ba2ee1af06001770d7d9_general='5fb1ba2ee1af06001770d7d9_general'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9_general]={
-  id=g_str_5fb1ba2ee1af06001770d7d9_general,
-  name='Knights General',
-  min=8,
-  max=1,
-  description='Charging Vandal horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba2ee1af06001770d7d9='5fb1ba2ee1af06001770d7d9'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9]={
-  id=g_str_5fb1ba2ee1af06001770d7d9,
-  name='Knights',
-  min=8,
-  max=12,
-  description='Charging Vandal horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba2ee1af06001770d7dc='5fb1ba2ee1af06001770d7dc'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7dc]={
-  id=g_str_5fb1ba2ee1af06001770d7dc,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Remnant Alan horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1b9e3e1af0600177099c6_camp='5fb1b9e3e1af0600177099c6_camp'
-g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp]={
-  id=g_str_5fb1b9e3e1af0600177099c6_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e3e1af0600177099c6_camp_fortified='5fb1b9e3e1af0600177099c6_camp_fortified'
-g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp_fortified]={
-  id=g_str_5fb1b9e3e1af0600177099c6_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e3e1af0600177099c6']={
   data={
     name='African Vandal  442 to 535 AD',
     id='5fb1b9e3e1af0600177099c6',
-    army_id='5fb1b9e3e1af0600177099c6'
+    dateRange={
+      startDate=442,
+      endDate=535,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9],
@@ -90,30 +19,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e3e1af0600177099c6"] = army["5fb1b9e3e1af0600177099c6"]
-army['5fb1b9e3e1af0600177099c6_442_499']={
-  data={
-    name='African Vandal 442 AD to 499 AD',
-    id='5fb1b9e3e1af0600177099c6_442_499',
-    army_id='5fb1b9e3e1af0600177099c6'
-  },
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9_general],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d7dc],
-  g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp],
-  g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp_fortified],
-}
-army['5fb1b9e3e1af0600177099c6_500_535']={
-  data={
-    name='African Vandal 500 AD to 535 AD',
-    id='5fb1b9e3e1af0600177099c6_500_535',
-    army_id='5fb1b9e3e1af0600177099c6'
-  },
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9_general],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d7d9],
-  g_base_definitions[g_str_5fb1ba2ee1af06001770d7dc],
-  g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp],
-  g_base_definitions[g_str_5fb1b9e3e1af0600177099c6_camp_fortified],
-}
 if nil == armies["Fall of Rome"] then
   armies["Fall of Rome"] ={}
 end
@@ -126,6 +31,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e3e1af0600177099c6"] = {}
-army_dates["5fb1b9e3e1af0600177099c6"]["442 AD to 535 AD"] ="5fb1b9e3e1af0600177099c6"
-army_dates["5fb1b9e3e1af0600177099c6"]["442 AD to 499 AD"] ="5fb1b9e3e1af0600177099c6_442_499"
-army_dates["5fb1b9e3e1af0600177099c6"]["500 AD to 535 AD"] ="5fb1b9e3e1af0600177099c6_500_535"
+army_dates["5fb1b9e3e1af0600177099c6"]["442 AD to 535 AD"] = {
+  startDate=442,
+  endDate=535
+}
+army_dates["5fb1b9e3e1af0600177099c6"]["442 AD to 499 AD"] = {
+  startDate=442,
+  endDate=499
+}
+army_dates["5fb1b9e3e1af0600177099c6"]["500 AD to 535 AD"] = {
+  startDate=500,
+  endDate=535
+}

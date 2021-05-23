@@ -1,333 +1,13 @@
 -- 5fb1b9e7e1af060017709c3a Feudal French  1086 to 1330 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba33e1af06001770e01f']= {
-  min=2,
-  max=4,
-  description='Feudal or mercenary chevaliers',
-}
-g_troop_entry['5fb1ba33e1af06001770e020']= {
-  troop_option='5fb1ba33e1af06001770e01f',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba33e1af06001770e021']= {
-  min=1,
-  max=1,
-  description='Sergeants mixed with chevaliers, or fighting separately',
-}
-g_troop_entry['5fb1ba33e1af06001770e022']= {
-  troop_option='5fb1ba33e1af06001770e021',
-  troopTypeCode='KNT',
-}
-g_troop_entry['5fb1ba33e1af06001770e023']= {
-  troop_option='5fb1ba33e1af06001770e021',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba33e1af06001770e024']= {
-  min=1,
-  max=1,
-  description='Skirmishing or armored crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770e025']= {
-  troop_option='5fb1ba33e1af06001770e024',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba33e1af06001770e026']= {
-  troop_option='5fb1ba33e1af06001770e024',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba33e1af06001770e027']= {
-  min=0,
-  max=3,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770e028']= {
-  troop_option='5fb1ba33e1af06001770e027',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba33e1af06001770e02a']= {
-  min=2,
-  max=6,
-  description='Spearmen and communal French militia',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770e02b']= {
-  troop_option='5fb1ba33e1af06001770e02a',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba33e1af06001770e02c']= {
-  min=0,
-  max=1,
-  description='Genoese mercenary crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770e02d']= {
-  troop_option='5fb1ba33e1af06001770e02c',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba33e1af06001770e02e']= {
-  min=0,
-  max=1,
-  description='Bidets, bidowers or Bretons: light-armed infantry with spear and buckler',
-}
-g_troop_entry['5fb1ba33e1af06001770e02f']= {
-  troop_option='5fb1ba33e1af06001770e02e',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba33e1af06001770e030']= {
-  min=0,
-  max=2,
-  description='Ribauds',
-}
-g_troop_entry['5fb1ba33e1af06001770e031']= {
-  troop_option='5fb1ba33e1af06001770e030',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba33e1af06001770e032']= {
-  min=0,
-  max=2,
-  description='Peasant levies',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770e033']= {
-  troop_option='5fb1ba33e1af06001770e032',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba33e1af06001770e034']= {
-  min=0,
-  max=1,
-  description='Aragonese horsemen',
-  note='only South French and Angevin',
-  startDate=1150,
-  endDate=1330,
-}
-g_troop_entry['5fb1ba33e1af06001770e036']= {
-  troop_option='5fb1ba33e1af06001770e034',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba33e1af06001770e037']= {
-  min=0,
-  max=1,
-  description='Gascon, Navarrese, or Basque dardiers or Almughavars',
-  note='only South French and Angevin',
-  startDate=1150,
-  endDate=1330,
-}
-g_troop_entry['5fb1ba33e1af06001770e039']= {
-  troop_option='5fb1ba33e1af06001770e037',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba33e1af06001770e03a']= {
-  min=0,
-  max=2,
-  description='Low Countries mercenary spearmen',
-  note='only Royal or North French',
-  core='all',
-  startDate=1150,
-  endDate=1330,
-}
-g_troop_entry['5fb1ba33e1af06001770e03c']= {
-  troop_option='5fb1ba33e1af06001770e03a',
-  troopTypeCode='PIK',
-}
-g_str_5fb1ba33e1af06001770e020_general='5fb1ba33e1af06001770e020_general'
-g_base_definitions[g_str_5fb1ba33e1af06001770e020_general]={
-  id=g_str_5fb1ba33e1af06001770e020_general,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Feudal or mercenary chevaliers',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba33e1af06001770e020='5fb1ba33e1af06001770e020'
-g_base_definitions[g_str_5fb1ba33e1af06001770e020]={
-  id=g_str_5fb1ba33e1af06001770e020,
-  name='Knights',
-  min=2,
-  max=4,
-  description='Feudal or mercenary chevaliers',
-  troop_type="Knights",
-}
-g_str_5fb1ba33e1af06001770e022_general='5fb1ba33e1af06001770e022_general'
-g_base_definitions[g_str_5fb1ba33e1af06001770e022_general]={
-  id=g_str_5fb1ba33e1af06001770e022_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Sergeants mixed with chevaliers, or fighting separately',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba33e1af06001770e022='5fb1ba33e1af06001770e022'
-g_base_definitions[g_str_5fb1ba33e1af06001770e022]={
-  id=g_str_5fb1ba33e1af06001770e022,
-  name='Knights',
-  min=1,
-  max=1,
-  description='Sergeants mixed with chevaliers, or fighting separately',
-  troop_type="Knights",
-}
-g_str_5fb1ba33e1af06001770e023='5fb1ba33e1af06001770e023'
-g_base_definitions[g_str_5fb1ba33e1af06001770e023]={
-  id=g_str_5fb1ba33e1af06001770e023,
-  name='Javelin Cavalry',
-  min=1,
-  max=1,
-  description='Sergeants mixed with chevaliers, or fighting separately',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba33e1af06001770e025='5fb1ba33e1af06001770e025'
-g_base_definitions[g_str_5fb1ba33e1af06001770e025]={
-  id=g_str_5fb1ba33e1af06001770e025,
-  name='Skirmishers',
-  min=1,
-  max=1,
-  description='Skirmishing or armored crossbowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba33e1af06001770e026='5fb1ba33e1af06001770e026'
-g_base_definitions[g_str_5fb1ba33e1af06001770e026]={
-  id=g_str_5fb1ba33e1af06001770e026,
-  name='Archers',
-  min=1,
-  max=1,
-  description='Skirmishing or armored crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba33e1af06001770e028='5fb1ba33e1af06001770e028'
-g_base_definitions[g_str_5fb1ba33e1af06001770e028]={
-  id=g_str_5fb1ba33e1af06001770e028,
-  name='Bow Levy',
-  min=0,
-  max=3,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry='5fb1ba33e1af06001770e028_dismounted_mobile_infantry'
-g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry='5fb1ba33e1af06001770e028_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry,
-  name='Bow Levy',
-  min=0,
-  max=1,
-  description='Bowmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry,
-  troop_type="Bow Levy",
-}
-g_base_definitions[g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry]={
-  id=g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry,
-  name='Bow Levy',
-  min=0,
-  max=1,
-  description='Bowmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba33e1af06001770e02b='5fb1ba33e1af06001770e02b'
-g_base_definitions[g_str_5fb1ba33e1af06001770e02b]={
-  id=g_str_5fb1ba33e1af06001770e02b,
-  name='Heavy Foot',
-  min=2,
-  max=6,
-  description='Spearmen and communal French militia',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba33e1af06001770e02d='5fb1ba33e1af06001770e02d'
-g_base_definitions[g_str_5fb1ba33e1af06001770e02d]={
-  id=g_str_5fb1ba33e1af06001770e02d,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Genoese mercenary crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba33e1af06001770e02f='5fb1ba33e1af06001770e02f'
-g_base_definitions[g_str_5fb1ba33e1af06001770e02f]={
-  id=g_str_5fb1ba33e1af06001770e02f,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Bidets, bidowers or Bretons: light-armed infantry with spear and buckler',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba33e1af06001770e031='5fb1ba33e1af06001770e031'
-g_base_definitions[g_str_5fb1ba33e1af06001770e031]={
-  id=g_str_5fb1ba33e1af06001770e031,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Ribauds',
-  troop_type="Rabble",
-}
-g_str_5fb1ba33e1af06001770e033='5fb1ba33e1af06001770e033'
-g_base_definitions[g_str_5fb1ba33e1af06001770e033]={
-  id=g_str_5fb1ba33e1af06001770e033,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Peasant levies',
-  troop_type="Horde",
-}
-g_str_5fb1ba33e1af06001770e036='5fb1ba33e1af06001770e036'
-g_base_definitions[g_str_5fb1ba33e1af06001770e036]={
-  id=g_str_5fb1ba33e1af06001770e036,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Aragonese horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba33e1af06001770e039='5fb1ba33e1af06001770e039'
-g_base_definitions[g_str_5fb1ba33e1af06001770e039]={
-  id=g_str_5fb1ba33e1af06001770e039,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Gascon, Navarrese, or Basque dardiers or Almughavars',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba33e1af06001770e03c='5fb1ba33e1af06001770e03c'
-g_base_definitions[g_str_5fb1ba33e1af06001770e03c]={
-  id=g_str_5fb1ba33e1af06001770e03c,
-  name='Pikes',
-  min=0,
-  max=2,
-  description='Low Countries mercenary spearmen',
-  troop_type="Pikes",
-}
-g_str_5fb1b9e7e1af060017709c3a_camp='5fb1b9e7e1af060017709c3a_camp'
-g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp]={
-  id=g_str_5fb1b9e7e1af060017709c3a_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e7e1af060017709c3a_camp_fortified='5fb1b9e7e1af060017709c3a_camp_fortified'
-g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp_fortified]={
-  id=g_str_5fb1b9e7e1af060017709c3a_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e7e1af060017709c3a']={
   data={
     name='Feudal French  1086 to 1330 AD',
     id='5fb1b9e7e1af060017709c3a',
-    army_id='5fb1b9e7e1af060017709c3a'
+    dateRange={
+      startDate=1086,
+      endDate=1330,
+    }
   },
   g_base_definitions[g_str_5fb1ba33e1af06001770e020_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770e020],
@@ -354,60 +34,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e7e1af060017709c3a"] = army["5fb1b9e7e1af060017709c3a"]
-army['5fb1b9e7e1af060017709c3a_1086_1149']={
-  data={
-    name='Feudal French 1086 AD to 1149 AD',
-    id='5fb1b9e7e1af060017709c3a_1086_1149',
-    army_id='5fb1b9e7e1af060017709c3a'
-  },
-  g_base_definitions[g_str_5fb1ba33e1af06001770e020_general],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e020],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e022_general],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e022],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e023],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e025],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e026],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e028],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e02b],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e02d],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e02f],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e031],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e033],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e036],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e039],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e03c],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp_fortified],
-}
-army['5fb1b9e7e1af060017709c3a_1150_1330']={
-  data={
-    name='Feudal French 1150 AD to 1330 AD',
-    id='5fb1b9e7e1af060017709c3a_1150_1330',
-    army_id='5fb1b9e7e1af060017709c3a'
-  },
-  g_base_definitions[g_str_5fb1ba33e1af06001770e020_general],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e020],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e022_general],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e022],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e023],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e025],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e026],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e028],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e028_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e028_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e02b],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e02d],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e02f],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e031],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e033],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e036],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e039],
-  g_base_definitions[g_str_5fb1ba33e1af06001770e03c],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709c3a_camp_fortified],
-}
 if nil == armies["Medieval Western Europe"] then
   armies["Medieval Western Europe"] ={}
 end
@@ -424,6 +50,51 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e7e1af060017709c3a"] = {}
-army_dates["5fb1b9e7e1af060017709c3a"]["1086 AD to 1330 AD"] ="5fb1b9e7e1af060017709c3a"
-army_dates["5fb1b9e7e1af060017709c3a"]["1086 AD to 1149 AD"] ="5fb1b9e7e1af060017709c3a_1086_1149"
-army_dates["5fb1b9e7e1af060017709c3a"]["1150 AD to 1330 AD"] ="5fb1b9e7e1af060017709c3a_1150_1330"
+army_dates["5fb1b9e7e1af060017709c3a"]["1086 AD to 1330 AD"] = {
+  startDate=1086,
+  endDate=1330
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1086 AD to 1127 AD"] = {
+  startDate=1086,
+  endDate=1127
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1128 AD to 1149 AD"] = {
+  startDate=1128,
+  endDate=1149
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1150 AD"] = {
+  startDate=1150,
+  endDate=1150
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1151 AD to 1190 AD"] = {
+  startDate=1151,
+  endDate=1190
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1191 AD to 1221 AD"] = {
+  startDate=1191,
+  endDate=1221
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1222 AD to 1248 AD"] = {
+  startDate=1222,
+  endDate=1248
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1249 AD to 1250 AD"] = {
+  startDate=1249,
+  endDate=1250
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1251 AD to 1265 AD"] = {
+  startDate=1251,
+  endDate=1265
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1266 AD to 1303 AD"] = {
+  startDate=1266,
+  endDate=1303
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1304 AD to 1320 AD"] = {
+  startDate=1304,
+  endDate=1320
+}
+army_dates["5fb1b9e7e1af060017709c3a"]["1321 AD to 1330 AD"] = {
+  startDate=1321,
+  endDate=1330
+}

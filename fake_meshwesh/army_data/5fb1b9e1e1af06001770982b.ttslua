@@ -1,224 +1,13 @@
 -- 5fb1b9e1e1af06001770982b Jewish Revolt  66 to 135 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2be1af06001770d24b']= {
-  min=0,
-  max=1,
-  description='Sicari',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d24c']= {
-  troop_option='5fb1ba2be1af06001770d24b',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba2be1af06001770d24d']= {
-  min=2,
-  max=6,
-  description='Skirmishing slingers and bowmen',
-}
-g_troop_entry['5fb1ba2be1af06001770d24e']= {
-  troop_option='5fb1ba2be1af06001770d24d',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba2be1af06001770d24f']= {
-  min=4,
-  max=18,
-  description='Fanatical massed infantry',
-}
-g_troop_entry['5fb1ba2be1af06001770d250']= {
-  troop_option='5fb1ba2be1af06001770d24f',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba2be1af06001770d251']= {
-  min=0,
-  max=12,
-  description='Light infantry with lesser fanaticism and better equipment',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d252']= {
-  troop_option='5fb1ba2be1af06001770d251',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2be1af06001770d253']= {
-  min=0,
-  max=4,
-  description='Idumaeans',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d254']= {
-  troop_option='5fb1ba2be1af06001770d253',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba2be1af06001770d24c_general='5fb1ba2be1af06001770d24c_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d24c_general]={
-  id=g_str_5fb1ba2be1af06001770d24c_general,
-  name='Warband General',
-  min=0,
-  max=1,
-  description='Sicari',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba2be1af06001770d24c='5fb1ba2be1af06001770d24c'
-g_base_definitions[g_str_5fb1ba2be1af06001770d24c]={
-  id=g_str_5fb1ba2be1af06001770d24c,
-  name='Warband',
-  min=0,
-  max=1,
-  description='Sicari',
-  troop_type="Warband",
-}
-g_str_5fb1ba2be1af06001770d24e='5fb1ba2be1af06001770d24e'
-g_base_definitions[g_str_5fb1ba2be1af06001770d24e]={
-  id=g_str_5fb1ba2be1af06001770d24e,
-  name='Skirmishers',
-  min=2,
-  max=6,
-  description='Skirmishing slingers and bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2be1af06001770d250_general='5fb1ba2be1af06001770d250_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d250_general]={
-  id=g_str_5fb1ba2be1af06001770d250_general,
-  name='Rabble General',
-  min=4,
-  max=1,
-  description='Fanatical massed infantry',
-  general=true,
-  troop_type="Rabble",
-}
-g_str_5fb1ba2be1af06001770d250='5fb1ba2be1af06001770d250'
-g_base_definitions[g_str_5fb1ba2be1af06001770d250]={
-  id=g_str_5fb1ba2be1af06001770d250,
-  name='Rabble',
-  min=4,
-  max=18,
-  description='Fanatical massed infantry',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2be1af06001770d252_general='5fb1ba2be1af06001770d252_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d252_general]={
-  id=g_str_5fb1ba2be1af06001770d252_general,
-  name='Light Foot General',
-  min=0,
-  max=1,
-  description='Light infantry with lesser fanaticism and better equipment',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2be1af06001770d252='5fb1ba2be1af06001770d252'
-g_base_definitions[g_str_5fb1ba2be1af06001770d252]={
-  id=g_str_5fb1ba2be1af06001770d252,
-  name='Light Foot',
-  min=0,
-  max=12,
-  description='Light infantry with lesser fanaticism and better equipment',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2be1af06001770d254_general='5fb1ba2be1af06001770d254_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d254_general]={
-  id=g_str_5fb1ba2be1af06001770d254_general,
-  name='Light Foot General',
-  min=0,
-  max=1,
-  description='Idumaeans',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2be1af06001770d254='5fb1ba2be1af06001770d254'
-g_base_definitions[g_str_5fb1ba2be1af06001770d254]={
-  id=g_str_5fb1ba2be1af06001770d254,
-  name='Light Foot',
-  min=0,
-  max=4,
-  description='Idumaeans',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9e1e1af06001770982b_camp='5fb1b9e1e1af06001770982b_camp'
-g_base_definitions[g_str_5fb1b9e1e1af06001770982b_camp]={
-  id=g_str_5fb1b9e1e1af06001770982b_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1ba0de1af06001770acd5_general='5fb1ba0de1af06001770acd5_general'
-g_base_definitions[g_str_5fb1ba0de1af06001770acd5_general]={
-  id=g_str_5fb1ba0de1af06001770acd5_general,
-  name='Warband General',
-  min=3,
-  max=1,
-  description='Zealot close fighters',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba0de1af06001770acd5='5fb1ba0de1af06001770acd5'
-g_base_definitions[g_str_5fb1ba0de1af06001770acd5]={
-  id=g_str_5fb1ba0de1af06001770acd5,
-  name='Warband',
-  min=3,
-  max=9,
-  description='Zealot close fighters',
-  troop_type="Warband",
-}
-g_str_5fb1ba0de1af06001770acd7_general='5fb1ba0de1af06001770acd7_general'
-g_base_definitions[g_str_5fb1ba0de1af06001770acd7_general]={
-  id=g_str_5fb1ba0de1af06001770acd7_general,
-  name='Rabble General',
-  min=1,
-  max=1,
-  description='Zealot bowmen',
-  general=true,
-  troop_type="Rabble",
-}
-g_str_5fb1ba0de1af06001770acd7='5fb1ba0de1af06001770acd7'
-g_base_definitions[g_str_5fb1ba0de1af06001770acd7]={
-  id=g_str_5fb1ba0de1af06001770acd7,
-  name='Rabble',
-  min=1,
-  max=3,
-  description='Zealot bowmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba0de1af06001770acd8='5fb1ba0de1af06001770acd8'
-g_base_definitions[g_str_5fb1ba0de1af06001770acd8]={
-  id=g_str_5fb1ba0de1af06001770acd8,
-  name='Archers',
-  min=1,
-  max=3,
-  description='Zealot bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba0de1af06001770acda_general='5fb1ba0de1af06001770acda_general'
-g_base_definitions[g_str_5fb1ba0de1af06001770acda_general]={
-  id=g_str_5fb1ba0de1af06001770acda_general,
-  name='Rabble General',
-  min=0,
-  max=1,
-  description='Zealot slingers',
-  general=true,
-  troop_type="Rabble",
-}
-g_str_5fb1ba0de1af06001770acda='5fb1ba0de1af06001770acda'
-g_base_definitions[g_str_5fb1ba0de1af06001770acda]={
-  id=g_str_5fb1ba0de1af06001770acda,
-  name='Rabble',
-  min=0,
-  max=1,
-  description='Zealot slingers',
-  troop_type="Rabble",
-}
 army['5fb1b9e1e1af06001770982b']={
   data={
     name='Jewish Revolt  66 to 135 AD',
     id='5fb1b9e1e1af06001770982b',
-    army_id='5fb1b9e1e1af06001770982b'
+    dateRange={
+      startDate=66,
+      endDate=135,
+    }
   },
   g_base_definitions[g_str_5fb1ba2be1af06001770d24c_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d24c],
@@ -254,4 +43,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e1e1af06001770982b"] = {}
-army_dates["5fb1b9e1e1af06001770982b"]["66 AD to 135 AD"] ="5fb1b9e1e1af06001770982b"
+army_dates["5fb1b9e1e1af06001770982b"]["66 AD to 135 AD"] = {
+  startDate=66,
+  endDate=135
+}
+army_dates["5fb1b9e1e1af06001770982b"]["66 AD to 70 AD"] = {
+  startDate=66,
+  endDate=70
+}
+army_dates["5fb1b9e1e1af06001770982b"]["71 AD to 135 AD"] = {
+  startDate=71,
+  endDate=135
+}

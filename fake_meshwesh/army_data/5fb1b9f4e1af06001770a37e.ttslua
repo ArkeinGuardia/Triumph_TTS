@@ -1,102 +1,13 @@
 -- 5fb1b9f4e1af06001770a37e Olmec  1150 to 400 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba43e1af06001770fcf4']= {
-  min=0,
-  max=2,
-  description='Warrior societies',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fcf5']= {
-  troop_option='5fb1ba43e1af06001770fcf4',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba43e1af06001770fcf6']= {
-  min=8,
-  max=16,
-  description='Fighters armed with spears and clubs',
-}
-g_troop_entry['5fb1ba43e1af06001770fcf7']= {
-  troop_option='5fb1ba43e1af06001770fcf6',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba43e1af06001770fcf8']= {
-  min=2,
-  max=6,
-  description='Skirmishing slingers',
-  startDate=-899,
-  endDate=-400,
-}
-g_troop_entry['5fb1ba43e1af06001770fcfa']= {
-  troop_option='5fb1ba43e1af06001770fcf8',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba43e1af06001770fcf5_general='5fb1ba43e1af06001770fcf5_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcf5_general]={
-  id=g_str_5fb1ba43e1af06001770fcf5_general,
-  name='Heavy Foot General',
-  min=0,
-  max=1,
-  description='Warrior societies',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba43e1af06001770fcf5='5fb1ba43e1af06001770fcf5'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcf5]={
-  id=g_str_5fb1ba43e1af06001770fcf5,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Warrior societies',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba43e1af06001770fcf7_general='5fb1ba43e1af06001770fcf7_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcf7_general]={
-  id=g_str_5fb1ba43e1af06001770fcf7_general,
-  name='Heavy Foot General',
-  min=8,
-  max=1,
-  description='Fighters armed with spears and clubs',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba43e1af06001770fcf7='5fb1ba43e1af06001770fcf7'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcf7]={
-  id=g_str_5fb1ba43e1af06001770fcf7,
-  name='Heavy Foot',
-  min=8,
-  max=16,
-  description='Fighters armed with spears and clubs',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba43e1af06001770fcfa='5fb1ba43e1af06001770fcfa'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcfa]={
-  id=g_str_5fb1ba43e1af06001770fcfa,
-  name='Skirmishers',
-  min=2,
-  max=6,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f4e1af06001770a37e_camp='5fb1b9f4e1af06001770a37e_camp'
-g_base_definitions[g_str_5fb1b9f4e1af06001770a37e_camp]={
-  id=g_str_5fb1b9f4e1af06001770a37e_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f4e1af06001770a37e']={
   data={
     name='Olmec  1150 to 400 BC',
     id='5fb1b9f4e1af06001770a37e',
-    army_id='5fb1b9f4e1af06001770a37e'
+    dateRange={
+      startDate=-1150,
+      endDate=-400,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fcf5_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fcf5],
@@ -109,32 +20,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f4e1af06001770a37e"] = army["5fb1b9f4e1af06001770a37e"]
-army['5fb1b9f4e1af06001770a37e_-1150_-900']={
-  data={
-    name='Olmec 1150 BC to 900 BC',
-    id='5fb1b9f4e1af06001770a37e_-1150_-900',
-    army_id='5fb1b9f4e1af06001770a37e'
-  },
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf5_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf5],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf7_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf7],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcfa],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a37e_camp],
-}
-army['5fb1b9f4e1af06001770a37e_-899_-400']={
-  data={
-    name='Olmec 899 BC to 400 BC',
-    id='5fb1b9f4e1af06001770a37e_-899_-400',
-    army_id='5fb1b9f4e1af06001770a37e'
-  },
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf5_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf5],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf7_general],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcf7],
-  g_base_definitions[g_str_5fb1ba43e1af06001770fcfa],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a37e_camp],
-}
 if nil == armies["New World"] then
   armies["New World"] ={}
 end
@@ -151,6 +36,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f4e1af06001770a37e"] = {}
-army_dates["5fb1b9f4e1af06001770a37e"]["1150 BC to 400 BC"] ="5fb1b9f4e1af06001770a37e"
-army_dates["5fb1b9f4e1af06001770a37e"]["1150 BC to 900 BC"] ="5fb1b9f4e1af06001770a37e_-1150_-900"
-army_dates["5fb1b9f4e1af06001770a37e"]["899 BC to 400 BC"] ="5fb1b9f4e1af06001770a37e_-899_-400"
+army_dates["5fb1b9f4e1af06001770a37e"]["1150 BC to 400 BC"] = {
+  startDate=-1150,
+  endDate=-400
+}
+army_dates["5fb1b9f4e1af06001770a37e"]["1150 BC to 900 BC"] = {
+  startDate=-1150,
+  endDate=-900
+}
+army_dates["5fb1b9f4e1af06001770a37e"]["899 BC to 400 BC"] = {
+  startDate=-899,
+  endDate=-400
+}

@@ -1,179 +1,13 @@
 -- 5fb1b9ede1af060017709f41 Hamdanids of Mosul or Later Hamdanids of Aleppo   890 to 1008 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ae1af06001770ed11']= {
-  min=4,
-  max=12,
-  description='Bedouin "Arabitai"',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed12']= {
-  troop_option='5fb1ba3ae1af06001770ed11',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3ae1af06001770ed13']= {
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed14']= {
-  troop_option='5fb1ba3ae1af06001770ed13',
-  troopTypeCode='HBW',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed15']= {
-  troop_option='5fb1ba3ae1af06001770ed13',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ae1af06001770ed17']= {
-  min=0,
-  max=1,
-  description='Bedouin or Dailami skirmishing bowmen',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed18']= {
-  troop_option='5fb1ba3ae1af06001770ed17',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ae1af06001770ed1a']= {
-  min=0,
-  max=1,
-  description='Bedouin camel-mounted scouts',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed1b']= {
-  troop_option='5fb1ba3ae1af06001770ed1a',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba3ae1af06001770ed1d']= {
-  min=0,
-  max=2,
-  description='Ahdath militia',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed1e']= {
-  troop_option='5fb1ba3ae1af06001770ed1d',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba3ae1af06001770ed12_general='5fb1ba3ae1af06001770ed12_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed12_general]={
-  id=g_str_5fb1ba3ae1af06001770ed12_general,
-  name='Javelin Cavalry General',
-  min=4,
-  max=1,
-  description='Bedouin "Arabitai"',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770ed12='5fb1ba3ae1af06001770ed12'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed12]={
-  id=g_str_5fb1ba3ae1af06001770ed12,
-  name='Javelin Cavalry',
-  min=4,
-  max=12,
-  description='Bedouin "Arabitai"',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770ed14_general='5fb1ba3ae1af06001770ed14_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed14_general]={
-  id=g_str_5fb1ba3ae1af06001770ed14_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ed14='5fb1ba3ae1af06001770ed14'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed14]={
-  id=g_str_5fb1ba3ae1af06001770ed14,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ed15_general='5fb1ba3ae1af06001770ed15_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed15_general]={
-  id=g_str_5fb1ba3ae1af06001770ed15_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed15='5fb1ba3ae1af06001770ed15'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed15]={
-  id=g_str_5fb1ba3ae1af06001770ed15,
-  name='Elite Cavalary',
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed18='5fb1ba3ae1af06001770ed18'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed18]={
-  id=g_str_5fb1ba3ae1af06001770ed18,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Bedouin or Dailami skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ae1af06001770ed1b='5fb1ba3ae1af06001770ed1b'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed1b]={
-  id=g_str_5fb1ba3ae1af06001770ed1b,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Bedouin camel-mounted scouts',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba3ae1af06001770ed1b_light_camelry='5fb1ba3ae1af06001770ed1b_light_camelry'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed1b_light_camelry]={
-  id=g_str_5fb1ba3ae1af06001770ed1b_light_camelry,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Bedouin camel-mounted scouts\nLight Camelry',
-  light_camelry=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba3ae1af06001770ed1e='5fb1ba3ae1af06001770ed1e'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed1e]={
-  id=g_str_5fb1ba3ae1af06001770ed1e,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Ahdath militia',
-  troop_type="Horde",
-}
-g_str_5fb1b9ede1af060017709f41_camp='5fb1b9ede1af060017709f41_camp'
-g_base_definitions[g_str_5fb1b9ede1af060017709f41_camp]={
-  id=g_str_5fb1b9ede1af060017709f41_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709f41_camp_pack_train='5fb1b9ede1af060017709f41_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ede1af060017709f41_camp_pack_train]={
-  id=g_str_5fb1b9ede1af060017709f41_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ede1af060017709f41']={
   data={
     name='Hamdanids of Mosul or Later Hamdanids of Aleppo   890 to 1008 AD',
     id='5fb1b9ede1af060017709f41',
-    army_id='5fb1b9ede1af060017709f41'
+    dateRange={
+      startDate=890,
+      endDate=1008,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed12_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ed12],
@@ -204,4 +38,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709f41"] = {}
-army_dates["5fb1b9ede1af060017709f41"]["890 AD to 1008 AD"] ="5fb1b9ede1af060017709f41"
+army_dates["5fb1b9ede1af060017709f41"]["890 AD to 1008 AD"] = {
+  startDate=890,
+  endDate=1008
+}

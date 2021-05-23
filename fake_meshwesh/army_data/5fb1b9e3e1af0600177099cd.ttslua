@@ -1,108 +1,13 @@
 -- 5fb1b9e3e1af0600177099cd Later Moorish  25 to 696 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ee1af06001770d7e3']= {
-  min=3,
-  max=9,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba2ee1af06001770d7e4']= {
-  troop_option='5fb1ba2ee1af06001770d7e3',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2ee1af06001770d7e5']= {
-  min=4,
-  max=12,
-  description='Javelinmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2ee1af06001770d7e6']= {
-  troop_option='5fb1ba2ee1af06001770d7e5',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2ee1af06001770d7e8']= {
-  min=0,
-  max=2,
-  description='Skirmishing slingers and bowmen',
-}
-g_troop_entry['5fb1ba2ee1af06001770d7e9']= {
-  troop_option='5fb1ba2ee1af06001770d7e8',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba2ee1af06001770d7ea']= {
-  min=0,
-  max=2,
-  description='Elderly, women, children, and slaves',
-}
-g_troop_entry['5fb1ba2ee1af06001770d7eb']= {
-  troop_option='5fb1ba2ee1af06001770d7ea',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba2ee1af06001770d7e4_general='5fb1ba2ee1af06001770d7e4_general'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7e4_general]={
-  id=g_str_5fb1ba2ee1af06001770d7e4_general,
-  name='Javelin Cavalry General',
-  min=3,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2ee1af06001770d7e4='5fb1ba2ee1af06001770d7e4'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7e4]={
-  id=g_str_5fb1ba2ee1af06001770d7e4,
-  name='Javelin Cavalry',
-  min=3,
-  max=9,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2ee1af06001770d7e6='5fb1ba2ee1af06001770d7e6'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7e6]={
-  id=g_str_5fb1ba2ee1af06001770d7e6,
-  name='Light Foot',
-  min=4,
-  max=12,
-  description='Javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2ee1af06001770d7e9='5fb1ba2ee1af06001770d7e9'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7e9]={
-  id=g_str_5fb1ba2ee1af06001770d7e9,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing slingers and bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2ee1af06001770d7eb='5fb1ba2ee1af06001770d7eb'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d7eb]={
-  id=g_str_5fb1ba2ee1af06001770d7eb,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Elderly, women, children, and slaves',
-  troop_type="Rabble",
-}
-g_str_5fb1b9e3e1af0600177099cd_camp='5fb1b9e3e1af0600177099cd_camp'
-g_base_definitions[g_str_5fb1b9e3e1af0600177099cd_camp]={
-  id=g_str_5fb1b9e3e1af0600177099cd_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e3e1af0600177099cd']={
   data={
     name='Later Moorish  25 to 696 AD',
     id='5fb1b9e3e1af0600177099cd',
-    army_id='5fb1b9e3e1af0600177099cd'
+    dateRange={
+      startDate=25,
+      endDate=696,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7e4_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d7e4],
@@ -143,4 +48,59 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e3e1af0600177099cd"] = {}
-army_dates["5fb1b9e3e1af0600177099cd"]["25 AD to 696 AD"] ="5fb1b9e3e1af0600177099cd"
+army_dates["5fb1b9e3e1af0600177099cd"]["25 AD to 696 AD"] = {
+  startDate=25,
+  endDate=696
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["25 AD to 441 AD"] = {
+  startDate=25,
+  endDate=441
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["442 AD to 492 AD"] = {
+  startDate=442,
+  endDate=492
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["493 AD to 499 AD"] = {
+  startDate=493,
+  endDate=499
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["500 AD to 529 AD"] = {
+  startDate=500,
+  endDate=529
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["530 AD to 532 AD"] = {
+  startDate=530,
+  endDate=532
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["533 AD to 535 AD"] = {
+  startDate=533,
+  endDate=535
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["536 AD to 545 AD"] = {
+  startDate=536,
+  endDate=545
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["546 AD to 548 AD"] = {
+  startDate=546,
+  endDate=548
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["549 AD to 559 AD"] = {
+  startDate=549,
+  endDate=559
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["560 AD to 649 AD"] = {
+  startDate=560,
+  endDate=649
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["650 AD to 680 AD"] = {
+  startDate=650,
+  endDate=680
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["681 AD"] = {
+  startDate=681,
+  endDate=681
+}
+army_dates["5fb1b9e3e1af0600177099cd"]["682 AD to 696 AD"] = {
+  startDate=682,
+  endDate=696
+}

@@ -1,253 +1,13 @@
 -- 5fb1b9ece1af060017709ed7 Solomonic Ethiopia  1314 to 1529 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba39e1af06001770eb26']= {
-  min=3,
-  max=5,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba39e1af06001770eb27']= {
-  troop_option='5fb1ba39e1af06001770eb26',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba39e1af06001770eb28']= {
-  min=4,
-  max=9,
-  description='Tribal levy fighters',
-  core='all',
-}
-g_troop_entry['5fb1ba39e1af06001770eb29']= {
-  troop_option='5fb1ba39e1af06001770eb28',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba39e1af06001770eb2a']= {
-  min=0,
-  max=2,
-  description='Elamaya bowmen',
-  core='all',
-  startDate=1448,
-  endDate=1529,
-}
-g_troop_entry['5fb1ba39e1af06001770eb2c']= {
-  troop_option='5fb1ba39e1af06001770eb2a',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba39e1af06001770eb2d']= {
-  min=1,
-  max=5,
-  description='Ethiopian bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba39e1af06001770eb2e']= {
-  troop_option='5fb1ba39e1af06001770eb2d',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba39e1af06001770eb2f']= {
-  min=0,
-  max=1,
-  description='Muslim dembus wielders',
-}
-g_troop_entry['5fb1ba39e1af06001770eb30']= {
-  troop_option='5fb1ba39e1af06001770eb2f',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba39e1af06001770eb31']= {
-  min=1,
-  max=2,
-  description='Unshielded javelinmen',
-}
-g_troop_entry['5fb1ba39e1af06001770eb32']= {
-  troop_option='5fb1ba39e1af06001770eb31',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba39e1af06001770eb33']= {
-  min=0,
-  max=1,
-  description='Light camels',
-}
-g_troop_entry['5fb1ba39e1af06001770eb34']= {
-  troop_option='5fb1ba39e1af06001770eb33',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba39e1af06001770eb36']= {
-  min=1,
-  max=2,
-  description='Ethiopian Sarawit',
-  core='all',
-}
-g_troop_entry['5fb1ba39e1af06001770eb37']= {
-  troop_option='5fb1ba39e1af06001770eb36',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba39e1af06001770eb38']= {
-  min=0,
-  max=1,
-  description='Ethiopian camp artisans',
-}
-g_troop_entry['5fb1ba39e1af06001770eb39']= {
-  troop_option='5fb1ba39e1af06001770eb38',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba39e1af06001770eb3a']= {
-  min=0,
-  max=1,
-  description='Elamaya bowmen',
-  startDate=1448,
-  endDate=1529,
-}
-g_troop_entry['5fb1ba39e1af06001770eb3c']= {
-  troop_option='5fb1ba39e1af06001770eb3a',
-  troopTypeCode='ARC',
-}
-g_str_5fb1ba39e1af06001770eb27_general='5fb1ba39e1af06001770eb27_general'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb27_general]={
-  id=g_str_5fb1ba39e1af06001770eb27_general,
-  name='Javelin Cavalry General',
-  min=3,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba39e1af06001770eb27='5fb1ba39e1af06001770eb27'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb27]={
-  id=g_str_5fb1ba39e1af06001770eb27,
-  name='Javelin Cavalry',
-  min=3,
-  max=5,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba39e1af06001770eb29='5fb1ba39e1af06001770eb29'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb29]={
-  id=g_str_5fb1ba39e1af06001770eb29,
-  name='Warband',
-  min=4,
-  max=9,
-  description='Tribal levy fighters',
-  troop_type="Warband",
-}
-g_str_5fb1ba39e1af06001770eb2c='5fb1ba39e1af06001770eb2c'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb2c]={
-  id=g_str_5fb1ba39e1af06001770eb2c,
-  name='Archers',
-  min=0,
-  max=2,
-  description='Elamaya bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba39e1af06001770eb2e='5fb1ba39e1af06001770eb2e'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb2e]={
-  id=g_str_5fb1ba39e1af06001770eb2e,
-  name='Bow Levy',
-  min=1,
-  max=5,
-  description='Ethiopian bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba39e1af06001770eb30='5fb1ba39e1af06001770eb30'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb30]={
-  id=g_str_5fb1ba39e1af06001770eb30,
-  name='Raiders',
-  min=0,
-  max=1,
-  description='Muslim dembus wielders',
-  troop_type="Raiders",
-}
-g_str_5fb1ba39e1af06001770eb32='5fb1ba39e1af06001770eb32'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb32]={
-  id=g_str_5fb1ba39e1af06001770eb32,
-  name='Rabble',
-  min=1,
-  max=2,
-  description='Unshielded javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba39e1af06001770eb34='5fb1ba39e1af06001770eb34'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb34]={
-  id=g_str_5fb1ba39e1af06001770eb34,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Light camels',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba39e1af06001770eb34_light_camelry='5fb1ba39e1af06001770eb34_light_camelry'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb34_light_camelry]={
-  id=g_str_5fb1ba39e1af06001770eb34_light_camelry,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Light camels\nLight Camelry',
-  light_camelry=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba39e1af06001770eb37='5fb1ba39e1af06001770eb37'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb37]={
-  id=g_str_5fb1ba39e1af06001770eb37,
-  name='Raiders',
-  min=1,
-  max=2,
-  description='Ethiopian Sarawit',
-  troop_type="Raiders",
-}
-g_str_5fb1ba39e1af06001770eb39='5fb1ba39e1af06001770eb39'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb39]={
-  id=g_str_5fb1ba39e1af06001770eb39,
-  name='Horde',
-  min=0,
-  max=1,
-  description='Ethiopian camp artisans',
-  troop_type="Horde",
-}
-g_str_5fb1ba39e1af06001770eb3c='5fb1ba39e1af06001770eb3c'
-g_base_definitions[g_str_5fb1ba39e1af06001770eb3c]={
-  id=g_str_5fb1ba39e1af06001770eb3c,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Elamaya bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1b9ece1af060017709ed7_camp='5fb1b9ece1af060017709ed7_camp'
-g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp]={
-  id=g_str_5fb1b9ece1af060017709ed7_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ece1af060017709ed7_camp_fortified='5fb1b9ece1af060017709ed7_camp_fortified'
-g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp_fortified]={
-  id=g_str_5fb1b9ece1af060017709ed7_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9ece1af060017709ed7_camp_pack_train='5fb1b9ece1af060017709ed7_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp_pack_train]={
-  id=g_str_5fb1b9ece1af060017709ed7_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ece1af060017709ed7']={
   data={
     name='Solomonic Ethiopia  1314 to 1529 AD',
     id='5fb1b9ece1af060017709ed7',
-    army_id='5fb1b9ece1af060017709ed7'
+    dateRange={
+      startDate=1314,
+      endDate=1529,
+    }
   },
   g_base_definitions[g_str_5fb1ba39e1af06001770eb27_general],
   g_base_definitions[g_str_5fb1ba39e1af06001770eb27],
@@ -269,50 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ece1af060017709ed7"] = army["5fb1b9ece1af060017709ed7"]
-army['5fb1b9ece1af060017709ed7_1314_1447']={
-  data={
-    name='Solomonic Ethiopia 1314 AD to 1447 AD',
-    id='5fb1b9ece1af060017709ed7_1314_1447',
-    army_id='5fb1b9ece1af060017709ed7'
-  },
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb27_general],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb27],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb29],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb2c],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb2e],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb30],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb32],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb34],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb34_light_camelry],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb37],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb39],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb3c],
-  g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp],
-  g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp_pack_train],
-}
-army['5fb1b9ece1af060017709ed7_1448_1529']={
-  data={
-    name='Solomonic Ethiopia 1448 AD to 1529 AD',
-    id='5fb1b9ece1af060017709ed7_1448_1529',
-    army_id='5fb1b9ece1af060017709ed7'
-  },
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb27_general],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb27],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb29],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb2c],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb2e],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb30],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb32],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb34],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb34_light_camelry],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb37],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb39],
-  g_base_definitions[g_str_5fb1ba39e1af06001770eb3c],
-  g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp],
-  g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ece1af060017709ed7_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -325,6 +41,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ece1af060017709ed7"] = {}
-army_dates["5fb1b9ece1af060017709ed7"]["1314 AD to 1529 AD"] ="5fb1b9ece1af060017709ed7"
-army_dates["5fb1b9ece1af060017709ed7"]["1314 AD to 1447 AD"] ="5fb1b9ece1af060017709ed7_1314_1447"
-army_dates["5fb1b9ece1af060017709ed7"]["1448 AD to 1529 AD"] ="5fb1b9ece1af060017709ed7_1448_1529"
+army_dates["5fb1b9ece1af060017709ed7"]["1314 AD to 1529 AD"] = {
+  startDate=1314,
+  endDate=1529
+}
+army_dates["5fb1b9ece1af060017709ed7"]["1314 AD to 1447 AD"] = {
+  startDate=1314,
+  endDate=1447
+}
+army_dates["5fb1b9ece1af060017709ed7"]["1448 AD to 1529 AD"] = {
+  startDate=1448,
+  endDate=1529
+}

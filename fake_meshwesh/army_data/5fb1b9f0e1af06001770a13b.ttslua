@@ -1,149 +1,13 @@
 -- 5fb1b9f0e1af06001770a13b Xirong  2000 to 315 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ee1af06001770f4ef']= {
-  min=0,
-  max=2,
-  description='Leather-armored fighters',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f4f0']= {
-  troop_option='5fb1ba3ee1af06001770f4ef',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba3ee1af06001770f4f1']= {
-  min=0,
-  max=4,
-  description='Horse archers',
-  startDate=-400,
-  endDate=-315,
-}
-g_troop_entry['5fb1ba3ee1af06001770f4f3']= {
-  troop_option='5fb1ba3ee1af06001770f4f1',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ee1af06001770f4f4']= {
-  min=8,
-  max=14,
-  description='Fierce tribal foot',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f4f5']= {
-  troop_option='5fb1ba3ee1af06001770f4f4',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba3ee1af06001770f4f6']= {
-  min=2,
-  max=4,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba3ee1af06001770f4f7']= {
-  troop_option='5fb1ba3ee1af06001770f4f6',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ee1af06001770f4f8']= {
-  min=0,
-  max=2,
-  description='Levies, families, ill-equipped tribesmen and the like',
-}
-g_troop_entry['5fb1ba3ee1af06001770f4f9']= {
-  troop_option='5fb1ba3ee1af06001770f4f8',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba3ee1af06001770f4f0_general='5fb1ba3ee1af06001770f4f0_general'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4f0_general]={
-  id=g_str_5fb1ba3ee1af06001770f4f0_general,
-  name='Warriors General',
-  min=0,
-  max=1,
-  description='Leather-armored fighters',
-  general=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba3ee1af06001770f4f0='5fb1ba3ee1af06001770f4f0'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4f0]={
-  id=g_str_5fb1ba3ee1af06001770f4f0,
-  name='Warriors',
-  min=0,
-  max=2,
-  description='Leather-armored fighters',
-  troop_type="Warriors",
-}
-g_str_5fb1ba3ee1af06001770f4f3_general='5fb1ba3ee1af06001770f4f3_general'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4f3_general]={
-  id=g_str_5fb1ba3ee1af06001770f4f3_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ee1af06001770f4f3='5fb1ba3ee1af06001770f4f3'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4f3]={
-  id=g_str_5fb1ba3ee1af06001770f4f3,
-  name='Horse Bow',
-  min=0,
-  max=4,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ee1af06001770f4f5_general='5fb1ba3ee1af06001770f4f5_general'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4f5_general]={
-  id=g_str_5fb1ba3ee1af06001770f4f5_general,
-  name='Warband General',
-  min=8,
-  max=1,
-  description='Fierce tribal foot',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba3ee1af06001770f4f5='5fb1ba3ee1af06001770f4f5'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4f5]={
-  id=g_str_5fb1ba3ee1af06001770f4f5,
-  name='Warband',
-  min=8,
-  max=14,
-  description='Fierce tribal foot',
-  troop_type="Warband",
-}
-g_str_5fb1ba3ee1af06001770f4f7='5fb1ba3ee1af06001770f4f7'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4f7]={
-  id=g_str_5fb1ba3ee1af06001770f4f7,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ee1af06001770f4f9='5fb1ba3ee1af06001770f4f9'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f4f9]={
-  id=g_str_5fb1ba3ee1af06001770f4f9,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levies, families, ill-equipped tribesmen and the like',
-  troop_type="Horde",
-}
-g_str_5fb1b9f0e1af06001770a13b_camp='5fb1b9f0e1af06001770a13b_camp'
-g_base_definitions[g_str_5fb1b9f0e1af06001770a13b_camp]={
-  id=g_str_5fb1b9f0e1af06001770a13b_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f0e1af06001770a13b']={
   data={
     name='Xirong  2000 to 315 BC',
     id='5fb1b9f0e1af06001770a13b',
-    army_id='5fb1b9f0e1af06001770a13b'
+    dateRange={
+      startDate=-2000,
+      endDate=-315,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ee1af06001770f4f0_general],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f4f0],
@@ -159,38 +23,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f0e1af06001770a13b"] = army["5fb1b9f0e1af06001770a13b"]
-army['5fb1b9f0e1af06001770a13b_-2000_-401']={
-  data={
-    name='Xirong 2000 BC to 401 BC',
-    id='5fb1b9f0e1af06001770a13b_-2000_-401',
-    army_id='5fb1b9f0e1af06001770a13b'
-  },
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f0_general],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f0],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f3_general],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f3],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f5_general],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f5],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f7],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f9],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a13b_camp],
-}
-army['5fb1b9f0e1af06001770a13b_-400_-315']={
-  data={
-    name='Xirong 400 BC to 315 BC',
-    id='5fb1b9f0e1af06001770a13b_-400_-315',
-    army_id='5fb1b9f0e1af06001770a13b'
-  },
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f0_general],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f0],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f3_general],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f3],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f5_general],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f5],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f7],
-  g_base_definitions[g_str_5fb1ba3ee1af06001770f4f9],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a13b_camp],
-}
 if nil == armies["Mandate of Heaven"] then
   armies["Mandate of Heaven"] ={}
 end
@@ -207,6 +39,27 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f0e1af06001770a13b"] = {}
-army_dates["5fb1b9f0e1af06001770a13b"]["2000 BC to 315 BC"] ="5fb1b9f0e1af06001770a13b"
-army_dates["5fb1b9f0e1af06001770a13b"]["2000 BC to 401 BC"] ="5fb1b9f0e1af06001770a13b_-2000_-401"
-army_dates["5fb1b9f0e1af06001770a13b"]["400 BC to 315 BC"] ="5fb1b9f0e1af06001770a13b_-400_-315"
+army_dates["5fb1b9f0e1af06001770a13b"]["2000 BC to 315 BC"] = {
+  startDate=-2000,
+  endDate=-315
+}
+army_dates["5fb1b9f0e1af06001770a13b"]["2000 BC to 1101 BC"] = {
+  startDate=-2000,
+  endDate=-1101
+}
+army_dates["5fb1b9f0e1af06001770a13b"]["1100 BC to 771 BC"] = {
+  startDate=-1100,
+  endDate=-771
+}
+army_dates["5fb1b9f0e1af06001770a13b"]["770 BC to 550 BC"] = {
+  startDate=-770,
+  endDate=-550
+}
+army_dates["5fb1b9f0e1af06001770a13b"]["549 BC to 401 BC"] = {
+  startDate=-549,
+  endDate=-401
+}
+army_dates["5fb1b9f0e1af06001770a13b"]["400 BC to 315 BC"] = {
+  startDate=-400,
+  endDate=-315
+}

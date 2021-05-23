@@ -1,258 +1,13 @@
 -- 5fb1b9e7e1af060017709bee Early Feudal Spanish  718 to 1200 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba32e1af06001770deff']= {
-  min=2,
-  max=4,
-  description='Hidalgos, foreign crusaders, and mercenaries',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770df00']= {
-  troop_option='5fb1ba32e1af06001770deff',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba32e1af06001770df01']= {
-  min=1,
-  max=2,
-  description='Hidalgos from reconquered areas fighting in Moorish style',
-  core='all',
-  startDate=951,
-  endDate=1200,
-}
-g_troop_entry['5fb1ba32e1af06001770df03']= {
-  troop_option='5fb1ba32e1af06001770df01',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba32e1af06001770df04']= {
-  min=0,
-  max=1,
-  description='Basque or mercenary Berber horsemen',
-}
-g_troop_entry['5fb1ba32e1af06001770df05']= {
-  troop_option='5fb1ba32e1af06001770df04',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba32e1af06001770df06']= {
-  min=0,
-  max=1,
-  description='Crossbowmen on horses',
-  startDate=1001,
-  endDate=1200,
-}
-g_troop_entry['5fb1ba32e1af06001770df08']= {
-  troop_option='5fb1ba32e1af06001770df06',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba32e1af06001770df09']= {
-  min=0,
-  max=1,
-  description='Armored axemen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770df0a']= {
-  troop_option='5fb1ba32e1af06001770df09',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba32e1af06001770df0b']= {
-  min=1,
-  max=4,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770df0c']= {
-  troop_option='5fb1ba32e1af06001770df0b',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba32e1af06001770df0e']= {
-  min=3,
-  max=6,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba32e1af06001770df0f']= {
-  troop_option='5fb1ba32e1af06001770df0e',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba32e1af06001770df10']= {
-  min=1,
-  max=3,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba32e1af06001770df11']= {
-  troop_option='5fb1ba32e1af06001770df10',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba32e1af06001770df13']= {
-  min=0,
-  max=1,
-  description='Crossbowmen',
-  core='all',
-  startDate=1001,
-  endDate=1150,
-}
-g_troop_entry['5fb1ba32e1af06001770df15']= {
-  troop_option='5fb1ba32e1af06001770df13',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba32e1af06001770df16']= {
-  min=0,
-  max=2,
-  description='Bidets or Almughavars',
-  startDate=1151,
-  endDate=1200,
-}
-g_troop_entry['5fb1ba32e1af06001770df18']= {
-  troop_option='5fb1ba32e1af06001770df16',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba32e1af06001770df00_general='5fb1ba32e1af06001770df00_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770df00_general]={
-  id=g_str_5fb1ba32e1af06001770df00_general,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Hidalgos, foreign crusaders, and mercenaries',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba32e1af06001770df00='5fb1ba32e1af06001770df00'
-g_base_definitions[g_str_5fb1ba32e1af06001770df00]={
-  id=g_str_5fb1ba32e1af06001770df00,
-  name='Knights',
-  min=2,
-  max=4,
-  description='Hidalgos, foreign crusaders, and mercenaries',
-  troop_type="Knights",
-}
-g_str_5fb1ba32e1af06001770df03='5fb1ba32e1af06001770df03'
-g_base_definitions[g_str_5fb1ba32e1af06001770df03]={
-  id=g_str_5fb1ba32e1af06001770df03,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Hidalgos from reconquered areas fighting in Moorish style',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770df05='5fb1ba32e1af06001770df05'
-g_base_definitions[g_str_5fb1ba32e1af06001770df05]={
-  id=g_str_5fb1ba32e1af06001770df05,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Basque or mercenary Berber horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770df08='5fb1ba32e1af06001770df08'
-g_base_definitions[g_str_5fb1ba32e1af06001770df08]={
-  id=g_str_5fb1ba32e1af06001770df08,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Crossbowmen on horses',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba32e1af06001770df0a_general='5fb1ba32e1af06001770df0a_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770df0a_general]={
-  id=g_str_5fb1ba32e1af06001770df0a_general,
-  name='Elite Foot General',
-  min=0,
-  max=1,
-  description='Armored axemen',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba32e1af06001770df0a='5fb1ba32e1af06001770df0a'
-g_base_definitions[g_str_5fb1ba32e1af06001770df0a]={
-  id=g_str_5fb1ba32e1af06001770df0a,
-  name='Elite Foot',
-  min=0,
-  max=1,
-  description='Armored axemen',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba32e1af06001770df0c='5fb1ba32e1af06001770df0c'
-g_base_definitions[g_str_5fb1ba32e1af06001770df0c]={
-  id=g_str_5fb1ba32e1af06001770df0c,
-  name='Heavy Foot',
-  min=1,
-  max=4,
-  description='Spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba32e1af06001770df0f='5fb1ba32e1af06001770df0f'
-g_base_definitions[g_str_5fb1ba32e1af06001770df0f]={
-  id=g_str_5fb1ba32e1af06001770df0f,
-  name='Rabble',
-  min=3,
-  max=6,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba32e1af06001770df11='5fb1ba32e1af06001770df11'
-g_base_definitions[g_str_5fb1ba32e1af06001770df11]={
-  id=g_str_5fb1ba32e1af06001770df11,
-  name='Skirmishers',
-  min=1,
-  max=3,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba32e1af06001770df15='5fb1ba32e1af06001770df15'
-g_base_definitions[g_str_5fb1ba32e1af06001770df15]={
-  id=g_str_5fb1ba32e1af06001770df15,
-  name='Bow Levy',
-  min=0,
-  max=1,
-  description='Crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba32e1af06001770df18='5fb1ba32e1af06001770df18'
-g_base_definitions[g_str_5fb1ba32e1af06001770df18]={
-  id=g_str_5fb1ba32e1af06001770df18,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Bidets or Almughavars',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9e7e1af060017709bee_camp='5fb1b9e7e1af060017709bee_camp'
-g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp]={
-  id=g_str_5fb1b9e7e1af060017709bee_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e7e1af060017709bee_camp_pack_train='5fb1b9e7e1af060017709bee_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_pack_train]={
-  id=g_str_5fb1b9e7e1af060017709bee_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e7e1af060017709bee_camp_standard_wagon='5fb1b9e7e1af060017709bee_camp_standard_wagon'
-g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_standard_wagon]={
-  id=g_str_5fb1b9e7e1af060017709bee_camp_standard_wagon,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Standard Wagon',
-  standard_wagon=true,
-  troop_type="Camp",
-}
 army['5fb1b9e7e1af060017709bee']={
   data={
     name='Early Feudal Spanish  718 to 1200 AD',
     id='5fb1b9e7e1af060017709bee',
-    army_id='5fb1b9e7e1af060017709bee'
+    dateRange={
+      startDate=718,
+      endDate=1200,
+    }
   },
   g_base_definitions[g_str_5fb1ba32e1af06001770df00_general],
   g_base_definitions[g_str_5fb1ba32e1af06001770df00],
@@ -274,94 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e7e1af060017709bee"] = army["5fb1b9e7e1af060017709bee"]
-army['5fb1b9e7e1af060017709bee_718_950']={
-  data={
-    name='Early Feudal Spanish 718 AD to 950 AD',
-    id='5fb1b9e7e1af060017709bee_718_950',
-    army_id='5fb1b9e7e1af060017709bee'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770df00_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df00],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df03],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df05],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df08],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0a_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0a],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df11],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df15],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df18],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_standard_wagon],
-}
-army['5fb1b9e7e1af060017709bee_951_1000']={
-  data={
-    name='Early Feudal Spanish 951 AD to 1000 AD',
-    id='5fb1b9e7e1af060017709bee_951_1000',
-    army_id='5fb1b9e7e1af060017709bee'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770df00_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df00],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df03],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df05],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df08],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0a_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0a],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df11],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df15],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df18],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_standard_wagon],
-}
-army['5fb1b9e7e1af060017709bee_1001_1150']={
-  data={
-    name='Early Feudal Spanish 1001 AD to 1150 AD',
-    id='5fb1b9e7e1af060017709bee_1001_1150',
-    army_id='5fb1b9e7e1af060017709bee'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770df00_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df00],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df03],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df05],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df08],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0a_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0a],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df11],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df15],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df18],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_standard_wagon],
-}
-army['5fb1b9e7e1af060017709bee_1151_1200']={
-  data={
-    name='Early Feudal Spanish 1151 AD to 1200 AD',
-    id='5fb1b9e7e1af060017709bee_1151_1200',
-    army_id='5fb1b9e7e1af060017709bee'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770df00_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df00],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df03],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df05],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df08],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0a_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0a],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df0f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df11],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df15],
-  g_base_definitions[g_str_5fb1ba32e1af06001770df18],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bee_camp_standard_wagon],
-}
 if nil == armies["Medieval Western Europe"] then
   armies["Medieval Western Europe"] ={}
 end
@@ -378,8 +45,39 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e7e1af060017709bee"] = {}
-army_dates["5fb1b9e7e1af060017709bee"]["718 AD to 1200 AD"] ="5fb1b9e7e1af060017709bee"
-army_dates["5fb1b9e7e1af060017709bee"]["718 AD to 950 AD"] ="5fb1b9e7e1af060017709bee_718_950"
-army_dates["5fb1b9e7e1af060017709bee"]["951 AD to 1000 AD"] ="5fb1b9e7e1af060017709bee_951_1000"
-army_dates["5fb1b9e7e1af060017709bee"]["1001 AD to 1150 AD"] ="5fb1b9e7e1af060017709bee_1001_1150"
-army_dates["5fb1b9e7e1af060017709bee"]["1151 AD to 1200 AD"] ="5fb1b9e7e1af060017709bee_1151_1200"
+army_dates["5fb1b9e7e1af060017709bee"]["718 AD to 1200 AD"] = {
+  startDate=718,
+  endDate=1200
+}
+army_dates["5fb1b9e7e1af060017709bee"]["718 AD to 764 AD"] = {
+  startDate=718,
+  endDate=764
+}
+army_dates["5fb1b9e7e1af060017709bee"]["765 AD to 950 AD"] = {
+  startDate=765,
+  endDate=950
+}
+army_dates["5fb1b9e7e1af060017709bee"]["951 AD to 1000 AD"] = {
+  startDate=951,
+  endDate=1000
+}
+army_dates["5fb1b9e7e1af060017709bee"]["1001 AD to 1030 AD"] = {
+  startDate=1001,
+  endDate=1030
+}
+army_dates["5fb1b9e7e1af060017709bee"]["1031 AD to 1110 AD"] = {
+  startDate=1031,
+  endDate=1110
+}
+army_dates["5fb1b9e7e1af060017709bee"]["1111 AD to 1150 AD"] = {
+  startDate=1111,
+  endDate=1150
+}
+army_dates["5fb1b9e7e1af060017709bee"]["1151 AD to 1172 AD"] = {
+  startDate=1151,
+  endDate=1172
+}
+army_dates["5fb1b9e7e1af060017709bee"]["1173 AD to 1200 AD"] = {
+  startDate=1173,
+  endDate=1200
+}

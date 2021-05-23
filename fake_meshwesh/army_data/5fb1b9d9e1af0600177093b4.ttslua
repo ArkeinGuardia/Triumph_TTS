@@ -1,177 +1,13 @@
 -- 5fb1b9d9e1af0600177093b4 Sea Peoples  1213 to 1176 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba21e1af06001770c10d']= {
-  min=0,
-  max=1,
-  description='2-wheeled battle platforms with teams of a driver and 2 javelinmen',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c10e']= {
-  troop_option='5fb1ba21e1af06001770c10d',
-  troopTypeCode='BTX',
-}
-g_troop_option['5fb1ba21e1af06001770c10f']= {
-  min=0,
-  max=3,
-  description='Chieftains and their armored retinues',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c110']= {
-  troop_option='5fb1ba21e1af06001770c10f',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba21e1af06001770c111']= {
-  min=5,
-  max=11,
-  description='Common tribesmen of most Sea Peoples nations',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c112']= {
-  troop_option='5fb1ba21e1af06001770c111',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba21e1af06001770c113']= {
-  min=1,
-  max=6,
-  description='Sheklesh or Teresh shieldless javelinmen',
-}
-g_troop_entry['5fb1ba21e1af06001770c114']= {
-  troop_option='5fb1ba21e1af06001770c113',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba21e1af06001770c115']= {
-  min=0,
-  max=2,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba21e1af06001770c116']= {
-  troop_option='5fb1ba21e1af06001770c115',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba21e1af06001770c117']= {
-  min=0,
-  max=2,
-  description='Migrant families',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c118']= {
-  troop_option='5fb1ba21e1af06001770c117',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba21e1af06001770c10e_general='5fb1ba21e1af06001770c10e_general'
-g_base_definitions[g_str_5fb1ba21e1af06001770c10e_general]={
-  id=g_str_5fb1ba21e1af06001770c10e_general,
-  name='Battle Taxi General',
-  min=0,
-  max=1,
-  description='2-wheeled battle platforms with teams of a driver and 2 javelinmen',
-  general=true,
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba21e1af06001770c10e='5fb1ba21e1af06001770c10e'
-g_base_definitions[g_str_5fb1ba21e1af06001770c10e]={
-  id=g_str_5fb1ba21e1af06001770c10e,
-  name='Battle Taxi',
-  min=0,
-  max=1,
-  description='2-wheeled battle platforms with teams of a driver and 2 javelinmen',
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba21e1af06001770c110_general='5fb1ba21e1af06001770c110_general'
-g_base_definitions[g_str_5fb1ba21e1af06001770c110_general]={
-  id=g_str_5fb1ba21e1af06001770c110_general,
-  name='Elite Foot General',
-  min=0,
-  max=1,
-  description='Chieftains and their armored retinues',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba21e1af06001770c110='5fb1ba21e1af06001770c110'
-g_base_definitions[g_str_5fb1ba21e1af06001770c110]={
-  id=g_str_5fb1ba21e1af06001770c110,
-  name='Elite Foot',
-  min=0,
-  max=3,
-  description='Chieftains and their armored retinues',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba21e1af06001770c112_general='5fb1ba21e1af06001770c112_general'
-g_base_definitions[g_str_5fb1ba21e1af06001770c112_general]={
-  id=g_str_5fb1ba21e1af06001770c112_general,
-  name='Raiders General',
-  min=5,
-  max=1,
-  description='Common tribesmen of most Sea Peoples nations',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba21e1af06001770c112='5fb1ba21e1af06001770c112'
-g_base_definitions[g_str_5fb1ba21e1af06001770c112]={
-  id=g_str_5fb1ba21e1af06001770c112,
-  name='Raiders',
-  min=5,
-  max=11,
-  description='Common tribesmen of most Sea Peoples nations',
-  troop_type="Raiders",
-}
-g_str_5fb1ba21e1af06001770c114='5fb1ba21e1af06001770c114'
-g_base_definitions[g_str_5fb1ba21e1af06001770c114]={
-  id=g_str_5fb1ba21e1af06001770c114,
-  name='Rabble',
-  min=1,
-  max=6,
-  description='Sheklesh or Teresh shieldless javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba21e1af06001770c116='5fb1ba21e1af06001770c116'
-g_base_definitions[g_str_5fb1ba21e1af06001770c116]={
-  id=g_str_5fb1ba21e1af06001770c116,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba21e1af06001770c118='5fb1ba21e1af06001770c118'
-g_base_definitions[g_str_5fb1ba21e1af06001770c118]={
-  id=g_str_5fb1ba21e1af06001770c118,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Migrant families',
-  troop_type="Horde",
-}
-g_str_5fb1b9d9e1af0600177093b4_camp='5fb1b9d9e1af0600177093b4_camp'
-g_base_definitions[g_str_5fb1b9d9e1af0600177093b4_camp]={
-  id=g_str_5fb1b9d9e1af0600177093b4_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9d9e1af0600177093b4_camp_fortified='5fb1b9d9e1af0600177093b4_camp_fortified'
-g_base_definitions[g_str_5fb1b9d9e1af0600177093b4_camp_fortified]={
-  id=g_str_5fb1b9d9e1af0600177093b4_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9d9e1af0600177093b4']={
   data={
     name='Sea Peoples  1213 to 1176 BC',
     id='5fb1b9d9e1af0600177093b4',
-    army_id='5fb1b9d9e1af0600177093b4'
+    dateRange={
+      startDate=-1213,
+      endDate=-1176,
+    }
   },
   g_base_definitions[g_str_5fb1ba21e1af06001770c10e_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c10e],
@@ -205,4 +41,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af0600177093b4"] = {}
-army_dates["5fb1b9d9e1af0600177093b4"]["1213 BC to 1176 BC"] ="5fb1b9d9e1af0600177093b4"
+army_dates["5fb1b9d9e1af0600177093b4"]["1213 BC to 1176 BC"] = {
+  startDate=-1213,
+  endDate=-1176
+}

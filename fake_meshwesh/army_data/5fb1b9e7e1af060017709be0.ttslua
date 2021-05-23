@@ -1,275 +1,13 @@
 -- 5fb1b9e7e1af060017709be0 Andalusian  765 to 1172 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba32e1af06001770dec2']= {
-  min=2,
-  max=6,
-  description='Andalusian, Berber, or Negro horsemen',
-}
-g_troop_entry['5fb1ba32e1af06001770dec3']= {
-  troop_option='5fb1ba32e1af06001770dec2',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba32e1af06001770dec4']= {
-  min=0,
-  max=1,
-  description='Negro guard spearmen or Christian guard lancers',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770dec5']= {
-  troop_option='5fb1ba32e1af06001770dec4',
-  troopTypeCode='SPR',
-}
-g_troop_entry['5fb1ba32e1af06001770dec6']= {
-  troop_option='5fb1ba32e1af06001770dec4',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba32e1af06001770dec7']= {
-  min=0,
-  max=1,
-  description='Negro spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770dec8']= {
-  troop_option='5fb1ba32e1af06001770dec7',
-  troopTypeCode='LFT',
-}
-g_troop_entry['5fb1ba32e1af06001770dec9']= {
-  troop_option='5fb1ba32e1af06001770dec7',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba32e1af06001770deca']= {
-  min=0,
-  max=15,
-  description='Berber javelinmen',
-}
-g_troop_entry['5fb1ba32e1af06001770decb']= {
-  troop_option='5fb1ba32e1af06001770deca',
-  troopTypeCode='LFT',
-}
-g_troop_entry['5fb1ba32e1af06001770decc']= {
-  troop_option='5fb1ba32e1af06001770deca',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba32e1af06001770dece']= {
-  min=0,
-  max=3,
-  description='Berber skirmishing bowmen or slingers',
-}
-g_troop_entry['5fb1ba32e1af06001770decf']= {
-  troop_option='5fb1ba32e1af06001770dece',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba32e1af06001770ded0']= {
-  min=3,
-  max=4,
-  description='Andalusian spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770ded1']= {
-  troop_option='5fb1ba32e1af06001770ded0',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba32e1af06001770ded3']= {
-  min=2,
-  max=4,
-  description='Andalusian or Negro skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba32e1af06001770ded4']= {
-  troop_option='5fb1ba32e1af06001770ded3',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba32e1af06001770dec3_general='5fb1ba32e1af06001770dec3_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770dec3_general]={
-  id=g_str_5fb1ba32e1af06001770dec3_general,
-  name='Javelin Cavalry General',
-  min=2,
-  max=1,
-  description='Andalusian, Berber, or Negro horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770dec3='5fb1ba32e1af06001770dec3'
-g_base_definitions[g_str_5fb1ba32e1af06001770dec3]={
-  id=g_str_5fb1ba32e1af06001770dec3,
-  name='Javelin Cavalry',
-  min=2,
-  max=6,
-  description='Andalusian, Berber, or Negro horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770dec5_general='5fb1ba32e1af06001770dec5_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770dec5_general]={
-  id=g_str_5fb1ba32e1af06001770dec5_general,
-  name='Spears General',
-  min=0,
-  max=1,
-  description='Negro guard spearmen or Christian guard lancers',
-  general=true,
-  troop_type="Spears",
-}
-g_str_5fb1ba32e1af06001770dec5='5fb1ba32e1af06001770dec5'
-g_base_definitions[g_str_5fb1ba32e1af06001770dec5]={
-  id=g_str_5fb1ba32e1af06001770dec5,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Negro guard spearmen or Christian guard lancers',
-  troop_type="Spears",
-}
-g_str_5fb1ba32e1af06001770dec6_general='5fb1ba32e1af06001770dec6_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770dec6_general]={
-  id=g_str_5fb1ba32e1af06001770dec6_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Negro guard spearmen or Christian guard lancers',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba32e1af06001770dec6='5fb1ba32e1af06001770dec6'
-g_base_definitions[g_str_5fb1ba32e1af06001770dec6]={
-  id=g_str_5fb1ba32e1af06001770dec6,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Negro guard spearmen or Christian guard lancers',
-  troop_type="Knights",
-}
-g_str_5fb1ba32e1af06001770dec8='5fb1ba32e1af06001770dec8'
-g_base_definitions[g_str_5fb1ba32e1af06001770dec8]={
-  id=g_str_5fb1ba32e1af06001770dec8,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Negro spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba32e1af06001770dec9='5fb1ba32e1af06001770dec9'
-g_base_definitions[g_str_5fb1ba32e1af06001770dec9]={
-  id=g_str_5fb1ba32e1af06001770dec9,
-  name='Heavy Foot',
-  min=0,
-  max=1,
-  description='Negro spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba32e1af06001770decb='5fb1ba32e1af06001770decb'
-g_base_definitions[g_str_5fb1ba32e1af06001770decb]={
-  id=g_str_5fb1ba32e1af06001770decb,
-  name='Light Foot',
-  min=0,
-  max=15,
-  description='Berber javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba32e1af06001770decb_dismounted_mobile_infantry='5fb1ba32e1af06001770decb_dismounted_mobile_infantry'
-g_str_5fb1ba32e1af06001770decb_mounted_mobile_infantry='5fb1ba32e1af06001770decb_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba32e1af06001770decb_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba32e1af06001770decb_dismounted_mobile_infantry,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Berber javelinmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba32e1af06001770decb_mounted_mobile_infantry,
-  troop_type="Light Foot",
-}
-g_base_definitions[g_str_5fb1ba32e1af06001770decb_mounted_mobile_infantry]={
-  id=g_str_5fb1ba32e1af06001770decb_mounted_mobile_infantry,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Berber javelinmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba32e1af06001770decb_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba32e1af06001770decc='5fb1ba32e1af06001770decc'
-g_base_definitions[g_str_5fb1ba32e1af06001770decc]={
-  id=g_str_5fb1ba32e1af06001770decc,
-  name='Rabble',
-  min=0,
-  max=15,
-  description='Berber javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba32e1af06001770decc_dismounted_mobile_infantry='5fb1ba32e1af06001770decc_dismounted_mobile_infantry'
-g_str_5fb1ba32e1af06001770decc_mounted_mobile_infantry='5fb1ba32e1af06001770decc_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba32e1af06001770decc_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba32e1af06001770decc_dismounted_mobile_infantry,
-  name='Rabble',
-  min=0,
-  max=1,
-  description='Berber javelinmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba32e1af06001770decc_mounted_mobile_infantry,
-  troop_type="Rabble",
-}
-g_base_definitions[g_str_5fb1ba32e1af06001770decc_mounted_mobile_infantry]={
-  id=g_str_5fb1ba32e1af06001770decc_mounted_mobile_infantry,
-  name='Rabble',
-  min=0,
-  max=1,
-  description='Berber javelinmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba32e1af06001770decc_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Rabble",
-}
-g_str_5fb1ba32e1af06001770decf='5fb1ba32e1af06001770decf'
-g_base_definitions[g_str_5fb1ba32e1af06001770decf]={
-  id=g_str_5fb1ba32e1af06001770decf,
-  name='Skirmishers',
-  min=0,
-  max=3,
-  description='Berber skirmishing bowmen or slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba32e1af06001770ded1='5fb1ba32e1af06001770ded1'
-g_base_definitions[g_str_5fb1ba32e1af06001770ded1]={
-  id=g_str_5fb1ba32e1af06001770ded1,
-  name='Heavy Foot',
-  min=3,
-  max=4,
-  description='Andalusian spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba32e1af06001770ded4='5fb1ba32e1af06001770ded4'
-g_base_definitions[g_str_5fb1ba32e1af06001770ded4]={
-  id=g_str_5fb1ba32e1af06001770ded4,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Andalusian or Negro skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e7e1af060017709be0_camp='5fb1b9e7e1af060017709be0_camp'
-g_base_definitions[g_str_5fb1b9e7e1af060017709be0_camp]={
-  id=g_str_5fb1b9e7e1af060017709be0_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e7e1af060017709be0_camp_pack_train='5fb1b9e7e1af060017709be0_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e7e1af060017709be0_camp_pack_train]={
-  id=g_str_5fb1b9e7e1af060017709be0_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e7e1af060017709be0']={
   data={
     name='Andalusian  765 to 1172 AD',
     id='5fb1b9e7e1af060017709be0',
-    army_id='5fb1b9e7e1af060017709be0'
+    dateRange={
+      startDate=765,
+      endDate=1172,
+    }
   },
   g_base_definitions[g_str_5fb1ba32e1af06001770dec3_general],
   g_base_definitions[g_str_5fb1ba32e1af06001770dec3],
@@ -311,4 +49,43 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e7e1af060017709be0"] = {}
-army_dates["5fb1b9e7e1af060017709be0"]["765 AD to 1172 AD"] ="5fb1b9e7e1af060017709be0"
+army_dates["5fb1b9e7e1af060017709be0"]["765 AD to 1172 AD"] = {
+  startDate=765,
+  endDate=1172
+}
+army_dates["5fb1b9e7e1af060017709be0"]["765 AD to 950 AD"] = {
+  startDate=765,
+  endDate=950
+}
+army_dates["5fb1b9e7e1af060017709be0"]["951 AD to 1000 AD"] = {
+  startDate=951,
+  endDate=1000
+}
+army_dates["5fb1b9e7e1af060017709be0"]["1001 AD to 1038 AD"] = {
+  startDate=1001,
+  endDate=1038
+}
+army_dates["5fb1b9e7e1af060017709be0"]["1039 AD to 1085 AD"] = {
+  startDate=1039,
+  endDate=1085
+}
+army_dates["5fb1b9e7e1af060017709be0"]["1086 AD"] = {
+  startDate=1086,
+  endDate=1086
+}
+army_dates["5fb1b9e7e1af060017709be0"]["1087 AD to 1145 AD"] = {
+  startDate=1087,
+  endDate=1145
+}
+army_dates["5fb1b9e7e1af060017709be0"]["1146 AD to 1147 AD"] = {
+  startDate=1146,
+  endDate=1147
+}
+army_dates["5fb1b9e7e1af060017709be0"]["1148 AD to 1150 AD"] = {
+  startDate=1148,
+  endDate=1150
+}
+army_dates["5fb1b9e7e1af060017709be0"]["1151 AD to 1172 AD"] = {
+  startDate=1151,
+  endDate=1172
+}

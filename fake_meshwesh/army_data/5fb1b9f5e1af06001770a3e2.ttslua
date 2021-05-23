@@ -1,91 +1,13 @@
 -- 5fb1b9f5e1af06001770a3e2 West Mexican  1101 to 1400 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba44e1af06001770fd9a']= {
-  min=4,
-  max=10,
-  description='Formed infantry armed with spears, clubs, and slings',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fd9b']= {
-  troop_option='5fb1ba44e1af06001770fd9a',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba44e1af06001770fd9c']= {
-  min=6,
-  max=15,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fd9d']= {
-  troop_option='5fb1ba44e1af06001770fd9c',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba44e1af06001770fd9e']= {
-  min=2,
-  max=6,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba44e1af06001770fd9f']= {
-  troop_option='5fb1ba44e1af06001770fd9e',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba44e1af06001770fd9b_general='5fb1ba44e1af06001770fd9b_general'
-g_base_definitions[g_str_5fb1ba44e1af06001770fd9b_general]={
-  id=g_str_5fb1ba44e1af06001770fd9b_general,
-  name='Light Foot General',
-  min=4,
-  max=1,
-  description='Formed infantry armed with spears, clubs, and slings',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba44e1af06001770fd9b='5fb1ba44e1af06001770fd9b'
-g_base_definitions[g_str_5fb1ba44e1af06001770fd9b]={
-  id=g_str_5fb1ba44e1af06001770fd9b,
-  name='Light Foot',
-  min=4,
-  max=10,
-  description='Formed infantry armed with spears, clubs, and slings',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba44e1af06001770fd9d='5fb1ba44e1af06001770fd9d'
-g_base_definitions[g_str_5fb1ba44e1af06001770fd9d]={
-  id=g_str_5fb1ba44e1af06001770fd9d,
-  name='Bow Levy',
-  min=6,
-  max=15,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba44e1af06001770fd9f='5fb1ba44e1af06001770fd9f'
-g_base_definitions[g_str_5fb1ba44e1af06001770fd9f]={
-  id=g_str_5fb1ba44e1af06001770fd9f,
-  name='Skirmishers',
-  min=2,
-  max=6,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f5e1af06001770a3e2_camp='5fb1b9f5e1af06001770a3e2_camp'
-g_base_definitions[g_str_5fb1b9f5e1af06001770a3e2_camp]={
-  id=g_str_5fb1b9f5e1af06001770a3e2_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f5e1af06001770a3e2']={
   data={
     name='West Mexican  1101 to 1400 AD',
     id='5fb1b9f5e1af06001770a3e2',
-    army_id='5fb1b9f5e1af06001770a3e2'
+    dateRange={
+      startDate=1101,
+      endDate=1400,
+    }
   },
   g_base_definitions[g_str_5fb1ba44e1af06001770fd9b_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fd9b],
@@ -113,4 +35,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f5e1af06001770a3e2"] = {}
-army_dates["5fb1b9f5e1af06001770a3e2"]["1101 AD to 1400 AD"] ="5fb1b9f5e1af06001770a3e2"
+army_dates["5fb1b9f5e1af06001770a3e2"]["1101 AD to 1400 AD"] = {
+  startDate=1101,
+  endDate=1400
+}

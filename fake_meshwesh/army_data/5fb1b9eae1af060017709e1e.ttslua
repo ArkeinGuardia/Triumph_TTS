@@ -1,153 +1,13 @@
 -- 5fb1b9eae1af060017709e1e Cuman (Kipchak)  1054 to 1394 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba37e1af06001770e7e7']= {
-  min=9,
-  max=12,
-  description='Cuman or Pecheneg horse archers',
-  core='all',
-}
-g_troop_entry['5fb1ba37e1af06001770e7e8']= {
-  troop_option='5fb1ba37e1af06001770e7e7',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba37e1af06001770e7e9']= {
-  min=0,
-  max=2,
-  description='Cuman infantry',
-}
-g_troop_entry['5fb1ba37e1af06001770e7ea']= {
-  troop_option='5fb1ba37e1af06001770e7e9',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba37e1af06001770e7eb']= {
-  min=0,
-  max=1,
-  description='Vlach javelinmen',
-  startDate=1122,
-  endDate=1269,
-}
-g_troop_entry['5fb1ba37e1af06001770e7ed']= {
-  troop_option='5fb1ba37e1af06001770e7eb',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba37e1af06001770e7ee']= {
-  min=0,
-  max=1,
-  description='Vlach bowmen',
-  startDate=1122,
-  endDate=1269,
-}
-g_troop_entry['5fb1ba37e1af06001770e7f0']= {
-  troop_option='5fb1ba37e1af06001770e7ee',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba37e1af06001770e7f1']= {
-  min=0,
-  max=1,
-  description='Mangonels or bolt-shooters on wagons',
-  core='all',
-  startDate=1181,
-  endDate=1394,
-}
-g_troop_entry['5fb1ba37e1af06001770e7f3']= {
-  troop_option='5fb1ba37e1af06001770e7f1',
-  troopTypeCode='ART',
-}
-g_str_5fb1ba37e1af06001770e7e8_general='5fb1ba37e1af06001770e7e8_general'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7e8_general]={
-  id=g_str_5fb1ba37e1af06001770e7e8_general,
-  name='Horse Bow General',
-  min=9,
-  max=1,
-  description='Cuman or Pecheneg horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba37e1af06001770e7e8='5fb1ba37e1af06001770e7e8'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7e8]={
-  id=g_str_5fb1ba37e1af06001770e7e8,
-  name='Horse Bow',
-  min=9,
-  max=12,
-  description='Cuman or Pecheneg horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba37e1af06001770e7ea='5fb1ba37e1af06001770e7ea'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7ea]={
-  id=g_str_5fb1ba37e1af06001770e7ea,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Cuman infantry',
-  troop_type="Horde",
-}
-g_str_5fb1ba37e1af06001770e7ed='5fb1ba37e1af06001770e7ed'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7ed]={
-  id=g_str_5fb1ba37e1af06001770e7ed,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Vlach javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba37e1af06001770e7f0='5fb1ba37e1af06001770e7f0'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7f0]={
-  id=g_str_5fb1ba37e1af06001770e7f0,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Vlach bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba37e1af06001770e7f3='5fb1ba37e1af06001770e7f3'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7f3]={
-  id=g_str_5fb1ba37e1af06001770e7f3,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Mangonels or bolt-shooters on wagons',
-  troop_type="Artillery",
-}
-g_str_5fb1b9eae1af060017709e1e_camp='5fb1b9eae1af060017709e1e_camp'
-g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp]={
-  id=g_str_5fb1b9eae1af060017709e1e_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9eae1af060017709e1e_camp_fortified='5fb1b9eae1af060017709e1e_camp_fortified'
-g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_fortified]={
-  id=g_str_5fb1b9eae1af060017709e1e_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9eae1af060017709e1e_camp_pack_train='5fb1b9eae1af060017709e1e_camp_pack_train'
-g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_pack_train]={
-  id=g_str_5fb1b9eae1af060017709e1e_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9eae1af060017709e1e']={
   data={
     name='Cuman (Kipchak)  1054 to 1394 AD',
     id='5fb1b9eae1af060017709e1e',
-    army_id='5fb1b9eae1af060017709e1e'
+    dateRange={
+      startDate=1054,
+      endDate=1394,
+    }
   },
   g_base_definitions[g_str_5fb1ba37e1af06001770e7e8_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7e8],
@@ -163,70 +23,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9eae1af060017709e1e"] = army["5fb1b9eae1af060017709e1e"]
-army['5fb1b9eae1af060017709e1e_1054_1121']={
-  data={
-    name='Cuman (Kipchak) 1054 AD to 1121 AD',
-    id='5fb1b9eae1af060017709e1e_1054_1121',
-    army_id='5fb1b9eae1af060017709e1e'
-  },
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7e8_general],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7e8],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7ea],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7ed],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7f0],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7f3],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_fortified],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_pack_train],
-}
-army['5fb1b9eae1af060017709e1e_1122_1180']={
-  data={
-    name='Cuman (Kipchak) 1122 AD to 1180 AD',
-    id='5fb1b9eae1af060017709e1e_1122_1180',
-    army_id='5fb1b9eae1af060017709e1e'
-  },
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7e8_general],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7e8],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7ea],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7ed],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7f0],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7f3],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_fortified],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_pack_train],
-}
-army['5fb1b9eae1af060017709e1e_1181_1269']={
-  data={
-    name='Cuman (Kipchak) 1181 AD to 1269 AD',
-    id='5fb1b9eae1af060017709e1e_1181_1269',
-    army_id='5fb1b9eae1af060017709e1e'
-  },
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7e8_general],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7e8],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7ea],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7ed],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7f0],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7f3],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_fortified],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_pack_train],
-}
-army['5fb1b9eae1af060017709e1e_1270_1394']={
-  data={
-    name='Cuman (Kipchak) 1270 AD to 1394 AD',
-    id='5fb1b9eae1af060017709e1e_1270_1394',
-    army_id='5fb1b9eae1af060017709e1e'
-  },
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7e8_general],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7e8],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7ea],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7ed],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7f0],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e7f3],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_fortified],
-  g_base_definitions[g_str_5fb1b9eae1af060017709e1e_camp_pack_train],
-}
 if nil == armies["Russian Princes"] then
   armies["Russian Princes"] ={}
 end
@@ -243,8 +39,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9eae1af060017709e1e"] = {}
-army_dates["5fb1b9eae1af060017709e1e"]["1054 AD to 1394 AD"] ="5fb1b9eae1af060017709e1e"
-army_dates["5fb1b9eae1af060017709e1e"]["1054 AD to 1121 AD"] ="5fb1b9eae1af060017709e1e_1054_1121"
-army_dates["5fb1b9eae1af060017709e1e"]["1122 AD to 1180 AD"] ="5fb1b9eae1af060017709e1e_1122_1180"
-army_dates["5fb1b9eae1af060017709e1e"]["1181 AD to 1269 AD"] ="5fb1b9eae1af060017709e1e_1181_1269"
-army_dates["5fb1b9eae1af060017709e1e"]["1270 AD to 1394 AD"] ="5fb1b9eae1af060017709e1e_1270_1394"
+army_dates["5fb1b9eae1af060017709e1e"]["1054 AD to 1394 AD"] = {
+  startDate=1054,
+  endDate=1394
+}
+army_dates["5fb1b9eae1af060017709e1e"]["1054 AD to 1121 AD"] = {
+  startDate=1054,
+  endDate=1121
+}
+army_dates["5fb1b9eae1af060017709e1e"]["1122 AD to 1180 AD"] = {
+  startDate=1122,
+  endDate=1180
+}
+army_dates["5fb1b9eae1af060017709e1e"]["1181 AD to 1269 AD"] = {
+  startDate=1181,
+  endDate=1269
+}
+army_dates["5fb1b9eae1af060017709e1e"]["1270 AD to 1394 AD"] = {
+  startDate=1270,
+  endDate=1394
+}

@@ -1,128 +1,13 @@
 -- 5fb1b9dde1af060017709652 Bithynian  435 to 74 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba28e1af06001770cb49']= {
-  min=1,
-  max=2,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba28e1af06001770cb4a']= {
-  troop_option='5fb1ba28e1af06001770cb49',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba28e1af06001770cb4b']= {
-  min=6,
-  max=14,
-  description='Light infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba28e1af06001770cb4c']= {
-  troop_option='5fb1ba28e1af06001770cb4b',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba28e1af06001770cb4d']= {
-  min=1,
-  max=3,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba28e1af06001770cb4e']= {
-  troop_option='5fb1ba28e1af06001770cb4d',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba28e1af06001770cb4f']= {
-  min=1,
-  max=2,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba28e1af06001770cb50']= {
-  troop_option='5fb1ba28e1af06001770cb4f',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba28e1af06001770cb51']= {
-  min=0,
-  max=2,
-  description='Thracian mercenary light infantry',
-  startDate=-264,
-  endDate=-74,
-}
-g_troop_entry['5fb1ba28e1af06001770cb53']= {
-  troop_option='5fb1ba28e1af06001770cb51',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba28e1af06001770cb4a_general='5fb1ba28e1af06001770cb4a_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb4a_general]={
-  id=g_str_5fb1ba28e1af06001770cb4a_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cb4a='5fb1ba28e1af06001770cb4a'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb4a]={
-  id=g_str_5fb1ba28e1af06001770cb4a,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cb4c='5fb1ba28e1af06001770cb4c'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb4c]={
-  id=g_str_5fb1ba28e1af06001770cb4c,
-  name='Light Foot',
-  min=6,
-  max=14,
-  description='Light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cb4e='5fb1ba28e1af06001770cb4e'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb4e]={
-  id=g_str_5fb1ba28e1af06001770cb4e,
-  name='Rabble',
-  min=1,
-  max=3,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba28e1af06001770cb50='5fb1ba28e1af06001770cb50'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb50]={
-  id=g_str_5fb1ba28e1af06001770cb50,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba28e1af06001770cb53='5fb1ba28e1af06001770cb53'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb53]={
-  id=g_str_5fb1ba28e1af06001770cb53,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Thracian mercenary light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9dde1af060017709652_camp='5fb1b9dde1af060017709652_camp'
-g_base_definitions[g_str_5fb1b9dde1af060017709652_camp]={
-  id=g_str_5fb1b9dde1af060017709652_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9dde1af060017709652']={
   data={
     name='Bithynian  435 to 74 BC',
     id='5fb1b9dde1af060017709652',
-    army_id='5fb1b9dde1af060017709652'
+    dateRange={
+      startDate=-435,
+      endDate=-74,
+    }
   },
   g_base_definitions[g_str_5fb1ba28e1af06001770cb4a_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb4a],
@@ -136,34 +21,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dde1af060017709652"] = army["5fb1b9dde1af060017709652"]
-army['5fb1b9dde1af060017709652_-435_-265']={
-  data={
-    name='Bithynian 435 BC to 265 BC',
-    id='5fb1b9dde1af060017709652_-435_-265',
-    army_id='5fb1b9dde1af060017709652'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb4a_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb4a],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb4c],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb4e],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb50],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb53],
-  g_base_definitions[g_str_5fb1b9dde1af060017709652_camp],
-}
-army['5fb1b9dde1af060017709652_-264_-74']={
-  data={
-    name='Bithynian 264 BC to 74 BC',
-    id='5fb1b9dde1af060017709652_-264_-74',
-    army_id='5fb1b9dde1af060017709652'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb4a_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb4a],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb4c],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb4e],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb50],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb53],
-  g_base_definitions[g_str_5fb1b9dde1af060017709652_camp],
-}
 if nil == armies["Alexander and Successors"] then
   armies["Alexander and Successors"] ={}
 end
@@ -180,6 +37,43 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dde1af060017709652"] = {}
-army_dates["5fb1b9dde1af060017709652"]["435 BC to 74 BC"] ="5fb1b9dde1af060017709652"
-army_dates["5fb1b9dde1af060017709652"]["435 BC to 265 BC"] ="5fb1b9dde1af060017709652_-435_-265"
-army_dates["5fb1b9dde1af060017709652"]["264 BC to 74 BC"] ="5fb1b9dde1af060017709652_-264_-74"
+army_dates["5fb1b9dde1af060017709652"]["435 BC to 74 BC"] = {
+  startDate=-435,
+  endDate=-74
+}
+army_dates["5fb1b9dde1af060017709652"]["435 BC to 281 BC"] = {
+  startDate=-435,
+  endDate=-281
+}
+army_dates["5fb1b9dde1af060017709652"]["280 BC to 279 BC"] = {
+  startDate=-280,
+  endDate=-279
+}
+army_dates["5fb1b9dde1af060017709652"]["278 BC to 265 BC"] = {
+  startDate=-278,
+  endDate=-265
+}
+army_dates["5fb1b9dde1af060017709652"]["264 BC to 253 BC"] = {
+  startDate=-264,
+  endDate=-253
+}
+army_dates["5fb1b9dde1af060017709652"]["252 BC to 228 BC"] = {
+  startDate=-252,
+  endDate=-228
+}
+army_dates["5fb1b9dde1af060017709652"]["227 BC to 225 BC"] = {
+  startDate=-227,
+  endDate=-225
+}
+army_dates["5fb1b9dde1af060017709652"]["224 BC to 190 BC"] = {
+  startDate=-224,
+  endDate=-190
+}
+army_dates["5fb1b9dde1af060017709652"]["189 BC"] = {
+  startDate=-189,
+  endDate=-189
+}
+army_dates["5fb1b9dde1af060017709652"]["188 BC to 74 BC"] = {
+  startDate=-188,
+  endDate=-74
+}

@@ -1,62 +1,13 @@
 -- 5fb1b9f6e1af06001770a476 Quechua or Aymari  1438 to 1534 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba44e1af06001770fe7b']= {
-  min=6,
-  max=10,
-  description='Tribesmen',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fe7c']= {
-  troop_option='5fb1ba44e1af06001770fe7b',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba44e1af06001770fe7d']= {
-  min=6,
-  max=10,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba44e1af06001770fe7e']= {
-  troop_option='5fb1ba44e1af06001770fe7d',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba44e1af06001770fe7c='5fb1ba44e1af06001770fe7c'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe7c]={
-  id=g_str_5fb1ba44e1af06001770fe7c,
-  name='Light Foot',
-  min=6,
-  max=10,
-  description='Tribesmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba44e1af06001770fe7e='5fb1ba44e1af06001770fe7e'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe7e]={
-  id=g_str_5fb1ba44e1af06001770fe7e,
-  name='Skirmishers',
-  min=6,
-  max=10,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f6e1af06001770a476_camp='5fb1b9f6e1af06001770a476_camp'
-g_base_definitions[g_str_5fb1b9f6e1af06001770a476_camp]={
-  id=g_str_5fb1b9f6e1af06001770a476_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f6e1af06001770a476']={
   data={
     name='Quechua or Aymari  1438 to 1534 AD',
     id='5fb1b9f6e1af06001770a476',
-    army_id='5fb1b9f6e1af06001770a476'
+    dateRange={
+      startDate=1438,
+      endDate=1534,
+    }
   },
   g_base_definitions[g_str_5fb1ba44e1af06001770fe7c],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe7e],
@@ -78,4 +29,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f6e1af06001770a476"] = {}
-army_dates["5fb1b9f6e1af06001770a476"]["1438 AD to 1534 AD"] ="5fb1b9f6e1af06001770a476"
+army_dates["5fb1b9f6e1af06001770a476"]["1438 AD to 1534 AD"] = {
+  startDate=1438,
+  endDate=1534
+}

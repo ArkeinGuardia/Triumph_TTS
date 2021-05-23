@@ -1,101 +1,13 @@
 -- 5fb1b9e2e1af060017709909 Gepid  250 to 566 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2de1af06001770d55c']= {
-  min=3,
-  max=8,
-  description='Charging horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d55d']= {
-  troop_option='5fb1ba2de1af06001770d55c',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba2de1af06001770d55e']= {
-  min=4,
-  max=8,
-  description='Fierce fighters armed with spears',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d55f']= {
-  troop_option='5fb1ba2de1af06001770d55e',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba2de1af06001770d560']= {
-  min=1,
-  max=6,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba2de1af06001770d561']= {
-  troop_option='5fb1ba2de1af06001770d560',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba2de1af06001770d55d_general='5fb1ba2de1af06001770d55d_general'
-g_base_definitions[g_str_5fb1ba2de1af06001770d55d_general]={
-  id=g_str_5fb1ba2de1af06001770d55d_general,
-  name='Knights General',
-  min=3,
-  max=1,
-  description='Charging horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba2de1af06001770d55d='5fb1ba2de1af06001770d55d'
-g_base_definitions[g_str_5fb1ba2de1af06001770d55d]={
-  id=g_str_5fb1ba2de1af06001770d55d,
-  name='Knights',
-  min=3,
-  max=8,
-  description='Charging horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba2de1af06001770d55f='5fb1ba2de1af06001770d55f'
-g_base_definitions[g_str_5fb1ba2de1af06001770d55f]={
-  id=g_str_5fb1ba2de1af06001770d55f,
-  name='Warriors',
-  min=4,
-  max=8,
-  description='Fierce fighters armed with spears',
-  troop_type="Warriors",
-}
-g_str_5fb1ba2de1af06001770d561='5fb1ba2de1af06001770d561'
-g_base_definitions[g_str_5fb1ba2de1af06001770d561]={
-  id=g_str_5fb1ba2de1af06001770d561,
-  name='Bow Levy',
-  min=1,
-  max=6,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9e2e1af060017709909_camp='5fb1b9e2e1af060017709909_camp'
-g_base_definitions[g_str_5fb1b9e2e1af060017709909_camp]={
-  id=g_str_5fb1b9e2e1af060017709909_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e2e1af060017709909_camp_fortified='5fb1b9e2e1af060017709909_camp_fortified'
-g_base_definitions[g_str_5fb1b9e2e1af060017709909_camp_fortified]={
-  id=g_str_5fb1b9e2e1af060017709909_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e2e1af060017709909']={
   data={
     name='Gepid  250 to 566 AD',
     id='5fb1b9e2e1af060017709909',
-    army_id='5fb1b9e2e1af060017709909'
+    dateRange={
+      startDate=250,
+      endDate=566,
+    }
   },
   g_base_definitions[g_str_5fb1ba2de1af06001770d55d_general],
   g_base_definitions[g_str_5fb1ba2de1af06001770d55d],
@@ -124,4 +36,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e2e1af060017709909"] = {}
-army_dates["5fb1b9e2e1af060017709909"]["250 AD to 566 AD"] ="5fb1b9e2e1af060017709909"
+army_dates["5fb1b9e2e1af060017709909"]["250 AD to 566 AD"] = {
+  startDate=250,
+  endDate=566
+}
+army_dates["5fb1b9e2e1af060017709909"]["250 AD to 427 AD"] = {
+  startDate=250,
+  endDate=427
+}
+army_dates["5fb1b9e2e1af060017709909"]["428 AD to 442 AD"] = {
+  startDate=428,
+  endDate=442
+}
+army_dates["5fb1b9e2e1af060017709909"]["443 AD to 453 AD"] = {
+  startDate=443,
+  endDate=453
+}
+army_dates["5fb1b9e2e1af060017709909"]["454 AD"] = {
+  startDate=454,
+  endDate=454
+}
+army_dates["5fb1b9e2e1af060017709909"]["455 AD to 493 AD"] = {
+  startDate=455,
+  endDate=493
+}
+army_dates["5fb1b9e2e1af060017709909"]["494 AD to 566 AD"] = {
+  startDate=494,
+  endDate=566
+}

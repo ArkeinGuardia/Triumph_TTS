@@ -1,237 +1,13 @@
 -- 5fb1b9eae1af060017709e09 Khazar Decline  966 to 1083 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba37e1af06001770e7b4']= {
-  min=1,
-  max=2,
-  description='Noble horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba37e1af06001770e7b5']= {
-  troop_option='5fb1ba37e1af06001770e7b4',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba37e1af06001770e7b6']= {
-  min=0,
-  max=1,
-  description='Guard spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba37e1af06001770e7b7']= {
-  troop_option='5fb1ba37e1af06001770e7b6',
-  troopTypeCode='SPR',
-}
-g_troop_option['5fb1ba37e1af06001770e7b9']= {
-  min=4,
-  max=11,
-  description='Khazar,  Magyars, and Volga Bulgar horse archers',
-}
-g_troop_entry['5fb1ba37e1af06001770e7ba']= {
-  troop_option='5fb1ba37e1af06001770e7b9',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba37e1af06001770e7bb']= {
-  min=0,
-  max=2,
-  description='Levy spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba37e1af06001770e7bc']= {
-  troop_option='5fb1ba37e1af06001770e7bb',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba37e1af06001770e7be']= {
-  min=0,
-  max=2,
-  description='Levy skirmishing bowmen',
-}
-g_troop_entry['5fb1ba37e1af06001770e7bf']= {
-  troop_option='5fb1ba37e1af06001770e7be',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba37e1af06001770e7c0']= {
-  min=0,
-  max=1,
-  description='Bolt shooters',
-  core='all',
-}
-g_troop_entry['5fb1ba37e1af06001770e7c1']= {
-  troop_option='5fb1ba37e1af06001770e7c0',
-  troopTypeCode='ART',
-}
-g_str_5fb1ba37e1af06001770e7b5_general='5fb1ba37e1af06001770e7b5_general'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7b5_general]={
-  id=g_str_5fb1ba37e1af06001770e7b5_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba37e1af06001770e7b5='5fb1ba37e1af06001770e7b5'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7b5]={
-  id=g_str_5fb1ba37e1af06001770e7b5,
-  name='Knights',
-  min=1,
-  max=2,
-  description='Noble horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba37e1af06001770e7b7='5fb1ba37e1af06001770e7b7'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7b7]={
-  id=g_str_5fb1ba37e1af06001770e7b7,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Guard spearmen',
-  troop_type="Spears",
-}
-g_str_5fb1ba37e1af06001770e7b7_dismounted_mobile_infantry='5fb1ba37e1af06001770e7b7_dismounted_mobile_infantry'
-g_str_5fb1ba37e1af06001770e7b7_mounted_mobile_infantry='5fb1ba37e1af06001770e7b7_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7b7_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba37e1af06001770e7b7_dismounted_mobile_infantry,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Guard spearmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba37e1af06001770e7b7_mounted_mobile_infantry,
-  troop_type="Spears",
-}
-g_base_definitions[g_str_5fb1ba37e1af06001770e7b7_mounted_mobile_infantry]={
-  id=g_str_5fb1ba37e1af06001770e7b7_mounted_mobile_infantry,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Guard spearmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba37e1af06001770e7b7_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Spears",
-}
-g_str_5fb1ba37e1af06001770e7ba='5fb1ba37e1af06001770e7ba'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7ba]={
-  id=g_str_5fb1ba37e1af06001770e7ba,
-  name='Horse Bow',
-  min=4,
-  max=11,
-  description='Khazar,  Magyars, and Volga Bulgar horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba37e1af06001770e7bc='5fb1ba37e1af06001770e7bc'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7bc]={
-  id=g_str_5fb1ba37e1af06001770e7bc,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levy spearmen',
-  troop_type="Horde",
-}
-g_str_5fb1ba37e1af06001770e7bc_dismounted_mobile_infantry='5fb1ba37e1af06001770e7bc_dismounted_mobile_infantry'
-g_str_5fb1ba37e1af06001770e7bc_mounted_mobile_infantry='5fb1ba37e1af06001770e7bc_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7bc_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba37e1af06001770e7bc_dismounted_mobile_infantry,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levy spearmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba37e1af06001770e7bc_mounted_mobile_infantry,
-  troop_type="Horde",
-}
-g_base_definitions[g_str_5fb1ba37e1af06001770e7bc_mounted_mobile_infantry]={
-  id=g_str_5fb1ba37e1af06001770e7bc_mounted_mobile_infantry,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levy spearmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba37e1af06001770e7bc_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Horde",
-}
-g_str_5fb1ba37e1af06001770e7bf='5fb1ba37e1af06001770e7bf'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7bf]={
-  id=g_str_5fb1ba37e1af06001770e7bf,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Levy skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba37e1af06001770e7c1='5fb1ba37e1af06001770e7c1'
-g_base_definitions[g_str_5fb1ba37e1af06001770e7c1]={
-  id=g_str_5fb1ba37e1af06001770e7c1,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Bolt shooters',
-  troop_type="Artillery",
-}
-g_str_5fb1b9eae1af060017709e09_camp='5fb1b9eae1af060017709e09_camp'
-g_base_definitions[g_str_5fb1b9eae1af060017709e09_camp]={
-  id=g_str_5fb1b9eae1af060017709e09_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9eae1af060017709e09_camp_fortified='5fb1b9eae1af060017709e09_camp_fortified'
-g_base_definitions[g_str_5fb1b9eae1af060017709e09_camp_fortified]={
-  id=g_str_5fb1b9eae1af060017709e09_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9eae1af060017709e09_camp_standard_wagon='5fb1b9eae1af060017709e09_camp_standard_wagon'
-g_base_definitions[g_str_5fb1b9eae1af060017709e09_camp_standard_wagon]={
-  id=g_str_5fb1b9eae1af060017709e09_camp_standard_wagon,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Standard Wagon',
-  standard_wagon=true,
-  troop_type="Camp",
-}
-g_str_5fb1ba14e1af06001770b493_general='5fb1ba14e1af06001770b493_general'
-g_base_definitions[g_str_5fb1ba14e1af06001770b493_general]={
-  id=g_str_5fb1ba14e1af06001770b493_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba14e1af06001770b493='5fb1ba14e1af06001770b493'
-g_base_definitions[g_str_5fb1ba14e1af06001770b493]={
-  id=g_str_5fb1ba14e1af06001770b493,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba14e1af06001770b495='5fb1ba14e1af06001770b495'
-g_base_definitions[g_str_5fb1ba14e1af06001770b495]={
-  id=g_str_5fb1ba14e1af06001770b495,
-  name='Horse Bow',
-  min=1,
-  max=2,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
 army['5fb1b9eae1af060017709e09']={
   data={
     name='Khazar Decline  966 to 1083 AD',
     id='5fb1b9eae1af060017709e09',
-    army_id='5fb1b9eae1af060017709e09'
+    dateRange={
+      startDate=966,
+      endDate=1083,
+    }
   },
   g_base_definitions[g_str_5fb1ba37e1af06001770e7b5_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e7b5],
@@ -271,4 +47,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9eae1af060017709e09"] = {}
-army_dates["5fb1b9eae1af060017709e09"]["966 AD to 1083 AD"] ="5fb1b9eae1af060017709e09"
+army_dates["5fb1b9eae1af060017709e09"]["966 AD to 1083 AD"] = {
+  startDate=966,
+  endDate=1083
+}
+army_dates["5fb1b9eae1af060017709e09"]["966 AD to 998 AD"] = {
+  startDate=966,
+  endDate=998
+}
+army_dates["5fb1b9eae1af060017709e09"]["999 AD to 1083 AD"] = {
+  startDate=999,
+  endDate=1083
+}

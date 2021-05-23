@@ -1,140 +1,13 @@
 -- 5fb1b9e0e1af060017709798 Sangam Era Sinhalese  175 BC to 300 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ae1af06001770d060']= {
-  min=1,
-  max=1,
-  description='War elephants',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770d061']= {
-  troop_option='5fb1ba2ae1af06001770d060',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba2ae1af06001770d062']= {
-  min=8,
-  max=16,
-  description='Militia bowmen',
-}
-g_troop_entry['5fb1ba2ae1af06001770d063']= {
-  troop_option='5fb1ba2ae1af06001770d062',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2ae1af06001770d064']= {
-  min=0,
-  max=1,
-  description='Better militia bowmen with large hide shields',
-  core='all',
-}
-g_troop_entry['5fb1ba2ae1af06001770d065']= {
-  troop_option='5fb1ba2ae1af06001770d064',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba2ae1af06001770d066']= {
-  min=0,
-  max=3,
-  description='Wild tribesmen',
-}
-g_troop_entry['5fb1ba2ae1af06001770d067']= {
-  troop_option='5fb1ba2ae1af06001770d066',
-  troopTypeCode='LFT',
-}
-g_troop_entry['5fb1ba2ae1af06001770d068']= {
-  troop_option='5fb1ba2ae1af06001770d066',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba2ae1af06001770d069']= {
-  min=1,
-  max=3,
-  description='Villikal bowmen',
-}
-g_troop_entry['5fb1ba2ae1af06001770d06a']= {
-  troop_option='5fb1ba2ae1af06001770d069',
-  troopTypeCode='ARC',
-}
-g_str_5fb1ba2ae1af06001770d061_general='5fb1ba2ae1af06001770d061_general'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d061_general]={
-  id=g_str_5fb1ba2ae1af06001770d061_general,
-  name='Elephants General',
-  min=1,
-  max=1,
-  description='War elephants',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba2ae1af06001770d061='5fb1ba2ae1af06001770d061'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d061]={
-  id=g_str_5fb1ba2ae1af06001770d061,
-  name='Elephants',
-  min=1,
-  max=1,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba2ae1af06001770d063='5fb1ba2ae1af06001770d063'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d063]={
-  id=g_str_5fb1ba2ae1af06001770d063,
-  name='Bow Levy',
-  min=8,
-  max=16,
-  description='Militia bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2ae1af06001770d065='5fb1ba2ae1af06001770d065'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d065]={
-  id=g_str_5fb1ba2ae1af06001770d065,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Better militia bowmen with large hide shields',
-  troop_type="Archers",
-}
-g_str_5fb1ba2ae1af06001770d067='5fb1ba2ae1af06001770d067'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d067]={
-  id=g_str_5fb1ba2ae1af06001770d067,
-  name='Light Foot',
-  min=0,
-  max=3,
-  description='Wild tribesmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2ae1af06001770d068='5fb1ba2ae1af06001770d068'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d068]={
-  id=g_str_5fb1ba2ae1af06001770d068,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Wild tribesmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2ae1af06001770d06a='5fb1ba2ae1af06001770d06a'
-g_base_definitions[g_str_5fb1ba2ae1af06001770d06a]={
-  id=g_str_5fb1ba2ae1af06001770d06a,
-  name='Archers',
-  min=1,
-  max=3,
-  description='Villikal bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1b9e0e1af060017709798_camp='5fb1b9e0e1af060017709798_camp'
-g_base_definitions[g_str_5fb1b9e0e1af060017709798_camp]={
-  id=g_str_5fb1b9e0e1af060017709798_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e0e1af060017709798']={
   data={
     name='Sangam Era Sinhalese  175 BC to 300 AD',
     id='5fb1b9e0e1af060017709798',
-    army_id='5fb1b9e0e1af060017709798'
+    dateRange={
+      startDate=-175,
+      endDate=300,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ae1af06001770d061_general],
   g_base_definitions[g_str_5fb1ba2ae1af06001770d061],
@@ -161,4 +34,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e0e1af060017709798"] = {}
-army_dates["5fb1b9e0e1af060017709798"]["175 BC to 300 AD"] ="5fb1b9e0e1af060017709798"
+army_dates["5fb1b9e0e1af060017709798"]["175 BC to 300 AD"] = {
+  startDate=-175,
+  endDate=300
+}

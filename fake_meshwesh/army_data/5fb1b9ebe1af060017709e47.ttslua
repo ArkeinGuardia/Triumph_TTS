@@ -1,238 +1,13 @@
 -- 5fb1b9ebe1af060017709e47 Nikephorian Byzantine  963 to 1042 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba37e1af06001770e888']= {
-  min=2,
-  max=4,
-  description='Tagmatic or picked thematic kavallarioi',
-}
-g_troop_entry['5fb1ba37e1af06001770e889']= {
-  troop_option='5fb1ba37e1af06001770e888',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba37e1af06001770e88b']= {
-  min=0,
-  max=1,
-  description='Prokoursatores and flank guards',
-}
-g_troop_entry['5fb1ba37e1af06001770e88c']= {
-  troop_option='5fb1ba37e1af06001770e88b',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba37e1af06001770e88d']= {
-  min=0,
-  max=1,
-  description='Klibanophoroi',
-  core='all',
-  startDate=963,
-  endDate=1000,
-}
-g_troop_entry['5fb1ba37e1af06001770e88f']= {
-  troop_option='5fb1ba37e1af06001770e88d',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba37e1af06001770e890']= {
-  min=0,
-  max=1,
-  description='Varangian or Rus mercenaries',
-  core='all',
-  startDate=989,
-  endDate=1042,
-}
-g_troop_entry['5fb1ba37e1af06001770e892']= {
-  troop_option='5fb1ba37e1af06001770e890',
-  troopTypeCode='HFT',
-}
-g_troop_entry['5fb1ba37e1af06001770e893']= {
-  troop_option='5fb1ba37e1af06001770e890',
-  troopTypeCode='SPR',
-}
-g_troop_option['5fb1ba37e1af06001770e894']= {
-  min=3,
-  max=6,
-  description='Skoutatoi',
-  core='all',
-}
-g_troop_entry['5fb1ba37e1af06001770e895']= {
-  troop_option='5fb1ba37e1af06001770e894',
-  troopTypeCode='PAV',
-}
-g_troop_option['5fb1ba37e1af06001770e897']= {
-  min=0,
-  max=1,
-  description='Akontistai or Rus or Slav mercenaries',
-}
-g_troop_entry['5fb1ba37e1af06001770e898']= {
-  troop_option='5fb1ba37e1af06001770e897',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba37e1af06001770e89a']= {
-  min=0,
-  max=1,
-  description='Detached Menavlatoi',
-  core='all',
-}
-g_troop_entry['5fb1ba37e1af06001770e89b']= {
-  troop_option='5fb1ba37e1af06001770e89a',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba37e1af06001770e89c']= {
-  min=0,
-  max=1,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba37e1af06001770e89d']= {
-  troop_option='5fb1ba37e1af06001770e89c',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba37e1af06001770e89f']= {
-  min=0,
-  max=1,
-  description='Wagon-mounted alakatia and heavy rope-pull stone-throwers',
-}
-g_troop_entry['5fb1ba37e1af06001770e8a0']= {
-  troop_option='5fb1ba37e1af06001770e89f',
-  troopTypeCode='ART',
-}
-g_str_5fb1ba37e1af06001770e889_general='5fb1ba37e1af06001770e889_general'
-g_base_definitions[g_str_5fb1ba37e1af06001770e889_general]={
-  id=g_str_5fb1ba37e1af06001770e889_general,
-  name='Elite Cavalary General',
-  min=2,
-  max=1,
-  description='Tagmatic or picked thematic kavallarioi',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba37e1af06001770e889='5fb1ba37e1af06001770e889'
-g_base_definitions[g_str_5fb1ba37e1af06001770e889]={
-  id=g_str_5fb1ba37e1af06001770e889,
-  name='Elite Cavalary',
-  min=2,
-  max=4,
-  description='Tagmatic or picked thematic kavallarioi',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba37e1af06001770e88c='5fb1ba37e1af06001770e88c'
-g_base_definitions[g_str_5fb1ba37e1af06001770e88c]={
-  id=g_str_5fb1ba37e1af06001770e88c,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Prokoursatores and flank guards',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba37e1af06001770e88f='5fb1ba37e1af06001770e88f'
-g_base_definitions[g_str_5fb1ba37e1af06001770e88f]={
-  id=g_str_5fb1ba37e1af06001770e88f,
-  name='Cataphracts',
-  min=0,
-  max=1,
-  description='Klibanophoroi',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba37e1af06001770e892='5fb1ba37e1af06001770e892'
-g_base_definitions[g_str_5fb1ba37e1af06001770e892]={
-  id=g_str_5fb1ba37e1af06001770e892,
-  name='Heavy Foot',
-  min=0,
-  max=1,
-  description='Varangian or Rus mercenaries',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba37e1af06001770e893='5fb1ba37e1af06001770e893'
-g_base_definitions[g_str_5fb1ba37e1af06001770e893]={
-  id=g_str_5fb1ba37e1af06001770e893,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Varangian or Rus mercenaries',
-  troop_type="Spears",
-}
-g_str_5fb1ba37e1af06001770e895='5fb1ba37e1af06001770e895'
-g_base_definitions[g_str_5fb1ba37e1af06001770e895]={
-  id=g_str_5fb1ba37e1af06001770e895,
-  name='Pavisiers',
-  min=3,
-  max=6,
-  description='Skoutatoi',
-  troop_type="Pavisiers",
-}
-g_str_5fb1ba37e1af06001770e898='5fb1ba37e1af06001770e898'
-g_base_definitions[g_str_5fb1ba37e1af06001770e898]={
-  id=g_str_5fb1ba37e1af06001770e898,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Akontistai or Rus or Slav mercenaries',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba37e1af06001770e89b='5fb1ba37e1af06001770e89b'
-g_base_definitions[g_str_5fb1ba37e1af06001770e89b]={
-  id=g_str_5fb1ba37e1af06001770e89b,
-  name='Raiders',
-  min=0,
-  max=1,
-  description='Detached Menavlatoi',
-  troop_type="Raiders",
-}
-g_str_5fb1ba37e1af06001770e89d='5fb1ba37e1af06001770e89d'
-g_base_definitions[g_str_5fb1ba37e1af06001770e89d]={
-  id=g_str_5fb1ba37e1af06001770e89d,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba37e1af06001770e8a0='5fb1ba37e1af06001770e8a0'
-g_base_definitions[g_str_5fb1ba37e1af06001770e8a0]={
-  id=g_str_5fb1ba37e1af06001770e8a0,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Wagon-mounted alakatia and heavy rope-pull stone-throwers',
-  troop_type="Artillery",
-}
-g_str_5fb1b9ebe1af060017709e47_camp='5fb1b9ebe1af060017709e47_camp'
-g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp]={
-  id=g_str_5fb1b9ebe1af060017709e47_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ebe1af060017709e47_camp_fortified='5fb1b9ebe1af060017709e47_camp_fortified'
-g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp_fortified]={
-  id=g_str_5fb1b9ebe1af060017709e47_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9ebe1af060017709e47_camp_pack_train='5fb1b9ebe1af060017709e47_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp_pack_train]={
-  id=g_str_5fb1b9ebe1af060017709e47_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ebe1af060017709e47']={
   data={
     name='Nikephorian Byzantine  963 to 1042 AD',
     id='5fb1b9ebe1af060017709e47',
-    army_id='5fb1b9ebe1af060017709e47'
+    dateRange={
+      startDate=963,
+      endDate=1042,
+    }
   },
   g_base_definitions[g_str_5fb1ba37e1af06001770e889_general],
   g_base_definitions[g_str_5fb1ba37e1af06001770e889],
@@ -253,69 +28,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ebe1af060017709e47"] = army["5fb1b9ebe1af060017709e47"]
-army['5fb1b9ebe1af060017709e47_963_988']={
-  data={
-    name='Nikephorian Byzantine 963 AD to 988 AD',
-    id='5fb1b9ebe1af060017709e47_963_988',
-    army_id='5fb1b9ebe1af060017709e47'
-  },
-  g_base_definitions[g_str_5fb1ba37e1af06001770e889_general],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e889],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e88c],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e88f],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e892],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e893],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e895],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e898],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e89b],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e89d],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e8a0],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp_pack_train],
-}
-army['5fb1b9ebe1af060017709e47_989_1000']={
-  data={
-    name='Nikephorian Byzantine 989 AD to 1000 AD',
-    id='5fb1b9ebe1af060017709e47_989_1000',
-    army_id='5fb1b9ebe1af060017709e47'
-  },
-  g_base_definitions[g_str_5fb1ba37e1af06001770e889_general],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e889],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e88c],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e88f],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e892],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e893],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e895],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e898],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e89b],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e89d],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e8a0],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp_pack_train],
-}
-army['5fb1b9ebe1af060017709e47_1001_1042']={
-  data={
-    name='Nikephorian Byzantine 1001 AD to 1042 AD',
-    id='5fb1b9ebe1af060017709e47_1001_1042',
-    army_id='5fb1b9ebe1af060017709e47'
-  },
-  g_base_definitions[g_str_5fb1ba37e1af06001770e889_general],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e889],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e88c],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e88f],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e892],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e893],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e895],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e898],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e89b],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e89d],
-  g_base_definitions[g_str_5fb1ba37e1af06001770e8a0],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709e47_camp_pack_train],
-}
 if nil == armies["Glorious Byzantium"] then
   armies["Glorious Byzantium"] ={}
 end
@@ -328,7 +40,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ebe1af060017709e47"] = {}
-army_dates["5fb1b9ebe1af060017709e47"]["963 AD to 1042 AD"] ="5fb1b9ebe1af060017709e47"
-army_dates["5fb1b9ebe1af060017709e47"]["963 AD to 988 AD"] ="5fb1b9ebe1af060017709e47_963_988"
-army_dates["5fb1b9ebe1af060017709e47"]["989 AD to 1000 AD"] ="5fb1b9ebe1af060017709e47_989_1000"
-army_dates["5fb1b9ebe1af060017709e47"]["1001 AD to 1042 AD"] ="5fb1b9ebe1af060017709e47_1001_1042"
+army_dates["5fb1b9ebe1af060017709e47"]["963 AD to 1042 AD"] = {
+  startDate=963,
+  endDate=1042
+}
+army_dates["5fb1b9ebe1af060017709e47"]["963 AD to 968 AD"] = {
+  startDate=963,
+  endDate=968
+}
+army_dates["5fb1b9ebe1af060017709e47"]["969 AD to 988 AD"] = {
+  startDate=969,
+  endDate=988
+}
+army_dates["5fb1b9ebe1af060017709e47"]["989 AD to 1000 AD"] = {
+  startDate=989,
+  endDate=1000
+}
+army_dates["5fb1b9ebe1af060017709e47"]["1001 AD to 1007 AD"] = {
+  startDate=1001,
+  endDate=1007
+}
+army_dates["5fb1b9ebe1af060017709e47"]["1008 AD"] = {
+  startDate=1008,
+  endDate=1008
+}
+army_dates["5fb1b9ebe1af060017709e47"]["1009 AD to 1042 AD"] = {
+  startDate=1009,
+  endDate=1042
+}

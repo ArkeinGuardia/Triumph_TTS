@@ -1,90 +1,13 @@
 -- 5fb1b9e1e1af060017709813 First Servile War  135 to 132 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2be1af06001770d1ff']= {
-  min=4,
-  max=12,
-  description='Kilikian and Syrian ex-slaves',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d200']= {
-  troop_option='5fb1ba2be1af06001770d1ff',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2be1af06001770d201']= {
-  min=7,
-  max=16,
-  description='Ex-slaves, shepherds and herdsmen, bandits',
-}
-g_troop_entry['5fb1ba2be1af06001770d202']= {
-  troop_option='5fb1ba2be1af06001770d201',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba2be1af06001770d203']= {
-  min=1,
-  max=2,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba2be1af06001770d204']= {
-  troop_option='5fb1ba2be1af06001770d203',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba2be1af06001770d200_general='5fb1ba2be1af06001770d200_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d200_general]={
-  id=g_str_5fb1ba2be1af06001770d200_general,
-  name='Light Foot General',
-  min=4,
-  max=1,
-  description='Kilikian and Syrian ex-slaves',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2be1af06001770d200='5fb1ba2be1af06001770d200'
-g_base_definitions[g_str_5fb1ba2be1af06001770d200]={
-  id=g_str_5fb1ba2be1af06001770d200,
-  name='Light Foot',
-  min=4,
-  max=12,
-  description='Kilikian and Syrian ex-slaves',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2be1af06001770d202='5fb1ba2be1af06001770d202'
-g_base_definitions[g_str_5fb1ba2be1af06001770d202]={
-  id=g_str_5fb1ba2be1af06001770d202,
-  name='Rabble',
-  min=7,
-  max=16,
-  description='Ex-slaves, shepherds and herdsmen, bandits',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2be1af06001770d204='5fb1ba2be1af06001770d204'
-g_base_definitions[g_str_5fb1ba2be1af06001770d204]={
-  id=g_str_5fb1ba2be1af06001770d204,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e1e1af060017709813_camp='5fb1b9e1e1af060017709813_camp'
-g_base_definitions[g_str_5fb1b9e1e1af060017709813_camp]={
-  id=g_str_5fb1b9e1e1af060017709813_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e1e1af060017709813']={
   data={
     name='First Servile War  135 to 132 BC',
     id='5fb1b9e1e1af060017709813',
-    army_id='5fb1b9e1e1af060017709813'
+    dateRange={
+      startDate=-135,
+      endDate=-132,
+    }
   },
   g_base_definitions[g_str_5fb1ba2be1af06001770d200_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d200],
@@ -108,4 +31,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e1e1af060017709813"] = {}
-army_dates["5fb1b9e1e1af060017709813"]["135 BC to 132 BC"] ="5fb1b9e1e1af060017709813"
+army_dates["5fb1b9e1e1af060017709813"]["135 BC to 132 BC"] = {
+  startDate=-135,
+  endDate=-132
+}

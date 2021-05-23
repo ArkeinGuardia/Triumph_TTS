@@ -1,227 +1,13 @@
 -- 5fb1b9f1e1af06001770a1b2 Jiang and Qi  315 BC to 550 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3fe1af06001770f634']= {
-  min=2,
-  max=5,
-  description='Horse archers',
-  startDate=-315,
-  endDate=302,
-}
-g_troop_entry['5fb1ba3fe1af06001770f636']= {
-  troop_option='5fb1ba3fe1af06001770f634',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3fe1af06001770f637']= {
-  min=1,
-  max=3,
-  description='Fully armored and barded horsemen',
-  startDate=303,
-  endDate=550,
-}
-g_troop_entry['5fb1ba3fe1af06001770f639']= {
-  troop_option='5fb1ba3fe1af06001770f637',
-  troopTypeCode='ECV',
-}
-g_troop_entry['5fb1ba3fe1af06001770f63a']= {
-  troop_option='5fb1ba3fe1af06001770f637',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba3fe1af06001770f63b']= {
-  min=1,
-  max=2,
-  description='Horse archers',
-  startDate=303,
-  endDate=550,
-}
-g_troop_entry['5fb1ba3fe1af06001770f63d']= {
-  troop_option='5fb1ba3fe1af06001770f63b',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3fe1af06001770f63e']= {
-  min=4,
-  max=14,
-  description='Unarmored tribal infantry',
-}
-g_troop_entry['5fb1ba3fe1af06001770f63f']= {
-  troop_option='5fb1ba3fe1af06001770f63e',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f641']= {
-  min=2,
-  max=6,
-  description='Armored tribal infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f642']= {
-  troop_option='5fb1ba3fe1af06001770f641',
-  troopTypeCode='RDR',
-}
-g_troop_entry['5fb1ba3fe1af06001770f643']= {
-  troop_option='5fb1ba3fe1af06001770f641',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f645']= {
-  min=1,
-  max=5,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f646']= {
-  troop_option='5fb1ba3fe1af06001770f645',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3fe1af06001770f648']= {
-  min=0,
-  max=2,
-  description='Chinese frontier peasant rebels',
-  startDate=110,
-  endDate=214,
-}
-g_troop_entry['5fb1ba3fe1af06001770f64a']= {
-  troop_option='5fb1ba3fe1af06001770f648',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba3fe1af06001770f636_general='5fb1ba3fe1af06001770f636_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f636_general]={
-  id=g_str_5fb1ba3fe1af06001770f636_general,
-  name='Horse Bow General',
-  min=2,
-  max=1,
-  description='Horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3fe1af06001770f636='5fb1ba3fe1af06001770f636'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f636]={
-  id=g_str_5fb1ba3fe1af06001770f636,
-  name='Horse Bow',
-  min=2,
-  max=5,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3fe1af06001770f639='5fb1ba3fe1af06001770f639'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f639]={
-  id=g_str_5fb1ba3fe1af06001770f639,
-  name='Elite Cavalary',
-  min=1,
-  max=3,
-  description='Fully armored and barded horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3fe1af06001770f63a='5fb1ba3fe1af06001770f63a'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f63a]={
-  id=g_str_5fb1ba3fe1af06001770f63a,
-  name='Knights',
-  min=1,
-  max=3,
-  description='Fully armored and barded horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba3fe1af06001770f63d_general='5fb1ba3fe1af06001770f63d_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f63d_general]={
-  id=g_str_5fb1ba3fe1af06001770f63d_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3fe1af06001770f63d='5fb1ba3fe1af06001770f63d'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f63d]={
-  id=g_str_5fb1ba3fe1af06001770f63d,
-  name='Horse Bow',
-  min=1,
-  max=2,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3fe1af06001770f63f='5fb1ba3fe1af06001770f63f'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f63f]={
-  id=g_str_5fb1ba3fe1af06001770f63f,
-  name='Light Foot',
-  min=4,
-  max=14,
-  description='Unarmored tribal infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3fe1af06001770f642_general='5fb1ba3fe1af06001770f642_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f642_general]={
-  id=g_str_5fb1ba3fe1af06001770f642_general,
-  name='Raiders General',
-  min=2,
-  max=1,
-  description='Armored tribal infantry',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba3fe1af06001770f642='5fb1ba3fe1af06001770f642'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f642]={
-  id=g_str_5fb1ba3fe1af06001770f642,
-  name='Raiders',
-  min=2,
-  max=6,
-  description='Armored tribal infantry',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3fe1af06001770f643='5fb1ba3fe1af06001770f643'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f643]={
-  id=g_str_5fb1ba3fe1af06001770f643,
-  name='Light Foot',
-  min=2,
-  max=6,
-  description='Armored tribal infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3fe1af06001770f646='5fb1ba3fe1af06001770f646'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f646]={
-  id=g_str_5fb1ba3fe1af06001770f646,
-  name='Bow Levy',
-  min=1,
-  max=5,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3fe1af06001770f64a='5fb1ba3fe1af06001770f64a'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f64a]={
-  id=g_str_5fb1ba3fe1af06001770f64a,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Chinese frontier peasant rebels',
-  troop_type="Rabble",
-}
-g_str_5fb1b9f1e1af06001770a1b2_camp='5fb1b9f1e1af06001770a1b2_camp'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp]={
-  id=g_str_5fb1b9f1e1af06001770a1b2_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f1e1af06001770a1b2_camp_pack_train='5fb1b9f1e1af06001770a1b2_camp_pack_train'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp_pack_train]={
-  id=g_str_5fb1b9f1e1af06001770a1b2_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9f1e1af06001770a1b2']={
   data={
     name='Jiang and Qi  315 BC to 550 AD',
     id='5fb1b9f1e1af06001770a1b2',
-    army_id='5fb1b9f1e1af06001770a1b2'
+    dateRange={
+      startDate=-315,
+      endDate=550,
+    }
   },
   g_base_definitions[g_str_5fb1ba3fe1af06001770f636_general],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f636],
@@ -242,90 +28,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f1e1af06001770a1b2"] = army["5fb1b9f1e1af06001770a1b2"]
-army['5fb1b9f1e1af06001770a1b2_-315_109']={
-  data={
-    name='Jiang and Qi 315 BC to 109 AD',
-    id='5fb1b9f1e1af06001770a1b2_-315_109',
-    army_id='5fb1b9f1e1af06001770a1b2'
-  },
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f636_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f636],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f639],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63a],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63d_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63d],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63f],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f642_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f642],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f643],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f646],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f64a],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp_pack_train],
-}
-army['5fb1b9f1e1af06001770a1b2_110_214']={
-  data={
-    name='Jiang and Qi 110 AD to 214 AD',
-    id='5fb1b9f1e1af06001770a1b2_110_214',
-    army_id='5fb1b9f1e1af06001770a1b2'
-  },
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f636_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f636],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f639],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63a],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63d_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63d],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63f],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f642_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f642],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f643],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f646],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f64a],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp_pack_train],
-}
-army['5fb1b9f1e1af06001770a1b2_215_302']={
-  data={
-    name='Jiang and Qi 215 AD to 302 AD',
-    id='5fb1b9f1e1af06001770a1b2_215_302',
-    army_id='5fb1b9f1e1af06001770a1b2'
-  },
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f636_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f636],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f639],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63a],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63d_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63d],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63f],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f642_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f642],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f643],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f646],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f64a],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp_pack_train],
-}
-army['5fb1b9f1e1af06001770a1b2_303_550']={
-  data={
-    name='Jiang and Qi 303 AD to 550 AD',
-    id='5fb1b9f1e1af06001770a1b2_303_550',
-    army_id='5fb1b9f1e1af06001770a1b2'
-  },
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f636_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f636],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f639],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63a],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63d_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63d],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f63f],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f642_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f642],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f643],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f646],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f64a],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1b2_camp_pack_train],
-}
 if nil == armies["Mandate of Heaven"] then
   armies["Mandate of Heaven"] ={}
 end
@@ -346,8 +48,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f1e1af06001770a1b2"] = {}
-army_dates["5fb1b9f1e1af06001770a1b2"]["315 BC to 550 AD"] ="5fb1b9f1e1af06001770a1b2"
-army_dates["5fb1b9f1e1af06001770a1b2"]["315 BC to 109 AD"] ="5fb1b9f1e1af06001770a1b2_-315_109"
-army_dates["5fb1b9f1e1af06001770a1b2"]["110 AD to 214 AD"] ="5fb1b9f1e1af06001770a1b2_110_214"
-army_dates["5fb1b9f1e1af06001770a1b2"]["215 AD to 302 AD"] ="5fb1b9f1e1af06001770a1b2_215_302"
-army_dates["5fb1b9f1e1af06001770a1b2"]["303 AD to 550 AD"] ="5fb1b9f1e1af06001770a1b2_303_550"
+army_dates["5fb1b9f1e1af06001770a1b2"]["315 BC to 550 AD"] = {
+  startDate=-315,
+  endDate=550
+}
+army_dates["5fb1b9f1e1af06001770a1b2"]["315 BC to 251 BC"] = {
+  startDate=-315,
+  endDate=-251
+}
+army_dates["5fb1b9f1e1af06001770a1b2"]["250 BC to 89 AD"] = {
+  startDate=-250,
+  endDate=89
+}
+army_dates["5fb1b9f1e1af06001770a1b2"]["90 AD to 109 AD"] = {
+  startDate=90,
+  endDate=109
+}
+army_dates["5fb1b9f1e1af06001770a1b2"]["110 AD to 214 AD"] = {
+  startDate=110,
+  endDate=214
+}
+army_dates["5fb1b9f1e1af06001770a1b2"]["215 AD to 302 AD"] = {
+  startDate=215,
+  endDate=302
+}
+army_dates["5fb1b9f1e1af06001770a1b2"]["303 AD to 460 AD"] = {
+  startDate=303,
+  endDate=460
+}
+army_dates["5fb1b9f1e1af06001770a1b2"]["461 AD to 550 AD"] = {
+  startDate=461,
+  endDate=550
+}
