@@ -51,7 +51,6 @@ function onload(saved_data)
     make_scenery_non_interactable()
     reset_state()
     spawn_proxy_bases()
-    spawn_all_dice()
     print_tool_tip_status()
     restore_extra_data(saved_data)
 
@@ -63,14 +62,12 @@ function onload(saved_data)
       print_error("Unable to find terraom card")
     end
 
-    set_tablet_homepage("red tablet")
-    set_tablet_homepage("blue tablet")
-
     -- Do not allow the Red player to roll the blud die, and the Blue
     -- player cannot roll the red dice.
     UI.setAttribute("button_roll_blue", "visibility", "Blue|White|Black")
     UI.setAttribute("button_roll_red",  "visibility", "Red|White|Black")
 
+    spawn_all_dice()
     if g_game_settings['show_wizard'] ~= false then
       wizard_show()
     else
@@ -102,9 +99,12 @@ function restore_extra_data(saved_data)
   g_decorations = extra
   g_game_settings = g_decorations['g_game_settings']
   if g_game_settings == nil then
+    -- initial settings 
     g_game_settings = {}
     g_game_settings['is_grand_triumph'] = false
     g_game_settings['show_wizard'] = true
+    set_tablet_homepage("red tablet")
+    set_tablet_homepage("blue tablet")
   end
 end
 

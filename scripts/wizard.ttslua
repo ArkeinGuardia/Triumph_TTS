@@ -45,7 +45,7 @@ end
 
 function wizard_show_panel_game()
   wizard_show_panel("wizard_panel_game")
-  wizard_panel_enter_game()
+  wizard_panel_game_enter()
 end
 
 function wizard_pannel_game_update()
@@ -60,8 +60,11 @@ function wizard_pannel_game_update()
   UI.setAttribute("wizard_togglegroup_game_grand_triumph", "isOn", is_grand_triumph)
 end
 
-function wizard_panel_enter_game()
+function wizard_panel_game_enter()
   wizard_pannel_game_update()
+  g_wizard_exit_panel_fn = function()
+    spawn_all_dice()
+  end
 end
 
 function on_wizard_togglegroup_game(player, value, id)

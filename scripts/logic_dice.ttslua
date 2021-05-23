@@ -128,10 +128,65 @@ end
 function spawn_all_dice()
     delete_all_dice()
     spawn_dice('red', {x=-0, y=2, z=-20})
-    spawn_dice('yellow', {x=3, y=2, z=-20})
-    spawn_dice('orange', {x=-3, y=2, z=-20})
+    UI.setAttribute("text_pips_player_red", "active", true)
+    if g_game_settings['is_grand_triumph'] then
+      spawn_dice('yellow', {x=3, y=2, z=-20})
+      UI.setAttribute("text_pips_player_yellow", "active", true)
+      spawn_dice('orange', {x=-3, y=2, z=-20})
+      UI.setAttribute("text_pips_player_orange", "active", true)
+    else
+      UI.setAttribute("text_pips_player_yellow", "active", false)
+      UI.setAttribute("text_pips_player_orange", "active", false)
+    end
 
     spawn_dice('blue', {x=0, y=2, z=20})
-    spawn_dice('green', {x=3, y=2, z=20})
-    spawn_dice('purple', {x=-3, y=2, z=20})
+    UI.setAttribute("text_pips_player_blue", "active", true)
+    if g_game_settings['is_grand_triumph'] then
+      spawn_dice('green', {x=3, y=2, z=20})
+      UI.setAttribute("text_pips_player_green", "active", true)
+      spawn_dice('purple', {x=-3, y=2, z=20})
+      UI.setAttribute("text_pips_player_purple", "active", true)
+    else
+      UI.setAttribute("text_pips_player_green", "active", false)
+      UI.setAttribute("text_pips_player_purple", "active", false)
+    end
+end
+
+-- This exists to avoid players clicking super fast and confusing rivals
+g_roll_lock = {}
+
+function is_dice_locked(dice)
+  for _, die_name in ipairs(dice) do
+    if g_roll_lock[die_name] then
+      return true
+    end
+  end
+  return false
+end
+
+
+-- Roll the dice
+-- dice: list with value containing the die names. e.g. {'red', 'yellow'}
+function do_roll_pips(dice)
+  if is_dice_locked(dice) then
+    print_info('Ignoring roll because this dice was rolled less than a second ago')
+    return
+  end
+  create_history_event_snapshot()
+  for _, die_name in ipairs(dice) do
+    g_roll_lock[die_name] = true
+  end
+  message = ""
+  for _, die_name in ipairs(dice) do
+    local die_message = roll_dice(die_name)
+    if die_message ~= nil then
+      message = message .. die_name .. ":" .. tostring(die_message) .. ' '
+    end
+  end
+  print_important(message)
+  Wait.time(function ()
+    for _, die_name in ipairs(dice) do
+      g_roll_lock[die_name] = false
+    end
+  end, 0.5)
 end
