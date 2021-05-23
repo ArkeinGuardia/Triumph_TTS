@@ -1423,11 +1423,13 @@ function check_picked_base()
         local distance_inches = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
         local mu = inches_to_mu_display_string(distance_inches)
 
+        UI.setAttribute('panel_dba_orders', 'active', false)
         UI.setAttribute('panel_current_movement', 'active', true)
         UI.setValue('text_current_movement_MUs',
             'Current movement: ' .. mu)
     else
         UI.setAttribute('panel_current_movement', 'active', false)
+        UI.setAttribute('panel_dba_orders', 'active', true)
     end
 end
 
