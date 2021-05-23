@@ -804,14 +804,19 @@ function set_tablet(is_red_player, army)
     return
   end
 
-  local url = "https://meshwesh.wgcwar.com/armyList/" ..  army['data']['army_id'] .. "/explore"
+  local url = "https://meshwesh.wgcwar.com/armyList/" ..  army['data']['id'] .. "/explore"
   tablet.Browser.url = url
 end
 
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
 -- validate
-function spawn_army(army, is_red_player, command_color)
+-- army: Army with base g_base_definitions
+-- is_red_player: Boolean
+-- command_color: color within the players troops, e.g. "Orange"
+-- army_nb: Army number for the player, main army is 1, allies are 2 or 3
+function spawn_army(army, is_red_player, command_color, army_nb)
+    distance_between_armies = (g_max_bases_row+1) * g_base_width_in_inches
     assert(nil ~= army)
     local army_name = army.data.name
     assert(nil ~= army_name)
@@ -824,7 +829,7 @@ function spawn_army(army, is_red_player, command_color)
         y_rotation = 0
     end
 
-    local z_pos = 5
+    local z_pos = 0.5
     if is_red_player then
         z_pos = z_pos * -1
     end
@@ -865,7 +870,7 @@ function spawn_army(army, is_red_player, command_color)
                 local row_z_pos = (g_base_width_in_inches + 0.75) * (1 + row) * z_pos_modifier + z_pos_0
 
                 local location = {
-                    x = g_offset_deployment_x + column * g_base_width_in_inches,
+                    x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
                     y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
                     z = row_z_pos
 }
