@@ -174,7 +174,7 @@ function do_roll_pips(dice)
     print_info('Ignoring roll because this dice was rolled less than a second ago')
     return
   end
-  create_history_event_snapshot()
+  history_record_delta_snapshot()
   for _, die_name in ipairs(dice) do
     g_roll_lock[die_name] = true
   end
