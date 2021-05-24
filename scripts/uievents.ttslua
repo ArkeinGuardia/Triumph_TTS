@@ -805,7 +805,7 @@ function preview_wheel(objs_if_first_time)
 
     local mu = inches_to_mu_display_string(distance)
     UI.setValue('text_wheeling',
-        string.format('Wheeling %2.1f degrees will cost %s',
+        string.format('Wheeling %.0f degrees will cost %s',
             g_degrees_wheeling,
             mu))
     return distance
