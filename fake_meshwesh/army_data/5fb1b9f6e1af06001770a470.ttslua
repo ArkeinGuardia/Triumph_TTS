@@ -1,72 +1,13 @@
 -- 5fb1b9f6e1af06001770a470 Chanca and Canari  1200 to 1471 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba44e1af06001770fe72']= {
-  min=10,
-  max=14,
-  description='Infantry armed with long thrusting spears',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770fe73']= {
-  troop_option='5fb1ba44e1af06001770fe72',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba44e1af06001770fe74']= {
-  min=2,
-  max=6,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba44e1af06001770fe75']= {
-  troop_option='5fb1ba44e1af06001770fe74',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba44e1af06001770fe73_general='5fb1ba44e1af06001770fe73_general'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe73_general]={
-  id=g_str_5fb1ba44e1af06001770fe73_general,
-  name='Light Spear General',
-  min=10,
-  max=1,
-  description='Infantry armed with long thrusting spears',
-  general=true,
-  troop_type="Light Spear",
-}
-g_str_5fb1ba44e1af06001770fe73='5fb1ba44e1af06001770fe73'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe73]={
-  id=g_str_5fb1ba44e1af06001770fe73,
-  name='Light Spear',
-  min=10,
-  max=14,
-  description='Infantry armed with long thrusting spears',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba44e1af06001770fe75='5fb1ba44e1af06001770fe75'
-g_base_definitions[g_str_5fb1ba44e1af06001770fe75]={
-  id=g_str_5fb1ba44e1af06001770fe75,
-  name='Skirmishers',
-  min=2,
-  max=6,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f6e1af06001770a470_camp='5fb1b9f6e1af06001770a470_camp'
-g_base_definitions[g_str_5fb1b9f6e1af06001770a470_camp]={
-  id=g_str_5fb1b9f6e1af06001770a470_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f6e1af06001770a470']={
   data={
     name='Chanca and Canari  1200 to 1471 AD',
     id='5fb1b9f6e1af06001770a470',
-    army_id='5fb1b9f6e1af06001770a470'
+    dateRange={
+      startDate=1200,
+      endDate=1471,
+    }
   },
   g_base_definitions[g_str_5fb1ba44e1af06001770fe73_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770fe73],
@@ -89,4 +30,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f6e1af06001770a470"] = {}
-army_dates["5fb1b9f6e1af06001770a470"]["1200 AD to 1471 AD"] ="5fb1b9f6e1af06001770a470"
+army_dates["5fb1b9f6e1af06001770a470"]["1200 AD to 1471 AD"] = {
+  startDate=1200,
+  endDate=1471
+}
+army_dates["5fb1b9f6e1af06001770a470"]["1200 AD to 1437 AD"] = {
+  startDate=1200,
+  endDate=1437
+}
+army_dates["5fb1b9f6e1af06001770a470"]["1438 AD to 1440 AD"] = {
+  startDate=1438,
+  endDate=1440
+}
+army_dates["5fb1b9f6e1af06001770a470"]["1441 AD to 1471 AD"] = {
+  startDate=1441,
+  endDate=1471
+}

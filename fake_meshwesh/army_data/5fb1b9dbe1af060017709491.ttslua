@@ -1,137 +1,13 @@
 -- 5fb1b9dbe1af060017709491 Urnfield Culture North Europe  1400 to 700 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba23e1af06001770c4b6']= {
-  min=1,
-  max=3,
-  description='Barbarian armored infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba23e1af06001770c4b7']= {
-  troop_option='5fb1ba23e1af06001770c4b6',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba23e1af06001770c4b8']= {
-  min=8,
-  max=12,
-  description='Barbarian light infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba23e1af06001770c4b9']= {
-  troop_option='5fb1ba23e1af06001770c4b8',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba23e1af06001770c4ba']= {
-  min=0,
-  max=1,
-  description='Barbarian horsemen',
-}
-g_troop_entry['5fb1ba23e1af06001770c4bb']= {
-  troop_option='5fb1ba23e1af06001770c4ba',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba23e1af06001770c4bc']= {
-  min=2,
-  max=4,
-  description='Barbarian skirmishing bowmen or slingers',
-}
-g_troop_entry['5fb1ba23e1af06001770c4bd']= {
-  troop_option='5fb1ba23e1af06001770c4bc',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba23e1af06001770c4be']= {
-  min=0,
-  max=2,
-  description='Unenthusiastic or poorly equipped throng',
-}
-g_troop_entry['5fb1ba23e1af06001770c4bf']= {
-  troop_option='5fb1ba23e1af06001770c4be',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba23e1af06001770c4b7_general='5fb1ba23e1af06001770c4b7_general'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4b7_general]={
-  id=g_str_5fb1ba23e1af06001770c4b7_general,
-  name='Elite Foot General',
-  min=1,
-  max=1,
-  description='Barbarian armored infantry',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba23e1af06001770c4b7='5fb1ba23e1af06001770c4b7'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4b7]={
-  id=g_str_5fb1ba23e1af06001770c4b7,
-  name='Elite Foot',
-  min=1,
-  max=3,
-  description='Barbarian armored infantry',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba23e1af06001770c4b9='5fb1ba23e1af06001770c4b9'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4b9]={
-  id=g_str_5fb1ba23e1af06001770c4b9,
-  name='Light Foot',
-  min=8,
-  max=12,
-  description='Barbarian light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba23e1af06001770c4bb='5fb1ba23e1af06001770c4bb'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4bb]={
-  id=g_str_5fb1ba23e1af06001770c4bb,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Barbarian horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba23e1af06001770c4bd='5fb1ba23e1af06001770c4bd'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4bd]={
-  id=g_str_5fb1ba23e1af06001770c4bd,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Barbarian skirmishing bowmen or slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba23e1af06001770c4bf='5fb1ba23e1af06001770c4bf'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4bf]={
-  id=g_str_5fb1ba23e1af06001770c4bf,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Unenthusiastic or poorly equipped throng',
-  troop_type="Horde",
-}
-g_str_5fb1b9dbe1af060017709491_camp='5fb1b9dbe1af060017709491_camp'
-g_base_definitions[g_str_5fb1b9dbe1af060017709491_camp]={
-  id=g_str_5fb1b9dbe1af060017709491_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dbe1af060017709491_camp_fortified='5fb1b9dbe1af060017709491_camp_fortified'
-g_base_definitions[g_str_5fb1b9dbe1af060017709491_camp_fortified]={
-  id=g_str_5fb1b9dbe1af060017709491_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9dbe1af060017709491']={
   data={
     name='Urnfield Culture North Europe  1400 to 700 BC',
     id='5fb1b9dbe1af060017709491',
-    army_id='5fb1b9dbe1af060017709491'
+    dateRange={
+      startDate=-1400,
+      endDate=-700,
+    }
   },
   g_base_definitions[g_str_5fb1ba23e1af06001770c4b7_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4b7],
@@ -162,4 +38,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dbe1af060017709491"] = {}
-army_dates["5fb1b9dbe1af060017709491"]["1400 BC to 700 BC"] ="5fb1b9dbe1af060017709491"
+army_dates["5fb1b9dbe1af060017709491"]["1400 BC to 700 BC"] = {
+  startDate=-1400,
+  endDate=-700
+}

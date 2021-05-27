@@ -1,167 +1,13 @@
 -- 5fb1b9e2e1af06001770991b Early Frankish, etc.  250 to 584 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2de1af06001770d583']= {
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d584']= {
-  troop_option='5fb1ba2de1af06001770d583',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2de1af06001770d586']= {
-  min=12,
-  max=16,
-  description='Fierce fighters',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d587']= {
-  troop_option='5fb1ba2de1af06001770d586',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba2de1af06001770d588']= {
-  min=0,
-  max=2,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba2de1af06001770d589']= {
-  troop_option='5fb1ba2de1af06001770d588',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2de1af06001770d58a']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba2de1af06001770d58b']= {
-  troop_option='5fb1ba2de1af06001770d58a',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba2de1af06001770d584_general='5fb1ba2de1af06001770d584_general'
-g_base_definitions[g_str_5fb1ba2de1af06001770d584_general]={
-  id=g_str_5fb1ba2de1af06001770d584_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2de1af06001770d584_general_dismounted='5fb1ba2de1af06001770d584_general_dismounted'
-g_str_5fb1ba2de1af06001770d584_general_mounted='5fb1ba2de1af06001770d584_general_mounted'
-g_base_definitions[g_str_5fb1ba2de1af06001770d584_general_dismounted]={
-  id=g_str_5fb1ba2de1af06001770d584_general_dismounted,
-  name='Warriors General',
-  min=0,
-  max=1,
-  description='Noble horsemen\nDeployment dismounted from Javelin Cavalry General',
-  points=4,
-  dismounted_from=g_str_5fb1ba2de1af06001770d584_general_mounted,
-  general=true,
-  troop_type="Warriors",
-}
-g_base_definitions[g_str_5fb1ba2de1af06001770d584_general_mounted]={
-  id=g_str_5fb1ba2de1af06001770d584_general_mounted,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Noble horsemen\nDeployment dismounting as Warrior',
-  points=4,
-  dismount_as=g_str_5fb1ba2de1af06001770d584_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2de1af06001770d584='5fb1ba2de1af06001770d584'
-g_base_definitions[g_str_5fb1ba2de1af06001770d584]={
-  id=g_str_5fb1ba2de1af06001770d584,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2de1af06001770d584_dismounted='5fb1ba2de1af06001770d584_dismounted'
-g_str_5fb1ba2de1af06001770d584_mounted='5fb1ba2de1af06001770d584_mounted'
-g_base_definitions[g_str_5fb1ba2de1af06001770d584_dismounted]={
-  id=g_str_5fb1ba2de1af06001770d584_dismounted,
-  name='Warriors',
-  min=0,
-  max=1,
-  description='Noble horsemen\nDeployment dismounted from Javelin Cavalry',
-  points=4,
-  dismounted_from=g_str_5fb1ba2de1af06001770d584_mounted,
-  troop_type="Warriors",
-}
-g_base_definitions[g_str_5fb1ba2de1af06001770d584_mounted]={
-  id=g_str_5fb1ba2de1af06001770d584_mounted,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Noble horsemen\nDeployment dismounting as Warrior',
-  points=4,
-  dismount_as=g_str_5fb1ba2de1af06001770d584_dismounted,
-  deployment_dismounting=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2de1af06001770d587_general='5fb1ba2de1af06001770d587_general'
-g_base_definitions[g_str_5fb1ba2de1af06001770d587_general]={
-  id=g_str_5fb1ba2de1af06001770d587_general,
-  name='Warriors General',
-  min=12,
-  max=1,
-  description='Fierce fighters',
-  general=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba2de1af06001770d587='5fb1ba2de1af06001770d587'
-g_base_definitions[g_str_5fb1ba2de1af06001770d587]={
-  id=g_str_5fb1ba2de1af06001770d587,
-  name='Warriors',
-  min=12,
-  max=16,
-  description='Fierce fighters',
-  troop_type="Warriors",
-}
-g_str_5fb1ba2de1af06001770d589='5fb1ba2de1af06001770d589'
-g_base_definitions[g_str_5fb1ba2de1af06001770d589]={
-  id=g_str_5fb1ba2de1af06001770d589,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2de1af06001770d58b='5fb1ba2de1af06001770d58b'
-g_base_definitions[g_str_5fb1ba2de1af06001770d58b]={
-  id=g_str_5fb1ba2de1af06001770d58b,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e2e1af06001770991b_camp='5fb1b9e2e1af06001770991b_camp'
-g_base_definitions[g_str_5fb1b9e2e1af06001770991b_camp]={
-  id=g_str_5fb1b9e2e1af06001770991b_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e2e1af06001770991b']={
   data={
     name='Early Frankish, etc.  250 to 584 AD',
     id='5fb1b9e2e1af06001770991b',
-    army_id='5fb1b9e2e1af06001770991b'
+    dateRange={
+      startDate=250,
+      endDate=584,
+    }
   },
   g_base_definitions[g_str_5fb1ba2de1af06001770d584_general],
   g_base_definitions[g_str_5fb1ba2de1af06001770d584_general_mounted],
@@ -195,4 +41,59 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e2e1af06001770991b"] = {}
-army_dates["5fb1b9e2e1af06001770991b"]["250 AD to 584 AD"] ="5fb1b9e2e1af06001770991b"
+army_dates["5fb1b9e2e1af06001770991b"]["250 AD to 584 AD"] = {
+  startDate=250,
+  endDate=584
+}
+army_dates["5fb1b9e2e1af06001770991b"]["250 AD to 362 AD"] = {
+  startDate=250,
+  endDate=362
+}
+army_dates["5fb1b9e2e1af06001770991b"]["363 AD to 405 AD"] = {
+  startDate=363,
+  endDate=405
+}
+army_dates["5fb1b9e2e1af06001770991b"]["406 AD"] = {
+  startDate=406,
+  endDate=406
+}
+army_dates["5fb1b9e2e1af06001770991b"]["407 AD"] = {
+  startDate=407,
+  endDate=407
+}
+army_dates["5fb1b9e2e1af06001770991b"]["408 AD to 427 AD"] = {
+  startDate=408,
+  endDate=427
+}
+army_dates["5fb1b9e2e1af06001770991b"]["428 AD to 442 AD"] = {
+  startDate=428,
+  endDate=442
+}
+army_dates["5fb1b9e2e1af06001770991b"]["443 AD to 449 AD"] = {
+  startDate=443,
+  endDate=449
+}
+army_dates["5fb1b9e2e1af06001770991b"]["450 AD to 451 AD"] = {
+  startDate=450,
+  endDate=451
+}
+army_dates["5fb1b9e2e1af06001770991b"]["452 AD to 467 AD"] = {
+  startDate=452,
+  endDate=467
+}
+army_dates["5fb1b9e2e1af06001770991b"]["468 AD to 470 AD"] = {
+  startDate=468,
+  endDate=470
+}
+army_dates["5fb1b9e2e1af06001770991b"]["471 AD"] = {
+  startDate=471,
+  endDate=471
+}
+army_dates["5fb1b9e2e1af06001770991b"]["472 AD to 493 AD"] = {
+  startDate=472,
+  endDate=493
+}
+army_dates["5fb1b9e2e1af06001770991b"]["494 AD to 584 AD"] = {
+  startDate=494,
+  endDate=584
+}

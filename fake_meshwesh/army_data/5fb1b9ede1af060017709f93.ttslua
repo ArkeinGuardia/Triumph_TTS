@@ -1,204 +1,13 @@
 -- 5fb1b9ede1af060017709f93 Later Georgian  1121 to 1683 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ae1af06001770ee61']= {
-  min=2,
-  max=6,
-  description='Aznauri and retainers',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee62']= {
-  troop_option='5fb1ba3ae1af06001770ee61',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ae1af06001770ee63']= {
-  min=0,
-  max=1,
-  description='Crusader men-at-arms',
-  startDate=1121,
-  endDate=1144,
-}
-g_troop_entry['5fb1ba3ae1af06001770ee65']= {
-  troop_option='5fb1ba3ae1af06001770ee63',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba3ae1af06001770ee66']= {
-  min=2,
-  max=6,
-  description='Cumans and other nomads',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee67']= {
-  troop_option='5fb1ba3ae1af06001770ee66',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ae1af06001770ee68']= {
-  min=1,
-  max=2,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee69']= {
-  troop_option='5fb1ba3ae1af06001770ee68',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba3ae1af06001770ee6a']= {
-  min=1,
-  max=2,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee6b']= {
-  troop_option='5fb1ba3ae1af06001770ee6a',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3ae1af06001770ee6c']= {
-  min=0,
-  max=1,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee6d']= {
-  troop_option='5fb1ba3ae1af06001770ee6c',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3ae1af06001770ee6e']= {
-  min=0,
-  max=1,
-  description='Rus mercenary spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee6f']= {
-  troop_option='5fb1ba3ae1af06001770ee6e',
-  troopTypeCode='SPR',
-}
-g_troop_option['5fb1ba3ae1af06001770ee71']= {
-  min=0,
-  max=1,
-  description='Georgian skirmishers or Rus skirmishing bowmen',
-}
-g_troop_entry['5fb1ba3ae1af06001770ee72']= {
-  troop_option='5fb1ba3ae1af06001770ee71',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba3ae1af06001770ee62_general='5fb1ba3ae1af06001770ee62_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee62_general]={
-  id=g_str_5fb1ba3ae1af06001770ee62_general,
-  name='Horse Bow General',
-  min=2,
-  max=1,
-  description='Aznauri and retainers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ee62='5fb1ba3ae1af06001770ee62'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee62]={
-  id=g_str_5fb1ba3ae1af06001770ee62,
-  name='Horse Bow',
-  min=2,
-  max=6,
-  description='Aznauri and retainers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ee65='5fb1ba3ae1af06001770ee65'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee65]={
-  id=g_str_5fb1ba3ae1af06001770ee65,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Crusader men-at-arms',
-  troop_type="Knights",
-}
-g_str_5fb1ba3ae1af06001770ee67_general='5fb1ba3ae1af06001770ee67_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee67_general]={
-  id=g_str_5fb1ba3ae1af06001770ee67_general,
-  name='Horse Bow General',
-  min=2,
-  max=1,
-  description='Cumans and other nomads',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ee67='5fb1ba3ae1af06001770ee67'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee67]={
-  id=g_str_5fb1ba3ae1af06001770ee67,
-  name='Horse Bow',
-  min=2,
-  max=6,
-  description='Cumans and other nomads',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ee69='5fb1ba3ae1af06001770ee69'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee69]={
-  id=g_str_5fb1ba3ae1af06001770ee69,
-  name='Heavy Foot',
-  min=1,
-  max=2,
-  description='Spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba3ae1af06001770ee6b='5fb1ba3ae1af06001770ee6b'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee6b]={
-  id=g_str_5fb1ba3ae1af06001770ee6b,
-  name='Archers',
-  min=1,
-  max=2,
-  description='Bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3ae1af06001770ee6d='5fb1ba3ae1af06001770ee6d'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee6d]={
-  id=g_str_5fb1ba3ae1af06001770ee6d,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3ae1af06001770ee6f='5fb1ba3ae1af06001770ee6f'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee6f]={
-  id=g_str_5fb1ba3ae1af06001770ee6f,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Rus mercenary spearmen',
-  troop_type="Spears",
-}
-g_str_5fb1ba3ae1af06001770ee72='5fb1ba3ae1af06001770ee72'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ee72]={
-  id=g_str_5fb1ba3ae1af06001770ee72,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Georgian skirmishers or Rus skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9ede1af060017709f93_camp='5fb1b9ede1af060017709f93_camp'
-g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp]={
-  id=g_str_5fb1b9ede1af060017709f93_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709f93_camp_pack_train='5fb1b9ede1af060017709f93_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp_pack_train]={
-  id=g_str_5fb1b9ede1af060017709f93_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ede1af060017709f93']={
   data={
     name='Later Georgian  1121 to 1683 AD',
     id='5fb1b9ede1af060017709f93',
-    army_id='5fb1b9ede1af060017709f93'
+    dateRange={
+      startDate=1121,
+      endDate=1683,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee62_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ee62],
@@ -217,44 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709f93"] = army["5fb1b9ede1af060017709f93"]
-army['5fb1b9ede1af060017709f93_1121_1144']={
-  data={
-    name='Later Georgian 1121 AD to 1144 AD',
-    id='5fb1b9ede1af060017709f93_1121_1144',
-    army_id='5fb1b9ede1af060017709f93'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee62_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee62],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee65],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee67_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee67],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee69],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6d],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6f],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee72],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp_pack_train],
-}
-army['5fb1b9ede1af060017709f93_1145_1683']={
-  data={
-    name='Later Georgian 1145 AD to 1683 AD',
-    id='5fb1b9ede1af060017709f93_1145_1683',
-    army_id='5fb1b9ede1af060017709f93'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee62_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee62],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee65],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee67_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee67],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee69],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6b],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6d],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee6f],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ee72],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f93_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -279,6 +50,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709f93"] = {}
-army_dates["5fb1b9ede1af060017709f93"]["1121 AD to 1683 AD"] ="5fb1b9ede1af060017709f93"
-army_dates["5fb1b9ede1af060017709f93"]["1121 AD to 1144 AD"] ="5fb1b9ede1af060017709f93_1121_1144"
-army_dates["5fb1b9ede1af060017709f93"]["1145 AD to 1683 AD"] ="5fb1b9ede1af060017709f93_1145_1683"
+army_dates["5fb1b9ede1af060017709f93"]["1121 AD to 1683 AD"] = {
+  startDate=1121,
+  endDate=1683
+}
+army_dates["5fb1b9ede1af060017709f93"]["1121 AD to 1144 AD"] = {
+  startDate=1121,
+  endDate=1144
+}
+army_dates["5fb1b9ede1af060017709f93"]["1145 AD to 1683 AD"] = {
+  startDate=1145,
+  endDate=1683
+}

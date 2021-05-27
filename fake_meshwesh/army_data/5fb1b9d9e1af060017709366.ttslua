@@ -1,192 +1,13 @@
 -- 5fb1b9d9e1af060017709366 Hyksos  1645 to 1537 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba20e1af06001770c004']= {
-  min=1,
-  max=2,
-  description='2-horse chariots',
-}
-g_troop_entry['5fb1ba20e1af06001770c005']= {
-  troop_option='5fb1ba20e1af06001770c004',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba20e1af06001770c006']= {
-  min=3,
-  max=7,
-  description='Retainers armed with axe or sickle sword and javelins',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c007']= {
-  troop_option='5fb1ba20e1af06001770c006',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba20e1af06001770c008']= {
-  min=0,
-  max=1,
-  description='Retainers armed with bow',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c009']= {
-  troop_option='5fb1ba20e1af06001770c008',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba20e1af06001770c00a']= {
-  min=1,
-  max=2,
-  description='Light troops armed with javelin and shield',
-}
-g_troop_entry['5fb1ba20e1af06001770c00b']= {
-  troop_option='5fb1ba20e1af06001770c00a',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba20e1af06001770c00c']= {
-  min=0,
-  max=1,
-  description='Light troops armed with javelin',
-}
-g_troop_entry['5fb1ba20e1af06001770c00d']= {
-  troop_option='5fb1ba20e1af06001770c00c',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba20e1af06001770c00e']= {
-  min=0,
-  max=2,
-  description='Light troops armed with bow or sling',
-}
-g_troop_entry['5fb1ba20e1af06001770c00f']= {
-  troop_option='5fb1ba20e1af06001770c00e',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba20e1af06001770c010']= {
-  min=0,
-  max=10,
-  description='Aamu nomads',
-}
-g_troop_entry['5fb1ba20e1af06001770c011']= {
-  troop_option='5fb1ba20e1af06001770c010',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba20e1af06001770c012']= {
-  min=0,
-  max=2,
-  description='Egyptian levies',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c013']= {
-  troop_option='5fb1ba20e1af06001770c012',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba20e1af06001770c005_general='5fb1ba20e1af06001770c005_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770c005_general]={
-  id=g_str_5fb1ba20e1af06001770c005_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='2-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c005='5fb1ba20e1af06001770c005'
-g_base_definitions[g_str_5fb1ba20e1af06001770c005]={
-  id=g_str_5fb1ba20e1af06001770c005,
-  name='Chariots',
-  min=1,
-  max=2,
-  description='2-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c007='5fb1ba20e1af06001770c007'
-g_base_definitions[g_str_5fb1ba20e1af06001770c007]={
-  id=g_str_5fb1ba20e1af06001770c007,
-  name='Raiders',
-  min=3,
-  max=7,
-  description='Retainers armed with axe or sickle sword and javelins',
-  troop_type="Raiders",
-}
-g_str_5fb1ba20e1af06001770c009='5fb1ba20e1af06001770c009'
-g_base_definitions[g_str_5fb1ba20e1af06001770c009]={
-  id=g_str_5fb1ba20e1af06001770c009,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Retainers armed with bow',
-  troop_type="Archers",
-}
-g_str_5fb1ba20e1af06001770c00b='5fb1ba20e1af06001770c00b'
-g_base_definitions[g_str_5fb1ba20e1af06001770c00b]={
-  id=g_str_5fb1ba20e1af06001770c00b,
-  name='Light Foot',
-  min=1,
-  max=2,
-  description='Light troops armed with javelin and shield',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba20e1af06001770c00d='5fb1ba20e1af06001770c00d'
-g_base_definitions[g_str_5fb1ba20e1af06001770c00d]={
-  id=g_str_5fb1ba20e1af06001770c00d,
-  name='Rabble',
-  min=0,
-  max=1,
-  description='Light troops armed with javelin',
-  troop_type="Rabble",
-}
-g_str_5fb1ba20e1af06001770c00f='5fb1ba20e1af06001770c00f'
-g_base_definitions[g_str_5fb1ba20e1af06001770c00f]={
-  id=g_str_5fb1ba20e1af06001770c00f,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Light troops armed with bow or sling',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba20e1af06001770c011='5fb1ba20e1af06001770c011'
-g_base_definitions[g_str_5fb1ba20e1af06001770c011]={
-  id=g_str_5fb1ba20e1af06001770c011,
-  name='Rabble',
-  min=0,
-  max=10,
-  description='Aamu nomads',
-  troop_type="Rabble",
-}
-g_str_5fb1ba20e1af06001770c013='5fb1ba20e1af06001770c013'
-g_base_definitions[g_str_5fb1ba20e1af06001770c013]={
-  id=g_str_5fb1ba20e1af06001770c013,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Egyptian levies',
-  troop_type="Horde",
-}
-g_str_5fb1b9d9e1af060017709366_camp='5fb1b9d9e1af060017709366_camp'
-g_base_definitions[g_str_5fb1b9d9e1af060017709366_camp]={
-  id=g_str_5fb1b9d9e1af060017709366_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9d9e1af060017709366_camp_pack_train='5fb1b9d9e1af060017709366_camp_pack_train'
-g_base_definitions[g_str_5fb1b9d9e1af060017709366_camp_pack_train]={
-  id=g_str_5fb1b9d9e1af060017709366_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9d9e1af060017709366']={
   data={
     name='Hyksos  1645 to 1537 BC',
     id='5fb1b9d9e1af060017709366',
-    army_id='5fb1b9d9e1af060017709366'
+    dateRange={
+      startDate=-1645,
+      endDate=-1537,
+    }
   },
   g_base_definitions[g_str_5fb1ba20e1af06001770c005_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770c005],
@@ -216,4 +37,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af060017709366"] = {}
-army_dates["5fb1b9d9e1af060017709366"]["1645 BC to 1537 BC"] ="5fb1b9d9e1af060017709366"
+army_dates["5fb1b9d9e1af060017709366"]["1645 BC to 1537 BC"] = {
+  startDate=-1645,
+  endDate=-1537
+}
+army_dates["5fb1b9d9e1af060017709366"]["1645 BC to 1541 BC"] = {
+  startDate=-1645,
+  endDate=-1541
+}
+army_dates["5fb1b9d9e1af060017709366"]["1540 BC to 1537 BC"] = {
+  startDate=-1540,
+  endDate=-1537
+}

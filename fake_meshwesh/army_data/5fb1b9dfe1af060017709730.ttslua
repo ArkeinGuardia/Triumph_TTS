@@ -1,264 +1,13 @@
 -- 5fb1b9dfe1af060017709730 Hasmonean Jewish  103 to 63 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba29e1af06001770cee7']= {
-  min=0,
-  max=1,
-  description='Horsemen of the army',
-}
-g_troop_entry['5fb1ba29e1af06001770cee8']= {
-  troop_option='5fb1ba29e1af06001770cee7',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba29e1af06001770cee9']= {
-  min=1,
-  max=1,
-  description='Horsemen of the phalanx',
-}
-g_troop_entry['5fb1ba29e1af06001770ceea']= {
-  troop_option='5fb1ba29e1af06001770cee9',
-  troopTypeCode='JCV',
-}
-g_troop_entry['5fb1ba29e1af06001770ceeb']= {
-  troop_option='5fb1ba29e1af06001770cee9',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba29e1af06001770ceec']= {
-  min=3,
-  max=6,
-  description='Foot of the phalanx',
-  core='all',
-}
-g_troop_entry['5fb1ba29e1af06001770ceed']= {
-  troop_option='5fb1ba29e1af06001770ceec',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba29e1af06001770ceee']= {
-  min=1,
-  max=4,
-  description='Levy bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba29e1af06001770ceef']= {
-  troop_option='5fb1ba29e1af06001770ceee',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba29e1af06001770cef0']= {
-  min=1,
-  max=3,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba29e1af06001770cef1']= {
-  troop_option='5fb1ba29e1af06001770cef0',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba29e1af06001770cef2']= {
-  min=1,
-  max=4,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba29e1af06001770cef3']= {
-  troop_option='5fb1ba29e1af06001770cef2',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba29e1af06001770cef4']= {
-  min=0,
-  max=5,
-  description='Mercenary thureophoroi',
-  core='all',
-}
-g_troop_entry['5fb1ba29e1af06001770cef5']= {
-  troop_option='5fb1ba29e1af06001770cef4',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba29e1af06001770cef6']= {
-  min=0,
-  max=3,
-  description='Pike',
-  core='all',
-}
-g_troop_entry['5fb1ba29e1af06001770cef7']= {
-  troop_option='5fb1ba29e1af06001770cef6',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba29e1af06001770cef8']= {
-  min=0,
-  max=2,
-  description='Rioting mob',
-}
-g_troop_entry['5fb1ba29e1af06001770cef9']= {
-  troop_option='5fb1ba29e1af06001770cef8',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba29e1af06001770cee8_general='5fb1ba29e1af06001770cee8_general'
-g_base_definitions[g_str_5fb1ba29e1af06001770cee8_general]={
-  id=g_str_5fb1ba29e1af06001770cee8_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Horsemen of the army',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba29e1af06001770cee8='5fb1ba29e1af06001770cee8'
-g_base_definitions[g_str_5fb1ba29e1af06001770cee8]={
-  id=g_str_5fb1ba29e1af06001770cee8,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Horsemen of the army',
-  troop_type="Knights",
-}
-g_str_5fb1ba29e1af06001770ceea_general='5fb1ba29e1af06001770ceea_general'
-g_base_definitions[g_str_5fb1ba29e1af06001770ceea_general]={
-  id=g_str_5fb1ba29e1af06001770ceea_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Horsemen of the phalanx',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba29e1af06001770ceea='5fb1ba29e1af06001770ceea'
-g_base_definitions[g_str_5fb1ba29e1af06001770ceea]={
-  id=g_str_5fb1ba29e1af06001770ceea,
-  name='Javelin Cavalry',
-  min=1,
-  max=1,
-  description='Horsemen of the phalanx',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba29e1af06001770ceeb_general='5fb1ba29e1af06001770ceeb_general'
-g_base_definitions[g_str_5fb1ba29e1af06001770ceeb_general]={
-  id=g_str_5fb1ba29e1af06001770ceeb_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Horsemen of the phalanx',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba29e1af06001770ceeb='5fb1ba29e1af06001770ceeb'
-g_base_definitions[g_str_5fb1ba29e1af06001770ceeb]={
-  id=g_str_5fb1ba29e1af06001770ceeb,
-  name='Horse Bow',
-  min=1,
-  max=1,
-  description='Horsemen of the phalanx',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba29e1af06001770ceed_general='5fb1ba29e1af06001770ceed_general'
-g_base_definitions[g_str_5fb1ba29e1af06001770ceed_general]={
-  id=g_str_5fb1ba29e1af06001770ceed_general,
-  name='Raiders General',
-  min=3,
-  max=1,
-  description='Foot of the phalanx',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba29e1af06001770ceed='5fb1ba29e1af06001770ceed'
-g_base_definitions[g_str_5fb1ba29e1af06001770ceed]={
-  id=g_str_5fb1ba29e1af06001770ceed,
-  name='Raiders',
-  min=3,
-  max=6,
-  description='Foot of the phalanx',
-  troop_type="Raiders",
-}
-g_str_5fb1ba29e1af06001770ceef='5fb1ba29e1af06001770ceef'
-g_base_definitions[g_str_5fb1ba29e1af06001770ceef]={
-  id=g_str_5fb1ba29e1af06001770ceef,
-  name='Bow Levy',
-  min=1,
-  max=4,
-  description='Levy bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba29e1af06001770cef1='5fb1ba29e1af06001770cef1'
-g_base_definitions[g_str_5fb1ba29e1af06001770cef1]={
-  id=g_str_5fb1ba29e1af06001770cef1,
-  name='Skirmishers',
-  min=1,
-  max=3,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba29e1af06001770cef3='5fb1ba29e1af06001770cef3'
-g_base_definitions[g_str_5fb1ba29e1af06001770cef3]={
-  id=g_str_5fb1ba29e1af06001770cef3,
-  name='Rabble',
-  min=1,
-  max=4,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba29e1af06001770cef5_general='5fb1ba29e1af06001770cef5_general'
-g_base_definitions[g_str_5fb1ba29e1af06001770cef5_general]={
-  id=g_str_5fb1ba29e1af06001770cef5_general,
-  name='Raiders General',
-  min=0,
-  max=1,
-  description='Mercenary thureophoroi',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba29e1af06001770cef5='5fb1ba29e1af06001770cef5'
-g_base_definitions[g_str_5fb1ba29e1af06001770cef5]={
-  id=g_str_5fb1ba29e1af06001770cef5,
-  name='Raiders',
-  min=0,
-  max=5,
-  description='Mercenary thureophoroi',
-  troop_type="Raiders",
-}
-g_str_5fb1ba29e1af06001770cef7='5fb1ba29e1af06001770cef7'
-g_base_definitions[g_str_5fb1ba29e1af06001770cef7]={
-  id=g_str_5fb1ba29e1af06001770cef7,
-  name='Pikes',
-  min=0,
-  max=3,
-  description='Pike',
-  troop_type="Pikes",
-}
-g_str_5fb1ba29e1af06001770cef9='5fb1ba29e1af06001770cef9'
-g_base_definitions[g_str_5fb1ba29e1af06001770cef9]={
-  id=g_str_5fb1ba29e1af06001770cef9,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Rioting mob',
-  troop_type="Rabble",
-}
-g_str_5fb1b9dfe1af060017709730_camp='5fb1b9dfe1af060017709730_camp'
-g_base_definitions[g_str_5fb1b9dfe1af060017709730_camp]={
-  id=g_str_5fb1b9dfe1af060017709730_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dfe1af060017709730_camp_fortified='5fb1b9dfe1af060017709730_camp_fortified'
-g_base_definitions[g_str_5fb1b9dfe1af060017709730_camp_fortified]={
-  id=g_str_5fb1b9dfe1af060017709730_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9dfe1af060017709730']={
   data={
     name='Hasmonean Jewish  103 to 63 BC',
     id='5fb1b9dfe1af060017709730',
-    army_id='5fb1b9dfe1af060017709730'
+    dateRange={
+      startDate=-103,
+      endDate=-63,
+    }
   },
   g_base_definitions[g_str_5fb1ba29e1af06001770cee8_general],
   g_base_definitions[g_str_5fb1ba29e1af06001770cee8],
@@ -294,4 +43,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dfe1af060017709730"] = {}
-army_dates["5fb1b9dfe1af060017709730"]["103 BC to 63 BC"] ="5fb1b9dfe1af060017709730"
+army_dates["5fb1b9dfe1af060017709730"]["103 BC to 63 BC"] = {
+  startDate=-103,
+  endDate=-63
+}
+army_dates["5fb1b9dfe1af060017709730"]["103 BC to 67 BC"] = {
+  startDate=-103,
+  endDate=-67
+}
+army_dates["5fb1b9dfe1af060017709730"]["66 BC to 64 BC"] = {
+  startDate=-66,
+  endDate=-64
+}
+army_dates["5fb1b9dfe1af060017709730"]["63 BC"] = {
+  startDate=-63,
+  endDate=-63
+}

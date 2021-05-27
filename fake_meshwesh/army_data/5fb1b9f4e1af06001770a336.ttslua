@@ -1,282 +1,13 @@
 -- 5fb1b9f4e1af06001770a336 Shilla Korean  300 to 935 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba42e1af06001770fc14']= {
-  min=1,
-  max=3,
-  description='Horse archers',
-  startDate=300,
-  endDate=405,
-}
-g_troop_entry['5fb1ba42e1af06001770fc16']= {
-  troop_option='5fb1ba42e1af06001770fc14',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba42e1af06001770fc17']= {
-  min=0,
-  max=1,
-  description='Chong heavy horsemen',
-  core='all',
-  startDate=406,
-  endDate=935,
-}
-g_troop_entry['5fb1ba42e1af06001770fc19']= {
-  troop_option='5fb1ba42e1af06001770fc17',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba42e1af06001770fc1a']= {
-  min=1,
-  max=2,
-  description='Horse archers',
-  startDate=406,
-  endDate=935,
-}
-g_troop_entry['5fb1ba42e1af06001770fc1c']= {
-  troop_option='5fb1ba42e1af06001770fc1a',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba42e1af06001770fc1d']= {
-  min=0,
-  max=1,
-  description='Koguryo exile heavy horsemen',
-  core='all',
-  startDate=671,
-  endDate=935,
-}
-g_troop_entry['5fb1ba42e1af06001770fc1f']= {
-  troop_option='5fb1ba42e1af06001770fc1d',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba42e1af06001770fc20']= {
-  min=0,
-  max=1,
-  description='Paekche and Malgal exile horse archers',
-  startDate=671,
-  endDate=935,
-}
-g_troop_entry['5fb1ba42e1af06001770fc22']= {
-  troop_option='5fb1ba42e1af06001770fc20',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba42e1af06001770fc23']= {
-  min=1,
-  max=2,
-  description='Red Banner regiment ex-Koguryo armed with long spear',
-  core='all',
-  startDate=671,
-  endDate=935,
-}
-g_troop_entry['5fb1ba42e1af06001770fc25']= {
-  troop_option='5fb1ba42e1af06001770fc23',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba42e1af06001770fc26']= {
-  min=2,
-  max=8,
-  description='Spear and militia spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba42e1af06001770fc27']= {
-  troop_option='5fb1ba42e1af06001770fc26',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba42e1af06001770fc28']= {
-  min=2,
-  max=4,
-  description='Bowmen and crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba42e1af06001770fc29']= {
-  troop_option='5fb1ba42e1af06001770fc28',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba42e1af06001770fc2a']= {
-  min=1,
-  max=4,
-  description='Militia bowmen and crossbowmen',
-}
-g_troop_entry['5fb1ba42e1af06001770fc2b']= {
-  troop_option='5fb1ba42e1af06001770fc2a',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba42e1af06001770fc2c']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen and crossbowmen',
-}
-g_troop_entry['5fb1ba42e1af06001770fc2d']= {
-  troop_option='5fb1ba42e1af06001770fc2c',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba42e1af06001770fc16_general='5fb1ba42e1af06001770fc16_general'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc16_general]={
-  id=g_str_5fb1ba42e1af06001770fc16_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba42e1af06001770fc16='5fb1ba42e1af06001770fc16'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc16]={
-  id=g_str_5fb1ba42e1af06001770fc16,
-  name='Horse Bow',
-  min=1,
-  max=3,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba42e1af06001770fc19_general='5fb1ba42e1af06001770fc19_general'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc19_general]={
-  id=g_str_5fb1ba42e1af06001770fc19_general,
-  name='Cataphracts General',
-  min=0,
-  max=1,
-  description='Chong heavy horsemen',
-  general=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba42e1af06001770fc19='5fb1ba42e1af06001770fc19'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc19]={
-  id=g_str_5fb1ba42e1af06001770fc19,
-  name='Cataphracts',
-  min=0,
-  max=1,
-  description='Chong heavy horsemen',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba42e1af06001770fc1c_general='5fb1ba42e1af06001770fc1c_general'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc1c_general]={
-  id=g_str_5fb1ba42e1af06001770fc1c_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba42e1af06001770fc1c='5fb1ba42e1af06001770fc1c'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc1c]={
-  id=g_str_5fb1ba42e1af06001770fc1c,
-  name='Horse Bow',
-  min=1,
-  max=2,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba42e1af06001770fc1f_general='5fb1ba42e1af06001770fc1f_general'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc1f_general]={
-  id=g_str_5fb1ba42e1af06001770fc1f_general,
-  name='Cataphracts General',
-  min=0,
-  max=1,
-  description='Koguryo exile heavy horsemen',
-  general=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba42e1af06001770fc1f='5fb1ba42e1af06001770fc1f'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc1f]={
-  id=g_str_5fb1ba42e1af06001770fc1f,
-  name='Cataphracts',
-  min=0,
-  max=1,
-  description='Koguryo exile heavy horsemen',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba42e1af06001770fc22_general='5fb1ba42e1af06001770fc22_general'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc22_general]={
-  id=g_str_5fb1ba42e1af06001770fc22_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Paekche and Malgal exile horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba42e1af06001770fc22='5fb1ba42e1af06001770fc22'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc22]={
-  id=g_str_5fb1ba42e1af06001770fc22,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Paekche and Malgal exile horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba42e1af06001770fc25='5fb1ba42e1af06001770fc25'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc25]={
-  id=g_str_5fb1ba42e1af06001770fc25,
-  name='Pikes',
-  min=1,
-  max=2,
-  description='Red Banner regiment ex-Koguryo armed with long spear',
-  troop_type="Pikes",
-}
-g_str_5fb1ba42e1af06001770fc27='5fb1ba42e1af06001770fc27'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc27]={
-  id=g_str_5fb1ba42e1af06001770fc27,
-  name='Light Spear',
-  min=2,
-  max=8,
-  description='Spear and militia spearmen',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba42e1af06001770fc29='5fb1ba42e1af06001770fc29'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc29]={
-  id=g_str_5fb1ba42e1af06001770fc29,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Bowmen and crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba42e1af06001770fc2b='5fb1ba42e1af06001770fc2b'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc2b]={
-  id=g_str_5fb1ba42e1af06001770fc2b,
-  name='Bow Levy',
-  min=1,
-  max=4,
-  description='Militia bowmen and crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba42e1af06001770fc2d='5fb1ba42e1af06001770fc2d'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc2d]={
-  id=g_str_5fb1ba42e1af06001770fc2d,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing bowmen and crossbowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f4e1af06001770a336_camp='5fb1b9f4e1af06001770a336_camp'
-g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp]={
-  id=g_str_5fb1b9f4e1af06001770a336_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f4e1af06001770a336_camp_fortified='5fb1b9f4e1af06001770a336_camp_fortified'
-g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp_fortified]={
-  id=g_str_5fb1b9f4e1af06001770a336_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9f4e1af06001770a336']={
   data={
     name='Shilla Korean  300 to 935 AD',
     id='5fb1b9f4e1af06001770a336',
-    army_id='5fb1b9f4e1af06001770a336'
+    dateRange={
+      startDate=300,
+      endDate=935,
+    }
   },
   g_base_definitions[g_str_5fb1ba42e1af06001770fc16_general],
   g_base_definitions[g_str_5fb1ba42e1af06001770fc16],
@@ -300,78 +31,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f4e1af06001770a336"] = army["5fb1b9f4e1af06001770a336"]
-army['5fb1b9f4e1af06001770a336_300_405']={
-  data={
-    name='Shilla Korean 300 AD to 405 AD',
-    id='5fb1b9f4e1af06001770a336_300_405',
-    army_id='5fb1b9f4e1af06001770a336'
-  },
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc16_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc16],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1f_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1f],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc22_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc22],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc25],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc27],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc29],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2b],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2d],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp_fortified],
-}
-army['5fb1b9f4e1af06001770a336_406_670']={
-  data={
-    name='Shilla Korean 406 AD to 670 AD',
-    id='5fb1b9f4e1af06001770a336_406_670',
-    army_id='5fb1b9f4e1af06001770a336'
-  },
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc16_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc16],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1f_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1f],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc22_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc22],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc25],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc27],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc29],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2b],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2d],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp_fortified],
-}
-army['5fb1b9f4e1af06001770a336_671_935']={
-  data={
-    name='Shilla Korean 671 AD to 935 AD',
-    id='5fb1b9f4e1af06001770a336_671_935',
-    army_id='5fb1b9f4e1af06001770a336'
-  },
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc16_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc16],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc19],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1c],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1f_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc1f],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc22_general],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc22],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc25],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc27],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc29],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2b],
-  g_base_definitions[g_str_5fb1ba42e1af06001770fc2d],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp],
-  g_base_definitions[g_str_5fb1b9f4e1af06001770a336_camp_fortified],
-}
 if nil == armies["Korea and Japan"] then
   armies["Korea and Japan"] ={}
 end
@@ -392,7 +51,47 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f4e1af06001770a336"] = {}
-army_dates["5fb1b9f4e1af06001770a336"]["300 AD to 935 AD"] ="5fb1b9f4e1af06001770a336"
-army_dates["5fb1b9f4e1af06001770a336"]["300 AD to 405 AD"] ="5fb1b9f4e1af06001770a336_300_405"
-army_dates["5fb1b9f4e1af06001770a336"]["406 AD to 670 AD"] ="5fb1b9f4e1af06001770a336_406_670"
-army_dates["5fb1b9f4e1af06001770a336"]["671 AD to 935 AD"] ="5fb1b9f4e1af06001770a336_671_935"
+army_dates["5fb1b9f4e1af06001770a336"]["300 AD to 935 AD"] = {
+  startDate=300,
+  endDate=935
+}
+army_dates["5fb1b9f4e1af06001770a336"]["300 AD to 374 AD"] = {
+  startDate=300,
+  endDate=374
+}
+army_dates["5fb1b9f4e1af06001770a336"]["375 AD to 405 AD"] = {
+  startDate=375,
+  endDate=405
+}
+army_dates["5fb1b9f4e1af06001770a336"]["406 AD to 561 AD"] = {
+  startDate=406,
+  endDate=561
+}
+army_dates["5fb1b9f4e1af06001770a336"]["562 AD to 617 AD"] = {
+  startDate=562,
+  endDate=617
+}
+army_dates["5fb1b9f4e1af06001770a336"]["618 AD to 659 AD"] = {
+  startDate=618,
+  endDate=659
+}
+army_dates["5fb1b9f4e1af06001770a336"]["660 AD to 663 AD"] = {
+  startDate=660,
+  endDate=663
+}
+army_dates["5fb1b9f4e1af06001770a336"]["664 AD to 668 AD"] = {
+  startDate=664,
+  endDate=668
+}
+army_dates["5fb1b9f4e1af06001770a336"]["669 AD to 670 AD"] = {
+  startDate=669,
+  endDate=670
+}
+army_dates["5fb1b9f4e1af06001770a336"]["671 AD to 755 AD"] = {
+  startDate=671,
+  endDate=755
+}
+army_dates["5fb1b9f4e1af06001770a336"]["756 AD to 935 AD"] = {
+  startDate=756,
+  endDate=935
+}

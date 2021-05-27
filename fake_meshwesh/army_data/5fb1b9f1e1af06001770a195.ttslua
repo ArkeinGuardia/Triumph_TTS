@@ -1,236 +1,13 @@
 -- 5fb1b9f1e1af06001770a195 Warring States Chinese  355 to 307 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3fe1af06001770f5e5']= {
-  min=1,
-  max=2,
-  description='4-horse chariots',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5e6']= {
-  troop_option='5fb1ba3fe1af06001770f5e5',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba3fe1af06001770f5e7']= {
-  min=1,
-  max=1,
-  description='Armored men armed with iron clubs',
-  note='only Zhongshan',
-  core='all',
-  startDate=-355,
-  endDate=-296,
-}
-g_troop_entry['5fb1ba3fe1af06001770f5e9']= {
-  troop_option='5fb1ba3fe1af06001770f5e7',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba3fe1af06001770f5ea']= {
-  min=1,
-  max=4,
-  description='Elite crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5eb']= {
-  troop_option='5fb1ba3fe1af06001770f5ea',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3fe1af06001770f5ec']= {
-  min=1,
-  max=4,
-  description='Elite dagger-axe or halberdmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5ed']= {
-  troop_option='5fb1ba3fe1af06001770f5ec',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f5ef']= {
-  min=2,
-  max=4,
-  description='Conscript crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5f0']= {
-  troop_option='5fb1ba3fe1af06001770f5ef',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3fe1af06001770f5f1']= {
-  min=2,
-  max=4,
-  description='Conscript dagger-axe or halberdmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5f2']= {
-  troop_option='5fb1ba3fe1af06001770f5f1',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f5f3']= {
-  min=0,
-  max=6,
-  description='Mixed formations of crossbowmen behind lines of dagger-axe men',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5f4']= {
-  troop_option='5fb1ba3fe1af06001770f5f3',
-  troopTypeCode='PAV',
-}
-g_troop_option['5fb1ba3fe1af06001770f5f6']= {
-  min=0,
-  max=4,
-  description='Dagger-axe men rearmed with spear and shield',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5f7']= {
-  troop_option='5fb1ba3fe1af06001770f5f6',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f5f8']= {
-  min=0,
-  max=1,
-  description='Skirmishing bowmen or crossbowmen',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5f9']= {
-  troop_option='5fb1ba3fe1af06001770f5f8',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3fe1af06001770f5fa']= {
-  min=0,
-  max=2,
-  description='Southern fierce tribesmen',
-  note='only Chu or Yue',
-}
-g_troop_entry['5fb1ba3fe1af06001770f5fb']= {
-  troop_option='5fb1ba3fe1af06001770f5fa',
-  troopTypeCode='WBD',
-}
-g_str_5fb1ba3fe1af06001770f5e6_general='5fb1ba3fe1af06001770f5e6_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6_general]={
-  id=g_str_5fb1ba3fe1af06001770f5e6_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='4-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba3fe1af06001770f5e6='5fb1ba3fe1af06001770f5e6'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6]={
-  id=g_str_5fb1ba3fe1af06001770f5e6,
-  name='Chariots',
-  min=1,
-  max=2,
-  description='4-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba3fe1af06001770f5e9='5fb1ba3fe1af06001770f5e9'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5e9]={
-  id=g_str_5fb1ba3fe1af06001770f5e9,
-  name='Raiders',
-  min=1,
-  max=1,
-  description='Armored men armed with iron clubs',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3fe1af06001770f5eb='5fb1ba3fe1af06001770f5eb'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5eb]={
-  id=g_str_5fb1ba3fe1af06001770f5eb,
-  name='Archers',
-  min=1,
-  max=4,
-  description='Elite crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3fe1af06001770f5ed='5fb1ba3fe1af06001770f5ed'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5ed]={
-  id=g_str_5fb1ba3fe1af06001770f5ed,
-  name='Elite Foot',
-  min=1,
-  max=4,
-  description='Elite dagger-axe or halberdmen',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba3fe1af06001770f5f0='5fb1ba3fe1af06001770f5f0'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5f0]={
-  id=g_str_5fb1ba3fe1af06001770f5f0,
-  name='Bow Levy',
-  min=2,
-  max=4,
-  description='Conscript crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3fe1af06001770f5f2='5fb1ba3fe1af06001770f5f2'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5f2]={
-  id=g_str_5fb1ba3fe1af06001770f5f2,
-  name='Heavy Foot',
-  min=2,
-  max=4,
-  description='Conscript dagger-axe or halberdmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba3fe1af06001770f5f4='5fb1ba3fe1af06001770f5f4'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5f4]={
-  id=g_str_5fb1ba3fe1af06001770f5f4,
-  name='Pavisiers',
-  min=0,
-  max=6,
-  description='Mixed formations of crossbowmen behind lines of dagger-axe men',
-  troop_type="Pavisiers",
-}
-g_str_5fb1ba3fe1af06001770f5f7='5fb1ba3fe1af06001770f5f7'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5f7]={
-  id=g_str_5fb1ba3fe1af06001770f5f7,
-  name='Light Foot',
-  min=0,
-  max=4,
-  description='Dagger-axe men rearmed with spear and shield',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3fe1af06001770f5f9='5fb1ba3fe1af06001770f5f9'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5f9]={
-  id=g_str_5fb1ba3fe1af06001770f5f9,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Skirmishing bowmen or crossbowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3fe1af06001770f5fb='5fb1ba3fe1af06001770f5fb'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f5fb]={
-  id=g_str_5fb1ba3fe1af06001770f5fb,
-  name='Warband',
-  min=0,
-  max=2,
-  description='Southern fierce tribesmen',
-  troop_type="Warband",
-}
-g_str_5fb1b9f1e1af06001770a195_camp='5fb1b9f1e1af06001770a195_camp'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a195_camp]={
-  id=g_str_5fb1b9f1e1af06001770a195_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f1e1af06001770a195_camp_fortified='5fb1b9f1e1af06001770a195_camp_fortified'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a195_camp_fortified]={
-  id=g_str_5fb1b9f1e1af06001770a195_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9f1e1af06001770a195']={
   data={
     name='Warring States Chinese  355 to 307 BC',
     id='5fb1b9f1e1af06001770a195',
-    army_id='5fb1b9f1e1af06001770a195'
+    dateRange={
+      startDate=-355,
+      endDate=-307,
+    }
   },
   g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6_general],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6],
@@ -250,26 +27,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f1e1af06001770a195"] = army["5fb1b9f1e1af06001770a195"]
-army['5fb1b9f1e1af06001770a195_-355_-296']={
-  data={
-    name='Warring States Chinese 355 BC to 296 BC',
-    id='5fb1b9f1e1af06001770a195_-355_-296',
-    army_id='5fb1b9f1e1af06001770a195'
-  },
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5e6],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5e9],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5eb],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5ed],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5f0],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5f2],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5f4],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5f7],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5f9],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f5fb],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a195_camp],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a195_camp_fortified],
-}
 if nil == armies["Mandate of Heaven"] then
   armies["Mandate of Heaven"] ={}
 end
@@ -290,5 +47,11 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f1e1af06001770a195"] = {}
-army_dates["5fb1b9f1e1af06001770a195"]["355 BC to 307 BC"] ="5fb1b9f1e1af06001770a195"
-army_dates["5fb1b9f1e1af06001770a195"]["355 BC to 296 BC"] ="5fb1b9f1e1af06001770a195_-355_-296"
+army_dates["5fb1b9f1e1af06001770a195"]["355 BC to 307 BC"] = {
+  startDate=-355,
+  endDate=-307
+}
+army_dates["5fb1b9f1e1af06001770a195"]["355 BC to 296 BC"] = {
+  startDate=-355,
+  endDate=-296
+}

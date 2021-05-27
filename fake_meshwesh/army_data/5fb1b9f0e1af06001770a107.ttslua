@@ -1,136 +1,13 @@
 -- 5fb1b9f0e1af06001770a107 Javanese  1222 to 1511 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3de1af06001770f45c']= {
-  min=0,
-  max=1,
-  description='War elephants',
-  core='all',
-}
-g_troop_entry['5fb1ba3de1af06001770f45d']= {
-  troop_option='5fb1ba3de1af06001770f45c',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba3de1af06001770f45e']= {
-  min=0,
-  max=1,
-  description='Noble horsemen',
-}
-g_troop_entry['5fb1ba3de1af06001770f45f']= {
-  troop_option='5fb1ba3de1af06001770f45e',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3de1af06001770f460']= {
-  min=8,
-  max=14,
-  description='Fierce fighters',
-}
-g_troop_entry['5fb1ba3de1af06001770f461']= {
-  troop_option='5fb1ba3de1af06001770f460',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba3de1af06001770f462']= {
-  min=2,
-  max=6,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f463']= {
-  troop_option='5fb1ba3de1af06001770f462',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3de1af06001770f464']= {
-  min=0,
-  max=3,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f465']= {
-  troop_option='5fb1ba3de1af06001770f464',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba3de1af06001770f45d_general='5fb1ba3de1af06001770f45d_general'
-g_base_definitions[g_str_5fb1ba3de1af06001770f45d_general]={
-  id=g_str_5fb1ba3de1af06001770f45d_general,
-  name='Elephants General',
-  min=0,
-  max=1,
-  description='War elephants',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba3de1af06001770f45d='5fb1ba3de1af06001770f45d'
-g_base_definitions[g_str_5fb1ba3de1af06001770f45d]={
-  id=g_str_5fb1ba3de1af06001770f45d,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba3de1af06001770f45f='5fb1ba3de1af06001770f45f'
-g_base_definitions[g_str_5fb1ba3de1af06001770f45f]={
-  id=g_str_5fb1ba3de1af06001770f45f,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3de1af06001770f461_general='5fb1ba3de1af06001770f461_general'
-g_base_definitions[g_str_5fb1ba3de1af06001770f461_general]={
-  id=g_str_5fb1ba3de1af06001770f461_general,
-  name='Warriors General',
-  min=8,
-  max=1,
-  description='Fierce fighters',
-  general=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba3de1af06001770f461='5fb1ba3de1af06001770f461'
-g_base_definitions[g_str_5fb1ba3de1af06001770f461]={
-  id=g_str_5fb1ba3de1af06001770f461,
-  name='Warriors',
-  min=8,
-  max=14,
-  description='Fierce fighters',
-  troop_type="Warriors",
-}
-g_str_5fb1ba3de1af06001770f463='5fb1ba3de1af06001770f463'
-g_base_definitions[g_str_5fb1ba3de1af06001770f463]={
-  id=g_str_5fb1ba3de1af06001770f463,
-  name='Bow Levy',
-  min=2,
-  max=6,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3de1af06001770f465='5fb1ba3de1af06001770f465'
-g_base_definitions[g_str_5fb1ba3de1af06001770f465]={
-  id=g_str_5fb1ba3de1af06001770f465,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9f0e1af06001770a107_camp='5fb1b9f0e1af06001770a107_camp'
-g_base_definitions[g_str_5fb1b9f0e1af06001770a107_camp]={
-  id=g_str_5fb1b9f0e1af06001770a107_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f0e1af06001770a107']={
   data={
     name='Javanese  1222 to 1511 AD',
     id='5fb1b9f0e1af06001770a107',
-    army_id='5fb1b9f0e1af06001770a107'
+    dateRange={
+      startDate=1222,
+      endDate=1511,
+    }
   },
   g_base_definitions[g_str_5fb1ba3de1af06001770f45d_general],
   g_base_definitions[g_str_5fb1ba3de1af06001770f45d],
@@ -161,4 +38,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f0e1af06001770a107"] = {}
-army_dates["5fb1b9f0e1af06001770a107"]["1222 AD to 1511 AD"] ="5fb1b9f0e1af06001770a107"
+army_dates["5fb1b9f0e1af06001770a107"]["1222 AD to 1511 AD"] = {
+  startDate=1222,
+  endDate=1511
+}
+army_dates["5fb1b9f0e1af06001770a107"]["1222 AD to 1269 AD"] = {
+  startDate=1222,
+  endDate=1269
+}
+army_dates["5fb1b9f0e1af06001770a107"]["1270 AD to 1390 AD"] = {
+  startDate=1270,
+  endDate=1390
+}
+army_dates["5fb1b9f0e1af06001770a107"]["1391 AD to 1435 AD"] = {
+  startDate=1391,
+  endDate=1435
+}
+army_dates["5fb1b9f0e1af06001770a107"]["1436 AD to 1511 AD"] = {
+  startDate=1436,
+  endDate=1511
+}

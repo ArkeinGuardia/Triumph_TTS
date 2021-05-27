@@ -1,174 +1,13 @@
 -- 5fb1b9dce1af060017709557 Massilian  400 to 49 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba26e1af06001770c778']= {
-  min=1,
-  max=2,
-  description='Native horse',
-}
-g_troop_entry['5fb1ba26e1af06001770c779']= {
-  troop_option='5fb1ba26e1af06001770c778',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba26e1af06001770c77a']= {
-  min=1,
-  max=2,
-  description='Gallic mercenary horsemen',
-}
-g_troop_entry['5fb1ba26e1af06001770c77b']= {
-  troop_option='5fb1ba26e1af06001770c77a',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba26e1af06001770c77c']= {
-  min=4,
-  max=8,
-  description='Hoplites',
-  core='all',
-}
-g_troop_entry['5fb1ba26e1af06001770c77d']= {
-  troop_option='5fb1ba26e1af06001770c77c',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba26e1af06001770c77f']= {
-  min=0,
-  max=3,
-  description='Ligurian or Iberian mercenary light infantry',
-}
-g_troop_entry['5fb1ba26e1af06001770c780']= {
-  troop_option='5fb1ba26e1af06001770c77f',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba26e1af06001770c781']= {
-  min=0,
-  max=2,
-  description='Mercenary Celtiberian scutarii',
-  core='all',
-}
-g_troop_entry['5fb1ba26e1af06001770c782']= {
-  troop_option='5fb1ba26e1af06001770c781',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba26e1af06001770c783']= {
-  min=0,
-  max=4,
-  description='Gallic mercenary tribesmen',
-  core='all',
-}
-g_troop_entry['5fb1ba26e1af06001770c784']= {
-  troop_option='5fb1ba26e1af06001770c783',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba26e1af06001770c785']= {
-  min=0,
-  max=2,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba26e1af06001770c786']= {
-  troop_option='5fb1ba26e1af06001770c785',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba26e1af06001770c779_general='5fb1ba26e1af06001770c779_general'
-g_base_definitions[g_str_5fb1ba26e1af06001770c779_general]={
-  id=g_str_5fb1ba26e1af06001770c779_general,
-  name='Bad Horse General',
-  min=1,
-  max=1,
-  description='Native horse',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba26e1af06001770c779='5fb1ba26e1af06001770c779'
-g_base_definitions[g_str_5fb1ba26e1af06001770c779]={
-  id=g_str_5fb1ba26e1af06001770c779,
-  name='Bad Horse',
-  min=1,
-  max=2,
-  description='Native horse',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba26e1af06001770c77b='5fb1ba26e1af06001770c77b'
-g_base_definitions[g_str_5fb1ba26e1af06001770c77b]={
-  id=g_str_5fb1ba26e1af06001770c77b,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Gallic mercenary horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba26e1af06001770c77d_general='5fb1ba26e1af06001770c77d_general'
-g_base_definitions[g_str_5fb1ba26e1af06001770c77d_general]={
-  id=g_str_5fb1ba26e1af06001770c77d_general,
-  name='Heavy Foot General',
-  min=4,
-  max=1,
-  description='Hoplites',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba26e1af06001770c77d='5fb1ba26e1af06001770c77d'
-g_base_definitions[g_str_5fb1ba26e1af06001770c77d]={
-  id=g_str_5fb1ba26e1af06001770c77d,
-  name='Heavy Foot',
-  min=4,
-  max=8,
-  description='Hoplites',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba26e1af06001770c780='5fb1ba26e1af06001770c780'
-g_base_definitions[g_str_5fb1ba26e1af06001770c780]={
-  id=g_str_5fb1ba26e1af06001770c780,
-  name='Light Foot',
-  min=0,
-  max=3,
-  description='Ligurian or Iberian mercenary light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba26e1af06001770c782='5fb1ba26e1af06001770c782'
-g_base_definitions[g_str_5fb1ba26e1af06001770c782]={
-  id=g_str_5fb1ba26e1af06001770c782,
-  name='Raiders',
-  min=0,
-  max=2,
-  description='Mercenary Celtiberian scutarii',
-  troop_type="Raiders",
-}
-g_str_5fb1ba26e1af06001770c784='5fb1ba26e1af06001770c784'
-g_base_definitions[g_str_5fb1ba26e1af06001770c784]={
-  id=g_str_5fb1ba26e1af06001770c784,
-  name='Warriors',
-  min=0,
-  max=4,
-  description='Gallic mercenary tribesmen',
-  troop_type="Warriors",
-}
-g_str_5fb1ba26e1af06001770c786='5fb1ba26e1af06001770c786'
-g_base_definitions[g_str_5fb1ba26e1af06001770c786]={
-  id=g_str_5fb1ba26e1af06001770c786,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9dce1af060017709557_camp='5fb1b9dce1af060017709557_camp'
-g_base_definitions[g_str_5fb1b9dce1af060017709557_camp]={
-  id=g_str_5fb1b9dce1af060017709557_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9dce1af060017709557']={
   data={
     name='Massilian  400 to 49 BC',
     id='5fb1b9dce1af060017709557',
-    army_id='5fb1b9dce1af060017709557'
+    dateRange={
+      startDate=-400,
+      endDate=-49,
+    }
   },
   g_base_definitions[g_str_5fb1ba26e1af06001770c779_general],
   g_base_definitions[g_str_5fb1ba26e1af06001770c779],
@@ -201,4 +40,51 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dce1af060017709557"] = {}
-army_dates["5fb1b9dce1af060017709557"]["400 BC to 49 BC"] ="5fb1b9dce1af060017709557"
+army_dates["5fb1b9dce1af060017709557"]["400 BC to 49 BC"] = {
+  startDate=-400,
+  endDate=-49
+}
+army_dates["5fb1b9dce1af060017709557"]["400 BC to 301 BC"] = {
+  startDate=-400,
+  endDate=-301
+}
+army_dates["5fb1b9dce1af060017709557"]["300 BC to 276 BC"] = {
+  startDate=-300,
+  endDate=-276
+}
+army_dates["5fb1b9dce1af060017709557"]["275 BC to 226 BC"] = {
+  startDate=-275,
+  endDate=-226
+}
+army_dates["5fb1b9dce1af060017709557"]["225 BC to 219 BC"] = {
+  startDate=-225,
+  endDate=-219
+}
+army_dates["5fb1b9dce1af060017709557"]["218 BC to 211 BC"] = {
+  startDate=-218,
+  endDate=-211
+}
+army_dates["5fb1b9dce1af060017709557"]["210 BC to 124 BC"] = {
+  startDate=-210,
+  endDate=-124
+}
+army_dates["5fb1b9dce1af060017709557"]["123 BC to 106 BC"] = {
+  startDate=-123,
+  endDate=-106
+}
+army_dates["5fb1b9dce1af060017709557"]["105 BC"] = {
+  startDate=-105,
+  endDate=-105
+}
+army_dates["5fb1b9dce1af060017709557"]["104 BC to 100 BC"] = {
+  startDate=-104,
+  endDate=-100
+}
+army_dates["5fb1b9dce1af060017709557"]["99 BC to 50 BC"] = {
+  startDate=-99,
+  endDate=-50
+}
+army_dates["5fb1b9dce1af060017709557"]["49 BC"] = {
+  startDate=-49,
+  endDate=-49
+}

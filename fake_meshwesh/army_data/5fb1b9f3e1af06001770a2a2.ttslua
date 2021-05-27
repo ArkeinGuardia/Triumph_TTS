@@ -1,322 +1,13 @@
 -- 5fb1b9f3e1af06001770a2a2 Xixia  982 to 1227 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba40e1af06001770f9aa']= {
-  min=0,
-  max=2,
-  description='Tangut Iron Sparrowhawk  horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f9ab']= {
-  troop_option='5fb1ba40e1af06001770f9aa',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba40e1af06001770f9ad']= {
-  min=2,
-  max=6,
-  description='Tangut nomad horsemen',
-}
-g_troop_entry['5fb1ba40e1af06001770f9ae']= {
-  troop_option='5fb1ba40e1af06001770f9ad',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba40e1af06001770f9b0']= {
-  min=2,
-  max=4,
-  description='Tangut settled horse archers and nomad scouts',
-}
-g_troop_entry['5fb1ba40e1af06001770f9b1']= {
-  troop_option='5fb1ba40e1af06001770f9b0',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba40e1af06001770f9b2']= {
-  min=1,
-  max=3,
-  description='Tangut foot treaders',
-}
-g_troop_entry['5fb1ba40e1af06001770f9b3']= {
-  troop_option='5fb1ba40e1af06001770f9b2',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba40e1af06001770f9b4']= {
-  min=0,
-  max=1,
-  description='Tangut skirmishing bowmen',
-}
-g_troop_entry['5fb1ba40e1af06001770f9b5']= {
-  troop_option='5fb1ba40e1af06001770f9b4',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba40e1af06001770f9b6']= {
-  min=1,
-  max=3,
-  description='Chinese swordsmen or polearms',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f9b7']= {
-  troop_option='5fb1ba40e1af06001770f9b6',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba40e1af06001770f9b8']= {
-  min=1,
-  max=3,
-  description='Chinese bowmen and crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f9b9']= {
-  troop_option='5fb1ba40e1af06001770f9b8',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba40e1af06001770f9ba']= {
-  min=0,
-  max=2,
-  description='Levy infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f9bb']= {
-  troop_option='5fb1ba40e1af06001770f9ba',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba40e1af06001770f9bc']= {
-  min=0,
-  max=1,
-  description='Infantry with hand-hurled bombs or fire lances',
-}
-g_troop_entry['5fb1ba40e1af06001770f9bd']= {
-  troop_option='5fb1ba40e1af06001770f9bc',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba40e1af06001770f9be']= {
-  min=0,
-  max=1,
-  description='Stone-throwers',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f9bf']= {
-  troop_option='5fb1ba40e1af06001770f9be',
-  troopTypeCode='ART',
-}
-g_troop_option['5fb1ba40e1af06001770f9c0']= {
-  min=0,
-  max=1,
-  description='Shenbi nu stirrup crossbowmen',
-  core='all',
-  startDate=1068,
-  endDate=1227,
-}
-g_troop_entry['5fb1ba40e1af06001770f9c2']= {
-  troop_option='5fb1ba40e1af06001770f9c0',
-  troopTypeCode='ARC',
-}
-g_str_5fb1ba40e1af06001770f9ab='5fb1ba40e1af06001770f9ab'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ab]={
-  id=g_str_5fb1ba40e1af06001770f9ab,
-  name='Cataphracts',
-  min=0,
-  max=2,
-  description='Tangut Iron Sparrowhawk  horsemen',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba40e1af06001770f9ab_dismounted='5fb1ba40e1af06001770f9ab_dismounted'
-g_str_5fb1ba40e1af06001770f9ab_mounted='5fb1ba40e1af06001770f9ab_mounted'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ab_dismounted]={
-  id=g_str_5fb1ba40e1af06001770f9ab_dismounted,
-  name='Elite Foot',
-  min=0,
-  max=2,
-  description='Tangut Iron Sparrowhawk  horsemen\nDeployment dismounted from Cataphracts',
-  points=4,
-  dismounted_from=g_str_5fb1ba40e1af06001770f9ab_mounted,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ab_mounted]={
-  id=g_str_5fb1ba40e1af06001770f9ab_mounted,
-  name='Cataphracts',
-  min=0,
-  max=2,
-  description='Tangut Iron Sparrowhawk  horsemen\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba40e1af06001770f9ab_dismounted,
-  deployment_dismounting=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba40e1af06001770f9ae_general='5fb1ba40e1af06001770f9ae_general'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general]={
-  id=g_str_5fb1ba40e1af06001770f9ae_general,
-  name='Elite Cavalary General',
-  min=2,
-  max=1,
-  description='Tangut nomad horsemen',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f9ae_general_dismounted='5fb1ba40e1af06001770f9ae_general_dismounted'
-g_str_5fb1ba40e1af06001770f9ae_general_mounted='5fb1ba40e1af06001770f9ae_general_mounted'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general_dismounted]={
-  id=g_str_5fb1ba40e1af06001770f9ae_general_dismounted,
-  name='Archers General',
-  min=2,
-  max=1,
-  description='Tangut nomad horsemen\nDeployment dismounted from Elite Cavalary General',
-  points=4,
-  dismounted_from=g_str_5fb1ba40e1af06001770f9ae_general_mounted,
-  general=true,
-  troop_type="Archers",
-}
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general_mounted]={
-  id=g_str_5fb1ba40e1af06001770f9ae_general_mounted,
-  name='Elite Cavalary General',
-  min=2,
-  max=1,
-  description='Tangut nomad horsemen\nDeployment dismounting as Archer',
-  points=4,
-  dismount_as=g_str_5fb1ba40e1af06001770f9ae_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f9ae='5fb1ba40e1af06001770f9ae'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ae]={
-  id=g_str_5fb1ba40e1af06001770f9ae,
-  name='Elite Cavalary',
-  min=2,
-  max=6,
-  description='Tangut nomad horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f9ae_dismounted='5fb1ba40e1af06001770f9ae_dismounted'
-g_str_5fb1ba40e1af06001770f9ae_mounted='5fb1ba40e1af06001770f9ae_mounted'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_dismounted]={
-  id=g_str_5fb1ba40e1af06001770f9ae_dismounted,
-  name='Archers',
-  min=2,
-  max=6,
-  description='Tangut nomad horsemen\nDeployment dismounted from Elite Cavalary',
-  points=4,
-  dismounted_from=g_str_5fb1ba40e1af06001770f9ae_mounted,
-  troop_type="Archers",
-}
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_mounted]={
-  id=g_str_5fb1ba40e1af06001770f9ae_mounted,
-  name='Elite Cavalary',
-  min=2,
-  max=6,
-  description='Tangut nomad horsemen\nDeployment dismounting as Archer',
-  points=4,
-  dismount_as=g_str_5fb1ba40e1af06001770f9ae_dismounted,
-  deployment_dismounting=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f9b1='5fb1ba40e1af06001770f9b1'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9b1]={
-  id=g_str_5fb1ba40e1af06001770f9b1,
-  name='Horse Bow',
-  min=2,
-  max=4,
-  description='Tangut settled horse archers and nomad scouts',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba40e1af06001770f9b3='5fb1ba40e1af06001770f9b3'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9b3]={
-  id=g_str_5fb1ba40e1af06001770f9b3,
-  name='Light Foot',
-  min=1,
-  max=3,
-  description='Tangut foot treaders',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba40e1af06001770f9b5='5fb1ba40e1af06001770f9b5'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9b5]={
-  id=g_str_5fb1ba40e1af06001770f9b5,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Tangut skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba40e1af06001770f9b7='5fb1ba40e1af06001770f9b7'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9b7]={
-  id=g_str_5fb1ba40e1af06001770f9b7,
-  name='Heavy Foot',
-  min=1,
-  max=3,
-  description='Chinese swordsmen or polearms',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba40e1af06001770f9b9='5fb1ba40e1af06001770f9b9'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9b9]={
-  id=g_str_5fb1ba40e1af06001770f9b9,
-  name='Bow Levy',
-  min=1,
-  max=3,
-  description='Chinese bowmen and crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba40e1af06001770f9bb='5fb1ba40e1af06001770f9bb'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9bb]={
-  id=g_str_5fb1ba40e1af06001770f9bb,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levy infantry',
-  troop_type="Horde",
-}
-g_str_5fb1ba40e1af06001770f9bd='5fb1ba40e1af06001770f9bd'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9bd]={
-  id=g_str_5fb1ba40e1af06001770f9bd,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Infantry with hand-hurled bombs or fire lances',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba40e1af06001770f9bf='5fb1ba40e1af06001770f9bf'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9bf]={
-  id=g_str_5fb1ba40e1af06001770f9bf,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Stone-throwers',
-  troop_type="Artillery",
-}
-g_str_5fb1ba40e1af06001770f9c2='5fb1ba40e1af06001770f9c2'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9c2]={
-  id=g_str_5fb1ba40e1af06001770f9c2,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Shenbi nu stirrup crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1b9f3e1af06001770a2a2_camp='5fb1b9f3e1af06001770a2a2_camp'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a2a2_camp]={
-  id=g_str_5fb1b9f3e1af06001770a2a2_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f3e1af06001770a2a2_camp_fortified='5fb1b9f3e1af06001770a2a2_camp_fortified'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a2a2_camp_fortified]={
-  id=g_str_5fb1b9f3e1af06001770a2a2_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9f3e1af06001770a2a2']={
   data={
     name='Xixia  982 to 1227 AD',
     id='5fb1b9f3e1af06001770a2a2',
-    army_id='5fb1b9f3e1af06001770a2a2'
+    dateRange={
+      startDate=982,
+      endDate=1227,
+    }
   },
   g_base_definitions[g_str_5fb1ba40e1af06001770f9ab],
   g_base_definitions[g_str_5fb1ba40e1af06001770f9ab_mounted],
@@ -343,60 +34,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f3e1af06001770a2a2"] = army["5fb1b9f3e1af06001770a2a2"]
-army['5fb1b9f3e1af06001770a2a2_982_1067']={
-  data={
-    name='Xixia 982 AD to 1067 AD',
-    id='5fb1b9f3e1af06001770a2a2_982_1067',
-    army_id='5fb1b9f3e1af06001770a2a2'
-  },
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ab],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ab_mounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ab_dismounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general_mounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general_dismounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_mounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_dismounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b1],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b3],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b5],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b7],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b9],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9bb],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9bd],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9bf],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9c2],
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2a2_camp],
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2a2_camp_fortified],
-}
-army['5fb1b9f3e1af06001770a2a2_1068_1227']={
-  data={
-    name='Xixia 1068 AD to 1227 AD',
-    id='5fb1b9f3e1af06001770a2a2_1068_1227',
-    army_id='5fb1b9f3e1af06001770a2a2'
-  },
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ab],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ab_mounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ab_dismounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general_mounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_general_dismounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_mounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9ae_dismounted],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b1],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b3],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b5],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b7],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9b9],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9bb],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9bd],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9bf],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f9c2],
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2a2_camp],
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2a2_camp_fortified],
-}
 if nil == armies["Middle Kingdom"] then
   armies["Middle Kingdom"] ={}
 end
@@ -413,6 +50,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f3e1af06001770a2a2"] = {}
-army_dates["5fb1b9f3e1af06001770a2a2"]["982 AD to 1227 AD"] ="5fb1b9f3e1af06001770a2a2"
-army_dates["5fb1b9f3e1af06001770a2a2"]["982 AD to 1067 AD"] ="5fb1b9f3e1af06001770a2a2_982_1067"
-army_dates["5fb1b9f3e1af06001770a2a2"]["1068 AD to 1227 AD"] ="5fb1b9f3e1af06001770a2a2_1068_1227"
+army_dates["5fb1b9f3e1af06001770a2a2"]["982 AD to 1227 AD"] = {
+  startDate=982,
+  endDate=1227
+}
+army_dates["5fb1b9f3e1af06001770a2a2"]["982 AD to 1064 AD"] = {
+  startDate=982,
+  endDate=1064
+}
+army_dates["5fb1b9f3e1af06001770a2a2"]["1065 AD"] = {
+  startDate=1065,
+  endDate=1065
+}
+army_dates["5fb1b9f3e1af06001770a2a2"]["1066 AD to 1067 AD"] = {
+  startDate=1066,
+  endDate=1067
+}
+army_dates["5fb1b9f3e1af06001770a2a2"]["1068 AD to 1199 AD"] = {
+  startDate=1068,
+  endDate=1199
+}
+army_dates["5fb1b9f3e1af06001770a2a2"]["1200 AD to 1220 AD"] = {
+  startDate=1200,
+  endDate=1220
+}
+army_dates["5fb1b9f3e1af06001770a2a2"]["1221 AD to 1226 AD"] = {
+  startDate=1221,
+  endDate=1226
+}
+army_dates["5fb1b9f3e1af06001770a2a2"]["1227 AD"] = {
+  startDate=1227,
+  endDate=1227
+}

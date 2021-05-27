@@ -1,209 +1,13 @@
 -- 5fb1b9efe1af06001770a082 Ghurid  1100 to 1222 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3de1af06001770f24e']= {
-  min=0,
-  max=1,
-  description='Ghurid tribal horsemen',
-}
-g_troop_entry['5fb1ba3de1af06001770f24f']= {
-  troop_option='5fb1ba3de1af06001770f24e',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3de1af06001770f250']= {
-  min=0,
-  max=2,
-  description='Turkish ghulams',
-  startDate=1174,
-  endDate=1222,
-}
-g_troop_entry['5fb1ba3de1af06001770f252']= {
-  troop_option='5fb1ba3de1af06001770f250',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3de1af06001770f254']= {
-  min=5,
-  max=12,
-  description='Ghurid spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3de1af06001770f255']= {
-  troop_option='5fb1ba3de1af06001770f254',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba3de1af06001770f258']= {
-  min=2,
-  max=4,
-  description='Ghurid skirmishing bowmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f259']= {
-  troop_option='5fb1ba3de1af06001770f258',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3de1af06001770f25b']= {
-  min=0,
-  max=2,
-  description='Ghurid skirmishing slingers',
-}
-g_troop_entry['5fb1ba3de1af06001770f25c']= {
-  troop_option='5fb1ba3de1af06001770f25b',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3de1af06001770f25d']= {
-  min=1,
-  max=4,
-  description='Khalaj or other Turkish mercenary horse archers',
-  startDate=1148,
-  endDate=1222,
-}
-g_troop_entry['5fb1ba3de1af06001770f25f']= {
-  troop_option='5fb1ba3de1af06001770f25d',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3de1af06001770f260']= {
-  min=0,
-  max=1,
-  description='War elephants',
-  core='all',
-  startDate=1192,
-  endDate=1206,
-}
-g_troop_entry['5fb1ba3de1af06001770f262']= {
-  troop_option='5fb1ba3de1af06001770f260',
-  troopTypeCode='ELE',
-}
-g_str_5fb1ba3de1af06001770f24f_general='5fb1ba3de1af06001770f24f_general'
-g_base_definitions[g_str_5fb1ba3de1af06001770f24f_general]={
-  id=g_str_5fb1ba3de1af06001770f24f_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Ghurid tribal horsemen',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3de1af06001770f24f='5fb1ba3de1af06001770f24f'
-g_base_definitions[g_str_5fb1ba3de1af06001770f24f]={
-  id=g_str_5fb1ba3de1af06001770f24f,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Ghurid tribal horsemen',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3de1af06001770f252_general='5fb1ba3de1af06001770f252_general'
-g_base_definitions[g_str_5fb1ba3de1af06001770f252_general]={
-  id=g_str_5fb1ba3de1af06001770f252_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Turkish ghulams',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3de1af06001770f252='5fb1ba3de1af06001770f252'
-g_base_definitions[g_str_5fb1ba3de1af06001770f252]={
-  id=g_str_5fb1ba3de1af06001770f252,
-  name='Elite Cavalary',
-  min=0,
-  max=2,
-  description='Turkish ghulams',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3de1af06001770f255='5fb1ba3de1af06001770f255'
-g_base_definitions[g_str_5fb1ba3de1af06001770f255]={
-  id=g_str_5fb1ba3de1af06001770f255,
-  name='Light Spear',
-  min=5,
-  max=12,
-  description='Ghurid spearmen',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba3de1af06001770f255_plaustrella='5fb1ba3de1af06001770f255_plaustrella'
-g_base_definitions[g_str_5fb1ba3de1af06001770f255_plaustrella]={
-  id=g_str_5fb1ba3de1af06001770f255_plaustrella,
-  name='Light Spear',
-  min=5,
-  max=12,
-  description='Ghurid spearmen\nPlaustrella',
-  plaustrella=true,
-  troop_type="Light Spear",
-}
-g_str_5fb1ba3de1af06001770f259='5fb1ba3de1af06001770f259'
-g_base_definitions[g_str_5fb1ba3de1af06001770f259]={
-  id=g_str_5fb1ba3de1af06001770f259,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Ghurid skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3de1af06001770f25c='5fb1ba3de1af06001770f25c'
-g_base_definitions[g_str_5fb1ba3de1af06001770f25c]={
-  id=g_str_5fb1ba3de1af06001770f25c,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Ghurid skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3de1af06001770f25f_general='5fb1ba3de1af06001770f25f_general'
-g_base_definitions[g_str_5fb1ba3de1af06001770f25f_general]={
-  id=g_str_5fb1ba3de1af06001770f25f_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Khalaj or other Turkish mercenary horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3de1af06001770f25f='5fb1ba3de1af06001770f25f'
-g_base_definitions[g_str_5fb1ba3de1af06001770f25f]={
-  id=g_str_5fb1ba3de1af06001770f25f,
-  name='Horse Bow',
-  min=1,
-  max=4,
-  description='Khalaj or other Turkish mercenary horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3de1af06001770f262='5fb1ba3de1af06001770f262'
-g_base_definitions[g_str_5fb1ba3de1af06001770f262]={
-  id=g_str_5fb1ba3de1af06001770f262,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1b9efe1af06001770a082_camp='5fb1b9efe1af06001770a082_camp'
-g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp]={
-  id=g_str_5fb1b9efe1af06001770a082_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9efe1af06001770a082_camp_pack_train='5fb1b9efe1af06001770a082_camp_pack_train'
-g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp_pack_train]={
-  id=g_str_5fb1b9efe1af06001770a082_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9efe1af06001770a082']={
   data={
     name='Ghurid  1100 to 1222 AD',
     id='5fb1b9efe1af06001770a082',
-    army_id='5fb1b9efe1af06001770a082'
+    dateRange={
+      startDate=1100,
+      endDate=1222,
+    }
   },
   g_base_definitions[g_str_5fb1ba3de1af06001770f24f_general],
   g_base_definitions[g_str_5fb1ba3de1af06001770f24f],
@@ -223,106 +27,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9efe1af06001770a082"] = army["5fb1b9efe1af06001770a082"]
-army['5fb1b9efe1af06001770a082_1100_1147']={
-  data={
-    name='Ghurid 1100 AD to 1147 AD',
-    id='5fb1b9efe1af06001770a082_1100_1147',
-    army_id='5fb1b9efe1af06001770a082'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255_plaustrella],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f259],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25c],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f262],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp_pack_train],
-}
-army['5fb1b9efe1af06001770a082_1148_1173']={
-  data={
-    name='Ghurid 1148 AD to 1173 AD',
-    id='5fb1b9efe1af06001770a082_1148_1173',
-    army_id='5fb1b9efe1af06001770a082'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255_plaustrella],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f259],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25c],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f262],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp_pack_train],
-}
-army['5fb1b9efe1af06001770a082_1174_1191']={
-  data={
-    name='Ghurid 1174 AD to 1191 AD',
-    id='5fb1b9efe1af06001770a082_1174_1191',
-    army_id='5fb1b9efe1af06001770a082'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255_plaustrella],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f259],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25c],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f262],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp_pack_train],
-}
-army['5fb1b9efe1af06001770a082_1192_1206']={
-  data={
-    name='Ghurid 1192 AD to 1206 AD',
-    id='5fb1b9efe1af06001770a082_1192_1206',
-    army_id='5fb1b9efe1af06001770a082'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255_plaustrella],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f259],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25c],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f262],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp_pack_train],
-}
-army['5fb1b9efe1af06001770a082_1207_1222']={
-  data={
-    name='Ghurid 1207 AD to 1222 AD',
-    id='5fb1b9efe1af06001770a082_1207_1222',
-    army_id='5fb1b9efe1af06001770a082'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f24f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f252],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f255_plaustrella],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f259],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25c],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f25f],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f262],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp],
-  g_base_definitions[g_str_5fb1b9efe1af06001770a082_camp_pack_train],
-}
 if nil == armies["Silk Road"] then
   armies["Silk Road"] ={}
 end
@@ -339,9 +43,55 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9efe1af06001770a082"] = {}
-army_dates["5fb1b9efe1af06001770a082"]["1100 AD to 1222 AD"] ="5fb1b9efe1af06001770a082"
-army_dates["5fb1b9efe1af06001770a082"]["1100 AD to 1147 AD"] ="5fb1b9efe1af06001770a082_1100_1147"
-army_dates["5fb1b9efe1af06001770a082"]["1148 AD to 1173 AD"] ="5fb1b9efe1af06001770a082_1148_1173"
-army_dates["5fb1b9efe1af06001770a082"]["1174 AD to 1191 AD"] ="5fb1b9efe1af06001770a082_1174_1191"
-army_dates["5fb1b9efe1af06001770a082"]["1192 AD to 1206 AD"] ="5fb1b9efe1af06001770a082_1192_1206"
-army_dates["5fb1b9efe1af06001770a082"]["1207 AD to 1222 AD"] ="5fb1b9efe1af06001770a082_1207_1222"
+army_dates["5fb1b9efe1af06001770a082"]["1100 AD to 1222 AD"] = {
+  startDate=1100,
+  endDate=1222
+}
+army_dates["5fb1b9efe1af06001770a082"]["1100 AD to 1147 AD"] = {
+  startDate=1100,
+  endDate=1147
+}
+army_dates["5fb1b9efe1af06001770a082"]["1148 AD to 1151 AD"] = {
+  startDate=1148,
+  endDate=1151
+}
+army_dates["5fb1b9efe1af06001770a082"]["1152 AD to 1156 AD"] = {
+  startDate=1152,
+  endDate=1156
+}
+army_dates["5fb1b9efe1af06001770a082"]["1157 AD"] = {
+  startDate=1157,
+  endDate=1157
+}
+army_dates["5fb1b9efe1af06001770a082"]["1158 AD to 1173 AD"] = {
+  startDate=1158,
+  endDate=1173
+}
+army_dates["5fb1b9efe1af06001770a082"]["1174 AD to 1185 AD"] = {
+  startDate=1174,
+  endDate=1185
+}
+army_dates["5fb1b9efe1af06001770a082"]["1186 AD"] = {
+  startDate=1186,
+  endDate=1186
+}
+army_dates["5fb1b9efe1af06001770a082"]["1187 AD to 1191 AD"] = {
+  startDate=1187,
+  endDate=1191
+}
+army_dates["5fb1b9efe1af06001770a082"]["1192 AD to 1206 AD"] = {
+  startDate=1192,
+  endDate=1206
+}
+army_dates["5fb1b9efe1af06001770a082"]["1207 AD to 1212 AD"] = {
+  startDate=1207,
+  endDate=1212
+}
+army_dates["5fb1b9efe1af06001770a082"]["1213 AD to 1219 AD"] = {
+  startDate=1213,
+  endDate=1219
+}
+army_dates["5fb1b9efe1af06001770a082"]["1220 AD to 1222 AD"] = {
+  startDate=1220,
+  endDate=1222
+}

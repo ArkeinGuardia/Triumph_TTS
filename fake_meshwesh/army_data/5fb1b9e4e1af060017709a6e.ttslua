@@ -1,160 +1,13 @@
 -- 5fb1b9e4e1af060017709a6e Frisian  793 to 1105 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2fe1af06001770da02']= {
-  min=0,
-  max=2,
-  description='Leaders',
-  core='all',
-}
-g_troop_entry['5fb1ba2fe1af06001770da03']= {
-  troop_option='5fb1ba2fe1af06001770da02',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba2fe1af06001770da04']= {
-  min=8,
-  max=16,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2fe1af06001770da05']= {
-  troop_option='5fb1ba2fe1af06001770da04',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba2fe1af06001770da06']= {
-  min=0,
-  max=1,
-  description='Dardiers',
-}
-g_troop_entry['5fb1ba2fe1af06001770da07']= {
-  troop_option='5fb1ba2fe1af06001770da06',
-  troopTypeCode='RBL',
-}
-g_troop_entry['5fb1ba2fe1af06001770da08']= {
-  troop_option='5fb1ba2fe1af06001770da06',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2fe1af06001770da09']= {
-  min=0,
-  max=6,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba2fe1af06001770da0a']= {
-  troop_option='5fb1ba2fe1af06001770da09',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba2fe1af06001770da0b']= {
-  min=0,
-  max=2,
-  description='Massed levy bowmen',
-}
-g_troop_entry['5fb1ba2fe1af06001770da0c']= {
-  troop_option='5fb1ba2fe1af06001770da0b',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba2fe1af06001770da03_general='5fb1ba2fe1af06001770da03_general'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da03_general]={
-  id=g_str_5fb1ba2fe1af06001770da03_general,
-  name='Warriors General',
-  min=0,
-  max=1,
-  description='Leaders',
-  general=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba2fe1af06001770da03='5fb1ba2fe1af06001770da03'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da03]={
-  id=g_str_5fb1ba2fe1af06001770da03,
-  name='Warriors',
-  min=0,
-  max=2,
-  description='Leaders',
-  troop_type="Warriors",
-}
-g_str_5fb1ba2fe1af06001770da05_general='5fb1ba2fe1af06001770da05_general'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da05_general]={
-  id=g_str_5fb1ba2fe1af06001770da05_general,
-  name='Light Spear General',
-  min=8,
-  max=1,
-  description='Spearmen',
-  general=true,
-  troop_type="Light Spear",
-}
-g_str_5fb1ba2fe1af06001770da05='5fb1ba2fe1af06001770da05'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da05]={
-  id=g_str_5fb1ba2fe1af06001770da05,
-  name='Light Spear',
-  min=8,
-  max=16,
-  description='Spearmen',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba2fe1af06001770da07='5fb1ba2fe1af06001770da07'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da07]={
-  id=g_str_5fb1ba2fe1af06001770da07,
-  name='Rabble',
-  min=0,
-  max=1,
-  description='Dardiers',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2fe1af06001770da08='5fb1ba2fe1af06001770da08'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da08]={
-  id=g_str_5fb1ba2fe1af06001770da08,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Dardiers',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2fe1af06001770da0a='5fb1ba2fe1af06001770da0a'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da0a]={
-  id=g_str_5fb1ba2fe1af06001770da0a,
-  name='Rabble',
-  min=0,
-  max=6,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2fe1af06001770da0c='5fb1ba2fe1af06001770da0c'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da0c]={
-  id=g_str_5fb1ba2fe1af06001770da0c,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='Massed levy bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9e4e1af060017709a6e_camp='5fb1b9e4e1af060017709a6e_camp'
-g_base_definitions[g_str_5fb1b9e4e1af060017709a6e_camp]={
-  id=g_str_5fb1b9e4e1af060017709a6e_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e4e1af060017709a6e_camp_fortified='5fb1b9e4e1af060017709a6e_camp_fortified'
-g_base_definitions[g_str_5fb1b9e4e1af060017709a6e_camp_fortified]={
-  id=g_str_5fb1b9e4e1af060017709a6e_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e4e1af060017709a6e']={
   data={
     name='Frisian  793 to 1105 AD',
     id='5fb1b9e4e1af060017709a6e',
-    army_id='5fb1b9e4e1af060017709a6e'
+    dateRange={
+      startDate=793,
+      endDate=1105,
+    }
   },
   g_base_definitions[g_str_5fb1ba2fe1af06001770da03_general],
   g_base_definitions[g_str_5fb1ba2fe1af06001770da03],
@@ -187,4 +40,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e4e1af060017709a6e"] = {}
-army_dates["5fb1b9e4e1af060017709a6e"]["793 AD to 1105 AD"] ="5fb1b9e4e1af060017709a6e"
+army_dates["5fb1b9e4e1af060017709a6e"]["793 AD to 1105 AD"] = {
+  startDate=793,
+  endDate=1105
+}

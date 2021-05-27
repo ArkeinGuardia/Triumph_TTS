@@ -1,164 +1,13 @@
 -- 5fb1b9f4e1af06001770a371 Sengoku Samurai  1465 to 1542 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba43e1af06001770fcc9']= {
-  min=0,
-  max=2,
-  description='Mounted samurai armed with yari and katana',
-}
-g_troop_entry['5fb1ba43e1af06001770fcca']= {
-  troop_option='5fb1ba43e1af06001770fcc9',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba43e1af06001770fccb']= {
-  min=2,
-  max=4,
-  description='Elite samurai infantry armed with naginata or yari or katana',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fccc']= {
-  troop_option='5fb1ba43e1af06001770fccb',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba43e1af06001770fccd']= {
-  min=1,
-  max=2,
-  description='Samurai nobushi bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fcce']= {
-  troop_option='5fb1ba43e1af06001770fccd',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba43e1af06001770fccf']= {
-  min=3,
-  max=12,
-  description='Ashigaru armed with yari',
-}
-g_troop_entry['5fb1ba43e1af06001770fcd0']= {
-  troop_option='5fb1ba43e1af06001770fccf',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba43e1af06001770fcd1']= {
-  min=0,
-  max=2,
-  description='Shashu no ashigaru armed with bow',
-}
-g_troop_entry['5fb1ba43e1af06001770fcd2']= {
-  troop_option='5fb1ba43e1af06001770fcd1',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba43e1af06001770fcca_general='5fb1ba43e1af06001770fcca_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcca_general]={
-  id=g_str_5fb1ba43e1af06001770fcca_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Mounted samurai armed with yari and katana',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba43e1af06001770fcca='5fb1ba43e1af06001770fcca'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcca]={
-  id=g_str_5fb1ba43e1af06001770fcca,
-  name='Javelin Cavalry',
-  min=0,
-  max=2,
-  description='Mounted samurai armed with yari and katana',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba43e1af06001770fccc_general='5fb1ba43e1af06001770fccc_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fccc_general]={
-  id=g_str_5fb1ba43e1af06001770fccc_general,
-  name='Elite Foot General',
-  min=2,
-  max=1,
-  description='Elite samurai infantry armed with naginata or yari or katana',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba43e1af06001770fccc='5fb1ba43e1af06001770fccc'
-g_base_definitions[g_str_5fb1ba43e1af06001770fccc]={
-  id=g_str_5fb1ba43e1af06001770fccc,
-  name='Elite Foot',
-  min=2,
-  max=4,
-  description='Elite samurai infantry armed with naginata or yari or katana',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba43e1af06001770fcce='5fb1ba43e1af06001770fcce'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcce]={
-  id=g_str_5fb1ba43e1af06001770fcce,
-  name='Archers',
-  min=1,
-  max=2,
-  description='Samurai nobushi bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba43e1af06001770fcd0='5fb1ba43e1af06001770fcd0'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcd0]={
-  id=g_str_5fb1ba43e1af06001770fcd0,
-  name='Light Spear',
-  min=3,
-  max=12,
-  description='Ashigaru armed with yari',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba43e1af06001770fcd2='5fb1ba43e1af06001770fcd2'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcd2]={
-  id=g_str_5fb1ba43e1af06001770fcd2,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='Shashu no ashigaru armed with bow',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9f4e1af06001770a371_camp='5fb1b9f4e1af06001770a371_camp'
-g_base_definitions[g_str_5fb1b9f4e1af06001770a371_camp]={
-  id=g_str_5fb1b9f4e1af06001770a371_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1ba19e1af06001770bc6a='5fb1ba19e1af06001770bc6a'
-g_base_definitions[g_str_5fb1ba19e1af06001770bc6a]={
-  id=g_str_5fb1ba19e1af06001770bc6a,
-  name='Raiders',
-  min=1,
-  max=3,
-  description='Yamabushi monks mostly armed with naginata',
-  troop_type="Raiders",
-}
-g_str_5fb1ba19e1af06001770bc6d='5fb1ba19e1af06001770bc6d'
-g_base_definitions[g_str_5fb1ba19e1af06001770bc6d]={
-  id=g_str_5fb1ba19e1af06001770bc6d,
-  name='Rabble',
-  min=5,
-  max=10,
-  description='Religious fanatics',
-  troop_type="Rabble",
-}
-g_str_5fb1ba19e1af06001770bc70='5fb1ba19e1af06001770bc70'
-g_base_definitions[g_str_5fb1ba19e1af06001770bc70]={
-  id=g_str_5fb1ba19e1af06001770bc70,
-  name='Horde',
-  min=2,
-  max=4,
-  description='Improvised town militia',
-  troop_type="Horde",
-}
 army['5fb1b9f4e1af06001770a371']={
   data={
     name='Sengoku Samurai  1465 to 1542 AD',
     id='5fb1b9f4e1af06001770a371',
-    army_id='5fb1b9f4e1af06001770a371'
+    dateRange={
+      startDate=1465,
+      endDate=1542,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fcca_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fcca],
@@ -188,4 +37,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f4e1af06001770a371"] = {}
-army_dates["5fb1b9f4e1af06001770a371"]["1465 AD to 1542 AD"] ="5fb1b9f4e1af06001770a371"
+army_dates["5fb1b9f4e1af06001770a371"]["1465 AD to 1542 AD"] = {
+  startDate=1465,
+  endDate=1542
+}

@@ -1,150 +1,13 @@
 -- 5fb1b9e4e1af060017709a75 Viking West Frisia  840 to 885 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2fe1af06001770da11']= {
-  min=1,
-  max=2,
-  description='Viking nobles and retainers',
-  core='all',
-}
-g_troop_entry['5fb1ba2fe1af06001770da12']= {
-  troop_option='5fb1ba2fe1af06001770da11',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba2fe1af06001770da13']= {
-  min=7,
-  max=14,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2fe1af06001770da14']= {
-  troop_option='5fb1ba2fe1af06001770da13',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba2fe1af06001770da15']= {
-  min=0,
-  max=1,
-  description='Dardiers',
-}
-g_troop_entry['5fb1ba2fe1af06001770da16']= {
-  troop_option='5fb1ba2fe1af06001770da15',
-  troopTypeCode='RBL',
-}
-g_troop_entry['5fb1ba2fe1af06001770da17']= {
-  troop_option='5fb1ba2fe1af06001770da15',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2fe1af06001770da18']= {
-  min=0,
-  max=6,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba2fe1af06001770da19']= {
-  troop_option='5fb1ba2fe1af06001770da18',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba2fe1af06001770da1a']= {
-  min=0,
-  max=2,
-  description='Massed levy bowmen',
-}
-g_troop_entry['5fb1ba2fe1af06001770da1b']= {
-  troop_option='5fb1ba2fe1af06001770da1a',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba2fe1af06001770da12_general='5fb1ba2fe1af06001770da12_general'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da12_general]={
-  id=g_str_5fb1ba2fe1af06001770da12_general,
-  name='Elite Foot General',
-  min=1,
-  max=1,
-  description='Viking nobles and retainers',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba2fe1af06001770da12='5fb1ba2fe1af06001770da12'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da12]={
-  id=g_str_5fb1ba2fe1af06001770da12,
-  name='Elite Foot',
-  min=1,
-  max=2,
-  description='Viking nobles and retainers',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba2fe1af06001770da14='5fb1ba2fe1af06001770da14'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da14]={
-  id=g_str_5fb1ba2fe1af06001770da14,
-  name='Light Spear',
-  min=7,
-  max=14,
-  description='Spearmen',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba2fe1af06001770da16='5fb1ba2fe1af06001770da16'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da16]={
-  id=g_str_5fb1ba2fe1af06001770da16,
-  name='Rabble',
-  min=0,
-  max=1,
-  description='Dardiers',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2fe1af06001770da17='5fb1ba2fe1af06001770da17'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da17]={
-  id=g_str_5fb1ba2fe1af06001770da17,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Dardiers',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2fe1af06001770da19='5fb1ba2fe1af06001770da19'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da19]={
-  id=g_str_5fb1ba2fe1af06001770da19,
-  name='Rabble',
-  min=0,
-  max=6,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba2fe1af06001770da1b='5fb1ba2fe1af06001770da1b'
-g_base_definitions[g_str_5fb1ba2fe1af06001770da1b]={
-  id=g_str_5fb1ba2fe1af06001770da1b,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='Massed levy bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9e4e1af060017709a75_camp='5fb1b9e4e1af060017709a75_camp'
-g_base_definitions[g_str_5fb1b9e4e1af060017709a75_camp]={
-  id=g_str_5fb1b9e4e1af060017709a75_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e4e1af060017709a75_camp_fortified='5fb1b9e4e1af060017709a75_camp_fortified'
-g_base_definitions[g_str_5fb1b9e4e1af060017709a75_camp_fortified]={
-  id=g_str_5fb1b9e4e1af060017709a75_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e4e1af060017709a75']={
   data={
     name='Viking West Frisia  840 to 885 AD',
     id='5fb1b9e4e1af060017709a75',
-    army_id='5fb1b9e4e1af060017709a75'
+    dateRange={
+      startDate=840,
+      endDate=885,
+    }
   },
   g_base_definitions[g_str_5fb1ba2fe1af06001770da12_general],
   g_base_definitions[g_str_5fb1ba2fe1af06001770da12],
@@ -176,4 +39,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e4e1af060017709a75"] = {}
-army_dates["5fb1b9e4e1af060017709a75"]["840 AD to 885 AD"] ="5fb1b9e4e1af060017709a75"
+army_dates["5fb1b9e4e1af060017709a75"]["840 AD to 885 AD"] = {
+  startDate=840,
+  endDate=885
+}

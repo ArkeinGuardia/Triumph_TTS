@@ -1,233 +1,13 @@
 -- 5fb1b9ede1af060017709fb6 Later Crusader  1128 to 1303 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3be1af06001770eecf']= {
-  min=2,
-  max=5,
-  description='Crusader men-at-arms',
-}
-g_troop_entry['5fb1ba3be1af06001770eed0']= {
-  troop_option='5fb1ba3be1af06001770eecf',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba3be1af06001770eed2']= {
-  min=0,
-  max=1,
-  description='Turkopoles of military orders',
-}
-g_troop_entry['5fb1ba3be1af06001770eed3']= {
-  troop_option='5fb1ba3be1af06001770eed2',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3be1af06001770eed4']= {
-  min=4,
-  max=6,
-  description='Foot sergeants',
-  core='all',
-}
-g_troop_entry['5fb1ba3be1af06001770eed5']= {
-  troop_option='5fb1ba3be1af06001770eed4',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba3be1af06001770eed6']= {
-  min=0,
-  max=1,
-  description='Foot sergeants of military orders',
-  core='all',
-}
-g_troop_entry['5fb1ba3be1af06001770eed7']= {
-  troop_option='5fb1ba3be1af06001770eed6',
-  troopTypeCode='SPR',
-}
-g_troop_option['5fb1ba3be1af06001770eed8']= {
-  min=2,
-  max=4,
-  description='Crossbowmen',
-  core='all',
-  startDate=1128,
-  endDate=1190,
-}
-g_troop_entry['5fb1ba3be1af06001770eeda']= {
-  troop_option='5fb1ba3be1af06001770eed8',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3be1af06001770eedc']= {
-  min=2,
-  max=4,
-  description='Crossbowmen, or combined formations of crossbowmen behind spearmen',
-  core='all',
-  startDate=1191,
-  endDate=1303,
-}
-g_troop_entry['5fb1ba3be1af06001770eede']= {
-  troop_option='5fb1ba3be1af06001770eedc',
-  troopTypeCode='ARC',
-}
-g_troop_entry['5fb1ba3be1af06001770eedf']= {
-  troop_option='5fb1ba3be1af06001770eedc',
-  troopTypeCode='PAV',
-}
-g_troop_option['5fb1ba3be1af06001770eee0']= {
-  min=0,
-  max=3,
-  description='Maronite or Syrian bowmen',
-}
-g_troop_entry['5fb1ba3be1af06001770eee1']= {
-  troop_option='5fb1ba3be1af06001770eee0',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba3be1af06001770eed0_general='5fb1ba3be1af06001770eed0_general'
-g_base_definitions[g_str_5fb1ba3be1af06001770eed0_general]={
-  id=g_str_5fb1ba3be1af06001770eed0_general,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Crusader men-at-arms',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba3be1af06001770eed0='5fb1ba3be1af06001770eed0'
-g_base_definitions[g_str_5fb1ba3be1af06001770eed0]={
-  id=g_str_5fb1ba3be1af06001770eed0,
-  name='Knights',
-  min=2,
-  max=5,
-  description='Crusader men-at-arms',
-  troop_type="Knights",
-}
-g_str_5fb1ba3be1af06001770eed3='5fb1ba3be1af06001770eed3'
-g_base_definitions[g_str_5fb1ba3be1af06001770eed3]={
-  id=g_str_5fb1ba3be1af06001770eed3,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Turkopoles of military orders',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3be1af06001770eed5='5fb1ba3be1af06001770eed5'
-g_base_definitions[g_str_5fb1ba3be1af06001770eed5]={
-  id=g_str_5fb1ba3be1af06001770eed5,
-  name='Heavy Foot',
-  min=4,
-  max=6,
-  description='Foot sergeants',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba3be1af06001770eed7='5fb1ba3be1af06001770eed7'
-g_base_definitions[g_str_5fb1ba3be1af06001770eed7]={
-  id=g_str_5fb1ba3be1af06001770eed7,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Foot sergeants of military orders',
-  troop_type="Spears",
-}
-g_str_5fb1ba3be1af06001770eeda='5fb1ba3be1af06001770eeda'
-g_base_definitions[g_str_5fb1ba3be1af06001770eeda]={
-  id=g_str_5fb1ba3be1af06001770eeda,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry='5fb1ba3be1af06001770eeda_dismounted_mobile_infantry'
-g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry='5fb1ba3be1af06001770eeda_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Crossbowmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry,
-  troop_type="Archers",
-}
-g_base_definitions[g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry]={
-  id=g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Crossbowmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba3be1af06001770eede='5fb1ba3be1af06001770eede'
-g_base_definitions[g_str_5fb1ba3be1af06001770eede]={
-  id=g_str_5fb1ba3be1af06001770eede,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Crossbowmen, or combined formations of crossbowmen behind spearmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3be1af06001770eedf='5fb1ba3be1af06001770eedf'
-g_base_definitions[g_str_5fb1ba3be1af06001770eedf]={
-  id=g_str_5fb1ba3be1af06001770eedf,
-  name='Pavisiers',
-  min=2,
-  max=4,
-  description='Crossbowmen, or combined formations of crossbowmen behind spearmen',
-  troop_type="Pavisiers",
-}
-g_str_5fb1ba3be1af06001770eee1='5fb1ba3be1af06001770eee1'
-g_base_definitions[g_str_5fb1ba3be1af06001770eee1]={
-  id=g_str_5fb1ba3be1af06001770eee1,
-  name='Bow Levy',
-  min=0,
-  max=3,
-  description='Maronite or Syrian bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9ede1af060017709fb6_camp='5fb1b9ede1af060017709fb6_camp'
-g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp]={
-  id=g_str_5fb1b9ede1af060017709fb6_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709fb6_camp_fortified='5fb1b9ede1af060017709fb6_camp_fortified'
-g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_fortified]={
-  id=g_str_5fb1b9ede1af060017709fb6_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon='5fb1b9ede1af060017709fb6_camp_standard_wagon'
-g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon]={
-  id=g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Standard Wagon',
-  standard_wagon=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709fb6_camp_pack_train='5fb1b9ede1af060017709fb6_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_pack_train]={
-  id=g_str_5fb1b9ede1af060017709fb6_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ede1af060017709fb6']={
   data={
     name='Later Crusader  1128 to 1303 AD',
     id='5fb1b9ede1af060017709fb6',
-    army_id='5fb1b9ede1af060017709fb6'
+    dateRange={
+      startDate=1128,
+      endDate=1303,
+    }
   },
   g_base_definitions[g_str_5fb1ba3be1af06001770eed0_general],
   g_base_definitions[g_str_5fb1ba3be1af06001770eed0],
@@ -249,50 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709fb6"] = army["5fb1b9ede1af060017709fb6"]
-army['5fb1b9ede1af060017709fb6_1128_1190']={
-  data={
-    name='Later Crusader 1128 AD to 1190 AD',
-    id='5fb1b9ede1af060017709fb6_1128_1190',
-    army_id='5fb1b9ede1af060017709fb6'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed0_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed0],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed3],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed5],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed7],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eede],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eedf],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eee1],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_pack_train],
-}
-army['5fb1b9ede1af060017709fb6_1191_1303']={
-  data={
-    name='Later Crusader 1191 AD to 1303 AD',
-    id='5fb1b9ede1af060017709fb6_1191_1303',
-    army_id='5fb1b9ede1af060017709fb6'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed0_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed0],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed3],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed5],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eed7],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eeda_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eede],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eedf],
-  g_base_definitions[g_str_5fb1ba3be1af06001770eee1],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_fortified],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_standard_wagon],
-  g_base_definitions[g_str_5fb1b9ede1af060017709fb6_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -317,6 +53,107 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709fb6"] = {}
-army_dates["5fb1b9ede1af060017709fb6"]["1128 AD to 1303 AD"] ="5fb1b9ede1af060017709fb6"
-army_dates["5fb1b9ede1af060017709fb6"]["1128 AD to 1190 AD"] ="5fb1b9ede1af060017709fb6_1128_1190"
-army_dates["5fb1b9ede1af060017709fb6"]["1191 AD to 1303 AD"] ="5fb1b9ede1af060017709fb6_1191_1303"
+army_dates["5fb1b9ede1af060017709fb6"]["1128 AD to 1303 AD"] = {
+  startDate=1128,
+  endDate=1303
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1128 AD to 1142 AD"] = {
+  startDate=1128,
+  endDate=1142
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1143 AD to 1146 AD"] = {
+  startDate=1143,
+  endDate=1146
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1147 AD"] = {
+  startDate=1147,
+  endDate=1147
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1148 AD"] = {
+  startDate=1148,
+  endDate=1148
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1149 AD"] = {
+  startDate=1149,
+  endDate=1149
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1150 AD"] = {
+  startDate=1150,
+  endDate=1150
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1151 AD to 1154 AD"] = {
+  startDate=1151,
+  endDate=1154
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1155 AD to 1156 AD"] = {
+  startDate=1155,
+  endDate=1156
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1157 AD to 1166 AD"] = {
+  startDate=1157,
+  endDate=1166
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1167 AD"] = {
+  startDate=1167,
+  endDate=1167
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1168 AD"] = {
+  startDate=1168,
+  endDate=1168
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1169 AD"] = {
+  startDate=1169,
+  endDate=1169
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1170 AD to 1171 AD"] = {
+  startDate=1170,
+  endDate=1171
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1172 AD"] = {
+  startDate=1172,
+  endDate=1172
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1173 AD to 1187 AD"] = {
+  startDate=1173,
+  endDate=1187
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1188 AD to 1190 AD"] = {
+  startDate=1188,
+  endDate=1190
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1191 AD to 1200 AD"] = {
+  startDate=1191,
+  endDate=1200
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1201 AD to 1204 AD"] = {
+  startDate=1201,
+  endDate=1204
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1205 AD to 1243 AD"] = {
+  startDate=1205,
+  endDate=1243
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1244 AD to 1245 AD"] = {
+  startDate=1244,
+  endDate=1245
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1246 AD to 1250 AD"] = {
+  startDate=1246,
+  endDate=1250
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1251 AD to 1259 AD"] = {
+  startDate=1251,
+  endDate=1259
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1260 AD to 1286 AD"] = {
+  startDate=1260,
+  endDate=1286
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1287 AD to 1299 AD"] = {
+  startDate=1287,
+  endDate=1299
+}
+army_dates["5fb1b9ede1af060017709fb6"]["1300 AD to 1303 AD"] = {
+  startDate=1300,
+  endDate=1303
+}

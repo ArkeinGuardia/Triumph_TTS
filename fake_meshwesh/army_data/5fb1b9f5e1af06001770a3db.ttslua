@@ -1,119 +1,13 @@
 -- 5fb1b9f5e1af06001770a3db Early West Mexican  1 to 1100 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba43e1af06001770fd8f']= {
-  min=0,
-  max=4,
-  description='Fighters carrying shields or wearing \'barrel armor\' and wicker helmet',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fd90']= {
-  troop_option='5fb1ba43e1af06001770fd8f',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba43e1af06001770fd91']= {
-  min=4,
-  max=6,
-  description='Formed infantry armed with spears, clubs, and slings',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fd92']= {
-  troop_option='5fb1ba43e1af06001770fd91',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba43e1af06001770fd93']= {
-  min=6,
-  max=15,
-  description='Unshielded infantry armed with spears, clubs, and slings',
-}
-g_troop_entry['5fb1ba43e1af06001770fd94']= {
-  troop_option='5fb1ba43e1af06001770fd93',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba43e1af06001770fd95']= {
-  min=2,
-  max=6,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba43e1af06001770fd96']= {
-  troop_option='5fb1ba43e1af06001770fd95',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba43e1af06001770fd90_general='5fb1ba43e1af06001770fd90_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd90_general]={
-  id=g_str_5fb1ba43e1af06001770fd90_general,
-  name='Heavy Foot General',
-  min=0,
-  max=1,
-  description='Fighters carrying shields or wearing \'barrel armor\' and wicker helmet',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba43e1af06001770fd90='5fb1ba43e1af06001770fd90'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd90]={
-  id=g_str_5fb1ba43e1af06001770fd90,
-  name='Heavy Foot',
-  min=0,
-  max=4,
-  description='Fighters carrying shields or wearing \'barrel armor\' and wicker helmet',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba43e1af06001770fd92_general='5fb1ba43e1af06001770fd92_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd92_general]={
-  id=g_str_5fb1ba43e1af06001770fd92_general,
-  name='Light Foot General',
-  min=4,
-  max=1,
-  description='Formed infantry armed with spears, clubs, and slings',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd92='5fb1ba43e1af06001770fd92'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd92]={
-  id=g_str_5fb1ba43e1af06001770fd92,
-  name='Light Foot',
-  min=4,
-  max=6,
-  description='Formed infantry armed with spears, clubs, and slings',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd94='5fb1ba43e1af06001770fd94'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd94]={
-  id=g_str_5fb1ba43e1af06001770fd94,
-  name='Rabble',
-  min=6,
-  max=15,
-  description='Unshielded infantry armed with spears, clubs, and slings',
-  troop_type="Rabble",
-}
-g_str_5fb1ba43e1af06001770fd96='5fb1ba43e1af06001770fd96'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd96]={
-  id=g_str_5fb1ba43e1af06001770fd96,
-  name='Skirmishers',
-  min=2,
-  max=6,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f5e1af06001770a3db_camp='5fb1b9f5e1af06001770a3db_camp'
-g_base_definitions[g_str_5fb1b9f5e1af06001770a3db_camp]={
-  id=g_str_5fb1b9f5e1af06001770a3db_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f5e1af06001770a3db']={
   data={
     name='Early West Mexican  1 to 1100 AD',
     id='5fb1b9f5e1af06001770a3db',
-    army_id='5fb1b9f5e1af06001770a3db'
+    dateRange={
+      startDate=1,
+      endDate=1100,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fd90_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd90],
@@ -143,4 +37,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f5e1af06001770a3db"] = {}
-army_dates["5fb1b9f5e1af06001770a3db"]["1 AD to 1100 AD"] ="5fb1b9f5e1af06001770a3db"
+army_dates["5fb1b9f5e1af06001770a3db"]["1 AD to 1100 AD"] = {
+  startDate=1,
+  endDate=1100
+}

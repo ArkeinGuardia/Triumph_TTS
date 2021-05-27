@@ -1,326 +1,13 @@
 -- 5fb1b9dee1af060017709659 Diadachoii in Macedon  320 to 279 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba28e1af06001770cb5f']= {
-  min=0,
-  max=1,
-  description='Xystophoroi',
-}
-g_troop_entry['5fb1ba28e1af06001770cb60']= {
-  troop_option='5fb1ba28e1af06001770cb5f',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba28e1af06001770cb61']= {
-  min=0,
-  max=1,
-  description='Greek mercenary horsemen',
-}
-g_troop_entry['5fb1ba28e1af06001770cb62']= {
-  troop_option='5fb1ba28e1af06001770cb61',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba28e1af06001770cb63']= {
-  min=0,
-  max=1,
-  description='Thessalian horsemen',
-  note='only Polyperchon or Kassandros',
-  startDate=-320,
-  endDate=-298,
-}
-g_troop_entry['5fb1ba28e1af06001770cb65']= {
-  troop_option='5fb1ba28e1af06001770cb63',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba28e1af06001770cb66']= {
-  min=4,
-  max=8,
-  description='Phalanx',
-  core='all',
-}
-g_troop_entry['5fb1ba28e1af06001770cb67']= {
-  troop_option='5fb1ba28e1af06001770cb66',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba28e1af06001770cb68']= {
-  min=4,
-  max=8,
-  description='Mercenary peltasts',
-}
-g_troop_entry['5fb1ba28e1af06001770cb69']= {
-  troop_option='5fb1ba28e1af06001770cb68',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba28e1af06001770cb6a']= {
-  min=0,
-  max=2,
-  description='Thracian, Illyrian, or Paionian light infantry',
-}
-g_troop_entry['5fb1ba28e1af06001770cb6b']= {
-  troop_option='5fb1ba28e1af06001770cb6a',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba28e1af06001770cb6c']= {
-  min=2,
-  max=3,
-  description='Epeirote allied light infantry',
-  note='only Olympias',
-  startDate=-317,
-  endDate=-316,
-}
-g_troop_entry['5fb1ba28e1af06001770cb6e']= {
-  troop_option='5fb1ba28e1af06001770cb6c',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba28e1af06001770cb6f']= {
-  min=0,
-  max=2,
-  description='Greek subject hoplites',
-  note='only Kassandros',
-  core='all',
-  startDate=-318,
-  endDate=-302,
-}
-g_troop_entry['5fb1ba28e1af06001770cb71']= {
-  troop_option='5fb1ba28e1af06001770cb6f',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba28e1af06001770cb73']= {
-  min=0,
-  max=1,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba28e1af06001770cb74']= {
-  troop_option='5fb1ba28e1af06001770cb73',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba28e1af06001770cb75']= {
-  min=0,
-  max=1,
-  description='War elephant (must be the General stand if the commander is Ptolemy Keraunos)',
-  core='all',
-}
-g_troop_entry['5fb1ba28e1af06001770cb76']= {
-  troop_option='5fb1ba28e1af06001770cb75',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba28e1af06001770cb77']= {
-  min=0,
-  max=1,
-  description='Bolt and stone throwers',
-  core='all',
-}
-g_troop_entry['5fb1ba28e1af06001770cb78']= {
-  troop_option='5fb1ba28e1af06001770cb77',
-  troopTypeCode='ART',
-}
-g_str_5fb1ba28e1af06001770cb60_general='5fb1ba28e1af06001770cb60_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general]={
-  id=g_str_5fb1ba28e1af06001770cb60_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Xystophoroi',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba28e1af06001770cb60='5fb1ba28e1af06001770cb60'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb60]={
-  id=g_str_5fb1ba28e1af06001770cb60,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Xystophoroi',
-  troop_type="Knights",
-}
-g_str_5fb1ba28e1af06001770cb62_general='5fb1ba28e1af06001770cb62_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb62_general]={
-  id=g_str_5fb1ba28e1af06001770cb62_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Greek mercenary horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cb62='5fb1ba28e1af06001770cb62'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb62]={
-  id=g_str_5fb1ba28e1af06001770cb62,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Greek mercenary horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cb65_general='5fb1ba28e1af06001770cb65_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb65_general]={
-  id=g_str_5fb1ba28e1af06001770cb65_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Thessalian horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cb65='5fb1ba28e1af06001770cb65'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb65]={
-  id=g_str_5fb1ba28e1af06001770cb65,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Thessalian horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba28e1af06001770cb67_general='5fb1ba28e1af06001770cb67_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb67_general]={
-  id=g_str_5fb1ba28e1af06001770cb67_general,
-  name='Pikes General',
-  min=4,
-  max=1,
-  description='Phalanx',
-  general=true,
-  troop_type="Pikes",
-}
-g_str_5fb1ba28e1af06001770cb67='5fb1ba28e1af06001770cb67'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb67]={
-  id=g_str_5fb1ba28e1af06001770cb67,
-  name='Pikes',
-  min=4,
-  max=8,
-  description='Phalanx',
-  troop_type="Pikes",
-}
-g_str_5fb1ba28e1af06001770cb69_general='5fb1ba28e1af06001770cb69_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb69_general]={
-  id=g_str_5fb1ba28e1af06001770cb69_general,
-  name='Light Foot General',
-  min=4,
-  max=1,
-  description='Mercenary peltasts',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cb69='5fb1ba28e1af06001770cb69'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb69]={
-  id=g_str_5fb1ba28e1af06001770cb69,
-  name='Light Foot',
-  min=4,
-  max=8,
-  description='Mercenary peltasts',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cb6b_general='5fb1ba28e1af06001770cb6b_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb6b_general]={
-  id=g_str_5fb1ba28e1af06001770cb6b_general,
-  name='Light Foot General',
-  min=0,
-  max=1,
-  description='Thracian, Illyrian, or Paionian light infantry',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cb6b='5fb1ba28e1af06001770cb6b'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb6b]={
-  id=g_str_5fb1ba28e1af06001770cb6b,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Thracian, Illyrian, or Paionian light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cb6e_general='5fb1ba28e1af06001770cb6e_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb6e_general]={
-  id=g_str_5fb1ba28e1af06001770cb6e_general,
-  name='Light Foot General',
-  min=2,
-  max=1,
-  description='Epeirote allied light infantry',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cb6e='5fb1ba28e1af06001770cb6e'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb6e]={
-  id=g_str_5fb1ba28e1af06001770cb6e,
-  name='Light Foot',
-  min=2,
-  max=3,
-  description='Epeirote allied light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba28e1af06001770cb71='5fb1ba28e1af06001770cb71'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb71]={
-  id=g_str_5fb1ba28e1af06001770cb71,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Greek subject hoplites',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba28e1af06001770cb74='5fb1ba28e1af06001770cb74'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb74]={
-  id=g_str_5fb1ba28e1af06001770cb74,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba28e1af06001770cb76_general='5fb1ba28e1af06001770cb76_general'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb76_general]={
-  id=g_str_5fb1ba28e1af06001770cb76_general,
-  name='Elephants General',
-  min=0,
-  max=1,
-  description='War elephant (must be the General stand if the commander is Ptolemy Keraunos)',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba28e1af06001770cb76='5fb1ba28e1af06001770cb76'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb76]={
-  id=g_str_5fb1ba28e1af06001770cb76,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='War elephant (must be the General stand if the commander is Ptolemy Keraunos)',
-  troop_type="Elephants",
-}
-g_str_5fb1ba28e1af06001770cb78='5fb1ba28e1af06001770cb78'
-g_base_definitions[g_str_5fb1ba28e1af06001770cb78]={
-  id=g_str_5fb1ba28e1af06001770cb78,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Bolt and stone throwers',
-  troop_type="Artillery",
-}
-g_str_5fb1b9dee1af060017709659_camp='5fb1b9dee1af060017709659_camp'
-g_base_definitions[g_str_5fb1b9dee1af060017709659_camp]={
-  id=g_str_5fb1b9dee1af060017709659_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dee1af060017709659_camp_fortified='5fb1b9dee1af060017709659_camp_fortified'
-g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified]={
-  id=g_str_5fb1b9dee1af060017709659_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9dee1af060017709659']={
   data={
     name='Diadachoii in Macedon  320 to 279 BC',
     id='5fb1b9dee1af060017709659',
-    army_id='5fb1b9dee1af060017709659'
+    dateRange={
+      startDate=-320,
+      endDate=-279,
+    }
   },
   g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general],
   g_base_definitions[g_str_5fb1ba28e1af06001770cb60],
@@ -348,174 +35,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dee1af060017709659"] = army["5fb1b9dee1af060017709659"]
-army['5fb1b9dee1af060017709659_-320_-319']={
-  data={
-    name='Diadachoii in Macedon 320 BC to 319 BC',
-    id='5fb1b9dee1af060017709659_-320_-319',
-    army_id='5fb1b9dee1af060017709659'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb71],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb74],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb78],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified],
-}
-army['5fb1b9dee1af060017709659_-318_-318']={
-  data={
-    name='Diadachoii in Macedon 318 BC',
-    id='5fb1b9dee1af060017709659_-318_-318',
-    army_id='5fb1b9dee1af060017709659'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb71],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb74],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb78],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified],
-}
-army['5fb1b9dee1af060017709659_-317_-316']={
-  data={
-    name='Diadachoii in Macedon 317 BC to 316 BC',
-    id='5fb1b9dee1af060017709659_-317_-316',
-    army_id='5fb1b9dee1af060017709659'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb71],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb74],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb78],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified],
-}
-army['5fb1b9dee1af060017709659_-315_-302']={
-  data={
-    name='Diadachoii in Macedon 315 BC to 302 BC',
-    id='5fb1b9dee1af060017709659_-315_-302',
-    army_id='5fb1b9dee1af060017709659'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb71],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb74],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb78],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified],
-}
-army['5fb1b9dee1af060017709659_-301_-298']={
-  data={
-    name='Diadachoii in Macedon 301 BC to 298 BC',
-    id='5fb1b9dee1af060017709659_-301_-298',
-    army_id='5fb1b9dee1af060017709659'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb71],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb74],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb78],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified],
-}
-army['5fb1b9dee1af060017709659_-297_-279']={
-  data={
-    name='Diadachoii in Macedon 297 BC to 279 BC',
-    id='5fb1b9dee1af060017709659_-297_-279',
-    army_id='5fb1b9dee1af060017709659'
-  },
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb60],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb62],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb65],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb67],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb69],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6b],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb6e],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb71],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb74],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76_general],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb76],
-  g_base_definitions[g_str_5fb1ba28e1af06001770cb78],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp],
-  g_base_definitions[g_str_5fb1b9dee1af060017709659_camp_fortified],
-}
 if nil == armies["Alexander and Successors"] then
   armies["Alexander and Successors"] ={}
 end
@@ -528,10 +47,39 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dee1af060017709659"] = {}
-army_dates["5fb1b9dee1af060017709659"]["320 BC to 279 BC"] ="5fb1b9dee1af060017709659"
-army_dates["5fb1b9dee1af060017709659"]["320 BC to 319 BC"] ="5fb1b9dee1af060017709659_-320_-319"
-army_dates["5fb1b9dee1af060017709659"]["318 BC"] ="5fb1b9dee1af060017709659_-318_-318"
-army_dates["5fb1b9dee1af060017709659"]["317 BC to 316 BC"] ="5fb1b9dee1af060017709659_-317_-316"
-army_dates["5fb1b9dee1af060017709659"]["315 BC to 302 BC"] ="5fb1b9dee1af060017709659_-315_-302"
-army_dates["5fb1b9dee1af060017709659"]["301 BC to 298 BC"] ="5fb1b9dee1af060017709659_-301_-298"
-army_dates["5fb1b9dee1af060017709659"]["297 BC to 279 BC"] ="5fb1b9dee1af060017709659_-297_-279"
+army_dates["5fb1b9dee1af060017709659"]["320 BC to 279 BC"] = {
+  startDate=-320,
+  endDate=-279
+}
+army_dates["5fb1b9dee1af060017709659"]["320 BC to 319 BC"] = {
+  startDate=-320,
+  endDate=-319
+}
+army_dates["5fb1b9dee1af060017709659"]["318 BC"] = {
+  startDate=-318,
+  endDate=-318
+}
+army_dates["5fb1b9dee1af060017709659"]["317 BC to 316 BC"] = {
+  startDate=-317,
+  endDate=-316
+}
+army_dates["5fb1b9dee1af060017709659"]["315 BC to 311 BC"] = {
+  startDate=-315,
+  endDate=-311
+}
+army_dates["5fb1b9dee1af060017709659"]["310 BC"] = {
+  startDate=-310,
+  endDate=-310
+}
+army_dates["5fb1b9dee1af060017709659"]["309 BC to 302 BC"] = {
+  startDate=-309,
+  endDate=-302
+}
+army_dates["5fb1b9dee1af060017709659"]["301 BC to 298 BC"] = {
+  startDate=-301,
+  endDate=-298
+}
+army_dates["5fb1b9dee1af060017709659"]["297 BC to 279 BC"] = {
+  startDate=-297,
+  endDate=-279
+}

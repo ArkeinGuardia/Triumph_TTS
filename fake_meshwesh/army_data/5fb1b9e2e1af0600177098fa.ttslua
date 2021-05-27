@@ -1,129 +1,13 @@
 -- 5fb1b9e2e1af0600177098fa Burgundi or Limigantes  250 to 534 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2de1af06001770d53a']= {
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d53b']= {
-  troop_option='5fb1ba2de1af06001770d53a',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2de1af06001770d53c']= {
-  min=10,
-  max=16,
-  description='Fierce fighters',
-  core='all',
-}
-g_troop_entry['5fb1ba2de1af06001770d53d']= {
-  troop_option='5fb1ba2de1af06001770d53c',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba2de1af06001770d53e']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba2de1af06001770d53f']= {
-  troop_option='5fb1ba2de1af06001770d53e',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba2de1af06001770d540']= {
-  min=0,
-  max=3,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba2de1af06001770d541']= {
-  troop_option='5fb1ba2de1af06001770d540',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba2de1af06001770d53b_general='5fb1ba2de1af06001770d53b_general'
-g_base_definitions[g_str_5fb1ba2de1af06001770d53b_general]={
-  id=g_str_5fb1ba2de1af06001770d53b_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2de1af06001770d53b='5fb1ba2de1af06001770d53b'
-g_base_definitions[g_str_5fb1ba2de1af06001770d53b]={
-  id=g_str_5fb1ba2de1af06001770d53b,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2de1af06001770d53d_general='5fb1ba2de1af06001770d53d_general'
-g_base_definitions[g_str_5fb1ba2de1af06001770d53d_general]={
-  id=g_str_5fb1ba2de1af06001770d53d_general,
-  name='Warriors General',
-  min=10,
-  max=1,
-  description='Fierce fighters',
-  general=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba2de1af06001770d53d='5fb1ba2de1af06001770d53d'
-g_base_definitions[g_str_5fb1ba2de1af06001770d53d]={
-  id=g_str_5fb1ba2de1af06001770d53d,
-  name='Warriors',
-  min=10,
-  max=16,
-  description='Fierce fighters',
-  troop_type="Warriors",
-}
-g_str_5fb1ba2de1af06001770d53f='5fb1ba2de1af06001770d53f'
-g_base_definitions[g_str_5fb1ba2de1af06001770d53f]={
-  id=g_str_5fb1ba2de1af06001770d53f,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2de1af06001770d541='5fb1ba2de1af06001770d541'
-g_base_definitions[g_str_5fb1ba2de1af06001770d541]={
-  id=g_str_5fb1ba2de1af06001770d541,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9e2e1af0600177098fa_camp='5fb1b9e2e1af0600177098fa_camp'
-g_base_definitions[g_str_5fb1b9e2e1af0600177098fa_camp]={
-  id=g_str_5fb1b9e2e1af0600177098fa_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e2e1af0600177098fa_camp_fortified='5fb1b9e2e1af0600177098fa_camp_fortified'
-g_base_definitions[g_str_5fb1b9e2e1af0600177098fa_camp_fortified]={
-  id=g_str_5fb1b9e2e1af0600177098fa_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e2e1af0600177098fa']={
   data={
     name='Burgundi or Limigantes  250 to 534 AD',
     id='5fb1b9e2e1af0600177098fa',
-    army_id='5fb1b9e2e1af0600177098fa'
+    dateRange={
+      startDate=250,
+      endDate=534,
+    }
   },
   g_base_definitions[g_str_5fb1ba2de1af06001770d53b_general],
   g_base_definitions[g_str_5fb1ba2de1af06001770d53b],
@@ -154,4 +38,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e2e1af0600177098fa"] = {}
-army_dates["5fb1b9e2e1af0600177098fa"]["250 AD to 534 AD"] ="5fb1b9e2e1af0600177098fa"
+army_dates["5fb1b9e2e1af0600177098fa"]["250 AD to 534 AD"] = {
+  startDate=250,
+  endDate=534
+}
+army_dates["5fb1b9e2e1af0600177098fa"]["250 AD to 443 AD"] = {
+  startDate=250,
+  endDate=443
+}
+army_dates["5fb1b9e2e1af0600177098fa"]["444 AD to 534 AD"] = {
+  startDate=444,
+  endDate=534
+}

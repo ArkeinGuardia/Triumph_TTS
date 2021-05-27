@@ -7,6 +7,11 @@ import sys
 import subprocess
 import re
 
+# set of the identifiers of the base definitions that have already
+# been written
+base_definitions_written=set()
+
+
 def read_json(file_name) :
   with open(file_name, "r") as file:
     text = file.read()
@@ -15,7 +20,16 @@ def read_json(file_name) :
 
 def read_army_json(army_id) :
   file_name = os.path.join("armyLists", army_id)
-  return read_json(file_name)
+  army_json = read_json(file_name)
+  # Push down date ranges to make it easier to see if the troop entries are in an army for date range.
+  army_json['dateRange'] = {}
+  army_json['dateRange']['startDate'] = army_json['derivedData']['listStartDate']
+  army_json['dateRange']['endDate'] = army_json['derivedData']['listEndDate']
+  troop_options = army_json['troopOptions']
+  for troop_option in  troop_options :
+    if 'dateRange' not in troop_option or troop_option['dateRange']  is None:
+      troop_option['dateRange'] = army_json['dateRange']
+  return army_json
 
 def read_army_theme_json(army_id) :
   file_name = os.path.join("armyLists", army_id + "_thematicCategories")
@@ -44,9 +58,12 @@ def set_date_range(destination, dates) :
       return
     dest = destination['dateRange']
     if not between(dates['startDate'], dest['startDate'], dates['endDate']) :
-      print("ERROR start date is out of range. ", dates['startDate'], dest['startDate'], dates['endDate'])
+      #print("ERROR start date is out of range. ", dates['startDate'], dest['startDate'], dates['endDate'])
+      pass
     if not between(dates['startDate'], dest['endDate'], dates['endDate']) :
-      print("ERROR end date is out of range.", dates['startDate'], dest['endDate'], dates['endDate'])
+      #print("ERROR end date is out of range.", dates['startDate'], dest['endDate'], dates['endDate'])
+      pass
+
     dest['startDate'] = max( dates['startDate'], dest['startDate'] )
     dest['endDate'] = min( dates['endDate'], dest['endDate'] )
 
@@ -544,13 +561,13 @@ def create_base_definition(troop_option, troop_entry) :
   troop_type = troop_entry['troopTypeCode']
   name = troop_type_to_name(troop_type)
 
-  troop_entry_id = troop_entry['_id']
+  troop_option_id = troop_option['_id']
 
   base_definition = {
     'id': id, 'name':name, 'troop_type':troop_type,
     'min':min, 'max':max,
     'description':description,
-    'troop_entry_id': troop_entry_id }
+    'troop_option_id': troop_option_id }
 
   return base_definition
 
@@ -591,14 +608,16 @@ def write_base_definition_details(file, base_definition) :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
   file.write("  troop_type=\"%s\",\n" %(troop_type_name))
-  if 'troop_entry' in base_definition :
-    troop_entry = base_definition['troop_entry']
-    file.write("  troop_entry=\"%s\",\n" %(troop_entry))
+  if 'troop_option_id' in base_definition :
+    troop_option_id = base_definition['troop_option_id']
+    file.write("  troop_option_id=\"%s\",\n" %(troop_option_id))
   file.write("}\n")
 
 def write_base_definition(file, base_definition) :
-  write_base_definition_id(file, base_definition)
-  write_base_definition_details(file, base_definition)
+  if base_definition['id'] not in base_definitions_written:
+    write_base_definition_id(file, base_definition)
+    write_base_definition_details(file, base_definition)
+    base_definitions_written.add( base_definition['id'])
 
 def get_general_troop_type_codes(army) :
   codes = {}
@@ -674,7 +693,6 @@ def base_definitions(file, army, troop_option) :
   generals = get_general_troop_type_codes(army)
 
   for troop_entry in troop_option['troopEntries'] :
-
     # Push down the battle cards
     troop_entry['battleCardEntries'] = troop_option['battleCardEntries']
 
@@ -721,42 +739,6 @@ def write_camp(file, army_id) :
   write_base_definition(file, camp_def)
   return [camp_def]
 
-def write_troop_option(file, troop_option) :
-    file.write("g_troop_option['%s']= {\n" % troop_option['_id'])
-    file.write("  min=%d,\n" % (troop_option['min']))
-    file.write("  max=%d,\n" % (troop_option['max']))
-
-    description=troop_option['description']
-    description = description.replace("'", "\\'")
-    file.write("  description='%s',\n" % (description))
-
-    note = troop_option['note']
-    if note is not None and len(note) > 0 :
-        note = note.replace("'", "\\'")
-        file.write("  note='%s',\n" % (note))
-    core = troop_option['core']
-    if core is not None and len(core) > 0 :
-        file.write("  core='%s',\n" % (core))
-    dateRange = troop_option['dateRange']
-    if dateRange is not None:
-      option_start = int(dateRange['startDate'])
-      option_end = int(dateRange['endDate'])
-      file.write("  startDate=%d,\n" % (option_start))
-      file.write("  endDate=%d,\n" % (option_end))
-    file.write("}\n")
-
-def write_troop_entry(file, troop_option, troop_entry) :
-    file.write("g_troop_entry['%s']= {\n" % troop_entry['_id'])
-    file.write("  troop_option='%s',\n" % (troop_option['_id']))
-    file.write("  troopTypeCode='%s',\n" % (troop_entry['troopTypeCode']))
-    note = troop_entry['note']
-    if note is not None and len(note) > 0 :
-        note = note.replace("'", "\\'")
-        file.write("  note='%s',\n" % (note))
-    dismount = troop_entry['dismountTypeCode']
-    if dismount is not None and len(dismount) > 0 :
-        file.write("  dismountTypeCode='%s',\n" % (dismount))
-    file.write("}\n")
 
 def generate_base_definitions(file, army_json) :
   """Write out the base definitions for the army.
@@ -764,18 +746,9 @@ def generate_base_definitions(file, army_json) :
      @param army_json Defintion of the army.
      @return The base definitions for the army.
   """
-  file.write("if g_base_definitions == nil then\n")
-  file.write("  g_base_definitions = {}\n")
-  file.write("end\n")
-
   definitions = []
 
   troop_options = army_json['troopOptions']
-  for troop_option in  troop_options :
-    write_troop_option(file, troop_option)
-    for troop_entry in troop_option['troopEntries'] :
-        write_troop_entry(file, troop_option, troop_entry)
-
   for troop_option in  troop_options :
     defs = base_definitions(file, army_json, troop_option)
     definitions.extend(defs)
@@ -817,13 +790,16 @@ def is_option_in_date_range(troop_option, startDate, endDate)  :
   if troop_option is None :
     return True
   dateRange = troop_option['dateRange']
-  if dateRange is None:
-    return True
+  assert(dateRange is not None)
   option_start = dateRange['startDate']
   option_end = int(dateRange['endDate'])
   if  between(startDate, option_start, endDate) :
     return True
   if  between(startDate, option_end, endDate) :
+    return True
+  if between(option_start, startDate, option_end) :
+    return True
+  if between(option_start, endDate, option_end) :
     return True
   return False
 
@@ -839,35 +815,6 @@ def date_string(startDate, endDate) :
   else:
     return "%s to %s" % (year_string(startDate), year_string(endDate))
 
-def generate_army_for_date(file, army_json, startDate, endDate, base_definitions)  :
-  army_id = army_json['id'] + "_" + str(startDate) + "_" + str(endDate)
-
-  army_name =  army_json['name'] + " " + date_string(startDate, endDate)
-
-  file.write("army['%s']={\n" % (army_id))
-  file.write("  data={\n")
-  # TODO Invasion
-  # TODO maneuver
-  # TODO terrain
-  # TODO list
-
-  #escape quotes
-  name = army_name.replace("'", "\\'")
-
-  file.write("    name='%s',\n" %(name))
-  file.write("    id='%s',\n" %(army_id))
-  file.write("    army_id='%s'\n" %(army_json['id']))
-  file.write("  },\n")
-
-  # Bases that make up the army
-  for definition in base_definitions  :
-    troop_option = get_troop_option(army_json, definition)
-    if is_option_in_date_range(troop_option, startDate, endDate) :
-      id = definition['id']
-      file.write("  g_base_definitions[g_str_%s],\n" %(id))
-  file.write("}\n")
-
-  return army_id
 
 def get_optional_contingents(army_ally_options_json):
   """Extract the ally_army options for the ally's that are internal. """
@@ -879,77 +826,13 @@ def get_optional_contingents(army_ally_options_json):
         result.append(allyArmyList)
   return result
 
-# Generate the LUA for an army
-# @param army_id Identifier for the army in Meshwesh
-def generate_army(army_id) :
-  global total
-  army_json = read_army_json(army_id)
-  army_theme_json = read_army_theme_json(army_id)
-  army_ally_options_json  = read_army_ally_options(army_id)
-
-  optional_contingents = get_optional_contingents(army_ally_options_json)
-
-  file_name = os.path.join("army_data", army_id + ".ttslua")
-  with open(file_name, "w") as file :
-
-    army_name =  army_json['derivedData']['extendedName']
-    file.write("-- %s %s\n\n" % (army_id, army_name))
-    file.write("if army == nil then\n")
-    file.write("  army = {}\n")
-    file.write("end\n")
-
-    definitions = generate_base_definitions(file, army_json)
-    for ally_army in  optional_contingents :
-      troop_options = ally_army['troopOptions']
-      for troop_option in  troop_options :
-        defs = base_definitions(file, army_json, troop_option)
-        definitions.extend(defs)
-
-    file.write("army['%s']={\n" % (army_id))
-    file.write("  data={\n")
-    # TODO Invasion
-    # TODO maneuver
-    # TODO terrain
-    # TODO list
-
-    #escape quotes
-    name = army_name.replace("'", "\\'")
-
-    file.write("    name='%s',\n" %(name))
-    file.write("    id='%s',\n" %(army_id))
-    file.write("    army_id='%s'\n" %(army_id))
-    file.write("  },\n")
-
-    # Bases that make up the army
-    for definition in definitions  :
-      id = definition['id']
-      file.write("  g_base_definitions[g_str_%s],\n" %(id))
-    file.write("}\n")
-
-    # Meshwesh is in front so it will be the first entry in the
-    # dialog otherwise it will be the second which just looks weird.
-    file.write('if nil == armies[\"Meshwesh id\"] then\n')
-    file.write('  armies[\"Meshwesh id\"] ={}\n')
-    file.write('end\n')
-    file.write('armies[\"Meshwesh id\"][\"%s\"] = army[\"%s\"]\n' %
-      (army_id, army_id))
-
-
-    # Look for date ranges
-
-
-    if "dateRanges" not in army_json :
-      raise("No army date ranges in " + army_id)
-    army_date_ranges = army_json['dateRanges']
-    if len(army_date_ranges) != 1 :
-      raise("wrong number of ranges")
-    army_date_range = army_date_ranges[0]
-    army_startDate = int(army_date_range['startDate'])
-    army_endDate = int(army_date_range['endDate'])
-
-
-    dates = [army_startDate, army_endDate+1]
-    troop_options = army_json['troopOptions']
+def get_dates_for_troop_options(troop_options) :
+    """ Return the dates that are mentioned in the troop options
+        date ranges.
+        @param troop_options Troops to scan.
+        @return list of dates, unsorted, and possibly duplicated.
+    """
+    dates=[]
     for troop_option in  troop_options :
       if "dateRange" in troop_option :
         date_range = troop_option['dateRange']
@@ -958,44 +841,316 @@ def generate_army(army_id) :
           endDate = int(date_range['endDate'])
           dates.append(startDate)
           dates.append(endDate+1)
-    dates = sorted(set(dates))
+    return dates
 
-    date_map = []
-    date_map.append( (date_string(army_startDate, army_endDate), army_id))
+def get_dates_for_optional_contingents(army_ally_options_json) :
+  """Even though the optional contingents are stored in the
+     allies file they are really part of the army.
+     @param army_ally_options_json Armies alies.
+     @return list of dates, unsorted, and possibly duplicated.
+  """
+  dates=[]
+  for ally in army_ally_options_json :
+    for allyEntry in ally['allyEntries'] :
+      allyArmyList=allyEntry['allyArmyList']
+      if "internalContingent" in allyArmyList and allyArmyList["internalContingent"]:
+          troopOptions =allyArmyList['troopOptions']
+          option_dates = get_dates_for_troop_options(troopOptions)
+          dates.extend(option_dates)
+  return dates
 
-    start = dates[0]
-    for end in dates[1:] :
-      if start != army_startDate or end != (army_endDate+1) :
-        id = generate_army_for_date(file, army_json, start, end-1, definitions)
-        date_map.append( (date_string(start, end-1), id))
-        start = end
+def get_dates_for_triumph_allies(army_ally_options_json) :
+  """Get the dates that the troop options have for the allies of
+     an army.  Used for Triumph!.  Grand Triumph! uses the
+     allies entire army, whose date are not include in this result.
+     @param army_ally_options_json Armies alies.
+     @return list of dates, unsorted, and possibly duplicated.
+  """
+  dates=[]
+  for ally in army_ally_options_json :
+    for allyEntry in ally['allyEntries'] :
+      allyArmyList=allyEntry['allyArmyList']
+      troopOptions =allyArmyList['troopOptions']
+      option_dates = get_dates_for_troop_options(troopOptions)
+      dates.extend(option_dates)
+  return dates
 
-    for army_theme in army_theme_json :
-      theme_name = army_theme["name"]
+def get_dates_for_grand_triumph_allies(army_ally_options_json) :
+  """Get the dates that the troop options have for the allies of
+     an army.  Used for Triumph!.  Grand Triumph! uses the
+     allies entire army, whose date are not include in this result.
+     @param army_ally_options_json Armies alies.
+     @return list of dates, unsorted, and possibly duplicated.
+  """
+  dates=[]
+  for ally in army_ally_options_json :
+    for allyEntry in ally['allyEntries'] :
+      allyArmyList=allyEntry['allyArmyList']
+      if 'armyListId' in allyArmyList :
+        ally_armyListId = allyArmyList['armyListId']
+        ally_army_json = read_army_json(ally_armyListId)
+        ally_dates = get_dates_for_army_no_allies(ally_army_json)
+        dates.extend(ally_dates)
+  return dates
 
-      file.write('if nil == armies[\"%s\"] then\n' %
-        (theme_name))
-      file.write('  armies[\"%s\"] ={}\n' %
-        (theme_name))
+
+def get_dates_for_army_no_allies(army_json) :
+  """Get the dates that make up the army.  Includes the army date range,
+     and the date ranges of any troops.  But not the date ranges of
+     the allies.
+     @param army_json Army to query.
+     @return list of dates, unsorted, and possibly duplicated.
+  """
+  if "dateRange" not in army_json :
+    raise Exception("No army date range in " + army_id)
+  army_date_range = army_json['dateRange']
+  army_date_range = army_date_range
+  army_startDate = int(army_date_range['startDate'])
+  army_endDate = int(army_date_range['endDate'])
+
+  dates = [army_startDate, army_endDate+1]
+  troop_options = army_json['troopOptions']
+  troop_option_dates = get_dates_for_troop_options(troop_options)
+  dates.extend(troop_option_dates)
+
+  army_ally_options_json  = read_army_ally_options(army_id)
+  optioanl_dates = get_dates_for_optional_contingents(army_ally_options_json)
+  dates.extend(optioanl_dates)
+  return dates
+
+
+# Generate the LUA for an army
+# @param army_id Identifier for the army in Meshwesh
+def generate_army(army_id) :
+  army_json = read_army_json(army_id)
+  army_theme_json = read_army_theme_json(army_id)
+  army_ally_options_json  = read_army_ally_options(army_id)
+
+  optional_contingents = get_optional_contingents(army_ally_options_json)
+
+  base_definition_file_name = os.path.join(
+    "army_data",
+    army_id + "_base_definitions.ttslua")
+  file_name = os.path.join("army_data", army_id + ".ttslua")
+  with open(base_definition_file_name, "a") as base_definitions_file :
+    with open(file_name, "a") as file :
+
+      army_name =  army_json['derivedData']['extendedName']
+      file.write("-- %s %s\n\n" % (army_id, army_name))
+      definitions = generate_base_definitions(
+        base_definitions_file, army_json)
+      for ally_army in  optional_contingents :
+        troop_options = ally_army['troopOptions']
+        for troop_option in  troop_options :
+          defs = base_definitions(
+            base_definitions_file, army_json, troop_option)
+          definitions.extend(defs)
+
+      file.write("army['%s']={\n" % (army_id))
+      file.write("  data={\n")
+      # TODO Invasion
+      # TODO maneuver
+      # TODO terrain
+      # TODO list
+
+      #escape quotes
+      name = army_name.replace("'", "\\'")
+
+      file.write("    name='%s',\n" %(name))
+      file.write("    id='%s',\n" %(army_id))
+      file.write("    dateRange={\n")
+      file.write("      startDate=%d,\n" %
+        (army_json['dateRange']['startDate']))
+      file.write("      endDate=%d,\n"  % (army_json['dateRange']['endDate']))
+      file.write("    }\n")
+      file.write("  },\n")
+
+      # Bases that make up the army
+      for definition in definitions  :
+        id = definition['id']
+        file.write("  g_base_definitions[g_str_%s],\n" %(id))
+      file.write("}\n")
+
+      # Meshwesh is in front so it will be the first entry in the
+      # dialog otherwise it will be the second which just looks weird.
+      file.write('if nil == armies[\"Meshwesh id\"] then\n')
+      file.write('  armies[\"Meshwesh id\"] ={}\n')
       file.write('end\n')
-      file.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' %
-        (theme_name, name, army_id))
+      file.write('armies[\"Meshwesh id\"][\"%s\"] = army[\"%s\"]\n' %
+        (army_id, army_id))
 
-    file.write('if nil == armies[\"All\"] then\n')
-    file.write('  armies[\"All\"] ={}\n')
-    file.write('end\n')
-    file.write('armies[\"All\"][\"%s\"] = army[\"%s\"]\n' %
-        (name, army_id))
 
-    file.write("if nil == army_dates then\n  army_dates={}\nend\n")
-    file.write("army_dates[\"%s\"] = {}\n" % (army_id))
-    for date_entry in date_map:
-      (years, id) = date_entry
-      file.write("army_dates[\"%s\"][\"%s\"] =\"%s\"\n" % (army_id, years, id))
+      # Look for date ranges
+      dates = get_dates_for_army_no_allies(army_json)
+      army_date_ranges = army_json['dateRanges']
+      army_date_range = army_date_ranges[0]
+      army_startDate = int(army_date_range['startDate'])
+      army_endDate = int(army_date_range['endDate'])
+
+      # Add the dates for the Triumph! allies
+      ally_dates = get_dates_for_triumph_allies(army_ally_options_json)
+      for d in ally_dates :
+        if between(army_startDate, d, army_endDate) :
+            dates.append(d)
+
+      # Add the dates for the Grand Triumph! allies.
+      ally_dates = get_dates_for_grand_triumph_allies(army_ally_options_json)
+      for d in ally_dates :
+        if between(army_startDate, d, army_endDate) :
+            dates.append(d)
+
+      dates = sorted(set(dates))
+
+      # dates are kept in order, but there is one extra entry
+      # at the beginning that keeps the entire range.
+      date_map = []
+      date_map.append( (
+        date_string(army_startDate, army_endDate),
+        [army_startDate, army_endDate]) )
+
+      start = dates[0]
+      for end in dates[1:] :
+        if start != army_startDate or end != (army_endDate+1) :
+          date_map.append( (
+            date_string(start, end-1),
+            [start, end-1] ))
+          start = end
+
+      for army_theme in army_theme_json :
+        theme_name = army_theme["name"]
+
+        file.write('if nil == armies[\"%s\"] then\n' %
+          (theme_name))
+        file.write('  armies[\"%s\"] ={}\n' %
+          (theme_name))
+        file.write('end\n')
+        file.write('armies[\"%s\"][\"%s\"] = army[\"%s\"]\n' %
+          (theme_name, name, army_id))
+
+      file.write('if nil == armies[\"All\"] then\n')
+      file.write('  armies[\"All\"] ={}\n')
+      file.write('end\n')
+      file.write('armies[\"All\"][\"%s\"] = army[\"%s\"]\n' %
+          (name, army_id))
+
+      file.write("if nil == army_dates then\n  army_dates={}\nend\n")
+      file.write("army_dates[\"%s\"] = {}\n" % (army_id))
+      for date_entry in date_map:
+        (years, dateRange) = date_entry
+        (startDate, endDate) = dateRange
+        file.write("army_dates[\"%s\"][\"%s\"] = {\n" %  (army_id, years))
+        file.write("  startDate=%d,\n" %  (startDate))
+        file.write("  endDate=%d\n" %  (endDate))
+        file.write("}\n")
+
+def generate_ally_base_definitions(army_id) :
+  """Generate any base definitions for an armies allies that have
+     not yet been generated.
+  """
+  file_name = os.path.join("army_data", army_id + "_base_definitions.ttslua")
+  with open(file_name, "a") as file :
+    army_ally_options_json  = read_army_ally_options(army_id)
+    for ally in army_ally_options_json :
+      if 'allyEntries' not in ally :
+        return
+      for ally_entry in ally['allyEntries'] :
+        allyArmyList = ally_entry['allyArmyList']
+        troopOptions =allyArmyList['troopOptions']
+        for troop_option in troopOptions :
+          for troop_entry in troop_option['troopEntries'] :
+            base_definition = create_base_definition(troop_option, troop_entry)
+            write_base_definition(file, base_definition)
+
+def get_date_range(obj) :
+  """Always return a date range."""
+  if "dateRange" not in obj :
+    return { 'startDate':-50000, 'endDate':50000 }
+  if obj['dateRange']  is None :
+    return { 'startDate':-50000, 'endDate':50000 }
+  return obj['dateRange']
+
+def generate_allies(army_id) :
+  """Generaate the list of allies for an army.
+     @param army_id: Identifier of the army to examine.
+  """
+  allies_file_name = os.path.join("army_data", army_id + "_allies.ttslua")
+  with open(allies_file_name, "w") as file :
+    army_ally_options_json  = read_army_ally_options(army_id)
+    file.write("allies['%s'] = {\n" % (army_id))
+    for allies_for_date in army_ally_options_json :
+      dateRange = get_date_range(allies_for_date)
+      allyEntries = allies_for_date['allyEntries']
+      for ally_entry in allyEntries:
+        allyArmyList = ally_entry['allyArmyList']
+        if 'armyListId' in allyArmyList :
+          ally_armyListId = allyArmyList['armyListId']
+          file.write("  {\n    id='%s',\n    dateRange={startDate=%d, endDate=%d}\n  },\n" % 
+            (ally_armyListId, dateRange['startDate'], dateRange['endDate']))
+    file.write("}\n")
+
+    # Write out a fake army for use in Triumph!
+    for allies_for_date in army_ally_options_json :
+      dateRange = get_date_range(allies_for_date)
+      allyEntries = allies_for_date['allyEntries']
+      for ally_entry in allyEntries:
+        allyArmyList = ally_entry['allyArmyList']
+        if 'armyListId' in allyArmyList :
+          ally_armyListId = allyArmyList['armyListId']
+          id = army_id + "_ally_" + ally_armyListId
+          ally_name =  ally_entry['name']
+          name = ally_name.replace("'", "\\'")
+          file.write("army['%s'] = {\n" % (id))          
+          file.write("  data={\n")
+          file.write("    name='%s',\n" %(name))
+          file.write("    id='%s',\n" % (id))
+          file.write("  },\n")
+          troopOptions =allyArmyList['troopOptions']
+          for troop_option in troopOptions :
+            for troop_entry in troop_option['troopEntries'] :
+              base_definition = create_base_definition(troop_option, troop_entry)
+              file.write("  g_base_definitions['%s'],\n" % (base_definition['id']) )
+          file.write("}\n")
+
+  
+def write_troop_option(file, troop_option) :
+  file.write("troop_options['%s'] = {\n" % (troop_option['_id']))
+  file.write("  min=%d,\n" % (troop_option['min']))
+  file.write("  max=%d,\n" % (troop_option['max']))
+  dateRange = troop_option['dateRange']
+  if (dateRange is  None) :
+    print(troop_option)
+  assert(dateRange is not None)
+  file.write("  dateRange={\n")
+  file.write("    startDate=%d,\n" % (troop_option['dateRange']['startDate']))
+  file.write("    endDate=%d,\n"  % (troop_option['dateRange']['endDate']))
+  file.write("  }\n")
+  file.write("}\n")
+
+def write_troop_options(army_id) :
+  """Write the troop options data so they can be accessed in LUA."""
+  file_name = os.path.join("army_data", army_id + "_troop_options.ttslua")
+  with open(file_name, "w") as file :
+    army_json = read_army_json(army_id)
+    troop_options = army_json['troopOptions']
+    for troop_option in  troop_options :
+      write_troop_option(file, troop_option)
+    file.write("-- allies\n")
+    army_ally_options_json  = read_army_ally_options(army_id)
+    if 'allyEntries' in army_ally_options_json :
+      for ally_entry in army_ally_options_json['allyEntries'] :
+        allyArmyList = ally_entry['allyArmyList']
+        troopOptions =allyArmyList['troopOptions']
+        for troop_option in troopOptions :
+          write_troop_option(file, troop_option)
+
 
 summary = read_json("armyLists/summary")
 
 with open("army_data/all_armies.ttslua", "w") as all_armies:
+  for army_entry in summary :
+    army_id = army_entry['id']
+    write_troop_options(army_id)
+
   for army_entry in summary :
     army_id = army_entry['id']
     print(army_id)
@@ -1004,4 +1159,27 @@ with open("army_data/all_armies.ttslua", "w") as all_armies:
     except:
       print(army_entry['name'])
       raise
+
+  for army_entry in summary :
+    army_id = army_entry['id']
+    generate_ally_base_definitions(army_id)
+
+  for army_entry in summary :
+    army_id = army_entry['id']
+
+  for army_entry in summary :
+    army_id = army_entry['id']
+    generate_allies(army_id)
+
+  for army_entry in summary :
+    army_id = army_entry['id']
+    all_armies.write("#include %s_troop_options\n" % (army_id))
+  for army_entry in summary :
+    army_id = army_entry['id']
+    all_armies.write( "#include %s_base_definitions\n" % (army_id))
+  for army_entry in summary :
+    army_id = army_entry['id']
     all_armies.write( "#include %s\n" % (army_id))
+  for army_entry in summary :
+    army_id = army_entry['id']
+    all_armies.write( "#include %s_allies\n" % (army_id))

@@ -1,232 +1,13 @@
 -- 5fb1b9ede1af060017709f3b Hamdanids of Aleppo  945 to 965 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ae1af06001770ecfa']= {
-  min=4,
-  max=8,
-  description='Bedouin "Arabitai"',
-}
-g_troop_entry['5fb1ba3ae1af06001770ecfb']= {
-  troop_option='5fb1ba3ae1af06001770ecfa',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3ae1af06001770ecfc']= {
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-}
-g_troop_entry['5fb1ba3ae1af06001770ecfd']= {
-  troop_option='5fb1ba3ae1af06001770ecfc',
-  troopTypeCode='HBW',
-}
-g_troop_entry['5fb1ba3ae1af06001770ecfe']= {
-  troop_option='5fb1ba3ae1af06001770ecfc',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ae1af06001770ed00']= {
-  min=0,
-  max=1,
-  description='Bedouin or Dailami skirmishing bowmen',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed01']= {
-  troop_option='5fb1ba3ae1af06001770ed00',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ae1af06001770ed03']= {
-  min=0,
-  max=1,
-  description='Bedouin camel-mounted scouts',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed04']= {
-  troop_option='5fb1ba3ae1af06001770ed03',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba3ae1af06001770ed06']= {
-  min=0,
-  max=2,
-  description='Ahdath militia',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed07']= {
-  troop_option='5fb1ba3ae1af06001770ed06',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba3ae1af06001770ed08']= {
-  min=0,
-  max=2,
-  description='Khurasani volunteer horsemen',
-  startDate=964,
-  endDate=965,
-}
-g_troop_entry['5fb1ba3ae1af06001770ed0a']= {
-  troop_option='5fb1ba3ae1af06001770ed08',
-  troopTypeCode='HBW',
-}
-g_troop_entry['5fb1ba3ae1af06001770ed0b']= {
-  troop_option='5fb1ba3ae1af06001770ed08',
-  troopTypeCode='ECV',
-}
-g_str_5fb1ba3ae1af06001770ecfb_general='5fb1ba3ae1af06001770ecfb_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb_general]={
-  id=g_str_5fb1ba3ae1af06001770ecfb_general,
-  name='Javelin Cavalry General',
-  min=4,
-  max=1,
-  description='Bedouin "Arabitai"',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770ecfb='5fb1ba3ae1af06001770ecfb'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb]={
-  id=g_str_5fb1ba3ae1af06001770ecfb,
-  name='Javelin Cavalry',
-  min=4,
-  max=8,
-  description='Bedouin "Arabitai"',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770ecfd_general='5fb1ba3ae1af06001770ecfd_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd_general]={
-  id=g_str_5fb1ba3ae1af06001770ecfd_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ecfd='5fb1ba3ae1af06001770ecfd'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd]={
-  id=g_str_5fb1ba3ae1af06001770ecfd,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ecfe_general='5fb1ba3ae1af06001770ecfe_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe_general]={
-  id=g_str_5fb1ba3ae1af06001770ecfe_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ecfe='5fb1ba3ae1af06001770ecfe'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe]={
-  id=g_str_5fb1ba3ae1af06001770ecfe,
-  name='Elite Cavalary',
-  min=0,
-  max=1,
-  description='Turkish or Circassian ghulams',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed01='5fb1ba3ae1af06001770ed01'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed01]={
-  id=g_str_5fb1ba3ae1af06001770ed01,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Bedouin or Dailami skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ae1af06001770ed04='5fb1ba3ae1af06001770ed04'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed04]={
-  id=g_str_5fb1ba3ae1af06001770ed04,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Bedouin camel-mounted scouts',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba3ae1af06001770ed04_light_camelry='5fb1ba3ae1af06001770ed04_light_camelry'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed04_light_camelry]={
-  id=g_str_5fb1ba3ae1af06001770ed04_light_camelry,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Bedouin camel-mounted scouts\nLight Camelry',
-  light_camelry=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba3ae1af06001770ed07='5fb1ba3ae1af06001770ed07'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed07]={
-  id=g_str_5fb1ba3ae1af06001770ed07,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Ahdath militia',
-  troop_type="Horde",
-}
-g_str_5fb1ba3ae1af06001770ed0a_general='5fb1ba3ae1af06001770ed0a_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed0a_general]={
-  id=g_str_5fb1ba3ae1af06001770ed0a_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Khurasani volunteer horsemen',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ed0a='5fb1ba3ae1af06001770ed0a'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed0a]={
-  id=g_str_5fb1ba3ae1af06001770ed0a,
-  name='Horse Bow',
-  min=0,
-  max=2,
-  description='Khurasani volunteer horsemen',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770ed0b_general='5fb1ba3ae1af06001770ed0b_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed0b_general]={
-  id=g_str_5fb1ba3ae1af06001770ed0b_general,
-  name='Elite Cavalary General',
-  min=0,
-  max=1,
-  description='Khurasani volunteer horsemen',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770ed0b='5fb1ba3ae1af06001770ed0b'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ed0b]={
-  id=g_str_5fb1ba3ae1af06001770ed0b,
-  name='Elite Cavalary',
-  min=0,
-  max=2,
-  description='Khurasani volunteer horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1b9ede1af060017709f3b_camp='5fb1b9ede1af060017709f3b_camp'
-g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp]={
-  id=g_str_5fb1b9ede1af060017709f3b_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709f3b_camp_pack_train='5fb1b9ede1af060017709f3b_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp_pack_train]={
-  id=g_str_5fb1b9ede1af060017709f3b_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ede1af060017709f3b']={
   data={
     name='Hamdanids of Aleppo  945 to 965 AD',
     id='5fb1b9ede1af060017709f3b',
-    army_id='5fb1b9ede1af060017709f3b'
+    dateRange={
+      startDate=945,
+      endDate=965,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb],
@@ -249,52 +30,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ede1af060017709f3b"] = army["5fb1b9ede1af060017709f3b"]
-army['5fb1b9ede1af060017709f3b_945_963']={
-  data={
-    name='Hamdanids of Aleppo 945 AD to 963 AD',
-    id='5fb1b9ede1af060017709f3b_945_963',
-    army_id='5fb1b9ede1af060017709f3b'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed01],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed04],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed04_light_camelry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed07],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0a_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0a],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0b_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0b],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp_pack_train],
-}
-army['5fb1b9ede1af060017709f3b_964_965']={
-  data={
-    name='Hamdanids of Aleppo 964 AD to 965 AD',
-    id='5fb1b9ede1af060017709f3b_964_965',
-    army_id='5fb1b9ede1af060017709f3b'
-  },
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfb],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfd],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ecfe],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed01],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed04],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed04_light_camelry],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed07],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0a_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0a],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0b_general],
-  g_base_definitions[g_str_5fb1ba3ae1af06001770ed0b],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp],
-  g_base_definitions[g_str_5fb1b9ede1af060017709f3b_camp_pack_train],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -307,6 +42,15 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709f3b"] = {}
-army_dates["5fb1b9ede1af060017709f3b"]["945 AD to 965 AD"] ="5fb1b9ede1af060017709f3b"
-army_dates["5fb1b9ede1af060017709f3b"]["945 AD to 963 AD"] ="5fb1b9ede1af060017709f3b_945_963"
-army_dates["5fb1b9ede1af060017709f3b"]["964 AD to 965 AD"] ="5fb1b9ede1af060017709f3b_964_965"
+army_dates["5fb1b9ede1af060017709f3b"]["945 AD to 965 AD"] = {
+  startDate=945,
+  endDate=965
+}
+army_dates["5fb1b9ede1af060017709f3b"]["945 AD to 963 AD"] = {
+  startDate=945,
+  endDate=963
+}
+army_dates["5fb1b9ede1af060017709f3b"]["964 AD to 965 AD"] = {
+  startDate=964,
+  endDate=965
+}

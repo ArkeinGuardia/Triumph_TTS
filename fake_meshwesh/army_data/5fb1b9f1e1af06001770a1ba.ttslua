@@ -1,283 +1,13 @@
 -- 5fb1b9f1e1af06001770a1ba Former Qin  351 to 394 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3fe1af06001770f655']= {
-  min=1,
-  max=3,
-  description='Fully armored and barded horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f656']= {
-  troop_option='5fb1ba3fe1af06001770f655',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3fe1af06001770f657']= {
-  min=0,
-  max=1,
-  description='Hard-charging Chinese noble horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f658']= {
-  troop_option='5fb1ba3fe1af06001770f657',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba3fe1af06001770f659']= {
-  min=1,
-  max=2,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba3fe1af06001770f65a']= {
-  troop_option='5fb1ba3fe1af06001770f659',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3fe1af06001770f65b']= {
-  min=2,
-  max=6,
-  description='Chinese conscripts armed with spear or halberd',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f65c']= {
-  troop_option='5fb1ba3fe1af06001770f65b',
-  troopTypeCode='LFT',
-}
-g_troop_entry['5fb1ba3fe1af06001770f65d']= {
-  troop_option='5fb1ba3fe1af06001770f65b',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f65e']= {
-  min=0,
-  max=1,
-  description='Chinese conscript skirmishing bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f65f']= {
-  troop_option='5fb1ba3fe1af06001770f65e',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3fe1af06001770f660']= {
-  min=2,
-  max=6,
-  description='Unarmored tribal infantry',
-}
-g_troop_entry['5fb1ba3fe1af06001770f661']= {
-  troop_option='5fb1ba3fe1af06001770f660',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f663']= {
-  min=2,
-  max=6,
-  description='Armored tribal infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f664']= {
-  troop_option='5fb1ba3fe1af06001770f663',
-  troopTypeCode='RDR',
-}
-g_troop_entry['5fb1ba3fe1af06001770f665']= {
-  troop_option='5fb1ba3fe1af06001770f663',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f667']= {
-  min=1,
-  max=6,
-  description='Former Qin bowmen or Chinese conscript levy bowmen',
-}
-g_troop_entry['5fb1ba3fe1af06001770f668']= {
-  troop_option='5fb1ba3fe1af06001770f667',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3fe1af06001770f66a']= {
-  min=0,
-  max=2,
-  description='Hastily armed Chinese laborers',
-  startDate=383,
-  endDate=383,
-}
-g_troop_entry['5fb1ba3fe1af06001770f66c']= {
-  troop_option='5fb1ba3fe1af06001770f66a',
-  troopTypeCode='HRD',
-}
-g_troop_entry['5fb1ba3fe1af06001770f66d']= {
-  troop_option='5fb1ba3fe1af06001770f66a',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba3fe1af06001770f656_general='5fb1ba3fe1af06001770f656_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f656_general]={
-  id=g_str_5fb1ba3fe1af06001770f656_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Fully armored and barded horsemen',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3fe1af06001770f656='5fb1ba3fe1af06001770f656'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f656]={
-  id=g_str_5fb1ba3fe1af06001770f656,
-  name='Elite Cavalary',
-  min=1,
-  max=3,
-  description='Fully armored and barded horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3fe1af06001770f658_general='5fb1ba3fe1af06001770f658_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f658_general]={
-  id=g_str_5fb1ba3fe1af06001770f658_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Hard-charging Chinese noble horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba3fe1af06001770f658='5fb1ba3fe1af06001770f658'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f658]={
-  id=g_str_5fb1ba3fe1af06001770f658,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Hard-charging Chinese noble horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba3fe1af06001770f65a_general='5fb1ba3fe1af06001770f65a_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f65a_general]={
-  id=g_str_5fb1ba3fe1af06001770f65a_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3fe1af06001770f65a='5fb1ba3fe1af06001770f65a'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f65a]={
-  id=g_str_5fb1ba3fe1af06001770f65a,
-  name='Horse Bow',
-  min=1,
-  max=2,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3fe1af06001770f65c='5fb1ba3fe1af06001770f65c'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f65c]={
-  id=g_str_5fb1ba3fe1af06001770f65c,
-  name='Light Foot',
-  min=2,
-  max=6,
-  description='Chinese conscripts armed with spear or halberd',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3fe1af06001770f65d='5fb1ba3fe1af06001770f65d'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f65d]={
-  id=g_str_5fb1ba3fe1af06001770f65d,
-  name='Heavy Foot',
-  min=2,
-  max=6,
-  description='Chinese conscripts armed with spear or halberd',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba3fe1af06001770f65f='5fb1ba3fe1af06001770f65f'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f65f]={
-  id=g_str_5fb1ba3fe1af06001770f65f,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Chinese conscript skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3fe1af06001770f661='5fb1ba3fe1af06001770f661'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f661]={
-  id=g_str_5fb1ba3fe1af06001770f661,
-  name='Light Foot',
-  min=2,
-  max=6,
-  description='Unarmored tribal infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3fe1af06001770f664='5fb1ba3fe1af06001770f664'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f664]={
-  id=g_str_5fb1ba3fe1af06001770f664,
-  name='Raiders',
-  min=2,
-  max=6,
-  description='Armored tribal infantry',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3fe1af06001770f665='5fb1ba3fe1af06001770f665'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f665]={
-  id=g_str_5fb1ba3fe1af06001770f665,
-  name='Light Foot',
-  min=2,
-  max=6,
-  description='Armored tribal infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3fe1af06001770f668='5fb1ba3fe1af06001770f668'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f668]={
-  id=g_str_5fb1ba3fe1af06001770f668,
-  name='Bow Levy',
-  min=1,
-  max=6,
-  description='Former Qin bowmen or Chinese conscript levy bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3fe1af06001770f66c='5fb1ba3fe1af06001770f66c'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f66c]={
-  id=g_str_5fb1ba3fe1af06001770f66c,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Hastily armed Chinese laborers',
-  troop_type="Horde",
-}
-g_str_5fb1ba3fe1af06001770f66d='5fb1ba3fe1af06001770f66d'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f66d]={
-  id=g_str_5fb1ba3fe1af06001770f66d,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Hastily armed Chinese laborers',
-  troop_type="Rabble",
-}
-g_str_5fb1b9f1e1af06001770a1ba_camp='5fb1b9f1e1af06001770a1ba_camp'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp]={
-  id=g_str_5fb1b9f1e1af06001770a1ba_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f1e1af06001770a1ba_camp_fortified='5fb1b9f1e1af06001770a1ba_camp_fortified'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp_fortified]={
-  id=g_str_5fb1b9f1e1af06001770a1ba_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9f1e1af06001770a1ba_camp_pack_train='5fb1b9f1e1af06001770a1ba_camp_pack_train'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp_pack_train]={
-  id=g_str_5fb1b9f1e1af06001770a1ba_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9f1e1af06001770a1ba']={
   data={
     name='Former Qin  351 to 394 AD',
     id='5fb1b9f1e1af06001770a1ba',
-    army_id='5fb1b9f1e1af06001770a1ba'
+    dateRange={
+      startDate=351,
+      endDate=394,
+    }
   },
   g_base_definitions[g_str_5fb1ba3fe1af06001770f656_general],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f656],
@@ -302,81 +32,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f1e1af06001770a1ba"] = army["5fb1b9f1e1af06001770a1ba"]
-army['5fb1b9f1e1af06001770a1ba_351_382']={
-  data={
-    name='Former Qin 351 AD to 382 AD',
-    id='5fb1b9f1e1af06001770a1ba_351_382',
-    army_id='5fb1b9f1e1af06001770a1ba'
-  },
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f656_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f656],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f658_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f658],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65a_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65a],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65c],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65d],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65f],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f661],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f664],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f665],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f668],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f66c],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f66d],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp_fortified],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp_pack_train],
-}
-army['5fb1b9f1e1af06001770a1ba_383_383']={
-  data={
-    name='Former Qin 383 AD',
-    id='5fb1b9f1e1af06001770a1ba_383_383',
-    army_id='5fb1b9f1e1af06001770a1ba'
-  },
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f656_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f656],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f658_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f658],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65a_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65a],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65c],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65d],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65f],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f661],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f664],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f665],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f668],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f66c],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f66d],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp_fortified],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp_pack_train],
-}
-army['5fb1b9f1e1af06001770a1ba_384_394']={
-  data={
-    name='Former Qin 384 AD to 394 AD',
-    id='5fb1b9f1e1af06001770a1ba_384_394',
-    army_id='5fb1b9f1e1af06001770a1ba'
-  },
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f656_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f656],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f658_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f658],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65a_general],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65a],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65c],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65d],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f65f],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f661],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f664],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f665],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f668],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f66c],
-  g_base_definitions[g_str_5fb1ba3fe1af06001770f66d],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp_fortified],
-  g_base_definitions[g_str_5fb1b9f1e1af06001770a1ba_camp_pack_train],
-}
 if nil == armies["Mandate of Heaven"] then
   armies["Mandate of Heaven"] ={}
 end
@@ -393,7 +48,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f1e1af06001770a1ba"] = {}
-army_dates["5fb1b9f1e1af06001770a1ba"]["351 AD to 394 AD"] ="5fb1b9f1e1af06001770a1ba"
-army_dates["5fb1b9f1e1af06001770a1ba"]["351 AD to 382 AD"] ="5fb1b9f1e1af06001770a1ba_351_382"
-army_dates["5fb1b9f1e1af06001770a1ba"]["383 AD"] ="5fb1b9f1e1af06001770a1ba_383_383"
-army_dates["5fb1b9f1e1af06001770a1ba"]["384 AD to 394 AD"] ="5fb1b9f1e1af06001770a1ba_384_394"
+army_dates["5fb1b9f1e1af06001770a1ba"]["351 AD to 394 AD"] = {
+  startDate=351,
+  endDate=394
+}
+army_dates["5fb1b9f1e1af06001770a1ba"]["351 AD to 382 AD"] = {
+  startDate=351,
+  endDate=382
+}
+army_dates["5fb1b9f1e1af06001770a1ba"]["383 AD"] = {
+  startDate=383,
+  endDate=383
+}
+army_dates["5fb1b9f1e1af06001770a1ba"]["384 AD to 394 AD"] = {
+  startDate=384,
+  endDate=394
+}

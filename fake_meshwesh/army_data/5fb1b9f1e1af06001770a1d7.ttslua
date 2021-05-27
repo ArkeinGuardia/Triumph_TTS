@@ -1,136 +1,13 @@
 -- 5fb1b9f1e1af06001770a1d7 Early Vietnamese  700 BC to 135 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3fe1af06001770f6b2']= {
-  min=0,
-  max=2,
-  description='Axemen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6b3']= {
-  troop_option='5fb1ba3fe1af06001770f6b2',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba3fe1af06001770f6b4']= {
-  min=6,
-  max=14,
-  description='Infantry armed with mixed spear and boot-shaped axe',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6b5']= {
-  troop_option='5fb1ba3fe1af06001770f6b4',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba3fe1af06001770f6b6']= {
-  min=3,
-  max=9,
-  description='Bowmen and crossbowmen',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6b7']= {
-  troop_option='5fb1ba3fe1af06001770f6b6',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3fe1af06001770f6b8']= {
-  min=0,
-  max=4,
-  description='Unshielded spearmen',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6b9']= {
-  troop_option='5fb1ba3fe1af06001770f6b8',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba3fe1af06001770f6b3_general='5fb1ba3fe1af06001770f6b3_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6b3_general]={
-  id=g_str_5fb1ba3fe1af06001770f6b3_general,
-  name='Raiders General',
-  min=0,
-  max=1,
-  description='Axemen',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba3fe1af06001770f6b3='5fb1ba3fe1af06001770f6b3'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6b3]={
-  id=g_str_5fb1ba3fe1af06001770f6b3,
-  name='Raiders',
-  min=0,
-  max=2,
-  description='Axemen',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3fe1af06001770f6b5_general='5fb1ba3fe1af06001770f6b5_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6b5_general]={
-  id=g_str_5fb1ba3fe1af06001770f6b5_general,
-  name='Warband General',
-  min=6,
-  max=1,
-  description='Infantry armed with mixed spear and boot-shaped axe',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba3fe1af06001770f6b5='5fb1ba3fe1af06001770f6b5'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6b5]={
-  id=g_str_5fb1ba3fe1af06001770f6b5,
-  name='Warband',
-  min=6,
-  max=14,
-  description='Infantry armed with mixed spear and boot-shaped axe',
-  troop_type="Warband",
-}
-g_str_5fb1ba3fe1af06001770f6b7='5fb1ba3fe1af06001770f6b7'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6b7]={
-  id=g_str_5fb1ba3fe1af06001770f6b7,
-  name='Bow Levy',
-  min=3,
-  max=9,
-  description='Bowmen and crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3fe1af06001770f6b9='5fb1ba3fe1af06001770f6b9'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6b9]={
-  id=g_str_5fb1ba3fe1af06001770f6b9,
-  name='Rabble',
-  min=0,
-  max=4,
-  description='Unshielded spearmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9f1e1af06001770a1d7_camp='5fb1b9f1e1af06001770a1d7_camp'
-g_base_definitions[g_str_5fb1b9f1e1af06001770a1d7_camp]={
-  id=g_str_5fb1b9f1e1af06001770a1d7_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1ba17e1af06001770ba14='5fb1ba17e1af06001770ba14'
-g_base_definitions[g_str_5fb1ba17e1af06001770ba14]={
-  id=g_str_5fb1ba17e1af06001770ba14,
-  name='Light Foot',
-  min=1,
-  max=3,
-  description='Hill tribesmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba17e1af06001770ba16='5fb1ba17e1af06001770ba16'
-g_base_definitions[g_str_5fb1ba17e1af06001770ba16]={
-  id=g_str_5fb1ba17e1af06001770ba16,
-  name='Bow Levy',
-  min=1,
-  max=2,
-  description='Hill tribe bowmen',
-  troop_type="Bow Levy",
-}
 army['5fb1b9f1e1af06001770a1d7']={
   data={
     name='Early Vietnamese  700 BC to 135 AD',
     id='5fb1b9f1e1af06001770a1d7',
-    army_id='5fb1b9f1e1af06001770a1d7'
+    dateRange={
+      startDate=-700,
+      endDate=135,
+    }
   },
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6b3_general],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6b3],
@@ -166,4 +43,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f1e1af06001770a1d7"] = {}
-army_dates["5fb1b9f1e1af06001770a1d7"]["700 BC to 135 AD"] ="5fb1b9f1e1af06001770a1d7"
+army_dates["5fb1b9f1e1af06001770a1d7"]["700 BC to 135 AD"] = {
+  startDate=-700,
+  endDate=135
+}

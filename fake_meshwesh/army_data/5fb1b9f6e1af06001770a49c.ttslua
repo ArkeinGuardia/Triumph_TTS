@@ -1,90 +1,13 @@
 -- 5fb1b9f6e1af06001770a49c Amazonian  1350 to 1662 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba44e1af06001770feba']= {
-  min=18,
-  max=24,
-  description='Massed bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba44e1af06001770febb']= {
-  troop_option='5fb1ba44e1af06001770feba',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba44e1af06001770febc']= {
-  min=0,
-  max=3,
-  description='Spearmen',
-}
-g_troop_entry['5fb1ba44e1af06001770febd']= {
-  troop_option='5fb1ba44e1af06001770febc',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba44e1af06001770febe']= {
-  min=0,
-  max=2,
-  description='Skirmishing blowpipe men',
-}
-g_troop_entry['5fb1ba44e1af06001770febf']= {
-  troop_option='5fb1ba44e1af06001770febe',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba44e1af06001770febb_general='5fb1ba44e1af06001770febb_general'
-g_base_definitions[g_str_5fb1ba44e1af06001770febb_general]={
-  id=g_str_5fb1ba44e1af06001770febb_general,
-  name='Bow Levy General',
-  min=18,
-  max=1,
-  description='Massed bowmen',
-  general=true,
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba44e1af06001770febb='5fb1ba44e1af06001770febb'
-g_base_definitions[g_str_5fb1ba44e1af06001770febb]={
-  id=g_str_5fb1ba44e1af06001770febb,
-  name='Bow Levy',
-  min=18,
-  max=24,
-  description='Massed bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba44e1af06001770febd='5fb1ba44e1af06001770febd'
-g_base_definitions[g_str_5fb1ba44e1af06001770febd]={
-  id=g_str_5fb1ba44e1af06001770febd,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Spearmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba44e1af06001770febf='5fb1ba44e1af06001770febf'
-g_base_definitions[g_str_5fb1ba44e1af06001770febf]={
-  id=g_str_5fb1ba44e1af06001770febf,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing blowpipe men',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f6e1af06001770a49c_camp='5fb1b9f6e1af06001770a49c_camp'
-g_base_definitions[g_str_5fb1b9f6e1af06001770a49c_camp]={
-  id=g_str_5fb1b9f6e1af06001770a49c_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f6e1af06001770a49c']={
   data={
     name='Amazonian  1350 to 1662 AD',
     id='5fb1b9f6e1af06001770a49c',
-    army_id='5fb1b9f6e1af06001770a49c'
+    dateRange={
+      startDate=1350,
+      endDate=1662,
+    }
   },
   g_base_definitions[g_str_5fb1ba44e1af06001770febb_general],
   g_base_definitions[g_str_5fb1ba44e1af06001770febb],
@@ -112,4 +35,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f6e1af06001770a49c"] = {}
-army_dates["5fb1b9f6e1af06001770a49c"]["1350 AD to 1662 AD"] ="5fb1b9f6e1af06001770a49c"
+army_dates["5fb1b9f6e1af06001770a49c"]["1350 AD to 1662 AD"] = {
+  startDate=1350,
+  endDate=1662
+}

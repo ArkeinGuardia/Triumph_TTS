@@ -1,279 +1,13 @@
 -- 5fb1b9e8e1af060017709cbb Feudal German Citystates  1106 to 1320 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba34e1af06001770e20e']= {
-  min=0,
-  max=1,
-  description='City men-at-arms and mounted rich burghers',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e20f']= {
-  troop_option='5fb1ba34e1af06001770e20e',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba34e1af06001770e211']= {
-  min=0,
-  max=1,
-  description='Hungarian horse archers',
-  startDate=1150,
-  endDate=1320,
-}
-g_troop_entry['5fb1ba34e1af06001770e213']= {
-  troop_option='5fb1ba34e1af06001770e211',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba34e1af06001770e214']= {
-  min=2,
-  max=4,
-  description='City militia crossbow',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e215']= {
-  troop_option='5fb1ba34e1af06001770e214',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba34e1af06001770e216']= {
-  min=2,
-  max=4,
-  description='City militia spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e217']= {
-  troop_option='5fb1ba34e1af06001770e216',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba34e1af06001770e219']= {
-  min=0,
-  max=3,
-  description='City militia skirmishing bowmen',
-}
-g_troop_entry['5fb1ba34e1af06001770e21a']= {
-  troop_option='5fb1ba34e1af06001770e219',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba34e1af06001770e21c']= {
-  min=0,
-  max=2,
-  description='Brabanter mercenary pikemen',
-  core='all',
-  startDate=1150,
-  endDate=1320,
-}
-g_troop_entry['5fb1ba34e1af06001770e21e']= {
-  troop_option='5fb1ba34e1af06001770e21c',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba34e1af06001770e21f']= {
-  min=0,
-  max=3,
-  description='Poorly equipped heerban',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e220']= {
-  troop_option='5fb1ba34e1af06001770e21f',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba34e1af06001770e221']= {
-  min=0,
-  max=2,
-  description='Heerban crossbowmen or bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e222']= {
-  troop_option='5fb1ba34e1af06001770e221',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba34e1af06001770e223']= {
-  min=0,
-  max=3,
-  description='Mercenary axemen, swordsmen, or halberdiers',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e224']= {
-  troop_option='5fb1ba34e1af06001770e223',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba34e1af06001770e226']= {
-  min=1,
-  max=2,
-  description='Mercenary bowmen or crossbowmen',
-}
-g_troop_entry['5fb1ba34e1af06001770e227']= {
-  troop_option='5fb1ba34e1af06001770e226',
-  troopTypeCode='ARC',
-}
-g_troop_entry['5fb1ba34e1af06001770e228']= {
-  troop_option='5fb1ba34e1af06001770e226',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba34e1af06001770e20f_general='5fb1ba34e1af06001770e20f_general'
-g_base_definitions[g_str_5fb1ba34e1af06001770e20f_general]={
-  id=g_str_5fb1ba34e1af06001770e20f_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='City men-at-arms and mounted rich burghers',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba34e1af06001770e20f='5fb1ba34e1af06001770e20f'
-g_base_definitions[g_str_5fb1ba34e1af06001770e20f]={
-  id=g_str_5fb1ba34e1af06001770e20f,
-  name='Knights',
-  min=0,
-  max=1,
-  description='City men-at-arms and mounted rich burghers',
-  troop_type="Knights",
-}
-g_str_5fb1ba34e1af06001770e213='5fb1ba34e1af06001770e213'
-g_base_definitions[g_str_5fb1ba34e1af06001770e213]={
-  id=g_str_5fb1ba34e1af06001770e213,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Hungarian horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba34e1af06001770e215='5fb1ba34e1af06001770e215'
-g_base_definitions[g_str_5fb1ba34e1af06001770e215]={
-  id=g_str_5fb1ba34e1af06001770e215,
-  name='Bow Levy',
-  min=2,
-  max=4,
-  description='City militia crossbow',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba34e1af06001770e217_general='5fb1ba34e1af06001770e217_general'
-g_base_definitions[g_str_5fb1ba34e1af06001770e217_general]={
-  id=g_str_5fb1ba34e1af06001770e217_general,
-  name='Heavy Foot General',
-  min=2,
-  max=1,
-  description='City militia spearmen',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba34e1af06001770e217='5fb1ba34e1af06001770e217'
-g_base_definitions[g_str_5fb1ba34e1af06001770e217]={
-  id=g_str_5fb1ba34e1af06001770e217,
-  name='Heavy Foot',
-  min=2,
-  max=4,
-  description='City militia spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba34e1af06001770e21a='5fb1ba34e1af06001770e21a'
-g_base_definitions[g_str_5fb1ba34e1af06001770e21a]={
-  id=g_str_5fb1ba34e1af06001770e21a,
-  name='Skirmishers',
-  min=0,
-  max=3,
-  description='City militia skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba34e1af06001770e21e='5fb1ba34e1af06001770e21e'
-g_base_definitions[g_str_5fb1ba34e1af06001770e21e]={
-  id=g_str_5fb1ba34e1af06001770e21e,
-  name='Pikes',
-  min=0,
-  max=2,
-  description='Brabanter mercenary pikemen',
-  troop_type="Pikes",
-}
-g_str_5fb1ba34e1af06001770e220='5fb1ba34e1af06001770e220'
-g_base_definitions[g_str_5fb1ba34e1af06001770e220]={
-  id=g_str_5fb1ba34e1af06001770e220,
-  name='Horde',
-  min=0,
-  max=3,
-  description='Poorly equipped heerban',
-  troop_type="Horde",
-}
-g_str_5fb1ba34e1af06001770e222='5fb1ba34e1af06001770e222'
-g_base_definitions[g_str_5fb1ba34e1af06001770e222]={
-  id=g_str_5fb1ba34e1af06001770e222,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='Heerban crossbowmen or bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba34e1af06001770e224_general='5fb1ba34e1af06001770e224_general'
-g_base_definitions[g_str_5fb1ba34e1af06001770e224_general]={
-  id=g_str_5fb1ba34e1af06001770e224_general,
-  name='Heavy Foot General',
-  min=0,
-  max=1,
-  description='Mercenary axemen, swordsmen, or halberdiers',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba34e1af06001770e224='5fb1ba34e1af06001770e224'
-g_base_definitions[g_str_5fb1ba34e1af06001770e224]={
-  id=g_str_5fb1ba34e1af06001770e224,
-  name='Heavy Foot',
-  min=0,
-  max=3,
-  description='Mercenary axemen, swordsmen, or halberdiers',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba34e1af06001770e227='5fb1ba34e1af06001770e227'
-g_base_definitions[g_str_5fb1ba34e1af06001770e227]={
-  id=g_str_5fb1ba34e1af06001770e227,
-  name='Archers',
-  min=1,
-  max=2,
-  description='Mercenary bowmen or crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba34e1af06001770e228='5fb1ba34e1af06001770e228'
-g_base_definitions[g_str_5fb1ba34e1af06001770e228]={
-  id=g_str_5fb1ba34e1af06001770e228,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Mercenary bowmen or crossbowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e8e1af060017709cbb_camp='5fb1b9e8e1af060017709cbb_camp'
-g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp]={
-  id=g_str_5fb1b9e8e1af060017709cbb_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e8e1af060017709cbb_camp_fortified='5fb1b9e8e1af060017709cbb_camp_fortified'
-g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp_fortified]={
-  id=g_str_5fb1b9e8e1af060017709cbb_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e8e1af060017709cbb_camp_standard_wagon='5fb1b9e8e1af060017709cbb_camp_standard_wagon'
-g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp_standard_wagon]={
-  id=g_str_5fb1b9e8e1af060017709cbb_camp_standard_wagon,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Standard Wagon',
-  standard_wagon=true,
-  troop_type="Camp",
-}
 army['5fb1b9e8e1af060017709cbb']={
   data={
     name='Feudal German Citystates  1106 to 1320 AD',
     id='5fb1b9e8e1af060017709cbb',
-    army_id='5fb1b9e8e1af060017709cbb'
+    dateRange={
+      startDate=1106,
+      endDate=1320,
+    }
   },
   g_base_definitions[g_str_5fb1ba34e1af06001770e20f_general],
   g_base_definitions[g_str_5fb1ba34e1af06001770e20f],
@@ -297,54 +31,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e8e1af060017709cbb"] = army["5fb1b9e8e1af060017709cbb"]
-army['5fb1b9e8e1af060017709cbb_1106_1149']={
-  data={
-    name='Feudal German Citystates 1106 AD to 1149 AD',
-    id='5fb1b9e8e1af060017709cbb_1106_1149',
-    army_id='5fb1b9e8e1af060017709cbb'
-  },
-  g_base_definitions[g_str_5fb1ba34e1af06001770e20f_general],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e20f],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e213],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e215],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e217_general],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e217],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e21a],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e21e],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e220],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e222],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e224_general],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e224],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e227],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e228],
-  g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp],
-  g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp_standard_wagon],
-}
-army['5fb1b9e8e1af060017709cbb_1150_1320']={
-  data={
-    name='Feudal German Citystates 1150 AD to 1320 AD',
-    id='5fb1b9e8e1af060017709cbb_1150_1320',
-    army_id='5fb1b9e8e1af060017709cbb'
-  },
-  g_base_definitions[g_str_5fb1ba34e1af06001770e20f_general],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e20f],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e213],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e215],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e217_general],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e217],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e21a],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e21e],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e220],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e222],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e224_general],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e224],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e227],
-  g_base_definitions[g_str_5fb1ba34e1af06001770e228],
-  g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp],
-  g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e8e1af060017709cbb_camp_standard_wagon],
-}
 if nil == armies["Holy Roman Empire"] then
   armies["Holy Roman Empire"] ={}
 end
@@ -361,6 +47,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e8e1af060017709cbb"] = {}
-army_dates["5fb1b9e8e1af060017709cbb"]["1106 AD to 1320 AD"] ="5fb1b9e8e1af060017709cbb"
-army_dates["5fb1b9e8e1af060017709cbb"]["1106 AD to 1149 AD"] ="5fb1b9e8e1af060017709cbb_1106_1149"
-army_dates["5fb1b9e8e1af060017709cbb"]["1150 AD to 1320 AD"] ="5fb1b9e8e1af060017709cbb_1150_1320"
+army_dates["5fb1b9e8e1af060017709cbb"]["1106 AD to 1320 AD"] = {
+  startDate=1106,
+  endDate=1320
+}
+army_dates["5fb1b9e8e1af060017709cbb"]["1106 AD to 1131 AD"] = {
+  startDate=1106,
+  endDate=1131
+}
+army_dates["5fb1b9e8e1af060017709cbb"]["1132 AD to 1149 AD"] = {
+  startDate=1132,
+  endDate=1149
+}
+army_dates["5fb1b9e8e1af060017709cbb"]["1150 AD to 1249 AD"] = {
+  startDate=1150,
+  endDate=1249
+}
+army_dates["5fb1b9e8e1af060017709cbb"]["1250 AD"] = {
+  startDate=1250,
+  endDate=1250
+}
+army_dates["5fb1b9e8e1af060017709cbb"]["1251 AD to 1297 AD"] = {
+  startDate=1251,
+  endDate=1297
+}
+army_dates["5fb1b9e8e1af060017709cbb"]["1298 AD"] = {
+  startDate=1298,
+  endDate=1298
+}
+army_dates["5fb1b9e8e1af060017709cbb"]["1299 AD to 1320 AD"] = {
+  startDate=1299,
+  endDate=1320
+}

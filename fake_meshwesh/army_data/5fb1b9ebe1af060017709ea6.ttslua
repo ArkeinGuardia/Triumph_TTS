@@ -1,187 +1,13 @@
 -- 5fb1b9ebe1af060017709ea6 Catalan Company  1302 to 1388 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba38e1af06001770ea57']= {
-  min=0,
-  max=1,
-  description='Aragonese men-at-arms',
-}
-g_troop_entry['5fb1ba38e1af06001770ea58']= {
-  troop_option='5fb1ba38e1af06001770ea57',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba38e1af06001770ea59']= {
-  min=0,
-  max=2,
-  description='Aragonese cavalls alforrats',
-}
-g_troop_entry['5fb1ba38e1af06001770ea5a']= {
-  troop_option='5fb1ba38e1af06001770ea59',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba38e1af06001770ea5b']= {
-  min=8,
-  max=15,
-  description='Catalan almughavars',
-  core='all',
-}
-g_troop_entry['5fb1ba38e1af06001770ea5c']= {
-  troop_option='5fb1ba38e1af06001770ea5b',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba38e1af06001770ea5d']= {
-  min=1,
-  max=2,
-  description='Catalan crossbowmen',
-}
-g_troop_entry['5fb1ba38e1af06001770ea5e']= {
-  troop_option='5fb1ba38e1af06001770ea5d',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba38e1af06001770ea5f']= {
-  troop_option='5fb1ba38e1af06001770ea5d',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba38e1af06001770ea60']= {
-  min=0,
-  max=1,
-  description='Armed sailors with crossbow',
-}
-g_troop_entry['5fb1ba38e1af06001770ea61']= {
-  troop_option='5fb1ba38e1af06001770ea60',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba38e1af06001770ea62']= {
-  min=0,
-  max=1,
-  description='Dregs and dependents',
-}
-g_troop_entry['5fb1ba38e1af06001770ea63']= {
-  troop_option='5fb1ba38e1af06001770ea62',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba38e1af06001770ea64']= {
-  min=0,
-  max=2,
-  description='Greek prisoner-of-war bowmen',
-  startDate=1305,
-  endDate=1388,
-}
-g_troop_entry['5fb1ba38e1af06001770ea66']= {
-  troop_option='5fb1ba38e1af06001770ea64',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba38e1af06001770ea58_general='5fb1ba38e1af06001770ea58_general'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea58_general]={
-  id=g_str_5fb1ba38e1af06001770ea58_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Aragonese men-at-arms',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba38e1af06001770ea58='5fb1ba38e1af06001770ea58'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea58]={
-  id=g_str_5fb1ba38e1af06001770ea58,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Aragonese men-at-arms',
-  troop_type="Knights",
-}
-g_str_5fb1ba38e1af06001770ea5a='5fb1ba38e1af06001770ea5a'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea5a]={
-  id=g_str_5fb1ba38e1af06001770ea5a,
-  name='Javelin Cavalry',
-  min=0,
-  max=2,
-  description='Aragonese cavalls alforrats',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba38e1af06001770ea5c_general='5fb1ba38e1af06001770ea5c_general'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea5c_general]={
-  id=g_str_5fb1ba38e1af06001770ea5c_general,
-  name='Light Spear General',
-  min=8,
-  max=1,
-  description='Catalan almughavars',
-  general=true,
-  troop_type="Light Spear",
-}
-g_str_5fb1ba38e1af06001770ea5c='5fb1ba38e1af06001770ea5c'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea5c]={
-  id=g_str_5fb1ba38e1af06001770ea5c,
-  name='Light Spear',
-  min=8,
-  max=15,
-  description='Catalan almughavars',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba38e1af06001770ea5e='5fb1ba38e1af06001770ea5e'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea5e]={
-  id=g_str_5fb1ba38e1af06001770ea5e,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Catalan crossbowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba38e1af06001770ea5f='5fb1ba38e1af06001770ea5f'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea5f]={
-  id=g_str_5fb1ba38e1af06001770ea5f,
-  name='Archers',
-  min=1,
-  max=2,
-  description='Catalan crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba38e1af06001770ea61='5fb1ba38e1af06001770ea61'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea61]={
-  id=g_str_5fb1ba38e1af06001770ea61,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Armed sailors with crossbow',
-  troop_type="Archers",
-}
-g_str_5fb1ba38e1af06001770ea63='5fb1ba38e1af06001770ea63'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea63]={
-  id=g_str_5fb1ba38e1af06001770ea63,
-  name='Horde',
-  min=0,
-  max=1,
-  description='Dregs and dependents',
-  troop_type="Horde",
-}
-g_str_5fb1ba38e1af06001770ea66='5fb1ba38e1af06001770ea66'
-g_base_definitions[g_str_5fb1ba38e1af06001770ea66]={
-  id=g_str_5fb1ba38e1af06001770ea66,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='Greek prisoner-of-war bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9ebe1af060017709ea6_camp='5fb1b9ebe1af060017709ea6_camp'
-g_base_definitions[g_str_5fb1b9ebe1af060017709ea6_camp]={
-  id=g_str_5fb1b9ebe1af060017709ea6_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9ebe1af060017709ea6']={
   data={
     name='Catalan Company  1302 to 1388 AD',
     id='5fb1b9ebe1af060017709ea6',
-    army_id='5fb1b9ebe1af060017709ea6'
+    dateRange={
+      startDate=1302,
+      endDate=1388,
+    }
   },
   g_base_definitions[g_str_5fb1ba38e1af06001770ea58_general],
   g_base_definitions[g_str_5fb1ba38e1af06001770ea58],
@@ -199,42 +25,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9ebe1af060017709ea6"] = army["5fb1b9ebe1af060017709ea6"]
-army['5fb1b9ebe1af060017709ea6_1302_1304']={
-  data={
-    name='Catalan Company 1302 AD to 1304 AD',
-    id='5fb1b9ebe1af060017709ea6_1302_1304',
-    army_id='5fb1b9ebe1af060017709ea6'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea58_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea58],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5a],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5c_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5c],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5e],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5f],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea61],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea63],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea66],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709ea6_camp],
-}
-army['5fb1b9ebe1af060017709ea6_1305_1388']={
-  data={
-    name='Catalan Company 1305 AD to 1388 AD',
-    id='5fb1b9ebe1af060017709ea6_1305_1388',
-    army_id='5fb1b9ebe1af060017709ea6'
-  },
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea58_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea58],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5a],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5c_general],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5c],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5e],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea5f],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea61],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea63],
-  g_base_definitions[g_str_5fb1ba38e1af06001770ea66],
-  g_base_definitions[g_str_5fb1b9ebe1af060017709ea6_camp],
-}
 if nil == armies["Byzantium in Decay"] then
   armies["Byzantium in Decay"] ={}
 end
@@ -247,6 +37,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ebe1af060017709ea6"] = {}
-army_dates["5fb1b9ebe1af060017709ea6"]["1302 AD to 1388 AD"] ="5fb1b9ebe1af060017709ea6"
-army_dates["5fb1b9ebe1af060017709ea6"]["1302 AD to 1304 AD"] ="5fb1b9ebe1af060017709ea6_1302_1304"
-army_dates["5fb1b9ebe1af060017709ea6"]["1305 AD to 1388 AD"] ="5fb1b9ebe1af060017709ea6_1305_1388"
+army_dates["5fb1b9ebe1af060017709ea6"]["1302 AD to 1388 AD"] = {
+  startDate=1302,
+  endDate=1388
+}
+army_dates["5fb1b9ebe1af060017709ea6"]["1302 AD to 1304 AD"] = {
+  startDate=1302,
+  endDate=1304
+}
+army_dates["5fb1b9ebe1af060017709ea6"]["1305 AD to 1320 AD"] = {
+  startDate=1305,
+  endDate=1320
+}
+army_dates["5fb1b9ebe1af060017709ea6"]["1321 AD to 1384 AD"] = {
+  startDate=1321,
+  endDate=1384
+}
+army_dates["5fb1b9ebe1af060017709ea6"]["1385 AD to 1388 AD"] = {
+  startDate=1385,
+  endDate=1388
+}

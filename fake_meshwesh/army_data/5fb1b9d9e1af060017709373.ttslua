@@ -1,195 +1,13 @@
 -- 5fb1b9d9e1af060017709373 Minoan and Early Mycenaean  1600 to 1250 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba20e1af06001770c030']= {
-  min=1,
-  max=4,
-  description='2-horse chariots or battle platforms.  Chariot if armed with bow, or with dendra panoply and long spear; Battle Taxi if armed with javelin and lighter armor',
-}
-g_troop_entry['5fb1ba20e1af06001770c031']= {
-  troop_option='5fb1ba20e1af06001770c030',
-  troopTypeCode='CHT',
-}
-g_troop_entry['5fb1ba20e1af06001770c032']= {
-  troop_option='5fb1ba20e1af06001770c030',
-  troopTypeCode='BTX',
-}
-g_troop_option['5fb1ba20e1af06001770c033']= {
-  min=6,
-  max=14,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c034']= {
-  troop_option='5fb1ba20e1af06001770c033',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba20e1af06001770c036']= {
-  min=0,
-  max=4,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba20e1af06001770c037']= {
-  troop_option='5fb1ba20e1af06001770c036',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba20e1af06001770c039']= {
-  min=0,
-  max=2,
-  description='Pylians',
-}
-g_troop_entry['5fb1ba20e1af06001770c03a']= {
-  troop_option='5fb1ba20e1af06001770c039',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba20e1af06001770c03b']= {
-  min=1,
-  max=2,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba20e1af06001770c03c']= {
-  troop_option='5fb1ba20e1af06001770c03b',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba20e1af06001770c03d']= {
-  min=0,
-  max=1,
-  description='Slingers',
-}
-g_troop_entry['5fb1ba20e1af06001770c03e']= {
-  troop_option='5fb1ba20e1af06001770c03d',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba20e1af06001770c03f']= {
-  min=0,
-  max=2,
-  description='Libyan tribesmen with javelins, throwing sticks, and clubs',
-}
-g_troop_entry['5fb1ba20e1af06001770c040']= {
-  troop_option='5fb1ba20e1af06001770c03f',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba20e1af06001770c031_general='5fb1ba20e1af06001770c031_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770c031_general]={
-  id=g_str_5fb1ba20e1af06001770c031_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='2-horse chariots or battle platforms.  Chariot if armed with bow, or with dendra panoply and long spear; Battle Taxi if armed with javelin and lighter armor',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c031='5fb1ba20e1af06001770c031'
-g_base_definitions[g_str_5fb1ba20e1af06001770c031]={
-  id=g_str_5fb1ba20e1af06001770c031,
-  name='Chariots',
-  min=1,
-  max=4,
-  description='2-horse chariots or battle platforms.  Chariot if armed with bow, or with dendra panoply and long spear; Battle Taxi if armed with javelin and lighter armor',
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c032_general='5fb1ba20e1af06001770c032_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770c032_general]={
-  id=g_str_5fb1ba20e1af06001770c032_general,
-  name='Battle Taxi General',
-  min=1,
-  max=1,
-  description='2-horse chariots or battle platforms.  Chariot if armed with bow, or with dendra panoply and long spear; Battle Taxi if armed with javelin and lighter armor',
-  general=true,
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba20e1af06001770c032='5fb1ba20e1af06001770c032'
-g_base_definitions[g_str_5fb1ba20e1af06001770c032]={
-  id=g_str_5fb1ba20e1af06001770c032,
-  name='Battle Taxi',
-  min=1,
-  max=4,
-  description='2-horse chariots or battle platforms.  Chariot if armed with bow, or with dendra panoply and long spear; Battle Taxi if armed with javelin and lighter armor',
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba20e1af06001770c034='5fb1ba20e1af06001770c034'
-g_base_definitions[g_str_5fb1ba20e1af06001770c034]={
-  id=g_str_5fb1ba20e1af06001770c034,
-  name='Pikes',
-  min=6,
-  max=14,
-  description='Spearmen',
-  troop_type="Pikes",
-}
-g_str_5fb1ba20e1af06001770c037='5fb1ba20e1af06001770c037'
-g_base_definitions[g_str_5fb1ba20e1af06001770c037]={
-  id=g_str_5fb1ba20e1af06001770c037,
-  name='Skirmishers',
-  min=0,
-  max=4,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba20e1af06001770c03a='5fb1ba20e1af06001770c03a'
-g_base_definitions[g_str_5fb1ba20e1af06001770c03a]={
-  id=g_str_5fb1ba20e1af06001770c03a,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Pylians',
-  troop_type="Rabble",
-}
-g_str_5fb1ba20e1af06001770c03c='5fb1ba20e1af06001770c03c'
-g_base_definitions[g_str_5fb1ba20e1af06001770c03c]={
-  id=g_str_5fb1ba20e1af06001770c03c,
-  name='Bow Levy',
-  min=1,
-  max=2,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba20e1af06001770c03e='5fb1ba20e1af06001770c03e'
-g_base_definitions[g_str_5fb1ba20e1af06001770c03e]={
-  id=g_str_5fb1ba20e1af06001770c03e,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba20e1af06001770c040='5fb1ba20e1af06001770c040'
-g_base_definitions[g_str_5fb1ba20e1af06001770c040]={
-  id=g_str_5fb1ba20e1af06001770c040,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Libyan tribesmen with javelins, throwing sticks, and clubs',
-  troop_type="Rabble",
-}
-g_str_5fb1b9d9e1af060017709373_camp='5fb1b9d9e1af060017709373_camp'
-g_base_definitions[g_str_5fb1b9d9e1af060017709373_camp]={
-  id=g_str_5fb1b9d9e1af060017709373_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9d9e1af060017709373_camp_pack_train='5fb1b9d9e1af060017709373_camp_pack_train'
-g_base_definitions[g_str_5fb1b9d9e1af060017709373_camp_pack_train]={
-  id=g_str_5fb1b9d9e1af060017709373_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9d9e1af060017709373']={
   data={
     name='Minoan and Early Mycenaean  1600 to 1250 BC',
     id='5fb1b9d9e1af060017709373',
-    army_id='5fb1b9d9e1af060017709373'
+    dateRange={
+      startDate=-1600,
+      endDate=-1250,
+    }
   },
   g_base_definitions[g_str_5fb1ba20e1af06001770c031_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770c031],
@@ -220,4 +38,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af060017709373"] = {}
-army_dates["5fb1b9d9e1af060017709373"]["1600 BC to 1250 BC"] ="5fb1b9d9e1af060017709373"
+army_dates["5fb1b9d9e1af060017709373"]["1600 BC to 1250 BC"] = {
+  startDate=-1600,
+  endDate=-1250
+}

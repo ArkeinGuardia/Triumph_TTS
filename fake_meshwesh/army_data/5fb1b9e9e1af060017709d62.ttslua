@@ -1,316 +1,13 @@
 -- 5fb1b9e9e1af060017709d62 Early Hungarian  997 to 1245 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba35e1af06001770e50a']= {
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba35e1af06001770e50b']= {
-  troop_option='5fb1ba35e1af06001770e50a',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba35e1af06001770e50c']= {
-  min=0,
-  max=1,
-  description='Western mercenary men-at-arms',
-  core='all',
-}
-g_troop_entry['5fb1ba35e1af06001770e50d']= {
-  troop_option='5fb1ba35e1af06001770e50c',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba35e1af06001770e50e']= {
-  min=3,
-  max=8,
-  description='Skirmishing horse archers',
-}
-g_troop_entry['5fb1ba35e1af06001770e50f']= {
-  troop_option='5fb1ba35e1af06001770e50e',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba35e1af06001770e510']= {
-  min=0,
-  max=2,
-  description='Szekely borderers',
-}
-g_troop_entry['5fb1ba35e1af06001770e511']= {
-  troop_option='5fb1ba35e1af06001770e510',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba35e1af06001770e512']= {
-  min=1,
-  max=2,
-  description='Bisseni -- Pecheneg or other nomad horse archers',
-  startDate=1050,
-  endDate=1245,
-}
-g_troop_entry['5fb1ba35e1af06001770e514']= {
-  troop_option='5fb1ba35e1af06001770e512',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba35e1af06001770e515']= {
-  min=0,
-  max=1,
-  description='Croat horsemen',
-  core='all',
-  startDate=1103,
-  endDate=1245,
-}
-g_troop_entry['5fb1ba35e1af06001770e517']= {
-  troop_option='5fb1ba35e1af06001770e515',
-  troopTypeCode='KNT',
-}
-g_troop_entry['5fb1ba35e1af06001770e518']= {
-  troop_option='5fb1ba35e1af06001770e515',
-  troopTypeCode='HBW',
-}
-g_str_5fb1ba35e1af06001770e50b_general='5fb1ba35e1af06001770e50b_general'
-g_base_definitions[g_str_5fb1ba35e1af06001770e50b_general]={
-  id=g_str_5fb1ba35e1af06001770e50b_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba35e1af06001770e50b='5fb1ba35e1af06001770e50b'
-g_base_definitions[g_str_5fb1ba35e1af06001770e50b]={
-  id=g_str_5fb1ba35e1af06001770e50b,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba35e1af06001770e50d_general='5fb1ba35e1af06001770e50d_general'
-g_base_definitions[g_str_5fb1ba35e1af06001770e50d_general]={
-  id=g_str_5fb1ba35e1af06001770e50d_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Western mercenary men-at-arms',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba35e1af06001770e50d='5fb1ba35e1af06001770e50d'
-g_base_definitions[g_str_5fb1ba35e1af06001770e50d]={
-  id=g_str_5fb1ba35e1af06001770e50d,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Western mercenary men-at-arms',
-  troop_type="Knights",
-}
-g_str_5fb1ba35e1af06001770e50f_general='5fb1ba35e1af06001770e50f_general'
-g_base_definitions[g_str_5fb1ba35e1af06001770e50f_general]={
-  id=g_str_5fb1ba35e1af06001770e50f_general,
-  name='Horse Bow General',
-  min=3,
-  max=1,
-  description='Skirmishing horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba35e1af06001770e50f='5fb1ba35e1af06001770e50f'
-g_base_definitions[g_str_5fb1ba35e1af06001770e50f]={
-  id=g_str_5fb1ba35e1af06001770e50f,
-  name='Horse Bow',
-  min=3,
-  max=8,
-  description='Skirmishing horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba35e1af06001770e511_general='5fb1ba35e1af06001770e511_general'
-g_base_definitions[g_str_5fb1ba35e1af06001770e511_general]={
-  id=g_str_5fb1ba35e1af06001770e511_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Szekely borderers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba35e1af06001770e511='5fb1ba35e1af06001770e511'
-g_base_definitions[g_str_5fb1ba35e1af06001770e511]={
-  id=g_str_5fb1ba35e1af06001770e511,
-  name='Horse Bow',
-  min=0,
-  max=2,
-  description='Szekely borderers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba35e1af06001770e514_general='5fb1ba35e1af06001770e514_general'
-g_base_definitions[g_str_5fb1ba35e1af06001770e514_general]={
-  id=g_str_5fb1ba35e1af06001770e514_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Bisseni -- Pecheneg or other nomad horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba35e1af06001770e514='5fb1ba35e1af06001770e514'
-g_base_definitions[g_str_5fb1ba35e1af06001770e514]={
-  id=g_str_5fb1ba35e1af06001770e514,
-  name='Horse Bow',
-  min=1,
-  max=2,
-  description='Bisseni -- Pecheneg or other nomad horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba35e1af06001770e517_general='5fb1ba35e1af06001770e517_general'
-g_base_definitions[g_str_5fb1ba35e1af06001770e517_general]={
-  id=g_str_5fb1ba35e1af06001770e517_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Croat horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba35e1af06001770e517='5fb1ba35e1af06001770e517'
-g_base_definitions[g_str_5fb1ba35e1af06001770e517]={
-  id=g_str_5fb1ba35e1af06001770e517,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Croat horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba35e1af06001770e518_general='5fb1ba35e1af06001770e518_general'
-g_base_definitions[g_str_5fb1ba35e1af06001770e518_general]={
-  id=g_str_5fb1ba35e1af06001770e518_general,
-  name='Horse Bow General',
-  min=0,
-  max=1,
-  description='Croat horsemen',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba35e1af06001770e518='5fb1ba35e1af06001770e518'
-g_base_definitions[g_str_5fb1ba35e1af06001770e518]={
-  id=g_str_5fb1ba35e1af06001770e518,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Croat horsemen',
-  troop_type="Horse Bow",
-}
-g_str_5fb1b9e9e1af060017709d62_camp='5fb1b9e9e1af060017709d62_camp'
-g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp]={
-  id=g_str_5fb1b9e9e1af060017709d62_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e9e1af060017709d62_camp_pack_train='5fb1b9e9e1af060017709d62_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_pack_train]={
-  id=g_str_5fb1b9e9e1af060017709d62_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e9e1af060017709d62_camp_fortified='5fb1b9e9e1af060017709d62_camp_fortified'
-g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_fortified]={
-  id=g_str_5fb1b9e9e1af060017709d62_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e9e1af060017709d62_camp_standard_wagon='5fb1b9e9e1af060017709d62_camp_standard_wagon'
-g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_standard_wagon]={
-  id=g_str_5fb1b9e9e1af060017709d62_camp_standard_wagon,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Standard Wagon',
-  standard_wagon=true,
-  troop_type="Camp",
-}
-g_str_5fb1ba13e1af06001770b3b9='5fb1ba13e1af06001770b3b9'
-g_base_definitions[g_str_5fb1ba13e1af06001770b3b9]={
-  id=g_str_5fb1ba13e1af06001770b3b9,
-  name='Light Foot',
-  min=2,
-  max=3,
-  description='Croat infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba13e1af06001770b3ba='5fb1ba13e1af06001770b3ba'
-g_base_definitions[g_str_5fb1ba13e1af06001770b3ba]={
-  id=g_str_5fb1ba13e1af06001770b3ba,
-  name='Heavy Foot',
-  min=2,
-  max=3,
-  description='Croat infantry',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba13e1af06001770b3bd='5fb1ba13e1af06001770b3bd'
-g_base_definitions[g_str_5fb1ba13e1af06001770b3bd]={
-  id=g_str_5fb1ba13e1af06001770b3bd,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Croat skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba13e1af06001770b3bf='5fb1ba13e1af06001770b3bf'
-g_base_definitions[g_str_5fb1ba13e1af06001770b3bf]={
-  id=g_str_5fb1ba13e1af06001770b3bf,
-  name='Heavy Foot',
-  min=1,
-  max=3,
-  description='Hungarian Slav infantry',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba13e1af06001770b3c1='5fb1ba13e1af06001770b3c1'
-g_base_definitions[g_str_5fb1ba13e1af06001770b3c1]={
-  id=g_str_5fb1ba13e1af06001770b3c1,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Hungarian Slav skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba13e1af06001770b3c3='5fb1ba13e1af06001770b3c3'
-g_base_definitions[g_str_5fb1ba13e1af06001770b3c3]={
-  id=g_str_5fb1ba13e1af06001770b3c3,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Serb or Vlach infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba13e1af06001770b3c4='5fb1ba13e1af06001770b3c4'
-g_base_definitions[g_str_5fb1ba13e1af06001770b3c4]={
-  id=g_str_5fb1ba13e1af06001770b3c4,
-  name='Bow Levy',
-  min=0,
-  max=1,
-  description='Serb or Vlach infantry',
-  troop_type="Bow Levy",
-}
 army['5fb1b9e9e1af060017709d62']={
   data={
     name='Early Hungarian  997 to 1245 AD',
     id='5fb1b9e9e1af060017709d62',
-    army_id='5fb1b9e9e1af060017709d62'
+    dateRange={
+      startDate=997,
+      endDate=1245,
+    }
   },
   g_base_definitions[g_str_5fb1ba35e1af06001770e50b_general],
   g_base_definitions[g_str_5fb1ba35e1af06001770e50b],
@@ -342,102 +39,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e9e1af060017709d62"] = army["5fb1b9e9e1af060017709d62"]
-army['5fb1b9e9e1af060017709d62_997_1049']={
-  data={
-    name='Early Hungarian 997 AD to 1049 AD',
-    id='5fb1b9e9e1af060017709d62_997_1049',
-    army_id='5fb1b9e9e1af060017709d62'
-  },
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50b_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50b],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50d_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50d],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50f_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50f],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e511_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e511],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e514_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e514],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e517_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e517],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e518_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e518],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_standard_wagon],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3b9],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3ba],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3bd],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3bf],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c1],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c3],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c4],
-}
-army['5fb1b9e9e1af060017709d62_1050_1102']={
-  data={
-    name='Early Hungarian 1050 AD to 1102 AD',
-    id='5fb1b9e9e1af060017709d62_1050_1102',
-    army_id='5fb1b9e9e1af060017709d62'
-  },
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50b_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50b],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50d_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50d],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50f_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50f],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e511_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e511],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e514_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e514],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e517_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e517],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e518_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e518],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_standard_wagon],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3b9],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3ba],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3bd],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3bf],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c1],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c3],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c4],
-}
-army['5fb1b9e9e1af060017709d62_1103_1245']={
-  data={
-    name='Early Hungarian 1103 AD to 1245 AD',
-    id='5fb1b9e9e1af060017709d62_1103_1245',
-    army_id='5fb1b9e9e1af060017709d62'
-  },
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50b_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50b],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50d_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50d],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50f_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e50f],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e511_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e511],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e514_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e514],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e517_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e517],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e518_general],
-  g_base_definitions[g_str_5fb1ba35e1af06001770e518],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_pack_train],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_fortified],
-  g_base_definitions[g_str_5fb1b9e9e1af060017709d62_camp_standard_wagon],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3b9],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3ba],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3bd],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3bf],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c1],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c3],
-  g_base_definitions[g_str_5fb1ba13e1af06001770b3c4],
-}
 if nil == armies["Italy and Balkans"] then
   armies["Italy and Balkans"] ={}
 end
@@ -454,7 +55,59 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e9e1af060017709d62"] = {}
-army_dates["5fb1b9e9e1af060017709d62"]["997 AD to 1245 AD"] ="5fb1b9e9e1af060017709d62"
-army_dates["5fb1b9e9e1af060017709d62"]["997 AD to 1049 AD"] ="5fb1b9e9e1af060017709d62_997_1049"
-army_dates["5fb1b9e9e1af060017709d62"]["1050 AD to 1102 AD"] ="5fb1b9e9e1af060017709d62_1050_1102"
-army_dates["5fb1b9e9e1af060017709d62"]["1103 AD to 1245 AD"] ="5fb1b9e9e1af060017709d62_1103_1245"
+army_dates["5fb1b9e9e1af060017709d62"]["997 AD to 1245 AD"] = {
+  startDate=997,
+  endDate=1245
+}
+army_dates["5fb1b9e9e1af060017709d62"]["997 AD to 1049 AD"] = {
+  startDate=997,
+  endDate=1049
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1050 AD to 1053 AD"] = {
+  startDate=1050,
+  endDate=1053
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1054 AD to 1102 AD"] = {
+  startDate=1054,
+  endDate=1102
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1103 AD to 1104 AD"] = {
+  startDate=1103,
+  endDate=1104
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1105 AD to 1116 AD"] = {
+  startDate=1105,
+  endDate=1116
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1117 AD to 1121 AD"] = {
+  startDate=1117,
+  endDate=1121
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1122 AD to 1180 AD"] = {
+  startDate=1122,
+  endDate=1180
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1181 AD to 1200 AD"] = {
+  startDate=1181,
+  endDate=1200
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1201 AD to 1237 AD"] = {
+  startDate=1201,
+  endDate=1237
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1238 AD to 1240 AD"] = {
+  startDate=1238,
+  endDate=1240
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1241 AD"] = {
+  startDate=1241,
+  endDate=1241
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1242 AD"] = {
+  startDate=1242,
+  endDate=1242
+}
+army_dates["5fb1b9e9e1af060017709d62"]["1243 AD to 1245 AD"] = {
+  startDate=1243,
+  endDate=1245
+}

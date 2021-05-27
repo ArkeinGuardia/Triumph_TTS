@@ -1,121 +1,13 @@
 -- 5fb1b9e9e1af060017709d15 Early Renaissance Swiss  1478 to 1522 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba34e1af06001770e391']= {
-  min=11,
-  max=15,
-  description='Pikemen mixed with some halberdiers',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e392']= {
-  troop_option='5fb1ba34e1af06001770e391',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba34e1af06001770e393']= {
-  min=0,
-  max=1,
-  description='Separately deployed halberdiers, some with armor',
-}
-g_troop_entry['5fb1ba34e1af06001770e394']= {
-  troop_option='5fb1ba34e1af06001770e393',
-  troopTypeCode='RDR',
-}
-g_troop_entry['5fb1ba34e1af06001770e395']= {
-  troop_option='5fb1ba34e1af06001770e393',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba34e1af06001770e396']= {
-  min=1,
-  max=2,
-  description='Skirmishing handgunners',
-}
-g_troop_entry['5fb1ba34e1af06001770e397']= {
-  troop_option='5fb1ba34e1af06001770e396',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba34e1af06001770e398']= {
-  min=0,
-  max=1,
-  description='Skirmishing crossbowmen or handgunners',
-}
-g_troop_entry['5fb1ba34e1af06001770e399']= {
-  troop_option='5fb1ba34e1af06001770e398',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba34e1af06001770e392_general='5fb1ba34e1af06001770e392_general'
-g_base_definitions[g_str_5fb1ba34e1af06001770e392_general]={
-  id=g_str_5fb1ba34e1af06001770e392_general,
-  name='Pikes General',
-  min=11,
-  max=1,
-  description='Pikemen mixed with some halberdiers',
-  general=true,
-  troop_type="Pikes",
-}
-g_str_5fb1ba34e1af06001770e392='5fb1ba34e1af06001770e392'
-g_base_definitions[g_str_5fb1ba34e1af06001770e392]={
-  id=g_str_5fb1ba34e1af06001770e392,
-  name='Pikes',
-  min=11,
-  max=15,
-  description='Pikemen mixed with some halberdiers',
-  troop_type="Pikes",
-}
-g_str_5fb1ba34e1af06001770e394='5fb1ba34e1af06001770e394'
-g_base_definitions[g_str_5fb1ba34e1af06001770e394]={
-  id=g_str_5fb1ba34e1af06001770e394,
-  name='Raiders',
-  min=0,
-  max=1,
-  description='Separately deployed halberdiers, some with armor',
-  troop_type="Raiders",
-}
-g_str_5fb1ba34e1af06001770e395='5fb1ba34e1af06001770e395'
-g_base_definitions[g_str_5fb1ba34e1af06001770e395]={
-  id=g_str_5fb1ba34e1af06001770e395,
-  name='Elite Foot',
-  min=0,
-  max=1,
-  description='Separately deployed halberdiers, some with armor',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba34e1af06001770e397='5fb1ba34e1af06001770e397'
-g_base_definitions[g_str_5fb1ba34e1af06001770e397]={
-  id=g_str_5fb1ba34e1af06001770e397,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Skirmishing handgunners',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba34e1af06001770e399='5fb1ba34e1af06001770e399'
-g_base_definitions[g_str_5fb1ba34e1af06001770e399]={
-  id=g_str_5fb1ba34e1af06001770e399,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Skirmishing crossbowmen or handgunners',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e9e1af060017709d15_camp='5fb1b9e9e1af060017709d15_camp'
-g_base_definitions[g_str_5fb1b9e9e1af060017709d15_camp]={
-  id=g_str_5fb1b9e9e1af060017709d15_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e9e1af060017709d15']={
   data={
     name='Early Renaissance Swiss  1478 to 1522 AD',
     id='5fb1b9e9e1af060017709d15',
-    army_id='5fb1b9e9e1af060017709d15'
+    dateRange={
+      startDate=1478,
+      endDate=1522,
+    }
   },
   g_base_definitions[g_str_5fb1ba34e1af06001770e392_general],
   g_base_definitions[g_str_5fb1ba34e1af06001770e392],
@@ -153,4 +45,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e9e1af060017709d15"] = {}
-army_dates["5fb1b9e9e1af060017709d15"]["1478 AD to 1522 AD"] ="5fb1b9e9e1af060017709d15"
+army_dates["5fb1b9e9e1af060017709d15"]["1478 AD to 1522 AD"] = {
+  startDate=1478,
+  endDate=1522
+}

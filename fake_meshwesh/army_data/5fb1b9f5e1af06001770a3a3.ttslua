@@ -1,90 +1,13 @@
 -- 5fb1b9f5e1af06001770a3a3 Early Horizon Period Maya  400 BC to 200 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba43e1af06001770fd23']= {
-  min=2,
-  max=6,
-  description='Nobles and elite infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fd24']= {
-  troop_option='5fb1ba43e1af06001770fd23',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba43e1af06001770fd25']= {
-  min=12,
-  max=21,
-  description='Commoners, some carrying roll-up shields',
-}
-g_troop_entry['5fb1ba43e1af06001770fd26']= {
-  troop_option='5fb1ba43e1af06001770fd25',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba43e1af06001770fd27']= {
-  min=0,
-  max=4,
-  description='Peasant skirmishing slingers',
-}
-g_troop_entry['5fb1ba43e1af06001770fd28']= {
-  troop_option='5fb1ba43e1af06001770fd27',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba43e1af06001770fd24_general='5fb1ba43e1af06001770fd24_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd24_general]={
-  id=g_str_5fb1ba43e1af06001770fd24_general,
-  name='Light Foot General',
-  min=2,
-  max=1,
-  description='Nobles and elite infantry',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd24='5fb1ba43e1af06001770fd24'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd24]={
-  id=g_str_5fb1ba43e1af06001770fd24,
-  name='Light Foot',
-  min=2,
-  max=6,
-  description='Nobles and elite infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd26='5fb1ba43e1af06001770fd26'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd26]={
-  id=g_str_5fb1ba43e1af06001770fd26,
-  name='Rabble',
-  min=12,
-  max=21,
-  description='Commoners, some carrying roll-up shields',
-  troop_type="Rabble",
-}
-g_str_5fb1ba43e1af06001770fd28='5fb1ba43e1af06001770fd28'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd28]={
-  id=g_str_5fb1ba43e1af06001770fd28,
-  name='Skirmishers',
-  min=0,
-  max=4,
-  description='Peasant skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f5e1af06001770a3a3_camp='5fb1b9f5e1af06001770a3a3_camp'
-g_base_definitions[g_str_5fb1b9f5e1af06001770a3a3_camp]={
-  id=g_str_5fb1b9f5e1af06001770a3a3_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f5e1af06001770a3a3']={
   data={
     name='Early Horizon Period Maya  400 BC to 200 AD',
     id='5fb1b9f5e1af06001770a3a3',
-    army_id='5fb1b9f5e1af06001770a3a3'
+    dateRange={
+      startDate=-400,
+      endDate=200,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fd24_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd24],
@@ -112,4 +35,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f5e1af06001770a3a3"] = {}
-army_dates["5fb1b9f5e1af06001770a3a3"]["400 BC to 200 AD"] ="5fb1b9f5e1af06001770a3a3"
+army_dates["5fb1b9f5e1af06001770a3a3"]["400 BC to 200 AD"] = {
+  startDate=-400,
+  endDate=200
+}

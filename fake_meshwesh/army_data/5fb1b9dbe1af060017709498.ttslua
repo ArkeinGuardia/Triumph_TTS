@@ -1,160 +1,13 @@
 -- 5fb1b9dbe1af060017709498 Hallstat and La Tene Culture North Europe  800 to 315 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba23e1af06001770c4c3']= {
-  min=0,
-  max=3,
-  description='2-horse battle platforms or barbarian superior infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba23e1af06001770c4c4']= {
-  troop_option='5fb1ba23e1af06001770c4c3',
-  troopTypeCode='BTX',
-}
-g_troop_entry['5fb1ba23e1af06001770c4c5']= {
-  troop_option='5fb1ba23e1af06001770c4c3',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba23e1af06001770c4c6']= {
-  min=8,
-  max=12,
-  description='Barbarian fierce fighters',
-  core='all',
-}
-g_troop_entry['5fb1ba23e1af06001770c4c7']= {
-  troop_option='5fb1ba23e1af06001770c4c6',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba23e1af06001770c4c8']= {
-  min=0,
-  max=1,
-  description='Barbarian horsemen',
-}
-g_troop_entry['5fb1ba23e1af06001770c4c9']= {
-  troop_option='5fb1ba23e1af06001770c4c8',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba23e1af06001770c4ca']= {
-  min=2,
-  max=4,
-  description='Barbarian skirmishing bowmen or slingers',
-}
-g_troop_entry['5fb1ba23e1af06001770c4cb']= {
-  troop_option='5fb1ba23e1af06001770c4ca',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba23e1af06001770c4cc']= {
-  min=0,
-  max=2,
-  description='Unenthusiastic or poorly equipped throng',
-}
-g_troop_entry['5fb1ba23e1af06001770c4cd']= {
-  troop_option='5fb1ba23e1af06001770c4cc',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba23e1af06001770c4c4_general='5fb1ba23e1af06001770c4c4_general'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4c4_general]={
-  id=g_str_5fb1ba23e1af06001770c4c4_general,
-  name='Battle Taxi General',
-  min=0,
-  max=1,
-  description='2-horse battle platforms or barbarian superior infantry',
-  general=true,
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba23e1af06001770c4c4='5fb1ba23e1af06001770c4c4'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4c4]={
-  id=g_str_5fb1ba23e1af06001770c4c4,
-  name='Battle Taxi',
-  min=0,
-  max=3,
-  description='2-horse battle platforms or barbarian superior infantry',
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba23e1af06001770c4c5_general='5fb1ba23e1af06001770c4c5_general'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4c5_general]={
-  id=g_str_5fb1ba23e1af06001770c4c5_general,
-  name='Warriors General',
-  min=0,
-  max=1,
-  description='2-horse battle platforms or barbarian superior infantry',
-  general=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba23e1af06001770c4c5='5fb1ba23e1af06001770c4c5'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4c5]={
-  id=g_str_5fb1ba23e1af06001770c4c5,
-  name='Warriors',
-  min=0,
-  max=3,
-  description='2-horse battle platforms or barbarian superior infantry',
-  troop_type="Warriors",
-}
-g_str_5fb1ba23e1af06001770c4c7_general='5fb1ba23e1af06001770c4c7_general'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4c7_general]={
-  id=g_str_5fb1ba23e1af06001770c4c7_general,
-  name='Warband General',
-  min=8,
-  max=1,
-  description='Barbarian fierce fighters',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba23e1af06001770c4c7='5fb1ba23e1af06001770c4c7'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4c7]={
-  id=g_str_5fb1ba23e1af06001770c4c7,
-  name='Warband',
-  min=8,
-  max=12,
-  description='Barbarian fierce fighters',
-  troop_type="Warband",
-}
-g_str_5fb1ba23e1af06001770c4c9='5fb1ba23e1af06001770c4c9'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4c9]={
-  id=g_str_5fb1ba23e1af06001770c4c9,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Barbarian horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba23e1af06001770c4cb='5fb1ba23e1af06001770c4cb'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4cb]={
-  id=g_str_5fb1ba23e1af06001770c4cb,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Barbarian skirmishing bowmen or slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba23e1af06001770c4cd='5fb1ba23e1af06001770c4cd'
-g_base_definitions[g_str_5fb1ba23e1af06001770c4cd]={
-  id=g_str_5fb1ba23e1af06001770c4cd,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Unenthusiastic or poorly equipped throng',
-  troop_type="Horde",
-}
-g_str_5fb1b9dbe1af060017709498_camp='5fb1b9dbe1af060017709498_camp'
-g_base_definitions[g_str_5fb1b9dbe1af060017709498_camp]={
-  id=g_str_5fb1b9dbe1af060017709498_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9dbe1af060017709498']={
   data={
     name='Hallstat and La Tene Culture North Europe  800 to 315 BC',
     id='5fb1b9dbe1af060017709498',
-    army_id='5fb1b9dbe1af060017709498'
+    dateRange={
+      startDate=-800,
+      endDate=-315,
+    }
   },
   g_base_definitions[g_str_5fb1ba23e1af06001770c4c4_general],
   g_base_definitions[g_str_5fb1ba23e1af06001770c4c4],
@@ -183,4 +36,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dbe1af060017709498"] = {}
-army_dates["5fb1b9dbe1af060017709498"]["800 BC to 315 BC"] ="5fb1b9dbe1af060017709498"
+army_dates["5fb1b9dbe1af060017709498"]["800 BC to 315 BC"] = {
+  startDate=-800,
+  endDate=-315
+}

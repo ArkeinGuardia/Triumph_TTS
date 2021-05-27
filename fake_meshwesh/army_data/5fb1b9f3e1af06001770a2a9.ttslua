@@ -1,171 +1,13 @@
 -- 5fb1b9f3e1af06001770a2a9 Xixia (all mounted)  982 to 1227 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba40e1af06001770f9cd']= {
-  min=0,
-  max=2,
-  description='Tangut Iron Sparrowhawk  horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f9ce']= {
-  troop_option='5fb1ba40e1af06001770f9cd',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba40e1af06001770f9d0']= {
-  min=4,
-  max=8,
-  description='Tangut nomad horsemen',
-}
-g_troop_entry['5fb1ba40e1af06001770f9d1']= {
-  troop_option='5fb1ba40e1af06001770f9d0',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba40e1af06001770f9d3']= {
-  min=3,
-  max=6,
-  description='Tangut settled horse archers and nomad scouts',
-}
-g_troop_entry['5fb1ba40e1af06001770f9d4']= {
-  troop_option='5fb1ba40e1af06001770f9d3',
-  troopTypeCode='HBW',
-}
-g_str_5fb1ba40e1af06001770f9ce='5fb1ba40e1af06001770f9ce'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ce]={
-  id=g_str_5fb1ba40e1af06001770f9ce,
-  name='Cataphracts',
-  min=0,
-  max=2,
-  description='Tangut Iron Sparrowhawk  horsemen',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba40e1af06001770f9ce_dismounted='5fb1ba40e1af06001770f9ce_dismounted'
-g_str_5fb1ba40e1af06001770f9ce_mounted='5fb1ba40e1af06001770f9ce_mounted'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ce_dismounted]={
-  id=g_str_5fb1ba40e1af06001770f9ce_dismounted,
-  name='Elite Foot',
-  min=0,
-  max=2,
-  description='Tangut Iron Sparrowhawk  horsemen\nDeployment dismounted from Cataphracts',
-  points=4,
-  dismounted_from=g_str_5fb1ba40e1af06001770f9ce_mounted,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba40e1af06001770f9ce_mounted]={
-  id=g_str_5fb1ba40e1af06001770f9ce_mounted,
-  name='Cataphracts',
-  min=0,
-  max=2,
-  description='Tangut Iron Sparrowhawk  horsemen\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba40e1af06001770f9ce_dismounted,
-  deployment_dismounting=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba40e1af06001770f9d1_general='5fb1ba40e1af06001770f9d1_general'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_general]={
-  id=g_str_5fb1ba40e1af06001770f9d1_general,
-  name='Elite Cavalary General',
-  min=4,
-  max=1,
-  description='Tangut nomad horsemen',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f9d1_general_dismounted='5fb1ba40e1af06001770f9d1_general_dismounted'
-g_str_5fb1ba40e1af06001770f9d1_general_mounted='5fb1ba40e1af06001770f9d1_general_mounted'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_general_dismounted]={
-  id=g_str_5fb1ba40e1af06001770f9d1_general_dismounted,
-  name='Archers General',
-  min=4,
-  max=1,
-  description='Tangut nomad horsemen\nDeployment dismounted from Elite Cavalary General',
-  points=4,
-  dismounted_from=g_str_5fb1ba40e1af06001770f9d1_general_mounted,
-  general=true,
-  troop_type="Archers",
-}
-g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_general_mounted]={
-  id=g_str_5fb1ba40e1af06001770f9d1_general_mounted,
-  name='Elite Cavalary General',
-  min=4,
-  max=1,
-  description='Tangut nomad horsemen\nDeployment dismounting as Archer',
-  points=4,
-  dismount_as=g_str_5fb1ba40e1af06001770f9d1_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f9d1='5fb1ba40e1af06001770f9d1'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9d1]={
-  id=g_str_5fb1ba40e1af06001770f9d1,
-  name='Elite Cavalary',
-  min=4,
-  max=8,
-  description='Tangut nomad horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f9d1_dismounted='5fb1ba40e1af06001770f9d1_dismounted'
-g_str_5fb1ba40e1af06001770f9d1_mounted='5fb1ba40e1af06001770f9d1_mounted'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_dismounted]={
-  id=g_str_5fb1ba40e1af06001770f9d1_dismounted,
-  name='Archers',
-  min=4,
-  max=8,
-  description='Tangut nomad horsemen\nDeployment dismounted from Elite Cavalary',
-  points=4,
-  dismounted_from=g_str_5fb1ba40e1af06001770f9d1_mounted,
-  troop_type="Archers",
-}
-g_base_definitions[g_str_5fb1ba40e1af06001770f9d1_mounted]={
-  id=g_str_5fb1ba40e1af06001770f9d1_mounted,
-  name='Elite Cavalary',
-  min=4,
-  max=8,
-  description='Tangut nomad horsemen\nDeployment dismounting as Archer',
-  points=4,
-  dismount_as=g_str_5fb1ba40e1af06001770f9d1_dismounted,
-  deployment_dismounting=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba40e1af06001770f9d4='5fb1ba40e1af06001770f9d4'
-g_base_definitions[g_str_5fb1ba40e1af06001770f9d4]={
-  id=g_str_5fb1ba40e1af06001770f9d4,
-  name='Horse Bow',
-  min=3,
-  max=6,
-  description='Tangut settled horse archers and nomad scouts',
-  troop_type="Horse Bow",
-}
-g_str_5fb1b9f3e1af06001770a2a9_camp='5fb1b9f3e1af06001770a2a9_camp'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a2a9_camp]={
-  id=g_str_5fb1b9f3e1af06001770a2a9_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f3e1af06001770a2a9_camp_fortified='5fb1b9f3e1af06001770a2a9_camp_fortified'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a2a9_camp_fortified]={
-  id=g_str_5fb1b9f3e1af06001770a2a9_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9f3e1af06001770a2a9']={
   data={
     name='Xixia (all mounted)  982 to 1227 AD',
     id='5fb1b9f3e1af06001770a2a9',
-    army_id='5fb1b9f3e1af06001770a2a9'
+    dateRange={
+      startDate=982,
+      endDate=1227,
+    }
   },
   g_base_definitions[g_str_5fb1ba40e1af06001770f9ce],
   g_base_definitions[g_str_5fb1ba40e1af06001770f9ce_mounted],
@@ -200,4 +42,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f3e1af06001770a2a9"] = {}
-army_dates["5fb1b9f3e1af06001770a2a9"]["982 AD to 1227 AD"] ="5fb1b9f3e1af06001770a2a9"
+army_dates["5fb1b9f3e1af06001770a2a9"]["982 AD to 1227 AD"] = {
+  startDate=982,
+  endDate=1227
+}
+army_dates["5fb1b9f3e1af06001770a2a9"]["982 AD to 1064 AD"] = {
+  startDate=982,
+  endDate=1064
+}
+army_dates["5fb1b9f3e1af06001770a2a9"]["1065 AD"] = {
+  startDate=1065,
+  endDate=1065
+}
+army_dates["5fb1b9f3e1af06001770a2a9"]["1066 AD to 1199 AD"] = {
+  startDate=1066,
+  endDate=1199
+}
+army_dates["5fb1b9f3e1af06001770a2a9"]["1200 AD to 1220 AD"] = {
+  startDate=1200,
+  endDate=1220
+}
+army_dates["5fb1b9f3e1af06001770a2a9"]["1221 AD to 1226 AD"] = {
+  startDate=1221,
+  endDate=1226
+}
+army_dates["5fb1b9f3e1af06001770a2a9"]["1227 AD"] = {
+  startDate=1227,
+  endDate=1227
+}

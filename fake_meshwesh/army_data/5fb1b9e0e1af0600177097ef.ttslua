@@ -1,216 +1,13 @@
 -- 5fb1b9e0e1af0600177097ef Later Commagene  79 BC to 72 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2be1af06001770d166']= {
-  min=1,
-  max=2,
-  description='Cataphracts',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d167']= {
-  troop_option='5fb1ba2be1af06001770d166',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba2be1af06001770d168']= {
-  min=0,
-  max=1,
-  description='Bodyguard fighting in the Macedonian style',
-  note='only Antiochus IV',
-  core='all',
-  startDate=66,
-  endDate=72,
-}
-g_troop_entry['5fb1ba2be1af06001770d16a']= {
-  troop_option='5fb1ba2be1af06001770d168',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba2be1af06001770d16b']= {
-  min=0,
-  max=1,
-  description='Tarentine style horsemen',
-}
-g_troop_entry['5fb1ba2be1af06001770d16c']= {
-  troop_option='5fb1ba2be1af06001770d16b',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2be1af06001770d16d']= {
-  min=2,
-  max=4,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba2be1af06001770d16e']= {
-  troop_option='5fb1ba2be1af06001770d16d',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba2be1af06001770d16f']= {
-  min=2,
-  max=6,
-  description='Phalanx rearmed in Roman style',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d170']= {
-  troop_option='5fb1ba2be1af06001770d16f',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2be1af06001770d171']= {
-  min=4,
-  max=14,
-  description='Massed infantry bowmen',
-}
-g_troop_entry['5fb1ba2be1af06001770d172']= {
-  troop_option='5fb1ba2be1af06001770d171',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2be1af06001770d173']= {
-  min=0,
-  max=2,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba2be1af06001770d174']= {
-  troop_option='5fb1ba2be1af06001770d173',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba2be1af06001770d175']= {
-  min=0,
-  max=1,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba2be1af06001770d176']= {
-  troop_option='5fb1ba2be1af06001770d175',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2be1af06001770d177']= {
-  min=0,
-  max=1,
-  description='Mercenary thureophoroi',
-  core='all',
-  startDate=-79,
-  endDate=17,
-}
-g_troop_entry['5fb1ba2be1af06001770d179']= {
-  troop_option='5fb1ba2be1af06001770d177',
-  troopTypeCode='RDR',
-}
-g_str_5fb1ba2be1af06001770d167_general='5fb1ba2be1af06001770d167_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d167_general]={
-  id=g_str_5fb1ba2be1af06001770d167_general,
-  name='Cataphracts General',
-  min=1,
-  max=1,
-  description='Cataphracts',
-  general=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba2be1af06001770d167='5fb1ba2be1af06001770d167'
-g_base_definitions[g_str_5fb1ba2be1af06001770d167]={
-  id=g_str_5fb1ba2be1af06001770d167,
-  name='Cataphracts',
-  min=1,
-  max=2,
-  description='Cataphracts',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba2be1af06001770d16a_general='5fb1ba2be1af06001770d16a_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d16a_general]={
-  id=g_str_5fb1ba2be1af06001770d16a_general,
-  name='Pikes General',
-  min=0,
-  max=1,
-  description='Bodyguard fighting in the Macedonian style',
-  general=true,
-  troop_type="Pikes",
-}
-g_str_5fb1ba2be1af06001770d16a='5fb1ba2be1af06001770d16a'
-g_base_definitions[g_str_5fb1ba2be1af06001770d16a]={
-  id=g_str_5fb1ba2be1af06001770d16a,
-  name='Pikes',
-  min=0,
-  max=1,
-  description='Bodyguard fighting in the Macedonian style',
-  troop_type="Pikes",
-}
-g_str_5fb1ba2be1af06001770d16c='5fb1ba2be1af06001770d16c'
-g_base_definitions[g_str_5fb1ba2be1af06001770d16c]={
-  id=g_str_5fb1ba2be1af06001770d16c,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Tarentine style horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d16e='5fb1ba2be1af06001770d16e'
-g_base_definitions[g_str_5fb1ba2be1af06001770d16e]={
-  id=g_str_5fb1ba2be1af06001770d16e,
-  name='Horse Bow',
-  min=2,
-  max=4,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba2be1af06001770d170='5fb1ba2be1af06001770d170'
-g_base_definitions[g_str_5fb1ba2be1af06001770d170]={
-  id=g_str_5fb1ba2be1af06001770d170,
-  name='Heavy Foot',
-  min=2,
-  max=6,
-  description='Phalanx rearmed in Roman style',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2be1af06001770d172='5fb1ba2be1af06001770d172'
-g_base_definitions[g_str_5fb1ba2be1af06001770d172]={
-  id=g_str_5fb1ba2be1af06001770d172,
-  name='Bow Levy',
-  min=4,
-  max=14,
-  description='Massed infantry bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2be1af06001770d174='5fb1ba2be1af06001770d174'
-g_base_definitions[g_str_5fb1ba2be1af06001770d174]={
-  id=g_str_5fb1ba2be1af06001770d174,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2be1af06001770d176='5fb1ba2be1af06001770d176'
-g_base_definitions[g_str_5fb1ba2be1af06001770d176]={
-  id=g_str_5fb1ba2be1af06001770d176,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2be1af06001770d179='5fb1ba2be1af06001770d179'
-g_base_definitions[g_str_5fb1ba2be1af06001770d179]={
-  id=g_str_5fb1ba2be1af06001770d179,
-  name='Raiders',
-  min=0,
-  max=1,
-  description='Mercenary thureophoroi',
-  troop_type="Raiders",
-}
-g_str_5fb1b9e0e1af0600177097ef_camp='5fb1b9e0e1af0600177097ef_camp'
-g_base_definitions[g_str_5fb1b9e0e1af0600177097ef_camp]={
-  id=g_str_5fb1b9e0e1af0600177097ef_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e0e1af0600177097ef']={
   data={
     name='Later Commagene  79 BC to 72 AD',
     id='5fb1b9e0e1af0600177097ef',
-    army_id='5fb1b9e0e1af0600177097ef'
+    dateRange={
+      startDate=-79,
+      endDate=72,
+    }
   },
   g_base_definitions[g_str_5fb1ba2be1af06001770d167_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d167],
@@ -229,63 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e0e1af0600177097ef"] = army["5fb1b9e0e1af0600177097ef"]
-army['5fb1b9e0e1af0600177097ef_-79_17']={
-  data={
-    name='Later Commagene 79 BC to 17 AD',
-    id='5fb1b9e0e1af0600177097ef_-79_17',
-    army_id='5fb1b9e0e1af0600177097ef'
-  },
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16a_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16a],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16c],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16e],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d170],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d172],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d174],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d176],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d179],
-  g_base_definitions[g_str_5fb1b9e0e1af0600177097ef_camp],
-}
-army['5fb1b9e0e1af0600177097ef_18_65']={
-  data={
-    name='Later Commagene 18 AD to 65 AD',
-    id='5fb1b9e0e1af0600177097ef_18_65',
-    army_id='5fb1b9e0e1af0600177097ef'
-  },
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16a_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16a],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16c],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16e],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d170],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d172],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d174],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d176],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d179],
-  g_base_definitions[g_str_5fb1b9e0e1af0600177097ef_camp],
-}
-army['5fb1b9e0e1af0600177097ef_66_72']={
-  data={
-    name='Later Commagene 66 AD to 72 AD',
-    id='5fb1b9e0e1af0600177097ef_66_72',
-    army_id='5fb1b9e0e1af0600177097ef'
-  },
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d167],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16a_general],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16a],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16c],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d16e],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d170],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d172],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d174],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d176],
-  g_base_definitions[g_str_5fb1ba2be1af06001770d179],
-  g_base_definitions[g_str_5fb1b9e0e1af0600177097ef_camp],
-}
 if nil == armies["Rise of Rome"] then
   armies["Rise of Rome"] ={}
 end
@@ -302,7 +42,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e0e1af0600177097ef"] = {}
-army_dates["5fb1b9e0e1af0600177097ef"]["79 BC to 72 AD"] ="5fb1b9e0e1af0600177097ef"
-army_dates["5fb1b9e0e1af0600177097ef"]["79 BC to 17 AD"] ="5fb1b9e0e1af0600177097ef_-79_17"
-army_dates["5fb1b9e0e1af0600177097ef"]["18 AD to 65 AD"] ="5fb1b9e0e1af0600177097ef_18_65"
-army_dates["5fb1b9e0e1af0600177097ef"]["66 AD to 72 AD"] ="5fb1b9e0e1af0600177097ef_66_72"
+army_dates["5fb1b9e0e1af0600177097ef"]["79 BC to 72 AD"] = {
+  startDate=-79,
+  endDate=72
+}
+army_dates["5fb1b9e0e1af0600177097ef"]["79 BC to 17 AD"] = {
+  startDate=-79,
+  endDate=17
+}
+army_dates["5fb1b9e0e1af0600177097ef"]["18 AD to 65 AD"] = {
+  startDate=18,
+  endDate=65
+}
+army_dates["5fb1b9e0e1af0600177097ef"]["66 AD to 72 AD"] = {
+  startDate=66,
+  endDate=72
+}

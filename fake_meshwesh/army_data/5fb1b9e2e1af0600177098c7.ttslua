@@ -1,101 +1,13 @@
 -- 5fb1b9e2e1af0600177098c7 Greuthingi or Early Ostrogothic  200 to 493 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ce1af06001770d44b']= {
-  min=3,
-  max=8,
-  description='Noble horsemen',
-  core='all',
-}
-g_troop_entry['5fb1ba2ce1af06001770d44c']= {
-  troop_option='5fb1ba2ce1af06001770d44b',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba2ce1af06001770d44d']= {
-  min=2,
-  max=10,
-  description='Close-order bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2ce1af06001770d44e']= {
-  troop_option='5fb1ba2ce1af06001770d44d',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2ce1af06001770d44f']= {
-  min=1,
-  max=4,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba2ce1af06001770d450']= {
-  troop_option='5fb1ba2ce1af06001770d44f',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba2ce1af06001770d44c_general='5fb1ba2ce1af06001770d44c_general'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d44c_general]={
-  id=g_str_5fb1ba2ce1af06001770d44c_general,
-  name='Knights General',
-  min=3,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba2ce1af06001770d44c='5fb1ba2ce1af06001770d44c'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d44c]={
-  id=g_str_5fb1ba2ce1af06001770d44c,
-  name='Knights',
-  min=3,
-  max=8,
-  description='Noble horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba2ce1af06001770d44e='5fb1ba2ce1af06001770d44e'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d44e]={
-  id=g_str_5fb1ba2ce1af06001770d44e,
-  name='Bow Levy',
-  min=2,
-  max=10,
-  description='Close-order bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2ce1af06001770d450='5fb1ba2ce1af06001770d450'
-g_base_definitions[g_str_5fb1ba2ce1af06001770d450]={
-  id=g_str_5fb1ba2ce1af06001770d450,
-  name='Skirmishers',
-  min=1,
-  max=4,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9e2e1af0600177098c7_camp='5fb1b9e2e1af0600177098c7_camp'
-g_base_definitions[g_str_5fb1b9e2e1af0600177098c7_camp]={
-  id=g_str_5fb1b9e2e1af0600177098c7_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e2e1af0600177098c7_camp_fortified='5fb1b9e2e1af0600177098c7_camp_fortified'
-g_base_definitions[g_str_5fb1b9e2e1af0600177098c7_camp_fortified]={
-  id=g_str_5fb1b9e2e1af0600177098c7_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e2e1af0600177098c7']={
   data={
     name='Greuthingi or Early Ostrogothic  200 to 493 AD',
     id='5fb1b9e2e1af0600177098c7',
-    army_id='5fb1b9e2e1af0600177098c7'
+    dateRange={
+      startDate=200,
+      endDate=493,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ce1af06001770d44c_general],
   g_base_definitions[g_str_5fb1ba2ce1af06001770d44c],
@@ -124,4 +36,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e2e1af0600177098c7"] = {}
-army_dates["5fb1b9e2e1af0600177098c7"]["200 AD to 493 AD"] ="5fb1b9e2e1af0600177098c7"
+army_dates["5fb1b9e2e1af0600177098c7"]["200 AD to 493 AD"] = {
+  startDate=200,
+  endDate=493
+}
+army_dates["5fb1b9e2e1af0600177098c7"]["200 AD to 249 AD"] = {
+  startDate=200,
+  endDate=249
+}
+army_dates["5fb1b9e2e1af0600177098c7"]["250 AD to 373 AD"] = {
+  startDate=250,
+  endDate=373
+}
+army_dates["5fb1b9e2e1af0600177098c7"]["374 AD to 378 AD"] = {
+  startDate=374,
+  endDate=378
+}
+army_dates["5fb1b9e2e1af0600177098c7"]["379 AD to 380 AD"] = {
+  startDate=379,
+  endDate=380
+}
+army_dates["5fb1b9e2e1af0600177098c7"]["381 AD to 468 AD"] = {
+  startDate=381,
+  endDate=468
+}
+army_dates["5fb1b9e2e1af0600177098c7"]["469 AD"] = {
+  startDate=469,
+  endDate=469
+}
+army_dates["5fb1b9e2e1af0600177098c7"]["470 AD to 493 AD"] = {
+  startDate=470,
+  endDate=493
+}

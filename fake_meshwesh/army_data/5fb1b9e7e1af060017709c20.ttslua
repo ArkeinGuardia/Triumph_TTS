@@ -1,156 +1,13 @@
 -- 5fb1b9e7e1af060017709c20 League of Cambrai Spanish  1504 to 1515 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba33e1af06001770dfc1']= {
-  min=2,
-  max=4,
-  description='Men-at-arms',
-}
-g_troop_entry['5fb1ba33e1af06001770dfc2']= {
-  troop_option='5fb1ba33e1af06001770dfc1',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba33e1af06001770dfc3']= {
-  min=2,
-  max=4,
-  description='Jinetes',
-}
-g_troop_entry['5fb1ba33e1af06001770dfc4']= {
-  troop_option='5fb1ba33e1af06001770dfc3',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba33e1af06001770dfc5']= {
-  min=4,
-  max=8,
-  description='Pikemen',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770dfc6']= {
-  troop_option='5fb1ba33e1af06001770dfc5',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba33e1af06001770dfc7']= {
-  min=1,
-  max=3,
-  description='Sword-and-buckler men',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770dfc8']= {
-  troop_option='5fb1ba33e1af06001770dfc7',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba33e1af06001770dfc9']= {
-  min=1,
-  max=3,
-  description='Crossbowmen and handgunners',
-}
-g_troop_entry['5fb1ba33e1af06001770dfca']= {
-  troop_option='5fb1ba33e1af06001770dfc9',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba33e1af06001770dfcb']= {
-  min=0,
-  max=1,
-  description='Bombards',
-  core='all',
-}
-g_troop_entry['5fb1ba33e1af06001770dfcc']= {
-  troop_option='5fb1ba33e1af06001770dfcb',
-  troopTypeCode='ART',
-}
-g_str_5fb1ba33e1af06001770dfc2_general='5fb1ba33e1af06001770dfc2_general'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfc2_general]={
-  id=g_str_5fb1ba33e1af06001770dfc2_general,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Men-at-arms',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba33e1af06001770dfc2='5fb1ba33e1af06001770dfc2'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfc2]={
-  id=g_str_5fb1ba33e1af06001770dfc2,
-  name='Knights',
-  min=2,
-  max=4,
-  description='Men-at-arms',
-  troop_type="Knights",
-}
-g_str_5fb1ba33e1af06001770dfc4='5fb1ba33e1af06001770dfc4'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfc4]={
-  id=g_str_5fb1ba33e1af06001770dfc4,
-  name='Javelin Cavalry',
-  min=2,
-  max=4,
-  description='Jinetes',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba33e1af06001770dfc6='5fb1ba33e1af06001770dfc6'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfc6]={
-  id=g_str_5fb1ba33e1af06001770dfc6,
-  name='Pikes',
-  min=4,
-  max=8,
-  description='Pikemen',
-  troop_type="Pikes",
-}
-g_str_5fb1ba33e1af06001770dfc8='5fb1ba33e1af06001770dfc8'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfc8]={
-  id=g_str_5fb1ba33e1af06001770dfc8,
-  name='Raiders',
-  min=1,
-  max=3,
-  description='Sword-and-buckler men',
-  troop_type="Raiders",
-}
-g_str_5fb1ba33e1af06001770dfca='5fb1ba33e1af06001770dfca'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfca]={
-  id=g_str_5fb1ba33e1af06001770dfca,
-  name='Skirmishers',
-  min=1,
-  max=3,
-  description='Crossbowmen and handgunners',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba33e1af06001770dfcc='5fb1ba33e1af06001770dfcc'
-g_base_definitions[g_str_5fb1ba33e1af06001770dfcc]={
-  id=g_str_5fb1ba33e1af06001770dfcc,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Bombards',
-  troop_type="Artillery",
-}
-g_str_5fb1b9e7e1af060017709c20_camp='5fb1b9e7e1af060017709c20_camp'
-g_base_definitions[g_str_5fb1b9e7e1af060017709c20_camp]={
-  id=g_str_5fb1b9e7e1af060017709c20_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e7e1af060017709c20_camp_pack_train='5fb1b9e7e1af060017709c20_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e7e1af060017709c20_camp_pack_train]={
-  id=g_str_5fb1b9e7e1af060017709c20_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e7e1af060017709c20']={
   data={
     name='League of Cambrai Spanish  1504 to 1515 AD',
     id='5fb1b9e7e1af060017709c20',
-    army_id='5fb1b9e7e1af060017709c20'
+    dateRange={
+      startDate=1504,
+      endDate=1515,
+    }
   },
   g_base_definitions[g_str_5fb1ba33e1af06001770dfc2_general],
   g_base_definitions[g_str_5fb1ba33e1af06001770dfc2],
@@ -182,4 +39,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e7e1af060017709c20"] = {}
-army_dates["5fb1b9e7e1af060017709c20"]["1504 AD to 1515 AD"] ="5fb1b9e7e1af060017709c20"
+army_dates["5fb1b9e7e1af060017709c20"]["1504 AD to 1515 AD"] = {
+  startDate=1504,
+  endDate=1515
+}

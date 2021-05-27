@@ -1,90 +1,13 @@
 -- 5fb1b9f5e1af06001770a3b1 Middle Horizon Period Maya  601 to 987 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba43e1af06001770fd34']= {
-  min=12,
-  max=16,
-  description='Formed infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fd35']= {
-  troop_option='5fb1ba43e1af06001770fd34',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba43e1af06001770fd36']= {
-  min=0,
-  max=3,
-  description='Skirmishing slingers',
-}
-g_troop_entry['5fb1ba43e1af06001770fd37']= {
-  troop_option='5fb1ba43e1af06001770fd36',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba43e1af06001770fd38']= {
-  min=0,
-  max=1,
-  description='Road weasel scouts',
-}
-g_troop_entry['5fb1ba43e1af06001770fd39']= {
-  troop_option='5fb1ba43e1af06001770fd38',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba43e1af06001770fd35_general='5fb1ba43e1af06001770fd35_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd35_general]={
-  id=g_str_5fb1ba43e1af06001770fd35_general,
-  name='Light Foot General',
-  min=12,
-  max=1,
-  description='Formed infantry',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd35='5fb1ba43e1af06001770fd35'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd35]={
-  id=g_str_5fb1ba43e1af06001770fd35,
-  name='Light Foot',
-  min=12,
-  max=16,
-  description='Formed infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd37='5fb1ba43e1af06001770fd37'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd37]={
-  id=g_str_5fb1ba43e1af06001770fd37,
-  name='Skirmishers',
-  min=0,
-  max=3,
-  description='Skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba43e1af06001770fd39='5fb1ba43e1af06001770fd39'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd39]={
-  id=g_str_5fb1ba43e1af06001770fd39,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Road weasel scouts',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f5e1af06001770a3b1_camp='5fb1b9f5e1af06001770a3b1_camp'
-g_base_definitions[g_str_5fb1b9f5e1af06001770a3b1_camp]={
-  id=g_str_5fb1b9f5e1af06001770a3b1_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f5e1af06001770a3b1']={
   data={
     name='Middle Horizon Period Maya  601 to 987 AD',
     id='5fb1b9f5e1af06001770a3b1',
-    army_id='5fb1b9f5e1af06001770a3b1'
+    dateRange={
+      startDate=601,
+      endDate=987,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fd35_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd35],
@@ -112,4 +35,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f5e1af06001770a3b1"] = {}
-army_dates["5fb1b9f5e1af06001770a3b1"]["601 AD to 987 AD"] ="5fb1b9f5e1af06001770a3b1"
+army_dates["5fb1b9f5e1af06001770a3b1"]["601 AD to 987 AD"] = {
+  startDate=601,
+  endDate=987
+}

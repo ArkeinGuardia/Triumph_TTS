@@ -1,304 +1,13 @@
 -- 5fb1b9e8e1af060017709c95 Burgundian Ordonnance  1471 to 1477 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba34e1af06001770e182']= {
-  min=2,
-  max=4,
-  description='Ordonnance gendarmes and their coustilliers',
-}
-g_troop_entry['5fb1ba34e1af06001770e183']= {
-  troop_option='5fb1ba34e1af06001770e182',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba34e1af06001770e185']= {
-  min=1,
-  max=2,
-  description='Organ guns, bombards, and various other pieces',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e186']= {
-  troop_option='5fb1ba34e1af06001770e185',
-  troopTypeCode='ART',
-}
-g_troop_option['5fb1ba34e1af06001770e187']= {
-  min=2,
-  max=4,
-  description='Ordonnance longbowmen and crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e188']= {
-  troop_option='5fb1ba34e1af06001770e187',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba34e1af06001770e18a']= {
-  min=1,
-  max=2,
-  description='Ordonnance pikemen, or mixed formations of pikemen and longbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e18b']= {
-  troop_option='5fb1ba34e1af06001770e18a',
-  troopTypeCode='PIK',
-}
-g_troop_entry['5fb1ba34e1af06001770e18c']= {
-  troop_option='5fb1ba34e1af06001770e18a',
-  troopTypeCode='PAV',
-}
-g_troop_option['5fb1ba34e1af06001770e18d']= {
-  min=0,
-  max=1,
-  description='Ordonnance handgunners',
-}
-g_troop_entry['5fb1ba34e1af06001770e18e']= {
-  troop_option='5fb1ba34e1af06001770e18d',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba34e1af06001770e18f']= {
-  min=0,
-  max=2,
-  description='Italian men-at-arms',
-}
-g_troop_entry['5fb1ba34e1af06001770e190']= {
-  troop_option='5fb1ba34e1af06001770e18f',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba34e1af06001770e191']= {
-  min=0,
-  max=1,
-  description='Italian crossbowmen on horses',
-}
-g_troop_entry['5fb1ba34e1af06001770e192']= {
-  troop_option='5fb1ba34e1af06001770e191',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba34e1af06001770e193']= {
-  min=0,
-  max=1,
-  description='Italian crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e194']= {
-  troop_option='5fb1ba34e1af06001770e193',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba34e1af06001770e195']= {
-  min=0,
-  max=4,
-  description='Low Countries pikemen',
-  core='all',
-}
-g_troop_entry['5fb1ba34e1af06001770e196']= {
-  troop_option='5fb1ba34e1af06001770e195',
-  troopTypeCode='PIK',
-}
-g_str_5fb1ba34e1af06001770e183_general='5fb1ba34e1af06001770e183_general'
-g_base_definitions[g_str_5fb1ba34e1af06001770e183_general]={
-  id=g_str_5fb1ba34e1af06001770e183_general,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Ordonnance gendarmes and their coustilliers',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba34e1af06001770e183_general_dismounted='5fb1ba34e1af06001770e183_general_dismounted'
-g_str_5fb1ba34e1af06001770e183_general_mounted='5fb1ba34e1af06001770e183_general_mounted'
-g_base_definitions[g_str_5fb1ba34e1af06001770e183_general_dismounted]={
-  id=g_str_5fb1ba34e1af06001770e183_general_dismounted,
-  name='Elite Foot General',
-  min=2,
-  max=1,
-  description='Ordonnance gendarmes and their coustilliers\nDeployment dismounted from Knights General',
-  points=4,
-  dismounted_from=g_str_5fb1ba34e1af06001770e183_general_mounted,
-  general=true,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba34e1af06001770e183_general_mounted]={
-  id=g_str_5fb1ba34e1af06001770e183_general_mounted,
-  name='Knights General',
-  min=2,
-  max=1,
-  description='Ordonnance gendarmes and their coustilliers\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba34e1af06001770e183_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba34e1af06001770e183='5fb1ba34e1af06001770e183'
-g_base_definitions[g_str_5fb1ba34e1af06001770e183]={
-  id=g_str_5fb1ba34e1af06001770e183,
-  name='Knights',
-  min=2,
-  max=4,
-  description='Ordonnance gendarmes and their coustilliers',
-  troop_type="Knights",
-}
-g_str_5fb1ba34e1af06001770e183_dismounted='5fb1ba34e1af06001770e183_dismounted'
-g_str_5fb1ba34e1af06001770e183_mounted='5fb1ba34e1af06001770e183_mounted'
-g_base_definitions[g_str_5fb1ba34e1af06001770e183_dismounted]={
-  id=g_str_5fb1ba34e1af06001770e183_dismounted,
-  name='Elite Foot',
-  min=2,
-  max=4,
-  description='Ordonnance gendarmes and their coustilliers\nDeployment dismounted from Knights',
-  points=4,
-  dismounted_from=g_str_5fb1ba34e1af06001770e183_mounted,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba34e1af06001770e183_mounted]={
-  id=g_str_5fb1ba34e1af06001770e183_mounted,
-  name='Knights',
-  min=2,
-  max=4,
-  description='Ordonnance gendarmes and their coustilliers\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba34e1af06001770e183_dismounted,
-  deployment_dismounting=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba34e1af06001770e186='5fb1ba34e1af06001770e186'
-g_base_definitions[g_str_5fb1ba34e1af06001770e186]={
-  id=g_str_5fb1ba34e1af06001770e186,
-  name='Artillery',
-  min=1,
-  max=2,
-  description='Organ guns, bombards, and various other pieces',
-  troop_type="Artillery",
-}
-g_str_5fb1ba34e1af06001770e188='5fb1ba34e1af06001770e188'
-g_base_definitions[g_str_5fb1ba34e1af06001770e188]={
-  id=g_str_5fb1ba34e1af06001770e188,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Ordonnance longbowmen and crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba34e1af06001770e188_dismounted_mobile_infantry='5fb1ba34e1af06001770e188_dismounted_mobile_infantry'
-g_str_5fb1ba34e1af06001770e188_mounted_mobile_infantry='5fb1ba34e1af06001770e188_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba34e1af06001770e188_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba34e1af06001770e188_dismounted_mobile_infantry,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Ordonnance longbowmen and crossbowmen\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba34e1af06001770e188_mounted_mobile_infantry,
-  troop_type="Archers",
-}
-g_base_definitions[g_str_5fb1ba34e1af06001770e188_mounted_mobile_infantry]={
-  id=g_str_5fb1ba34e1af06001770e188_mounted_mobile_infantry,
-  name='Archers',
-  min=2,
-  max=4,
-  description='Ordonnance longbowmen and crossbowmen\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba34e1af06001770e188_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Archers",
-}
-g_str_5fb1ba34e1af06001770e18b='5fb1ba34e1af06001770e18b'
-g_base_definitions[g_str_5fb1ba34e1af06001770e18b]={
-  id=g_str_5fb1ba34e1af06001770e18b,
-  name='Pikes',
-  min=1,
-  max=2,
-  description='Ordonnance pikemen, or mixed formations of pikemen and longbowmen',
-  troop_type="Pikes",
-}
-g_str_5fb1ba34e1af06001770e18c='5fb1ba34e1af06001770e18c'
-g_base_definitions[g_str_5fb1ba34e1af06001770e18c]={
-  id=g_str_5fb1ba34e1af06001770e18c,
-  name='Pavisiers',
-  min=1,
-  max=2,
-  description='Ordonnance pikemen, or mixed formations of pikemen and longbowmen',
-  troop_type="Pavisiers",
-}
-g_str_5fb1ba34e1af06001770e18e='5fb1ba34e1af06001770e18e'
-g_base_definitions[g_str_5fb1ba34e1af06001770e18e]={
-  id=g_str_5fb1ba34e1af06001770e18e,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Ordonnance handgunners',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba34e1af06001770e190_general='5fb1ba34e1af06001770e190_general'
-g_base_definitions[g_str_5fb1ba34e1af06001770e190_general]={
-  id=g_str_5fb1ba34e1af06001770e190_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Italian men-at-arms',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba34e1af06001770e190='5fb1ba34e1af06001770e190'
-g_base_definitions[g_str_5fb1ba34e1af06001770e190]={
-  id=g_str_5fb1ba34e1af06001770e190,
-  name='Knights',
-  min=0,
-  max=2,
-  description='Italian men-at-arms',
-  troop_type="Knights",
-}
-g_str_5fb1ba34e1af06001770e192='5fb1ba34e1af06001770e192'
-g_base_definitions[g_str_5fb1ba34e1af06001770e192]={
-  id=g_str_5fb1ba34e1af06001770e192,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Italian crossbowmen on horses',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba34e1af06001770e194='5fb1ba34e1af06001770e194'
-g_base_definitions[g_str_5fb1ba34e1af06001770e194]={
-  id=g_str_5fb1ba34e1af06001770e194,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Italian crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba34e1af06001770e196='5fb1ba34e1af06001770e196'
-g_base_definitions[g_str_5fb1ba34e1af06001770e196]={
-  id=g_str_5fb1ba34e1af06001770e196,
-  name='Pikes',
-  min=0,
-  max=4,
-  description='Low Countries pikemen',
-  troop_type="Pikes",
-}
-g_str_5fb1b9e8e1af060017709c95_camp='5fb1b9e8e1af060017709c95_camp'
-g_base_definitions[g_str_5fb1b9e8e1af060017709c95_camp]={
-  id=g_str_5fb1b9e8e1af060017709c95_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e8e1af060017709c95_camp_fortified='5fb1b9e8e1af060017709c95_camp_fortified'
-g_base_definitions[g_str_5fb1b9e8e1af060017709c95_camp_fortified]={
-  id=g_str_5fb1b9e8e1af060017709c95_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9e8e1af060017709c95']={
   data={
     name='Burgundian Ordonnance  1471 to 1477 AD',
     id='5fb1b9e8e1af060017709c95',
-    army_id='5fb1b9e8e1af060017709c95'
+    dateRange={
+      startDate=1471,
+      endDate=1477,
+    }
   },
   g_base_definitions[g_str_5fb1ba34e1af06001770e183_general],
   g_base_definitions[g_str_5fb1ba34e1af06001770e183_general_mounted],
@@ -345,4 +54,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e8e1af060017709c95"] = {}
-army_dates["5fb1b9e8e1af060017709c95"]["1471 AD to 1477 AD"] ="5fb1b9e8e1af060017709c95"
+army_dates["5fb1b9e8e1af060017709c95"]["1471 AD to 1477 AD"] = {
+  startDate=1471,
+  endDate=1477
+}
+army_dates["5fb1b9e8e1af060017709c95"]["1471 AD"] = {
+  startDate=1471,
+  endDate=1471
+}
+army_dates["5fb1b9e8e1af060017709c95"]["1472 AD to 1474 AD"] = {
+  startDate=1472,
+  endDate=1474
+}
+army_dates["5fb1b9e8e1af060017709c95"]["1475 AD"] = {
+  startDate=1475,
+  endDate=1475
+}
+army_dates["5fb1b9e8e1af060017709c95"]["1476 AD to 1477 AD"] = {
+  startDate=1476,
+  endDate=1477
+}

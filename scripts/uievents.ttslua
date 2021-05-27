@@ -96,8 +96,103 @@ function on_cancel_load_army(player, value, id)
     UI.setAttribute('button_create_army', 'interactable', true)
 end
 
+-- is low <= mid <= high?
+function between(low, mid, high)
+  if low > mid then
+    return false
+  end
+  if mid > high then
+    return false
+  end
+  return true
+end
+
+
+-- Do two date ranges have a comon period
+function date_ranges_intersect(a,b)
+  if  between(b.startDate, a.startDate, b.endDate) then
+    return true
+  end
+  if  between(b.startDate, a.endDate, b.endDate) then
+    return true
+  end
+  if between(a.startDate, b.startDate, a.endDate) then
+    return true
+  end
+  if between(a.startDate, b.endDate, a.endDate) then
+    return true
+  end
+  return false
+end
+
+-- Compute the army that is to be used for a date range.
+-- army: army to filter, not modified
+-- date_range: {startDate, endDate} of the army components that
+--   should be filtered in.
+-- return: army with base definitions filterd
+function filter_base_definitions_by_date(army, date_range)
+  filtered = deep_copy(army)
+  for k,base_definition in pairs(filtered) do
+    if k ~= "data" then
+      local base_definition_date_range = get_base_definition_date_range(base_definition)
+      if not date_ranges_intersect(base_definition_date_range, date_range) then
+        filtered[k] = nil
+      end
+    end
+  end
+  return filtered
+end
+
+function get_command_color(army_nb)
+  if (g_color_spawn_army_selected == 'Red') then
+    if army_nb == 1 then
+      return "Red"
+    elseif army_nb == 2 then
+      return "Yellow"
+    else
+      return "Orange"
+    end
+  else
+    if army_nb == 1 then
+      return "Blue"
+    elseif army_nb == 2 then
+      return "Green"
+    else
+      return "Purple"
+    end
+  end
+end
+
+
 function on_load_army(player, value, id)
-    spawn_army(army[g_army_id_to_deploy], g_color_spawn_army_selected == 'Red', g_command_spawn_army_selected)
+    local date_range = army_dates[g_army_id_selected][g_year_selected]
+    local army_nb = 1
+    local is_red_player = g_color_spawn_army_selected == 'Red'
+    local filtered_army = filter_base_definitions_by_date(
+      army[g_army_id_selected],
+      date_range)
+    local command = get_command_color(army_nb)
+    spawn_army(
+      filtered_army,
+      is_red_player,
+      command,
+      army_nb)
+    army_nb = army_nb + 1
+    set_tablet(is_red_player, army[g_army_id_selected])
+
+    -- Spawn the allies
+    for _, ally_army in pairs(g_selected_allies) do
+        local filtered_army = filter_base_definitions_by_date(
+          ally_army,
+          date_range)
+        local command = get_command_color(army_nb)
+        spawn_army(
+          filtered_army,
+          g_color_spawn_army_selected == 'Red',
+          command,
+          army_nb)
+          army_nb = army_nb + 1
+    end
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
     UI.setAttribute('panel_dba_troop_selection_bg', 'active', false)
@@ -154,7 +249,10 @@ function update_deploy_army_dialog()
                         on_next_frame(function()
                           update_player_menu()
                           on_next_frame(function()
-                            UI.setAttribute('button_load_army', 'interactable', true)
+                            update_allies_menu()
+                            on_next_frame(function()
+                              UI.setAttribute('button_load_army', 'interactable', true)
+                            end)
                           end)
                         end)
                     end)
@@ -200,13 +298,6 @@ g_army_id_selected = nil
 -- Year to show as selected in UI elements.
 -- Example: "1 AD to 5 AD"
 g_year_selected = nil
-
-
--- Identifier of the army that should be spawned.
--- May be the Meshwesh ID such as  "5fb1b9f6e1af06001770a4aa",
---  or and augmented name  such as "5fb1b9f3e1af06001770a2fc_1266_1362"
--- for a period specific army
-g_army_id_to_deploy = nil
 
 
 -----------------------------------------------------------
@@ -366,7 +457,6 @@ function update_years_menu()
     end
     g_year_selected = selected
     set_options_dropdown_by_id('dropdown_year', options, selected_index)
-    g_army_id_to_deploy = dates_for_army[g_year_selected]
 end
 
 function update_player_menu()
@@ -375,6 +465,81 @@ function update_player_menu()
     set_options_dropdown_by_id('dropdown_playercolor', options, 1)
   else
     set_options_dropdown_by_id('dropdown_playercolor', options, 2)
+  end
+end
+
+-- Return the ID to use for an army for an ally when referencing armies[]
+-- army_id: Identity pf the army that has an ally
+-- ally_id: Identify of the ally
+-- return: identifier to use in armies[]
+function get_ally_army_id(army_id, ally_id)
+  if g_game_settings['is_grand_triumph'] then
+    return ally_id
+  end
+  return army_id .. "_ally_" .. ally_id
+end
+
+-- Ally army id based on the UI id
+g_allies_menu = {}
+g_selected_allies = {}
+
+
+function on_toggle_ally_army(player, value, id)
+  local army_id = g_allies_menu[id]
+  local ally_army = nil
+  if value == "True" then
+    ally_army = army[army_id]
+  end
+  g_selected_allies[id] = ally_army
+end
+
+
+function update_allies_menu()
+  local date_range = army_dates[g_army_id_selected][g_year_selected]
+  g_allies_menu = {}
+  g_selected_allies = {}
+  local entry=1
+  if g_game_settings['is_grand_triumph'] then
+    local army_name = army[g_army_id_selected]['data']['name']
+
+    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    UI.setAttribute(ui_id, "text", army_name)
+    UI.setAttribute(ui_id, "active", true)
+    UI.setAttribute(ui_id, "isOn", "false")
+    g_allies_menu[ui_id] = g_army_id_selected
+    entry = entry + 1
+
+    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    UI.setAttribute(ui_id, "text", army_name)
+    UI.setAttribute(ui_id, "active", true)
+    UI.setAttribute(ui_id, "isOn", "false")
+    g_allies_menu[ui_id] = g_army_id_selected
+    entry = entry + 1
+  end
+  for _, ally in ipairs(allies[g_army_id_selected]) do
+    if date_ranges_intersect( date_range, ally['dateRange']) then
+      local ally_id = ally['id']
+      local ally_army_id = get_ally_army_id(g_army_id_selected, ally_id)
+      local ally_army = army[ally_army_id]
+      if nil == ally_army then
+        print_error("Cannot find army " .. tostring(ally_army_id))
+      else
+        local ally_army_data = ally_army['data']
+        local ally_army_name = ally_army_data['name']
+        local ui_id = "toggle_ally_army_" .. tostring(entry)
+        UI.setAttribute(ui_id, "text", ally_army_name)
+        UI.setAttribute(ui_id, "active", true)
+        UI.setAttribute(ui_id, "isOn", "false")
+        g_allies_menu[ui_id] = ally_army_id
+        entry = entry + 1
+      end
+    end
+  end
+  while entry <= 15 do
+    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    UI.setAttribute(ui_id, "active", false)
+    UI.setAttribute(ui_id, "isOn", "false")
+    entry = entry + 1
   end
 end
 
@@ -401,8 +566,8 @@ end
 
 -- Display value in UI for the year that has been chossen to deploy.
 function on_year_selected(player, value, id)
-    g_year_selected = value
-    update_deploy_army_dialog()
+  g_year_selected = value
+  update_deploy_army_dialog()
 end
 
 g_color_spawn_army_selected = 'Red'
@@ -410,10 +575,6 @@ function on_playercolor_selected(player, value, id)
     g_color_spawn_army_selected = value
 end
 
-g_command_spawn_army_selected = 'None'
-function on_command_selected(player, value, id)
-    g_command_spawn_army_selected = value
-end
 
 function add_pip(player, value, id)
     if value == 'red' then
@@ -497,7 +658,6 @@ end
 
 function on_create_table_menu(player, value, id)
     g_use_3d_terrain = true
-    g_is_double_dba = false
     UI.setAttribute('panel_dba_table_selection_bg', 'active', true)
     UI.setAttribute('panel_dba_table_selection_bg', 'visibility', player.color)
     UI.setAttribute('panel_dba_table_selection', 'active', true)
@@ -515,14 +675,6 @@ function on_toggle_table_size(player, value, id)
     end
 end
 
-g_is_double_dba = false
-function on_toggle_table_double(player, value, id)
-    if value == "True" then
-        g_is_double_dba = true
-    else
-        g_is_double_dba = false
-    end
-end
 
 g_use_3d_terrain = true
 function on_toggle_3dterrain(player, value, id)
@@ -572,7 +724,7 @@ function on_load_table(player, value, id)
     local is_large = g_current_table_size == 'large'
 
     if g_current_table == nil then
-        if g_is_double_dba then
+        if g_game_settings['is_grand_triumph'] then
             spawn_table_obj(tables['model_double'], tex, is_large)
         else
             spawn_table_obj(tables['model'], tex, is_large)
@@ -653,7 +805,7 @@ function preview_wheel(objs_if_first_time)
 
     local mu = inches_to_mu_display_string(distance)
     UI.setValue('text_wheeling',
-        string.format('Wheeling %2.1f degrees will cost %s',
+        string.format('Wheeling %.0f degrees will cost %s',
             g_degrees_wheeling,
             mu))
     return distance
@@ -762,18 +914,21 @@ function update_pip(dice_obj_guid, id_text)
     return val
 end
 
+
 function on_roll_pips_red(player, value, id)
-    history_record_delta_snapshot()
-    roll_dice('red', player)
-    roll_dice('orange', player)
-    roll_dice('yellow', player)
+  if not  g_game_settings['is_grand_triumph'] then
+    do_roll_pips({'red'})
+  else
+    do_roll_pips({'red', 'orange', 'yellow'})
+  end
 end
 
 function on_roll_pips_blue(player, value, id)
-    history_record_delta_snapshot()
-    roll_dice('blue', player)
-    roll_dice('green', player)
-    roll_dice('purple', player)
+  if not  g_game_settings['is_grand_triumph'] then
+    do_roll_pips({'blue'})
+  else
+    do_roll_pips({'blue', 'green', 'purple'})
+  end
 end
 
 function on_undo_move(player, value, id)

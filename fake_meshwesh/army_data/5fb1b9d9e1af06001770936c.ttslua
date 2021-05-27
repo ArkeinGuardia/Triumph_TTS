@@ -1,173 +1,13 @@
 -- 5fb1b9d9e1af06001770936c Hittite Old and Middle Kingdom  1680 to 1380 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba20e1af06001770c019']= {
-  min=1,
-  max=2,
-  description='2-horse chariots',
-}
-g_troop_entry['5fb1ba20e1af06001770c01a']= {
-  troop_option='5fb1ba20e1af06001770c019',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba20e1af06001770c01b']= {
-  min=3,
-  max=8,
-  description='Standing army spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c01c']= {
-  troop_option='5fb1ba20e1af06001770c01b',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba20e1af06001770c01d']= {
-  min=0,
-  max=10,
-  description='Seasonal army spearmen',
-}
-g_troop_entry['5fb1ba20e1af06001770c01e']= {
-  troop_option='5fb1ba20e1af06001770c01d',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba20e1af06001770c01f']= {
-  min=1,
-  max=2,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba20e1af06001770c020']= {
-  troop_option='5fb1ba20e1af06001770c01f',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba20e1af06001770c021']= {
-  min=1,
-  max=4,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba20e1af06001770c022']= {
-  troop_option='5fb1ba20e1af06001770c021',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba20e1af06001770c023']= {
-  min=0,
-  max=2,
-  description='Slingers',
-}
-g_troop_entry['5fb1ba20e1af06001770c024']= {
-  troop_option='5fb1ba20e1af06001770c023',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba20e1af06001770c025']= {
-  min=0,
-  max=2,
-  description='Hupshu conscripts',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c026']= {
-  troop_option='5fb1ba20e1af06001770c025',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba20e1af06001770c01a_general='5fb1ba20e1af06001770c01a_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770c01a_general]={
-  id=g_str_5fb1ba20e1af06001770c01a_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='2-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c01a='5fb1ba20e1af06001770c01a'
-g_base_definitions[g_str_5fb1ba20e1af06001770c01a]={
-  id=g_str_5fb1ba20e1af06001770c01a,
-  name='Chariots',
-  min=1,
-  max=2,
-  description='2-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c01c='5fb1ba20e1af06001770c01c'
-g_base_definitions[g_str_5fb1ba20e1af06001770c01c]={
-  id=g_str_5fb1ba20e1af06001770c01c,
-  name='Light Spear',
-  min=3,
-  max=8,
-  description='Standing army spearmen',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba20e1af06001770c01e='5fb1ba20e1af06001770c01e'
-g_base_definitions[g_str_5fb1ba20e1af06001770c01e]={
-  id=g_str_5fb1ba20e1af06001770c01e,
-  name='Light Foot',
-  min=0,
-  max=10,
-  description='Seasonal army spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba20e1af06001770c020='5fb1ba20e1af06001770c020'
-g_base_definitions[g_str_5fb1ba20e1af06001770c020]={
-  id=g_str_5fb1ba20e1af06001770c020,
-  name='Bow Levy',
-  min=1,
-  max=2,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba20e1af06001770c022='5fb1ba20e1af06001770c022'
-g_base_definitions[g_str_5fb1ba20e1af06001770c022]={
-  id=g_str_5fb1ba20e1af06001770c022,
-  name='Rabble',
-  min=1,
-  max=4,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba20e1af06001770c024='5fb1ba20e1af06001770c024'
-g_base_definitions[g_str_5fb1ba20e1af06001770c024]={
-  id=g_str_5fb1ba20e1af06001770c024,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba20e1af06001770c026='5fb1ba20e1af06001770c026'
-g_base_definitions[g_str_5fb1ba20e1af06001770c026]={
-  id=g_str_5fb1ba20e1af06001770c026,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Hupshu conscripts',
-  troop_type="Horde",
-}
-g_str_5fb1b9d9e1af06001770936c_camp='5fb1b9d9e1af06001770936c_camp'
-g_base_definitions[g_str_5fb1b9d9e1af06001770936c_camp]={
-  id=g_str_5fb1b9d9e1af06001770936c_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9d9e1af06001770936c_camp_pack_train='5fb1b9d9e1af06001770936c_camp_pack_train'
-g_base_definitions[g_str_5fb1b9d9e1af06001770936c_camp_pack_train]={
-  id=g_str_5fb1b9d9e1af06001770936c_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9d9e1af06001770936c']={
   data={
     name='Hittite Old and Middle Kingdom  1680 to 1380 BC',
     id='5fb1b9d9e1af06001770936c',
-    army_id='5fb1b9d9e1af06001770936c'
+    dateRange={
+      startDate=-1680,
+      endDate=-1380,
+    }
   },
   g_base_definitions[g_str_5fb1ba20e1af06001770c01a_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770c01a],
@@ -196,4 +36,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af06001770936c"] = {}
-army_dates["5fb1b9d9e1af06001770936c"]["1680 BC to 1380 BC"] ="5fb1b9d9e1af06001770936c"
+army_dates["5fb1b9d9e1af06001770936c"]["1680 BC to 1380 BC"] = {
+  startDate=-1680,
+  endDate=-1380
+}
+army_dates["5fb1b9d9e1af06001770936c"]["1680 BC to 1631 BC"] = {
+  startDate=-1680,
+  endDate=-1631
+}
+army_dates["5fb1b9d9e1af06001770936c"]["1630 BC to 1621 BC"] = {
+  startDate=-1630,
+  endDate=-1621
+}
+army_dates["5fb1b9d9e1af06001770936c"]["1620 BC to 1596 BC"] = {
+  startDate=-1620,
+  endDate=-1596
+}
+army_dates["5fb1b9d9e1af06001770936c"]["1595 BC to 1401 BC"] = {
+  startDate=-1595,
+  endDate=-1401
+}
+army_dates["5fb1b9d9e1af06001770936c"]["1400 BC"] = {
+  startDate=-1400,
+  endDate=-1400
+}
+army_dates["5fb1b9d9e1af06001770936c"]["1399 BC to 1380 BC"] = {
+  startDate=-1399,
+  endDate=-1380
+}

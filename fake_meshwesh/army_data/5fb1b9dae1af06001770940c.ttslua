@@ -1,213 +1,13 @@
 -- 5fb1b9dae1af06001770940c Mannaian and other Taurus and Zagros Highlanders  950 to 610 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba21e1af06001770c268']= {
-  min=1,
-  max=1,
-  description='2-horse chariots',
-}
-g_troop_entry['5fb1ba21e1af06001770c269']= {
-  troop_option='5fb1ba21e1af06001770c268',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba21e1af06001770c26a']= {
-  min=1,
-  max=2,
-  description='Mounted fighters',
-  startDate=-950,
-  endDate=-800,
-}
-g_troop_entry['5fb1ba21e1af06001770c26c']= {
-  troop_option='5fb1ba21e1af06001770c26a',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba21e1af06001770c26d']= {
-  min=1,
-  max=2,
-  description='Horsemen',
-  startDate=-799,
-  endDate=-610,
-}
-g_troop_entry['5fb1ba22e1af06001770c26f']= {
-  troop_option='5fb1ba21e1af06001770c26d',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba22e1af06001770c270']= {
-  min=0,
-  max=1,
-  description='Unarmored horse archers armed with bow, long spear, and sword',
-  startDate=-749,
-  endDate=-610,
-}
-g_troop_entry['5fb1ba22e1af06001770c272']= {
-  troop_option='5fb1ba22e1af06001770c270',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba22e1af06001770c273']= {
-  min=4,
-  max=12,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c274']= {
-  troop_option='5fb1ba22e1af06001770c273',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba22e1af06001770c276']= {
-  min=2,
-  max=10,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba22e1af06001770c277']= {
-  troop_option='5fb1ba22e1af06001770c276',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba22e1af06001770c278']= {
-  troop_option='5fb1ba22e1af06001770c276',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba22e1af06001770c27a']= {
-  min=0,
-  max=1,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba22e1af06001770c27b']= {
-  troop_option='5fb1ba22e1af06001770c27a',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba22e1af06001770c27c']= {
-  min=0,
-  max=1,
-  description='Mercenary Greek hoplites',
-  note='only Hilakku',
-  startDate=-710,
-  endDate=-610,
-}
-g_troop_entry['5fb1ba22e1af06001770c27e']= {
-  troop_option='5fb1ba22e1af06001770c27c',
-  troopTypeCode='HFT',
-}
-g_str_5fb1ba21e1af06001770c269_general='5fb1ba21e1af06001770c269_general'
-g_base_definitions[g_str_5fb1ba21e1af06001770c269_general]={
-  id=g_str_5fb1ba21e1af06001770c269_general,
-  name='Chariots General',
-  min=1,
-  max=1,
-  description='2-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba21e1af06001770c269='5fb1ba21e1af06001770c269'
-g_base_definitions[g_str_5fb1ba21e1af06001770c269]={
-  id=g_str_5fb1ba21e1af06001770c269,
-  name='Chariots',
-  min=1,
-  max=1,
-  description='2-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba21e1af06001770c26c='5fb1ba21e1af06001770c26c'
-g_base_definitions[g_str_5fb1ba21e1af06001770c26c]={
-  id=g_str_5fb1ba21e1af06001770c26c,
-  name='Bad Horse',
-  min=1,
-  max=2,
-  description='Mounted fighters',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba22e1af06001770c26f='5fb1ba22e1af06001770c26f'
-g_base_definitions[g_str_5fb1ba22e1af06001770c26f]={
-  id=g_str_5fb1ba22e1af06001770c26f,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba22e1af06001770c272='5fb1ba22e1af06001770c272'
-g_base_definitions[g_str_5fb1ba22e1af06001770c272]={
-  id=g_str_5fb1ba22e1af06001770c272,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Unarmored horse archers armed with bow, long spear, and sword',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba22e1af06001770c274='5fb1ba22e1af06001770c274'
-g_base_definitions[g_str_5fb1ba22e1af06001770c274]={
-  id=g_str_5fb1ba22e1af06001770c274,
-  name='Light Foot',
-  min=4,
-  max=12,
-  description='Spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba22e1af06001770c277='5fb1ba22e1af06001770c277'
-g_base_definitions[g_str_5fb1ba22e1af06001770c277]={
-  id=g_str_5fb1ba22e1af06001770c277,
-  name='Skirmishers',
-  min=2,
-  max=10,
-  description='Bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba22e1af06001770c278='5fb1ba22e1af06001770c278'
-g_base_definitions[g_str_5fb1ba22e1af06001770c278]={
-  id=g_str_5fb1ba22e1af06001770c278,
-  name='Bow Levy',
-  min=2,
-  max=10,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba22e1af06001770c27b='5fb1ba22e1af06001770c27b'
-g_base_definitions[g_str_5fb1ba22e1af06001770c27b]={
-  id=g_str_5fb1ba22e1af06001770c27b,
-  name='Rabble',
-  min=0,
-  max=1,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba22e1af06001770c27e='5fb1ba22e1af06001770c27e'
-g_base_definitions[g_str_5fb1ba22e1af06001770c27e]={
-  id=g_str_5fb1ba22e1af06001770c27e,
-  name='Heavy Foot',
-  min=0,
-  max=1,
-  description='Mercenary Greek hoplites',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1b9dae1af06001770940c_camp='5fb1b9dae1af06001770940c_camp'
-g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp]={
-  id=g_str_5fb1b9dae1af06001770940c_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af06001770940c_camp_pack_train='5fb1b9dae1af06001770940c_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp_pack_train]={
-  id=g_str_5fb1b9dae1af06001770940c_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dae1af06001770940c']={
   data={
     name='Mannaian and other Taurus and Zagros Highlanders  950 to 610 BC',
     id='5fb1b9dae1af06001770940c',
-    army_id='5fb1b9dae1af06001770940c'
+    dateRange={
+      startDate=-950,
+      endDate=-610,
+    }
   },
   g_base_definitions[g_str_5fb1ba21e1af06001770c269_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c269],
@@ -226,82 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dae1af06001770940c"] = army["5fb1b9dae1af06001770940c"]
-army['5fb1b9dae1af06001770940c_-950_-800']={
-  data={
-    name='Mannaian and other Taurus and Zagros Highlanders 950 BC to 800 BC',
-    id='5fb1b9dae1af06001770940c_-950_-800',
-    army_id='5fb1b9dae1af06001770940c'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c269_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c269],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c26c],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c26f],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c272],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c274],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c277],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c278],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c27b],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c27e],
-  g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp],
-  g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp_pack_train],
-}
-army['5fb1b9dae1af06001770940c_-799_-750']={
-  data={
-    name='Mannaian and other Taurus and Zagros Highlanders 799 BC to 750 BC',
-    id='5fb1b9dae1af06001770940c_-799_-750',
-    army_id='5fb1b9dae1af06001770940c'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c269_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c269],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c26c],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c26f],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c272],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c274],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c277],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c278],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c27b],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c27e],
-  g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp],
-  g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp_pack_train],
-}
-army['5fb1b9dae1af06001770940c_-749_-711']={
-  data={
-    name='Mannaian and other Taurus and Zagros Highlanders 749 BC to 711 BC',
-    id='5fb1b9dae1af06001770940c_-749_-711',
-    army_id='5fb1b9dae1af06001770940c'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c269_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c269],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c26c],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c26f],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c272],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c274],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c277],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c278],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c27b],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c27e],
-  g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp],
-  g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp_pack_train],
-}
-army['5fb1b9dae1af06001770940c_-710_-610']={
-  data={
-    name='Mannaian and other Taurus and Zagros Highlanders 710 BC to 610 BC',
-    id='5fb1b9dae1af06001770940c_-710_-610',
-    army_id='5fb1b9dae1af06001770940c'
-  },
-  g_base_definitions[g_str_5fb1ba21e1af06001770c269_general],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c269],
-  g_base_definitions[g_str_5fb1ba21e1af06001770c26c],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c26f],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c272],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c274],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c277],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c278],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c27b],
-  g_base_definitions[g_str_5fb1ba22e1af06001770c27e],
-  g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp],
-  g_base_definitions[g_str_5fb1b9dae1af06001770940c_camp_pack_train],
-}
 if nil == armies["Assyrian Empire"] then
   armies["Assyrian Empire"] ={}
 end
@@ -314,8 +38,83 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af06001770940c"] = {}
-army_dates["5fb1b9dae1af06001770940c"]["950 BC to 610 BC"] ="5fb1b9dae1af06001770940c"
-army_dates["5fb1b9dae1af06001770940c"]["950 BC to 800 BC"] ="5fb1b9dae1af06001770940c_-950_-800"
-army_dates["5fb1b9dae1af06001770940c"]["799 BC to 750 BC"] ="5fb1b9dae1af06001770940c_-799_-750"
-army_dates["5fb1b9dae1af06001770940c"]["749 BC to 711 BC"] ="5fb1b9dae1af06001770940c_-749_-711"
-army_dates["5fb1b9dae1af06001770940c"]["710 BC to 610 BC"] ="5fb1b9dae1af06001770940c_-710_-610"
+army_dates["5fb1b9dae1af06001770940c"]["950 BC to 610 BC"] = {
+  startDate=-950,
+  endDate=-610
+}
+army_dates["5fb1b9dae1af06001770940c"]["950 BC to 896 BC"] = {
+  startDate=-950,
+  endDate=-896
+}
+army_dates["5fb1b9dae1af06001770940c"]["895 BC to 894 BC"] = {
+  startDate=-895,
+  endDate=-894
+}
+army_dates["5fb1b9dae1af06001770940c"]["893 BC to 890 BC"] = {
+  startDate=-893,
+  endDate=-890
+}
+army_dates["5fb1b9dae1af06001770940c"]["889 BC to 881 BC"] = {
+  startDate=-889,
+  endDate=-881
+}
+army_dates["5fb1b9dae1af06001770940c"]["880 BC to 860 BC"] = {
+  startDate=-880,
+  endDate=-860
+}
+army_dates["5fb1b9dae1af06001770940c"]["859 BC to 836 BC"] = {
+  startDate=-859,
+  endDate=-836
+}
+army_dates["5fb1b9dae1af06001770940c"]["835 BC to 800 BC"] = {
+  startDate=-835,
+  endDate=-800
+}
+army_dates["5fb1b9dae1af06001770940c"]["799 BC to 765 BC"] = {
+  startDate=-799,
+  endDate=-765
+}
+army_dates["5fb1b9dae1af06001770940c"]["764 BC to 750 BC"] = {
+  startDate=-764,
+  endDate=-750
+}
+army_dates["5fb1b9dae1af06001770940c"]["749 BC to 747 BC"] = {
+  startDate=-749,
+  endDate=-747
+}
+army_dates["5fb1b9dae1af06001770940c"]["746 BC"] = {
+  startDate=-746,
+  endDate=-746
+}
+army_dates["5fb1b9dae1af06001770940c"]["745 BC"] = {
+  startDate=-745,
+  endDate=-745
+}
+army_dates["5fb1b9dae1af06001770940c"]["744 BC to 723 BC"] = {
+  startDate=-744,
+  endDate=-723
+}
+army_dates["5fb1b9dae1af06001770940c"]["722 BC to 711 BC"] = {
+  startDate=-722,
+  endDate=-711
+}
+army_dates["5fb1b9dae1af06001770940c"]["710 BC to 704 BC"] = {
+  startDate=-710,
+  endDate=-704
+}
+army_dates["5fb1b9dae1af06001770940c"]["703 BC to 681 BC"] = {
+  startDate=-703,
+  endDate=-681
+}
+army_dates["5fb1b9dae1af06001770940c"]["680 BC to 640 BC"] = {
+  startDate=-680,
+  endDate=-640
+}
+army_dates["5fb1b9dae1af06001770940c"]["639 BC to 621 BC"] = {
+  startDate=-639,
+  endDate=-621
+}
+army_dates["5fb1b9dae1af06001770940c"]["620 BC to 610 BC"] = {
+  startDate=-620,
+  endDate=-610
+}

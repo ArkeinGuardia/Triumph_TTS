@@ -1,9 +1,30 @@
 <!-- TODO Add more buttons and prettify -->
 
+<!-- Pannel to ask if we are playing Triumph! or Grand Triumph! -->
+
+
+<Panel id="panel_wizard_bg" width="250" height="420" rectAlignment="MiddleRight" color="#00000000" raycastTarget="true">
+    <Image image="rightside_menu_bg_v2"></Image>
+</Panel>
+<Panel id="wizard_panel_game" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+    <VerticalLayout>
+      <ToggleGroup id="wizard_togglegroup_game" onValueChanged="on_wizard_togglegroup_game">
+        <VerticalLayout>
+          <Toggle fontSize="16" id="wizard_togglegroup_game_triumph">Triumph!</Toggle>
+          <Toggle fontSize="16" id="wizard_togglegroup_game_grand_triumph">Grand Triumph!</Toggle>
+        </VerticalLayout>
+      </ToggleGroup>
+      <Button id="wizard_panel_game_next" onClick="on_wizard_button_forward_to_select_armies">Finsh</Button>
+    </VerticalLayout>
+</Panel>
+
+
+
 <Panel id="panel_dba_orders_bg" width="730" height="100" rectAlignment="LowerRight" color="#00000000" raycastTarget="true">
     <Image image="rightbottomside_menu_bg_v3"></Image>
 </Panel>
-<Panel id="panel_dba_orders" width="730" height="90" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true">
+
+<Panel id="panel_dba_orders" width="730" height="90" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true" active="false">
     <VerticalLayout>
         <Button id="button_push_back" onClick="on_push_back">Push back Column</Button>
         <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
@@ -12,7 +33,7 @@
     <VerticalLayout>
         <HorizontalLayout>
             <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
-        </HorizontalLayout>        
+        </HorizontalLayout>
         <HorizontalLayout>
             <Button id="button_move_forward" onClick="move_bases">Move 4 MU</Button>
             <Button id="button_wheel" onClick="on_wheel">Wheel Group</Button>
@@ -29,9 +50,89 @@
     </VerticalLayout>
 </Panel>
 
-<!-- TODO Prettify -->
-<Panel id="panel_current_movement" color="#dddddd" width="400" height="70" rectAlignment="LowerCenter" offsetXY="0 200" active="false" raycastTarget="true">
+<Panel id="panel_current_movement" width="700" height="80" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true" active="false">
     <Text id="text_current_movement_MUs" fontSize="24">Current movement: 0 MUs</Text>
+</Panel>
+
+<Panel id="panel_wheel_bg" width="700" height="80" rectAlignment="LowerCenter" active="false" raycastTarget="true" >
+    <Image image="wheel_panel_bg"></Image>
+</Panel>
+<Panel id="panel_wheel" width="700" height="80" color="#F0F0F0FF" rectAlignment="LowerRight"  padding="40 -40 10 6" raycastTarget="true" active="false">
+  <HorizontalLayout>
+    <TableLayout>
+      <Row>
+        <Cell columnSpan="3" dontUseTableCellBackground="true">
+            <ToggleGroup id="togglegroup_orientation"
+                onValueChanged="on_change_orientation_wheel">
+                <TableLayout>
+                  <Row>
+                    <Cell columnSpan="1">
+                    <Toggle id="toggle_wheel_left">Left</Toggle>
+                  </Cell>
+                  <Cell  columnSpan="4">
+                    <Slider id="slider_wheel_rotation" minValue="0" maxValue="90" wholeNumbers="true" value="0" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="on_rotation_wheel"></Slider>
+                  </Cell>
+                  <Cell  columnSpan="1">
+                    <Toggle id="toggle_wheel_right">Right</Toggle>
+                  </Cell>
+                </Row>
+              </TableLayout>
+            </ToggleGroup>
+        </Cell>
+        <Cell>
+          <Button columnSpan="1" fontSize="20" onClick="on_make_wheeling">Move</Button>
+        </Cell>
+    </Row>
+    <Row>
+    <Cell  columnSpan="3" >
+      <Text id="text_wheeling" fontSize="16">This will cost 0 MUs</Text>
+    </Cell>
+    <Cell>
+      <Button columnSpan="2" fontSize="20" onClick="on_cancel_wheeling">Cancel</Button>
+    </Cell>
+  </Row>
+  </TableLayout>
+  </HorizontalLayout>
+    <!-- <TableLayout padding="30 30 30 30" cellSpacing="20">
+        <Row>
+            <Cell columnSpan="2" dontUseTableCellBackground="true">
+                <Text fontSize="16">Orientation:</Text>
+            </Cell>
+            <Cell columnSpan="4" dontUseTableCellBackground="true">
+                <ToggleGroup id="togglegroup_orientation"
+                    onValueChanged="on_change_orientation_wheel">
+                    <HorizontalLayout>
+                        <Toggle id="toggle_wheel_left">Left</Toggle>
+                        <Toggle id="toggle_wheel_right">Right</Toggle>
+                    </HorizontalLayout>
+                </ToggleGroup>
+            </Cell>
+        </Row>
+        <Row>
+            <Cell columnSpan="2" dontUseTableCellBackground="true">
+                <Text fontSize="16">Degrees:</Text>
+            </Cell>
+            <Cell columnSpan="4" dontUseTableCellBackground="true">
+                <Slider id="slider_wheel_rotation" minValue="0" maxValue="90" wholeNumbers="true" value="0" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="on_rotation_wheel"></Slider>
+            </Cell>
+        </Row>
+        <Row>
+            <Cell columnSpan="6" dontUseTableCellBackground="true">
+                <Text id="text_wheeling" fontSize="16">This will cost 0 MUs</Text>
+            </Cell>
+        </Row>
+        <Row>
+            <Cell columnSpan="2" dontUseTableCellBackground="true">
+                <Button columnSpan="2" fontSize="20" onClick="on_cancel_wheeling">Cancel</Button>
+            </Cell>
+            <Cell columnSpan="2" dontUseTableCellBackground="true">
+                <!- Filler ->
+            </Cell>
+            <Cell columnSpan="2" dontUseTableCellBackground="true">
+                <Button columnSpan="1" fontSize="20" onClick="on_make_wheeling">Move</Button>
+            </Cell>
+        </Row>
+        </TableLayout> -->
 </Panel>
 
 <Panel id="panel_dba_pip" width="260" height="100" color="#00000000" outline="#00000000" outlineSize="2" rectAlignment="LowerCenter" raycastTarget="true">
@@ -109,10 +210,7 @@
             </Cell>
         </Row>
         <Row>
-            <Cell columnSpan="3" dontUseTableCellBackground="true">
-                <Toggle id="toggle_double_dba" isOn="false" onValueChanged="on_toggle_table_double" fontSize="16">Grand Triumph</Toggle>
-            </Cell>
-            <Cell columnSpan="3" dontUseTableCellBackground="true">
+            <Cell columnSpan="6" dontUseTableCellBackground="true">
                 <Toggle id="toggle_3dterrain" isOn="true" onValueChanged="on_toggle_3dterrain" fontSize="16">Use 3D terrain</Toggle>
             </Cell>
         </Row>
@@ -142,14 +240,28 @@
     </TableLayout>
 </Panel>
 
-<Panel id="panel_dba_troop_selection_bg" width="800" height="660" rectAlignment="MiddleCenter" active="false" raycastTarget="true">
+<Panel id="panel_dba_troop_selection_bg" width="800" height="860" rectAlignment="MiddleCenter" active="false" raycastTarget="true">
     <Image image="select_army_bg_v2"></Image>
 </Panel>
-<Panel id="panel_dba_troop_selection" width="800" height="650" rectAlignment="MiddleCenter" color="#00000000" active="false" raycastTarget="true">
+<Panel id="panel_dba_troop_selection" width="800" height="850" rectAlignment="MiddleCenter" color="#00000000" active="false" raycastTarget="true">
     <TableLayout padding="50 50 80 50 " cellSpacing="20">
         <Row preferredHeight="40">
-            <Cell columnSpan="20" dontUseTableCellBackground="true">
+            <Cell columnSpan="10" dontUseTableCellBackground="true">
                 <Toggle id="toggle_filter_modes" onValueChanged="on_filter_models" alignment="MiddleLeft" fontSize="16">Filter armies with models</Toggle>
+            </Cell>
+            <Cell columnSpan="10" dontUseTableCellBackground="true">
+                <Toggle id="toggle_use_plain_bases" onValueChanged="on_use_plain_bases" alignment="MiddleLeft" fontSize="16">Use plain bases</Toggle>
+            </Cell>
+        </Row>
+        <Row preferredHeight="40">
+            <Cell columnSpan="3" dontUseTableCellBackground="true">
+                <Text fontSize="20" alignment="MiddleLeft">Player:</Text>
+            </Cell>
+            <Cell columnSpan="17" dontUseTableCellBackground="true">
+                <Dropdown id="dropdown_playercolor" onValueChanged="on_playercolor_selected" fontSize="20">
+                    <Option selected="true">Red</Option>
+                    <Option>Blue</Option>
+                </Dropdown>
             </Cell>
         </Row>
         <Row preferredHeight="40">
@@ -191,35 +303,29 @@
                 </Dropdown>
             </Cell>
         </Row>
-        <Row preferredHeight="40">
-            <Cell columnSpan="3" dontUseTableCellBackground="true">
-                <Text fontSize="20" alignment="MiddleLeft">Player:</Text>
-            </Cell>
-            <Cell columnSpan="17" dontUseTableCellBackground="true">
-                <Dropdown id="dropdown_playercolor" onValueChanged="on_playercolor_selected" fontSize="20">
-                    <Option selected="true">Red</Option>
-                    <Option>Blue</Option>
-                </Dropdown>
-            </Cell>
-        </Row>
-        <Row preferredHeight="40">
-            <Cell columnSpan="3" dontUseTableCellBackground="true">
-                <Text fontSize="20" alignment="MiddleLeft">Color:</Text>
-            </Cell>
-            <Cell columnSpan="17" dontUseTableCellBackground="true">
-                <Dropdown id="dropdown_command" onValueChanged="on_command_selected" fontSize="20">
-                    <Option selected="true">None</Option>
-                    <Option>Orange</Option>
-                    <Option>Yellow</Option>
-                    <Option>Green</Option>
-                    <Option>Purple</Option>
-                </Dropdown>
-            </Cell>
-        </Row>
-        <Row preferredHeight="40">
-            <Cell columnSpan="20" dontUseTableCellBackground="true">
-                <Toggle id="toggle_use_plain_bases" onValueChanged="on_use_plain_bases" alignment="MiddleLeft" fontSize="16">Use plain bases</Toggle>
-            </Cell>
+        <Row preferredHeight="320">
+          <Cell columnSpan="3" dontUseTableCellBackground="true">
+              <Text fontSize="20" alignment="MiddleLeft">Allies</Text>
+          </Cell>
+          <Cell columnSpan="17" dontUseTableCellBackground="true">
+            <VerticalLayout childForceExpandHeight="false" childAlignment="UpperLeft">
+                <Toggle id="toggle_ally_army_1"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army1</Toggle>
+                <Toggle id="toggle_ally_army_2"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army2</Toggle>
+                <Toggle id="toggle_ally_army_3"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army3</Toggle>
+                <Toggle id="toggle_ally_army_4"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army4</Toggle>
+                <Toggle id="toggle_ally_army_5"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army5</Toggle>
+                <Toggle id="toggle_ally_army_6"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army6</Toggle>
+                <Toggle id="toggle_ally_army_7"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army7</Toggle>
+                <Toggle id="toggle_ally_army_8"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army8</Toggle>
+                <Toggle id="toggle_ally_army_9"  isOn="false" onValueChanged="on_toggle_ally_army" active="false">army9</Toggle>
+                <Toggle id="toggle_ally_army_10" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army10</Toggle>
+                <Toggle id="toggle_ally_army_11" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army11</Toggle>
+                <Toggle id="toggle_ally_army_12" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army12</Toggle>
+                <Toggle id="toggle_ally_army_13" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army13</Toggle>
+                <Toggle id="toggle_ally_army_14" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army14</Toggle>
+                <Toggle id="toggle_ally_army_15" isOn="false" onValueChanged="on_toggle_ally_army" active="false">army15</Toggle>
+            </VerticalLayout>
+          </Cell>
         </Row>
         <Row preferredHeight="40">
             <Cell columnSpan="5" dontUseTableCellBackground="true">
@@ -233,50 +339,4 @@
             </Cell>
         </Row>
     </TableLayout>
-</Panel>
-
-<Panel id="panel_wheel_bg" width="450" height="250" rectAlignment="LowerCenter" active="false" raycastTarget="true" >
-    <Image image="wheel_panel_bg"></Image>
-</Panel>
-<Panel id="panel_wheel" width="450" height="250" color="#00000000" rectAlignment="LowerCenter" active="false" raycastTarget="true" >
-    <TableLayout padding="30 30 30 30" cellSpacing="20">
-        <Row>
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <Text fontSize="16">Orientation:</Text>
-            </Cell>
-            <Cell columnSpan="4" dontUseTableCellBackground="true">
-                <ToggleGroup id="togglegroup_orientation"
-                    onValueChanged="on_change_orientation_wheel">
-                    <HorizontalLayout>
-                        <Toggle id="toggle_wheel_left">Left</Toggle>
-                        <Toggle id="toggle_wheel_right">Right</Toggle>
-                    </HorizontalLayout>
-                </ToggleGroup>
-            </Cell>
-        </Row>
-        <Row>
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <Text fontSize="16">Degrees:</Text>
-            </Cell>
-            <Cell columnSpan="4" dontUseTableCellBackground="true">
-                <Slider id="slider_wheel_rotation" minValue="0" maxValue="90" wholeNumbers="true" value="0" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="on_rotation_wheel"></Slider>
-            </Cell>
-        </Row>
-        <Row>
-            <Cell columnSpan="6" dontUseTableCellBackground="true">
-                <Text id="text_wheeling" fontSize="16">This will cost 0 MUs</Text>
-            </Cell>
-        </Row>
-        <Row>
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <Button columnSpan="2" fontSize="20" onClick="on_cancel_wheeling">Cancel</Button>
-            </Cell>
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <!-- Filler -->
-            </Cell>
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <Button columnSpan="1" fontSize="20" onClick="on_make_wheeling">Move</Button>
-            </Cell>
-        </Row>
-        </TableLayout>
 </Panel>

@@ -1,156 +1,13 @@
 -- 5fb1b9f2e1af06001770a1ee Mai Thuc Loan's revolt  722 to 722 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3fe1af06001770f6eb']= {
-  min=0,
-  max=1,
-  description='War elephants',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6ec']= {
-  troop_option='5fb1ba3fe1af06001770f6eb',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba3fe1af06001770f6ed']= {
-  min=6,
-  max=12,
-  description='Fierce infantry armed with spear and boot-shaped axe',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6ee']= {
-  troop_option='5fb1ba3fe1af06001770f6ed',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba3fe1af06001770f6ef']= {
-  min=3,
-  max=9,
-  description='Bowmen and crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6f0']= {
-  troop_option='5fb1ba3fe1af06001770f6ef',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3fe1af06001770f6f1']= {
-  min=0,
-  max=4,
-  description='Unshielded spearmen',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6f2']= {
-  troop_option='5fb1ba3fe1af06001770f6f1',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba3fe1af06001770f6f3']= {
-  min=1,
-  max=3,
-  description='Hill tribesmen',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6f4']= {
-  troop_option='5fb1ba3fe1af06001770f6f3',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3fe1af06001770f6f5']= {
-  min=1,
-  max=2,
-  description='Hill tribe bowmen',
-}
-g_troop_entry['5fb1ba3fe1af06001770f6f6']= {
-  troop_option='5fb1ba3fe1af06001770f6f5',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba3fe1af06001770f6ec_general='5fb1ba3fe1af06001770f6ec_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6ec_general]={
-  id=g_str_5fb1ba3fe1af06001770f6ec_general,
-  name='Elephants General',
-  min=0,
-  max=1,
-  description='War elephants',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba3fe1af06001770f6ec='5fb1ba3fe1af06001770f6ec'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6ec]={
-  id=g_str_5fb1ba3fe1af06001770f6ec,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba3fe1af06001770f6ee_general='5fb1ba3fe1af06001770f6ee_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6ee_general]={
-  id=g_str_5fb1ba3fe1af06001770f6ee_general,
-  name='Warband General',
-  min=6,
-  max=1,
-  description='Fierce infantry armed with spear and boot-shaped axe',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba3fe1af06001770f6ee='5fb1ba3fe1af06001770f6ee'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6ee]={
-  id=g_str_5fb1ba3fe1af06001770f6ee,
-  name='Warband',
-  min=6,
-  max=12,
-  description='Fierce infantry armed with spear and boot-shaped axe',
-  troop_type="Warband",
-}
-g_str_5fb1ba3fe1af06001770f6f0='5fb1ba3fe1af06001770f6f0'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6f0]={
-  id=g_str_5fb1ba3fe1af06001770f6f0,
-  name='Bow Levy',
-  min=3,
-  max=9,
-  description='Bowmen and crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3fe1af06001770f6f2='5fb1ba3fe1af06001770f6f2'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6f2]={
-  id=g_str_5fb1ba3fe1af06001770f6f2,
-  name='Rabble',
-  min=0,
-  max=4,
-  description='Unshielded spearmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba3fe1af06001770f6f4='5fb1ba3fe1af06001770f6f4'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6f4]={
-  id=g_str_5fb1ba3fe1af06001770f6f4,
-  name='Light Foot',
-  min=1,
-  max=3,
-  description='Hill tribesmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3fe1af06001770f6f6='5fb1ba3fe1af06001770f6f6'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f6f6]={
-  id=g_str_5fb1ba3fe1af06001770f6f6,
-  name='Bow Levy',
-  min=1,
-  max=2,
-  description='Hill tribe bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9f2e1af06001770a1ee_camp='5fb1b9f2e1af06001770a1ee_camp'
-g_base_definitions[g_str_5fb1b9f2e1af06001770a1ee_camp]={
-  id=g_str_5fb1b9f2e1af06001770a1ee_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f2e1af06001770a1ee']={
   data={
     name='Mai Thuc Loan\'s revolt  722 to 722 AD',
     id='5fb1b9f2e1af06001770a1ee',
-    army_id='5fb1b9f2e1af06001770a1ee'
+    dateRange={
+      startDate=722,
+      endDate=722,
+    }
   },
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6ec_general],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f6ec],
@@ -182,4 +39,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f2e1af06001770a1ee"] = {}
-army_dates["5fb1b9f2e1af06001770a1ee"]["722 AD"] ="5fb1b9f2e1af06001770a1ee"
+army_dates["5fb1b9f2e1af06001770a1ee"]["722 AD"] = {
+  startDate=722,
+  endDate=722
+}

@@ -1,336 +1,13 @@
 -- 5fb1b9dbe1af06001770950e Kyrenean Greek  630 to 308 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba25e1af06001770c625']= {
-  min=1,
-  max=2,
-  description='4-horse battle platforms with javelin-armed crew',
-}
-g_troop_entry['5fb1ba25e1af06001770c626']= {
-  troop_option='5fb1ba25e1af06001770c625',
-  troopTypeCode='BTX',
-}
-g_troop_option['5fb1ba25e1af06001770c627']= {
-  min=0,
-  max=1,
-  description='Greek horsemen',
-}
-g_troop_entry['5fb1ba25e1af06001770c628']= {
-  troop_option='5fb1ba25e1af06001770c627',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba25e1af06001770c629']= {
-  min=0,
-  max=1,
-  description='Greek horsemen or Xystophoroi',
-}
-g_troop_entry['5fb1ba25e1af06001770c62a']= {
-  troop_option='5fb1ba25e1af06001770c629',
-  troopTypeCode='BAD',
-}
-g_troop_entry['5fb1ba25e1af06001770c62b']= {
-  troop_option='5fb1ba25e1af06001770c629',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba25e1af06001770c62c']= {
-  min=7,
-  max=15,
-  description='Kyrenean hoplites',
-  core='all',
-}
-g_troop_entry['5fb1ba25e1af06001770c62d']= {
-  troop_option='5fb1ba25e1af06001770c62c',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba25e1af06001770c630']= {
-  min=0,
-  max=2,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba25e1af06001770c631']= {
-  troop_option='5fb1ba25e1af06001770c630',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba25e1af06001770c632']= {
-  min=0,
-  max=6,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba25e1af06001770c633']= {
-  troop_option='5fb1ba25e1af06001770c632',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba25e1af06001770c634']= {
-  min=1,
-  max=2,
-  description='Macedonian pikemen',
-  core='all',
-  startDate=-313,
-  endDate=-308,
-}
-g_troop_entry['5fb1ba25e1af06001770c636']= {
-  troop_option='5fb1ba25e1af06001770c634',
-  troopTypeCode='PIK',
-}
-g_troop_option['5fb1ba25e1af06001770c637']= {
-  min=0,
-  max=1,
-  description='Mercenary peltasts',
-  startDate=-313,
-  endDate=-308,
-}
-g_troop_entry['5fb1ba25e1af06001770c639']= {
-  troop_option='5fb1ba25e1af06001770c637',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba25e1af06001770c63a']= {
-  min=0,
-  max=1,
-  description='Mercenary skirmishing bowmen and slingers',
-  startDate=-313,
-  endDate=-308,
-}
-g_troop_entry['5fb1ba25e1af06001770c63c']= {
-  troop_option='5fb1ba25e1af06001770c63a',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba25e1af06001770c63d']= {
-  min=1,
-  max=4,
-  description='Athenian volunteer spearmen',
-  core='all',
-  startDate=-313,
-  endDate=-308,
-}
-g_troop_entry['5fb1ba25e1af06001770c63f']= {
-  troop_option='5fb1ba25e1af06001770c63d',
-  troopTypeCode='HFT',
-}
-g_troop_entry['5fb1ba25e1af06001770c640']= {
-  troop_option='5fb1ba25e1af06001770c63d',
-  troopTypeCode='SPR',
-}
-g_str_5fb1ba25e1af06001770c626_general='5fb1ba25e1af06001770c626_general'
-g_base_definitions[g_str_5fb1ba25e1af06001770c626_general]={
-  id=g_str_5fb1ba25e1af06001770c626_general,
-  name='Battle Taxi General',
-  min=1,
-  max=1,
-  description='4-horse battle platforms with javelin-armed crew',
-  general=true,
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba25e1af06001770c626='5fb1ba25e1af06001770c626'
-g_base_definitions[g_str_5fb1ba25e1af06001770c626]={
-  id=g_str_5fb1ba25e1af06001770c626,
-  name='Battle Taxi',
-  min=1,
-  max=2,
-  description='4-horse battle platforms with javelin-armed crew',
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba25e1af06001770c628='5fb1ba25e1af06001770c628'
-g_base_definitions[g_str_5fb1ba25e1af06001770c628]={
-  id=g_str_5fb1ba25e1af06001770c628,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Greek horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba25e1af06001770c62a='5fb1ba25e1af06001770c62a'
-g_base_definitions[g_str_5fb1ba25e1af06001770c62a]={
-  id=g_str_5fb1ba25e1af06001770c62a,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Greek horsemen or Xystophoroi',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba25e1af06001770c62b='5fb1ba25e1af06001770c62b'
-g_base_definitions[g_str_5fb1ba25e1af06001770c62b]={
-  id=g_str_5fb1ba25e1af06001770c62b,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Greek horsemen or Xystophoroi',
-  troop_type="Knights",
-}
-g_str_5fb1ba25e1af06001770c62d_general='5fb1ba25e1af06001770c62d_general'
-g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general]={
-  id=g_str_5fb1ba25e1af06001770c62d_general,
-  name='Heavy Foot General',
-  min=7,
-  max=1,
-  description='Kyrenean hoplites',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry='5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry'
-g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry='5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry,
-  name='Heavy Foot General',
-  min=7,
-  max=1,
-  description='Kyrenean hoplites\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry,
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry]={
-  id=g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry,
-  name='Heavy Foot General',
-  min=7,
-  max=1,
-  description='Kyrenean hoplites\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry,
-  general=true,
-  mobile_infantry=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba25e1af06001770c62d='5fb1ba25e1af06001770c62d'
-g_base_definitions[g_str_5fb1ba25e1af06001770c62d]={
-  id=g_str_5fb1ba25e1af06001770c62d,
-  name='Heavy Foot',
-  min=7,
-  max=15,
-  description='Kyrenean hoplites',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry='5fb1ba25e1af06001770c62d_dismounted_mobile_infantry'
-g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry='5fb1ba25e1af06001770c62d_mounted_mobile_infantry'
-g_base_definitions[g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry]={
-  id=g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry,
-  name='Heavy Foot',
-  min=7,
-  max=15,
-  description='Kyrenean hoplites\nDismounted mobile infantry',
-  dismounted_from=g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry,
-  troop_type="Heavy Foot",
-}
-g_base_definitions[g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry]={
-  id=g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry,
-  name='Heavy Foot',
-  min=7,
-  max=15,
-  description='Kyrenean hoplites\nmounted mobile infantry',
-  dismount_as=g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry,
-  mobile_infantry=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba25e1af06001770c631='5fb1ba25e1af06001770c631'
-g_base_definitions[g_str_5fb1ba25e1af06001770c631]={
-  id=g_str_5fb1ba25e1af06001770c631,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba25e1af06001770c633='5fb1ba25e1af06001770c633'
-g_base_definitions[g_str_5fb1ba25e1af06001770c633]={
-  id=g_str_5fb1ba25e1af06001770c633,
-  name='Rabble',
-  min=0,
-  max=6,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba25e1af06001770c636='5fb1ba25e1af06001770c636'
-g_base_definitions[g_str_5fb1ba25e1af06001770c636]={
-  id=g_str_5fb1ba25e1af06001770c636,
-  name='Pikes',
-  min=1,
-  max=2,
-  description='Macedonian pikemen',
-  troop_type="Pikes",
-}
-g_str_5fb1ba25e1af06001770c639='5fb1ba25e1af06001770c639'
-g_base_definitions[g_str_5fb1ba25e1af06001770c639]={
-  id=g_str_5fb1ba25e1af06001770c639,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Mercenary peltasts',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba25e1af06001770c63c='5fb1ba25e1af06001770c63c'
-g_base_definitions[g_str_5fb1ba25e1af06001770c63c]={
-  id=g_str_5fb1ba25e1af06001770c63c,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Mercenary skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba25e1af06001770c63f_general='5fb1ba25e1af06001770c63f_general'
-g_base_definitions[g_str_5fb1ba25e1af06001770c63f_general]={
-  id=g_str_5fb1ba25e1af06001770c63f_general,
-  name='Heavy Foot General',
-  min=1,
-  max=1,
-  description='Athenian volunteer spearmen',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba25e1af06001770c63f='5fb1ba25e1af06001770c63f'
-g_base_definitions[g_str_5fb1ba25e1af06001770c63f]={
-  id=g_str_5fb1ba25e1af06001770c63f,
-  name='Heavy Foot',
-  min=1,
-  max=4,
-  description='Athenian volunteer spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba25e1af06001770c640='5fb1ba25e1af06001770c640'
-g_base_definitions[g_str_5fb1ba25e1af06001770c640]={
-  id=g_str_5fb1ba25e1af06001770c640,
-  name='Spears',
-  min=1,
-  max=4,
-  description='Athenian volunteer spearmen',
-  troop_type="Spears",
-}
-g_str_5fb1b9dbe1af06001770950e_camp='5fb1b9dbe1af06001770950e_camp'
-g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp]={
-  id=g_str_5fb1b9dbe1af06001770950e_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dbe1af06001770950e_camp_fortified='5fb1b9dbe1af06001770950e_camp_fortified'
-g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_fortified]={
-  id=g_str_5fb1b9dbe1af06001770950e_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9dbe1af06001770950e_camp_pack_train='5fb1b9dbe1af06001770950e_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_pack_train]={
-  id=g_str_5fb1b9dbe1af06001770950e_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dbe1af06001770950e']={
   data={
     name='Kyrenean Greek  630 to 308 BC',
     id='5fb1b9dbe1af06001770950e',
-    army_id='5fb1b9dbe1af06001770950e'
+    dateRange={
+      startDate=-630,
+      endDate=-308,
+    }
   },
   g_base_definitions[g_str_5fb1ba25e1af06001770c626_general],
   g_base_definitions[g_str_5fb1ba25e1af06001770c626],
@@ -359,64 +36,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9dbe1af06001770950e"] = army["5fb1b9dbe1af06001770950e"]
-army['5fb1b9dbe1af06001770950e_-630_-314']={
-  data={
-    name='Kyrenean Greek 630 BC to 314 BC',
-    id='5fb1b9dbe1af06001770950e_-630_-314',
-    army_id='5fb1b9dbe1af06001770950e'
-  },
-  g_base_definitions[g_str_5fb1ba25e1af06001770c626_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c626],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c628],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62a],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62b],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c631],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c633],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c636],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c639],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c63c],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c63f_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c63f],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c640],
-  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp],
-  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_pack_train],
-}
-army['5fb1b9dbe1af06001770950e_-313_-308']={
-  data={
-    name='Kyrenean Greek 313 BC to 308 BC',
-    id='5fb1b9dbe1af06001770950e_-313_-308',
-    army_id='5fb1b9dbe1af06001770950e'
-  },
-  g_base_definitions[g_str_5fb1ba25e1af06001770c626_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c626],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c628],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62a],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62b],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_general_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_mounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c62d_dismounted_mobile_infantry],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c631],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c633],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c636],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c639],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c63c],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c63f_general],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c63f],
-  g_base_definitions[g_str_5fb1ba25e1af06001770c640],
-  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp],
-  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_fortified],
-  g_base_definitions[g_str_5fb1b9dbe1af06001770950e_camp_pack_train],
-}
 if nil == armies["Birth of the West"] then
   armies["Birth of the West"] ={}
 end
@@ -433,6 +52,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dbe1af06001770950e"] = {}
-army_dates["5fb1b9dbe1af06001770950e"]["630 BC to 308 BC"] ="5fb1b9dbe1af06001770950e"
-army_dates["5fb1b9dbe1af06001770950e"]["630 BC to 314 BC"] ="5fb1b9dbe1af06001770950e_-630_-314"
-army_dates["5fb1b9dbe1af06001770950e"]["313 BC to 308 BC"] ="5fb1b9dbe1af06001770950e_-313_-308"
+army_dates["5fb1b9dbe1af06001770950e"]["630 BC to 308 BC"] = {
+  startDate=-630,
+  endDate=-308
+}
+army_dates["5fb1b9dbe1af06001770950e"]["630 BC to 551 BC"] = {
+  startDate=-630,
+  endDate=-551
+}
+army_dates["5fb1b9dbe1af06001770950e"]["550 BC to 411 BC"] = {
+  startDate=-550,
+  endDate=-411
+}
+army_dates["5fb1b9dbe1af06001770950e"]["410 BC to 341 BC"] = {
+  startDate=-410,
+  endDate=-341
+}
+army_dates["5fb1b9dbe1af06001770950e"]["340 BC to 323 BC"] = {
+  startDate=-340,
+  endDate=-323
+}
+army_dates["5fb1b9dbe1af06001770950e"]["322 BC"] = {
+  startDate=-322,
+  endDate=-322
+}
+army_dates["5fb1b9dbe1af06001770950e"]["321 BC to 314 BC"] = {
+  startDate=-321,
+  endDate=-314
+}
+army_dates["5fb1b9dbe1af06001770950e"]["313 BC to 308 BC"] = {
+  startDate=-313,
+  endDate=-308
+}

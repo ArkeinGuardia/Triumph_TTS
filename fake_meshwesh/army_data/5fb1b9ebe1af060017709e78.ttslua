@@ -1,127 +1,13 @@
 -- 5fb1b9ebe1af060017709e78 Serbian Kingdom  1180 to 1300 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba38e1af06001770e975']= {
-  min=3,
-  max=6,
-  description='Serbian vlastela',
-}
-g_troop_entry['5fb1ba38e1af06001770e976']= {
-  troop_option='5fb1ba38e1af06001770e975',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba38e1af06001770e977']= {
-  min=0,
-  max=1,
-  description='Serbian voynuk spearmen',
-}
-g_troop_entry['5fb1ba38e1af06001770e978']= {
-  troop_option='5fb1ba38e1af06001770e977',
-  troopTypeCode='SPR',
-}
-g_troop_option['5fb1ba38e1af06001770e979']= {
-  min=4,
-  max=8,
-  description='Serbian, Moravian, Bosnian, or Greek bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba38e1af06001770e97a']= {
-  troop_option='5fb1ba38e1af06001770e979',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba38e1af06001770e97b']= {
-  min=0,
-  max=2,
-  description='Hungarian, Cuman, Turkoman, or Wallachian mercenaries',
-}
-g_troop_entry['5fb1ba38e1af06001770e97c']= {
-  troop_option='5fb1ba38e1af06001770e97b',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba38e1af06001770e97d']= {
-  min=0,
-  max=2,
-  description='Zamanitchka Voyska levies',
-  core='all',
-}
-g_troop_entry['5fb1ba38e1af06001770e97e']= {
-  troop_option='5fb1ba38e1af06001770e97d',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba38e1af06001770e976_general='5fb1ba38e1af06001770e976_general'
-g_base_definitions[g_str_5fb1ba38e1af06001770e976_general]={
-  id=g_str_5fb1ba38e1af06001770e976_general,
-  name='Knights General',
-  min=3,
-  max=1,
-  description='Serbian vlastela',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba38e1af06001770e976='5fb1ba38e1af06001770e976'
-g_base_definitions[g_str_5fb1ba38e1af06001770e976]={
-  id=g_str_5fb1ba38e1af06001770e976,
-  name='Knights',
-  min=3,
-  max=6,
-  description='Serbian vlastela',
-  troop_type="Knights",
-}
-g_str_5fb1ba38e1af06001770e978='5fb1ba38e1af06001770e978'
-g_base_definitions[g_str_5fb1ba38e1af06001770e978]={
-  id=g_str_5fb1ba38e1af06001770e978,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Serbian voynuk spearmen',
-  troop_type="Spears",
-}
-g_str_5fb1ba38e1af06001770e97a='5fb1ba38e1af06001770e97a'
-g_base_definitions[g_str_5fb1ba38e1af06001770e97a]={
-  id=g_str_5fb1ba38e1af06001770e97a,
-  name='Bow Levy',
-  min=4,
-  max=8,
-  description='Serbian, Moravian, Bosnian, or Greek bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba38e1af06001770e97c='5fb1ba38e1af06001770e97c'
-g_base_definitions[g_str_5fb1ba38e1af06001770e97c]={
-  id=g_str_5fb1ba38e1af06001770e97c,
-  name='Horse Bow',
-  min=0,
-  max=2,
-  description='Hungarian, Cuman, Turkoman, or Wallachian mercenaries',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba38e1af06001770e97e='5fb1ba38e1af06001770e97e'
-g_base_definitions[g_str_5fb1ba38e1af06001770e97e]={
-  id=g_str_5fb1ba38e1af06001770e97e,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Zamanitchka Voyska levies',
-  troop_type="Horde",
-}
-g_str_5fb1b9ebe1af060017709e78_camp='5fb1b9ebe1af060017709e78_camp'
-g_base_definitions[g_str_5fb1b9ebe1af060017709e78_camp]={
-  id=g_str_5fb1b9ebe1af060017709e78_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9ebe1af060017709e78']={
   data={
     name='Serbian Kingdom  1180 to 1300 AD',
     id='5fb1b9ebe1af060017709e78',
-    army_id='5fb1b9ebe1af060017709e78'
+    dateRange={
+      startDate=1180,
+      endDate=1300,
+    }
   },
   g_base_definitions[g_str_5fb1ba38e1af06001770e976_general],
   g_base_definitions[g_str_5fb1ba38e1af06001770e976],
@@ -151,4 +37,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ebe1af060017709e78"] = {}
-army_dates["5fb1b9ebe1af060017709e78"]["1180 AD to 1300 AD"] ="5fb1b9ebe1af060017709e78"
+army_dates["5fb1b9ebe1af060017709e78"]["1180 AD to 1300 AD"] = {
+  startDate=1180,
+  endDate=1300
+}

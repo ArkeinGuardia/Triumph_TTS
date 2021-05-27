@@ -1,82 +1,13 @@
 -- 5fb1b9f5e1af06001770a385 Settled MFP Meso-American  1150 to 400 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba43e1af06001770fcfd']= {
-  min=0,
-  max=2,
-  description='Well equipped or trained infantry',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fcfe']= {
-  troop_option='5fb1ba43e1af06001770fcfd',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba43e1af06001770fcff']= {
-  min=21,
-  max=24,
-  description='Untrained tribesmen and poorly armed skirmishers',
-}
-g_troop_entry['5fb1ba43e1af06001770fd00']= {
-  troop_option='5fb1ba43e1af06001770fcff',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba43e1af06001770fcfe_general='5fb1ba43e1af06001770fcfe_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcfe_general]={
-  id=g_str_5fb1ba43e1af06001770fcfe_general,
-  name='Light Foot General',
-  min=0,
-  max=1,
-  description='Well equipped or trained infantry',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fcfe='5fb1ba43e1af06001770fcfe'
-g_base_definitions[g_str_5fb1ba43e1af06001770fcfe]={
-  id=g_str_5fb1ba43e1af06001770fcfe,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Well equipped or trained infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd00_general='5fb1ba43e1af06001770fd00_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd00_general]={
-  id=g_str_5fb1ba43e1af06001770fd00_general,
-  name='Rabble General',
-  min=21,
-  max=1,
-  description='Untrained tribesmen and poorly armed skirmishers',
-  general=true,
-  troop_type="Rabble",
-}
-g_str_5fb1ba43e1af06001770fd00='5fb1ba43e1af06001770fd00'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd00]={
-  id=g_str_5fb1ba43e1af06001770fd00,
-  name='Rabble',
-  min=21,
-  max=24,
-  description='Untrained tribesmen and poorly armed skirmishers',
-  troop_type="Rabble",
-}
-g_str_5fb1b9f5e1af06001770a385_camp='5fb1b9f5e1af06001770a385_camp'
-g_base_definitions[g_str_5fb1b9f5e1af06001770a385_camp]={
-  id=g_str_5fb1b9f5e1af06001770a385_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f5e1af06001770a385']={
   data={
     name='Settled MFP Meso-American  1150 to 400 BC',
     id='5fb1b9f5e1af06001770a385',
-    army_id='5fb1b9f5e1af06001770a385'
+    dateRange={
+      startDate=-1150,
+      endDate=-400,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fcfe_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fcfe],
@@ -104,4 +35,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f5e1af06001770a385"] = {}
-army_dates["5fb1b9f5e1af06001770a385"]["1150 BC to 400 BC"] ="5fb1b9f5e1af06001770a385"
+army_dates["5fb1b9f5e1af06001770a385"]["1150 BC to 400 BC"] = {
+  startDate=-1150,
+  endDate=-400
+}

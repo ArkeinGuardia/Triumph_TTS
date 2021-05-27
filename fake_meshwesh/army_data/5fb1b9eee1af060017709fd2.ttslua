@@ -1,380 +1,13 @@
 -- 5fb1b9eee1af060017709fd2 Lusignan Cypriot  1192 to 1489 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3be1af06001770ef4a']= {
-  min=1,
-  max=2,
-  description='Feudal or mercenary men-at-arms and turcopoles',
-}
-g_troop_entry['5fb1ba3be1af06001770ef4b']= {
-  troop_option='5fb1ba3be1af06001770ef4a',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba3be1af06001770ef4c']= {
-  min=1,
-  max=1,
-  description='Lombard and other mercenary horsemen',
-  note='only Imperialist faction',
-  startDate=1231,
-  endDate=1232,
-}
-g_troop_entry['5fb1ba3be1af06001770ef4e']= {
-  troop_option='5fb1ba3be1af06001770ef4c',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba3be1af06001770ef4f']= {
-  min=0,
-  max=1,
-  description='Separately deployed turcopoles',
-}
-g_troop_entry['5fb1ba3be1af06001770ef50']= {
-  troop_option='5fb1ba3be1af06001770ef4f',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3be1af06001770ef51']= {
-  min=0,
-  max=1,
-  description='Hospitaller knights, sergeants, and turcopoles',
-  startDate=1291,
-  endDate=1459,
-}
-g_troop_entry['5fb1ba3be1af06001770ef53']= {
-  troop_option='5fb1ba3be1af06001770ef51',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba3be1af06001770ef54']= {
-  min=0,
-  max=1,
-  description='Hospitaller spearmen',
-  core='all',
-  startDate=1291,
-  endDate=1459,
-}
-g_troop_entry['5fb1ba3be1af06001770ef56']= {
-  troop_option='5fb1ba3be1af06001770ef54',
-  troopTypeCode='SPR',
-}
-g_troop_option['5fb1ba3be1af06001770ef57']= {
-  min=2,
-  max=6,
-  description='Crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3be1af06001770ef58']= {
-  troop_option='5fb1ba3be1af06001770ef57',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3be1af06001770ef59']= {
-  min=2,
-  max=4,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3be1af06001770ef5a']= {
-  troop_option='5fb1ba3be1af06001770ef59',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba3be1af06001770ef5b']= {
-  min=2,
-  max=4,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba3be1af06001770ef5c']= {
-  troop_option='5fb1ba3be1af06001770ef5b',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3be1af06001770ef5d']= {
-  min=0,
-  max=1,
-  description='Armenian bowmen',
-}
-g_troop_entry['5fb1ba3be1af06001770ef5e']= {
-  troop_option='5fb1ba3be1af06001770ef5d',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3be1af06001770ef5f']= {
-  min=0,
-  max=2,
-  description='Arriere-ban',
-  core='all',
-}
-g_troop_entry['5fb1ba3be1af06001770ef60']= {
-  troop_option='5fb1ba3be1af06001770ef5f',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba3be1af06001770ef61']= {
-  min=0,
-  max=1,
-  description='Catalan mercenary light infantry',
-  startDate=1321,
-  endDate=1489,
-}
-g_troop_entry['5fb1ba3be1af06001770ef63']= {
-  troop_option='5fb1ba3be1af06001770ef61',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3be1af06001770ef64']= {
-  min=0,
-  max=3,
-  description='Bulgarian, Greek, and Tartar horse archers',
-  startDate=1373,
-  endDate=1374,
-}
-g_troop_entry['5fb1ba3be1af06001770ef66']= {
-  troop_option='5fb1ba3be1af06001770ef64',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3be1af06001770ef67']= {
-  min=0,
-  max=2,
-  description='Karamanli Turkoman mercenary horse archers',
-  startDate=1416,
-  endDate=1489,
-}
-g_troop_entry['5fb1ba3be1af06001770ef69']= {
-  troop_option='5fb1ba3be1af06001770ef67',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3be1af06001770ef6a']= {
-  min=0,
-  max=1,
-  description='Italian mercenary crossbowmen',
-  core='all',
-  startDate=1474,
-  endDate=1489,
-}
-g_troop_entry['5fb1ba3be1af06001770ef6c']= {
-  troop_option='5fb1ba3be1af06001770ef6a',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba3be1af06001770ef6d']= {
-  min=0,
-  max=1,
-  description='Other Italian mercenary billmen or skirmishing handgunners',
-  startDate=1474,
-  endDate=1489,
-}
-g_troop_entry['5fb1ba3be1af06001770ef6f']= {
-  troop_option='5fb1ba3be1af06001770ef6d',
-  troopTypeCode='EFT',
-}
-g_troop_entry['5fb1ba3be1af06001770ef70']= {
-  troop_option='5fb1ba3be1af06001770ef6d',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba3be1af06001770ef4b_general='5fb1ba3be1af06001770ef4b_general'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general]={
-  id=g_str_5fb1ba3be1af06001770ef4b_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Feudal or mercenary men-at-arms and turcopoles',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba3be1af06001770ef4b='5fb1ba3be1af06001770ef4b'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef4b]={
-  id=g_str_5fb1ba3be1af06001770ef4b,
-  name='Knights',
-  min=1,
-  max=2,
-  description='Feudal or mercenary men-at-arms and turcopoles',
-  troop_type="Knights",
-}
-g_str_5fb1ba3be1af06001770ef4e_general='5fb1ba3be1af06001770ef4e_general'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general]={
-  id=g_str_5fb1ba3be1af06001770ef4e_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Lombard and other mercenary horsemen',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba3be1af06001770ef4e='5fb1ba3be1af06001770ef4e'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef4e]={
-  id=g_str_5fb1ba3be1af06001770ef4e,
-  name='Knights',
-  min=1,
-  max=1,
-  description='Lombard and other mercenary horsemen',
-  troop_type="Knights",
-}
-g_str_5fb1ba3be1af06001770ef50='5fb1ba3be1af06001770ef50'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef50]={
-  id=g_str_5fb1ba3be1af06001770ef50,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Separately deployed turcopoles',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3be1af06001770ef53_general='5fb1ba3be1af06001770ef53_general'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general]={
-  id=g_str_5fb1ba3be1af06001770ef53_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='Hospitaller knights, sergeants, and turcopoles',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba3be1af06001770ef53='5fb1ba3be1af06001770ef53'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef53]={
-  id=g_str_5fb1ba3be1af06001770ef53,
-  name='Knights',
-  min=0,
-  max=1,
-  description='Hospitaller knights, sergeants, and turcopoles',
-  troop_type="Knights",
-}
-g_str_5fb1ba3be1af06001770ef56_general='5fb1ba3be1af06001770ef56_general'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general]={
-  id=g_str_5fb1ba3be1af06001770ef56_general,
-  name='Spears General',
-  min=0,
-  max=1,
-  description='Hospitaller spearmen',
-  general=true,
-  troop_type="Spears",
-}
-g_str_5fb1ba3be1af06001770ef56='5fb1ba3be1af06001770ef56'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef56]={
-  id=g_str_5fb1ba3be1af06001770ef56,
-  name='Spears',
-  min=0,
-  max=1,
-  description='Hospitaller spearmen',
-  troop_type="Spears",
-}
-g_str_5fb1ba3be1af06001770ef58='5fb1ba3be1af06001770ef58'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef58]={
-  id=g_str_5fb1ba3be1af06001770ef58,
-  name='Archers',
-  min=2,
-  max=6,
-  description='Crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3be1af06001770ef5a_general='5fb1ba3be1af06001770ef5a_general'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general]={
-  id=g_str_5fb1ba3be1af06001770ef5a_general,
-  name='Heavy Foot General',
-  min=2,
-  max=1,
-  description='Spearmen',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba3be1af06001770ef5a='5fb1ba3be1af06001770ef5a'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef5a]={
-  id=g_str_5fb1ba3be1af06001770ef5a,
-  name='Heavy Foot',
-  min=2,
-  max=4,
-  description='Spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba3be1af06001770ef5c='5fb1ba3be1af06001770ef5c'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef5c]={
-  id=g_str_5fb1ba3be1af06001770ef5c,
-  name='Bow Levy',
-  min=2,
-  max=4,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3be1af06001770ef5e='5fb1ba3be1af06001770ef5e'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef5e]={
-  id=g_str_5fb1ba3be1af06001770ef5e,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Armenian bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3be1af06001770ef60='5fb1ba3be1af06001770ef60'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef60]={
-  id=g_str_5fb1ba3be1af06001770ef60,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Arriere-ban',
-  troop_type="Horde",
-}
-g_str_5fb1ba3be1af06001770ef63='5fb1ba3be1af06001770ef63'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef63]={
-  id=g_str_5fb1ba3be1af06001770ef63,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Catalan mercenary light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3be1af06001770ef66='5fb1ba3be1af06001770ef66'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef66]={
-  id=g_str_5fb1ba3be1af06001770ef66,
-  name='Horse Bow',
-  min=0,
-  max=3,
-  description='Bulgarian, Greek, and Tartar horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3be1af06001770ef69='5fb1ba3be1af06001770ef69'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef69]={
-  id=g_str_5fb1ba3be1af06001770ef69,
-  name='Horse Bow',
-  min=0,
-  max=2,
-  description='Karamanli Turkoman mercenary horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3be1af06001770ef6c='5fb1ba3be1af06001770ef6c'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef6c]={
-  id=g_str_5fb1ba3be1af06001770ef6c,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Italian mercenary crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba3be1af06001770ef6f='5fb1ba3be1af06001770ef6f'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef6f]={
-  id=g_str_5fb1ba3be1af06001770ef6f,
-  name='Elite Foot',
-  min=0,
-  max=1,
-  description='Other Italian mercenary billmen or skirmishing handgunners',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba3be1af06001770ef70='5fb1ba3be1af06001770ef70'
-g_base_definitions[g_str_5fb1ba3be1af06001770ef70]={
-  id=g_str_5fb1ba3be1af06001770ef70,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Other Italian mercenary billmen or skirmishing handgunners',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9eee1af060017709fd2_camp='5fb1b9eee1af060017709fd2_camp'
-g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp]={
-  id=g_str_5fb1b9eee1af060017709fd2_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9eee1af060017709fd2']={
   data={
     name='Lusignan Cypriot  1192 to 1489 AD',
     id='5fb1b9eee1af060017709fd2',
-    army_id='5fb1b9eee1af060017709fd2'
+    dateRange={
+      startDate=1192,
+      endDate=1489,
+    }
   },
   g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
   g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
@@ -403,296 +36,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9eee1af060017709fd2"] = army["5fb1b9eee1af060017709fd2"]
-army['5fb1b9eee1af060017709fd2_1192_1230']={
-  data={
-    name='Lusignan Cypriot 1192 AD to 1230 AD',
-    id='5fb1b9eee1af060017709fd2_1192_1230',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1231_1232']={
-  data={
-    name='Lusignan Cypriot 1231 AD to 1232 AD',
-    id='5fb1b9eee1af060017709fd2_1231_1232',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1233_1290']={
-  data={
-    name='Lusignan Cypriot 1233 AD to 1290 AD',
-    id='5fb1b9eee1af060017709fd2_1233_1290',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1291_1320']={
-  data={
-    name='Lusignan Cypriot 1291 AD to 1320 AD',
-    id='5fb1b9eee1af060017709fd2_1291_1320',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1321_1372']={
-  data={
-    name='Lusignan Cypriot 1321 AD to 1372 AD',
-    id='5fb1b9eee1af060017709fd2_1321_1372',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1373_1374']={
-  data={
-    name='Lusignan Cypriot 1373 AD to 1374 AD',
-    id='5fb1b9eee1af060017709fd2_1373_1374',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1375_1415']={
-  data={
-    name='Lusignan Cypriot 1375 AD to 1415 AD',
-    id='5fb1b9eee1af060017709fd2_1375_1415',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1416_1459']={
-  data={
-    name='Lusignan Cypriot 1416 AD to 1459 AD',
-    id='5fb1b9eee1af060017709fd2_1416_1459',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1460_1473']={
-  data={
-    name='Lusignan Cypriot 1460 AD to 1473 AD',
-    id='5fb1b9eee1af060017709fd2_1460_1473',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
-army['5fb1b9eee1af060017709fd2_1474_1489']={
-  data={
-    name='Lusignan Cypriot 1474 AD to 1489 AD',
-    id='5fb1b9eee1af060017709fd2_1474_1489',
-    army_id='5fb1b9eee1af060017709fd2'
-  },
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4b],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef4e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef50],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef53],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef56],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef58],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a_general],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5a],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef5e],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef60],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef63],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef66],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef69],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6c],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef6f],
-  g_base_definitions[g_str_5fb1ba3be1af06001770ef70],
-  g_base_definitions[g_str_5fb1b9eee1af060017709fd2_camp],
-}
 if nil == armies["Scimitar and Crescent"] then
   armies["Scimitar and Crescent"] ={}
 end
@@ -717,14 +60,79 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9eee1af060017709fd2"] = {}
-army_dates["5fb1b9eee1af060017709fd2"]["1192 AD to 1489 AD"] ="5fb1b9eee1af060017709fd2"
-army_dates["5fb1b9eee1af060017709fd2"]["1192 AD to 1230 AD"] ="5fb1b9eee1af060017709fd2_1192_1230"
-army_dates["5fb1b9eee1af060017709fd2"]["1231 AD to 1232 AD"] ="5fb1b9eee1af060017709fd2_1231_1232"
-army_dates["5fb1b9eee1af060017709fd2"]["1233 AD to 1290 AD"] ="5fb1b9eee1af060017709fd2_1233_1290"
-army_dates["5fb1b9eee1af060017709fd2"]["1291 AD to 1320 AD"] ="5fb1b9eee1af060017709fd2_1291_1320"
-army_dates["5fb1b9eee1af060017709fd2"]["1321 AD to 1372 AD"] ="5fb1b9eee1af060017709fd2_1321_1372"
-army_dates["5fb1b9eee1af060017709fd2"]["1373 AD to 1374 AD"] ="5fb1b9eee1af060017709fd2_1373_1374"
-army_dates["5fb1b9eee1af060017709fd2"]["1375 AD to 1415 AD"] ="5fb1b9eee1af060017709fd2_1375_1415"
-army_dates["5fb1b9eee1af060017709fd2"]["1416 AD to 1459 AD"] ="5fb1b9eee1af060017709fd2_1416_1459"
-army_dates["5fb1b9eee1af060017709fd2"]["1460 AD to 1473 AD"] ="5fb1b9eee1af060017709fd2_1460_1473"
-army_dates["5fb1b9eee1af060017709fd2"]["1474 AD to 1489 AD"] ="5fb1b9eee1af060017709fd2_1474_1489"
+army_dates["5fb1b9eee1af060017709fd2"]["1192 AD to 1489 AD"] = {
+  startDate=1192,
+  endDate=1489
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1192 AD to 1230 AD"] = {
+  startDate=1192,
+  endDate=1230
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1231 AD to 1232 AD"] = {
+  startDate=1231,
+  endDate=1232
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1233 AD to 1249 AD"] = {
+  startDate=1233,
+  endDate=1249
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1250 AD to 1290 AD"] = {
+  startDate=1250,
+  endDate=1290
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1291 AD to 1315 AD"] = {
+  startDate=1291,
+  endDate=1315
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1316 AD to 1320 AD"] = {
+  startDate=1316,
+  endDate=1320
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1321 AD to 1356 AD"] = {
+  startDate=1321,
+  endDate=1356
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1357 AD to 1363 AD"] = {
+  startDate=1357,
+  endDate=1363
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1364 AD"] = {
+  startDate=1364,
+  endDate=1364
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1365 AD"] = {
+  startDate=1365,
+  endDate=1365
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1366 AD to 1372 AD"] = {
+  startDate=1366,
+  endDate=1372
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1373 AD to 1374 AD"] = {
+  startDate=1373,
+  endDate=1374
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1375 AD to 1410 AD"] = {
+  startDate=1375,
+  endDate=1410
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1411 AD to 1415 AD"] = {
+  startDate=1411,
+  endDate=1415
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1416 AD to 1459 AD"] = {
+  startDate=1416,
+  endDate=1459
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1460 AD to 1464 AD"] = {
+  startDate=1460,
+  endDate=1464
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1465 AD to 1473 AD"] = {
+  startDate=1465,
+  endDate=1473
+}
+army_dates["5fb1b9eee1af060017709fd2"]["1474 AD to 1489 AD"] = {
+  startDate=1474,
+  endDate=1489
+}

@@ -1,140 +1,13 @@
 -- 5fb1b9e6e1af060017709baf Almohades  1121 to 1145 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba32e1af06001770de1d']= {
-  min=1,
-  max=3,
-  description='Berber horsemen',
-}
-g_troop_entry['5fb1ba32e1af06001770de1e']= {
-  troop_option='5fb1ba32e1af06001770de1d',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba32e1af06001770de1f']= {
-  min=1,
-  max=2,
-  description='Arab-Berber horsemen',
-}
-g_troop_entry['5fb1ba32e1af06001770de20']= {
-  troop_option='5fb1ba32e1af06001770de1f',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba32e1af06001770de21']= {
-  min=3,
-  max=6,
-  description='Berber spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770de22']= {
-  troop_option='5fb1ba32e1af06001770de21',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba32e1af06001770de24']= {
-  min=3,
-  max=6,
-  description='Berber bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770de25']= {
-  troop_option='5fb1ba32e1af06001770de24',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba32e1af06001770de27']= {
-  min=0,
-  max=4,
-  description='Berber javelinmen',
-}
-g_troop_entry['5fb1ba32e1af06001770de28']= {
-  troop_option='5fb1ba32e1af06001770de27',
-  troopTypeCode='LFT',
-}
-g_troop_entry['5fb1ba32e1af06001770de29']= {
-  troop_option='5fb1ba32e1af06001770de27',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba32e1af06001770de1e_general='5fb1ba32e1af06001770de1e_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770de1e_general]={
-  id=g_str_5fb1ba32e1af06001770de1e_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Berber horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770de1e='5fb1ba32e1af06001770de1e'
-g_base_definitions[g_str_5fb1ba32e1af06001770de1e]={
-  id=g_str_5fb1ba32e1af06001770de1e,
-  name='Javelin Cavalry',
-  min=1,
-  max=3,
-  description='Berber horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770de20='5fb1ba32e1af06001770de20'
-g_base_definitions[g_str_5fb1ba32e1af06001770de20]={
-  id=g_str_5fb1ba32e1af06001770de20,
-  name='Bad Horse',
-  min=1,
-  max=2,
-  description='Arab-Berber horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba32e1af06001770de22='5fb1ba32e1af06001770de22'
-g_base_definitions[g_str_5fb1ba32e1af06001770de22]={
-  id=g_str_5fb1ba32e1af06001770de22,
-  name='Heavy Foot',
-  min=3,
-  max=6,
-  description='Berber spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba32e1af06001770de25='5fb1ba32e1af06001770de25'
-g_base_definitions[g_str_5fb1ba32e1af06001770de25]={
-  id=g_str_5fb1ba32e1af06001770de25,
-  name='Bow Levy',
-  min=3,
-  max=6,
-  description='Berber bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba32e1af06001770de28='5fb1ba32e1af06001770de28'
-g_base_definitions[g_str_5fb1ba32e1af06001770de28]={
-  id=g_str_5fb1ba32e1af06001770de28,
-  name='Light Foot',
-  min=0,
-  max=4,
-  description='Berber javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba32e1af06001770de29='5fb1ba32e1af06001770de29'
-g_base_definitions[g_str_5fb1ba32e1af06001770de29]={
-  id=g_str_5fb1ba32e1af06001770de29,
-  name='Rabble',
-  min=0,
-  max=4,
-  description='Berber javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9e6e1af060017709baf_camp='5fb1b9e6e1af060017709baf_camp'
-g_base_definitions[g_str_5fb1b9e6e1af060017709baf_camp]={
-  id=g_str_5fb1b9e6e1af060017709baf_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e6e1af060017709baf']={
   data={
     name='Almohades  1121 to 1145 AD',
     id='5fb1b9e6e1af060017709baf',
-    army_id='5fb1b9e6e1af060017709baf'
+    dateRange={
+      startDate=1121,
+      endDate=1145,
+    }
   },
   g_base_definitions[g_str_5fb1ba32e1af06001770de1e_general],
   g_base_definitions[g_str_5fb1ba32e1af06001770de1e],
@@ -165,4 +38,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e6e1af060017709baf"] = {}
-army_dates["5fb1b9e6e1af060017709baf"]["1121 AD to 1145 AD"] ="5fb1b9e6e1af060017709baf"
+army_dates["5fb1b9e6e1af060017709baf"]["1121 AD to 1145 AD"] = {
+  startDate=1121,
+  endDate=1145
+}

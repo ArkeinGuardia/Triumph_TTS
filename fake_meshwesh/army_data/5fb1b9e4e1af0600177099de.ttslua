@@ -1,187 +1,13 @@
 -- 5fb1b9e4e1af0600177099de Justinian Decline  560 to 578 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2ee1af06001770d822']= {
-  min=2,
-  max=6,
-  description='Boukellarioi and double-armed Kavallarioi',
-}
-g_troop_entry['5fb1ba2ee1af06001770d823']= {
-  troop_option='5fb1ba2ee1af06001770d822',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba2ee1af06001770d825']= {
-  min=1,
-  max=2,
-  description='Kavallarioi',
-}
-g_troop_entry['5fb1ba2ee1af06001770d826']= {
-  troop_option='5fb1ba2ee1af06001770d825',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba2ee1af06001770d827']= {
-  min=1,
-  max=4,
-  description='Skoutatoi',
-  core='all',
-}
-g_troop_entry['5fb1ba2ee1af06001770d828']= {
-  troop_option='5fb1ba2ee1af06001770d827',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2ee1af06001770d82a']= {
-  min=1,
-  max=2,
-  description='Psiloi',
-}
-g_troop_entry['5fb1ba2ee1af06001770d82b']= {
-  troop_option='5fb1ba2ee1af06001770d82a',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba2ee1af06001770d82c']= {
-  troop_option='5fb1ba2ee1af06001770d82a',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba2ee1af06001770d82e']= {
-  min=0,
-  max=2,
-  description='Slavs, Isaurians, Armenians, or similar light infantry',
-}
-g_troop_entry['5fb1ba2ee1af06001770d82f']= {
-  troop_option='5fb1ba2ee1af06001770d82e',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba2ee1af06001770d830']= {
-  min=0,
-  max=1,
-  description='Moorish symmachoi',
-}
-g_troop_entry['5fb1ba2ee1af06001770d831']= {
-  troop_option='5fb1ba2ee1af06001770d830',
-  troopTypeCode='JCV',
-}
-g_str_5fb1ba2ee1af06001770d823_general='5fb1ba2ee1af06001770d823_general'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d823_general]={
-  id=g_str_5fb1ba2ee1af06001770d823_general,
-  name='Elite Cavalary General',
-  min=2,
-  max=1,
-  description='Boukellarioi and double-armed Kavallarioi',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba2ee1af06001770d823='5fb1ba2ee1af06001770d823'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d823]={
-  id=g_str_5fb1ba2ee1af06001770d823,
-  name='Elite Cavalary',
-  min=2,
-  max=6,
-  description='Boukellarioi and double-armed Kavallarioi',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba2ee1af06001770d826_general='5fb1ba2ee1af06001770d826_general'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d826_general]={
-  id=g_str_5fb1ba2ee1af06001770d826_general,
-  name='Horse Bow General',
-  min=1,
-  max=1,
-  description='Kavallarioi',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba2ee1af06001770d826='5fb1ba2ee1af06001770d826'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d826]={
-  id=g_str_5fb1ba2ee1af06001770d826,
-  name='Horse Bow',
-  min=1,
-  max=2,
-  description='Kavallarioi',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba2ee1af06001770d828='5fb1ba2ee1af06001770d828'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d828]={
-  id=g_str_5fb1ba2ee1af06001770d828,
-  name='Heavy Foot',
-  min=1,
-  max=4,
-  description='Skoutatoi',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2ee1af06001770d82b='5fb1ba2ee1af06001770d82b'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d82b]={
-  id=g_str_5fb1ba2ee1af06001770d82b,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Psiloi',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2ee1af06001770d82c='5fb1ba2ee1af06001770d82c'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d82c]={
-  id=g_str_5fb1ba2ee1af06001770d82c,
-  name='Bow Levy',
-  min=1,
-  max=2,
-  description='Psiloi',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba2ee1af06001770d82f='5fb1ba2ee1af06001770d82f'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d82f]={
-  id=g_str_5fb1ba2ee1af06001770d82f,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Slavs, Isaurians, Armenians, or similar light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba2ee1af06001770d831='5fb1ba2ee1af06001770d831'
-g_base_definitions[g_str_5fb1ba2ee1af06001770d831]={
-  id=g_str_5fb1ba2ee1af06001770d831,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Moorish symmachoi',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1b9e4e1af0600177099de_camp='5fb1b9e4e1af0600177099de_camp'
-g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp]={
-  id=g_str_5fb1b9e4e1af0600177099de_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e4e1af0600177099de_camp_fortified='5fb1b9e4e1af0600177099de_camp_fortified'
-g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp_fortified]={
-  id=g_str_5fb1b9e4e1af0600177099de_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e4e1af0600177099de_camp_pack_train='5fb1b9e4e1af0600177099de_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e4e1af0600177099de_camp_pack_train]={
-  id=g_str_5fb1b9e4e1af0600177099de_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e4e1af0600177099de']={
   data={
     name='Justinian Decline  560 to 578 AD',
     id='5fb1b9e4e1af0600177099de',
-    army_id='5fb1b9e4e1af0600177099de'
+    dateRange={
+      startDate=560,
+      endDate=578,
+    }
   },
   g_base_definitions[g_str_5fb1ba2ee1af06001770d823_general],
   g_base_definitions[g_str_5fb1ba2ee1af06001770d823],
@@ -212,4 +38,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e4e1af0600177099de"] = {}
-army_dates["5fb1b9e4e1af0600177099de"]["560 AD to 578 AD"] ="5fb1b9e4e1af0600177099de"
+army_dates["5fb1b9e4e1af0600177099de"]["560 AD to 578 AD"] = {
+  startDate=560,
+  endDate=578
+}
+army_dates["5fb1b9e4e1af0600177099de"]["560 AD to 561 AD"] = {
+  startDate=560,
+  endDate=561
+}
+army_dates["5fb1b9e4e1af0600177099de"]["562 AD to 567 AD"] = {
+  startDate=562,
+  endDate=567
+}
+army_dates["5fb1b9e4e1af0600177099de"]["568 AD to 578 AD"] = {
+  startDate=568,
+  endDate=578
+}

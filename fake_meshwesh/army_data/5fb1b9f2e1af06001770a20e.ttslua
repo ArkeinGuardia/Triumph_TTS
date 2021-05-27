@@ -1,173 +1,13 @@
 -- 5fb1b9f2e1af06001770a20e Murong Xianbei  300 to 431 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3fe1af06001770f777']= {
-  min=1,
-  max=3,
-  description='Armored nobles on armored horses',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f778']= {
-  troop_option='5fb1ba3fe1af06001770f777',
-  troopTypeCode='KNT',
-}
-g_troop_entry['5fb1ba3fe1af06001770f779']= {
-  troop_option='5fb1ba3fe1af06001770f777',
-  troopTypeCode='CAT',
-}
-g_troop_option['5fb1ba3fe1af06001770f77a']= {
-  min=5,
-  max=11,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba3fe1af06001770f77b']= {
-  troop_option='5fb1ba3fe1af06001770f77a',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3fe1af06001770f77c']= {
-  min=0,
-  max=2,
-  description='"Chained together" closely formed horse archers',
-  core='all',
-}
-g_troop_entry['5fb1ba3fe1af06001770f77d']= {
-  troop_option='5fb1ba3fe1af06001770f77c',
-  troopTypeCode='ECV',
-}
-g_troop_entry['5fb1ba3fe1af06001770f77e']= {
-  troop_option='5fb1ba3fe1af06001770f77c',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba3fe1af06001770f780']= {
-  min=0,
-  max=3,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba3fe1af06001770f781']= {
-  troop_option='5fb1ba3fe1af06001770f780',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba3fe1af06001770f778_general='5fb1ba3fe1af06001770f778_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f778_general]={
-  id=g_str_5fb1ba3fe1af06001770f778_general,
-  name='Knights General',
-  min=1,
-  max=1,
-  description='Armored nobles on armored horses',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba3fe1af06001770f778='5fb1ba3fe1af06001770f778'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f778]={
-  id=g_str_5fb1ba3fe1af06001770f778,
-  name='Knights',
-  min=1,
-  max=3,
-  description='Armored nobles on armored horses',
-  troop_type="Knights",
-}
-g_str_5fb1ba3fe1af06001770f779_general='5fb1ba3fe1af06001770f779_general'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f779_general]={
-  id=g_str_5fb1ba3fe1af06001770f779_general,
-  name='Cataphracts General',
-  min=1,
-  max=1,
-  description='Armored nobles on armored horses',
-  general=true,
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba3fe1af06001770f779='5fb1ba3fe1af06001770f779'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f779]={
-  id=g_str_5fb1ba3fe1af06001770f779,
-  name='Cataphracts',
-  min=1,
-  max=3,
-  description='Armored nobles on armored horses',
-  troop_type="Cataphracts",
-}
-g_str_5fb1ba3fe1af06001770f77b='5fb1ba3fe1af06001770f77b'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f77b]={
-  id=g_str_5fb1ba3fe1af06001770f77b,
-  name='Horse Bow',
-  min=5,
-  max=11,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3fe1af06001770f77d='5fb1ba3fe1af06001770f77d'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f77d]={
-  id=g_str_5fb1ba3fe1af06001770f77d,
-  name='Elite Cavalary',
-  min=0,
-  max=2,
-  description='"Chained together" closely formed horse archers',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3fe1af06001770f77e='5fb1ba3fe1af06001770f77e'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f77e]={
-  id=g_str_5fb1ba3fe1af06001770f77e,
-  name='Bad Horse',
-  min=0,
-  max=2,
-  description='"Chained together" closely formed horse archers',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba3fe1af06001770f781='5fb1ba3fe1af06001770f781'
-g_base_definitions[g_str_5fb1ba3fe1af06001770f781]={
-  id=g_str_5fb1ba3fe1af06001770f781,
-  name='Skirmishers',
-  min=0,
-  max=3,
-  description='Skirmishing bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f2e1af06001770a20e_camp='5fb1b9f2e1af06001770a20e_camp'
-g_base_definitions[g_str_5fb1b9f2e1af06001770a20e_camp]={
-  id=g_str_5fb1b9f2e1af06001770a20e_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f2e1af06001770a20e_camp_pack_train='5fb1b9f2e1af06001770a20e_camp_pack_train'
-g_base_definitions[g_str_5fb1b9f2e1af06001770a20e_camp_pack_train]={
-  id=g_str_5fb1b9f2e1af06001770a20e_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
-g_str_5fb1ba18e1af06001770ba43='5fb1ba18e1af06001770ba43'
-g_base_definitions[g_str_5fb1ba18e1af06001770ba43]={
-  id=g_str_5fb1ba18e1af06001770ba43,
-  name='Heavy Foot',
-  min=1,
-  max=3,
-  description='Chinese-trained close-fighting infantry',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba18e1af06001770ba45='5fb1ba18e1af06001770ba45'
-g_base_definitions[g_str_5fb1ba18e1af06001770ba45]={
-  id=g_str_5fb1ba18e1af06001770ba45,
-  name='Bow Levy',
-  min=1,
-  max=3,
-  description='Chinese-trained crossbowmen',
-  troop_type="Bow Levy",
-}
 army['5fb1b9f2e1af06001770a20e']={
   data={
     name='Murong Xianbei  300 to 431 AD',
     id='5fb1b9f2e1af06001770a20e',
-    army_id='5fb1b9f2e1af06001770a20e'
+    dateRange={
+      startDate=300,
+      endDate=431,
+    }
   },
   g_base_definitions[g_str_5fb1ba3fe1af06001770f778_general],
   g_base_definitions[g_str_5fb1ba3fe1af06001770f778],
@@ -202,4 +42,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f2e1af06001770a20e"] = {}
-army_dates["5fb1b9f2e1af06001770a20e"]["300 AD to 431 AD"] ="5fb1b9f2e1af06001770a20e"
+army_dates["5fb1b9f2e1af06001770a20e"]["300 AD to 431 AD"] = {
+  startDate=300,
+  endDate=431
+}
+army_dates["5fb1b9f2e1af06001770a20e"]["300 AD to 350 AD"] = {
+  startDate=300,
+  endDate=350
+}
+army_dates["5fb1b9f2e1af06001770a20e"]["351 AD to 368 AD"] = {
+  startDate=351,
+  endDate=368
+}
+army_dates["5fb1b9f2e1af06001770a20e"]["369 AD"] = {
+  startDate=369,
+  endDate=369
+}
+army_dates["5fb1b9f2e1af06001770a20e"]["370 AD to 382 AD"] = {
+  startDate=370,
+  endDate=382
+}
+army_dates["5fb1b9f2e1af06001770a20e"]["383 AD"] = {
+  startDate=383,
+  endDate=383
+}
+army_dates["5fb1b9f2e1af06001770a20e"]["384 AD to 394 AD"] = {
+  startDate=384,
+  endDate=394
+}
+army_dates["5fb1b9f2e1af06001770a20e"]["395 AD to 431 AD"] = {
+  startDate=395,
+  endDate=431
+}

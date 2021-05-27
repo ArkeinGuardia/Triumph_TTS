@@ -1,163 +1,13 @@
 -- 5fb1b9eae1af060017709db2 Prussian  1200 to 1283 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba36e1af06001770e655']= {
-  min=0,
-  max=2,
-  description='Noble horsemen',
-}
-g_troop_entry['5fb1ba36e1af06001770e656']= {
-  troop_option='5fb1ba36e1af06001770e655',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba36e1af06001770e658']= {
-  min=8,
-  max=16,
-  description='Fierce fighters',
-  core='all',
-}
-g_troop_entry['5fb1ba36e1af06001770e659']= {
-  troop_option='5fb1ba36e1af06001770e658',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba36e1af06001770e65a']= {
-  min=0,
-  max=10,
-  description='Militia',
-}
-g_troop_entry['5fb1ba36e1af06001770e65b']= {
-  troop_option='5fb1ba36e1af06001770e65a',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba36e1af06001770e65c']= {
-  min=2,
-  max=4,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba36e1af06001770e65d']= {
-  troop_option='5fb1ba36e1af06001770e65c',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba36e1af06001770e656_general='5fb1ba36e1af06001770e656_general'
-g_base_definitions[g_str_5fb1ba36e1af06001770e656_general]={
-  id=g_str_5fb1ba36e1af06001770e656_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba36e1af06001770e656_general_dismounted='5fb1ba36e1af06001770e656_general_dismounted'
-g_str_5fb1ba36e1af06001770e656_general_mounted='5fb1ba36e1af06001770e656_general_mounted'
-g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_dismounted]={
-  id=g_str_5fb1ba36e1af06001770e656_general_dismounted,
-  name='Warband General',
-  min=0,
-  max=1,
-  description='Noble horsemen\nMid-battle dismounted from Javelin Cavalry General',
-  dismounted_from=g_str_5fb1ba36e1af06001770e656_general_mounted,
-  general=true,
-  troop_type="Warband",
-}
-g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_mounted]={
-  id=g_str_5fb1ba36e1af06001770e656_general_mounted,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Noble horsemen\nMid-battle dismounting as Warband',
-  dismount_as=g_str_5fb1ba36e1af06001770e656_general_dismounted,
-  general=true,
-  mid_battle_dismounting=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba36e1af06001770e656='5fb1ba36e1af06001770e656'
-g_base_definitions[g_str_5fb1ba36e1af06001770e656]={
-  id=g_str_5fb1ba36e1af06001770e656,
-  name='Javelin Cavalry',
-  min=0,
-  max=2,
-  description='Noble horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba36e1af06001770e656_dismounted='5fb1ba36e1af06001770e656_dismounted'
-g_str_5fb1ba36e1af06001770e656_mounted='5fb1ba36e1af06001770e656_mounted'
-g_base_definitions[g_str_5fb1ba36e1af06001770e656_dismounted]={
-  id=g_str_5fb1ba36e1af06001770e656_dismounted,
-  name='Warband',
-  min=0,
-  max=2,
-  description='Noble horsemen\nMid-battle dismounted from Javelin Cavalry',
-  dismounted_from=g_str_5fb1ba36e1af06001770e656_mounted,
-  troop_type="Warband",
-}
-g_base_definitions[g_str_5fb1ba36e1af06001770e656_mounted]={
-  id=g_str_5fb1ba36e1af06001770e656_mounted,
-  name='Javelin Cavalry',
-  min=0,
-  max=2,
-  description='Noble horsemen\nMid-battle dismounting as Warband',
-  dismount_as=g_str_5fb1ba36e1af06001770e656_dismounted,
-  mid_battle_dismounting=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba36e1af06001770e659_general='5fb1ba36e1af06001770e659_general'
-g_base_definitions[g_str_5fb1ba36e1af06001770e659_general]={
-  id=g_str_5fb1ba36e1af06001770e659_general,
-  name='Warband General',
-  min=8,
-  max=1,
-  description='Fierce fighters',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba36e1af06001770e659='5fb1ba36e1af06001770e659'
-g_base_definitions[g_str_5fb1ba36e1af06001770e659]={
-  id=g_str_5fb1ba36e1af06001770e659,
-  name='Warband',
-  min=8,
-  max=16,
-  description='Fierce fighters',
-  troop_type="Warband",
-}
-g_str_5fb1ba36e1af06001770e65b='5fb1ba36e1af06001770e65b'
-g_base_definitions[g_str_5fb1ba36e1af06001770e65b]={
-  id=g_str_5fb1ba36e1af06001770e65b,
-  name='Rabble',
-  min=0,
-  max=10,
-  description='Militia',
-  troop_type="Rabble",
-}
-g_str_5fb1ba36e1af06001770e65d='5fb1ba36e1af06001770e65d'
-g_base_definitions[g_str_5fb1ba36e1af06001770e65d]={
-  id=g_str_5fb1ba36e1af06001770e65d,
-  name='Bow Levy',
-  min=2,
-  max=4,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9eae1af060017709db2_camp='5fb1b9eae1af060017709db2_camp'
-g_base_definitions[g_str_5fb1b9eae1af060017709db2_camp]={
-  id=g_str_5fb1b9eae1af060017709db2_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9eae1af060017709db2']={
   data={
     name='Prussian  1200 to 1283 AD',
     id='5fb1b9eae1af060017709db2',
-    army_id='5fb1b9eae1af060017709db2'
+    dateRange={
+      startDate=1200,
+      endDate=1283,
+    }
   },
   g_base_definitions[g_str_5fb1ba36e1af06001770e656_general],
   g_base_definitions[g_str_5fb1ba36e1af06001770e656_general_mounted],
@@ -191,4 +41,27 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9eae1af060017709db2"] = {}
-army_dates["5fb1b9eae1af060017709db2"]["1200 AD to 1283 AD"] ="5fb1b9eae1af060017709db2"
+army_dates["5fb1b9eae1af060017709db2"]["1200 AD to 1283 AD"] = {
+  startDate=1200,
+  endDate=1283
+}
+army_dates["5fb1b9eae1af060017709db2"]["1200 AD"] = {
+  startDate=1200,
+  endDate=1200
+}
+army_dates["5fb1b9eae1af060017709db2"]["1201 AD to 1240 AD"] = {
+  startDate=1201,
+  endDate=1240
+}
+army_dates["5fb1b9eae1af060017709db2"]["1241 AD"] = {
+  startDate=1241,
+  endDate=1241
+}
+army_dates["5fb1b9eae1af060017709db2"]["1242 AD"] = {
+  startDate=1242,
+  endDate=1242
+}
+army_dates["5fb1b9eae1af060017709db2"]["1243 AD to 1283 AD"] = {
+  startDate=1243,
+  endDate=1283
+}

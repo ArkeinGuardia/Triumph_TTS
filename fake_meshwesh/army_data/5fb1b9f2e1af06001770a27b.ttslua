@@ -1,254 +1,13 @@
 -- 5fb1b9f2e1af06001770a27b Medieval Vietnamese  939 to 1527 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba40e1af06001770f90b']= {
-  min=0,
-  max=1,
-  description='War elephants',
-}
-g_troop_entry['5fb1ba40e1af06001770f90c']= {
-  troop_option='5fb1ba40e1af06001770f90b',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba40e1af06001770f90d']= {
-  min=0,
-  max=1,
-  description='Court and regional horsemen',
-}
-g_troop_entry['5fb1ba40e1af06001770f90e']= {
-  troop_option='5fb1ba40e1af06001770f90d',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba40e1af06001770f90f']= {
-  min=1,
-  max=1,
-  description='Court halberdiers or swordsmen',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f910']= {
-  troop_option='5fb1ba40e1af06001770f90f',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba40e1af06001770f911']= {
-  min=1,
-  max=1,
-  description='Court bowmen and crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f912']= {
-  troop_option='5fb1ba40e1af06001770f911',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba40e1af06001770f913']= {
-  min=2,
-  max=4,
-  description='Ten Circuit spearmen',
-}
-g_troop_entry['5fb1ba40e1af06001770f914']= {
-  troop_option='5fb1ba40e1af06001770f913',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba40e1af06001770f915']= {
-  min=4,
-  max=8,
-  description='Ten Circuit bowmen and crossbowmen',
-}
-g_troop_entry['5fb1ba40e1af06001770f916']= {
-  troop_option='5fb1ba40e1af06001770f915',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba40e1af06001770f917']= {
-  min=1,
-  max=3,
-  description='Regional spearmen',
-  core='all',
-  startDate=939,
-  endDate=1428,
-}
-g_troop_entry['5fb1ba40e1af06001770f919']= {
-  troop_option='5fb1ba40e1af06001770f917',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba40e1af06001770f91a']= {
-  min=1,
-  max=3,
-  description='Regional halberdiers or swordsmen',
-  core='all',
-  startDate=1429,
-  endDate=1527,
-}
-g_troop_entry['5fb1ba40e1af06001770f91c']= {
-  troop_option='5fb1ba40e1af06001770f91a',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba40e1af06001770f91d']= {
-  min=1,
-  max=3,
-  description='Regional bowmen and crossbowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba40e1af06001770f91e']= {
-  troop_option='5fb1ba40e1af06001770f91d',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba40e1af06001770f91f']= {
-  min=1,
-  max=2,
-  description='Skirmishing handgunners',
-  startDate=1429,
-  endDate=1527,
-}
-g_troop_entry['5fb1ba40e1af06001770f921']= {
-  troop_option='5fb1ba40e1af06001770f91f',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba40e1af06001770f90c_general='5fb1ba40e1af06001770f90c_general'
-g_base_definitions[g_str_5fb1ba40e1af06001770f90c_general]={
-  id=g_str_5fb1ba40e1af06001770f90c_general,
-  name='Elephants General',
-  min=0,
-  max=1,
-  description='War elephants',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba40e1af06001770f90c='5fb1ba40e1af06001770f90c'
-g_base_definitions[g_str_5fb1ba40e1af06001770f90c]={
-  id=g_str_5fb1ba40e1af06001770f90c,
-  name='Elephants',
-  min=0,
-  max=1,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba40e1af06001770f90e_general='5fb1ba40e1af06001770f90e_general'
-g_base_definitions[g_str_5fb1ba40e1af06001770f90e_general]={
-  id=g_str_5fb1ba40e1af06001770f90e_general,
-  name='Bad Horse General',
-  min=0,
-  max=1,
-  description='Court and regional horsemen',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba40e1af06001770f90e='5fb1ba40e1af06001770f90e'
-g_base_definitions[g_str_5fb1ba40e1af06001770f90e]={
-  id=g_str_5fb1ba40e1af06001770f90e,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Court and regional horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba40e1af06001770f910='5fb1ba40e1af06001770f910'
-g_base_definitions[g_str_5fb1ba40e1af06001770f910]={
-  id=g_str_5fb1ba40e1af06001770f910,
-  name='Elite Foot',
-  min=1,
-  max=1,
-  description='Court halberdiers or swordsmen',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba40e1af06001770f912='5fb1ba40e1af06001770f912'
-g_base_definitions[g_str_5fb1ba40e1af06001770f912]={
-  id=g_str_5fb1ba40e1af06001770f912,
-  name='Archers',
-  min=1,
-  max=1,
-  description='Court bowmen and crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba40e1af06001770f914='5fb1ba40e1af06001770f914'
-g_base_definitions[g_str_5fb1ba40e1af06001770f914]={
-  id=g_str_5fb1ba40e1af06001770f914,
-  name='Rabble',
-  min=2,
-  max=4,
-  description='Ten Circuit spearmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba40e1af06001770f916='5fb1ba40e1af06001770f916'
-g_base_definitions[g_str_5fb1ba40e1af06001770f916]={
-  id=g_str_5fb1ba40e1af06001770f916,
-  name='Bow Levy',
-  min=4,
-  max=8,
-  description='Ten Circuit bowmen and crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba40e1af06001770f919='5fb1ba40e1af06001770f919'
-g_base_definitions[g_str_5fb1ba40e1af06001770f919]={
-  id=g_str_5fb1ba40e1af06001770f919,
-  name='Light Foot',
-  min=1,
-  max=3,
-  description='Regional spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba40e1af06001770f91c='5fb1ba40e1af06001770f91c'
-g_base_definitions[g_str_5fb1ba40e1af06001770f91c]={
-  id=g_str_5fb1ba40e1af06001770f91c,
-  name='Heavy Foot',
-  min=1,
-  max=3,
-  description='Regional halberdiers or swordsmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba40e1af06001770f91e='5fb1ba40e1af06001770f91e'
-g_base_definitions[g_str_5fb1ba40e1af06001770f91e]={
-  id=g_str_5fb1ba40e1af06001770f91e,
-  name='Bow Levy',
-  min=1,
-  max=3,
-  description='Regional bowmen and crossbowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba40e1af06001770f921='5fb1ba40e1af06001770f921'
-g_base_definitions[g_str_5fb1ba40e1af06001770f921]={
-  id=g_str_5fb1ba40e1af06001770f921,
-  name='Skirmishers',
-  min=1,
-  max=2,
-  description='Skirmishing handgunners',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f2e1af06001770a27b_camp='5fb1b9f2e1af06001770a27b_camp'
-g_base_definitions[g_str_5fb1b9f2e1af06001770a27b_camp]={
-  id=g_str_5fb1b9f2e1af06001770a27b_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1ba18e1af06001770bac8='5fb1ba18e1af06001770bac8'
-g_base_definitions[g_str_5fb1ba18e1af06001770bac8]={
-  id=g_str_5fb1ba18e1af06001770bac8,
-  name='Warband',
-  min=1,
-  max=3,
-  description='Fierce tribesmen',
-  troop_type="Warband",
-}
-g_str_5fb1ba18e1af06001770baca='5fb1ba18e1af06001770baca'
-g_base_definitions[g_str_5fb1ba18e1af06001770baca]={
-  id=g_str_5fb1ba18e1af06001770baca,
-  name='Skirmishers',
-  min=1,
-  max=1,
-  description='Tribal bowmen',
-  troop_type="Skirmishers",
-}
 army['5fb1b9f2e1af06001770a27b']={
   data={
     name='Medieval Vietnamese  939 to 1527 AD',
     id='5fb1b9f2e1af06001770a27b',
-    army_id='5fb1b9f2e1af06001770a27b'
+    dateRange={
+      startDate=939,
+      endDate=1527,
+    }
   },
   g_base_definitions[g_str_5fb1ba40e1af06001770f90c_general],
   g_base_definitions[g_str_5fb1ba40e1af06001770f90c],
@@ -270,50 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f2e1af06001770a27b"] = army["5fb1b9f2e1af06001770a27b"]
-army['5fb1b9f2e1af06001770a27b_939_1428']={
-  data={
-    name='Medieval Vietnamese 939 AD to 1428 AD',
-    id='5fb1b9f2e1af06001770a27b_939_1428',
-    army_id='5fb1b9f2e1af06001770a27b'
-  },
-  g_base_definitions[g_str_5fb1ba40e1af06001770f90c_general],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f90c],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f90e_general],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f90e],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f910],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f912],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f914],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f916],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f919],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f91c],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f91e],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f921],
-  g_base_definitions[g_str_5fb1b9f2e1af06001770a27b_camp],
-  g_base_definitions[g_str_5fb1ba18e1af06001770bac8],
-  g_base_definitions[g_str_5fb1ba18e1af06001770baca],
-}
-army['5fb1b9f2e1af06001770a27b_1429_1527']={
-  data={
-    name='Medieval Vietnamese 1429 AD to 1527 AD',
-    id='5fb1b9f2e1af06001770a27b_1429_1527',
-    army_id='5fb1b9f2e1af06001770a27b'
-  },
-  g_base_definitions[g_str_5fb1ba40e1af06001770f90c_general],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f90c],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f90e_general],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f90e],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f910],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f912],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f914],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f916],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f919],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f91c],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f91e],
-  g_base_definitions[g_str_5fb1ba40e1af06001770f921],
-  g_base_definitions[g_str_5fb1b9f2e1af06001770a27b_camp],
-  g_base_definitions[g_str_5fb1ba18e1af06001770bac8],
-  g_base_definitions[g_str_5fb1ba18e1af06001770baca],
-}
 if nil == armies["Middle Kingdom"] then
   armies["Middle Kingdom"] ={}
 end
@@ -330,6 +45,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f2e1af06001770a27b"] = {}
-army_dates["5fb1b9f2e1af06001770a27b"]["939 AD to 1527 AD"] ="5fb1b9f2e1af06001770a27b"
-army_dates["5fb1b9f2e1af06001770a27b"]["939 AD to 1428 AD"] ="5fb1b9f2e1af06001770a27b_939_1428"
-army_dates["5fb1b9f2e1af06001770a27b"]["1429 AD to 1527 AD"] ="5fb1b9f2e1af06001770a27b_1429_1527"
+army_dates["5fb1b9f2e1af06001770a27b"]["939 AD to 1527 AD"] = {
+  startDate=939,
+  endDate=1527
+}
+army_dates["5fb1b9f2e1af06001770a27b"]["939 AD to 1170 AD"] = {
+  startDate=939,
+  endDate=1170
+}
+army_dates["5fb1b9f2e1af06001770a27b"]["1171 AD to 1279 AD"] = {
+  startDate=1171,
+  endDate=1279
+}
+army_dates["5fb1b9f2e1af06001770a27b"]["1280 AD to 1286 AD"] = {
+  startDate=1280,
+  endDate=1286
+}
+army_dates["5fb1b9f2e1af06001770a27b"]["1287 AD to 1428 AD"] = {
+  startDate=1287,
+  endDate=1428
+}
+army_dates["5fb1b9f2e1af06001770a27b"]["1429 AD to 1471 AD"] = {
+  startDate=1429,
+  endDate=1471
+}
+army_dates["5fb1b9f2e1af06001770a27b"]["1472 AD to 1527 AD"] = {
+  startDate=1472,
+  endDate=1527
+}

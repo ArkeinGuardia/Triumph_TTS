@@ -1,251 +1,13 @@
 -- 5fb1b9ede1af060017709fad Syrian Turkish-ruled States or Provincial Ayyubid dynasties  1092 to 1286 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ae1af06001770eeaa']= {
-  min=1,
-  max=2,
-  description='Ghulams',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770eeab']= {
-  troop_option='5fb1ba3ae1af06001770eeaa',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba3ae1af06001770eead']= {
-  min=2,
-  max=6,
-  description='Syrian, Kurdish, or Armenian horsemen',
-}
-g_troop_entry['5fb1ba3ae1af06001770eeae']= {
-  troop_option='5fb1ba3ae1af06001770eead',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3ae1af06001770eeaf']= {
-  min=2,
-  max=4,
-  description='Turkoman horse archers',
-}
-g_troop_entry['5fb1ba3ae1af06001770eeb0']= {
-  troop_option='5fb1ba3ae1af06001770eeaf',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba3ae1af06001770eeb1']= {
-  min=0,
-  max=2,
-  description='Bedouin Arab horsemen',
-}
-g_troop_entry['5fb1ba3ae1af06001770eeb2']= {
-  troop_option='5fb1ba3ae1af06001770eeb1',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3ae1af06001770eeb3']= {
-  min=0,
-  max=4,
-  description='Ahdath armed with spear, glaives, or bow',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770eeb4']= {
-  troop_option='5fb1ba3ae1af06001770eeb3',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba3ae1af06001770eeb5']= {
-  min=0,
-  max=1,
-  description='Ghazis',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770eeb6']= {
-  troop_option='5fb1ba3ae1af06001770eeb5',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba3ae1af06001770eeb7']= {
-  min=0,
-  max=2,
-  description='Jabaliyya, Kurds, Armenians, and other javelinmen',
-}
-g_troop_entry['5fb1ba3ae1af06001770eeb8']= {
-  troop_option='5fb1ba3ae1af06001770eeb7',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba3ae1af06001770eeb9']= {
-  min=0,
-  max=2,
-  description='Al-ashair',
-}
-g_troop_entry['5fb1ba3ae1af06001770eeba']= {
-  troop_option='5fb1ba3ae1af06001770eeb9',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ae1af06001770eebb']= {
-  min=0,
-  max=1,
-  description='Armored spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770eebc']= {
-  troop_option='5fb1ba3ae1af06001770eebb',
-  troopTypeCode='HFT',
-}
-g_str_5fb1ba3ae1af06001770eeab_general='5fb1ba3ae1af06001770eeab_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeab_general]={
-  id=g_str_5fb1ba3ae1af06001770eeab_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Ghulams',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770eeab='5fb1ba3ae1af06001770eeab'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeab]={
-  id=g_str_5fb1ba3ae1af06001770eeab,
-  name='Elite Cavalary',
-  min=1,
-  max=2,
-  description='Ghulams',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba3ae1af06001770eeae_general='5fb1ba3ae1af06001770eeae_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeae_general]={
-  id=g_str_5fb1ba3ae1af06001770eeae_general,
-  name='Javelin Cavalry General',
-  min=2,
-  max=1,
-  description='Syrian, Kurdish, or Armenian horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770eeae='5fb1ba3ae1af06001770eeae'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeae]={
-  id=g_str_5fb1ba3ae1af06001770eeae,
-  name='Javelin Cavalry',
-  min=2,
-  max=6,
-  description='Syrian, Kurdish, or Armenian horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770eeb0_general='5fb1ba3ae1af06001770eeb0_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeb0_general]={
-  id=g_str_5fb1ba3ae1af06001770eeb0_general,
-  name='Horse Bow General',
-  min=2,
-  max=1,
-  description='Turkoman horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770eeb0='5fb1ba3ae1af06001770eeb0'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeb0]={
-  id=g_str_5fb1ba3ae1af06001770eeb0,
-  name='Horse Bow',
-  min=2,
-  max=4,
-  description='Turkoman horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba3ae1af06001770eeb2_general='5fb1ba3ae1af06001770eeb2_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeb2_general]={
-  id=g_str_5fb1ba3ae1af06001770eeb2_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Bedouin Arab horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770eeb2='5fb1ba3ae1af06001770eeb2'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeb2]={
-  id=g_str_5fb1ba3ae1af06001770eeb2,
-  name='Javelin Cavalry',
-  min=0,
-  max=2,
-  description='Bedouin Arab horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3ae1af06001770eeb4='5fb1ba3ae1af06001770eeb4'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeb4]={
-  id=g_str_5fb1ba3ae1af06001770eeb4,
-  name='Horde',
-  min=0,
-  max=4,
-  description='Ahdath armed with spear, glaives, or bow',
-  troop_type="Horde",
-}
-g_str_5fb1ba3ae1af06001770eeb6='5fb1ba3ae1af06001770eeb6'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeb6]={
-  id=g_str_5fb1ba3ae1af06001770eeb6,
-  name='Warband',
-  min=0,
-  max=1,
-  description='Ghazis',
-  troop_type="Warband",
-}
-g_str_5fb1ba3ae1af06001770eeb8='5fb1ba3ae1af06001770eeb8'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeb8]={
-  id=g_str_5fb1ba3ae1af06001770eeb8,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Jabaliyya, Kurds, Armenians, and other javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba3ae1af06001770eeba='5fb1ba3ae1af06001770eeba'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eeba]={
-  id=g_str_5fb1ba3ae1af06001770eeba,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Al-ashair',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ae1af06001770eebc='5fb1ba3ae1af06001770eebc'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eebc]={
-  id=g_str_5fb1ba3ae1af06001770eebc,
-  name='Heavy Foot',
-  min=0,
-  max=1,
-  description='Armored spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1b9ede1af060017709fad_camp='5fb1b9ede1af060017709fad_camp'
-g_base_definitions[g_str_5fb1b9ede1af060017709fad_camp]={
-  id=g_str_5fb1b9ede1af060017709fad_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709fad_camp_pack_train='5fb1b9ede1af060017709fad_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ede1af060017709fad_camp_pack_train]={
-  id=g_str_5fb1b9ede1af060017709fad_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709fad_camp_fortified='5fb1b9ede1af060017709fad_camp_fortified'
-g_base_definitions[g_str_5fb1b9ede1af060017709fad_camp_fortified]={
-  id=g_str_5fb1b9ede1af060017709fad_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9ede1af060017709fad']={
   data={
     name='Syrian Turkish-ruled States or Provincial Ayyubid dynasties  1092 to 1286 AD',
     id='5fb1b9ede1af060017709fad',
-    army_id='5fb1b9ede1af060017709fad'
+    dateRange={
+      startDate=1092,
+      endDate=1286,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770eeab_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770eeab],
@@ -292,4 +54,63 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709fad"] = {}
-army_dates["5fb1b9ede1af060017709fad"]["1092 AD to 1286 AD"] ="5fb1b9ede1af060017709fad"
+army_dates["5fb1b9ede1af060017709fad"]["1092 AD to 1286 AD"] = {
+  startDate=1092,
+  endDate=1286
+}
+army_dates["5fb1b9ede1af060017709fad"]["1092 AD to 1095 AD"] = {
+  startDate=1092,
+  endDate=1095
+}
+army_dates["5fb1b9ede1af060017709fad"]["1096 AD to 1097 AD"] = {
+  startDate=1096,
+  endDate=1097
+}
+army_dates["5fb1b9ede1af060017709fad"]["1098 AD to 1099 AD"] = {
+  startDate=1098,
+  endDate=1099
+}
+army_dates["5fb1b9ede1af060017709fad"]["1100 AD to 1106 AD"] = {
+  startDate=1100,
+  endDate=1106
+}
+army_dates["5fb1b9ede1af060017709fad"]["1107 AD to 1110 AD"] = {
+  startDate=1107,
+  endDate=1110
+}
+army_dates["5fb1b9ede1af060017709fad"]["1111 AD to 1127 AD"] = {
+  startDate=1111,
+  endDate=1127
+}
+army_dates["5fb1b9ede1af060017709fad"]["1128 AD"] = {
+  startDate=1128,
+  endDate=1128
+}
+army_dates["5fb1b9ede1af060017709fad"]["1129 AD to 1172 AD"] = {
+  startDate=1129,
+  endDate=1172
+}
+army_dates["5fb1b9ede1af060017709fad"]["1173 AD to 1185 AD"] = {
+  startDate=1173,
+  endDate=1185
+}
+army_dates["5fb1b9ede1af060017709fad"]["1186 AD to 1190 AD"] = {
+  startDate=1186,
+  endDate=1190
+}
+army_dates["5fb1b9ede1af060017709fad"]["1191 AD to 1225 AD"] = {
+  startDate=1191,
+  endDate=1225
+}
+army_dates["5fb1b9ede1af060017709fad"]["1226 AD to 1245 AD"] = {
+  startDate=1226,
+  endDate=1245
+}
+army_dates["5fb1b9ede1af060017709fad"]["1246 AD"] = {
+  startDate=1246,
+  endDate=1246
+}
+army_dates["5fb1b9ede1af060017709fad"]["1247 AD to 1286 AD"] = {
+  startDate=1247,
+  endDate=1286
+}

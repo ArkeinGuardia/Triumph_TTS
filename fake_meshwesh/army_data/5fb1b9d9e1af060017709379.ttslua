@@ -1,141 +1,13 @@
 -- 5fb1b9d9e1af060017709379 Mitanni  1595 to 1274 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba20e1af06001770c045']= {
-  min=4,
-  max=8,
-  description='Maryannu 2-horse chariots',
-}
-g_troop_entry['5fb1ba20e1af06001770c046']= {
-  troop_option='5fb1ba20e1af06001770c045',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba20e1af06001770c047']= {
-  min=2,
-  max=4,
-  description='Alik ilki spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c048']= {
-  troop_option='5fb1ba20e1af06001770c047',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba20e1af06001770c04a']= {
-  min=1,
-  max=3,
-  description='Alik ilki bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c04b']= {
-  troop_option='5fb1ba20e1af06001770c04a',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba20e1af06001770c04c']= {
-  troop_option='5fb1ba20e1af06001770c04a',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba20e1af06001770c04e']= {
-  min=2,
-  max=4,
-  description='Ashshabu levy',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c04f']= {
-  troop_option='5fb1ba20e1af06001770c04e',
-  troopTypeCode='HRD',
-}
-g_troop_option['5fb1ba20e1af06001770c050']= {
-  min=0,
-  max=2,
-  description='Hapiru or Akhalamu nomads',
-}
-g_troop_entry['5fb1ba20e1af06001770c051']= {
-  troop_option='5fb1ba20e1af06001770c050',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba20e1af06001770c046_general='5fb1ba20e1af06001770c046_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770c046_general]={
-  id=g_str_5fb1ba20e1af06001770c046_general,
-  name='Chariots General',
-  min=4,
-  max=1,
-  description='Maryannu 2-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c046='5fb1ba20e1af06001770c046'
-g_base_definitions[g_str_5fb1ba20e1af06001770c046]={
-  id=g_str_5fb1ba20e1af06001770c046,
-  name='Chariots',
-  min=4,
-  max=8,
-  description='Maryannu 2-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c048='5fb1ba20e1af06001770c048'
-g_base_definitions[g_str_5fb1ba20e1af06001770c048]={
-  id=g_str_5fb1ba20e1af06001770c048,
-  name='Light Foot',
-  min=2,
-  max=4,
-  description='Alik ilki spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba20e1af06001770c04b='5fb1ba20e1af06001770c04b'
-g_base_definitions[g_str_5fb1ba20e1af06001770c04b]={
-  id=g_str_5fb1ba20e1af06001770c04b,
-  name='Skirmishers',
-  min=1,
-  max=3,
-  description='Alik ilki bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba20e1af06001770c04c='5fb1ba20e1af06001770c04c'
-g_base_definitions[g_str_5fb1ba20e1af06001770c04c]={
-  id=g_str_5fb1ba20e1af06001770c04c,
-  name='Bow Levy',
-  min=1,
-  max=3,
-  description='Alik ilki bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba20e1af06001770c04f='5fb1ba20e1af06001770c04f'
-g_base_definitions[g_str_5fb1ba20e1af06001770c04f]={
-  id=g_str_5fb1ba20e1af06001770c04f,
-  name='Horde',
-  min=2,
-  max=4,
-  description='Ashshabu levy',
-  troop_type="Horde",
-}
-g_str_5fb1ba20e1af06001770c051='5fb1ba20e1af06001770c051'
-g_base_definitions[g_str_5fb1ba20e1af06001770c051]={
-  id=g_str_5fb1ba20e1af06001770c051,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Hapiru or Akhalamu nomads',
-  troop_type="Rabble",
-}
-g_str_5fb1b9d9e1af060017709379_camp='5fb1b9d9e1af060017709379_camp'
-g_base_definitions[g_str_5fb1b9d9e1af060017709379_camp]={
-  id=g_str_5fb1b9d9e1af060017709379_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9d9e1af060017709379']={
   data={
     name='Mitanni  1595 to 1274 BC',
     id='5fb1b9d9e1af060017709379',
-    army_id='5fb1b9d9e1af060017709379'
+    dateRange={
+      startDate=-1595,
+      endDate=-1274,
+    }
   },
   g_base_definitions[g_str_5fb1ba20e1af06001770c046_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770c046],
@@ -162,4 +34,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af060017709379"] = {}
-army_dates["5fb1b9d9e1af060017709379"]["1595 BC to 1274 BC"] ="5fb1b9d9e1af060017709379"
+army_dates["5fb1b9d9e1af060017709379"]["1595 BC to 1274 BC"] = {
+  startDate=-1595,
+  endDate=-1274
+}
+army_dates["5fb1b9d9e1af060017709379"]["1595 BC to 1381 BC"] = {
+  startDate=-1595,
+  endDate=-1381
+}
+army_dates["5fb1b9d9e1af060017709379"]["1380 BC to 1341 BC"] = {
+  startDate=-1380,
+  endDate=-1341
+}
+army_dates["5fb1b9d9e1af060017709379"]["1340 BC"] = {
+  startDate=-1340,
+  endDate=-1340
+}
+army_dates["5fb1b9d9e1af060017709379"]["1339 BC to 1274 BC"] = {
+  startDate=-1339,
+  endDate=-1274
+}

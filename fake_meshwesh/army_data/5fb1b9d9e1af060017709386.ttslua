@@ -1,203 +1,13 @@
 -- 5fb1b9d9e1af060017709386 Kassite and Later Babylonian  1595 to 748 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba20e1af06001770c081']= {
-  min=2,
-  max=4,
-  description='Maryannu 2-horse chariots',
-}
-g_troop_entry['5fb1ba20e1af06001770c082']= {
-  troop_option='5fb1ba20e1af06001770c081',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba20e1af06001770c083']= {
-  min=0,
-  max=1,
-  description='Kassites and Babylonians on horses',
-  startDate=-889,
-  endDate=-748,
-}
-g_troop_entry['5fb1ba20e1af06001770c085']= {
-  troop_option='5fb1ba20e1af06001770c083',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba20e1af06001770c086']= {
-  min=3,
-  max=6,
-  description='Militia spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c087']= {
-  troop_option='5fb1ba20e1af06001770c086',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba20e1af06001770c089']= {
-  min=3,
-  max=6,
-  description='Militia bow in loose formations',
-}
-g_troop_entry['5fb1ba20e1af06001770c08a']= {
-  troop_option='5fb1ba20e1af06001770c089',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba20e1af06001770c08c']= {
-  min=0,
-  max=2,
-  description='Militia bow in formed bodies',
-  core='all',
-}
-g_troop_entry['5fb1ba20e1af06001770c08d']= {
-  troop_option='5fb1ba20e1af06001770c08c',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba20e1af06001770c08e']= {
-  min=0,
-  max=1,
-  description='Militia slingers',
-}
-g_troop_entry['5fb1ba20e1af06001770c08f']= {
-  troop_option='5fb1ba20e1af06001770c08e',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba20e1af06001770c090']= {
-  min=0,
-  max=3,
-  description='Sutu or Hapiru mercenaries',
-}
-g_troop_entry['5fb1ba20e1af06001770c091']= {
-  troop_option='5fb1ba20e1af06001770c090',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba20e1af06001770c092']= {
-  min=0,
-  max=1,
-  description='Shielded Sutu or Hapiru mercenaries',
-}
-g_troop_entry['5fb1ba20e1af06001770c093']= {
-  troop_option='5fb1ba20e1af06001770c092',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba20e1af06001770c082_general='5fb1ba20e1af06001770c082_general'
-g_base_definitions[g_str_5fb1ba20e1af06001770c082_general]={
-  id=g_str_5fb1ba20e1af06001770c082_general,
-  name='Chariots General',
-  min=2,
-  max=1,
-  description='Maryannu 2-horse chariots',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c082='5fb1ba20e1af06001770c082'
-g_base_definitions[g_str_5fb1ba20e1af06001770c082]={
-  id=g_str_5fb1ba20e1af06001770c082,
-  name='Chariots',
-  min=2,
-  max=4,
-  description='Maryannu 2-horse chariots',
-  troop_type="Chariots",
-}
-g_str_5fb1ba20e1af06001770c085='5fb1ba20e1af06001770c085'
-g_base_definitions[g_str_5fb1ba20e1af06001770c085]={
-  id=g_str_5fb1ba20e1af06001770c085,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Kassites and Babylonians on horses',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba20e1af06001770c087='5fb1ba20e1af06001770c087'
-g_base_definitions[g_str_5fb1ba20e1af06001770c087]={
-  id=g_str_5fb1ba20e1af06001770c087,
-  name='Light Foot',
-  min=3,
-  max=6,
-  description='Militia spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba20e1af06001770c08a='5fb1ba20e1af06001770c08a'
-g_base_definitions[g_str_5fb1ba20e1af06001770c08a]={
-  id=g_str_5fb1ba20e1af06001770c08a,
-  name='Skirmishers',
-  min=3,
-  max=6,
-  description='Militia bow in loose formations',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba20e1af06001770c08d='5fb1ba20e1af06001770c08d'
-g_base_definitions[g_str_5fb1ba20e1af06001770c08d]={
-  id=g_str_5fb1ba20e1af06001770c08d,
-  name='Bow Levy',
-  min=0,
-  max=2,
-  description='Militia bow in formed bodies',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba20e1af06001770c08f='5fb1ba20e1af06001770c08f'
-g_base_definitions[g_str_5fb1ba20e1af06001770c08f]={
-  id=g_str_5fb1ba20e1af06001770c08f,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Militia slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba20e1af06001770c091='5fb1ba20e1af06001770c091'
-g_base_definitions[g_str_5fb1ba20e1af06001770c091]={
-  id=g_str_5fb1ba20e1af06001770c091,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Sutu or Hapiru mercenaries',
-  troop_type="Rabble",
-}
-g_str_5fb1ba20e1af06001770c093='5fb1ba20e1af06001770c093'
-g_base_definitions[g_str_5fb1ba20e1af06001770c093]={
-  id=g_str_5fb1ba20e1af06001770c093,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Shielded Sutu or Hapiru mercenaries',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9d9e1af060017709386_camp='5fb1b9d9e1af060017709386_camp'
-g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp]={
-  id=g_str_5fb1b9d9e1af060017709386_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9d9e1af060017709386_camp_fortified='5fb1b9d9e1af060017709386_camp_fortified'
-g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp_fortified]={
-  id=g_str_5fb1b9d9e1af060017709386_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9d9e1af060017709386_camp_pack_train='5fb1b9d9e1af060017709386_camp_pack_train'
-g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp_pack_train]={
-  id=g_str_5fb1b9d9e1af060017709386_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9d9e1af060017709386']={
   data={
     name='Kassite and Later Babylonian  1595 to 748 BC',
     id='5fb1b9d9e1af060017709386',
-    army_id='5fb1b9d9e1af060017709386'
+    dateRange={
+      startDate=-1595,
+      endDate=-748,
+    }
   },
   g_base_definitions[g_str_5fb1ba20e1af06001770c082_general],
   g_base_definitions[g_str_5fb1ba20e1af06001770c082],
@@ -216,44 +26,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9d9e1af060017709386"] = army["5fb1b9d9e1af060017709386"]
-army['5fb1b9d9e1af060017709386_-1595_-890']={
-  data={
-    name='Kassite and Later Babylonian 1595 BC to 890 BC',
-    id='5fb1b9d9e1af060017709386_-1595_-890',
-    army_id='5fb1b9d9e1af060017709386'
-  },
-  g_base_definitions[g_str_5fb1ba20e1af06001770c082_general],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c082],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c085],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c087],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c08a],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c08d],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c08f],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c091],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c093],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp_fortified],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp_pack_train],
-}
-army['5fb1b9d9e1af060017709386_-889_-748']={
-  data={
-    name='Kassite and Later Babylonian 889 BC to 748 BC',
-    id='5fb1b9d9e1af060017709386_-889_-748',
-    army_id='5fb1b9d9e1af060017709386'
-  },
-  g_base_definitions[g_str_5fb1ba20e1af06001770c082_general],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c082],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c085],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c087],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c08a],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c08d],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c08f],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c091],
-  g_base_definitions[g_str_5fb1ba20e1af06001770c093],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp_fortified],
-  g_base_definitions[g_str_5fb1b9d9e1af060017709386_camp_pack_train],
-}
 if nil == armies["Chariot Supremacy"] then
   armies["Chariot Supremacy"] ={}
 end
@@ -274,6 +46,39 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9d9e1af060017709386"] = {}
-army_dates["5fb1b9d9e1af060017709386"]["1595 BC to 748 BC"] ="5fb1b9d9e1af060017709386"
-army_dates["5fb1b9d9e1af060017709386"]["1595 BC to 890 BC"] ="5fb1b9d9e1af060017709386_-1595_-890"
-army_dates["5fb1b9d9e1af060017709386"]["889 BC to 748 BC"] ="5fb1b9d9e1af060017709386_-889_-748"
+army_dates["5fb1b9d9e1af060017709386"]["1595 BC to 748 BC"] = {
+  startDate=-1595,
+  endDate=-748
+}
+army_dates["5fb1b9d9e1af060017709386"]["1595 BC to 1366 BC"] = {
+  startDate=-1595,
+  endDate=-1366
+}
+army_dates["5fb1b9d9e1af060017709386"]["1365 BC to 1101 BC"] = {
+  startDate=-1365,
+  endDate=-1101
+}
+army_dates["5fb1b9d9e1af060017709386"]["1100 BC"] = {
+  startDate=-1100,
+  endDate=-1100
+}
+army_dates["5fb1b9d9e1af060017709386"]["1099 BC to 890 BC"] = {
+  startDate=-1099,
+  endDate=-890
+}
+army_dates["5fb1b9d9e1af060017709386"]["889 BC to 860 BC"] = {
+  startDate=-889,
+  endDate=-860
+}
+army_dates["5fb1b9d9e1af060017709386"]["859 BC to 852 BC"] = {
+  startDate=-859,
+  endDate=-852
+}
+army_dates["5fb1b9d9e1af060017709386"]["851 BC to 824 BC"] = {
+  startDate=-851,
+  endDate=-824
+}
+army_dates["5fb1b9d9e1af060017709386"]["823 BC to 748 BC"] = {
+  startDate=-823,
+  endDate=-748
+}

@@ -1,167 +1,13 @@
 -- 5fb1b9f0e1af06001770a100 Malay or Sumatran  1222 to 1511 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3de1af06001770f442']= {
-  min=1,
-  max=2,
-  description='War elephants',
-  core='all',
-}
-g_troop_entry['5fb1ba3de1af06001770f443']= {
-  troop_option='5fb1ba3de1af06001770f442',
-  troopTypeCode='ELE',
-}
-g_troop_option['5fb1ba3de1af06001770f445']= {
-  min=0,
-  max=1,
-  description='Noble horsemen',
-}
-g_troop_entry['5fb1ba3de1af06001770f446']= {
-  troop_option='5fb1ba3de1af06001770f445',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba3de1af06001770f447']= {
-  min=6,
-  max=14,
-  description='Tribesmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f448']= {
-  troop_option='5fb1ba3de1af06001770f447',
-  troopTypeCode='WRR',
-}
-g_troop_option['5fb1ba3de1af06001770f44a']= {
-  min=1,
-  max=5,
-  description='Bowmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f44b']= {
-  troop_option='5fb1ba3de1af06001770f44a',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3de1af06001770f44c']= {
-  min=0,
-  max=3,
-  description='Javelinmen',
-}
-g_troop_entry['5fb1ba3de1af06001770f44d']= {
-  troop_option='5fb1ba3de1af06001770f44c',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba3de1af06001770f44e']= {
-  min=0,
-  max=1,
-  description='Heavy guns manned by Turkish mercenaries',
-  note='only Malacca Malays',
-  core='all',
-  startDate=1436,
-  endDate=1511,
-}
-g_troop_entry['5fb1ba3de1af06001770f450']= {
-  troop_option='5fb1ba3de1af06001770f44e',
-  troopTypeCode='ART',
-}
-g_str_5fb1ba3de1af06001770f443_general='5fb1ba3de1af06001770f443_general'
-g_base_definitions[g_str_5fb1ba3de1af06001770f443_general]={
-  id=g_str_5fb1ba3de1af06001770f443_general,
-  name='Elephants General',
-  min=1,
-  max=1,
-  description='War elephants',
-  general=true,
-  troop_type="Elephants",
-}
-g_str_5fb1ba3de1af06001770f443='5fb1ba3de1af06001770f443'
-g_base_definitions[g_str_5fb1ba3de1af06001770f443]={
-  id=g_str_5fb1ba3de1af06001770f443,
-  name='Elephants',
-  min=1,
-  max=2,
-  description='War elephants',
-  troop_type="Elephants",
-}
-g_str_5fb1ba3de1af06001770f446='5fb1ba3de1af06001770f446'
-g_base_definitions[g_str_5fb1ba3de1af06001770f446]={
-  id=g_str_5fb1ba3de1af06001770f446,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Noble horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba3de1af06001770f448='5fb1ba3de1af06001770f448'
-g_base_definitions[g_str_5fb1ba3de1af06001770f448]={
-  id=g_str_5fb1ba3de1af06001770f448,
-  name='Warriors',
-  min=6,
-  max=14,
-  description='Tribesmen',
-  troop_type="Warriors",
-}
-g_str_5fb1ba3de1af06001770f448_elephant_screen='5fb1ba3de1af06001770f448_elephant_screen'
-g_base_definitions[g_str_5fb1ba3de1af06001770f448_elephant_screen]={
-  id=g_str_5fb1ba3de1af06001770f448_elephant_screen,
-  name='Warriors',
-  min=6,
-  max=14,
-  description='Tribesmen\nElephant Screen',
-  elephant_screen=true,
-  troop_type="Warriors",
-}
-g_str_5fb1ba3de1af06001770f448_elephant_screen_elephant_screen_counter='5fb1ba3de1af06001770f448_elephant_screen_elephant_screen_counter'
-g_base_definitions[g_str_5fb1ba3de1af06001770f448_elephant_screen_elephant_screen_counter]={
-  id=g_str_5fb1ba3de1af06001770f448_elephant_screen_elephant_screen_counter,
-  name='Elephant Screen',
-  min=6,
-  max=14,
-  description='',
-  troop_type="Elephant Screen Counter",
-}
-g_str_5fb1ba3de1af06001770f44b='5fb1ba3de1af06001770f44b'
-g_base_definitions[g_str_5fb1ba3de1af06001770f44b]={
-  id=g_str_5fb1ba3de1af06001770f44b,
-  name='Bow Levy',
-  min=1,
-  max=5,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3de1af06001770f44d='5fb1ba3de1af06001770f44d'
-g_base_definitions[g_str_5fb1ba3de1af06001770f44d]={
-  id=g_str_5fb1ba3de1af06001770f44d,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba3de1af06001770f450='5fb1ba3de1af06001770f450'
-g_base_definitions[g_str_5fb1ba3de1af06001770f450]={
-  id=g_str_5fb1ba3de1af06001770f450,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Heavy guns manned by Turkish mercenaries',
-  troop_type="Artillery",
-}
-g_str_5fb1b9f0e1af06001770a100_camp='5fb1b9f0e1af06001770a100_camp'
-g_base_definitions[g_str_5fb1b9f0e1af06001770a100_camp]={
-  id=g_str_5fb1b9f0e1af06001770a100_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f0e1af06001770a100']={
   data={
     name='Malay or Sumatran  1222 to 1511 AD',
     id='5fb1b9f0e1af06001770a100',
-    army_id='5fb1b9f0e1af06001770a100'
+    dateRange={
+      startDate=1222,
+      endDate=1511,
+    }
   },
   g_base_definitions[g_str_5fb1ba3de1af06001770f443_general],
   g_base_definitions[g_str_5fb1ba3de1af06001770f443],
@@ -177,38 +23,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f0e1af06001770a100"] = army["5fb1b9f0e1af06001770a100"]
-army['5fb1b9f0e1af06001770a100_1222_1435']={
-  data={
-    name='Malay or Sumatran 1222 AD to 1435 AD',
-    id='5fb1b9f0e1af06001770a100_1222_1435',
-    army_id='5fb1b9f0e1af06001770a100'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f443_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f443],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f446],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f448],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f448_elephant_screen],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f44b],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f44d],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f450],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a100_camp],
-}
-army['5fb1b9f0e1af06001770a100_1436_1511']={
-  data={
-    name='Malay or Sumatran 1436 AD to 1511 AD',
-    id='5fb1b9f0e1af06001770a100_1436_1511',
-    army_id='5fb1b9f0e1af06001770a100'
-  },
-  g_base_definitions[g_str_5fb1ba3de1af06001770f443_general],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f443],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f446],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f448],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f448_elephant_screen],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f44b],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f44d],
-  g_base_definitions[g_str_5fb1ba3de1af06001770f450],
-  g_base_definitions[g_str_5fb1b9f0e1af06001770a100_camp],
-}
 if nil == armies["Monsoon Region"] then
   armies["Monsoon Region"] ={}
 end
@@ -225,6 +39,31 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f0e1af06001770a100"] = {}
-army_dates["5fb1b9f0e1af06001770a100"]["1222 AD to 1511 AD"] ="5fb1b9f0e1af06001770a100"
-army_dates["5fb1b9f0e1af06001770a100"]["1222 AD to 1435 AD"] ="5fb1b9f0e1af06001770a100_1222_1435"
-army_dates["5fb1b9f0e1af06001770a100"]["1436 AD to 1511 AD"] ="5fb1b9f0e1af06001770a100_1436_1511"
+army_dates["5fb1b9f0e1af06001770a100"]["1222 AD to 1511 AD"] = {
+  startDate=1222,
+  endDate=1511
+}
+army_dates["5fb1b9f0e1af06001770a100"]["1222 AD to 1240 AD"] = {
+  startDate=1222,
+  endDate=1240
+}
+army_dates["5fb1b9f0e1af06001770a100"]["1241 AD to 1270 AD"] = {
+  startDate=1241,
+  endDate=1270
+}
+army_dates["5fb1b9f0e1af06001770a100"]["1271 AD to 1408 AD"] = {
+  startDate=1271,
+  endDate=1408
+}
+army_dates["5fb1b9f0e1af06001770a100"]["1409 AD to 1419 AD"] = {
+  startDate=1409,
+  endDate=1419
+}
+army_dates["5fb1b9f0e1af06001770a100"]["1420 AD to 1435 AD"] = {
+  startDate=1420,
+  endDate=1435
+}
+army_dates["5fb1b9f0e1af06001770a100"]["1436 AD to 1511 AD"] = {
+  startDate=1436,
+  endDate=1511
+}

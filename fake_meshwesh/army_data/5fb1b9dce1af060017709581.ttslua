@@ -1,118 +1,13 @@
 -- 5fb1b9dce1af060017709581 Later Libyan  664 BC to 70 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba26e1af06001770c839']= {
-  min=1,
-  max=2,
-  description='4-horse battle platforms with javelin crew',
-}
-g_troop_entry['5fb1ba26e1af06001770c83a']= {
-  troop_option='5fb1ba26e1af06001770c839',
-  troopTypeCode='BTX',
-}
-g_troop_option['5fb1ba26e1af06001770c83b']= {
-  min=0,
-  max=10,
-  description='Libyan heavy infantry with large shields and spears',
-  core='all',
-}
-g_troop_entry['5fb1ba26e1af06001770c83c']= {
-  troop_option='5fb1ba26e1af06001770c83b',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba26e1af06001770c83d']= {
-  min=7,
-  max=15,
-  description='Tribesmen armed with javelins, throwing sticks, and clubs',
-}
-g_troop_entry['5fb1ba26e1af06001770c83e']= {
-  troop_option='5fb1ba26e1af06001770c83d',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba26e1af06001770c83f']= {
-  min=0,
-  max=3,
-  description='Skirmishing bowmen',
-}
-g_troop_entry['5fb1ba26e1af06001770c840']= {
-  troop_option='5fb1ba26e1af06001770c83f',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba26e1af06001770c83a_general='5fb1ba26e1af06001770c83a_general'
-g_base_definitions[g_str_5fb1ba26e1af06001770c83a_general]={
-  id=g_str_5fb1ba26e1af06001770c83a_general,
-  name='Battle Taxi General',
-  min=1,
-  max=1,
-  description='4-horse battle platforms with javelin crew',
-  general=true,
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba26e1af06001770c83a='5fb1ba26e1af06001770c83a'
-g_base_definitions[g_str_5fb1ba26e1af06001770c83a]={
-  id=g_str_5fb1ba26e1af06001770c83a,
-  name='Battle Taxi',
-  min=1,
-  max=2,
-  description='4-horse battle platforms with javelin crew',
-  troop_type="Battle Taxi",
-}
-g_str_5fb1ba26e1af06001770c83c='5fb1ba26e1af06001770c83c'
-g_base_definitions[g_str_5fb1ba26e1af06001770c83c]={
-  id=g_str_5fb1ba26e1af06001770c83c,
-  name='Heavy Foot',
-  min=0,
-  max=10,
-  description='Libyan heavy infantry with large shields and spears',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba26e1af06001770c83e='5fb1ba26e1af06001770c83e'
-g_base_definitions[g_str_5fb1ba26e1af06001770c83e]={
-  id=g_str_5fb1ba26e1af06001770c83e,
-  name='Rabble',
-  min=7,
-  max=15,
-  description='Tribesmen armed with javelins, throwing sticks, and clubs',
-  troop_type="Rabble",
-}
-g_str_5fb1ba26e1af06001770c840='5fb1ba26e1af06001770c840'
-g_base_definitions[g_str_5fb1ba26e1af06001770c840]={
-  id=g_str_5fb1ba26e1af06001770c840,
-  name='Rabble',
-  min=0,
-  max=3,
-  description='Skirmishing bowmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9dce1af060017709581_camp='5fb1b9dce1af060017709581_camp'
-g_base_definitions[g_str_5fb1b9dce1af060017709581_camp]={
-  id=g_str_5fb1b9dce1af060017709581_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dce1af060017709581_camp_pack_train='5fb1b9dce1af060017709581_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dce1af060017709581_camp_pack_train]={
-  id=g_str_5fb1b9dce1af060017709581_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dce1af060017709581']={
   data={
     name='Later Libyan  664 BC to 70 AD',
     id='5fb1b9dce1af060017709581',
-    army_id='5fb1b9dce1af060017709581'
+    dateRange={
+      startDate=-664,
+      endDate=70,
+    }
   },
   g_base_definitions[g_str_5fb1ba26e1af06001770c83a_general],
   g_base_definitions[g_str_5fb1ba26e1af06001770c83a],
@@ -146,4 +41,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dce1af060017709581"] = {}
-army_dates["5fb1b9dce1af060017709581"]["664 BC to 70 AD"] ="5fb1b9dce1af060017709581"
+army_dates["5fb1b9dce1af060017709581"]["664 BC to 70 AD"] = {
+  startDate=-664,
+  endDate=70
+}

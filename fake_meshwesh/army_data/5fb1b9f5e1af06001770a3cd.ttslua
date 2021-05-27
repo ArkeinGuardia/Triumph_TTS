@@ -1,142 +1,13 @@
 -- 5fb1b9f5e1af06001770a3cd Teotihuacan Empire  451 to 650 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba43e1af06001770fd6b']= {
-  min=1,
-  max=4,
-  description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fd6c']= {
-  troop_option='5fb1ba43e1af06001770fd6b',
-  troopTypeCode='LFT',
-}
-g_troop_entry['5fb1ba43e1af06001770fd6d']= {
-  troop_option='5fb1ba43e1af06001770fd6b',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba43e1af06001770fd6e']= {
-  min=6,
-  max=12,
-  description='Commoners armed with mixed long spears and atlatls',
-  core='all',
-}
-g_troop_entry['5fb1ba43e1af06001770fd6f']= {
-  troop_option='5fb1ba43e1af06001770fd6e',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba43e1af06001770fd70']= {
-  min=0,
-  max=4,
-  description='Skirmishing groups of commoners armed with atlatls',
-}
-g_troop_entry['5fb1ba43e1af06001770fd71']= {
-  troop_option='5fb1ba43e1af06001770fd70',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba43e1af06001770fd72']= {
-  min=1,
-  max=4,
-  description='Peasant skirmishing slingers',
-}
-g_troop_entry['5fb1ba43e1af06001770fd73']= {
-  troop_option='5fb1ba43e1af06001770fd72',
-  troopTypeCode='SKM',
-}
-g_str_5fb1ba43e1af06001770fd6c_general='5fb1ba43e1af06001770fd6c_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd6c_general]={
-  id=g_str_5fb1ba43e1af06001770fd6c_general,
-  name='Light Foot General',
-  min=1,
-  max=1,
-  description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd6c='5fb1ba43e1af06001770fd6c'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd6c]={
-  id=g_str_5fb1ba43e1af06001770fd6c,
-  name='Light Foot',
-  min=1,
-  max=4,
-  description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd6d_general='5fb1ba43e1af06001770fd6d_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd6d_general]={
-  id=g_str_5fb1ba43e1af06001770fd6d_general,
-  name='Heavy Foot General',
-  min=1,
-  max=1,
-  description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
-  general=true,
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba43e1af06001770fd6d='5fb1ba43e1af06001770fd6d'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd6d]={
-  id=g_str_5fb1ba43e1af06001770fd6d,
-  name='Heavy Foot',
-  min=1,
-  max=4,
-  description='Nobles with armed mixed long spears and atlatls, possibly with body armor',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba43e1af06001770fd6f_general='5fb1ba43e1af06001770fd6f_general'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd6f_general]={
-  id=g_str_5fb1ba43e1af06001770fd6f_general,
-  name='Light Foot General',
-  min=6,
-  max=1,
-  description='Commoners armed with mixed long spears and atlatls',
-  general=true,
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd6f='5fb1ba43e1af06001770fd6f'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd6f]={
-  id=g_str_5fb1ba43e1af06001770fd6f,
-  name='Light Foot',
-  min=6,
-  max=12,
-  description='Commoners armed with mixed long spears and atlatls',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba43e1af06001770fd71='5fb1ba43e1af06001770fd71'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd71]={
-  id=g_str_5fb1ba43e1af06001770fd71,
-  name='Skirmishers',
-  min=0,
-  max=4,
-  description='Skirmishing groups of commoners armed with atlatls',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba43e1af06001770fd73='5fb1ba43e1af06001770fd73'
-g_base_definitions[g_str_5fb1ba43e1af06001770fd73]={
-  id=g_str_5fb1ba43e1af06001770fd73,
-  name='Skirmishers',
-  min=1,
-  max=4,
-  description='Peasant skirmishing slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1b9f5e1af06001770a3cd_camp='5fb1b9f5e1af06001770a3cd_camp'
-g_base_definitions[g_str_5fb1b9f5e1af06001770a3cd_camp]={
-  id=g_str_5fb1b9f5e1af06001770a3cd_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f5e1af06001770a3cd']={
   data={
     name='Teotihuacan Empire  451 to 650 AD',
     id='5fb1b9f5e1af06001770a3cd',
-    army_id='5fb1b9f5e1af06001770a3cd'
+    dateRange={
+      startDate=451,
+      endDate=650,
+    }
   },
   g_base_definitions[g_str_5fb1ba43e1af06001770fd6c_general],
   g_base_definitions[g_str_5fb1ba43e1af06001770fd6c],
@@ -168,4 +39,19 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f5e1af06001770a3cd"] = {}
-army_dates["5fb1b9f5e1af06001770a3cd"]["451 AD to 650 AD"] ="5fb1b9f5e1af06001770a3cd"
+army_dates["5fb1b9f5e1af06001770a3cd"]["451 AD to 650 AD"] = {
+  startDate=451,
+  endDate=650
+}
+army_dates["5fb1b9f5e1af06001770a3cd"]["451 AD to 599 AD"] = {
+  startDate=451,
+  endDate=599
+}
+army_dates["5fb1b9f5e1af06001770a3cd"]["600 AD"] = {
+  startDate=600,
+  endDate=600
+}
+army_dates["5fb1b9f5e1af06001770a3cd"]["601 AD to 650 AD"] = {
+  startDate=601,
+  endDate=650
+}

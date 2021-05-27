@@ -1,165 +1,13 @@
 -- 5fb1b9ede1af060017709f29 Zanj Revolt  869 to 883 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ae1af06001770ec97']= {
-  min=0,
-  max=1,
-  description='Irregular mounted',
-}
-g_troop_entry['5fb1ba3ae1af06001770ec98']= {
-  troop_option='5fb1ba3ae1af06001770ec97',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba3ae1af06001770ec99']= {
-  min=1,
-  max=2,
-  description='Picked swordsmen and spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ec9a']= {
-  troop_option='5fb1ba3ae1af06001770ec99',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba3ae1af06001770ec9b']= {
-  min=4,
-  max=8,
-  description='African and Arab swordsmen and spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ae1af06001770ec9c']= {
-  troop_option='5fb1ba3ae1af06001770ec9b',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba3ae1af06001770ec9d']= {
-  min=2,
-  max=8,
-  description='Lesser foot',
-}
-g_troop_entry['5fb1ba3ae1af06001770ec9e']= {
-  troop_option='5fb1ba3ae1af06001770ec9d',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba3ae1af06001770ec9f']= {
-  min=0,
-  max=6,
-  description='African and Arab bowmen',
-}
-g_troop_entry['5fb1ba3ae1af06001770eca0']= {
-  troop_option='5fb1ba3ae1af06001770ec9f',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3ae1af06001770eca1']= {
-  min=0,
-  max=2,
-  description='Arab tribal horsemen',
-}
-g_troop_entry['5fb1ba3ae1af06001770eca2']= {
-  troop_option='5fb1ba3ae1af06001770eca1',
-  troopTypeCode='JCV',
-}
-g_str_5fb1ba3ae1af06001770ec98_general='5fb1ba3ae1af06001770ec98_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ec98_general]={
-  id=g_str_5fb1ba3ae1af06001770ec98_general,
-  name='Bad Horse General',
-  min=0,
-  max=1,
-  description='Irregular mounted',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba3ae1af06001770ec98='5fb1ba3ae1af06001770ec98'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ec98]={
-  id=g_str_5fb1ba3ae1af06001770ec98,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Irregular mounted',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba3ae1af06001770ec9a_general='5fb1ba3ae1af06001770ec9a_general'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ec9a_general]={
-  id=g_str_5fb1ba3ae1af06001770ec9a_general,
-  name='Raiders General',
-  min=1,
-  max=1,
-  description='Picked swordsmen and spearmen',
-  general=true,
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ec9a='5fb1ba3ae1af06001770ec9a'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ec9a]={
-  id=g_str_5fb1ba3ae1af06001770ec9a,
-  name='Raiders',
-  min=1,
-  max=2,
-  description='Picked swordsmen and spearmen',
-  troop_type="Raiders",
-}
-g_str_5fb1ba3ae1af06001770ec9c='5fb1ba3ae1af06001770ec9c'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ec9c]={
-  id=g_str_5fb1ba3ae1af06001770ec9c,
-  name='Heavy Foot',
-  min=4,
-  max=8,
-  description='African and Arab swordsmen and spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba3ae1af06001770ec9e='5fb1ba3ae1af06001770ec9e'
-g_base_definitions[g_str_5fb1ba3ae1af06001770ec9e]={
-  id=g_str_5fb1ba3ae1af06001770ec9e,
-  name='Rabble',
-  min=2,
-  max=8,
-  description='Lesser foot',
-  troop_type="Rabble",
-}
-g_str_5fb1ba3ae1af06001770eca0='5fb1ba3ae1af06001770eca0'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eca0]={
-  id=g_str_5fb1ba3ae1af06001770eca0,
-  name='Bow Levy',
-  min=0,
-  max=6,
-  description='African and Arab bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3ae1af06001770eca2='5fb1ba3ae1af06001770eca2'
-g_base_definitions[g_str_5fb1ba3ae1af06001770eca2]={
-  id=g_str_5fb1ba3ae1af06001770eca2,
-  name='Javelin Cavalry',
-  min=0,
-  max=2,
-  description='Arab tribal horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1b9ede1af060017709f29_camp='5fb1b9ede1af060017709f29_camp'
-g_base_definitions[g_str_5fb1b9ede1af060017709f29_camp]={
-  id=g_str_5fb1b9ede1af060017709f29_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9ede1af060017709f29_camp_pack_train='5fb1b9ede1af060017709f29_camp_pack_train'
-g_base_definitions[g_str_5fb1b9ede1af060017709f29_camp_pack_train]={
-  id=g_str_5fb1b9ede1af060017709f29_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9ede1af060017709f29']={
   data={
     name='Zanj Revolt  869 to 883 AD',
     id='5fb1b9ede1af060017709f29',
-    army_id='5fb1b9ede1af060017709f29'
+    dateRange={
+      startDate=869,
+      endDate=883,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ae1af06001770ec98_general],
   g_base_definitions[g_str_5fb1ba3ae1af06001770ec98],
@@ -188,4 +36,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9ede1af060017709f29"] = {}
-army_dates["5fb1b9ede1af060017709f29"]["869 AD to 883 AD"] ="5fb1b9ede1af060017709f29"
+army_dates["5fb1b9ede1af060017709f29"]["869 AD to 883 AD"] = {
+  startDate=869,
+  endDate=883
+}

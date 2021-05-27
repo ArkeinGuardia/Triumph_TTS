@@ -1,72 +1,13 @@
 -- 5fb1b9f4e1af06001770a351 Later Emishi  700 to 878 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba42e1af06001770fc73']= {
-  min=9,
-  max=12,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba42e1af06001770fc74']= {
-  troop_option='5fb1ba42e1af06001770fc73',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba42e1af06001770fc75']= {
-  min=0,
-  max=6,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba42e1af06001770fc76']= {
-  troop_option='5fb1ba42e1af06001770fc75',
-  troopTypeCode='BLV',
-}
-g_str_5fb1ba42e1af06001770fc74_general='5fb1ba42e1af06001770fc74_general'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc74_general]={
-  id=g_str_5fb1ba42e1af06001770fc74_general,
-  name='Horse Bow General',
-  min=9,
-  max=1,
-  description='Horse archers',
-  general=true,
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba42e1af06001770fc74='5fb1ba42e1af06001770fc74'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc74]={
-  id=g_str_5fb1ba42e1af06001770fc74,
-  name='Horse Bow',
-  min=9,
-  max=12,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba42e1af06001770fc76='5fb1ba42e1af06001770fc76'
-g_base_definitions[g_str_5fb1ba42e1af06001770fc76]={
-  id=g_str_5fb1ba42e1af06001770fc76,
-  name='Bow Levy',
-  min=0,
-  max=6,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1b9f4e1af06001770a351_camp='5fb1b9f4e1af06001770a351_camp'
-g_base_definitions[g_str_5fb1b9f4e1af06001770a351_camp]={
-  id=g_str_5fb1b9f4e1af06001770a351_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f4e1af06001770a351']={
   data={
     name='Later Emishi  700 to 878 AD',
     id='5fb1b9f4e1af06001770a351',
-    army_id='5fb1b9f4e1af06001770a351'
+    dateRange={
+      startDate=700,
+      endDate=878,
+    }
   },
   g_base_definitions[g_str_5fb1ba42e1af06001770fc74_general],
   g_base_definitions[g_str_5fb1ba42e1af06001770fc74],
@@ -89,4 +30,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f4e1af06001770a351"] = {}
-army_dates["5fb1b9f4e1af06001770a351"]["700 AD to 878 AD"] ="5fb1b9f4e1af06001770a351"
+army_dates["5fb1b9f4e1af06001770a351"]["700 AD to 878 AD"] = {
+  startDate=700,
+  endDate=878
+}

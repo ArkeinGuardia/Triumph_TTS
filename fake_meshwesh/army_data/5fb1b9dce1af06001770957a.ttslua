@@ -1,156 +1,13 @@
 -- 5fb1b9dce1af06001770957a Post-Zama Carthaginian  201 to 146 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba26e1af06001770c827']= {
-  min=2,
-  max=4,
-  description='Poeni, Libyan, or Numidian horsemen',
-}
-g_troop_entry['5fb1ba26e1af06001770c828']= {
-  troop_option='5fb1ba26e1af06001770c827',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba26e1af06001770c829']= {
-  min=4,
-  max=8,
-  description='Libyan heavy infantry armed with spears',
-  core='all',
-}
-g_troop_entry['5fb1ba26e1af06001770c82a']= {
-  troop_option='5fb1ba26e1af06001770c829',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba26e1af06001770c82b']= {
-  min=2,
-  max=4,
-  description='Libyan, Moorish or Numidian javelinmen',
-}
-g_troop_entry['5fb1ba26e1af06001770c82c']= {
-  troop_option='5fb1ba26e1af06001770c82b',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba26e1af06001770c82d']= {
-  min=0,
-  max=1,
-  description='Bolt-shooters',
-  core='all',
-}
-g_troop_entry['5fb1ba26e1af06001770c82e']= {
-  troop_option='5fb1ba26e1af06001770c82d',
-  troopTypeCode='ART',
-}
-g_troop_option['5fb1ba26e1af06001770c82f']= {
-  min=0,
-  max=2,
-  description='Greek mercenary hoplites',
-  core='all',
-}
-g_troop_entry['5fb1ba26e1af06001770c830']= {
-  troop_option='5fb1ba26e1af06001770c82f',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba26e1af06001770c832']= {
-  min=0,
-  max=2,
-  description='Campanian or other Italian mercenary light foot',
-}
-g_troop_entry['5fb1ba26e1af06001770c833']= {
-  troop_option='5fb1ba26e1af06001770c832',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba26e1af06001770c828_general='5fb1ba26e1af06001770c828_general'
-g_base_definitions[g_str_5fb1ba26e1af06001770c828_general]={
-  id=g_str_5fb1ba26e1af06001770c828_general,
-  name='Javelin Cavalry General',
-  min=2,
-  max=1,
-  description='Poeni, Libyan, or Numidian horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba26e1af06001770c828='5fb1ba26e1af06001770c828'
-g_base_definitions[g_str_5fb1ba26e1af06001770c828]={
-  id=g_str_5fb1ba26e1af06001770c828,
-  name='Javelin Cavalry',
-  min=2,
-  max=4,
-  description='Poeni, Libyan, or Numidian horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba26e1af06001770c82a='5fb1ba26e1af06001770c82a'
-g_base_definitions[g_str_5fb1ba26e1af06001770c82a]={
-  id=g_str_5fb1ba26e1af06001770c82a,
-  name='Heavy Foot',
-  min=4,
-  max=8,
-  description='Libyan heavy infantry armed with spears',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba26e1af06001770c82c='5fb1ba26e1af06001770c82c'
-g_base_definitions[g_str_5fb1ba26e1af06001770c82c]={
-  id=g_str_5fb1ba26e1af06001770c82c,
-  name='Light Foot',
-  min=2,
-  max=4,
-  description='Libyan, Moorish or Numidian javelinmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba26e1af06001770c82e='5fb1ba26e1af06001770c82e'
-g_base_definitions[g_str_5fb1ba26e1af06001770c82e]={
-  id=g_str_5fb1ba26e1af06001770c82e,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Bolt-shooters',
-  troop_type="Artillery",
-}
-g_str_5fb1ba26e1af06001770c830='5fb1ba26e1af06001770c830'
-g_base_definitions[g_str_5fb1ba26e1af06001770c830]={
-  id=g_str_5fb1ba26e1af06001770c830,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Greek mercenary hoplites',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba26e1af06001770c833='5fb1ba26e1af06001770c833'
-g_base_definitions[g_str_5fb1ba26e1af06001770c833]={
-  id=g_str_5fb1ba26e1af06001770c833,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Campanian or other Italian mercenary light foot',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9dce1af06001770957a_camp='5fb1b9dce1af06001770957a_camp'
-g_base_definitions[g_str_5fb1b9dce1af06001770957a_camp]={
-  id=g_str_5fb1b9dce1af06001770957a_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dce1af06001770957a_camp_fortified='5fb1b9dce1af06001770957a_camp_fortified'
-g_base_definitions[g_str_5fb1b9dce1af06001770957a_camp_fortified]={
-  id=g_str_5fb1b9dce1af06001770957a_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
 army['5fb1b9dce1af06001770957a']={
   data={
     name='Post-Zama Carthaginian  201 to 146 BC',
     id='5fb1b9dce1af06001770957a',
-    army_id='5fb1b9dce1af06001770957a'
+    dateRange={
+      startDate=-201,
+      endDate=-146,
+    }
   },
   g_base_definitions[g_str_5fb1ba26e1af06001770c828_general],
   g_base_definitions[g_str_5fb1ba26e1af06001770c828],
@@ -182,4 +39,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dce1af06001770957a"] = {}
-army_dates["5fb1b9dce1af06001770957a"]["201 BC to 146 BC"] ="5fb1b9dce1af06001770957a"
+army_dates["5fb1b9dce1af06001770957a"]["201 BC to 146 BC"] = {
+  startDate=-201,
+  endDate=-146
+}

@@ -1,184 +1,13 @@
 -- 5fb1b9dae1af0600177093e4 Later Syro-Hittite  900 to 710 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba21e1af06001770c1b3']= {
-  min=2,
-  max=6,
-  description='2-horse chariots with two crewmen, or 3- or 4-horse chariots with three crewmen',
-}
-g_troop_entry['5fb1ba21e1af06001770c1b4']= {
-  troop_option='5fb1ba21e1af06001770c1b3',
-  troopTypeCode='CHT',
-}
-g_troop_option['5fb1ba21e1af06001770c1b5']= {
-  min=0,
-  max=1,
-  description='Mounted fighters',
-}
-g_troop_entry['5fb1ba21e1af06001770c1b6']= {
-  troop_option='5fb1ba21e1af06001770c1b5',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba21e1af06001770c1b7']= {
-  min=0,
-  max=2,
-  description='Spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c1b8']= {
-  troop_option='5fb1ba21e1af06001770c1b7',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba21e1af06001770c1b9']= {
-  min=4,
-  max=6,
-  description='Militia spearmen',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c1ba']= {
-  troop_option='5fb1ba21e1af06001770c1b9',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba21e1af06001770c1bb']= {
-  min=1,
-  max=4,
-  description='Militia bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba21e1af06001770c1bc']= {
-  troop_option='5fb1ba21e1af06001770c1bb',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba21e1af06001770c1bd']= {
-  min=1,
-  max=4,
-  description='Militia slingers',
-}
-g_troop_entry['5fb1ba21e1af06001770c1be']= {
-  troop_option='5fb1ba21e1af06001770c1bd',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba21e1af06001770c1bf']= {
-  min=0,
-  max=1,
-  description='Aramaean or Arab camelry',
-}
-g_troop_entry['5fb1ba21e1af06001770c1c0']= {
-  troop_option='5fb1ba21e1af06001770c1bf',
-  troopTypeCode='BAD',
-}
-g_str_5fb1ba21e1af06001770c1b4_general='5fb1ba21e1af06001770c1b4_general'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1b4_general]={
-  id=g_str_5fb1ba21e1af06001770c1b4_general,
-  name='Chariots General',
-  min=2,
-  max=1,
-  description='2-horse chariots with two crewmen, or 3- or 4-horse chariots with three crewmen',
-  general=true,
-  troop_type="Chariots",
-}
-g_str_5fb1ba21e1af06001770c1b4='5fb1ba21e1af06001770c1b4'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1b4]={
-  id=g_str_5fb1ba21e1af06001770c1b4,
-  name='Chariots',
-  min=2,
-  max=6,
-  description='2-horse chariots with two crewmen, or 3- or 4-horse chariots with three crewmen',
-  troop_type="Chariots",
-}
-g_str_5fb1ba21e1af06001770c1b6='5fb1ba21e1af06001770c1b6'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1b6]={
-  id=g_str_5fb1ba21e1af06001770c1b6,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Mounted fighters',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba21e1af06001770c1b8='5fb1ba21e1af06001770c1b8'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1b8]={
-  id=g_str_5fb1ba21e1af06001770c1b8,
-  name='Heavy Foot',
-  min=0,
-  max=2,
-  description='Spearmen',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba21e1af06001770c1ba='5fb1ba21e1af06001770c1ba'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1ba]={
-  id=g_str_5fb1ba21e1af06001770c1ba,
-  name='Light Foot',
-  min=4,
-  max=6,
-  description='Militia spearmen',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba21e1af06001770c1bc='5fb1ba21e1af06001770c1bc'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1bc]={
-  id=g_str_5fb1ba21e1af06001770c1bc,
-  name='Bow Levy',
-  min=1,
-  max=4,
-  description='Militia bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba21e1af06001770c1be='5fb1ba21e1af06001770c1be'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1be]={
-  id=g_str_5fb1ba21e1af06001770c1be,
-  name='Skirmishers',
-  min=1,
-  max=4,
-  description='Militia slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba21e1af06001770c1c0='5fb1ba21e1af06001770c1c0'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1c0]={
-  id=g_str_5fb1ba21e1af06001770c1c0,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Aramaean or Arab camelry',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba21e1af06001770c1c0_light_camelry='5fb1ba21e1af06001770c1c0_light_camelry'
-g_base_definitions[g_str_5fb1ba21e1af06001770c1c0_light_camelry]={
-  id=g_str_5fb1ba21e1af06001770c1c0_light_camelry,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Aramaean or Arab camelry\nLight Camelry',
-  light_camelry=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1b9dae1af0600177093e4_camp='5fb1b9dae1af0600177093e4_camp'
-g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp]={
-  id=g_str_5fb1b9dae1af0600177093e4_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9dae1af0600177093e4_camp_pack_train='5fb1b9dae1af0600177093e4_camp_pack_train'
-g_base_definitions[g_str_5fb1b9dae1af0600177093e4_camp_pack_train]={
-  id=g_str_5fb1b9dae1af0600177093e4_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9dae1af0600177093e4']={
   data={
     name='Later Syro-Hittite  900 to 710 BC',
     id='5fb1b9dae1af0600177093e4',
-    army_id='5fb1b9dae1af0600177093e4'
+    dateRange={
+      startDate=-900,
+      endDate=-710,
+    }
   },
   g_base_definitions[g_str_5fb1ba21e1af06001770c1b4_general],
   g_base_definitions[g_str_5fb1ba21e1af06001770c1b4],
@@ -212,4 +41,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9dae1af0600177093e4"] = {}
-army_dates["5fb1b9dae1af0600177093e4"]["900 BC to 710 BC"] ="5fb1b9dae1af0600177093e4"
+army_dates["5fb1b9dae1af0600177093e4"]["900 BC to 710 BC"] = {
+  startDate=-900,
+  endDate=-710
+}
+army_dates["5fb1b9dae1af0600177093e4"]["900 BC to 854 BC"] = {
+  startDate=-900,
+  endDate=-854
+}
+army_dates["5fb1b9dae1af0600177093e4"]["853 BC"] = {
+  startDate=-853,
+  endDate=-853
+}
+army_dates["5fb1b9dae1af0600177093e4"]["852 BC to 722 BC"] = {
+  startDate=-852,
+  endDate=-722
+}
+army_dates["5fb1b9dae1af0600177093e4"]["721 BC to 710 BC"] = {
+  startDate=-721,
+  endDate=-710
+}

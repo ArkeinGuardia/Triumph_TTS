@@ -1,241 +1,13 @@
 -- 5fb1b9f3e1af06001770a2da Later Jurchen Jin  1200 to 1234 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba41e1af06001770fa87']= {
-  min=1,
-  max=2,
-  description='Jurchen horsemen (possibly still effective)',
-}
-g_troop_entry['5fb1ba41e1af06001770fa88']= {
-  troop_option='5fb1ba41e1af06001770fa87',
-  troopTypeCode='ECV',
-}
-g_troop_entry['5fb1ba41e1af06001770fa89']= {
-  troop_option='5fb1ba41e1af06001770fa87',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba41e1af06001770fa8a']= {
-  min=1,
-  max=4,
-  description='Jurchen horsemen with poor training and support',
-}
-g_troop_entry['5fb1ba41e1af06001770fa8b']= {
-  troop_option='5fb1ba41e1af06001770fa8a',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba41e1af06001770fa8c']= {
-  min=0,
-  max=1,
-  description='Jurchen scout horse archers',
-}
-g_troop_entry['5fb1ba41e1af06001770fa8d']= {
-  troop_option='5fb1ba41e1af06001770fa8c',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba41e1af06001770fa8e']= {
-  min=0,
-  max=3,
-  description='Khitan heavy horsemen',
-}
-g_troop_entry['5fb1ba41e1af06001770fa8f']= {
-  troop_option='5fb1ba41e1af06001770fa8e',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba41e1af06001770fa90']= {
-  min=0,
-  max=1,
-  description='War wagons',
-  core='all',
-}
-g_troop_entry['5fb1ba41e1af06001770fa91']= {
-  troop_option='5fb1ba41e1af06001770fa90',
-  troopTypeCode='WWG',
-}
-g_troop_option['5fb1ba41e1af06001770fa92']= {
-  min=0,
-  max=1,
-  description='Uighur, Tangut, and other mercenary horse archers',
-  startDate=1221,
-  endDate=1234,
-}
-g_troop_entry['5fb1ba41e1af06001770fa94']= {
-  troop_option='5fb1ba41e1af06001770fa92',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba41e1af06001770fa95']= {
-  min=0,
-  max=1,
-  description='Volunteer crossbowmen',
-  core='all',
-  startDate=1221,
-  endDate=1234,
-}
-g_troop_entry['5fb1ba41e1af06001770fa97']= {
-  troop_option='5fb1ba41e1af06001770fa95',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba41e1af06001770fa98']= {
-  min=0,
-  max=1,
-  description='Volunteer spearmen or swordsmen',
-  core='all',
-  startDate=1221,
-  endDate=1234,
-}
-g_troop_entry['5fb1ba41e1af06001770fa9a']= {
-  troop_option='5fb1ba41e1af06001770fa98',
-  troopTypeCode='RDR',
-}
-g_str_5fb1ba41e1af06001770fa88_general='5fb1ba41e1af06001770fa88_general'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa88_general]={
-  id=g_str_5fb1ba41e1af06001770fa88_general,
-  name='Elite Cavalary General',
-  min=1,
-  max=1,
-  description='Jurchen horsemen (possibly still effective)',
-  general=true,
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba41e1af06001770fa88='5fb1ba41e1af06001770fa88'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa88]={
-  id=g_str_5fb1ba41e1af06001770fa88,
-  name='Elite Cavalary',
-  min=1,
-  max=2,
-  description='Jurchen horsemen (possibly still effective)',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba41e1af06001770fa89_general='5fb1ba41e1af06001770fa89_general'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa89_general]={
-  id=g_str_5fb1ba41e1af06001770fa89_general,
-  name='Bad Horse General',
-  min=1,
-  max=1,
-  description='Jurchen horsemen (possibly still effective)',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba41e1af06001770fa89='5fb1ba41e1af06001770fa89'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa89]={
-  id=g_str_5fb1ba41e1af06001770fa89,
-  name='Bad Horse',
-  min=1,
-  max=2,
-  description='Jurchen horsemen (possibly still effective)',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba41e1af06001770fa8b_general='5fb1ba41e1af06001770fa8b_general'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa8b_general]={
-  id=g_str_5fb1ba41e1af06001770fa8b_general,
-  name='Bad Horse General',
-  min=1,
-  max=1,
-  description='Jurchen horsemen with poor training and support',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba41e1af06001770fa8b='5fb1ba41e1af06001770fa8b'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa8b]={
-  id=g_str_5fb1ba41e1af06001770fa8b,
-  name='Bad Horse',
-  min=1,
-  max=4,
-  description='Jurchen horsemen with poor training and support',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba41e1af06001770fa8d='5fb1ba41e1af06001770fa8d'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa8d]={
-  id=g_str_5fb1ba41e1af06001770fa8d,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Jurchen scout horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba41e1af06001770fa8f_general='5fb1ba41e1af06001770fa8f_general'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa8f_general]={
-  id=g_str_5fb1ba41e1af06001770fa8f_general,
-  name='Bad Horse General',
-  min=0,
-  max=1,
-  description='Khitan heavy horsemen',
-  general=true,
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba41e1af06001770fa8f='5fb1ba41e1af06001770fa8f'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa8f]={
-  id=g_str_5fb1ba41e1af06001770fa8f,
-  name='Bad Horse',
-  min=0,
-  max=3,
-  description='Khitan heavy horsemen',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba41e1af06001770fa91='5fb1ba41e1af06001770fa91'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa91]={
-  id=g_str_5fb1ba41e1af06001770fa91,
-  name='War Wagons',
-  min=0,
-  max=1,
-  description='War wagons',
-  troop_type="War Wagons",
-}
-g_str_5fb1ba41e1af06001770fa94='5fb1ba41e1af06001770fa94'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa94]={
-  id=g_str_5fb1ba41e1af06001770fa94,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Uighur, Tangut, and other mercenary horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba41e1af06001770fa97='5fb1ba41e1af06001770fa97'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa97]={
-  id=g_str_5fb1ba41e1af06001770fa97,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Volunteer crossbowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba41e1af06001770fa9a='5fb1ba41e1af06001770fa9a'
-g_base_definitions[g_str_5fb1ba41e1af06001770fa9a]={
-  id=g_str_5fb1ba41e1af06001770fa9a,
-  name='Raiders',
-  min=0,
-  max=1,
-  description='Volunteer spearmen or swordsmen',
-  troop_type="Raiders",
-}
-g_str_5fb1b9f3e1af06001770a2da_camp='5fb1b9f3e1af06001770a2da_camp'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp]={
-  id=g_str_5fb1b9f3e1af06001770a2da_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9f3e1af06001770a2da_camp_pack_train='5fb1b9f3e1af06001770a2da_camp_pack_train'
-g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp_pack_train]={
-  id=g_str_5fb1b9f3e1af06001770a2da_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9f3e1af06001770a2da']={
   data={
     name='Later Jurchen Jin  1200 to 1234 AD',
     id='5fb1b9f3e1af06001770a2da',
-    army_id='5fb1b9f3e1af06001770a2da'
+    dateRange={
+      startDate=1200,
+      endDate=1234,
+    }
   },
   g_base_definitions[g_str_5fb1ba41e1af06001770fa88_general],
   g_base_definitions[g_str_5fb1ba41e1af06001770fa88],
@@ -257,50 +29,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9f3e1af06001770a2da"] = army["5fb1b9f3e1af06001770a2da"]
-army['5fb1b9f3e1af06001770a2da_1200_1220']={
-  data={
-    name='Later Jurchen Jin 1200 AD to 1220 AD',
-    id='5fb1b9f3e1af06001770a2da_1200_1220',
-    army_id='5fb1b9f3e1af06001770a2da'
-  },
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa88_general],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa88],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa89_general],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa89],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8b_general],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8b],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8d],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8f_general],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8f],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa91],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa94],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa97],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa9a],
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp],
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp_pack_train],
-}
-army['5fb1b9f3e1af06001770a2da_1221_1234']={
-  data={
-    name='Later Jurchen Jin 1221 AD to 1234 AD',
-    id='5fb1b9f3e1af06001770a2da_1221_1234',
-    army_id='5fb1b9f3e1af06001770a2da'
-  },
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa88_general],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa88],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa89_general],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa89],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8b_general],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8b],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8d],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8f_general],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa8f],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa91],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa94],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa97],
-  g_base_definitions[g_str_5fb1ba41e1af06001770fa9a],
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp],
-  g_base_definitions[g_str_5fb1b9f3e1af06001770a2da_camp_pack_train],
-}
 if nil == armies["Middle Kingdom"] then
   armies["Middle Kingdom"] ={}
 end
@@ -313,6 +41,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f3e1af06001770a2da"] = {}
-army_dates["5fb1b9f3e1af06001770a2da"]["1200 AD to 1234 AD"] ="5fb1b9f3e1af06001770a2da"
-army_dates["5fb1b9f3e1af06001770a2da"]["1200 AD to 1220 AD"] ="5fb1b9f3e1af06001770a2da_1200_1220"
-army_dates["5fb1b9f3e1af06001770a2da"]["1221 AD to 1234 AD"] ="5fb1b9f3e1af06001770a2da_1221_1234"
+army_dates["5fb1b9f3e1af06001770a2da"]["1200 AD to 1234 AD"] = {
+  startDate=1200,
+  endDate=1234
+}
+army_dates["5fb1b9f3e1af06001770a2da"]["1200 AD to 1211 AD"] = {
+  startDate=1200,
+  endDate=1211
+}
+army_dates["5fb1b9f3e1af06001770a2da"]["1212 AD to 1218 AD"] = {
+  startDate=1212,
+  endDate=1218
+}
+army_dates["5fb1b9f3e1af06001770a2da"]["1219 AD to 1220 AD"] = {
+  startDate=1219,
+  endDate=1220
+}
+army_dates["5fb1b9f3e1af06001770a2da"]["1221 AD to 1234 AD"] = {
+  startDate=1221,
+  endDate=1234
+}

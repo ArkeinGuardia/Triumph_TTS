@@ -1,110 +1,13 @@
 -- 5fb1b9f0e1af06001770a142 Dongyi  2000 to 315 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba3ee1af06001770f502']= {
-  min=5,
-  max=12,
-  description='Fierce tribal foot',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f503']= {
-  troop_option='5fb1ba3ee1af06001770f502',
-  troopTypeCode='WBD',
-}
-g_troop_option['5fb1ba3ee1af06001770f504']= {
-  min=2,
-  max=8,
-  description='Bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f505']= {
-  troop_option='5fb1ba3ee1af06001770f504',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba3ee1af06001770f506']= {
-  min=2,
-  max=4,
-  description='Skirmishing bowmen and slingers',
-}
-g_troop_entry['5fb1ba3ee1af06001770f507']= {
-  troop_option='5fb1ba3ee1af06001770f506',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba3ee1af06001770f508']= {
-  min=0,
-  max=2,
-  description='Levies, families, ill-equipped tribesmen and the like',
-  core='all',
-}
-g_troop_entry['5fb1ba3ee1af06001770f509']= {
-  troop_option='5fb1ba3ee1af06001770f508',
-  troopTypeCode='HRD',
-}
-g_str_5fb1ba3ee1af06001770f503_general='5fb1ba3ee1af06001770f503_general'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f503_general]={
-  id=g_str_5fb1ba3ee1af06001770f503_general,
-  name='Warband General',
-  min=5,
-  max=1,
-  description='Fierce tribal foot',
-  general=true,
-  troop_type="Warband",
-}
-g_str_5fb1ba3ee1af06001770f503='5fb1ba3ee1af06001770f503'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f503]={
-  id=g_str_5fb1ba3ee1af06001770f503,
-  name='Warband',
-  min=5,
-  max=12,
-  description='Fierce tribal foot',
-  troop_type="Warband",
-}
-g_str_5fb1ba3ee1af06001770f505='5fb1ba3ee1af06001770f505'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f505]={
-  id=g_str_5fb1ba3ee1af06001770f505,
-  name='Bow Levy',
-  min=2,
-  max=8,
-  description='Bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba3ee1af06001770f507='5fb1ba3ee1af06001770f507'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f507]={
-  id=g_str_5fb1ba3ee1af06001770f507,
-  name='Skirmishers',
-  min=2,
-  max=4,
-  description='Skirmishing bowmen and slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba3ee1af06001770f509='5fb1ba3ee1af06001770f509'
-g_base_definitions[g_str_5fb1ba3ee1af06001770f509]={
-  id=g_str_5fb1ba3ee1af06001770f509,
-  name='Horde',
-  min=0,
-  max=2,
-  description='Levies, families, ill-equipped tribesmen and the like',
-  troop_type="Horde",
-}
-g_str_5fb1b9f0e1af06001770a142_camp='5fb1b9f0e1af06001770a142_camp'
-g_base_definitions[g_str_5fb1b9f0e1af06001770a142_camp]={
-  id=g_str_5fb1b9f0e1af06001770a142_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9f0e1af06001770a142']={
   data={
     name='Dongyi  2000 to 315 BC',
     id='5fb1b9f0e1af06001770a142',
-    army_id='5fb1b9f0e1af06001770a142'
+    dateRange={
+      startDate=-2000,
+      endDate=-315,
+    }
   },
   g_base_definitions[g_str_5fb1ba3ee1af06001770f503_general],
   g_base_definitions[g_str_5fb1ba3ee1af06001770f503],
@@ -133,4 +36,23 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9f0e1af06001770a142"] = {}
-army_dates["5fb1b9f0e1af06001770a142"]["2000 BC to 315 BC"] ="5fb1b9f0e1af06001770a142"
+army_dates["5fb1b9f0e1af06001770a142"]["2000 BC to 315 BC"] = {
+  startDate=-2000,
+  endDate=-315
+}
+army_dates["5fb1b9f0e1af06001770a142"]["2000 BC to 1101 BC"] = {
+  startDate=-2000,
+  endDate=-1101
+}
+army_dates["5fb1b9f0e1af06001770a142"]["1100 BC to 771 BC"] = {
+  startDate=-1100,
+  endDate=-771
+}
+army_dates["5fb1b9f0e1af06001770a142"]["770 BC to 550 BC"] = {
+  startDate=-770,
+  endDate=-550
+}
+army_dates["5fb1b9f0e1af06001770a142"]["549 BC to 315 BC"] = {
+  startDate=-549,
+  endDate=-315
+}

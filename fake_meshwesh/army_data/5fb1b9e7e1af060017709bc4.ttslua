@@ -1,235 +1,13 @@
 -- 5fb1b9e7e1af060017709bc4 Muslim North Africa and Sicily  801 to 1160 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba32e1af06001770de61']= {
-  min=3,
-  max=9,
-  description='Arab or Berber lancers',
-}
-g_troop_entry['5fb1ba32e1af06001770de62']= {
-  troop_option='5fb1ba32e1af06001770de61',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba32e1af06001770de63']= {
-  min=0,
-  max=1,
-  description='Khurasanian horsemen',
-  note='not in Sicily',
-  startDate=800,
-  endDate=818,
-}
-g_troop_entry['5fb1ba32e1af06001770de65']= {
-  troop_option='5fb1ba32e1af06001770de63',
-  troopTypeCode='ECV',
-}
-g_troop_option['5fb1ba32e1af06001770de66']= {
-  min=0,
-  max=2,
-  description='Berber javelinmen',
-}
-g_troop_entry['5fb1ba32e1af06001770de67']= {
-  troop_option='5fb1ba32e1af06001770de66',
-  troopTypeCode='RBL',
-}
-g_troop_option['5fb1ba32e1af06001770de68']= {
-  min=2,
-  max=6,
-  description='Berber spearmen (black slave spearmen if Zirid after 980 AD)',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770de69']= {
-  troop_option='5fb1ba32e1af06001770de68',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba32e1af06001770de6b']= {
-  min=0,
-  max=1,
-  description='Berber slingers',
-}
-g_troop_entry['5fb1ba32e1af06001770de6c']= {
-  troop_option='5fb1ba32e1af06001770de6b',
-  troopTypeCode='SKM',
-}
-g_troop_option['5fb1ba32e1af06001770de6d']= {
-  min=0,
-  max=2,
-  description='Arab bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba32e1af06001770de6e']= {
-  troop_option='5fb1ba32e1af06001770de6d',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba32e1af06001770de6f']= {
-  troop_option='5fb1ba32e1af06001770de6d',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba32e1af06001770de71']= {
-  min=0,
-  max=1,
-  description='Black slave infantry',
-  core='all',
-  startDate=800,
-  endDate=979,
-}
-g_troop_entry['5fb1ba32e1af06001770de73']= {
-  troop_option='5fb1ba32e1af06001770de71',
-  troopTypeCode='LFT',
-}
-g_troop_option['5fb1ba32e1af06001770de74']= {
-  min=0,
-  max=1,
-  description='Black slave bowmen',
-  core='all',
-  startDate=800,
-  endDate=979,
-}
-g_troop_entry['5fb1ba32e1af06001770de76']= {
-  troop_option='5fb1ba32e1af06001770de74',
-  troopTypeCode='BLV',
-}
-g_troop_option['5fb1ba32e1af06001770de77']= {
-  min=0,
-  max=3,
-  description='Black slave bodyguard',
-  note='only Aghlabids in Sicily',
-  core='all',
-  startDate=827,
-  endDate=1091,
-}
-g_troop_entry['5fb1ba32e1af06001770de79']= {
-  troop_option='5fb1ba32e1af06001770de77',
-  troopTypeCode='HFT',
-}
-g_str_5fb1ba32e1af06001770de62_general='5fb1ba32e1af06001770de62_general'
-g_base_definitions[g_str_5fb1ba32e1af06001770de62_general]={
-  id=g_str_5fb1ba32e1af06001770de62_general,
-  name='Javelin Cavalry General',
-  min=3,
-  max=1,
-  description='Arab or Berber lancers',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770de62='5fb1ba32e1af06001770de62'
-g_base_definitions[g_str_5fb1ba32e1af06001770de62]={
-  id=g_str_5fb1ba32e1af06001770de62,
-  name='Javelin Cavalry',
-  min=3,
-  max=9,
-  description='Arab or Berber lancers',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba32e1af06001770de65='5fb1ba32e1af06001770de65'
-g_base_definitions[g_str_5fb1ba32e1af06001770de65]={
-  id=g_str_5fb1ba32e1af06001770de65,
-  name='Elite Cavalary',
-  min=0,
-  max=1,
-  description='Khurasanian horsemen',
-  troop_type="Elite Cavalary",
-}
-g_str_5fb1ba32e1af06001770de67='5fb1ba32e1af06001770de67'
-g_base_definitions[g_str_5fb1ba32e1af06001770de67]={
-  id=g_str_5fb1ba32e1af06001770de67,
-  name='Rabble',
-  min=0,
-  max=2,
-  description='Berber javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1ba32e1af06001770de69='5fb1ba32e1af06001770de69'
-g_base_definitions[g_str_5fb1ba32e1af06001770de69]={
-  id=g_str_5fb1ba32e1af06001770de69,
-  name='Heavy Foot',
-  min=2,
-  max=6,
-  description='Berber spearmen (black slave spearmen if Zirid after 980 AD)',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba32e1af06001770de6c='5fb1ba32e1af06001770de6c'
-g_base_definitions[g_str_5fb1ba32e1af06001770de6c]={
-  id=g_str_5fb1ba32e1af06001770de6c,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Berber slingers',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba32e1af06001770de6e='5fb1ba32e1af06001770de6e'
-g_base_definitions[g_str_5fb1ba32e1af06001770de6e]={
-  id=g_str_5fb1ba32e1af06001770de6e,
-  name='Skirmishers',
-  min=0,
-  max=2,
-  description='Arab bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba32e1af06001770de6f='5fb1ba32e1af06001770de6f'
-g_base_definitions[g_str_5fb1ba32e1af06001770de6f]={
-  id=g_str_5fb1ba32e1af06001770de6f,
-  name='Archers',
-  min=0,
-  max=2,
-  description='Arab bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba32e1af06001770de73='5fb1ba32e1af06001770de73'
-g_base_definitions[g_str_5fb1ba32e1af06001770de73]={
-  id=g_str_5fb1ba32e1af06001770de73,
-  name='Light Foot',
-  min=0,
-  max=1,
-  description='Black slave infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1ba32e1af06001770de76='5fb1ba32e1af06001770de76'
-g_base_definitions[g_str_5fb1ba32e1af06001770de76]={
-  id=g_str_5fb1ba32e1af06001770de76,
-  name='Bow Levy',
-  min=0,
-  max=1,
-  description='Black slave bowmen',
-  troop_type="Bow Levy",
-}
-g_str_5fb1ba32e1af06001770de79='5fb1ba32e1af06001770de79'
-g_base_definitions[g_str_5fb1ba32e1af06001770de79]={
-  id=g_str_5fb1ba32e1af06001770de79,
-  name='Heavy Foot',
-  min=0,
-  max=3,
-  description='Black slave bodyguard',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1b9e7e1af060017709bc4_camp='5fb1b9e7e1af060017709bc4_camp'
-g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp]={
-  id=g_str_5fb1b9e7e1af060017709bc4_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e7e1af060017709bc4_camp_pack_train='5fb1b9e7e1af060017709bc4_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp_pack_train]={
-  id=g_str_5fb1b9e7e1af060017709bc4_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e7e1af060017709bc4']={
   data={
     name='Muslim North Africa and Sicily  801 to 1160 AD',
     id='5fb1b9e7e1af060017709bc4',
-    army_id='5fb1b9e7e1af060017709bc4'
+    dateRange={
+      startDate=801,
+      endDate=1160,
+    }
   },
   g_base_definitions[g_str_5fb1ba32e1af06001770de62_general],
   g_base_definitions[g_str_5fb1ba32e1af06001770de62],
@@ -249,126 +27,6 @@ if nil == armies["Meshwesh id"] then
   armies["Meshwesh id"] ={}
 end
 armies["Meshwesh id"]["5fb1b9e7e1af060017709bc4"] = army["5fb1b9e7e1af060017709bc4"]
-army['5fb1b9e7e1af060017709bc4_800_800']={
-  data={
-    name='Muslim North Africa and Sicily 800 AD',
-    id='5fb1b9e7e1af060017709bc4_800_800',
-    army_id='5fb1b9e7e1af060017709bc4'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de65],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de67],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de69],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6e],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de73],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de76],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de79],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp_pack_train],
-}
-army['5fb1b9e7e1af060017709bc4_801_818']={
-  data={
-    name='Muslim North Africa and Sicily 801 AD to 818 AD',
-    id='5fb1b9e7e1af060017709bc4_801_818',
-    army_id='5fb1b9e7e1af060017709bc4'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de65],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de67],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de69],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6e],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de73],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de76],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de79],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp_pack_train],
-}
-army['5fb1b9e7e1af060017709bc4_819_826']={
-  data={
-    name='Muslim North Africa and Sicily 819 AD to 826 AD',
-    id='5fb1b9e7e1af060017709bc4_819_826',
-    army_id='5fb1b9e7e1af060017709bc4'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de65],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de67],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de69],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6e],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de73],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de76],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de79],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp_pack_train],
-}
-army['5fb1b9e7e1af060017709bc4_827_979']={
-  data={
-    name='Muslim North Africa and Sicily 827 AD to 979 AD',
-    id='5fb1b9e7e1af060017709bc4_827_979',
-    army_id='5fb1b9e7e1af060017709bc4'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de65],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de67],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de69],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6e],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de73],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de76],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de79],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp_pack_train],
-}
-army['5fb1b9e7e1af060017709bc4_980_1091']={
-  data={
-    name='Muslim North Africa and Sicily 980 AD to 1091 AD',
-    id='5fb1b9e7e1af060017709bc4_980_1091',
-    army_id='5fb1b9e7e1af060017709bc4'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de65],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de67],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de69],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6e],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de73],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de76],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de79],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp_pack_train],
-}
-army['5fb1b9e7e1af060017709bc4_1092_1160']={
-  data={
-    name='Muslim North Africa and Sicily 1092 AD to 1160 AD',
-    id='5fb1b9e7e1af060017709bc4_1092_1160',
-    army_id='5fb1b9e7e1af060017709bc4'
-  },
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62_general],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de62],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de65],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de67],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de69],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6c],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6e],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de6f],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de73],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de76],
-  g_base_definitions[g_str_5fb1ba32e1af06001770de79],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp],
-  g_base_definitions[g_str_5fb1b9e7e1af060017709bc4_camp_pack_train],
-}
 if nil == armies["Medieval Western Europe"] then
   armies["Medieval Western Europe"] ={}
 end
@@ -385,10 +43,63 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e7e1af060017709bc4"] = {}
-army_dates["5fb1b9e7e1af060017709bc4"]["801 AD to 1160 AD"] ="5fb1b9e7e1af060017709bc4"
-army_dates["5fb1b9e7e1af060017709bc4"]["800 AD"] ="5fb1b9e7e1af060017709bc4_800_800"
-army_dates["5fb1b9e7e1af060017709bc4"]["801 AD to 818 AD"] ="5fb1b9e7e1af060017709bc4_801_818"
-army_dates["5fb1b9e7e1af060017709bc4"]["819 AD to 826 AD"] ="5fb1b9e7e1af060017709bc4_819_826"
-army_dates["5fb1b9e7e1af060017709bc4"]["827 AD to 979 AD"] ="5fb1b9e7e1af060017709bc4_827_979"
-army_dates["5fb1b9e7e1af060017709bc4"]["980 AD to 1091 AD"] ="5fb1b9e7e1af060017709bc4_980_1091"
-army_dates["5fb1b9e7e1af060017709bc4"]["1092 AD to 1160 AD"] ="5fb1b9e7e1af060017709bc4_1092_1160"
+army_dates["5fb1b9e7e1af060017709bc4"]["801 AD to 1160 AD"] = {
+  startDate=801,
+  endDate=1160
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["800 AD"] = {
+  startDate=800,
+  endDate=800
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["801 AD to 818 AD"] = {
+  startDate=801,
+  endDate=818
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["819 AD to 826 AD"] = {
+  startDate=819,
+  endDate=826
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["827 AD"] = {
+  startDate=827,
+  endDate=827
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["828 AD to 962 AD"] = {
+  startDate=828,
+  endDate=962
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["963 AD to 979 AD"] = {
+  startDate=963,
+  endDate=979
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["980 AD to 988 AD"] = {
+  startDate=980,
+  endDate=988
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["989 AD to 999 AD"] = {
+  startDate=989,
+  endDate=999
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["1000 AD"] = {
+  startDate=1000,
+  endDate=1000
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["1001 AD to 1034 AD"] = {
+  startDate=1001,
+  endDate=1034
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["1035 AD"] = {
+  startDate=1035,
+  endDate=1035
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["1036 AD to 1042 AD"] = {
+  startDate=1036,
+  endDate=1042
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["1043 AD to 1091 AD"] = {
+  startDate=1043,
+  endDate=1091
+}
+army_dates["5fb1b9e7e1af060017709bc4"]["1092 AD to 1160 AD"] = {
+  startDate=1092,
+  endDate=1160
+}

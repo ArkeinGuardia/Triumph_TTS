@@ -1,108 +1,13 @@
 -- 5fb1b9e1e1af060017709819 Second Servile War  103 to 99 BC
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2be1af06001770d207']= {
-  min=1,
-  max=2,
-  description='Horsemen',
-}
-g_troop_entry['5fb1ba2be1af06001770d208']= {
-  troop_option='5fb1ba2be1af06001770d207',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2be1af06001770d209']= {
-  min=0,
-  max=1,
-  description='Horse archers',
-}
-g_troop_entry['5fb1ba2be1af06001770d20a']= {
-  troop_option='5fb1ba2be1af06001770d209',
-  troopTypeCode='HBW',
-}
-g_troop_option['5fb1ba2be1af06001770d20b']= {
-  min=3,
-  max=6,
-  description='Ex-slaves with Roman equipment',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d20c']= {
-  troop_option='5fb1ba2be1af06001770d20b',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2be1af06001770d20d']= {
-  min=6,
-  max=17,
-  description='Ex-slaves, shepherds and herdsmen, bandits',
-}
-g_troop_entry['5fb1ba2be1af06001770d20e']= {
-  troop_option='5fb1ba2be1af06001770d20d',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba2be1af06001770d208_general='5fb1ba2be1af06001770d208_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d208_general]={
-  id=g_str_5fb1ba2be1af06001770d208_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Horsemen',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d208='5fb1ba2be1af06001770d208'
-g_base_definitions[g_str_5fb1ba2be1af06001770d208]={
-  id=g_str_5fb1ba2be1af06001770d208,
-  name='Javelin Cavalry',
-  min=1,
-  max=2,
-  description='Horsemen',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d20a='5fb1ba2be1af06001770d20a'
-g_base_definitions[g_str_5fb1ba2be1af06001770d20a]={
-  id=g_str_5fb1ba2be1af06001770d20a,
-  name='Horse Bow',
-  min=0,
-  max=1,
-  description='Horse archers',
-  troop_type="Horse Bow",
-}
-g_str_5fb1ba2be1af06001770d20c='5fb1ba2be1af06001770d20c'
-g_base_definitions[g_str_5fb1ba2be1af06001770d20c]={
-  id=g_str_5fb1ba2be1af06001770d20c,
-  name='Heavy Foot',
-  min=3,
-  max=6,
-  description='Ex-slaves with Roman equipment',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2be1af06001770d20e='5fb1ba2be1af06001770d20e'
-g_base_definitions[g_str_5fb1ba2be1af06001770d20e]={
-  id=g_str_5fb1ba2be1af06001770d20e,
-  name='Rabble',
-  min=6,
-  max=17,
-  description='Ex-slaves, shepherds and herdsmen, bandits',
-  troop_type="Rabble",
-}
-g_str_5fb1b9e1e1af060017709819_camp='5fb1b9e1e1af060017709819_camp'
-g_base_definitions[g_str_5fb1b9e1e1af060017709819_camp]={
-  id=g_str_5fb1b9e1e1af060017709819_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
 army['5fb1b9e1e1af060017709819']={
   data={
     name='Second Servile War  103 to 99 BC',
     id='5fb1b9e1e1af060017709819',
-    army_id='5fb1b9e1e1af060017709819'
+    dateRange={
+      startDate=-103,
+      endDate=-99,
+    }
   },
   g_base_definitions[g_str_5fb1ba2be1af06001770d208_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d208],
@@ -127,4 +32,7 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e1e1af060017709819"] = {}
-army_dates["5fb1b9e1e1af060017709819"]["103 BC to 99 BC"] ="5fb1b9e1e1af060017709819"
+army_dates["5fb1b9e1e1af060017709819"]["103 BC to 99 BC"] = {
+  startDate=-103,
+  endDate=-99
+}

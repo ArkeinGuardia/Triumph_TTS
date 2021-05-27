@@ -1,254 +1,13 @@
 -- 5fb1b9e1e1af060017709831 Early Imperial Roman  25 BC to 197 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba2be1af06001770d25d']= {
-  min=2,
-  max=6,
-  description='Legionaries',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d25e']= {
-  troop_option='5fb1ba2be1af06001770d25d',
-  troopTypeCode='EFT',
-}
-g_troop_option['5fb1ba2be1af06001770d261']= {
-  min=1,
-  max=1,
-  description='Equites alares',
-}
-g_troop_entry['5fb1ba2be1af06001770d262']= {
-  troop_option='5fb1ba2be1af06001770d261',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2be1af06001770d263']= {
-  min=0,
-  max=1,
-  description='Equites cohortales',
-}
-g_troop_entry['5fb1ba2be1af06001770d264']= {
-  troop_option='5fb1ba2be1af06001770d263',
-  troopTypeCode='BAD',
-}
-g_troop_option['5fb1ba2be1af06001770d265']= {
-  min=2,
-  max=6,
-  description='Auxiliary infantry',
-}
-g_troop_entry['5fb1ba2be1af06001770d266']= {
-  troop_option='5fb1ba2be1af06001770d265',
-  troopTypeCode='RDR',
-}
-g_troop_option['5fb1ba2be1af06001770d268']= {
-  min=0,
-  max=1,
-  description='Auxiliary bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d269']= {
-  troop_option='5fb1ba2be1af06001770d268',
-  troopTypeCode='SKM',
-}
-g_troop_entry['5fb1ba2be1af06001770d26a']= {
-  troop_option='5fb1ba2be1af06001770d268',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba2be1af06001770d26c']= {
-  min=0,
-  max=1,
-  description='Numidian, Moorish, or other horsemen depending upon where based',
-}
-g_troop_entry['5fb1ba2be1af06001770d26d']= {
-  troop_option='5fb1ba2be1af06001770d26c',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba2be1af06001770d26e']= {
-  min=0,
-  max=1,
-  description='Stone-throwers and bolt-shooters',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d26f']= {
-  troop_option='5fb1ba2be1af06001770d26e',
-  troopTypeCode='ART',
-}
-g_troop_option['5fb1ba2be1af06001770d270']= {
-  min=0,
-  max=4,
-  description='Raw legionaries',
-  core='all',
-}
-g_troop_entry['5fb1ba2be1af06001770d271']= {
-  troop_option='5fb1ba2be1af06001770d270',
-  troopTypeCode='HFT',
-}
-g_troop_option['5fb1ba2be1af06001770d272']= {
-  min=0,
-  max=2,
-  description='Numeri or Symmachiarii light infantry',
-}
-g_troop_entry['5fb1ba2be1af06001770d273']= {
-  troop_option='5fb1ba2be1af06001770d272',
-  troopTypeCode='LFT',
-}
-g_str_5fb1ba2be1af06001770d25e_general='5fb1ba2be1af06001770d25e_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d25e_general]={
-  id=g_str_5fb1ba2be1af06001770d25e_general,
-  name='Elite Foot General',
-  min=2,
-  max=1,
-  description='Legionaries',
-  general=true,
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba2be1af06001770d25e='5fb1ba2be1af06001770d25e'
-g_base_definitions[g_str_5fb1ba2be1af06001770d25e]={
-  id=g_str_5fb1ba2be1af06001770d25e,
-  name='Elite Foot',
-  min=2,
-  max=6,
-  description='Legionaries',
-  troop_type="Elite Foot",
-}
-g_str_5fb1ba2be1af06001770d262_general='5fb1ba2be1af06001770d262_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d262_general]={
-  id=g_str_5fb1ba2be1af06001770d262_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='Equites alares',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d262='5fb1ba2be1af06001770d262'
-g_base_definitions[g_str_5fb1ba2be1af06001770d262]={
-  id=g_str_5fb1ba2be1af06001770d262,
-  name='Javelin Cavalry',
-  min=1,
-  max=1,
-  description='Equites alares',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d264='5fb1ba2be1af06001770d264'
-g_base_definitions[g_str_5fb1ba2be1af06001770d264]={
-  id=g_str_5fb1ba2be1af06001770d264,
-  name='Bad Horse',
-  min=0,
-  max=1,
-  description='Equites cohortales',
-  troop_type="Bad Horse",
-}
-g_str_5fb1ba2be1af06001770d266='5fb1ba2be1af06001770d266'
-g_base_definitions[g_str_5fb1ba2be1af06001770d266]={
-  id=g_str_5fb1ba2be1af06001770d266,
-  name='Raiders',
-  min=2,
-  max=6,
-  description='Auxiliary infantry',
-  troop_type="Raiders",
-}
-g_str_5fb1ba2be1af06001770d269='5fb1ba2be1af06001770d269'
-g_base_definitions[g_str_5fb1ba2be1af06001770d269]={
-  id=g_str_5fb1ba2be1af06001770d269,
-  name='Skirmishers',
-  min=0,
-  max=1,
-  description='Auxiliary bowmen',
-  troop_type="Skirmishers",
-}
-g_str_5fb1ba2be1af06001770d26a='5fb1ba2be1af06001770d26a'
-g_base_definitions[g_str_5fb1ba2be1af06001770d26a]={
-  id=g_str_5fb1ba2be1af06001770d26a,
-  name='Archers',
-  min=0,
-  max=1,
-  description='Auxiliary bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba2be1af06001770d26d_general='5fb1ba2be1af06001770d26d_general'
-g_base_definitions[g_str_5fb1ba2be1af06001770d26d_general]={
-  id=g_str_5fb1ba2be1af06001770d26d_general,
-  name='Javelin Cavalry General',
-  min=0,
-  max=1,
-  description='Numidian, Moorish, or other horsemen depending upon where based',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d26d='5fb1ba2be1af06001770d26d'
-g_base_definitions[g_str_5fb1ba2be1af06001770d26d]={
-  id=g_str_5fb1ba2be1af06001770d26d,
-  name='Javelin Cavalry',
-  min=0,
-  max=1,
-  description='Numidian, Moorish, or other horsemen depending upon where based',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba2be1af06001770d26f='5fb1ba2be1af06001770d26f'
-g_base_definitions[g_str_5fb1ba2be1af06001770d26f]={
-  id=g_str_5fb1ba2be1af06001770d26f,
-  name='Artillery',
-  min=0,
-  max=1,
-  description='Stone-throwers and bolt-shooters',
-  troop_type="Artillery",
-}
-g_str_5fb1ba2be1af06001770d271='5fb1ba2be1af06001770d271'
-g_base_definitions[g_str_5fb1ba2be1af06001770d271]={
-  id=g_str_5fb1ba2be1af06001770d271,
-  name='Heavy Foot',
-  min=0,
-  max=4,
-  description='Raw legionaries',
-  troop_type="Heavy Foot",
-}
-g_str_5fb1ba2be1af06001770d273='5fb1ba2be1af06001770d273'
-g_base_definitions[g_str_5fb1ba2be1af06001770d273]={
-  id=g_str_5fb1ba2be1af06001770d273,
-  name='Light Foot',
-  min=0,
-  max=2,
-  description='Numeri or Symmachiarii light infantry',
-  troop_type="Light Foot",
-}
-g_str_5fb1b9e1e1af060017709831_camp='5fb1b9e1e1af060017709831_camp'
-g_base_definitions[g_str_5fb1b9e1e1af060017709831_camp]={
-  id=g_str_5fb1b9e1e1af060017709831_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e1e1af060017709831_camp_fortified='5fb1b9e1e1af060017709831_camp_fortified'
-g_base_definitions[g_str_5fb1b9e1e1af060017709831_camp_fortified]={
-  id=g_str_5fb1b9e1e1af060017709831_camp_fortified,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Fortified camp',
-  fortified_camp=true,
-  troop_type="Camp",
-}
-g_str_5fb1b9e1e1af060017709831_camp_pack_train='5fb1b9e1e1af060017709831_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e1e1af060017709831_camp_pack_train]={
-  id=g_str_5fb1b9e1e1af060017709831_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e1e1af060017709831']={
   data={
     name='Early Imperial Roman  25 BC to 197 AD',
     id='5fb1b9e1e1af060017709831',
-    army_id='5fb1b9e1e1af060017709831'
+    dateRange={
+      startDate=-25,
+      endDate=197,
+    }
   },
   g_base_definitions[g_str_5fb1ba2be1af06001770d25e_general],
   g_base_definitions[g_str_5fb1ba2be1af06001770d25e],
@@ -287,4 +46,35 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e1e1af060017709831"] = {}
-army_dates["5fb1b9e1e1af060017709831"]["25 BC to 197 AD"] ="5fb1b9e1e1af060017709831"
+army_dates["5fb1b9e1e1af060017709831"]["25 BC to 197 AD"] = {
+  startDate=-25,
+  endDate=197
+}
+army_dates["5fb1b9e1e1af060017709831"]["25 BC to 17 BC"] = {
+  startDate=-25,
+  endDate=-17
+}
+army_dates["5fb1b9e1e1af060017709831"]["16 BC to 6 AD"] = {
+  startDate=-16,
+  endDate=6
+}
+army_dates["5fb1b9e1e1af060017709831"]["7 AD to 16 AD"] = {
+  startDate=7,
+  endDate=16
+}
+army_dates["5fb1b9e1e1af060017709831"]["17 AD"] = {
+  startDate=17,
+  endDate=17
+}
+army_dates["5fb1b9e1e1af060017709831"]["18 AD to 65 AD"] = {
+  startDate=18,
+  endDate=65
+}
+army_dates["5fb1b9e1e1af060017709831"]["66 AD to 72 AD"] = {
+  startDate=66,
+  endDate=72
+}
+army_dates["5fb1b9e1e1af060017709831"]["73 AD to 197 AD"] = {
+  startDate=73,
+  endDate=197
+}

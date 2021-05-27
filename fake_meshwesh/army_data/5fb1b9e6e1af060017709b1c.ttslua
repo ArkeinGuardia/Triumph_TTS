@@ -1,244 +1,13 @@
 -- 5fb1b9e6e1af060017709b1c North Welsh  1150 to 1420 AD
 
-if army == nil then
-  army = {}
-end
-if g_base_definitions == nil then
-  g_base_definitions = {}
-end
-g_troop_option['5fb1ba31e1af06001770dc6b']= {
-  min=0,
-  max=1,
-  description='North Welsh highborn',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770dc6c']= {
-  troop_option='5fb1ba31e1af06001770dc6b',
-  troopTypeCode='KNT',
-}
-g_troop_option['5fb1ba31e1af06001770dc6e']= {
-  min=1,
-  max=1,
-  description='North Welsh uchelwyr',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770dc6f']= {
-  troop_option='5fb1ba31e1af06001770dc6e',
-  troopTypeCode='JCV',
-}
-g_troop_option['5fb1ba31e1af06001770dc71']= {
-  min=5,
-  max=14,
-  description='North Welsh spearmen',
-}
-g_troop_entry['5fb1ba31e1af06001770dc72']= {
-  troop_option='5fb1ba31e1af06001770dc71',
-  troopTypeCode='LSP',
-}
-g_troop_option['5fb1ba31e1af06001770dc73']= {
-  min=0,
-  max=1,
-  description='North Welsh bowmen',
-  core='all',
-}
-g_troop_entry['5fb1ba31e1af06001770dc74']= {
-  troop_option='5fb1ba31e1af06001770dc73',
-  troopTypeCode='ARC',
-}
-g_troop_option['5fb1ba31e1af06001770dc75']= {
-  min=1,
-  max=2,
-  description='North Welsh javelinmen',
-}
-g_troop_entry['5fb1ba31e1af06001770dc76']= {
-  troop_option='5fb1ba31e1af06001770dc75',
-  troopTypeCode='RBL',
-}
-g_str_5fb1ba31e1af06001770dc6c_general='5fb1ba31e1af06001770dc6c_general'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_general]={
-  id=g_str_5fb1ba31e1af06001770dc6c_general,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='North Welsh highborn',
-  general=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770dc6c_general_dismounted='5fb1ba31e1af06001770dc6c_general_dismounted'
-g_str_5fb1ba31e1af06001770dc6c_general_mounted='5fb1ba31e1af06001770dc6c_general_mounted'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_general_dismounted]={
-  id=g_str_5fb1ba31e1af06001770dc6c_general_dismounted,
-  name='Elite Foot General',
-  min=0,
-  max=1,
-  description='North Welsh highborn\nDeployment dismounted from Knights General',
-  points=4,
-  dismounted_from=g_str_5fb1ba31e1af06001770dc6c_general_mounted,
-  general=true,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_general_mounted]={
-  id=g_str_5fb1ba31e1af06001770dc6c_general_mounted,
-  name='Knights General',
-  min=0,
-  max=1,
-  description='North Welsh highborn\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba31e1af06001770dc6c_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770dc6c='5fb1ba31e1af06001770dc6c'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6c]={
-  id=g_str_5fb1ba31e1af06001770dc6c,
-  name='Knights',
-  min=0,
-  max=1,
-  description='North Welsh highborn',
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770dc6c_dismounted='5fb1ba31e1af06001770dc6c_dismounted'
-g_str_5fb1ba31e1af06001770dc6c_mounted='5fb1ba31e1af06001770dc6c_mounted'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_dismounted]={
-  id=g_str_5fb1ba31e1af06001770dc6c_dismounted,
-  name='Elite Foot',
-  min=0,
-  max=1,
-  description='North Welsh highborn\nDeployment dismounted from Knights',
-  points=4,
-  dismounted_from=g_str_5fb1ba31e1af06001770dc6c_mounted,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_mounted]={
-  id=g_str_5fb1ba31e1af06001770dc6c_mounted,
-  name='Knights',
-  min=0,
-  max=1,
-  description='North Welsh highborn\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba31e1af06001770dc6c_dismounted,
-  deployment_dismounting=true,
-  troop_type="Knights",
-}
-g_str_5fb1ba31e1af06001770dc6f_general='5fb1ba31e1af06001770dc6f_general'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_general]={
-  id=g_str_5fb1ba31e1af06001770dc6f_general,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='North Welsh uchelwyr',
-  general=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba31e1af06001770dc6f_general_dismounted='5fb1ba31e1af06001770dc6f_general_dismounted'
-g_str_5fb1ba31e1af06001770dc6f_general_mounted='5fb1ba31e1af06001770dc6f_general_mounted'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_general_dismounted]={
-  id=g_str_5fb1ba31e1af06001770dc6f_general_dismounted,
-  name='Elite Foot General',
-  min=1,
-  max=1,
-  description='North Welsh uchelwyr\nDeployment dismounted from Javelin Cavalry General',
-  points=4,
-  dismounted_from=g_str_5fb1ba31e1af06001770dc6f_general_mounted,
-  general=true,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_general_mounted]={
-  id=g_str_5fb1ba31e1af06001770dc6f_general_mounted,
-  name='Javelin Cavalry General',
-  min=1,
-  max=1,
-  description='North Welsh uchelwyr\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba31e1af06001770dc6f_general_dismounted,
-  general=true,
-  deployment_dismounting=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba31e1af06001770dc6f='5fb1ba31e1af06001770dc6f'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6f]={
-  id=g_str_5fb1ba31e1af06001770dc6f,
-  name='Javelin Cavalry',
-  min=1,
-  max=1,
-  description='North Welsh uchelwyr',
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba31e1af06001770dc6f_dismounted='5fb1ba31e1af06001770dc6f_dismounted'
-g_str_5fb1ba31e1af06001770dc6f_mounted='5fb1ba31e1af06001770dc6f_mounted'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_dismounted]={
-  id=g_str_5fb1ba31e1af06001770dc6f_dismounted,
-  name='Elite Foot',
-  min=1,
-  max=1,
-  description='North Welsh uchelwyr\nDeployment dismounted from Javelin Cavalry',
-  points=4,
-  dismounted_from=g_str_5fb1ba31e1af06001770dc6f_mounted,
-  troop_type="Elite Foot",
-}
-g_base_definitions[g_str_5fb1ba31e1af06001770dc6f_mounted]={
-  id=g_str_5fb1ba31e1af06001770dc6f_mounted,
-  name='Javelin Cavalry',
-  min=1,
-  max=1,
-  description='North Welsh uchelwyr\nDeployment dismounting as Elite Foot',
-  points=4,
-  dismount_as=g_str_5fb1ba31e1af06001770dc6f_dismounted,
-  deployment_dismounting=true,
-  troop_type="Javelin Cavalry",
-}
-g_str_5fb1ba31e1af06001770dc72='5fb1ba31e1af06001770dc72'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc72]={
-  id=g_str_5fb1ba31e1af06001770dc72,
-  name='Light Spear',
-  min=5,
-  max=14,
-  description='North Welsh spearmen',
-  troop_type="Light Spear",
-}
-g_str_5fb1ba31e1af06001770dc74='5fb1ba31e1af06001770dc74'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc74]={
-  id=g_str_5fb1ba31e1af06001770dc74,
-  name='Archers',
-  min=0,
-  max=1,
-  description='North Welsh bowmen',
-  troop_type="Archers",
-}
-g_str_5fb1ba31e1af06001770dc76='5fb1ba31e1af06001770dc76'
-g_base_definitions[g_str_5fb1ba31e1af06001770dc76]={
-  id=g_str_5fb1ba31e1af06001770dc76,
-  name='Rabble',
-  min=1,
-  max=2,
-  description='North Welsh javelinmen',
-  troop_type="Rabble",
-}
-g_str_5fb1b9e6e1af060017709b1c_camp='5fb1b9e6e1af060017709b1c_camp'
-g_base_definitions[g_str_5fb1b9e6e1af060017709b1c_camp]={
-  id=g_str_5fb1b9e6e1af060017709b1c_camp,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Camp',
-  troop_type="Camp",
-}
-g_str_5fb1b9e6e1af060017709b1c_camp_pack_train='5fb1b9e6e1af060017709b1c_camp_pack_train'
-g_base_definitions[g_str_5fb1b9e6e1af060017709b1c_camp_pack_train]={
-  id=g_str_5fb1b9e6e1af060017709b1c_camp_pack_train,
-  name='Camp',
-  min=0,
-  max=1,
-  description='Pack Train',
-  pack_train=true,
-  troop_type="Camp",
-}
 army['5fb1b9e6e1af060017709b1c']={
   data={
     name='North Welsh  1150 to 1420 AD',
     id='5fb1b9e6e1af060017709b1c',
-    army_id='5fb1b9e6e1af060017709b1c'
+    dateRange={
+      startDate=1150,
+      endDate=1420,
+    }
   },
   g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_general],
   g_base_definitions[g_str_5fb1ba31e1af06001770dc6c_general_mounted],
@@ -274,4 +43,59 @@ if nil == army_dates then
   army_dates={}
 end
 army_dates["5fb1b9e6e1af060017709b1c"] = {}
-army_dates["5fb1b9e6e1af060017709b1c"]["1150 AD to 1420 AD"] ="5fb1b9e6e1af060017709b1c"
+army_dates["5fb1b9e6e1af060017709b1c"]["1150 AD to 1420 AD"] = {
+  startDate=1150,
+  endDate=1420
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1150 AD"] = {
+  startDate=1150,
+  endDate=1150
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1151 AD to 1154 AD"] = {
+  startDate=1151,
+  endDate=1154
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1155 AD to 1179 AD"] = {
+  startDate=1155,
+  endDate=1179
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1180 AD"] = {
+  startDate=1180,
+  endDate=1180
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1181 AD"] = {
+  startDate=1181,
+  endDate=1181
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1182 AD to 1197 AD"] = {
+  startDate=1182,
+  endDate=1197
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1198 AD to 1229 AD"] = {
+  startDate=1198,
+  endDate=1229
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1230 AD to 1251 AD"] = {
+  startDate=1230,
+  endDate=1251
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1252 AD to 1295 AD"] = {
+  startDate=1252,
+  endDate=1295
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1296 AD to 1321 AD"] = {
+  startDate=1296,
+  endDate=1321
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1322 AD to 1404 AD"] = {
+  startDate=1322,
+  endDate=1404
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1405 AD"] = {
+  startDate=1405,
+  endDate=1405
+}
+army_dates["5fb1b9e6e1af060017709b1c"]["1406 AD to 1420 AD"] = {
+  startDate=1406,
+  endDate=1420
+}

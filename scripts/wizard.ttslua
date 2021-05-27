@@ -1,0 +1,81 @@
+g_wizard_exit_panel_fn = nil
+
+function wizard_show()
+  UI.setAttribute("panel_dba_orders", "active", false)
+  UI.setAttribute("panel_wizard_bg", "active", true)
+
+  g_game_settings['show_panel_current_movement'] = false
+  wizard_show_panel_game()
+end
+
+
+wizard_panels = {
+  "wizard_panel_game",
+  -- "wizard_panel_select_armies",
+  -- "wizard_panel_select_troops",
+  -- "wizard_panel_invader",
+  -- "wizard_panel_topography",
+  -- "wizard_panel_tactical_advantage",
+  -- "wizard_panel_terrain_pieces_roll",
+  -- "wizard_panel_select_terrain_nb_pieces",
+  -- "wizard_panel_order_terrain_pieces",
+  -- "wizard_panel_camps",
+  -- "wizard_panel_deploy_troops",
+  -- "wizard_panel_first_turn",
+}
+
+function wizard_show_panel(panel_name)
+  if g_wizard_exit_panel_fn then
+    g_wizard_exit_panel_fn()
+    g_wizard_exit_panel_fn = nil
+  end
+  for _,name in pairs(wizard_panels) do
+    UI.setAttribute(name, "active", name == panel_name)
+  end
+end
+
+function wizard_hide()
+  wizard_show_panel(nil)
+  UI.setAttribute("panel_wizard_bg", "active", false)
+  UI.setAttribute("panel_dba_orders", "active", true)
+  g_game_settings['show_panel_current_movement'] = true
+end
+
+
+-------------------
+------------------- Game Panel
+-------------------
+
+function wizard_show_panel_game()
+  wizard_show_panel("wizard_panel_game")
+  wizard_panel_game_enter()
+end
+
+function wizard_pannel_game_update()
+  local is_grand_triumph = g_game_settings['is_grand_triumph']
+  if is_grand_triumph == nil then
+    UI.setAttribute("wizard_togglegroup_game_triumph", "isOn", false)
+    UI.setAttribute("wizard_togglegroup_game_grand_triumph", "isOn", false)
+    return
+  end
+
+  UI.setAttribute("wizard_togglegroup_game_triumph", "isOn", not is_grand_triumph)
+  UI.setAttribute("wizard_togglegroup_game_grand_triumph", "isOn", is_grand_triumph)
+end
+
+function wizard_panel_game_enter()
+  wizard_pannel_game_update()
+  g_wizard_exit_panel_fn = function()
+    spawn_all_dice()
+  end
+end
+
+function on_wizard_togglegroup_game(player, value, id)
+  g_game_settings['is_grand_triumph'] = (value == "1")
+  wizard_pannel_game_update()
+end
+
+function on_wizard_button_forward_to_select_armies()
+      -- wizard_show_panel_select_armies()
+      wizard_hide()
+end
