@@ -478,6 +478,35 @@ function spawn_elephant_screen_counter(base_obj, base_definition, base_pos, is_r
   snap_to_base(counter, transform_moving, base_obj, transform_resting, 'infront')
 end
 
+function base_highlight(base_obj, command_color)
+  local forever = 86400 -- duration for highlght
+  if command_color == 'None' then
+    return
+  end
+  if command_color == 'Blue' then
+    base_obj.highlightOn({r=0,g=0,b=1}, forever)
+    return
+  end
+  if command_color == 'Green' then
+    base_obj.highlightOn({r=0.1,g=1,b=0.4}, forever)
+    return
+  end
+  if command_color == 'Purple' then
+    base_obj.highlightOn({r=0.3,g=0,b=0.7}, forever)
+    return
+  end
+  if command_color == 'Red' then
+    base_obj.highlightOn({r=1,g=0,b=0}, forever)
+    return
+  end
+  if command_color == 'Orange' then
+    base_obj.highlightOn({r=1,g=0.5,b=0}, forever)
+    return
+  end
+  if command_color == 'Yellow' then
+    base_obj.highlightOn({r=1,g=1,b=0}, forever)
+  end
+end
 
 -- base: base_definition base_definition
 -- pos: position where the base will be located
@@ -537,17 +566,8 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
         is_red_player = is_red_player
     }
 
-    if command_color ~= 'None' then
-        if command_color == 'Orange' then
-            base_obj.highlightOn({r=1,g=0.5,b=0}, 86400)
-        elseif command_color == 'Yellow' then
-            base_obj.highlightOn({r=1,g=1,b=0}, 86400)
-        elseif command_color == 'Green' then
-            base_obj.highlightOn({r=0.1,g=1,b=0.4}, 86400)
-        elseif command_color == 'Purple' then
-            base_obj.highlightOn({r=0.3,g=0,b=0.7}, 86400)
-        end
-    end
+    base_highlight(base_obj, command_color)
+
     local base_definition_name = base_definition['id']
     if base_definition_name == nil then
         -- LEGACY
@@ -940,11 +960,12 @@ end
 
 
 function update_player_color_menu(is_player_red)
-    local selected = 2
-    if is_player_red then
-        selected = 1
-    end
-    set_options_dropdown_by_id('dropdown_playercolor', { 'Red', 'Blue' },  selected)
+  -- TODO remove
+    -- local selected = 2
+    -- if is_player_red then
+    --     selected = 1
+    -- end
+    -- set_options_dropdown_by_id('dropdown_playercolor', { 'Red', 'Blue' },  selected)
 end
 
 

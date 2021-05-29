@@ -105,12 +105,27 @@ function restore_extra_data(saved_data)
   g_decorations = extra
   g_game_settings = g_decorations['g_game_settings']
   if g_game_settings == nil then
-    -- initial settings 
+    -- initial settings
     g_game_settings = {}
     g_game_settings['is_grand_triumph'] = false
     g_game_settings['show_wizard'] = true
     set_tablet_homepage("red tablet")
     set_tablet_homepage("blue tablet")
+  end
+  if g_game_settings['army_id'] == nil then
+    g_game_settings['army_id'] = {}
+  end
+  if g_game_settings['year_selected'] == nil then
+    g_game_settings['year_selected'] = {}
+  end
+  if g_game_settings['selected_allies'] == nil then
+    g_game_settings['selected_allies'] = {}
+  end
+  if g_game_settings['selected_allies']['red'] == nil then
+    g_game_settings['selected_allies']['red'] = {}
+  end
+  if g_game_settings['selected_allies']['blue'] == nil then
+    g_game_settings['selected_allies']['blue'] = {}
   end
 end
 

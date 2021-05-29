@@ -143,8 +143,8 @@ function filter_base_definitions_by_date(army, date_range)
   return filtered
 end
 
-function get_command_color(army_nb)
-  if (g_color_spawn_army_selected == 'Red') then
+function get_command_color(army_nb, color)
+  if (color == 'red') then
     if army_nb == 1 then
       return "Red"
     elseif army_nb == 2 then
@@ -163,36 +163,47 @@ function get_command_color(army_nb)
   end
 end
 
+function load_army_for_player(color)
+  local army_id_selected = g_game_settings['army_id'][color]
+  local year_selected = g_game_settings['year_selected'][color]
+  local date_range = army_dates[army_id_selected][year_selected]
+  local army_nb = 1
+  local is_red_player = (color == 'red')
+  local filtered_army = filter_base_definitions_by_date(
+    army[army_id_selected],
+    date_range)
+  local command = get_command_color(army_nb, color)
+  spawn_army(
+    filtered_army,
+    is_red_player,
+    command,
+    army_nb)
+  army_nb = army_nb + 1
+  set_tablet(is_red_player, army[army_id_selected])
+
+  -- Spawn the allies
+  for _, ally_army_id in pairs(g_game_settings['selected_allies'][color]) do
+      local ally_army = army[ally_army_id]
+      if (ally_army == nil) then
+        print_error("army missing for " .. tostring(ally_army_id))
+        return
+      end
+      local filtered_army = filter_base_definitions_by_date(
+        ally_army,
+        date_range)
+      local command = get_command_color(army_nb, color)
+      spawn_army(
+        filtered_army,
+        is_red_player,
+        command,
+        army_nb)
+      army_nb = army_nb + 1
+  end
+end
 
 function on_load_army(player, value, id)
-    local date_range = army_dates[g_army_id_selected][g_year_selected]
-    local army_nb = 1
-    local is_red_player = g_color_spawn_army_selected == 'Red'
-    local filtered_army = filter_base_definitions_by_date(
-      army[g_army_id_selected],
-      date_range)
-    local command = get_command_color(army_nb)
-    spawn_army(
-      filtered_army,
-      is_red_player,
-      command,
-      army_nb)
-    army_nb = army_nb + 1
-    set_tablet(is_red_player, army[g_army_id_selected])
-
-    -- Spawn the allies
-    for _, ally_army in pairs(g_selected_allies) do
-        local filtered_army = filter_base_definitions_by_date(
-          ally_army,
-          date_range)
-        local command = get_command_color(army_nb)
-        spawn_army(
-          filtered_army,
-          g_color_spawn_army_selected == 'Red',
-          command,
-          army_nb)
-          army_nb = army_nb + 1
-    end
+    load_army_for_player('red')
+    load_army_for_player('blue')
 
     UI.setAttribute('panel_dba_troop_selection', 'active', false)
     UI.setAttribute('panel_dba_troop_selection_bg', 'active', false)
@@ -236,30 +247,50 @@ end
 -- Update the dialog values for deploying an army based on
 -- the global variables.
 function update_deploy_army_dialog()
+  if g_ui_busy then
+    print_important('UI is updating, please try again')
+    return
+  end
+  -- UI elements do not update correctly in TTS if there is more than
+  -- one element updated in a frame.
+  local functions = {
+    function () g_ui_busy = true end,
+    function () UI.setAttribute('button_load_army', 'interactable', false) end,
+    function () UI.setAttribute('button_cancel_army', 'interactable', false) end,
+    function () UI.setAttribute('toggle_filter_models', 'interactable', false) end,
+    function () UI.setAttribute('toggle_use_plain_bases', 'interactable', false) end,
+    function () UI.setAttribute('dropdown_book', 'interactable', false) end,
+    function () UI.setAttribute('dropdown_army_red', 'interactable', false) end,
+    function () UI.setAttribute('dropdown_army_blue', 'interactable', false) end,
+    function () UI.setAttribute('toggle_filter_models', 'isOn', g_filter_armies_models) end,
+    function () update_theme_menu() end,
+    function () update_armies_menu('red') end,
+    function () update_armies_menu('blue') end,
+    function () update_years_menu('red') end,
+    function () update_years_menu('blue') end,
+    function () update_allies_menu('red') end,
+    function () update_allies_menu('blue') end,
+    function () UI.setAttribute('button_load_army', 'interactable', true) end,
+    function () UI.setAttribute('button_cancel_army', 'interactable', true) end,
+    function () UI.setAttribute('toggle_filter_models', 'interactable', true) end,
+    function () UI.setAttribute('toggle_use_plain_bases', 'interactable', true) end,
+    function () UI.setAttribute('dropdown_book', 'interactable', true) end,
+    function () UI.setAttribute('dropdown_army_red', 'interactable', true) end,
+    function () UI.setAttribute('dropdown_army_blue', 'interactable', true) end,
+    function () g_ui_busy =false end,
+ }
+
+  function call(pos)
+    if functions[pos] == nil then
+      return
+    end
+    functions[pos]()
     on_next_frame(function()
-        UI.setAttribute('button_load_army', 'interactable', false)
-        on_next_frame(function()
-            UI.setAttribute('toggle_filter_modes', 'isOn', g_filter_armies_models)
-            on_next_frame(function()
-                update_theme_menu()
-                on_next_frame(function()
-                    update_armies_menu()
-                    on_next_frame(function()
-                        update_years_menu()
-                        on_next_frame(function()
-                          update_player_menu()
-                          on_next_frame(function()
-                            update_allies_menu()
-                            on_next_frame(function()
-                              UI.setAttribute('button_load_army', 'interactable', true)
-                            end)
-                          end)
-                        end)
-                    end)
-                end)
-            end)
-        end)
+      call(pos+1)
     end)
+  end
+
+  call(1)
 end
 
 function create_army_options_menu(player, value, id)
@@ -271,9 +302,9 @@ function create_army_options_menu(player, value, id)
 
     on_next_frame(function()
         UI.setAttribute('panel_dba_troop_selection_bg', 'active', true)
-        UI.setAttribute('panel_dba_troop_selection_bg', 'visibility', player.color)
+        --UI.setAttribute('panel_dba_troop_selection_bg', 'visibility', player.color)
         UI.setAttribute('panel_dba_troop_selection', 'active', true)
-        UI.setAttribute('panel_dba_troop_selection', 'visibility', player.color)
+        --UI.setAttribute('panel_dba_troop_selection', 'visibility', player.color)
         UI.setAttribute('button_create_army', 'interactable', false)
 
         update_deploy_army_dialog()
@@ -291,13 +322,6 @@ g_filter_armies_models = false
 -- Name of the selected theme. e.g. "Cradle of Civilization"
 g_theme_selected = nil
 
--- Meshwesh ID of the army that is selected.
--- Example: 5fb1b9f6e1af06001770a4aa
-g_army_id_selected = nil
-
--- Year to show as selected in UI elements.
--- Example: "1 AD to 5 AD"
-g_year_selected = nil
 
 
 -----------------------------------------------------------
@@ -382,11 +406,9 @@ function update_theme_menu()
 end
 
 
--- Update the UI element for selecting an army based on the current
--- theme.
--- Use g_theme_selected to filter the armies.
--- Updates g_army_id_selected
-function update_armies_menu()
+-- color: 'red' or 'blue'
+function update_armies_menu(color)
+    local army_id_selected = g_game_settings['army_id'][  color]
     local selected_army_id = nil
     local selected_index = nil
     -- Sort by army name alphabetically
@@ -394,11 +416,15 @@ function update_armies_menu()
     local index = 0
     local armies_in_theme = armies[g_theme_selected]
     for army_name, army_table in pairsByKeys(armies_in_theme) do
+        if army_table == nil then
+          print_error("army_table is nil for ", army_name, ' ', g_theme_selected)
+          return
+        end
         if is_army_filtered_in(army_table) then
             index = index + 1
             table.insert(options, army_name)
-            if g_army_id_selected == army_table.data.id then
-              selected_army_id = g_army_id_selected
+            if army_id_selected == army_table.data.id then
+              selected_army_id = army_id_selected
               selected_index = index
             end
         end
@@ -410,32 +436,34 @@ function update_armies_menu()
       local selected_army = armies[g_theme_selected][selected_army_name]
       selected_army_id = selected_army.data.id
     end
-    g_army_id_selected = selected_army_id
+    g_game_settings['army_id'][color] = selected_army_id
 
-    set_options_dropdown_by_id('dropdown_army', options, selected_index)
+    local menu_name = "dropdown_army_" .. color
+    set_options_dropdown_by_id(menu_name, options, selected_index)
 end
 
-
 -- Update the years menu based on the selction.
--- The menu contents are filled based on the contents of the global variable
--- g_army_id_selected.
--- Sets the global variables g_army_to_deploy and g_year_selected
-function update_years_menu()
-    if g_army_id_selected == nil then
-      print_error("g_army_id_selected is nil")
-      return
-    end
-    local selected = nil
-    local selected_index = nil
-    local options = {}
-    index = 0
-    local dates_for_army = army_dates[g_army_id_selected]
-    assert(nil ~= dates_for_army)
+-- The menu contents are filled based on the contents of the global variableS
+-- g_game_settings
+-- color: 'red' or 'blue'
+function update_years_menu(color)
+     local army_id_selected = g_game_settings['army_id'][color]
+     local year_selected = g_game_settings['year_selected'][color]
+     if army_id_selected == nil then
+       print_error("army_id_selected is nil")
+       return
+     end
+     local selected = nil
+     local selected_index = nil
+     local options = {}
+     index = 0
+     local dates_for_army = army_dates[army_id_selected]
+     assert(nil ~= dates_for_army)
 
-    -- skip the selected army?  If there are multiple time periods do
-    -- not include the all encompassing period.
-    local skip = nil
-    if tlen(dates_for_army) > 1 then
+     -- skip the selected army?  If there are multiple time periods do
+     -- not include the all encompassing period.
+     local skip = nil
+     if tlen(dates_for_army) > 1 then
 -- For development we will no longer skip any dates so we can see all the models
 -- for all dates.
 --      skip = g_army_id_selected
@@ -445,7 +473,7 @@ function update_years_menu()
         if skip ~= army_id then
           index = index + 1
           table.insert(options, year)
-          if year == g_year_selected then
+          if year == year_selected then
             selected = year
             selected_index = index
           end
@@ -455,18 +483,11 @@ function update_years_menu()
       selected = options[1]
       selected_index = 1
     end
-    g_year_selected = selected
-    set_options_dropdown_by_id('dropdown_year', options, selected_index)
+    g_game_settings['year_selected'][color] = selected
+    local menu_id = 'dropdown_year_' .. color
+    set_options_dropdown_by_id(menu_id, options, selected_index)
 end
 
-function update_player_menu()
-  local options = {'Red', 'Blue'}
-  if g_color_spawn_army_selected == 'Red' then
-    set_options_dropdown_by_id('dropdown_playercolor', options, 1)
-  else
-    set_options_dropdown_by_id('dropdown_playercolor', options, 2)
-  end
-end
 
 -- Return the ID to use for an army for an ally when referencing armies[]
 -- army_id: Identity pf the army that has an ally
@@ -481,69 +502,112 @@ end
 
 -- Ally army id based on the UI id
 g_allies_menu = {}
-g_selected_allies = {}
+g_allies_menu['red'] = {}
+g_allies_menu['blue'] = {}
 
 
-function on_toggle_ally_army(player, value, id)
-  local army_id = g_allies_menu[id]
-  local ally_army = nil
-  if value == "True" then
-    ally_army = army[army_id]
+-- player: 'red' or 'blue'
+-- value: 'True' to indicate that the ally was selected, "False" to
+-- indicate deselection.
+-- id: UI id of the ally that was selected, not the army id
+function do_on_toggle_ally_army(color, value, id)
+  if g_ui_busy then
+    print_important('UI is updating, please try again')
+    return
   end
-  g_selected_allies[id] = ally_army
+  if value == "True" then
+    local army_id_selected = g_game_settings['army_id'][color]
+    local ally_army_id = g_allies_menu[color][id]
+    g_game_settings['selected_allies'] [color][id] =
+      get_ally_army_id(army_id_selected, ally_army_id)
+  else
+    g_game_settings['selected_allies'] [color][id] = nil
+  end
 end
 
 
-function update_allies_menu()
-  local date_range = army_dates[g_army_id_selected][g_year_selected]
-  g_allies_menu = {}
-  g_selected_allies = {}
+function on_toggle_ally_army_red(player, value, id)
+  do_on_toggle_ally_army('red', value, id)
+end
+
+function on_toggle_ally_army_blue(player, value, id)
+  do_on_toggle_ally_army('blue', value, id)
+end
+
+
+-- color: 'red' or 'blue'
+function update_allies_menu(color)
+  assert((color == "red") or (color == "blue"))
+  local army_id_selected = g_game_settings['army_id'][color]
+  local year_selected = g_game_settings['year_selected'][color]
+  local date_range = army_dates[army_id_selected][year_selected]
+  g_allies_menu[color] = {}
+  local selected = {}
   local entry=1
   if g_game_settings['is_grand_triumph'] then
-    local army_name = army[g_army_id_selected]['data']['name']
+    local army_name = army[army_id_selected]['data']['name']
 
-    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    local ui_id = "toggle_ally_army_" .. color .. "_" .. tostring(entry)
     UI.setAttribute(ui_id, "text", army_name)
     UI.setAttribute(ui_id, "active", true)
-    UI.setAttribute(ui_id, "isOn", "false")
-    g_allies_menu[ui_id] = g_army_id_selected
+    if g_game_settings['selected_allies'][color][ui_id] == army_id_selected then
+      UI.setAttribute(ui_id, "isOn", "true")
+      selected[ui_id] = army_id_selected
+    else
+      UI.setAttribute(ui_id, "isOn", "false")
+    end
+    g_allies_menu[color][ui_id] = army_id_selected
     entry = entry + 1
 
-    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    local ui_id = "toggle_ally_army_" .. color .. "_" .. tostring(entry)
     UI.setAttribute(ui_id, "text", army_name)
     UI.setAttribute(ui_id, "active", true)
-    UI.setAttribute(ui_id, "isOn", "false")
-    g_allies_menu[ui_id] = g_army_id_selected
+    if g_game_settings['selected_allies'][color][ui_id] == army_id_selected then
+      UI.setAttribute(ui_id, "isOn", "true")
+      selected[ui_id] = army_id_selected
+    else
+      UI.setAttribute(ui_id, "isOn", "false")
+    end
+    g_allies_menu[color][ui_id] = army_id_selected
     entry = entry + 1
   end
-  for _, ally in ipairs(allies[g_army_id_selected]) do
+  for _, ally in ipairs(allies[army_id_selected]) do
     if date_ranges_intersect( date_range, ally['dateRange']) then
       local ally_id = ally['id']
-      local ally_army_id = get_ally_army_id(g_army_id_selected, ally_id)
-      local ally_army = army[ally_army_id]
+      local ally_army = army[ally_id]
       if nil == ally_army then
-        print_error("Cannot find army " .. tostring(ally_army_id))
+        print_error("Cannot find army " .. tostring(ally_id))
       else
         local ally_army_data = ally_army['data']
         local ally_army_name = ally_army_data['name']
-        local ui_id = "toggle_ally_army_" .. tostring(entry)
+        local ui_id = "toggle_ally_army_" .. color .. "_" .. tostring(entry)
         UI.setAttribute(ui_id, "text", ally_army_name)
         UI.setAttribute(ui_id, "active", true)
-        UI.setAttribute(ui_id, "isOn", "false")
-        g_allies_menu[ui_id] = ally_army_id
+        if g_game_settings['selected_allies'][color][ui_id] == ally_id then
+          UI.setAttribute(ui_id, "isOn", "true")
+          selected[ui_id] = ally_id
+        else
+          UI.setAttribute(ui_id, "isOn", "false")
+        end
+        g_allies_menu[color][ui_id] = ally_id
         entry = entry + 1
       end
     end
   end
   while entry <= 15 do
-    local ui_id = "toggle_ally_army_" .. tostring(entry)
+    local ui_id = "toggle_ally_army_" .. color .. "_" .. tostring(entry)
     UI.setAttribute(ui_id, "active", false)
     UI.setAttribute(ui_id, "isOn", "false")
     entry = entry + 1
   end
+  g_game_settings['selected_allies'][color] = selected
 end
 
 function on_theme_selected(player, value, id)
+  if g_ui_busy then
+    print_important('UI is updating, please try again')
+    return
+  end
     g_theme_selected = value
     on_next_frame(function()
         update_deploy_army_dialog()
@@ -551,29 +615,52 @@ function on_theme_selected(player, value, id)
 end
 
 
-function on_army_selected(player, value, id)
+-- color: 'red' or 'blue'
+-- value: index in the army menu of the selected item
+function do_on_army_selected(color, value)
+  if g_ui_busy then
+    print_important('UI is updating, please try again')
+    return
+  end
     local army = armies[g_theme_selected][value]
     assert(army ~= nil)
     assert(army.data ~= nil)
     assert(army.data.id ~= nil)
-    g_army_id_selected = army.data.id
-    assert(nil ~= g_army_id_selected)
+    g_game_settings['army_id'][color] = army.data.id
     on_next_frame(function()
         update_deploy_army_dialog()
     end)
 end
 
+function on_army_selected_red(player, value, id)
+  do_on_army_selected('red', value)
+end
+
+function on_army_selected_blue(player, value, id)
+  do_on_army_selected('blue', value)
+end
+
 
 -- Display value in UI for the year that has been chossen to deploy.
-function on_year_selected(player, value, id)
-  g_year_selected = value
+function on_year_selected_blue(player, value, id)
+  if g_ui_busy then
+    print_important('UI is updating, please try again')
+    return
+  end
+  g_game_settings['year_selected']['blue'] = value
   update_deploy_army_dialog()
 end
 
-g_color_spawn_army_selected = 'Red'
-function on_playercolor_selected(player, value, id)
-    g_color_spawn_army_selected = value
+-- Display value in UI for the year that has been chossen to deploy.
+function on_year_selected_red(player, value, id)
+  if g_ui_busy then
+    print_important('UI is updating, please try again')
+    return
+  end
+  g_game_settings['year_selected']['red'] = value
+  update_deploy_army_dialog()
 end
+
 
 
 function add_pip(player, value, id)
