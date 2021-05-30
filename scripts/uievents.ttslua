@@ -874,12 +874,6 @@ function on_wheel(player, value, id)
         return
     end
     g_player_wheeling = player.color
-
-    UI.setAttribute('panel_wheel_bg', 'active', true)
-    UI.setAttribute('panel_wheel', 'active', true)
-    UI.setAttribute('button_move_forward', 'interactable', false)
-    UI.setAttribute('button_wheel', 'interactable', false)
-    UI.setAttribute('button_push_back', 'interactable', false)
 end
 
 function preview_wheel(objs_if_first_time)
@@ -905,12 +899,6 @@ function on_make_wheeling(player, value, id)
     g_current_wheel_newtransforms = nil
     g_player_wheeling = nil
 
-    UI.setAttribute('panel_wheel_bg', 'active', false)
-    UI.setAttribute('panel_wheel', 'active', false)
-    UI.setAttribute('button_move_forward', 'interactable', true)
-    UI.setAttribute('button_wheel', 'interactable', true)
-    UI.setAttribute('button_push_back', 'interactable', true)
-
     Global.setVectorLines({})
 end
 
@@ -919,12 +907,6 @@ function on_cancel_wheeling(player, value, id)
     g_current_wheel_transforms = nil
     g_current_wheel_newtransforms = nil
     g_player_wheeling = nil
-
-    UI.setAttribute('panel_wheel_bg', 'active', false)
-    UI.setAttribute('panel_wheel', 'active', false)
-    UI.setAttribute('button_move_forward', 'interactable', true)
-    UI.setAttribute('button_wheel', 'interactable', true)
-    UI.setAttribute('button_push_back', 'interactable', true)
 
     Global.setVectorLines({})
 end
@@ -1030,21 +1012,19 @@ function update_current_ui()
   if g_game_settings['show_wizard'] == true then
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', false)
-    UI.setAttribute('panel_wheel_bg', 'active', false)
     UI.setAttribute('panel_wheel', 'active', false)
   elseif g_current_wheel_group ~= nil  then
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', false)
+    UI.setAttribute('panel_wheel', 'active', true)
   elseif g_picked_base_obj and g_bases[g_picked_base_obj.getName()] then
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', true)
-    UI.setAttribute('panel_wheel_bg', 'active', false)
     UI.setAttribute('panel_wheel', 'active', false)
     update_movement_panel()
   else
     UI.setAttribute('panel_dba_orders', 'active', true)
     UI.setAttribute('panel_current_movement', 'active', false)
-    UI.setAttribute('panel_wheel_bg', 'active', false)
     UI.setAttribute('panel_wheel', 'active', false)
   end
 end
