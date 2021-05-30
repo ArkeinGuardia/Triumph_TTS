@@ -518,8 +518,7 @@ function do_on_toggle_ally_army(color, value, id)
   if value == "True" then
     local army_id_selected = g_game_settings['army_id'][color]
     local ally_army_id = g_allies_menu[color][id]
-    g_game_settings['selected_allies'] [color][id] =
-      get_ally_army_id(army_id_selected, ally_army_id)
+    g_game_settings['selected_allies'] [color][id] = ally_army_id
   else
     g_game_settings['selected_allies'] [color][id] = nil
   end
@@ -573,7 +572,7 @@ function update_allies_menu(color)
   end
   for _, ally in ipairs(allies[army_id_selected]) do
     if date_ranges_intersect( date_range, ally['dateRange']) then
-      local ally_id = ally['id']
+      local ally_id = get_ally_army_id(army_id_selected, ally['id'])
       local ally_army = army[ally_id]
       if nil == ally_army then
         print_error("Cannot find army " .. tostring(ally_id))
