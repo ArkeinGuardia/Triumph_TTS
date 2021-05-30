@@ -10,7 +10,7 @@ end
 
 wizard_panels = {
   "wizard_panel_game",
-  -- "wizard_panel_select_armies",
+  "wizard_panel_select_armies",
   -- "wizard_panel_select_troops",
   -- "wizard_panel_invader",
   -- "wizard_panel_topography",
@@ -75,6 +75,22 @@ function on_wizard_togglegroup_game(player, value, id)
 end
 
 function on_wizard_button_forward_to_select_armies()
-      -- wizard_show_panel_select_armies()
-      wizard_hide()
+      wizard_show_panel_select_armies()
+end
+
+-------------------
+------------------- Select armies
+-------------------
+
+function wizard_show_panel_select_armies()
+  wizard_show_panel("wizard_panel_select_armies")
+end
+
+function on_wizard_panel_select_armies_previous()
+  wizard_show_panel_game()
+end
+
+function on_wizard_panel_select_armies_next()
+  --wizard_show_panel_select_troops()
+  wizard_hide()
 end

@@ -6,6 +6,7 @@
 <Panel id="panel_wizard_bg" width="250" height="420" rectAlignment="MiddleRight" color="#00000000" raycastTarget="true">
     <Image image="rightside_menu_bg_v2"></Image>
 </Panel>
+
 <Panel id="wizard_panel_game" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
     <VerticalLayout>
       <ToggleGroup id="wizard_togglegroup_game" onValueChanged="on_wizard_togglegroup_game">
@@ -14,10 +15,19 @@
           <Toggle fontSize="16" id="wizard_togglegroup_game_grand_triumph">Grand Triumph!</Toggle>
         </VerticalLayout>
       </ToggleGroup>
-      <Button id="wizard_panel_game_next" onClick="on_wizard_button_forward_to_select_armies">Finsh</Button>
+      <Button id="wizard_panel_game_next" onClick="on_wizard_button_forward_to_select_armies">Next</Button>
     </VerticalLayout>
 </Panel>
 
+<Panel id="wizard_panel_select_armies" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+    <VerticalLayout>
+      <Button id="button_create_army" onClick="create_army_options_menu">Select armies</Button>
+      <HorizontalLayout>
+        <Button id="wizard_panel_select_armies_previous" onClick="on_wizard_panel_select_armies_previous">Previous</Button>
+        <Button id="wizard_panel_select_armies_next" onClick="on_wizard_panel_select_armies_next">Finsh</Button>
+      </HorizontalLayout>
+    </VerticalLayout>
+</Panel>
 
 
 <Panel id="panel_dba_orders_bg" width="730" height="100" rectAlignment="LowerRight" color="#00000000" raycastTarget="true">
@@ -41,7 +51,6 @@
     </VerticalLayout>
     <VerticalLayout>
         <Button id="button_spawn_table" onClick="on_create_table_menu">Spawn table</Button>
-        <Button id="button_create_army" onClick="create_army_options_menu">Deploy an army</Button>
     </VerticalLayout>
     <VerticalLayout>
         <Toggle id="toggle_zoc" isOn="false" onValueChanged="on_toggle_zoc">Do not show ZOC</Toggle>
