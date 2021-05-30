@@ -1016,7 +1016,7 @@ function update_current_ui()
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', false)
     UI.setAttribute('panel_wheel', 'active', true)
-  elseif g_picked_base_obj and g_bases[g_picked_base_obj.getName()] then
+  elseif g_picked_base_objects ~= nil and  not is_table_empty(g_picked_base_objects) then
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', true)
     UI.setAttribute('panel_wheel', 'active', false)
@@ -1029,8 +1029,13 @@ function update_current_ui()
 end
 
 function update_movement_panel()
-    local new_corners = compute_corners_base(g_picked_base_obj)
-    local distance_inches = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
+    -- display the maxumum movement
+    -- since all bases are picked up at the same time and moved in the
+    -- same way any base is ok to use.
+    local base, transform = first_key_value_table(g_picked_base_objects)
+    local new_corners = compute_corners_base(base)
+    local distance_inches = max_distance_between_bases_front_corners(
+        new_corners, transform['corners'])
     local mu = inches_to_mu_display_string(distance_inches)
     UI.setValue('text_current_movement_MUs',
         'Current movement: ' .. mu)

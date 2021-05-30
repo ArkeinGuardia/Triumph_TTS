@@ -1145,7 +1145,8 @@ function max_distance_between_bases_front_corners(base1_corners, base2_corners)
     })
 end
 
--- All the objects being picjed up
+-- All the objects being picjed up.  Key us the object, value is the
+-- transform for where the object was picked up.
 g_picked_base_objects = {}
 -- last object picked up
 g_picked_base_obj = nil
@@ -1155,7 +1156,7 @@ g_picked_base_initial_transform = nil
 function onObjectPickUp(player_color,  picked_up_object)
     -- record the objects that are up in the air
     if is_base_obj(picked_up_object) then
-      g_picked_base_objects[picked_up_object] = picked_up_object
+      g_picked_base_objects[picked_up_object] = calculate_transform(picked_up_object)
     end
 
     if g_bases[picked_up_object.getName()] == nil then
@@ -1240,8 +1241,8 @@ end
 
 function onObjectDrop(player_color,  picked_up_object)
     g_picked_base_objects[picked_up_object] = nil
-    if is_table_empty(g_picked_base_objects) then
-      if is_base_obj(picked_up_object) then
+    if is_base_obj(picked_up_object) then
+      if is_table_empty(g_picked_base_objects) then
         history_record_delta_snapshot()
       end
     end

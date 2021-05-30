@@ -35,6 +35,12 @@ function first_value_table(table)
     end
 end
 
+function first_key_value_table(table)
+    for k,v in pairs(table) do
+        return k,v
+    end
+end
+
 
 -- Given an array of numbers, like { 1, -3, 4, 5.3 }, computes the maximum
 -- and returns it
