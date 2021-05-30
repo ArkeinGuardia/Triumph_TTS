@@ -1239,6 +1239,9 @@ function get_all_bases()
     return filter_bases(getAllObjects())
 end
 
+-- Display to chat movement of a base
+g_movement_reporting_enabled = true
+
 function onObjectDrop(player_color,  picked_up_object)
     g_picked_base_objects[picked_up_object] = nil
     if is_base_obj(picked_up_object) then
@@ -1287,11 +1290,14 @@ function onObjectDrop(player_color,  picked_up_object)
         g_picked_base_initial_transform['corners'])
 
     if distance > 0 then
+      if g_movement_reporting_enabled == true then
         local mu = inches_to_mu_display_string(distance)
         print_info(string.format('Movement for %q is %s', obj_name, mu))
-
+      end
     else
+      if g_movement_reporting_enabled == true then
         print_info(string.format('Movement for %q has been resetted', obj_name))
+      end
     end
 
     g_picked_base_obj = nil

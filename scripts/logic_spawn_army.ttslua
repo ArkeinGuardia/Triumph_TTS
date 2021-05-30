@@ -837,6 +837,8 @@ end
 -- command_color: color within the players troops, e.g. "Orange"
 -- army_nb: Army number for the player, main army is 1, allies are 2 or 3
 function spawn_army(army, is_red_player, command_color, army_nb)
+    g_movement_reporting_enabled = false
+
     distance_between_armies = (g_max_bases_row+1) * g_base_width_in_inches
     assert(nil ~= army)
     local army_name = army.data.name
@@ -919,6 +921,7 @@ function spawn_army(army, is_red_player, command_color, army_nb)
 
     update_tool_tips()
     print_important('Army deployed: ' .. army.data.name )
+    g_movement_reporting_enabled = true
 end
 
 

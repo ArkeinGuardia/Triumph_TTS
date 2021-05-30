@@ -105,9 +105,11 @@ function wizard_show_panel_select_troops()
     for _, base in pairs(get_all_bases()) do
       base.setInvisibleTo({})
     end
+    g_movement_reporting_enabled = true
   end
 
   -- make the bases invisible to the other player
+  g_movement_reporting_enabled = false
   for _, base in pairs(get_all_bases()) do
     if is_base_blue_player(base) then
       base.setInvisibleTo({"Red"})
