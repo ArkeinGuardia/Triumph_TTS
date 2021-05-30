@@ -1025,3 +1025,34 @@ end
 function on_redo_move(player, value, id)
     go_forward_history_stack()
 end
+
+function update_current_ui()
+  if g_game_settings['show_wizard'] == true then
+    UI.setAttribute('panel_dba_orders', 'active', false)
+    UI.setAttribute('panel_current_movement', 'active', false)
+    UI.setAttribute('panel_wheel_bg', 'active', false)
+    UI.setAttribute('panel_wheel', 'active', false)
+  elseif g_current_wheel_group ~= nil  then
+    UI.setAttribute('panel_dba_orders', 'active', false)
+    UI.setAttribute('panel_current_movement', 'active', false)
+  elseif g_picked_base_obj and g_bases[g_picked_base_obj.getName()] then
+    UI.setAttribute('panel_dba_orders', 'active', false)
+    UI.setAttribute('panel_current_movement', 'active', true)
+    UI.setAttribute('panel_wheel_bg', 'active', false)
+    UI.setAttribute('panel_wheel', 'active', false)
+    update_movement_panel()
+  else
+    UI.setAttribute('panel_dba_orders', 'active', true)
+    UI.setAttribute('panel_current_movement', 'active', false)
+    UI.setAttribute('panel_wheel_bg', 'active', false)
+    UI.setAttribute('panel_wheel', 'active', false)
+  end
+end
+
+function update_movement_panel()
+    local new_corners = compute_corners_base(g_picked_base_obj)
+    local distance_inches = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
+    local mu = inches_to_mu_display_string(distance_inches)
+    UI.setValue('text_current_movement_MUs',
+        'Current movement: ' .. mu)
+end

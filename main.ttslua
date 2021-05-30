@@ -76,7 +76,7 @@ function onload(saved_data)
     if g_game_settings['show_wizard'] ~= false then
       wizard_show()
     else
-      UI.setAttribute("panel_dba_orders", "active", true)
+      update_current_ui()
     end
 
     set_last_snapshot()
@@ -161,8 +161,9 @@ function make_scenery_non_interactable()
     --getObjectFromGUID('bc09bc').interactable = false
 end
 
+-- Called every frame
 function update()
-    check_picked_base()
+    update_current_ui()
 end
 
 function print_help()

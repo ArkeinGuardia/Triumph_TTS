@@ -1145,9 +1145,13 @@ function max_distance_between_bases_front_corners(base1_corners, base2_corners)
     })
 end
 
+-- All the objects being picjed up
 g_picked_base_objects = {}
+-- last object picked up
 g_picked_base_obj = nil
+-- location of the last object picked up when it was initially picked up
 g_picked_base_initial_transform = nil
+
 function onObjectPickUp(player_color,  picked_up_object)
     -- record the objects that are up in the air
     if is_base_obj(picked_up_object) then
@@ -1417,21 +1421,6 @@ end
 g_selected_objects = {}
 g_last_zoc_value = nil
 
-function check_picked_base()
-    if g_picked_base_obj and g_bases[g_picked_base_obj.getName()] then
-        local new_corners = compute_corners_base(g_picked_base_obj)
-        local distance_inches = max_distance_between_bases_front_corners(new_corners, g_picked_base_initial_transform['corners'])
-        local mu = inches_to_mu_display_string(distance_inches)
-
-        UI.setAttribute('panel_dba_orders', 'active', false)
-        UI.setAttribute('panel_current_movement', 'active', true)
-        UI.setValue('text_current_movement_MUs',
-            'Current movement: ' .. mu)
-    else
-        UI.setAttribute('panel_current_movement', 'active', false)
-        UI.setAttribute('panel_dba_orders', 'active', true)
-    end
-end
 
 function check_selection_change()
     local players = Player.getPlayers()
