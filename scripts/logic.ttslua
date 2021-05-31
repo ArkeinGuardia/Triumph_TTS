@@ -1244,6 +1244,8 @@ g_movement_reporting_enabled = true
 
 function onObjectDrop(player_color,  picked_up_object)
     g_picked_base_objects[picked_up_object] = nil
+    picked_up_object.setVelocity({x=0, y=0, z=0})
+    picked_up_object.setAngularVelocity({x=0, y=0, z=0})
     if is_base_obj(picked_up_object) then
       if is_table_empty(g_picked_base_objects) then
         history_record_delta_snapshot()
@@ -1265,8 +1267,6 @@ function onObjectDrop(player_color,  picked_up_object)
 
     local n_objs = tlen(objs)
     if n_objs > 1 then
-        picked_up_object.setVelocity({x=0, y=0, z=0})
-        picked_up_object.setAngularVelocity({x=0, y=0, z=0})
         draw_all_gizmos()
         return
     end
@@ -1276,8 +1276,6 @@ function onObjectDrop(player_color,  picked_up_object)
         return
     end
 
-    picked_up_object.setVelocity({x=0, y=0, z=0})
-    picked_up_object.setAngularVelocity({x=0, y=0, z=0})
 
     if g_snap_mode_enabled then
         new_transform = snap_picked_base(picked_up_object)
