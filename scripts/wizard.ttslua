@@ -236,6 +236,7 @@ function do_update_invasion_wizard_page()
     UI.setAttribute("text_blue_invasion_roll_value", "text", "")
     UI.setAttribute("text_red_invasion_roll_value", "text", "")
     UI.setAttribute("wizard_panel_invader_next", "interactable", false)
+    g_game_settings['invader']=nil
     return
   end
   UI.setAttribute("wizard_panel_invader_next", "interactable", true)
@@ -243,11 +244,13 @@ function do_update_invasion_wizard_page()
     UI.setAttribute("invader", "text", "Red invades")
     g_game_settings['invader'] = "red"
     print_info("Red invades")
+    g_game_settings['invader']="red"
     return
   end
   UI.setAttribute("invader", "text", "Blue invades")
   g_game_settings['invader'] = "blue"
   print_info("Blue invades")
+  g_game_settings['invader']="blue"
 end
 
 function update_invasion_wizard_page()
