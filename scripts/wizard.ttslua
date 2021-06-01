@@ -157,8 +157,7 @@ function wizard_panel_invader_set_ratings_for_color(color)
     local id = "wizard_togglegroup_invasion_" .. color .. "_" .. tostring(i)
     UI.setAttribute(id, "active", "false")
   end
-  for _,invasionRating in ipairs(invasionRatings) do
-    local value = invasionRating['value']
+  for _,value in ipairs(invasionRatings) do
     local id = "wizard_togglegroup_invasion_" .. color .. "_" .. tostring(value)
     UI.setAttribute(id, "active", "true")
   end

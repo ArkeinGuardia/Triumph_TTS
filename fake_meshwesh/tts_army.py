@@ -953,19 +953,17 @@ def generate_army(army_id) :
       invasionRatings = army_json['invasionRatings']
       for invasionRating in invasionRatings :
           value = invasionRating['value']
-          note = invasionRating['note']
-          if note is None:
-              note = ""
-          file.write("      {\n")
-          file.write("        value=%d,\n" % (value))
-          file.write("        note='%s',\n" % (note))
-          file.write("      },\n")
+          file.write("      %d,\n" % (value))
       file.write("    },\n")
 
-      # TODO Invasion
-      # TODO maneuver
-      # TODO terrain
-      # TODO list
+      file.write("    homeTopographies={\n")
+      homeTopographies = army_json['homeTopographies']
+      for topography in homeTopographies :
+        values = topography['values']
+        for value in values :
+          file.write("      '%s',\n" % (value.strip()))
+      file.write("    },\n")
+
 
       #escape quotes
       name = army_name.replace("'", "\\'")
