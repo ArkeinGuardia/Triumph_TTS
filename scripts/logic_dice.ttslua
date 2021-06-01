@@ -84,6 +84,7 @@ function spawn_dice(color, pos)
             Wait.frames(function()
                 UI.show("text_pips_player_|color|")
                 Global.call('print_important', "dice |color|: " .. tostring(value))
+                Global.call('dice_callback', {"|color|",value})
             end, 1)
         end
     ]]
@@ -174,4 +175,15 @@ function do_roll_pips(dice)
       g_roll_lock[die_name] = false
     end
   end, 0.5)
+end
+
+-- Functions to notify when a die has been rolled.
+g_dice_callbacks = {}
+
+function dice_callback(param)
+  local color = param[1]
+  local value = param[2]
+  for name,fun in pairs(g_dice_callbacks) do
+    fun(color, value)
+  end
 end
