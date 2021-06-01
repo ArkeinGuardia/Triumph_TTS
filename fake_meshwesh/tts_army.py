@@ -77,7 +77,7 @@ def troop_type_to_name(troop_type) :
   if troop_type == "PAV" :
     return "Pavisiers"
   if troop_type == "ECV" :
-    return "Elite Cavalary"
+    return "Elite Cavalry"
   if troop_type == "HBW" :
     return "Horse Bow"
   if troop_type == "ART" :
@@ -135,7 +135,7 @@ def get_points_for_troop_type(troop_type) :
     return 4
   if troop_type == "PAV" or troop_type == "Pavisiers" :
     return 4
-  if troop_type == "ECV" or troop_type ==  "Elite Cavalary":
+  if troop_type == "ECV" or troop_type ==  "Elite Cavalry":
     return 4
   if troop_type == "HBW" or troop_type ==  "Horse Bow":
     return 4
