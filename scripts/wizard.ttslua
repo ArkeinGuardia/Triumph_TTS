@@ -12,7 +12,7 @@ wizard_panels = {
   "wizard_panel_game",
   "wizard_panel_select_armies",
   "wizard_panel_select_troops",
-  -- "wizard_panel_invader",
+   "wizard_panel_invader",
   -- "wizard_panel_topography",
   -- "wizard_panel_tactical_advantage",
   -- "wizard_panel_terrain_pieces_roll",
@@ -126,6 +126,148 @@ end
 
 
 function on_wizard_panel_select_troops_next()
-  --wizard_show_panel_invader()
+  wizard_show_panel_invader()
+end
+
+-------------------
+------------------- Invader
+-------------------
+
+function wizard_show_panel_invader()
+  wizard_show_panel("wizard_panel_invader")
+  g_wizard_exit_panel_fn = wizard_panel_exit_invader
+  wizard_panel_invader_set_ratings()
+  g_dice_callbacks['invasion_dice_rolled'] = on_invasion_dice_rolled
+  update_invasion_wizard_page()
+end
+
+
+function wizard_panel_exit_invader()
+  g_dice_callbacks["invasion_dice_rolled"] = nil
+end
+
+-- Disable the invasion ratings that do not apply to an army.
+-- color: Player color for the army
+function wizard_panel_invader_set_ratings_for_color(color)
+  local army_id = g_game_settings['army_id'] [color]
+  local army = army[army_id]
+  local data = army['data']
+  local invasionRatings = data['invasionRatings']
+  for i=0,5,1 do
+    local id = "wizard_togglegroup_invasion_" .. color .. "_" .. tostring(i)
+    UI.setAttribute(id, "active", "false")
+  end
+  for _,invasionRating in ipairs(invasionRatings) do
+    local value = invasionRating['value']
+    local id = "wizard_togglegroup_invasion_" .. color .. "_" .. tostring(value)
+    UI.setAttribute(id, "active", "true")
+  end
+end
+
+-- Disable the invastion ratings that do not apply for the armies selected.
+function wizard_panel_invader_set_ratings()
+  wizard_panel_invader_set_ratings_for_color('red')
+  wizard_panel_invader_set_ratings_for_color('blue')
+end
+
+function on_invasion_dice_rolled(dice_color, value)
+  local id = "text_" .. dice_color .. "_invasion_roll_value"
+  UI.setAttribute(id, "text", tostring(value))
+  update_invasion_wizard_page()
+end
+
+function on_button_red_invasion_roll()
+  roll_dice('red')
+end
+
+function on_button_blue_invasion_roll()
+  roll_dice('blue')
+end
+
+function on_red_invasion_rating_selected(player, value, id)
+  local rating = tonumber(value)
+  g_game_settings['invasion_rating']['red'] = rating
+  update_invasion_wizard_page()
+end
+
+function on_blue_invasion_rating_selected(player, value, id)
+  local rating = tonumber(value)
+  g_game_settings['invasion_rating']['blue'] = rating
+  update_invasion_wizard_page()
+end
+
+-- Update the score box for the invasion wizard
+-- color: "red" or "blue"
+-- return: total or nil if the value is not yet ready
+function update_invasion_wizard_score(color)
+  local score_id = color .. "_invasion_score"
+  local dice_id = "text_" .. color .. "_invasion_roll_value"
+  local dice_str = UI.getAttribute(dice_id, "text")
+  local dice = tonumber(dice_str)
+  if dice == nil then
+    UI.setAttribute(score_id, "text", "")
+    return nil
+  end
+  if g_game_settings['invasion_rating'][color] == nil then
+    return nil
+  end
+
+   local rating = g_game_settings['invasion_rating'][color]
+   if rating == nil then
+     UI.setAttribute(score_id, "text", "")
+     return nil
+   end
+
+   local score = dice + rating
+   UI.setAttribute(score_id, "text", tostring(score))
+   return score
+end
+
+function do_update_invasion_wizard_page()
+  local red_score = update_invasion_wizard_score("red")
+  local blue_score = update_invasion_wizard_score("blue")
+  if red_score == nil or blue_score == nil then
+    UI.setAttribute("invader", "text", "")
+    UI.setAttribute("wizard_panel_invader_next", "interactable", false)
+    return
+  end
+  if red_score == blue_score then
+    UI.setAttribute("invader", "text", "tie, roll again")
+    UI.setAttribute("text_blue_invasion_roll_value", "text", "")
+    UI.setAttribute("text_red_invasion_roll_value", "text", "")
+    UI.setAttribute("wizard_panel_invader_next", "interactable", false)
+    g_game_settings['invader']=nil
+    return
+  end
+  UI.setAttribute("wizard_panel_invader_next", "interactable", true)
+  if red_score > blue_score then
+    UI.setAttribute("invader", "text", "Red invades")
+    g_game_settings['invader'] = "red"
+    print_info("Red invades")
+    g_game_settings['invader']="red"
+    return
+  end
+  UI.setAttribute("invader", "text", "Blue invades")
+  g_game_settings['invader'] = "blue"
+  print_info("Blue invades")
+  g_game_settings['invader']="blue"
+end
+
+function update_invasion_wizard_page()
+  -- Need to wait one frame for the UI elements to update
+  -- before we can query them
+  Wait.frames(
+    function()
+      do_update_invasion_wizard_page()
+    end,
+    1)
+end
+
+function on_wizard_panel_invader_next()
+  --wizard_show_panel_topography()
   wizard_hide()
+end
+
+function on_wizard_panel_invader_previous()
+  wizard_show_panel_select_troops()
 end

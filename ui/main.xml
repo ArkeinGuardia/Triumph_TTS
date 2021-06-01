@@ -34,9 +34,104 @@
       <Text>Select the troops from the armies</Text>
       <HorizontalLayout>
         <Button id="wizard_panel_select_troops_previous" onClick="on_wizard_panel_select_troops_previous">Previous</Button>
-        <Button id="wizard_panel_select_troops_next" onClick="on_wizard_panel_select_troops_next">Finsh</Button>
+        <Button id="wizard_panel_select_troops_next" onClick="on_wizard_panel_select_troops_next">Next</Button>
       </HorizontalLayout>
     </VerticalLayout>
+</Panel>
+
+<Panel id="wizard_panel_invader" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+    <TableLayout height="400">
+      <Row preferredHeight="30">
+        <Cell columnSpan="3">
+          <Text>Invasion</Text>
+        </Cell>
+      </Row>
+      <Row preferredHeight="30">
+        <Cell>
+          <Text>Red</Text>
+        </Cell>
+        <Cell>
+        </Cell>
+        <Cell>
+          <Text>Blue</Text>
+        </Cell>
+      </Row>
+      <Row preferredHeight="100">
+        <Cell>
+            <ToggleGroup id="red_invasion_rating" onValueChanged="on_red_invasion_rating_selected">
+              <VerticalLayout>
+              <Toggle id="wizard_togglegroup_invasion_red_0">0</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_red_1">1</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_red_2">2</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_red_3">3</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_red_4">4</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_red_5">5</Toggle>
+            </VerticalLayout>
+            </ToggleGroup>
+        </Cell>
+        <Cell>
+          <Text>Rating</Text>
+        </Cell>
+        <Cell>
+            <ToggleGroup id="blue_invasion_rating" onValueChanged="on_blue_invasion_rating_selected">
+              <VerticalLayout>
+              <Toggle id="wizard_togglegroup_invasion_blue_0">0</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_blue_1">1</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_blue_2">2</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_blue_3">3</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_blue_4">4</Toggle>
+              <Toggle id="wizard_togglegroup_invasion_blue_5">5</Toggle>
+            </VerticalLayout>
+            </ToggleGroup>
+        </Cell>
+      </Row>
+      <Row preferredHeight="30">
+        <Cell>
+          <Button id="button_red_invasion_roll" onClick="on_button_red_invasion_roll" fontSize="20" height="140">Roll</Button>
+        </Cell>
+        <Cell>
+        </Cell>
+        <Cell>
+          <Button id="button_blue_invasion_roll" onClick="on_button_blue_invasion_roll" fontSize="20" height="140">Roll</Button>
+        </Cell>
+      </Row>
+      <Row preferredHeight="30">
+        <Cell>
+          <Text id="text_red_invasion_roll_value"/>
+        </Cell>
+        <Cell>
+        </Cell>
+        <Cell>
+          <Text id="text_blue_invasion_roll_value"/>
+        </Cell>
+      </Row>
+      <Row preferredHeight="30">
+        <Cell>
+          <Text id="red_invasion_score"/>
+        </Cell>
+        <Cell>
+          <Text>Score</Text>
+        </Cell>
+        <Cell>
+          <Text id="blue_invasion_score"/>
+        </Cell>
+      </Row>
+      <Row preferredHeight="30">
+        <Cell columnSpan="3">
+          <Text id="invader"/>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell>
+        <Button id="wizard_panel_invader_previous" onClick="on_wizard_panel_invader_previous" height="50">Previous</Button>
+      </Cell>
+      <Cell>
+      </Cell>
+      <Cell>
+        <Button id="wizard_panel_invader_next" onClick="on_wizard_panel_invader_next" height="50">Finish</Button>
+      </Cell>
+      </Row>
+    </TableLayout>
 </Panel>
 
 <Panel id="panel_dba_orders_bg" width="730" height="100" rectAlignment="LowerRight" color="#00000000" raycastTarget="true">
