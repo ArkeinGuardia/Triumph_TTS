@@ -226,7 +226,7 @@ function figures_per_base(troop_type)
   if troop_type == "Bad Horse" then
     return 3
   end
-  if troop_type == "Elite Cavalary" then
+  if troop_type == "Elite Cavalry" then
     return 3
   end
   if troop_type == "Horse Bow" then
@@ -621,7 +621,7 @@ troop_type_to_plain_model_tile_name['Warriors']='tile_plain_40x15_Warriors'
 troop_type_to_plain_model_tile_name['Bad Horse']='tile_plain_40x30_Bad_Horse'
 troop_type_to_plain_model_tile_name['Battle Taxi']='tile_plain_40x40_Battle_Taxi'
 troop_type_to_plain_model_tile_name['Chariots']='tile_plain_40x40_Chariots'
-troop_type_to_plain_model_tile_name['Elite Cavalary']='tile_plain_40x30_Elite_Cav'
+troop_type_to_plain_model_tile_name['Elite Cavalry']='tile_plain_40x30_Elite_Cav'
 troop_type_to_plain_model_tile_name['Horse Bow']='tile_plain_40x30_Horse_Bow'
 troop_type_to_plain_model_tile_name['Javelin Cavalry']='tile_plain_40x30_Jav_Cav'
 troop_type_to_plain_model_tile_name['Knights']='tile_plain_40x30_Knights'
@@ -651,7 +651,7 @@ troop_type_to_plain_model_tile_name['Warriors General']='tile_plain_40x15_Warrio
 troop_type_to_plain_model_tile_name['Bad Horse General']='tile_plain_40x30_Bad_Horse_Gen'
 troop_type_to_plain_model_tile_name['Battle Taxi General']='tile_plain_40x40_Battle_Taxi_Gen'
 troop_type_to_plain_model_tile_name['Chariots General']='tile_plain_40x40_Chariots_Gen'
-troop_type_to_plain_model_tile_name['Elite Cavalary General']='tile_plain_40x30_Elite_Cav_Gen'
+troop_type_to_plain_model_tile_name['Elite Cavalry General']='tile_plain_40x30_Elite_Cav_Gen'
 troop_type_to_plain_model_tile_name['Horse Bow General']='tile_plain_40x30_Horse_Bow_Gen'
 troop_type_to_plain_model_tile_name['Javelin Cavalry General']='tile_plain_40x30_Jav_Cav_Gen'
 troop_type_to_plain_model_tile_name['Knights General']='tile_plain_40x30_Knights_Gen'
@@ -837,6 +837,8 @@ end
 -- command_color: color within the players troops, e.g. "Orange"
 -- army_nb: Army number for the player, main army is 1, allies are 2 or 3
 function spawn_army(army, is_red_player, command_color, army_nb)
+    g_movement_reporting_enabled = false
+
     distance_between_armies = (g_max_bases_row+1) * g_base_width_in_inches
     assert(nil ~= army)
     local army_name = army.data.name
@@ -919,6 +921,7 @@ function spawn_army(army, is_red_player, command_color, army_nb)
 
     update_tool_tips()
     print_important('Army deployed: ' .. army.data.name )
+    g_movement_reporting_enabled = true
 end
 
 

@@ -1057,7 +1057,7 @@ base_depth_by_troop_type['Warriors']=15
 base_depth_by_troop_type['Bad Horse']=30
 base_depth_by_troop_type['Battle Taxi']=40
 base_depth_by_troop_type['Chariots']=40
-base_depth_by_troop_type['Elite Cavalary']=30
+base_depth_by_troop_type['Elite Cavalry']=30
 base_depth_by_troop_type['Horse Bow']=30
 base_depth_by_troop_type['Javelin Cavalry']=30
 base_depth_by_troop_type['Knights']=30
@@ -1239,8 +1239,13 @@ function get_all_bases()
     return filter_bases(getAllObjects())
 end
 
+-- Display to chat movement of a base
+g_movement_reporting_enabled = true
+
 function onObjectDrop(player_color,  picked_up_object)
     g_picked_base_objects[picked_up_object] = nil
+    picked_up_object.setVelocity({x=0, y=0, z=0})
+    picked_up_object.setAngularVelocity({x=0, y=0, z=0})
     if is_base_obj(picked_up_object) then
       if is_table_empty(g_picked_base_objects) then
         history_record_delta_snapshot()
@@ -1262,8 +1267,6 @@ function onObjectDrop(player_color,  picked_up_object)
 
     local n_objs = tlen(objs)
     if n_objs > 1 then
-        picked_up_object.setVelocity({x=0, y=0, z=0})
-        picked_up_object.setAngularVelocity({x=0, y=0, z=0})
         draw_all_gizmos()
         return
     end
@@ -1273,8 +1276,6 @@ function onObjectDrop(player_color,  picked_up_object)
         return
     end
 
-    picked_up_object.setVelocity({x=0, y=0, z=0})
-    picked_up_object.setAngularVelocity({x=0, y=0, z=0})
 
     if g_snap_mode_enabled then
         new_transform = snap_picked_base(picked_up_object)
@@ -1287,11 +1288,14 @@ function onObjectDrop(player_color,  picked_up_object)
         g_picked_base_initial_transform['corners'])
 
     if distance > 0 then
+      if g_movement_reporting_enabled == true then
         local mu = inches_to_mu_display_string(distance)
         print_info(string.format('Movement for %q is %s', obj_name, mu))
-
+      end
     else
+      if g_movement_reporting_enabled == true then
         print_info(string.format('Movement for %q has been resetted', obj_name))
+      end
     end
 
     g_picked_base_obj = nil

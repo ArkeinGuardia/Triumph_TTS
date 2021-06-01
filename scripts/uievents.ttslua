@@ -302,9 +302,7 @@ function create_army_options_menu(player, value, id)
 
     on_next_frame(function()
         UI.setAttribute('panel_dba_troop_selection_bg', 'active', true)
-        --UI.setAttribute('panel_dba_troop_selection_bg', 'visibility', player.color)
         UI.setAttribute('panel_dba_troop_selection', 'active', true)
-        --UI.setAttribute('panel_dba_troop_selection', 'visibility', player.color)
         UI.setAttribute('button_create_army', 'interactable', false)
 
         update_deploy_army_dialog()

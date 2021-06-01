@@ -48,7 +48,7 @@ function get_valid_base_names_triumph()
   valid['Bad Horse']=true
   valid['Battle Taxi']=true
   valid['Chariots']=true
-  valid['Elite Cavalary']=true
+  valid['Elite Cavalry']=true
   valid['Horse Bow']=true
   valid['Javelin Cavalry']=true
   valid['Knights']=true

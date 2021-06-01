@@ -219,7 +219,10 @@ function snap_corners(moving_base_cache, snap_rule)
   -- Since after snapping the corners are identical the two base
   -- may be considered to overlap. So we do not check if
   -- snapping would result in bases overlapping.
-  print_info("Snapped " .. moving_corner_name .. " to " .. stable_corner_name)
+
+  if g_movement_reporting_enabled == true then
+    print_info("Snapped " .. moving_corner_name .. " to " .. stable_corner_name)
+  end
 end
 
 

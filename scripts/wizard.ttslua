@@ -10,8 +10,8 @@ end
 
 wizard_panels = {
   "wizard_panel_game",
-  -- "wizard_panel_select_armies",
-  -- "wizard_panel_select_troops",
+  "wizard_panel_select_armies",
+  "wizard_panel_select_troops",
   -- "wizard_panel_invader",
   -- "wizard_panel_topography",
   -- "wizard_panel_tactical_advantage",
@@ -75,6 +75,57 @@ function on_wizard_togglegroup_game(player, value, id)
 end
 
 function on_wizard_button_forward_to_select_armies()
-      -- wizard_show_panel_select_armies()
-      wizard_hide()
+      wizard_show_panel_select_armies()
+end
+
+-------------------
+------------------- Select armies
+-------------------
+
+function wizard_show_panel_select_armies()
+  wizard_show_panel("wizard_panel_select_armies")
+end
+
+function on_wizard_panel_select_armies_previous()
+  wizard_show_panel_game()
+end
+
+function on_wizard_panel_select_armies_next()
+  wizard_show_panel_select_troops()
+end
+
+-------------------
+------------------- Select troops
+-------------------
+
+function wizard_show_panel_select_troops()
+  wizard_show_panel("wizard_panel_select_troops")
+  g_wizard_exit_panel_fn = function()
+    -- make the bases visible to everyone
+    for _, base in pairs(get_all_bases()) do
+      base.setInvisibleTo({})
+    end
+    g_movement_reporting_enabled = true
+  end
+
+  -- make the bases invisible to the other player
+  g_movement_reporting_enabled = false
+  for _, base in pairs(get_all_bases()) do
+    if is_base_blue_player(base) then
+      base.setInvisibleTo({"Red"})
+    else
+      base.setInvisibleTo({"Blue"})
+    end
+  end
+end
+
+
+function on_wizard_panel_select_troops_previous()
+  wizard_show_panel_select_armies()
+end
+
+
+function on_wizard_panel_select_troops_next()
+  --wizard_show_panel_invader()
+  wizard_hide()
 end
