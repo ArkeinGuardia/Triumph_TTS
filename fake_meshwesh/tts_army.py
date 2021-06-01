@@ -948,6 +948,20 @@ def generate_army(army_id) :
 
       file.write("army['%s']={\n" % (army_id))
       file.write("  data={\n")
+
+      file.write("    invasionRatings={\n")
+      invasionRatings = army_json['invasionRatings']
+      for invasionRating in invasionRatings :
+          value = invasionRating['value']
+          note = invasionRating['note']
+          if note is None:
+              note = ""
+          file.write("      {\n")
+          file.write("        value=%d,\n" % (value))
+          file.write("        note='%s',\n" % (note))
+          file.write("      },\n")
+      file.write("    },\n")
+
       # TODO Invasion
       # TODO maneuver
       # TODO terrain
@@ -1084,7 +1098,7 @@ def generate_allies(army_id) :
         allyArmyList = ally_entry['allyArmyList']
         if 'armyListId' in allyArmyList :
           ally_armyListId = allyArmyList['armyListId']
-          file.write("  {\n    id='%s',\n    dateRange={startDate=%d, endDate=%d}\n  },\n" % 
+          file.write("  {\n    id='%s',\n    dateRange={startDate=%d, endDate=%d}\n  },\n" %
             (ally_armyListId, dateRange['startDate'], dateRange['endDate']))
     file.write("}\n")
 
@@ -1099,7 +1113,7 @@ def generate_allies(army_id) :
           id = army_id + "_ally_" + ally_armyListId
           ally_name =  ally_entry['name']
           name = ally_name.replace("'", "\\'")
-          file.write("army['%s'] = {\n" % (id))          
+          file.write("army['%s'] = {\n" % (id))
           file.write("  data={\n")
           file.write("    name='%s',\n" %(name))
           file.write("    id='%s',\n" % (id))
@@ -1111,7 +1125,7 @@ def generate_allies(army_id) :
               file.write("  g_base_definitions['%s'],\n" % (base_definition['id']) )
           file.write("}\n")
 
-  
+
 def write_troop_option(file, troop_option) :
   file.write("troop_options['%s'] = {\n" % (troop_option['_id']))
   file.write("  min=%d,\n" % (troop_option['min']))
