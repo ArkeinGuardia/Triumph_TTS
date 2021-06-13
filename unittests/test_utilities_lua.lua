@@ -55,6 +55,23 @@ function test_deep_copy_does_copies_nested_tables()
   lu.assertEquals(actual['d']['e'], 4)
 end
 
+function test_str_equals_case_insensitive_both_lower()
+  lu.assertTrue( str_equals_case_insensitive("aa", "aa"))
+end
+
+function test_str_equals_case_insensitive_both_lower_false()
+  lu.assertFalse( str_equals_case_insensitive("aa", "bb"))
+end
+
+
+function test_str_equals_case_insensitive_mixed_case()
+  lu.assertTrue( str_equals_case_insensitive("aA", "Aa"))
+end
+
+function test_str_equals_case_insensitive_mixed_case_false()
+  lu.assertFalse( str_equals_case_insensitive("ba", "Ab"))
+end
+
 function test_str_trim_returns_original_string()
   local expected = "abc      def"
   local actual = str_trim(expected)
