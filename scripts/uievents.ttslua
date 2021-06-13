@@ -255,6 +255,7 @@ function update_deploy_army_dialog()
   -- one element updated in a frame.
   local functions = {
     function () g_ui_busy = true end,
+    function () UI.setAttribute("panel_dba_troop_selection_shield", "active", true) end,
     function () UI.setAttribute('button_load_army', 'interactable', false) end,
     function () UI.setAttribute('button_cancel_army', 'interactable', false) end,
     function () UI.setAttribute('toggle_filter_models', 'interactable', false) end,
@@ -277,6 +278,7 @@ function update_deploy_army_dialog()
     function () UI.setAttribute('dropdown_book', 'interactable', true) end,
     function () UI.setAttribute('dropdown_army_red', 'interactable', true) end,
     function () UI.setAttribute('dropdown_army_blue', 'interactable', true) end,
+    function () UI.setAttribute("panel_dba_troop_selection_shield", "active", false) end,
     function () g_ui_busy =false end,
  }
 
