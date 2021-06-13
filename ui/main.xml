@@ -212,12 +212,13 @@
 </Panel>
 
 <Panel id="panel_dba_orders" width="730" height="90" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true" active="false">
-    <VerticalLayout>
+  <HorizontalLayout  preferredWidth="730">
+    <VerticalLayout preferredWidth="150">
         <Button id="button_push_back" onClick="on_push_back">Push back Column</Button>
         <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
         <Button id="button_redo_move" onClick="on_redo_move">Redo</Button>
     </VerticalLayout>
-    <VerticalLayout>
+    <VerticalLayout  preferredWidth="430">
         <HorizontalLayout>
             <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
         </HorizontalLayout>
@@ -226,11 +227,12 @@
             <Button id="button_wheel" onClick="on_wheel">Wheel Group</Button>
         </HorizontalLayout>
     </VerticalLayout>
-    <VerticalLayout>
-        <Toggle id="toggle_zoc" isOn="false" onValueChanged="on_toggle_zoc">Do not show ZOC</Toggle>
-        <Toggle id="toggle_deployment_lines" isOn="false" onValueChanged="on_toggle_deployment_lines">Do not show rulers</Toggle>
+    <VerticalLayout  preferredWidth="150">
+        <Toggle id="toggle_zoc" isOn="false" onValueChanged="on_toggle_zoc">ZOC</Toggle>
+        <Toggle id="toggle_deployment_lines" isOn="false" onValueChanged="on_toggle_deployment_lines">Rulers</Toggle>
         <Toggle id="toggle_snapping" isOn="true" onValueChanged="on_toggle_snapping">Snap bases</Toggle>
     </VerticalLayout>
+  </HorizontalLayout>
 </Panel>
 
 <Panel id="panel_current_movement" width="700" height="80" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true" active="false">

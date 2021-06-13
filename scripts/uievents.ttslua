@@ -699,10 +699,8 @@ function on_toggle_zoc(player, value, id)
 
     if g_zoc_enabled then
         UI.setValue('toggle_zoc', 'Show ZOC')
-        UI.setAttribute('toggle_zoc', 'text', 'Show ZOC')
     else
         UI.setValue('toggle_zoc', 'Do not show ZOC')
-        UI.setAttribute('toggle_zoc', 'text', 'Do not show ZOC')
     end
 
     -- Make it consistent for all players
@@ -718,7 +716,6 @@ function on_toggle_deployment_lines(player, value, id)
 
     if g_deployment_lines_enabled then
         UI.setValue('toggle_deployment_lines', 'Show deployment rulers')
-        UI.setAttribute('toggle_deployment_lines', 'text', 'Show deployment rulers')
 
         if g_current_table == nil then
             print_error('There\'s no table so deployment lines will have no effect. Please reenable when you spawned the table.')
@@ -727,7 +724,6 @@ function on_toggle_deployment_lines(player, value, id)
         end
     else
         UI.setValue('toggle_deployment_lines', 'Do not show rulers')
-        UI.setAttribute('toggle_deployment_lines', 'text', 'Do not show rulers')
 
         if g_current_table ~= nil then
             remove_deployment_lines()
@@ -938,10 +934,8 @@ function on_toggle_snapping(player, value, id)
 
     if g_snap_mode_enabled then
         UI.setValue('toggle_snapping', 'Snap bases')
-        UI.setAttribute('toggle_snapping', 'text', 'Snap bases')
     else
         UI.setValue('toggle_snapping', 'Do not snap bases')
-        UI.setAttribute('toggle_snapping', 'text', 'Do not snap bases')
     end
 
     -- Make it consistent for all players
