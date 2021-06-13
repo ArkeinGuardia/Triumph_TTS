@@ -13,7 +13,7 @@ wizard_panels = {
   "wizard_panel_select_armies",
   "wizard_panel_select_troops",
    "wizard_panel_invader",
-  -- "wizard_panel_topography",
+   "wizard_panel_topography",
   -- "wizard_panel_tactical_advantage",
   -- "wizard_panel_terrain_pieces_roll",
   -- "wizard_panel_select_terrain_nb_pieces",
@@ -157,8 +157,7 @@ function wizard_panel_invader_set_ratings_for_color(color)
     local id = "wizard_togglegroup_invasion_" .. color .. "_" .. tostring(i)
     UI.setAttribute(id, "active", "false")
   end
-  for _,invasionRating in ipairs(invasionRatings) do
-    local value = invasionRating['value']
+  for _,value in ipairs(invasionRatings) do
     local id = "wizard_togglegroup_invasion_" .. color .. "_" .. tostring(value)
     UI.setAttribute(id, "active", "true")
   end
@@ -253,6 +252,7 @@ function do_update_invasion_wizard_page()
   g_game_settings['invader']="blue"
 end
 
+
 function update_invasion_wizard_page()
   -- Need to wait one frame for the UI elements to update
   -- before we can query them
@@ -264,10 +264,66 @@ function update_invasion_wizard_page()
 end
 
 function on_wizard_panel_invader_next()
-  --wizard_show_panel_topography()
-  wizard_hide()
+  wizard_show_panel_topography()
 end
 
 function on_wizard_panel_invader_previous()
   wizard_show_panel_select_troops()
+end
+
+-------------------
+------------------- Topography
+-------------------
+
+g_topographies = {'arable', 'forest', 'hilly', 'dry', 'steepe', 'marsh', 'delta'}
+
+function wizard_show_panel_topography()
+  wizard_show_panel("wizard_panel_topography")
+  local defender
+  if g_game_settings['invader']=='blue' then
+    defender = 'red'
+  else
+    defender = 'blue'
+  end
+  UI.setAttribute("wizard_topgraphy_defender", "text", defender)
+  local army_id = g_game_settings['army_id'] [defender]
+  local army = army[army_id]
+  local data = army['data']
+  local homeTopographies =  data['homeTopographies']
+  for _,topo in ipairs(g_topographies) do
+      local active =  find_in_array(homeTopographies, topo, str_equals_case_insensitive)
+      local id = "wizard_topography_" .. topo
+      UI.setAttribute(id, "active", tostring(active))
+  end
+  wizard_panel_topography_update()
+end
+
+function on_wizard_togoraphy_selected(player, value, id)
+  g_game_settings['table_spawned'] = (value == tonumber(g_current_table_type))
+  g_current_table_type = tonumber(value)
+  wizard_panel_topography_update()
+end
+
+function on_wizard_panel_topography_spawn_table()
+  load_table(g_current_table_type)
+  g_game_settings['table_spawned'] = true
+  g_game_settings['topography'] = g_topographies[g_current_table_type]
+  wizard_panel_topography_update()
+end
+
+function wizard_panel_topography_update()
+  -- TODO update topography toggles
+  -- TODO update spawn button
+  -- TODO update next button
+  UI.setAttribute("wizard_panel_topography_next", "interactable",
+    g_game_settings['table_spawned'])
+
+end
+
+function on_wizard_panel_topography_previous()
+  wizard_show_panel_invader()
+end
+
+function on_wizard_panel_topography_next()
+  wizard_hide()
 end

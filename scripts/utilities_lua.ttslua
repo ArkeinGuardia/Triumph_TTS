@@ -59,6 +59,9 @@ function compute_max_array(array)
 end
 
 function find_in_array(table, what, comparison_function)
+    if comparison_function == nil then
+      comparison_function = function (a,b) return a== b end
+    end
     for _,element in ipairs(table) do
         if comparison_function(element, what) then
             return true
@@ -97,6 +100,12 @@ end
 
 function round_to_decimals(number, decimals)
     return math.floor(number*(10^decimals) + 0.5) / 10^decimals
+end
+
+function str_equals_case_insensitive(a,b)
+  local aa = string.upper(a)
+  local bb = string.upper(b)
+  return aa == bb
 end
 
 -- Checks if the given str starts with substr

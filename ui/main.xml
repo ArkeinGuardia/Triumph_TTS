@@ -128,8 +128,81 @@
       <Cell>
       </Cell>
       <Cell>
-        <Button id="wizard_panel_invader_next" onClick="on_wizard_panel_invader_next" height="50">Finish</Button>
+        <Button id="wizard_panel_invader_next" onClick="on_wizard_panel_invader_next" height="50">Next</Button>
       </Cell>
+      </Row>
+    </TableLayout>
+</Panel>
+
+<Panel id="wizard_panel_topography" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+    <TableLayout height="400">
+      <Row preferredHeight="30">
+        <Cell columnSpan="2">
+          <HorizontalLayout>
+            <Text>Toprography: </Text>
+            <Text id="wizard_topgraphy_defender">someone</Text>
+          </HorizontalLayout>
+        </Cell>
+      </Row>
+      <Row preferredHeight="250">
+        <Cell columnSpan="2">
+            <ToggleGroup id="wizard_topgraphy_group" onValueChanged="on_wizard_togoraphy_selected">
+              <TableLayout>
+                <Row>
+                  <Cell>
+              <Toggle fontSize="16" id="wizard_topography_arable">Arable</Toggle>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>
+              <Toggle fontSize="16" id="wizard_topography_forest">Forest</Toggle>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>
+              <Toggle fontSize="16" id="wizard_topography_hilly">Hilly</Toggle>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>
+              <Toggle fontSize="16" id="wizard_topography_dry">Dry</Toggle>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>
+              <Toggle fontSize="16" id="wizard_topography_steepe">Steppe</Toggle>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>
+              <Toggle fontSize="16" id="wizard_topography_delta">Delta</Toggle>
+            </Cell>
+          </Row>
+          <Row>
+            <Cell>
+              <Toggle fontSize="16" id="wizard_topography_marsh">Marsh</Toggle>
+            </Cell>
+          </Row>
+              </TableLayout>
+            </ToggleGroup>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="3">
+          <Button id="wizard_panel_topography_spawn_table" onclick="on_wizard_panel_topography_spawn_table">
+            Spawn Table
+          </Button>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell>
+          <Button id="wizard_panel_topography_previous" onClick="on_wizard_panel_topography_previous" height="50">Previous</Button>
+        </Cell>
+        <Cell>
+        </Cell>
+        <Cell>
+          <Button id="wizard_panel_topography_next" onClick="on_wizard_panel_topography_next" height="50">Finish</Button>
+        </Cell>
       </Row>
     </TableLayout>
 </Panel>
@@ -139,12 +212,13 @@
 </Panel>
 
 <Panel id="panel_dba_orders" width="730" height="90" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true" active="false">
-    <VerticalLayout>
+  <HorizontalLayout  preferredWidth="730">
+    <VerticalLayout preferredWidth="150">
         <Button id="button_push_back" onClick="on_push_back">Push back Column</Button>
         <Button id="button_undo_move" onClick="on_undo_move">Undo</Button>
         <Button id="button_redo_move" onClick="on_redo_move">Redo</Button>
     </VerticalLayout>
-    <VerticalLayout>
+    <VerticalLayout  preferredWidth="430"  padding="10 10 0 0">
         <HorizontalLayout>
             <Slider id="slider_MUs" minValue="0" maxValue="8" value="4" colors="#00000000|#00000000|#00000000|#00000000" backgroundcolor="#FFFFFFF" onValueChanged="slider_MUs_changed"></Slider>
         </HorizontalLayout>
@@ -153,14 +227,12 @@
             <Button id="button_wheel" onClick="on_wheel">Wheel Group</Button>
         </HorizontalLayout>
     </VerticalLayout>
-    <VerticalLayout>
-        <Button id="button_spawn_table" onClick="on_create_table_menu">Spawn table</Button>
-    </VerticalLayout>
-    <VerticalLayout>
-        <Toggle id="toggle_zoc" isOn="false" onValueChanged="on_toggle_zoc">Do not show ZOC</Toggle>
-        <Toggle id="toggle_deployment_lines" isOn="false" onValueChanged="on_toggle_deployment_lines">Do not show rulers</Toggle>
+    <VerticalLayout  preferredWidth="150">
+        <Toggle id="toggle_zoc" isOn="false" onValueChanged="on_toggle_zoc">ZOC</Toggle>
+        <Toggle id="toggle_deployment_lines" isOn="false" onValueChanged="on_toggle_deployment_lines">Rulers</Toggle>
         <Toggle id="toggle_snapping" isOn="true" onValueChanged="on_toggle_snapping">Snap bases</Toggle>
     </VerticalLayout>
+  </HorizontalLayout>
 </Panel>
 
 <Panel id="panel_current_movement" width="700" height="80" color="#00000000" rectAlignment="LowerRight" padding="40 -40 10 6" raycastTarget="true" active="false">
@@ -230,85 +302,6 @@
     </HorizontalLayout>
 </Panel>
 
-<Panel id="panel_dba_table_selection_bg" width="600" height="500" rectAlignment="MiddleCenter" active="false" raycastTarget="true">
-    <Image image="select_table_bg_v2"></Image>
-</Panel>
-<Panel id="panel_dba_table_selection" width="600" height="500" rectAlignment="MiddleCenter" active="false" raycastTarget="true">
-    <TableLayout padding="100 100 120 80" cellSpacing="20">
-        <Row preferredHeight="40">
-            <Cell columnSpan="6" dontUseTableCellBackground="true">
-                <Text fontSize="20" alignment="MiddleLeft">Select the topography for the table:</Text>
-            </Cell>
-        </Row>
-        <Row>
-            <Cell columnSpan="6" dontUseTableCellBackground="true">
-                <ToggleGroup id="togglegroup_table_type" onValueChanged="on_toggle_table_type">
-                    <TableLayout>
-                        <Row>
-                            <Cell dontUseTableCellBackground="true">
-                                <Toggle fontSize="16">Arable</Toggle>
-                            </Cell>
-
-                            <Cell dontUseTableCellBackground="true">
-                                <Toggle fontSize="16">Forest</Toggle>
-                            </Cell>
-                            <Cell dontUseTableCellBackground="true">
-                                <Toggle fontSize="16">Forest [Jungle]</Toggle>
-                            </Cell>
-                        </Row>
-                        <Row>
-                            <Cell dontUseTableCellBackground="true">
-                                <Toggle fontSize="16">Hilly</Toggle>
-                            </Cell>
-                            <Cell dontUseTableCellBackground="true">
-                                <Toggle fontSize="16">Dry</Toggle>
-                            </Cell>
-                            <Cell dontUseTableCellBackground="true">
-                                <Toggle fontSize="16">Steppe</Toggle>
-                            </Cell>
-                        </Row>
-                                                <Row>
-                            <Cell dontUseTableCellBackground="true">
-                                <Toggle fontSize="16">Delta</Toggle>
-                            </Cell>
-                            <Cell dontUseTableCellBackground="true">
-                                <Toggle fontSize="16">Marsh</Toggle>
-                            </Cell>
-                        </Row>
-                    </TableLayout>
-                </ToggleGroup>
-            </Cell>
-        </Row>
-        <Row>
-            <Cell columnSpan="6" dontUseTableCellBackground="true">
-                <Toggle id="toggle_3dterrain" isOn="true" onValueChanged="on_toggle_3dterrain" fontSize="16">Use 3D terrain</Toggle>
-            </Cell>
-        </Row>
-        <Row>
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <Text fontSize="20" alignment="MiddleLeft">Table size:</Text>
-            </Cell>
-            <Cell columnSpan="4" dontUseTableCellBackground="true">
-                <ToggleGroup id="togglegroup_table_size" onValueChanged="on_toggle_table_size">
-                    <HorizontalLayout>
-                        <Toggle id="toggle_normalsize" isOn="false" fontSize="16">Standard, 64x96</Toggle>
-                    </HorizontalLayout>
-                </ToggleGroup>
-            </Cell>
-        </Row>
-        <Row preferredHeight="40">
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <Button columnSpan="2" fontSize="20" onClick="on_cancel_load_table">Cancel</Button>
-            </Cell>
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <!-- Filler -->
-            </Cell>
-            <Cell columnSpan="2" dontUseTableCellBackground="true">
-                <Button fontSize="20" onClick="on_load_table">Load</Button>
-            </Cell>
-        </Row>
-    </TableLayout>
-</Panel>
 
 <Panel id="panel_dba_troop_selection_bg" width="1200" height="860" rectAlignment="MiddleCenter" active="false" raycastTarget="true">
     <Image image="select_army_bg_v2"></Image>
