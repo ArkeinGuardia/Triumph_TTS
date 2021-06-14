@@ -33,7 +33,7 @@ end
 -- Random model iterator will always return a non-nil figure to add to a base.
 function test_random_model_iterator()
     local model_def = g_models[g_str_5fb1ba26e1af06001770c82a]
-    local iter = random_model_iterator(model_def[1]['random_models'])    
+    local iter = random_model_iterator(model_def[1]['random_models'])
     for i=1,10 do
         local figure = iter()
         lu.assertTrue(figure ~= nil)
@@ -52,5 +52,25 @@ function test_get_plain_model_tile_name_fortified()
     lu.assertEquals(actual, 'tile_plain_40x40_Fortified_Camp')
 end
 
+-- Verify that a mesh is not selected more than once if there are enough
+-- meshes
+function test_calculate_random_meshes()
+  local input = {1,2,3,4}
+  for trial=0,5 do
+    math.randomseed(trial)
+    local out = calculate_random_meshes(4,input)
+    local total={0,0,0,0}
+    for _,v in pairs(out) do
+      total[v] = total[v] + 1
+    end
+    for _, v in ipairs(total) do
+      if v ~=1 then
+        print("seed ", trial, " ", v, " ", v)
+        table_print(total)
+        lu.assertTrue(false)
+      end
+    end
+  end
+end
 
 os.exit( lu.LuaUnit.run() )
