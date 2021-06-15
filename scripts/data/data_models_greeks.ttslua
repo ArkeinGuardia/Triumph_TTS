@@ -39,6 +39,52 @@ army['5fb1b9dbe1af060017709502'].data.has_models = true
       }
     }
 
+    --Skirmishing bowmen and slingers - Sk
+    g_models[g_str_5fb1ba25e1af06001770c5fd] = {
+      {
+        base = 'tile_grass_40x20',
+        n_models = 2,
+        model_data = 'troop_successors_skirmishers',
+        loose = true
+      }
+    }
+
+    --Javelinmen - Rabble
+    g_models[g_str_5fb1ba25e1af06001770c5ff] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        random_models = {
+          'troop_successors_psiloi',
+          'troop_successors_psiloi_black',
+          'troop_successors_psiloi_red',
+          'troop_successors_psiloi_blue',
+          'troop_successors_psiloi_green'
+        },
+        loose = true
+      }
+    }
+
+    --Massed helots armed with javelins -- Horde
+    g_models[g_str_5fb1ba25e1af06001770c602] = {
+      {
+        base = 'tile_grass_40x40',
+        n_models = 7,
+        model_data = 'troop_ancient_spanish_caetrati',
+        loose = true
+      }
+    }
+
+    --Massed helots armed with javelins -- Rabble
+    g_models[g_str_5fb1ba25e1af06001770c603] = {
+      {
+        base = 'tile_grass_40x30',
+        n_models = 3,
+        model_data = 'troop_ancient_spanish_caetrati',
+        loose = true
+      }
+    }
+
     --Spartan Camp
     g_models[g_str_5fb1b9dbe1af060017709502_camp] = {
       {
@@ -47,4 +93,105 @@ army['5fb1b9dbe1af060017709502'].data.has_models = true
         model_data = 'troop_carthaginian_camp'
       }
     }
+--
+
+-- Later Hoplite Spartan
+army['5fb1b9dde1af0600177095dc'].data.has_models = true
+
+  -- Later Hoplite Spartan
+    -- 448 BC to 225 BC
+    -- https://meshwesh.wgcwar.com/armyList/5fb1b9dde1af0600177095dc/explore
+    -- As of: 20210616
+
+      --Spartiates - Elite Foot General
+      g_models[g_str_5fb1ba27e1af06001770c966_general] = g_models[g_str_5fb1ba25e1af06001770c5f8_general]
+
+      --Spartiates - Elite Foot
+      g_models[g_str_5fb1ba27e1af06001770c966] = g_models[g_str_5fb1ba25e1af06001770c5f8]
+
+      --Hoplites - Heavy Foot
+      g_models[g_str_5fb1ba27e1af06001770c96a] = g_models[g_str_5fb1ba25e1af06001770c5fb]
+
+      --Psiloi armed with javelins - Rabble
+      g_models[g_str_5fb1ba27e1af06001770c96d] = g_models[g_str_5fb1ba25e1af06001770c603]
+
+      --Spartan horsemen - Bad Horse
+      g_models[g_str_5fb1ba27e1af06001770c96f] = {
+        {
+          base = 'tile_grass_40x30',
+          n_models = 3,
+          model_data = 'troop_successors_cav_red',
+          loose = true
+        }
+      }
+
+      --Cretan or other skirmishing mercenary bowmen - Sk
+      g_models[g_str_5fb1ba27e1af06001770c971] = {
+        {
+          base = 'tile_grass_40x20',
+          n_models = 2,
+          model_data = 'troop_successors_skirmishers_archers',
+          loose = true
+        }
+      }
+
+      --Skirmishing slingers - Sk
+      g_models[g_str_5fb1ba27e1af06001770c973] = g_models[g_str_5fb1ba25e1af06001770c5fd]
+
+      --Thracian infantry -- LF
+      g_models[g_str_5fb1ba27e1af06001770c975] = {
+        {
+          base = 'tile_grass_40x20',
+          n_models = 3,
+          random_models = {
+            'troop_thracian_ax1',
+            'troop_thracian_axgen'
+          },
+          loose = true
+        }
+      }
+
+      --Mercenary peltasts -- LF
+      g_models[g_str_5fb1ba27e1af06001770c977] = {
+        {
+          base = 'tile_grass_40x20',
+          n_models = 3,
+          random_models = {
+            'troop_successors_psiloi',
+            'troop_successors_psiloi_black',
+            'troop_successors_psiloi_red',
+            'troop_successors_psiloi_blue',
+            'troop_successors_psiloi_green'
+          },
+          loose = true
+        }
+      }
+
+      --Akarnanians -- LF
+      g_models[g_str_5fb1ba27e1af06001770c97a] = {
+        {
+          base = 'tile_grass_40x20',
+          n_models = 3,
+          random_models = {
+            'troop_successors_psiloi',
+            'troop_successors_psiloi_black',
+            'troop_successors_psiloi_red',
+            'troop_successors_psiloi_blue',
+            'troop_successors_psiloi_green'
+          },
+          loose = true
+        }
+      }
+
+      --Spartan Camp
+      g_models[g_str_5fb1b9dde1af0600177095dc_camp] = {
+        {
+          base = 'tile_grass_40x40',
+          n_models = 1,
+          model_data = 'troop_carthaginian_camp'
+        }
+      }
+      
+      --Spartan Camp Pack Train
+      g_models[g_str_5fb1b9dde1af0600177095dc_camp_pack_train] = g_models[g_str_5fb1b9e1e1af060017709849_camp_pack_train]
 --
