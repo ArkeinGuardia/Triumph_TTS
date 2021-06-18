@@ -195,8 +195,6 @@ g_history_stack = Stack:Create()
 
 function push_to_history_stack(event)
     g_history_stack:push(event)
-    log('Pushed new event')
-    log(event)
     update_history_ui()
 end
 
