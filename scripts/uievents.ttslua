@@ -256,15 +256,9 @@ function update_deploy_army_dialog()
   local functions = {
     function () g_ui_busy = true end,
     function () UI.setAttribute("panel_dba_troop_selection_shield", "active", true) end,
-    function () UI.setAttribute('button_load_army', 'interactable', false) end,
-    function () UI.setAttribute('button_cancel_army', 'interactable', false) end,
-    function () UI.setAttribute('toggle_filter_models', 'interactable', false) end,
-    function () UI.setAttribute('toggle_use_plain_bases', 'interactable', false) end,
-    function () UI.setAttribute('dropdown_book', 'interactable', false) end,
-    function () UI.setAttribute('dropdown_army_red', 'interactable', false) end,
-    function () UI.setAttribute('dropdown_army_blue', 'interactable', false) end,
-    function () UI.setAttribute('toggle_filter_models', 'isOn', g_filter_armies_models) end,
     function ()
+      UI.setAttribute("panel_dba_troop_selection_shield", "active", true)
+      UI.setAttribute('toggle_filter_models', 'isOn', g_filter_armies_models)
       local xml = UI.getXmlTable()
       update_theme_menu(xml)
       update_armies_menu(xml, 'red')
@@ -276,15 +270,8 @@ function update_deploy_army_dialog()
     function () end,
     function () update_allies_menu('red') end,
     function () update_allies_menu('blue') end,
-    function () UI.setAttribute('button_load_army', 'interactable', true) end,
-    function () UI.setAttribute('button_cancel_army', 'interactable', true) end,
-    function () UI.setAttribute('toggle_filter_models', 'interactable', true) end,
-    function () UI.setAttribute('toggle_use_plain_bases', 'interactable', true) end,
-    function () UI.setAttribute('dropdown_book', 'interactable', true) end,
-    function () UI.setAttribute('dropdown_army_red', 'interactable', true) end,
-    function () UI.setAttribute('dropdown_army_blue', 'interactable', true) end,
-    function () UI.setAttribute("panel_dba_troop_selection_shield", "active", false) end,
     function () g_ui_busy =false end,
+    function () UI.setAttribute("panel_dba_troop_selection_shield", "active", false) end,
  }
 
   function call(pos)
