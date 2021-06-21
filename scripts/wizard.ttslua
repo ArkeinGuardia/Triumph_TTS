@@ -15,7 +15,7 @@ wizard_panels = {
    "wizard_panel_invader",
    "wizard_panel_topography",
    "wizard_panel_tactical_advantage",
-  -- "wizard_panel_terrain_pieces_roll",
+   "wizard_panel_terrain_pieces_roll",
   -- "wizard_panel_select_terrain_nb_pieces",
   -- "wizard_panel_order_terrain_pieces",
   -- "wizard_panel_camps",
@@ -333,11 +333,11 @@ end
 function wizard_show_panel_tatical_advantage()
   wizard_show_panel("wizard_panel_tactical_advantage")
   wizard_panel_tatical_advantage_update_manueuver_ratings()
-  g_dice_callbacks['tatical_advantage_dice_rolled'] = on_tactical_advantage_dice_rolled
-  g_wizard_exit_panel_fn = wizard_panel_exit_invader
+  g_dice_callbacks['tactical_advantage_dice_rolled'] = on_tactical_advantage_dice_rolled
+  g_wizard_exit_panel_fn = wizard_panel_exit_tatical_advantage
 end
 
-function wizard_panel_exit_invader()
+function wizard_panel_exit_tactical_advantage()
   g_dice_callbacks["tactical_advantage_dice_rolled"] = nil
 end
 
@@ -346,7 +346,7 @@ function on_wizard_panel_tactical_advantage_previous()
 end
 
 function on_wizard_panel_tactical_advantage_next()
-  wizard_hide()
+  wizard_show_panel_terrain_pieces_roll()
 end
 
 function on_tactical_advantage_dice_rolled(dice_color, value)
@@ -549,4 +549,73 @@ function wizard_panel_tatical_advantage_update()
       do_update_tactical_advantage_wizard_page()
     end,
     1)
+end
+
+-------------------
+------------------- terrain pieces roll
+-------------------
+
+function wizard_show_panel_terrain_pieces_roll()
+  wizard_show_panel("wizard_panel_terrain_pieces_roll")
+  g_dice_callbacks['terrain_pieces_dice_rolled'] = on_terrain_pieces_dice_rolled
+  g_wizard_exit_panel_fn = wizard_panel_exit_terrain_pieces_roll
+  wizard_panel_terrain_pieces_roll_update()
+end
+
+function wizard_panel_exit_terrain_pieces_roll()
+  g_dice_callbacks["terrain_pieces_dice_rolled"] = nil
+end
+
+function on_wizard_panel_terrain_pieces_roll_previous()
+  wizard_show_panel_tatical_advantage()
+end
+
+
+function on_wizard_panel_terrain_pieces_roll_next()
+  wizard_hide()
+end
+
+function on_wizard_button_red_terrain_pieces_roll()
+  roll_dice('red')
+end
+
+function on_wizard_button_blue_terrain_pieces_roll()
+  roll_dice('blue')
+end
+
+function on_terrain_pieces_dice_rolled(dice_color, value)
+  local id = "wizard_terrain_pieces_roll_value_" .. dice_color
+  UI.setAttribute(id, "text", tostring(value))
+  g_game_settings[id] = value
+  wizard_panel_terrain_pieces_roll_update()
+end
+
+
+function wizard_panel_terrain_pieces_roll_update()
+  UI.setAttribute("wizard_panel_terrain_pieces_roll_tactical_advantage", "text",
+    tostring(g_game_settings["tatical_advantage_score"]))
+  if g_game_settings["wizard_terrain_pieces_roll_value_blue"] == nil or
+     g_game_settings["wizard_terrain_pieces_roll_value_red"] == nil
+  then
+    UI.setAttribute("wizard_panel_terrain_pieces_roll_next", "interactable", false)
+    UI.setAttribute("wizard_panel_terrain_pieces_roll_total", "text", "")
+    UI.setAttribute("wizard_panel_terrain_pieces_roll_terrain_score", "text", "")
+    return
+  end
+  local total = g_game_settings["wizard_terrain_pieces_roll_value_blue"] +
+      g_game_settings["wizard_terrain_pieces_roll_value_red"]
+  UI.setAttribute("wizard_panel_terrain_pieces_roll_total", "text", tostring(total))
+
+  local low = total - g_game_settings["tatical_advantage_score"]
+  local high = total + g_game_settings["tatical_advantage_score"]
+  if low < 2 then
+    low = 2
+  end
+  if high > 12 then
+    high = 12
+  end
+  local terrain_score = "Terrain Score: " .. tostring(low) .. " - " .. tostring(high)
+  UI.setAttribute("wizard_panel_terrain_pieces_roll_terrain_score", "text", terrain_score)
+
+  UI.setAttribute("wizard_panel_terrain_pieces_roll_next", "interactable", true)
 end
