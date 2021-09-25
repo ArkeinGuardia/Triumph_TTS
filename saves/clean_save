@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+
+"""
+Reads the save file, strips out parts that should not be in a new game,
+and the writes the data to the same file.
+"""
+
+import json
+
+def clean_file(file_name) :
+    with open(file_name, "r") as f :
+        data = json.load(f)
+
+    if 'LuaScriptState' in data :
+      lua_script_state = json.loads(data["LuaScriptState"])
+      if 'g_game_settings' in lua_script_state :
+          del lua_script_state['g_game_settings']
+      data['LuaScriptState']=json.dumps(lua_script_state)
+
+    with open(file_name, "w") as f :
+        f.write(json.dumps(data, indent=4, sort_keys="True"))
+
+clean_file("TS_save_1.json")
+
