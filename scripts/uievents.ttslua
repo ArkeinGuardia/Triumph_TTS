@@ -975,7 +975,7 @@ function on_redo_move(player, value, id)
 end
 
 function update_current_ui()
-  if g_game_settings['show_wizard'] == true then
+  if not(g_game_settings['wizard_page'] == "none") then
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', false)
     UI.setAttribute('panel_wheel', 'active', false)

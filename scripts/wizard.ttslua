@@ -1,11 +1,6 @@
 g_wizard_exit_panel_fn = nil
 
-function wizard_show()
-  UI.setAttribute("panel_wizard_bg", "active", true)
-  update_current_ui()
 
-  wizard_show_panel_game()
-end
 
 
 wizard_panels = {
@@ -28,15 +23,18 @@ function wizard_show_panel(panel_name)
     g_wizard_exit_panel_fn()
     g_wizard_exit_panel_fn = nil
   end
+  local wizard_active = false
   for _,name in pairs(wizard_panels) do
-    UI.setAttribute(name, "active", name == panel_name)
+    local panel_active = (name == panel_name)
+    UI.setAttribute(name, "active", panel_active)
+    wizard_active = wizard_active or panel_active
   end
+  UI.setAttribute("panel_wizard_bg", "active", wizard_active)
+  g_game_settings['wizard_page'] = panel_name
 end
 
 function wizard_hide()
-  wizard_show_panel(nil)
-  UI.setAttribute("panel_wizard_bg", "active", false)
-  g_game_settings['show_wizard'] = false
+  wizard_show_panel("none")
   update_current_ui()
 end
 

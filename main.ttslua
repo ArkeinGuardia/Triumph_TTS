@@ -73,11 +73,8 @@ function onload(saved_data)
     UI.setAttribute("button_roll_red",  "visibility", "Red|White|Black")
 
     spawn_all_dice()
-    if g_game_settings['show_wizard'] ~= false then
-      wizard_show()
-    else
-      update_current_ui()
-    end
+    wizard_show_panel(g_game_settings['wizard_page'])
+    update_current_ui()
 
     set_last_snapshot()
 end
@@ -108,7 +105,7 @@ function restore_extra_data(saved_data)
     -- initial settings
     g_game_settings = {}
     g_game_settings['is_grand_triumph'] = false
-    g_game_settings['show_wizard'] = true
+    g_game_settings['wizard_page'] = "wizard_panel_game"
     set_tablet_homepage("red tablet")
     set_tablet_homepage("blue tablet")
   end
