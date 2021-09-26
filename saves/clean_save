@@ -6,6 +6,16 @@ and the writes the data to the same file.
 """
 
 import json
+import sys
+
+def is_not_number(object) :
+    if 'Nickname' not in object :
+        return True
+    if object['Nickname'].startswith("NumberRed ") :
+        return False
+    if object['Nickname'].startswith("NumberBlue ") :
+        return False
+    return True
 
 def clean_file(file_name) :
     with open(file_name, "r") as f :
@@ -17,8 +27,17 @@ def clean_file(file_name) :
           del lua_script_state['g_game_settings']
       data['LuaScriptState']=json.dumps(lua_script_state)
 
+    if 'ObjectStates' in data:
+        new_objects = [ x for x in data['ObjectStates'] if is_not_number(x) ]
+        data['ObjectStates'] = new_objects
+
     with open(file_name, "w") as f :
         f.write(json.dumps(data, indent=4, sort_keys="True"))
 
-clean_file("TS_save_1.json")
+
+if len(sys.argv) == 1:
+  clean_file("TS_save_1.json")
+else:
+    for file_name in sys.argv[1:] :
+        clean_file(file_name)
 
