@@ -20,6 +20,21 @@ function get_blue_dead_zone()
   return result
 end
 
+function get_red_army_builder_zone()
+  local result = get_object_by_name(g_army_builder_zone_red_name)
+  if result == nil then
+    print_error("Unable to find: " .. g_army_builder_zone_red_name)
+  end
+  return result
+end
+
+function get_blue_army_builder_zone()
+  local result = get_object_by_name(g_army_builder_zone_blue_name)
+  if result == nil then
+    print_error("Unable to find: " .. g_army_builder_zone_blue_name)
+  end
+  return result
+end
 
 
 local g_updating_zone = {}
@@ -319,6 +334,18 @@ function update_armyzone_value(zone)
     end, 1)
     print_debug('Updated army zone ' .. zone.getName())
     g_updating_zone[zone.getName()] = false
+end
+
+
+function update_army_builder_zones()
+  local red_zone = get_red_army_builder_zone()
+  if red_zone ~= nil then
+    update_armyzone_value(red_zone)
+  end
+  local blue_zone = get_blue_army_builder_zone()
+  if blue_zone ~= nil then
+    update_armyzone_value(blue_zone)
+  end
 end
 
 function callback_zone(zone, name, color)
