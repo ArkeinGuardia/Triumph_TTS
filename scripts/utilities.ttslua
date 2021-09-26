@@ -503,7 +503,7 @@ function set_options_dropdown(dropdown_element, options, idx_selected)
     for i, option in ipairs(options) do
         local new_options = {
             tag = 'option',
-            value = option
+            value = tostring(option)
         }
         if i == idx_selected then
             new_options['attributes'] = {
@@ -518,9 +518,27 @@ end
 -- XML UI, edits the options to those given.
 -- The list of options should be a plain array of strings
 -- The index (1 to n) represent which one is currently selected.
+-- This is perf intensive, beware.
+--
+-- xml:  Result of UI.getXmlTable() that will be modified.
+-- id: identifier of the element that will have its options replaced.
+-- options: table of options to populate.
+-- idx_selected: Index in options of the item that is to be shown as
+--   selected.
+function set_options_dropdown_by_id_xml(xml, id,  options, idx_selected)
+    local element = find_ui_element_list(xml, id)
+    set_options_dropdown(element, options, idx_selected)
+end
+
+
+-- Given an id corresponding to an existing <Dropdown> element on the current
+-- XML UI, edits the options to those given.
+-- The list of options should be a plain array of strings
+-- The index (1 to n) represent which one is currently selected.
 -- This is perf intensive, beware. It's also not updated until the next frame.
 function set_options_dropdown_by_id(id,  options, idx_selected)
     local xml = UI.getXmlTable()
+    set_options_dropdown_by_id_xml(xml, id, options, idx_selected)
     local element = find_ui_element_list(xml, id)
     set_options_dropdown(element, options, idx_selected)
     UI.setXmlTable(xml)

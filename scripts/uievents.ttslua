@@ -256,30 +256,22 @@ function update_deploy_army_dialog()
   local functions = {
     function () g_ui_busy = true end,
     function () UI.setAttribute("panel_dba_troop_selection_shield", "active", true) end,
-    function () UI.setAttribute('button_load_army', 'interactable', false) end,
-    function () UI.setAttribute('button_cancel_army', 'interactable', false) end,
-    function () UI.setAttribute('toggle_filter_models', 'interactable', false) end,
-    function () UI.setAttribute('toggle_use_plain_bases', 'interactable', false) end,
-    function () UI.setAttribute('dropdown_book', 'interactable', false) end,
-    function () UI.setAttribute('dropdown_army_red', 'interactable', false) end,
-    function () UI.setAttribute('dropdown_army_blue', 'interactable', false) end,
-    function () UI.setAttribute('toggle_filter_models', 'isOn', g_filter_armies_models) end,
-    function () update_theme_menu() end,
-    function () update_armies_menu('red') end,
-    function () update_armies_menu('blue') end,
-    function () update_years_menu('red') end,
-    function () update_years_menu('blue') end,
+    function ()
+      UI.setAttribute("panel_dba_troop_selection_shield", "active", true)
+      UI.setAttribute('toggle_filter_models', 'isOn', g_filter_armies_models)
+      local xml = UI.getXmlTable()
+      update_theme_menu(xml)
+      update_armies_menu(xml, 'red')
+      update_armies_menu(xml, 'blue')
+      update_years_menu(xml, 'red')
+      update_years_menu(xml, 'blue')
+      UI.setXmlTable(xml)
+    end,
+    function () end,
     function () update_allies_menu('red') end,
     function () update_allies_menu('blue') end,
-    function () UI.setAttribute('button_load_army', 'interactable', true) end,
-    function () UI.setAttribute('button_cancel_army', 'interactable', true) end,
-    function () UI.setAttribute('toggle_filter_models', 'interactable', true) end,
-    function () UI.setAttribute('toggle_use_plain_bases', 'interactable', true) end,
-    function () UI.setAttribute('dropdown_book', 'interactable', true) end,
-    function () UI.setAttribute('dropdown_army_red', 'interactable', true) end,
-    function () UI.setAttribute('dropdown_army_blue', 'interactable', true) end,
-    function () UI.setAttribute("panel_dba_troop_selection_shield", "active", false) end,
     function () g_ui_busy =false end,
+    function () UI.setAttribute("panel_dba_troop_selection_shield", "active", false) end,
  }
 
   function call(pos)
@@ -382,7 +374,8 @@ end
 -- Update the menu item for all the themes that match the filter criteria.
 -- filtered on model availablity.
 -- Updates g_theme_selected
-function update_theme_menu()
+-- -- xml:  Result of UI.getXmlTable() that will be modified.
+function update_theme_menu(xml)
     local selected = nil
     local selected_index = nil
     local options = {}
@@ -402,12 +395,13 @@ function update_theme_menu()
       selected_index = 1
     end
     g_theme_selected = selected
-    set_options_dropdown_by_id('dropdown_book', options, selected_index)
+    set_options_dropdown_by_id_xml(xml, 'dropdown_book', options, selected_index)
 end
 
 
+-- xml:  result of UI.getXmlTable() that is being modified
 -- color: 'red' or 'blue'
-function update_armies_menu(color)
+function update_armies_menu(xml, color)
     local army_id_selected = g_game_settings['army_id'][  color]
     local selected_army_id = nil
     local selected_index = nil
@@ -439,14 +433,15 @@ function update_armies_menu(color)
     g_game_settings['army_id'][color] = selected_army_id
 
     local menu_name = "dropdown_army_" .. color
-    set_options_dropdown_by_id(menu_name, options, selected_index)
+    set_options_dropdown_by_id_xml(xml, menu_name, options, selected_index)
 end
 
 -- Update the years menu based on the selction.
 -- The menu contents are filled based on the contents of the global variableS
 -- g_game_settings
+-- xml: Result of UI.getXmlTable() that is being modified
 -- color: 'red' or 'blue'
-function update_years_menu(color)
+function update_years_menu(xml, color)
      local army_id_selected = g_game_settings['army_id'][color]
      local year_selected = g_game_settings['year_selected'][color]
      if army_id_selected == nil then
@@ -485,7 +480,7 @@ function update_years_menu(color)
     end
     g_game_settings['year_selected'][color] = selected
     local menu_id = 'dropdown_year_' .. color
-    set_options_dropdown_by_id(menu_id, options, selected_index)
+    set_options_dropdown_by_id_xml(xml, menu_id, options, selected_index)
 end
 
 

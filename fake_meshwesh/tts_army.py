@@ -11,6 +11,17 @@ import re
 # been written
 base_definitions_written=set()
 
+re_safe_string = "[^-:/a-zA-Z0-9 (),]"
+
+def make_safe_string(udata) :
+    """Remove special characters."""
+    asciidata=udata.encode("ascii", "ignore").decode("ascii")
+    if udata != asciidata :
+        print(udata, " is not ascii.")
+        m=max( len(udata), len(asciidata)) 
+        for i in range(0,m-1) :
+            print(i, ' ', udata[i], ' ', asciidata[i])
+    return asciidata
 
 def read_json(file_name) :
   with open(file_name, "r") as file:
@@ -936,6 +947,7 @@ def generate_army(army_id) :
     with open(file_name, "a") as file :
 
       army_name =  army_json['derivedData']['extendedName']
+      army_name = make_safe_string(army_name)
       file.write("-- %s %s\n\n" % (army_id, army_name))
       definitions = generate_base_definitions(
         base_definitions_file, army_json)
@@ -966,6 +978,7 @@ def generate_army(army_id) :
 
 
       #escape quotes
+      army_name = make_safe_string(army_name)
       name = army_name.replace("'", "\\'")
 
       file.write("    name='%s',\n" %(name))
