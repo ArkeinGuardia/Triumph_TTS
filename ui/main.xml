@@ -207,6 +207,7 @@
     </TableLayout>
 </Panel>
 
+
 <Panel id="wizard_panel_tactical_advantage" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
   <TableLayout height="400">
     <Row preferredHeight="30">
@@ -374,10 +375,161 @@
     <Cell>
     </Cell>
     <Cell>
-      <Button id="wizard_panel_terrain_pieces_roll_next" onClick="on_wizard_panel_terrain_pieces_roll_next" height="50">Finish</Button>
+      <Button id="wizard_panel_terrain_pieces_roll_next" onClick="on_wizard_panel_terrain_pieces_roll_next" height="50">Next</Button>
     </Cell>
     </Row>
   </TableLayout>
+</Panel>
+
+<Panel id="wizard_panel_select_terrain_nb_pieces" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+    <TableLayout height="400">
+      <Row preferredHeight="30">
+        <Cell columnSpan="2">
+          <HorizontalLayout>
+            <Text>Terrain Score</Text>
+          </HorizontalLayout>
+        </Cell>
+      </Row>
+      <Row preferredHeight="250">
+        <Cell columnSpan="2">
+            <ToggleGroup id="wizard_nb_terrain_group" onValueChanged="on_wizard_tarrain_score_selected">
+              <TableLayout>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_2" >2</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_2">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_2"></Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_3">3</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_3">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_3"></Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_4">4</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_4">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_4">Coast</Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_5">5</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_5">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast"></Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_6">6</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_6">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_6"></Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_7">7</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_7">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_7">Coast</Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_8">8</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_8">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_8"></Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_9">9</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_9">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_9"></Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_10">10</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_10">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_10">Coast</Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_11">11</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_11">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_11"></Text>
+                  </Cell>
+                </Row>
+                <Row>
+                  <Cell>
+                    <Toggle fontSize="16" id="wizard_terrain_score_12">12</Toggle>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_pieces_12">0</Text>
+                  </Cell>
+                  <Cell>
+                    <Text id="wizard_terrain_score_nb_coast_12"></Text>
+                  </Cell>
+                </Row>
+              </TableLayout>
+            </ToggleGroup>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell>
+          <Button id="wizard_panel_nb_terrain_previous" onClick="on_wizard_panel_nb_terrain_previous" height="50">Previous</Button>
+        </Cell>
+        <Cell>
+        </Cell>
+        <Cell>
+          <Button id="wizard_panel_nb_terrain_next" onClick="on_wizard_panel_nb_terrain_next" height="50">Finish</Button>
+        </Cell>
+      </Row>
+    </TableLayout>
 </Panel>
 
 <Panel id="panel_dba_orders_bg" width="730" height="100" rectAlignment="LowerRight" color="#00000000" raycastTarget="true">

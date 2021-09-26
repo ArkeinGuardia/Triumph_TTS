@@ -11,7 +11,7 @@ wizard_panels = {
    "wizard_panel_topography",
    "wizard_panel_tactical_advantage",
    "wizard_panel_terrain_pieces_roll",
-  -- "wizard_panel_select_terrain_nb_pieces",
+   "wizard_panel_select_terrain_nb_pieces",
   -- "wizard_panel_order_terrain_pieces",
   -- "wizard_panel_camps",
   -- "wizard_panel_deploy_troops",
@@ -305,7 +305,7 @@ end
 function on_wizard_panel_topography_spawn_table()
   load_table(g_current_table_type)
   g_game_settings['table_spawned'] = true
-  g_game_settings['topography'] = g_topographies[g_current_table_type]
+  g_game_settings['topography'] = g_topographies[g_current_table_type + 1]
   wizard_panel_topography_update()
 end
 
@@ -570,7 +570,7 @@ end
 
 
 function on_wizard_panel_terrain_pieces_roll_next()
-  wizard_hide()
+  wizard_show_panel_select_terrain_nb_pieces()
 end
 
 function on_wizard_button_red_terrain_pieces_roll()
@@ -616,4 +616,76 @@ function wizard_panel_terrain_pieces_roll_update()
   UI.setAttribute("wizard_panel_terrain_pieces_roll_terrain_score", "text", terrain_score)
 
   UI.setAttribute("wizard_panel_terrain_pieces_roll_next", "interactable", true)
+
+  g_game_settings['terrain_score_low'] = low
+  g_game_settings['terrain_score_high'] = high
+end
+
+
+-------------------
+------------------- nb terrain pieces selection
+-------------------
+terrain_nb_pieces = {}
+terrain_nb_pieces['steepe']={1,1,1,2,2,3,3,4,4,5,5}
+terrain_nb_pieces['dry']=terrain_nb_pieces['steepe']
+terrain_nb_pieces['forest']={2,3,3,4,4,5,5,6,6,6,6}
+terrain_nb_pieces['marsh']=terrain_nb_pieces['forest']
+terrain_nb_pieces['arable']={1,2,2,3,3,3,4,4,5,5,6,6}
+terrain_nb_pieces['hilly']=terrain_nb_pieces['arable']
+terrain_nb_pieces['delta']=terrain_nb_pieces['arable']
+-- is a coast required.  index+1 = terrain score
+terrain_coast = {false,false,true,false,false,true,false,false,true,false,false}
+
+function wizard_show_panel_select_terrain_nb_pieces()
+  wizard_show_panel("wizard_panel_select_terrain_nb_pieces")
+  g_wizard_exit_panel_fn = wizard_panel_exit_terrain_score
+
+  -- Enable and disable the toggles for the terain score
+  for score=2,g_game_settings['terrain_score_low']-1 , 1 do
+    local id = "wizard_terrain_score_" .. tostring(score)
+    UI.setAttribute(id, "active", false)
+  end
+  for score=g_game_settings['terrain_score_low'] ,g_game_settings['terrain_score_high'] , 1 do
+    local id = "wizard_terrain_score_" .. tostring(score)
+    UI.setAttribute(id, "active", true)
+  end
+  for score=g_game_settings['terrain_score_high']+1 ,12, 1 do
+    local id = "wizard_terrain_score_" .. tostring(score)
+    UI.setAttribute(id, "active", false)
+  end
+
+   -- Update the number of pieces based on the topography
+  local topography =  g_game_settings['topography']
+  for score=2,12,1 do
+    local id = "wizard_terrain_score_nb_pieces_" .. tostring(score)
+    local value = terrain_nb_pieces[topography][score-1]
+    UI.setAttribute(id, "text", tostring(value))
+  end
+end
+
+function on_wizard_panel_nb_terrain_previous()
+  wizard_show_panel_terrain_pieces_roll()
+end
+
+
+function on_wizard_panel_nb_terrain_next()
+  wizard_hide()
+end
+
+function on_wizard_tarrain_score_selected(player, value, id)
+  g_game_settings['terrain_score']  = tonumber(value) + 2
+end
+
+
+function wizard_panel_exit_terrain_score()
+  local terrain_score = g_game_settings['terrain_score']
+  local topography =  g_game_settings['topography']
+  local nb_pieces = terrain_nb_pieces[topography][terrain_score-1]
+  local coast
+  if terrain_coast[terrain_score-1] then
+    coast = " coast"
+  else
+    coast = ""
+  end
+  print_important("terrain score: " .. tostring(terrain_score) .. " nb pieces: " .. tostring(nb_pieces) ..  coast)
 end
