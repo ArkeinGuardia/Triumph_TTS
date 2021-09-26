@@ -968,12 +968,20 @@ def generate_army(army_id) :
           file.write("      %d,\n" % (value))
       file.write("    },\n")
 
+      file.write("    maneuverRatings={\n")
+      maneuverRatings = army_json['maneuverRatings']
+      for maneuverRating in maneuverRatings :
+          value = maneuverRating['value']
+          file.write("      %d,\n" % (value))
+      file.write("    },\n")
+
       file.write("    homeTopographies={\n")
       homeTopographies = army_json['homeTopographies']
       for topography in homeTopographies :
         values = topography['values']
         for value in values :
-          file.write("      '%s',\n" % (value.strip()))
+          value = make_safe_string(value.strip())
+          file.write("      '%s',\n" % (value))
       file.write("    },\n")
 
 
@@ -1042,7 +1050,7 @@ def generate_army(army_id) :
           start = end
 
       for army_theme in army_theme_json :
-        theme_name = army_theme["name"]
+        theme_name = make_safe_string(army_theme["name"])
 
         file.write('if nil == armies[\"%s\"] then\n' %
           (theme_name))

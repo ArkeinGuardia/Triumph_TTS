@@ -14,7 +14,7 @@ wizard_panels = {
   "wizard_panel_select_troops",
    "wizard_panel_invader",
    "wizard_panel_topography",
-  -- "wizard_panel_tactical_advantage",
+   "wizard_panel_tactical_advantage",
   -- "wizard_panel_terrain_pieces_roll",
   -- "wizard_panel_select_terrain_nb_pieces",
   -- "wizard_panel_order_terrain_pieces",
@@ -312,18 +312,241 @@ function on_wizard_panel_topography_spawn_table()
 end
 
 function wizard_panel_topography_update()
-  -- TODO update topography toggles
-  -- TODO update spawn button
-  -- TODO update next button
   UI.setAttribute("wizard_panel_topography_next", "interactable",
     g_game_settings['table_spawned'])
 
 end
 
 function on_wizard_panel_topography_previous()
-  wizard_show_panel_invader()
+  wizard_show_panel_topography()
 end
 
 function on_wizard_panel_topography_next()
+  wizard_show_panel_tatical_advantage()
+end
+
+
+-------------------
+------------------- Tatucal Advantage
+-------------------
+
+function wizard_show_panel_tatical_advantage()
+  wizard_show_panel("wizard_panel_tactical_advantage")
+  wizard_panel_tatical_advantage_update_manueuver_ratings()
+  g_dice_callbacks['tatical_advantage_dice_rolled'] = on_tactical_advantage_dice_rolled
+  g_wizard_exit_panel_fn = wizard_panel_exit_invader
+end
+
+function wizard_panel_exit_invader()
+  g_dice_callbacks["tactical_advantage_dice_rolled"] = nil
+end
+
+function on_wizard_panel_tactical_advantage_previous()
+  wizard_show_panel_topography()
+end
+
+function on_wizard_panel_tactical_advantage_next()
   wizard_hide()
+end
+
+function on_tactical_advantage_dice_rolled(dice_color, value)
+  local id = "wizard_maneuver_roll_value_" .. dice_color
+  UI.setAttribute(id, "text", tostring(value))
+  g_game_settings[id] = value
+  wizard_panel_tatical_advantage_update()
+end
+
+function on_wizard_red_maneuver_rating_selected(player, value, id)
+  print_info("Red maneuver rating " .. tostring(value))
+  local maneuverRatings =  get_maneuver_ratings_for_color('red')
+  local rating = maneuverRatings[value]
+  g_game_settings['wizard_maneuver_rating_red'] = rating
+  set_maneuver_rating_selected(id, rating)
+  wizard_panel_tatical_advantage_update()
+end
+
+function on_wizard_blue_maneuver_rating_selected(player, value, id)
+  print_info("Blue maneuver rating " .. tostring(value))
+  local maneuverRatings =  get_maneuver_ratings_for_color('blue')
+  local rating = maneuverRatings[value]
+  g_game_settings['wizard_maneuver_rating_blue'] = rating
+  set_maneuver_rating_selected(id, rating)
+  wizard_panel_tatical_advantage_update()
+end
+
+function on_wizard_button_red_maneuver_roll()
+  roll_dice('red')
+end
+
+function on_wizard_button_blue_maneuver_roll()
+  roll_dice('blue')
+end
+
+-- color: either "blue" or "red"
+function get_maneuver_ratings_for_color(color)
+  local army_id = g_game_settings['army_id'] [color]
+  local army = army[army_id]
+  local data = army['data']
+  local maneuverRatings =  data['maneuverRatings']
+  return maneuverRatings
+end
+
+-- xml: XML table to modify
+-- color:  Color of the player whose maneuver rating we are updating
+-- either 'blue' or 'red'
+function wizard_tatical_advantage_update_maneuver_rating(xml, color)
+  local maneuverRatings =  get_maneuver_ratings_for_color(color)
+  local menu_id = "wizard_maneuver_rating_" .. color
+  local options = {}
+  local selected_index = nil
+  for index,maneuverRating in ipairs(maneuverRatings) do
+    table.insert(options, tostring(maneuverRating))
+    if g_game_settings[menu_id] == maneuverRating then
+      selected_index = index
+    end
+  end
+  if selected_idex == nil then
+    selected_index = 1
+    g_game_settings[menu_id] = maneuverRatings[selected_index]
+  end
+  set_options_dropdown_by_id_xml(xml, menu_id, options, selected_index)
+end
+
+
+function wizard_panel_tatical_advantage_update_manueuver_ratings()
+  local xml = UI.getXmlTable()
+  wizard_tatical_advantage_update_maneuver_rating(xml, "red")
+  wizard_tatical_advantage_update_maneuver_rating(xml, "blue")
+  UI.setXmlTable(xml)
+end
+
+function wizard_update_flank_march_for_color(color)
+  local flank_id = color .. "_flank_march"
+  if g_game_settings[flank_id] ~= nil then
+    return
+  end
+  local rating_id = "wizard_maneuver_rating_" .. color
+  local maneuver_rating = g_game_settings[rating_id]
+  if maneuver_rating == nil then
+    return
+  end
+  local dice_id = "wizard_maneuver_roll_value_" .. color
+  local dice = g_game_settings[dice_id]
+  if dice == nil then
+    return
+  end
+  local flank = ((dice == 1) or (dice < maneuver_rating))
+
+  g_game_settings[flank_id] = flank
+  local wizard_id = "wizard_" .. flank_id
+  if flank then
+    UI.setAttribute(wizard_id, "text", "Flank March")
+    print_info(color .. " is eligible for flank march.")
+    local face_URL
+    local z_pos = 35.50
+    local y_rotation = 0
+    if color == "red" then
+      face_URL="http://cloud-3.steamusercontent.com/ugc/1807610517240746012/48DD837201B66B45C44C45CB86585773540F54DF/"
+      z_pos = -z_pos
+      y_rotation = 180
+    else
+      face_URL="http://cloud-3.steamusercontent.com/ugc/1807610517240745877/939F09683E86259AB2F0D92A721F0C173651C78C/"
+    end
+    local flank_card_data =
+     {
+       Name= "CardCustom",
+       Transform= {
+         posX= 0,
+         posY= 3.01,
+         posZ= z_pos,
+         rotX= 0,
+         rotY= y_rotation,
+         rotZ= 180.0,
+         scaleX= 1.87838769,
+         scaleY= 1.0,
+         scaleZ= 1.87838769
+       },
+       ColorDiffuse= {
+         r= 1.0,
+         g= 0.0,
+         b= 0.0
+       },
+     }
+    local flank_card= spawnObjectData( { data=flank_card_data})
+    flank_card.setCustomObject( {
+       type=1,
+       face=face_URL,
+       back=face_URL } )
+  else
+    UI.setAttribute(wizard_id, "text", "")
+    print_info("No flank march for " .. color)
+  end
+end
+
+-- Update the score box for the tactical advanage  wizard
+-- color: "red" or "blue"
+-- return: total or nil if the value is not yet ready
+function update_tactical_maneuver_wizard_score(color)
+  local score_id = "wizard_" .. color .. "_maneuver_score"
+  local rating_id = "wizard_maneuver_rating_" .. color
+  local rating = g_game_settings[rating_id]
+  if rating == nil then
+    UI.setAttribute(score_id, "text", "")
+    return nil
+  end
+
+  local dice_id = "wizard_maneuver_roll_value_" .. color
+  local dice = g_game_settings[dice_id]
+  if dice == nil then
+    UI.setAttribute(score_id, "text", "")
+    return nil
+  end
+
+  local score = dice + rating
+  UI.setAttribute(score_id, "text", tostring(score))
+  return score
+end
+
+function do_update_tactical_advantage_wizard_page()
+
+  local red_score = update_tactical_maneuver_wizard_score("red")
+  local blue_score = update_tactical_maneuver_wizard_score("blue")
+  wizard_update_flank_march_for_color('red')
+  wizard_update_flank_march_for_color('blue')
+  if red_score == nil or blue_score == nil then
+    UI.setAttribute("wizard_text_tatical_advantage_player", "text", "")
+      UI.setAttribute("wizard_text_tatical_advantage_score", "text", "")
+      UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", false)
+      return
+  end
+  if red_score == blue_score then
+    UI.setAttribute("wizard_text_tatical_advantage_player", "text", "tie, roll again")
+    UI.setAttribute("wizard_maneuver_roll_value_red", "text", nil)
+    UI.setAttribute("wizard_maneuver_roll_value_blue", "text", nil)
+    UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", false)
+    return
+  end
+  local advantage = math.abs(red_score - blue_score)
+  g_game_settings["tatical_advantage_score"] = advantage
+  UI.setAttribute("wizard_text_tatical_advantage_score", "text", tostring(advantage))
+  if red_score > blue_score then
+      UI.setAttribute("wizard_text_tatical_advantage_player", "text", "Red tactical advantage: ")
+      g_game_settings['tactical_advantage'] = "red"
+  else
+     UI.setAttribute("wizard_text_tatical_advantage_player", "text", "Blue tactical advantage: ")
+     g_game_settings['tactical_advantage'] = "blue"
+  end
+  UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", true)
+  print_important("tatical advantage " .. g_game_settings['tactical_advantage'] ..
+    ' ' .. tostring(g_game_settings["tatical_advantage_score"]))
+end
+
+function wizard_panel_tatical_advantage_update()
+  -- Need to wait one frame for the UI elements to update
+  -- before we can query them
+  Wait.frames(
+    function()
+      do_update_tactical_advantage_wizard_page()
+    end,
+    1)
 end
