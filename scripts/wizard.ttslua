@@ -11,7 +11,7 @@ wizard_panels = {
    "wizard_panel_topography",
    "wizard_panel_tactical_advantage",
    "wizard_panel_terrain_pieces_roll",
-   "wizard_panel_select_terrain_nb_pieces",
+   "wizard_panel_terrain_score",
   -- "wizard_panel_order_terrain_pieces",
   -- "wizard_panel_camps",
   -- "wizard_panel_deploy_troops",
@@ -570,7 +570,7 @@ end
 
 
 function on_wizard_panel_terrain_pieces_roll_next()
-  wizard_show_panel_select_terrain_nb_pieces()
+  wizard_show_panel_terrain_score()
 end
 
 function on_wizard_button_red_terrain_pieces_roll()
@@ -636,8 +636,8 @@ terrain_nb_pieces['delta']=terrain_nb_pieces['arable']
 -- is a coast required.  index+1 = terrain score
 terrain_coast = {false,false,true,false,false,true,false,false,true,false,false}
 
-function wizard_show_panel_select_terrain_nb_pieces()
-  wizard_show_panel("wizard_panel_select_terrain_nb_pieces")
+function wizard_show_panel_terrain_score()
+  wizard_show_panel("wizard_panel_terrain_score")
   g_wizard_exit_panel_fn = wizard_panel_exit_terrain_score
 
   -- Enable and disable the toggles for the terain score
@@ -663,12 +663,12 @@ function wizard_show_panel_select_terrain_nb_pieces()
   end
 end
 
-function on_wizard_panel_nb_terrain_previous()
+function on_wizard_panel_terrain_score_previous()
   wizard_show_panel_terrain_pieces_roll()
 end
 
 
-function on_wizard_panel_nb_terrain_next()
+function on_wizard_panel_terrain_score_next()
   wizard_hide()
 end
 
