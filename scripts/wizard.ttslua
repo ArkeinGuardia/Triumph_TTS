@@ -13,7 +13,7 @@ wizard_panels = {
    "wizard_panel_terrain_pieces_roll",
    "wizard_panel_terrain_score",
    "wizard_panel_terrain_selection",
-  -- "wizard_panel_order_terrain_pieces",
+   "wizard_panel_terrain_placement",
   -- "wizard_panel_camps",
   -- "wizard_panel_deploy_troops",
   -- "wizard_panel_first_turn",
@@ -721,7 +721,7 @@ end
 
 
 function on_wizard_panel_terrain_selection_next()
-  wizard_hide()
+  wizard_show_panel_terrain_placement()
 end
 
 
@@ -746,7 +746,53 @@ function wizard_show_panel_terrain_selection()
   else
     UI.setAttribute("wizard_terrain_selection_optional", "text", terrain_optional[topography]);
   end
-  -- wizard_terrain_selection_optional_nb_pieces
-  -- wizard_terrain_selection_optional
   wizard_show_panel("wizard_panel_terrain_selection")
 end
+
+-------------------
+------------------- Terrain Placement
+-------------------
+
+function on_wizard_panel_terrain_placement_previous()
+  wizard_show_panel_terrain_selection()
+end
+
+
+function on_wizard_panel_terrain_placement_next()
+  wizard_hide()
+end
+
+
+function wizard_panel_exit_terrain_placement()
+  g_deployment_lines_enabled = false
+  remove_deployment_lines()
+  g_game_table_callbacks['wizard_panel_terrain_placement'] = nil
+end
+
+function wizard_panel_terrain_placement_update()
+  local table_locked = g_game_settings['table locked']
+  if (not table_locked) then
+    table_locked = false
+  end
+  local table_can_be_locked = not table_locked
+  UI.setAttribute("wizard_panel_terrain_placement_lock_table", "interactable", table_can_be_locked)
+  UI.setAttribute("wizard_panel_terrain_placement_next", "interactable", table_locked)
+end
+
+function on_wizard_panel_terrain_placement_lock_table()
+  fix_terrain_and_lock()
+end
+
+
+function wizard_show_panel_terrain_placement()
+  wizard_panel_terrain_placement_update()
+  wizard_show_panel("wizard_panel_terrain_placement")
+  g_wizard_exit_panel_fn = wizard_panel_exit_terrain_placement
+  g_game_table_callbacks['wizard_panel_terrain_placement'] = wizard_panel_terrain_placement_update
+  g_deployment_lines_enabled = true
+  draw_deployment_lines()
+end
+
+-------------------
+-------------------
+-------------------
