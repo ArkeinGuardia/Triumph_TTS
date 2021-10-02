@@ -192,6 +192,9 @@ def get_points_for_troop_type(troop_type) :
     return 3
   raise Exception("troop_type not understood: " + str(troop_type))
 
+def is_general(base_definition):
+  return ('general' in base_definition) and (base_definition['general'] == True) 
+
 def get_dismounting_type(base_definition, battle_card_note) :
   # DD  only 1477 AD: as Elite Foot
   # DD  1328-1515 AD: as Elite Foot
@@ -211,12 +214,25 @@ def get_dismounting_type(base_definition, battle_card_note) :
   if m is not None :
     dismount =  m.group('troop_type')
     if dismount == "Pike" :
-      dismount = "Pikes"
+      return "Pikes"
     elif dismount == "Spear" :
-      dismount = "Spears"
+      return "Spears"
     return dismount
+  elif (battle_card_note == "General only; as Pike") :
+    if is_general(base_definition) :
+      return "Pikes"
+    else:
+      return None
+  elif battle_card_note == "German Knights as Elite Foot; Lithuanian Javelin Cavalry as Archers" :
+      print("base_definition=", base_definition)
+      if base_definition['troop_type'] == "KNT" :
+        return "Elite Foot"
+      if base_definition['troop_type'] == "JCV" :
+        return "Archers"
+      return None
   else:
     print("Unable to decode battle card note ", battle_card_note)
+    print("base_definition=", base_definition)
     assert False
 
 
@@ -282,7 +298,8 @@ def write_deployment_dismounting_as(file, base_definition, dismount_type, battle
 def write_deployment_dismounting(file, base_definition, battle_card) :
   note = battle_card['note']
   dismount_type = get_dismounting_type(base_definition, note)
-  return write_deployment_dismounting_as(file, base_definition, dismount_type, battle_card)
+  if dismount_type is not None:
+    return write_deployment_dismounting_as(file, base_definition, dismount_type, battle_card)
 
 def write_mid_battle_dismounting_as(file, base_definition, dismount_type, battle_card) :
   """
@@ -664,7 +681,8 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
         result.extend(extra)
       else:
         extra = write_deployment_dismounting(file, base_definition, battle_card)
-        result.extend(extra)
+        if extra is not None:
+          result.extend(extra)
     elif code == "SV" :
         extra = write_separated_valets(file, base_definition, battle_card)
         result.extend(extra)
@@ -720,7 +738,8 @@ def base_definitions(file, army, troop_option) :
     base_definition = create_base_definition(troop_option, troop_entry)
     result.append(base_definition)
     extra = write_battle_cards(file, army, troop_option, troop_entry, base_definition)
-    result.extend(extra)
+    if extra is not None :
+      result.extend(extra)
 
 
   return result
