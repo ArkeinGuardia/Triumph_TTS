@@ -1184,7 +1184,12 @@ function onObjectDestroy(dying_object)
     end
     if is_base_obj(dying_object) then
       print_info('Base ' .. name .. ' removed from play')
-      g_bases[name] = nil
+
+      -- Do not remove the base from g_bases.  The object is marked
+      -- as destroyed when it is put into a bag.  If the object is
+      -- removed from the bag we need the bases settings.
+      -- https://github.com/ArkeinGuardia/Triumph_TTS/issues/149
+
       set_last_snapshot()
       history_record_object_destroy(dying_object)
       remove_decorations_for_obj(dying_object)
