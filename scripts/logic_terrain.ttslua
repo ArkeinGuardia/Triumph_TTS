@@ -97,6 +97,9 @@ function snap_road(road)
 end
 
 
+-- Listeners to notify when the game table has been locked.
+g_game_table_callbacks = {}
+
 function fix_terrain_and_lock()
     local all_objs = getAllObjects()
     local terrains = {}
@@ -157,6 +160,11 @@ function fix_terrain_and_lock()
         gametable.setRotation({ x = 0, y = 0, z = 0})
         gametable.setPosition({ x = 0, y = g_base_height_tabletop, z = 0})
         gametable.setLock(true)
+        g_game_settings['table locked'] = true
+        -- Notify listener that gametable has been locked
+        for callback_name,fun in pairs(g_game_table_callbacks) do
+          fun()
+        end
         print_important('Table is now locked')
     end, 1)
 end
