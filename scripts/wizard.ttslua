@@ -12,6 +12,7 @@ wizard_panels = {
    "wizard_panel_tactical_advantage",
    "wizard_panel_terrain_pieces_roll",
    "wizard_panel_terrain_score",
+   "wizard_panel_terrain_selection",
   -- "wizard_panel_order_terrain_pieces",
   -- "wizard_panel_camps",
   -- "wizard_panel_deploy_troops",
@@ -669,11 +670,13 @@ end
 
 
 function on_wizard_panel_terrain_score_next()
-  wizard_hide()
+  wizard_show_panel_terrain_selection()
 end
 
 function on_wizard_tarrain_score_selected(player, value, id)
   g_game_settings['terrain_score']  = tonumber(value) + 2
+  local terrain_score = g_game_settings['terrain_score']
+  g_game_settings['coast_allowed'] =  terrain_coast[terrain_score-1]
 end
 
 
@@ -682,10 +685,68 @@ function wizard_panel_exit_terrain_score()
   local topography =  g_game_settings['topography']
   local nb_pieces = terrain_nb_pieces[topography][terrain_score-1]
   local coast
-  if terrain_coast[terrain_score-1] then
+  if g_game_settings['coast_allowed'] then
     coast = " coast"
   else
     coast = ""
   end
   print_important("terrain score: " .. tostring(terrain_score) .. " nb pieces: " .. tostring(nb_pieces) ..  coast)
+end
+
+-------------------
+------------------- Terrain Selection
+-------------------
+
+terrain_manditory = {}
+terrain_manditory['steepe']="Gentle hills"
+terrain_manditory['dry']="Rough"
+terrain_manditory['forest']="Woods"
+terrain_manditory['marsh']="Marsh"
+terrain_manditory['arable']="Village"
+terrain_manditory['hilly']="Steep hills"
+terrain_manditory['delta']="Coast"
+terrain_optional = {}
+terrain_optional['steepe']="Stream, Rough, Woods (1), Gentle hills"
+terrain_optional['dry']="Dunes, Steep Hills, Oasis, Rough"
+terrain_optional['forest']="Stream, Marsh, Wooded Hills, Woods"
+terrain_optional['marsh']="Woods, Stream, Coast, Marsh"
+terrain_optional['arable']="Stream, Steep Hills, Gentle Hills (1), Woods, Wooded Hills, Coast, Rough, Ploughed Fields"
+terrain_optional['hilly']="Stream, Woods, Wooded Hills, Steep Hills"
+terrain_optional['delta']="Marsh, Dunes, Village"
+
+
+function on_wizard_panel_terrain_selection_previous()
+  wizard_show_panel_terrain_score()
+end
+
+
+function on_wizard_panel_terrain_selection_next()
+  wizard_hide()
+end
+
+
+function wizard_show_panel_terrain_selection()
+  local terrain_score = g_game_settings['terrain_score']
+  local topography =  g_game_settings['topography']
+  local nb_pieces = terrain_nb_pieces[topography][terrain_score-1]
+  local nb_optional_pieces = nb_pieces - 1
+  UI.setAttribute("wizard_terrain_selection_topography", "text", topography);
+  UI.setAttribute("wizard_terrain_selection_terrain_score", "text", tostring(terrain_score));
+  local coast
+  if g_game_settings['coast_allowed'] then
+    coast = " coast allowed"
+  else
+    coast = ""
+  end
+  UI.setAttribute("wizard_terrain_selection_coast", "text", coast);
+  UI.setAttribute("wizard_terrain_selection_manditory", "text", terrain_manditory[topography]);
+  UI.setAttribute("wizard_terrain_selection_optional_nb_pieces", "text", tostring(nb_optional_pieces));
+  if nb_optional_pieces <= 0 then
+    UI.setAttribute("wizard_terrain_selection_optional", "text", "");
+  else
+    UI.setAttribute("wizard_terrain_selection_optional", "text", terrain_optional[topography]);
+  end
+  -- wizard_terrain_selection_optional_nb_pieces
+  -- wizard_terrain_selection_optional
+  wizard_show_panel("wizard_panel_terrain_selection")
 end

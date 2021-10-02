@@ -314,7 +314,7 @@
   <TableLayout>
     <Row>
       <Cell columnSpan="3">
-        <Text>Dice for number of terrain pieces</Text>
+        <Text>Dice roll for terrain score</Text>
       </Cell>
     </Row>
     <Row>
@@ -526,7 +526,73 @@
         <Cell>
         </Cell>
         <Cell>
-          <Button id="wizard_panel_terrain_score_next" onClick="on_wizard_panel_terrain_score_next" height="50">Finish</Button>
+          <Button id="wizard_panel_terrain_score_next" onClick="on_wizard_panel_terrain_score_next" height="50">Next</Button>
+        </Cell>
+      </Row>
+    </TableLayout>
+</Panel>
+
+<Panel id="wizard_panel_terrain_selection" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+    <TableLayout height="400" width="220">
+      <Row>
+        <TableLayout>
+        <Row>
+        <Cell columnSpan="2">
+            <Text>Terrain Selection</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell  columnSpan="2">
+            <Text id="wizard_terrain_selection_topography" fontSize="10">Topography</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell>
+            <Text fontSize="10">Terrain Score</Text>
+        </Cell>
+        <Cell>
+          <Text id="wizard_terrain_selection_terrain_score" fontSize="10">score</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="2">
+          <Text id="wizard_terrain_selection_coast" fontSize="10">coast?</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell>
+            <Text  fontSize="10">Manditory</Text>
+        </Cell>
+        <Cell>
+          <Text id="wizard_terrain_selection_manditory" fontSize="10">terrain</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="2">
+          <Text id="wizard_terrain_selection_optional_nb_pieces" fontSize="10">nb pieces</Text>
+          <Text fontSize="10">Optional pieces</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="2">
+          <Text id="wizard_terrain_selection_optional" fontSize="10" horizontalOverflow="wrap"  alignment="MiddleLeft">terrain</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="2" horizontalOverflow="wrap" alignment="MiddleLeft">
+            <Text fontSize="10">Select the terrain and place them order, large terrain first.</Text>
+        </Cell>
+      </Row>
+      </TableLayout>
+      </Row>
+      <Row>
+        <Cell>
+          <Button id="wizard_panel_terrain_selection_previous" onClick="on_wizard_panel_terrain_selection_previous" height="50">Previous</Button>
+        </Cell>
+        <Cell>
+        </Cell>
+        <Cell>
+          <Button id="wizard_panel_terrain_selection_next" onClick="on_wizard_panel_terrain_selection_next" height="50">Finish</Button>
         </Cell>
       </Row>
     </TableLayout>
