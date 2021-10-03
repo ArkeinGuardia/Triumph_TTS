@@ -150,7 +150,7 @@ function fix_terrain_and_lock()
                     process_vegetation(terrain, terrain_type)
                 end
 
-                gametable.addAttachment(terrain)
+                terrain.setLock(true)
                 print_info('Attaching ' .. terrain.getName())
             end, 1)
         end
