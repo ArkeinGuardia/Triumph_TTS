@@ -15,9 +15,23 @@ wizard_panels = {
    "wizard_panel_terrain_selection",
    "wizard_panel_terrain_placement",
    "wizard_panel_camps",
-  -- "wizard_panel_deploy_troops",
+   "wizard_panel_deploy_troops",
   -- "wizard_panel_first_turn",
 }
+
+function get_tactical_disadvantage()
+  local advantage = g_game_settings['tactical_advantage']
+  if advantage == nil then
+    print_error("tactical_advantage has not been set")
+    return "red"
+  end
+  if advantage == "red" then
+    return "blue"
+  else
+    return "red"
+  end
+end
+
 
 function wizard_show_panel(panel_name)
   if g_wizard_exit_panel_fn then
@@ -798,7 +812,7 @@ function wizard_show_panel_terrain_placement()
 end
 
 -------------------
-------------------- Campst
+------------------- Camps
 -------------------
 
 function on_wizard_panel_camps_previous()
@@ -807,7 +821,7 @@ end
 
 
 function on_wizard_panel_camps_next()
-  wizard_hide()
+  wizard_show_panel_deploy_troops()
 end
 
 
@@ -819,16 +833,43 @@ end
 
 function wizard_show_panel_camps()
   local advantage = g_game_settings['tactical_advantage']
-  local disadvantage
-  if advantage == "red" then
-    disadvantage = "blue"
-  else
-    disadvantage = red
-  end
+  local disadvantage = get_tactical_disadvantage()
   UI.setAttribute("wizard_panel_camps_disadvantage", "text", disadvantage)
   UI.setAttribute("wizard_panel_camps_advantage", "text", advantage)
   wizard_show_panel("wizard_panel_camps")
   g_wizard_exit_panel_fn = wizard_panel_exit_camps
+  g_deployment_lines_enabled = true
+  draw_deployment_lines()
+end
+
+-------------------
+------------------- Deploy Troops
+-------------------
+
+function on_wizard_panel_deploy_troops_previous()
+  wizard_show_panel_camps()
+end
+
+
+function on_wizard_panel_deploy_troops_next()
+  wizard_hide()
+end
+
+
+function wizard_panel_exit_deploy_troops()
+  g_deployment_lines_enabled = false
+  remove_deployment_lines()
+end
+
+
+function wizard_show_panel_deploy_troops()
+  local advantage = g_game_settings['tactical_advantage']
+  local disadvantage = get_tactical_disadvantage()
+  UI.setAttribute("wizard_panel_deploy_troops_disadvantage_center_line", "text", disadvantage)
+  UI.setAttribute("wizard_panel_deploy_troops_advantage", "text", advantage)
+  UI.setAttribute("wizard_panel_deploy_troops_disadvantage_remainder", "text", disadvantage)
+  wizard_show_panel("wizard_panel_deploy_troops")
+  g_wizard_exit_panel_fn = wizard_panel_exit_deploy_troops
   g_deployment_lines_enabled = true
   draw_deployment_lines()
 end

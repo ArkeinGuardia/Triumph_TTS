@@ -555,30 +555,32 @@
         </Cell>
       </Row>
       <Row>
-        <Cell>
+        <Cell columnSpan="2">
+          <HorizontalLayout>
             <Text fontSize="10">Terrain Score</Text>
-        </Cell>
-        <Cell>
-          <Text id="wizard_terrain_selection_terrain_score" fontSize="10">score</Text>
-        </Cell>
-      </Row>
-      <Row>
-        <Cell columnSpan="2">
-          <Text id="wizard_terrain_selection_coast" fontSize="10">coast?</Text>
-        </Cell>
-      </Row>
-      <Row>
-        <Cell>
-            <Text  fontSize="10">Manditory</Text>
-        </Cell>
-        <Cell>
-          <Text id="wizard_terrain_selection_manditory" fontSize="10">terrain</Text>
+            <Text id="wizard_terrain_selection_terrain_score" fontSize="10">score</Text>
+          </HorizontalLayout>
         </Cell>
       </Row>
       <Row>
         <Cell columnSpan="2">
-          <Text id="wizard_terrain_selection_optional_nb_pieces" fontSize="10">nb pieces</Text>
-          <Text fontSize="10">Optional pieces</Text>
+          <Text id="wizard_terrain_selection_coast" fontSize="10" alignment="MiddleLeft">coast?</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell>
+            <Text  fontSize="10"  alignment="MiddleLeft">Manditory</Text>
+        </Cell>
+        <Cell>
+          <Text id="wizard_terrain_selection_manditory" fontSize="10" alignment="MiddleLeft">terrain</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="2">
+          <HorizontalLayout>
+            <Text id="wizard_terrain_selection_optional_nb_pieces" fontSize="10">nb pieces</Text>
+            <Text fontSize="10">Optional pieces</Text>
+          </HorizontalLayout>
         </Cell>
       </Row>
       <Row>
@@ -662,7 +664,7 @@
           <Text id="wizard_panel_camps_disadvantage">who</Text>
         </Cell>
         <Cell columnSpan="2" horizontalOverflow="wrap">
-          <Text>1. Tactically disadvantaged player places camp.</Text>
+          <Text alignment="MiddleLeft">1. Tactically disadvantaged player places camp.</Text>
         </Cell>
       </Row>
       <Row>
@@ -670,7 +672,7 @@
           <Text id="wizard_panel_camps_advantage">who</Text>
         </Cell>
         <Cell columnSpan="2" horizontalOverflow="wrap">
-          <Text>2. Tactically advantaged player places camp.</Text>
+          <Text alignment="MiddleLeft">2. Tactically advantaged player places camp.</Text>
         </Cell>
       </Row>
       <Row>
@@ -680,7 +682,49 @@
         <Cell>
         </Cell>
         <Cell>
-          <Button id="wizard_panel_camps_next" onClick="on_wizard_panel_camps_next" height="50">Finish</Button>
+          <Button id="wizard_panel_camps_next" onClick="on_wizard_panel_camps_next" height="50">Next</Button>
+        </Cell>
+      </Row>
+    </TableLayout>
+</Panel>
+
+<Panel id="wizard_panel_deploy_troops" width="230" height="400" color="#00000000" rectAlignment="MiddleRight" padding="30 0 30 30" raycastTarget="true" active="false">
+    <TableLayout height="400" width="220">
+      <Row>
+        <Cell columnSpan="3"><Text>Deploy Tropps</Text></Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="1">
+          <Text id="wizard_panel_deploy_troops_disadvantage_center_line">who</Text>
+        </Cell>
+        <Cell columnSpan="2">
+          <Text alignment="MiddleLeft" horizontalOverflow="wrap">1. Tactically disadvantaged player deploys center line.</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="1">
+          <Text id="wizard_panel_deploy_troops_advantage">who</Text>
+        </Cell>
+        <Cell  columnSpan="2">
+          <Text alignment="MiddleLeft" horizontalOverflow="wrap">2. Tactically advantaged player on_toggle_deployment_lines all troops.</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell columnSpan="1">
+          <Text id="wizard_panel_deploy_troops_disadvantage_remainder">who</Text>
+        </Cell>
+        <Cell columnSpan="2">
+          <Text alignment="MiddleLeft"  horizontalOverflow="wrap">3. Tactically disadvantaged player deploys remaining troops.</Text>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell>
+          <Button id="wizard_panel_deploy_troops_previous" onClick="on_wizard_panel_deploy_troops_previous" height="50">Previous</Button>
+        </Cell>
+        <Cell>
+        </Cell>
+        <Cell>
+          <Button id="wizard_panel_deploy_troops_next" onClick="on_wizard_panel_deploy_troops_next" height="50">Finish</Button>
         </Cell>
       </Row>
     </TableLayout>
