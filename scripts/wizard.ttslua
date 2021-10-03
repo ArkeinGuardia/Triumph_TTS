@@ -16,7 +16,7 @@ wizard_panels = {
    "wizard_panel_terrain_placement",
    "wizard_panel_camps",
    "wizard_panel_deploy_troops",
-  -- "wizard_panel_first_turn",
+   "wizard_panel_first_move",
 }
 
 function get_tactical_disadvantage()
@@ -852,7 +852,7 @@ end
 
 
 function on_wizard_panel_deploy_troops_next()
-  wizard_hide()
+  wizard_show_panel_first_move()
 end
 
 
@@ -872,6 +872,28 @@ function wizard_show_panel_deploy_troops()
   g_wizard_exit_panel_fn = wizard_panel_exit_deploy_troops
   g_deployment_lines_enabled = true
   draw_deployment_lines()
+end
+
+
+
+-------------------
+------------------- First Move
+-------------------
+
+function on_wizard_panel_first_move_previous()
+  wizard_show_panel_deploy_troops()
+end
+
+
+function on_wizard_panel_first_move_next()
+  wizard_hide()
+end
+
+
+function wizard_show_panel_first_move()
+  local advantage = g_game_settings['tactical_advantage']
+  UI.setAttribute("wizard_panel_first_move_advantage", "text", advantage)
+  wizard_show_panel("wizard_panel_first_move")
 end
 
 
