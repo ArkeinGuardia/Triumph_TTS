@@ -14,7 +14,7 @@ wizard_panels = {
    "wizard_panel_terrain_score",
    "wizard_panel_terrain_selection",
    "wizard_panel_terrain_placement",
-  -- "wizard_panel_camps",
+   "wizard_panel_camps",
   -- "wizard_panel_deploy_troops",
   -- "wizard_panel_first_turn",
 }
@@ -726,10 +726,12 @@ end
 
 
 function wizard_show_panel_terrain_selection()
+  local advantage = g_game_settings['tactical_advantage']
   local terrain_score = g_game_settings['terrain_score']
   local topography =  g_game_settings['topography']
   local nb_pieces = terrain_nb_pieces[topography][terrain_score-1]
   local nb_optional_pieces = nb_pieces - 1
+  UI.setAttribute("wizard_terrain_selection_advantage", "text", advantage);
   UI.setAttribute("wizard_terrain_selection_topography", "text", topography);
   UI.setAttribute("wizard_terrain_selection_terrain_score", "text", tostring(terrain_score));
   local coast
@@ -759,7 +761,7 @@ end
 
 
 function on_wizard_panel_terrain_placement_next()
-  wizard_hide()
+  wizard_show_panel_camps()
 end
 
 
@@ -770,11 +772,13 @@ function wizard_panel_exit_terrain_placement()
 end
 
 function wizard_panel_terrain_placement_update()
+  local advantage = g_game_settings['tactical_advantage']
   local table_locked = g_game_settings['table locked']
   if (not table_locked) then
     table_locked = false
   end
   local table_can_be_locked = not table_locked
+  UI.setAttribute("wizard_panel_terrain_placement_advantage", "text", advantage)
   UI.setAttribute("wizard_panel_terrain_placement_lock_table", "interactable", table_can_be_locked)
   UI.setAttribute("wizard_panel_terrain_placement_next", "interactable", table_locked)
 end
@@ -792,6 +796,43 @@ function wizard_show_panel_terrain_placement()
   g_deployment_lines_enabled = true
   draw_deployment_lines()
 end
+
+-------------------
+------------------- Campst
+-------------------
+
+function on_wizard_panel_camps_previous()
+  wizard_show_panel_terrain_placement()
+end
+
+
+function on_wizard_panel_camps_next()
+  wizard_hide()
+end
+
+
+function wizard_panel_exit_camps()
+  g_deployment_lines_enabled = false
+  remove_deployment_lines()
+end
+
+
+function wizard_show_panel_camps()
+  local advantage = g_game_settings['tactical_advantage']
+  local disadvantage
+  if advantage == "red" then
+    disadvantage = "blue"
+  else
+    disadvantage = red
+  end
+  UI.setAttribute("wizard_panel_camps_disadvantage", "text", disadvantage)
+  UI.setAttribute("wizard_panel_camps_advantage", "text", advantage)
+  wizard_show_panel("wizard_panel_camps")
+  g_wizard_exit_panel_fn = wizard_panel_exit_camps
+  g_deployment_lines_enabled = true
+  draw_deployment_lines()
+end
+
 
 -------------------
 -------------------
