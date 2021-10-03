@@ -706,33 +706,6 @@ function on_toggle_zoc(player, value, id)
     end)
 end
 
--- Global enabled or disabled deployment lines
-g_deployment_lines_enabled = false
-function on_toggle_deployment_lines(player, value, id)
-    g_deployment_lines_enabled = value == "True"
-
-    if g_deployment_lines_enabled then
-        UI.setValue('toggle_deployment_lines', 'Show deployment rulers')
-
-        if g_current_table == nil then
-            print_error('There\'s no table so deployment lines will have no effect. Please reenable when you spawned the table.')
-        else
-            draw_deployment_lines()
-        end
-    else
-        UI.setValue('toggle_deployment_lines', 'Do not show rulers')
-
-        if g_current_table ~= nil then
-            remove_deployment_lines()
-        end
-    end
-
-    -- Make it consistent for all players
-    on_next_frame(function()
-        UI.setAttribute('toggle_deployment_lines', 'isOn', g_deployment_lines_enabled)
-    end)
-end
-
 
 g_current_table_size = 'large'
 function on_toggle_table_size(player, value, id)
