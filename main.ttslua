@@ -78,6 +78,19 @@ function onload(saved_data)
     update_current_ui()
 
     set_last_snapshot()
+    set_all_bases_command_colors()
+end
+
+-- For all the bases, if a command color is set then update the
+-- highlight so it is visible
+function set_all_bases_command_colors()
+  local bases = get_all_bases()
+  for _, base in pairs(bases) do
+    command_color = get_decoration_for_obj(base, "command_color")
+    if nil ~= command_color then
+      base_highlight(base, command_color)
+    end
+  end
 end
 
 function set_tablet_homepage(tablet_name)
