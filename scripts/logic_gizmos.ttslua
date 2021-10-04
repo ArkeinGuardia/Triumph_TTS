@@ -1553,12 +1553,6 @@ function get_strokes_edges(base_obj)
    local top_bottom_transform = calculate_transform(base_obj, top_bottom_size)
    local left_right_transform = calculate_transform(base_obj, left_right_size)
 
-    local top_stroke_points = {
-      set_vec_to_above_terrain(top_bottom_transform['corners']['topright']),
-      set_vec_to_above_terrain(top_bottom_transform['corners']['topleft'])
-    }
-    local top_stroke = make_stroke(top_stroke_points, stroke_color)
-
     local bottom_stroke_points = {
         set_vec_to_above_terrain(top_bottom_transform['corners']['botright']),
         set_vec_to_above_terrain(top_bottom_transform['corners']['botleft'])
@@ -1578,7 +1572,7 @@ function get_strokes_edges(base_obj)
     local right_stroke = make_stroke(right_stroke_points, stroke_color)
 
     local strokes = {
-      top_stroke, bottom_stroke, left_stroke, right_stroke
+      bottom_stroke, left_stroke, right_stroke
     }
 
     return strokes
