@@ -602,7 +602,7 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     print_debug('Spawning base #' .. g_base_index)
     local overriden_tex = nil
     if base_definition['ignore_terrain'] == nil then
-        local type = from_toggle_number_to_table_type(g_current_table_type)
+        local type = from_toggle_number_to_table_type(g_game_settings["table type"])
         if tables[type] == nil then
             type = 'grass'
         end

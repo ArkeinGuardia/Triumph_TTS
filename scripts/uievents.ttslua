@@ -726,9 +726,9 @@ function on_toggle_3dterrain(player, value, id)
     end
 end
 
-g_current_table_type = 0
+g_game_settings["table type"] = 0
 function on_toggle_table_type(player, value, id)
-    g_current_table_type = tonumber(value)
+    g_game_settings["table type"] = tonumber(value)
 end
 
 function from_toggle_number_to_table_type(value)

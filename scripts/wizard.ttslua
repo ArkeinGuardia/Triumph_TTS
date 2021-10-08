@@ -341,15 +341,15 @@ function wizard_show_panel_topography()
 end
 
 function on_wizard_togoraphy_selected(player, value, id)
-  g_game_settings['table_spawned'] = (value == tonumber(g_current_table_type))
-  g_current_table_type = tonumber(value)
+  g_game_settings['table_spawned'] = (value == tonumber(g_game_settings["table type"]))
+  g_game_settings["table type"] = tonumber(value)
   wizard_panel_topography_update()
 end
 
 function on_wizard_panel_topography_spawn_table()
-  load_table(g_current_table_type)
+  load_table(g_game_settings["table type"])
   g_game_settings['table_spawned'] = true
-  g_game_settings['topography'] = g_topographies[g_current_table_type + 1]
+  g_game_settings['topography'] = g_topographies[g_game_settings["table type"] + 1]
   wizard_panel_topography_update()
 end
 
