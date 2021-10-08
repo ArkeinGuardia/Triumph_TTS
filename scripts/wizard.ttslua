@@ -320,19 +320,27 @@ end
 g_topographies = {'arable', 'forest', 'hilly', 'dry', 'steepe', 'marsh', 'delta'}
 
 function wizard_show_panel_topography()
-  wizard_show_panel("wizard_panel_topography")
+  -- set the table type before populating otherwise it will be set to zero.
   local defender
   if g_game_settings['invader']=='blue' then
     defender = 'red'
   else
     defender = 'blue'
   end
-  UI.setAttribute("wizard_topgraphy_defender", "text", defender)
   local army_id = g_game_settings['army_id'] [defender]
   local army = army[army_id]
   local data = army['data']
   local homeTopographies =  data['homeTopographies']
-  for _,topo in ipairs(g_topographies) do
+  for table_type,topo in ipairs(g_topographies) do
+    local active =  find_in_array(homeTopographies, topo, str_equals_case_insensitive)
+    if active then
+      g_game_settings["table type"] = table_type
+    end
+  end
+
+  wizard_show_panel("wizard_panel_topography")
+  UI.setAttribute("wizard_topgraphy_defender", "text", defender)
+  for table_type,topo in ipairs(g_topographies) do
       local active =  find_in_array(homeTopographies, topo, str_equals_case_insensitive)
       local id = "wizard_topography_" .. topo
       UI.setAttribute(id, "active", tostring(active))
@@ -340,23 +348,36 @@ function wizard_show_panel_topography()
   wizard_panel_topography_update()
 end
 
-function on_wizard_togoraphy_selected(player, value, id)
-  g_game_settings['table_spawned'] = (value == tonumber(g_game_settings["table type"]))
-  g_game_settings["table type"] = tonumber(value)
+function on_wizard_topography_selected(player, value, id)
+  if tonumber(value) ~= 0 then
+    g_game_settings["table type"] = tonumber(value)
+    g_game_settings['topography'] = g_topographies[g_game_settings["table type"]+1]
+  end
   wizard_panel_topography_update()
 end
 
 function on_wizard_panel_topography_spawn_table()
   load_table(g_game_settings["table type"])
   g_game_settings['table_spawned'] = true
-  g_game_settings['topography'] = g_topographies[g_game_settings["table type"] + 1]
   wizard_panel_topography_update()
 end
 
 function wizard_panel_topography_update()
-  UI.setAttribute("wizard_panel_topography_next", "interactable",
-    g_game_settings['table_spawned'])
-  if  g_game_settings['table_spawned'] == true then
+  if nil ~= g_game_settings["topography"] then
+    -- select the topography that has been previously chosen
+    local selected_id = "wizard_topography_" .. g_game_settings["topography"]
+    for _,topo in ipairs(g_topographies) do
+      local id = "wizard_topography_" .. topo
+      if selected_id == id then
+        UI.setAttribute(id, "isOn", true)
+      else
+        UI.setAttribute(id, "isOn", false)
+      end
+    end
+  end
+
+  if g_game_settings['table_spawned'] == true then
+    UI.setAttribute("wizard_panel_topography_next", "interactable", true)
     UI.setAttribute("wizard_topography_arable", "interactable", false)
     UI.setAttribute("wizard_topography_forest", "interactable", false)
     UI.setAttribute("wizard_topography_hilly", "interactable", false)
@@ -365,8 +386,9 @@ function wizard_panel_topography_update()
     UI.setAttribute("wizard_topography_delta", "interactable", false)
     UI.setAttribute("wizard_topography_marsh", "interactable", false)
     UI.setAttribute("wizard_panel_topography_spawn_table", "interactable", false)
+  else
+    UI.setAttribute("wizard_panel_topography_next", "interactable", false)
   end
-
 end
 
 function on_wizard_panel_topography_previous()
