@@ -210,6 +210,9 @@ function on_load_army(player, value, id)
     UI.setAttribute('panel_dba_troop_selection', 'visibility', '')
     UI.setAttribute('panel_dba_troop_selection_bg', 'visibility', '')
     UI.setAttribute('button_create_army', 'interactable', true)
+    if g_load_army_callback then
+      g_load_army_callback()
+    end
 end
 
 function is_army_with_models(army)
