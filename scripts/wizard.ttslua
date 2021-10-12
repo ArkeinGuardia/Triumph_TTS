@@ -780,7 +780,6 @@ end
 
 
 function wizard_panel_exit_terrain_placement()
-  g_deployment_lines_enabled = false
   remove_deployment_lines()
   g_game_table_callbacks['wizard_panel_terrain_placement'] = nil
 end
@@ -807,7 +806,6 @@ function wizard_show_panel_terrain_placement()
   wizard_show_panel("wizard_panel_terrain_placement")
   g_wizard_exit_panel_fn = wizard_panel_exit_terrain_placement
   g_game_table_callbacks['wizard_panel_terrain_placement'] = wizard_panel_terrain_placement_update
-  g_deployment_lines_enabled = true
   draw_deployment_lines()
 end
 
@@ -826,7 +824,6 @@ end
 
 
 function wizard_panel_exit_camps()
-  g_deployment_lines_enabled = false
   remove_deployment_lines()
 end
 
@@ -838,7 +835,6 @@ function wizard_show_panel_camps()
   UI.setAttribute("wizard_panel_camps_advantage", "text", advantage)
   wizard_show_panel("wizard_panel_camps")
   g_wizard_exit_panel_fn = wizard_panel_exit_camps
-  g_deployment_lines_enabled = true
   draw_deployment_lines()
 end
 
@@ -857,7 +853,6 @@ end
 
 
 function wizard_panel_exit_deploy_troops()
-  g_deployment_lines_enabled = false
   remove_deployment_lines()
 end
 
@@ -870,7 +865,6 @@ function wizard_show_panel_deploy_troops()
   UI.setAttribute("wizard_panel_deploy_troops_disadvantage_remainder", "text", disadvantage)
   wizard_show_panel("wizard_panel_deploy_troops")
   g_wizard_exit_panel_fn = wizard_panel_exit_deploy_troops
-  g_deployment_lines_enabled = true
   draw_deployment_lines()
 end
 
