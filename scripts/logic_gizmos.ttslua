@@ -1067,7 +1067,7 @@ function get_strokes_quadrant_vertical_flank(color, angle, width, depth)
 end
 
 function get_strokes_quadrant_vertical_flank_2(color, angle, width, depth)
-    local stroke_points = {}    
+    local stroke_points = {}
     local center = { x=0, y=0, z=0 }
     local half_width = width / 2
     local half_depth = depth / 2
@@ -1115,7 +1115,7 @@ function get_strokes_quadrant_vertical_flank_3(color, angle, width, depth)
 end
 
 function get_strokes_quadrant_vertical_flank_4(color, angle, width, depth)
-    local stroke_points = {}    
+    local stroke_points = {}
     local center = { x=0, y=0, z=0 }
     local half_width = width / 2
     local half_depth = depth / 2
@@ -1511,4 +1511,78 @@ function show_gizmo_bua()
     print_info('Showing BUA fire until deselection. All terrain will be reattached.')
     gametable.removeAttachments()
     Wait.frames(show_gizmo_bua_afterdetach, 1)
+end
+
+
+function make_stroke(stroke_points, stroke_color)
+  return
+  {
+      points    = stroke_points,
+      color     = stroke_color,
+      thickness = g_line_thickness,
+      rotation  = {0,0,0}
+  }
+end
+
+
+-- Get the strokes that will be used to show the extended edges of
+-- a base.  Used to see if a base is vulnerable to a rear or Flank
+-- attack.
+function get_strokes_edges(base_obj)
+    if base_obj == nil then
+        return {}
+    end
+
+    local stroke_color
+    if is_base_blue_player(base_obj) then
+      stroke_color = g_gizmo_color_player_blue
+    else
+      stroke_color = g_gizmo_color_player_red
+    end
+
+    local size = get_size(base_obj.getName())
+
+    local top_bottom_size = shallow_copy(size)
+    top_bottom_size.x = 17
+    top_bottom_size.z = top_bottom_size.z - g_line_thickness / 2
+
+    local left_right_size = shallow_copy(size)
+    left_right_size.x = left_right_size.x - g_line_thickness / 2
+    left_right_size.z = 17
+
+   local top_bottom_transform = calculate_transform(base_obj, top_bottom_size)
+   local left_right_transform = calculate_transform(base_obj, left_right_size)
+
+    local bottom_stroke_points = {
+        set_vec_to_above_terrain(top_bottom_transform['corners']['botright']),
+        set_vec_to_above_terrain(top_bottom_transform['corners']['botleft'])
+    }
+    local bottom_stroke = make_stroke(bottom_stroke_points, stroke_color)
+
+    local left_stroke_points = {
+        set_vec_to_above_terrain(left_right_transform['corners']['topleft']),
+        set_vec_to_above_terrain(left_right_transform['corners']['botleft'])
+    }
+    local left_stroke = make_stroke(left_stroke_points, stroke_color)
+
+    local right_stroke_points = {
+        set_vec_to_above_terrain(left_right_transform['corners']['topright']),
+        set_vec_to_above_terrain(left_right_transform['corners']['botright'])
+    }
+    local right_stroke = make_stroke(right_stroke_points, stroke_color)
+
+    local strokes = {
+      bottom_stroke, left_stroke, right_stroke
+    }
+
+    return strokes
+end
+
+-- Get the strokes that will show where the bases edges are.
+-- infinite lines along a bases edges.
+--
+-- base_obj: base whose edges are to be revealed
+function show_edges(base_obj)
+  local strokes =get_strokes_edges(base_obj)
+  Global.setVectorLines(strokes)
 end
