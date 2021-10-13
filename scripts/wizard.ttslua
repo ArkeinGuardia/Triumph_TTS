@@ -183,9 +183,11 @@ function wizard_panel_invader_set_ratings()
 end
 
 function on_invasion_dice_rolled(dice_color, value)
-  local id = "text_" .. dice_color .. "_invasion_roll_value"
-  UI.setAttribute(id, "text", tostring(value))
-  update_invasion_wizard_page()
+  if g_game_settings['invader'] == nil then
+    local id = "text_" .. dice_color .. "_invasion_roll_value"
+    UI.setAttribute(id, "text", tostring(value))
+    update_invasion_wizard_page()
+  end
 end
 
 function on_button_red_invasion_roll()
@@ -236,6 +238,32 @@ function update_invasion_wizard_score(color)
 end
 
 function do_update_invasion_wizard_page()
+  if g_game_settings['invader'] ~= nil then
+    g_dice_callbacks['invasion_dice_rolled'] = nil
+
+    UI.setAttribute("wizard_panel_invader_next", "interactable", true)
+
+    UI.setAttribute("red_invasion_rating", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_red_0", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_red_1", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_red_2", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_red_3", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_red_4", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_red_5", "interactable", false)
+    UI.setAttribute("button_red_invasion_roll", "interactable", false)
+
+    UI.setAttribute("blue_invasion_rating", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_blue_0", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_blue_1", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_blue_2", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_blue_3", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_blue_4", "interactable", false)
+    UI.setAttribute("wizard_togglegroup_invasion_blue_5", "interactable", false)
+    UI.setAttribute("button_blue_invasion_roll", "interactable", false)
+
+    return
+  end
+
   local red_score = update_invasion_wizard_score("red")
   local blue_score = update_invasion_wizard_score("blue")
   if red_score == nil or blue_score == nil then
@@ -257,12 +285,13 @@ function do_update_invasion_wizard_page()
     g_game_settings['invader'] = "red"
     print_info("Red invades")
     g_game_settings['invader']="red"
-    return
+  else
+    UI.setAttribute("invader", "text", "Blue invades")
+    g_game_settings['invader'] = "blue"
+    print_info("Blue invades")
+    g_game_settings['invader']="blue"
   end
-  UI.setAttribute("invader", "text", "Blue invades")
-  g_game_settings['invader'] = "blue"
-  print_info("Blue invades")
-  g_game_settings['invader']="blue"
+  do_update_invasion_wizard_page()
 end
 
 
@@ -327,15 +356,25 @@ end
 function wizard_panel_topography_update()
   UI.setAttribute("wizard_panel_topography_next", "interactable",
     g_game_settings['table_spawned'])
+  if  g_game_settings['table_spawned'] == true then
+    UI.setAttribute("wizard_topography_arable", "interactable", false)
+    UI.setAttribute("wizard_topography_forest", "interactable", false)
+    UI.setAttribute("wizard_topography_hilly", "interactable", false)
+    UI.setAttribute("wizard_topography_dry", "interactable", false)
+    UI.setAttribute("wizard_topography_steepe", "interactable", false)
+    UI.setAttribute("wizard_topography_delta", "interactable", false)
+    UI.setAttribute("wizard_topography_marsh", "interactable", false)
+    UI.setAttribute("wizard_panel_topography_spawn_table", "interactable", false)
+  end
 
 end
 
 function on_wizard_panel_topography_previous()
-  wizard_show_panel_topography()
+  wizard_show_panel_invader()
 end
 
 function on_wizard_panel_topography_next()
-  wizard_show_panel_tatical_advantage()
+  wizard_show_panel_tactical_advantage()
 end
 
 
@@ -343,11 +382,12 @@ end
 ------------------- Tatucal Advantage
 -------------------
 
-function wizard_show_panel_tatical_advantage()
+function wizard_show_panel_tactical_advantage()
   wizard_show_panel("wizard_panel_tactical_advantage")
-  wizard_panel_tatical_advantage_update_manueuver_ratings()
+  wizard_panel_tactical_advantage_update_manueuver_ratings()
   g_dice_callbacks['tactical_advantage_dice_rolled'] = on_tactical_advantage_dice_rolled
-  g_wizard_exit_panel_fn = wizard_panel_exit_tatical_advantage
+  g_wizard_exit_panel_fn = wizard_panel_exit_tactical_advantage
+  do_update_tactical_advantage_wizard_page()
 end
 
 function wizard_panel_exit_tactical_advantage()
@@ -363,10 +403,12 @@ function on_wizard_panel_tactical_advantage_next()
 end
 
 function on_tactical_advantage_dice_rolled(dice_color, value)
-  local id = "wizard_maneuver_roll_value_" .. dice_color
-  UI.setAttribute(id, "text", tostring(value))
-  g_game_settings[id] = value
-  wizard_panel_tatical_advantage_update()
+  if nil == g_game_settings["tactical_advantage_score"] then
+    local id = "wizard_maneuver_roll_value_" .. dice_color
+    UI.setAttribute(id, "text", tostring(value))
+    g_game_settings[id] = value
+    wizard_panel_tactical_advantage_update()
+  end
 end
 
 function on_wizard_red_maneuver_rating_selected(player, value, id)
@@ -375,7 +417,7 @@ function on_wizard_red_maneuver_rating_selected(player, value, id)
   local rating = maneuverRatings[value]
   g_game_settings['wizard_maneuver_rating_red'] = rating
   set_maneuver_rating_selected(id, rating)
-  wizard_panel_tatical_advantage_update()
+  wizard_panel_tactical_advantage_update()
 end
 
 function on_wizard_blue_maneuver_rating_selected(player, value, id)
@@ -384,7 +426,7 @@ function on_wizard_blue_maneuver_rating_selected(player, value, id)
   local rating = maneuverRatings[value]
   g_game_settings['wizard_maneuver_rating_blue'] = rating
   set_maneuver_rating_selected(id, rating)
-  wizard_panel_tatical_advantage_update()
+  wizard_panel_tactical_advantage_update()
 end
 
 function on_wizard_button_red_maneuver_roll()
@@ -407,7 +449,7 @@ end
 -- xml: XML table to modify
 -- color:  Color of the player whose maneuver rating we are updating
 -- either 'blue' or 'red'
-function wizard_tatical_advantage_update_maneuver_rating(xml, color)
+function wizard_tactical_advantage_update_maneuver_rating(xml, color)
   local maneuverRatings =  get_maneuver_ratings_for_color(color)
   local menu_id = "wizard_maneuver_rating_" .. color
   local options = {}
@@ -426,10 +468,10 @@ function wizard_tatical_advantage_update_maneuver_rating(xml, color)
 end
 
 
-function wizard_panel_tatical_advantage_update_manueuver_ratings()
+function wizard_panel_tactical_advantage_update_manueuver_ratings()
   local xml = UI.getXmlTable()
-  wizard_tatical_advantage_update_maneuver_rating(xml, "red")
-  wizard_tatical_advantage_update_maneuver_rating(xml, "blue")
+  wizard_tactical_advantage_update_maneuver_rating(xml, "red")
+  wizard_tactical_advantage_update_maneuver_rating(xml, "blue")
   UI.setXmlTable(xml)
 end
 
@@ -521,40 +563,51 @@ function update_tactical_maneuver_wizard_score(color)
 end
 
 function do_update_tactical_advantage_wizard_page()
+  if g_game_settings["tactical_advantage_score"] ~= nil then
+    UI.setAttribute("wizard_maneuver_rating_red", "interactable", false)
+    UI.setAttribute("wizard_maneuver_rating_blue", "interactable", false)
+    UI.setAttribute("wizard_button_red_maneuver_roll", "interactable", false)
+    UI.setAttribute("wizard_button_blue_maneuver_roll", "interactable", false)
+    UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", true)
+    g_dice_callbacks['tactical_advantage_dice_rolled'] = nil
+    return
+  end
 
   local red_score = update_tactical_maneuver_wizard_score("red")
   local blue_score = update_tactical_maneuver_wizard_score("blue")
   wizard_update_flank_march_for_color('red')
   wizard_update_flank_march_for_color('blue')
   if red_score == nil or blue_score == nil then
-    UI.setAttribute("wizard_text_tatical_advantage_player", "text", "")
-      UI.setAttribute("wizard_text_tatical_advantage_score", "text", "")
-      UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", false)
-      return
+    UI.setAttribute("wizard_text_tactical_advantage_player", "text", "")
+    UI.setAttribute("wizard_text_tactical_advantage_score", "text", "")
+    UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", false)
+    return
   end
   if red_score == blue_score then
-    UI.setAttribute("wizard_text_tatical_advantage_player", "text", "tie, roll again")
+    UI.setAttribute("wizard_text_tactical_advantage_player", "text", "tie, roll again")
     UI.setAttribute("wizard_maneuver_roll_value_red", "text", nil)
     UI.setAttribute("wizard_maneuver_roll_value_blue", "text", nil)
     UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", false)
     return
   end
   local advantage = math.abs(red_score - blue_score)
-  g_game_settings["tatical_advantage_score"] = advantage
-  UI.setAttribute("wizard_text_tatical_advantage_score", "text", tostring(advantage))
+  g_game_settings["tactical_advantage_score"] = advantage
+  UI.setAttribute("wizard_text_tactical_advantage_score", "text", tostring(advantage))
   if red_score > blue_score then
-      UI.setAttribute("wizard_text_tatical_advantage_player", "text", "Red tactical advantage: ")
+      UI.setAttribute("wizard_text_tactical_advantage_player", "text", "Red tactical advantage: ")
       g_game_settings['tactical_advantage'] = "red"
   else
-     UI.setAttribute("wizard_text_tatical_advantage_player", "text", "Blue tactical advantage: ")
+     UI.setAttribute("wizard_text_tactical_advantage_player", "text", "Blue tactical advantage: ")
      g_game_settings['tactical_advantage'] = "blue"
   end
+  g_dice_callbacks['tactical_advantage_dice_rolled'] =  nil
   UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", true)
-  print_important("tatical advantage " .. g_game_settings['tactical_advantage'] ..
-    ' ' .. tostring(g_game_settings["tatical_advantage_score"]))
+  print_important("tactical advantage " .. g_game_settings['tactical_advantage'] ..
+    ' ' .. tostring(g_game_settings["tactical_advantage_score"]))
+  do_update_tactical_advantage_wizard_page()
 end
 
-function wizard_panel_tatical_advantage_update()
+function wizard_panel_tactical_advantage_update()
   -- Need to wait one frame for the UI elements to update
   -- before we can query them
   Wait.frames(
@@ -580,7 +633,7 @@ function wizard_panel_exit_terrain_pieces_roll()
 end
 
 function on_wizard_panel_terrain_pieces_roll_previous()
-  wizard_show_panel_tatical_advantage()
+  wizard_show_panel_tactical_advantage()
 end
 
 
@@ -597,16 +650,26 @@ function on_wizard_button_blue_terrain_pieces_roll()
 end
 
 function on_terrain_pieces_dice_rolled(dice_color, value)
-  local id = "wizard_terrain_pieces_roll_value_" .. dice_color
-  UI.setAttribute(id, "text", tostring(value))
-  g_game_settings[id] = value
+  if nil == g_game_settings['terrain_score_high'] then
+    local id = "wizard_terrain_pieces_roll_value_" .. dice_color
+    UI.setAttribute(id, "text", tostring(value))
+    g_game_settings[id] = value
+  end
   wizard_panel_terrain_pieces_roll_update()
 end
 
 
 function wizard_panel_terrain_pieces_roll_update()
+  if nil ~= g_game_settings['terrain_score_high'] then
+    g_dice_callbacks['terrain_pieces_dice_rolled'] = nil
+    UI.setAttribute("wizard_button_red_terrain_pieces", "interactable", false)
+    UI.setAttribute("wizard_button_blue_terrain_pieces", "interactable", false)
+    UI.setAttribute("wizard_panel_terrain_pieces_roll_next", "interactable", true)
+    return
+  end
+
   UI.setAttribute("wizard_panel_terrain_pieces_roll_tactical_advantage", "text",
-    tostring(g_game_settings["tatical_advantage_score"]))
+    tostring(g_game_settings["tactical_advantage_score"]))
   if g_game_settings["wizard_terrain_pieces_roll_value_blue"] == nil or
      g_game_settings["wizard_terrain_pieces_roll_value_red"] == nil
   then
@@ -619,8 +682,8 @@ function wizard_panel_terrain_pieces_roll_update()
       g_game_settings["wizard_terrain_pieces_roll_value_red"]
   UI.setAttribute("wizard_panel_terrain_pieces_roll_total", "text", tostring(total))
 
-  local low = total - g_game_settings["tatical_advantage_score"]
-  local high = total + g_game_settings["tatical_advantage_score"]
+  local low = total - g_game_settings["tactical_advantage_score"]
+  local high = total + g_game_settings["tactical_advantage_score"]
   if low < 2 then
     low = 2
   end
@@ -634,6 +697,7 @@ function wizard_panel_terrain_pieces_roll_update()
 
   g_game_settings['terrain_score_low'] = low
   g_game_settings['terrain_score_high'] = high
+  wizard_panel_terrain_pieces_roll_update()
 end
 
 
