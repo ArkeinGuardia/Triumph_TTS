@@ -97,6 +97,9 @@ function snap_road(road)
 end
 
 
+-- Listeners to notify when the game table has been locked.
+g_game_table_callbacks = {}
+
 function fix_terrain_and_lock()
     local all_objs = getAllObjects()
     local terrains = {}
@@ -111,7 +114,7 @@ function fix_terrain_and_lock()
     local size = gametable.getBoundsNormalized()['size']
     local max_distance_from_table_sq = (size['x']/2)^2 + (size['z'] / 2)^2
     local pos_table = gametable.getPosition()
-    local terrain_type = from_toggle_number_to_table_type(g_current_table_type)
+    local terrain_type = from_toggle_number_to_table_type(g_game_settings["table type"])
 
     gametable.setLock(false)
     for _,terrain in ipairs(terrains) do
@@ -147,7 +150,7 @@ function fix_terrain_and_lock()
                     process_vegetation(terrain, terrain_type)
                 end
 
-                gametable.addAttachment(terrain)
+                terrain.setLock(true)
                 print_info('Attaching ' .. terrain.getName())
             end, 1)
         end
@@ -157,6 +160,11 @@ function fix_terrain_and_lock()
         gametable.setRotation({ x = 0, y = 0, z = 0})
         gametable.setPosition({ x = 0, y = g_base_height_tabletop, z = 0})
         gametable.setLock(true)
+        g_game_settings['table locked'] = true
+        -- Notify listener that gametable has been locked
+        for callback_name,fun in pairs(g_game_table_callbacks) do
+          fun()
+        end
         print_important('Table is now locked')
     end, 1)
 end

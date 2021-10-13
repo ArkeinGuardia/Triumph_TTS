@@ -48,7 +48,7 @@ end
 
 
 function onload(saved_data)
-    print_info('\n---------------------------------\nTriumph! v 2.1 build 20210523 alpha\n---------------------------------\n\nCheck the Notebook for instructions.')
+    print_info('\n---------------------------------\nTriumph! v 2.1 build 20211007 alpha\n---------------------------------\n\nCheck the Notebook for instructions.')
     Wait.time(main_loop, g_seconds_main_loop, -1)
     make_scenery_non_interactable()
     reset_state()
@@ -78,6 +78,19 @@ function onload(saved_data)
     update_current_ui()
 
     set_last_snapshot()
+    set_all_bases_command_colors()
+end
+
+-- For all the bases, if a command color is set then update the
+-- highlight so it is visible
+function set_all_bases_command_colors()
+  local bases = get_all_bases()
+  for _, base in pairs(bases) do
+    command_color = get_decoration_for_obj(base, "command_color")
+    if nil ~= command_color then
+      base_highlight(base, command_color)
+    end
+  end
 end
 
 function set_tablet_homepage(tablet_name)
@@ -127,6 +140,9 @@ function restore_extra_data(saved_data)
   end
   if g_game_settings['invastion_rating'] == nil then
     g_game_settings['invasion_rating'] = {}
+  end
+  if g_game_settings["table type"] == nil then
+    g_game_settings["table type"] = 0
   end
 end
 

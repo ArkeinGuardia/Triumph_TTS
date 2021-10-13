@@ -21,10 +21,16 @@ end
 --         botleft      x axis          botright
 --
 --                        BACK
-function compute_corners_base(base_obj)
+--
+-- base_obj: Object to compute corners
+-- size: nil in which case the size is the base size, otherwise
+-- a table [x,y,z] for size in inches (width, height, depth).
+function compute_corners_base(base_obj, size)
     local rotation = normalize_angle(from_degrees_to_rad(base_obj.getRotation())['y'])
     -- print_debug(base_obj.getName() .. ' rotation is ' .. rotation)
-    local size = get_size(base_obj.getName())
+    if nil == size then
+      size = get_size(base_obj.getName())
+    end
     local pos = base_obj.getPosition()
     -- print_debug(base_obj.getName() .. ' pos is ' .. vec_to_str(vec_in_to_mm(pos)))
     return compute_corners_coords(size, rotation, pos)
@@ -1108,6 +1114,9 @@ function get_depth_base(tile_name)
     return from_mm_to_in(depth)
 end
 
+-- Returns the size of a base
+-- base_name: name of the base
+-- return: table x= width in inches, y=height in inches, z = depth in inches
 function get_size(base_name)
   local tile = g_bases[base_name]['tile']
   return {
@@ -1330,12 +1339,17 @@ function calculate_future_position(base_obj, movement)
     )
 end
 
-function calculate_transform(base_obj)
+-- Calculate how the base is positioned.
+-- base_obj: Base to use for calculation
+-- size: nil in which case the size is the base size, otherwise
+-- a table [x,y,z] for size in inches (width, height, depth).  AS non-nil
+-- size may be used for displaying the base at a larger than life size,
+function calculate_transform(base_obj, size)
   local angle_degrees = normalize_degrees(base_obj.getRotation()['y'])
   local angle_rad = math.rad(angle_degrees)
     return {
         position = base_obj.getPosition(),
-        corners = compute_corners_base(base_obj),
+        corners = compute_corners_base(base_obj, size),
         rotation = normalize_angle(angle_rad)
     }
 end
