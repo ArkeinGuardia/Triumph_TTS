@@ -355,6 +355,108 @@ function add_overlay_models(base_obj, model_definition, is_red_player)
   end
 end
 
+-- model_definition: definition of how the base should look like
+-- Return iterator that will select a figure to add to a base.
+function get_model_iterator(model_definition)
+  local model_name = model_definition['model_data']
+  if model_name ~= nil then
+    return static_model_iterator(model_name)
+  end
+  if model_definition['fixed_models'] ~= nil then
+    return fixed_model_iterator(model_definition['fixed_models'])
+  end
+  if model_definition['random_models'] ~= nil then
+    return random_model_iterator(model_definition['random_models'])
+  end
+  print_error("model definition not understood")
+  return nil
+end
+
+-- add models to base object when the models are to be placed in
+-- a random localtion on the base to show that they are in a loose order.
+--
+-- base_name: Name of the base, e.g. "Skirmishers"
+-- model_definition: definition of how the base should look like
+-- base_definition: definition of base we are constructing
+-- base_obj: base object
+-- is_player_red: red or blue base
+-- pos Location of the base.
+-- y_rotation: rotation of the base
+function add_loose_models(base_name, model_definition, base_definition, base_obj, is_red_player, pos, y_rotation)
+  local n = model_definition['n_models']
+  if n == nil then
+    n = figures_per_base(base_definition.name)
+  end
+  if (n == 0) then
+      base_obj.setRotation({0, y_rotation, 0})
+      base_obj.auto_raise = false
+      return
+  end
+
+  local depth = get_depth_base(model_definition['base'])
+  local half_depth = depth / 2
+  local half_width = g_base_width_in_inches / 2
+
+  local rows = 1
+  local columns = n
+  if n > 4 then
+      rows = math.floor(math.sqrt(n))
+      columns = math.ceil(n/rows)
+  end
+
+  local model_name = model_definition['model_data']
+  local meshes = meshes_from_model_name(model_name, n)
+
+  local figure_iter = get_model_iterator(model_definition)
+  if (figure_iter == nil) then
+    return  nil
+  end
+
+  -- A cell is the location where a figure can be placed
+  if columns < 4 then
+    columns = columns + 1
+  end
+  local column_width = g_base_width_in_inches / (columns + 1)
+  local row_depth = depth / (rows + 1)
+  local nb_cells = rows * columns
+  local cells = {}
+  for cell_nb=1,nb_cells do
+    local column = (cell_nb - 1) % columns + 1
+    local row = math.floor((cell_nb - 1) / columns) + 1
+    local x = column * column_width - half_width
+    local z = row * row_depth - half_depth
+    cells[cell_nb] = {
+      column = column,
+      row = row,
+      x = x,
+      z = z
+    }
+  end
+
+  for i=1,n do
+    local index = math.random(1, #cells)
+    local cell = cells[index]
+    table.remove(cells, index)
+
+    local model_y_rotation_degrees = math.random(0, 200) - 100
+    local random_x = random_float(-g_max_loose_spawn, g_max_loose_spawn)
+    local random_z = random_float(-g_max_loose_spawn, g_max_loose_spawn)
+
+    local model_pos = {
+          x = cell.x + random_x,
+          y = g_base_height_inches / 2,
+          z = cell.z + random_x
+      }
+
+    local this_model_name = figure_iter()
+    add_model(base_obj, this_model_name, model_pos,
+        model_y_rotation_degrees, is_red_player, meshes[i])
+  end
+
+  base_obj.setRotation({0, y_rotation, 0})
+  base_obj.auto_raise = false
+end
+
 -- add models to base object
 -- base_name: Name of the base, e.g. "Camp"
 -- model_definition: definition of how the base should look like
@@ -367,6 +469,11 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
 
   if  model_definition['overlay_models'] ~= nil then
     add_overlay_models(base_obj, model_definition, is_red_player)
+    return
+  end
+  if model_definition['loose'] == true then
+    add_loose_models(base_name, model_definition, base_definition, base_obj,
+      is_red_player, pos, y_rotation)
     return
   end
 
@@ -398,16 +505,9 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
 
   local meshes = meshes_from_model_name(model_name, n)
 
-  local figure_iter -- iterator of next figure to add
-  if model_name ~= nil then
-    figure_iter = static_model_iterator(model_name)
-  elseif model_definition['fixed_models'] ~= nil then
-    figure_iter = fixed_model_iterator(model_definition['fixed_models'])
-  elseif model_definition['random_models'] ~= nil then
-    figure_iter = random_model_iterator(model_definition['random_models'])
-  else
-    print_error("model definition not understood")
-    return nil
+  local figure_iter = get_model_iterator(model_definition)
+  if (figure_iter == nil) then
+    return  nil
   end
 
   for i=1,n do
@@ -421,17 +521,10 @@ function add_models(base_name, model_definition, base_definition, base_obj, is_r
         model_y_rotation_degrees = math.random(0, 40) - 20
       end
 
-      local random_x = 0
-      local random_z = 0
-      if base_definition['loose'] == true then
-          random_x = random_float(-g_max_loose_spawn, g_max_loose_spawn)
-          random_z = random_float(-g_max_loose_spawn, g_max_loose_spawn)
-      end
-
       local model_pos = {
-          x = column * column_width - half_width + random_x,
+          x = column * column_width - half_width,
           y = g_base_height_inches / 2,
-          z = row * row_depth - half_depth + random_x
+          z = row * row_depth - half_depth
       }
 
       local this_model_name = figure_iter()
