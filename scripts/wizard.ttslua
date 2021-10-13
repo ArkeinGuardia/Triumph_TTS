@@ -376,19 +376,20 @@ function wizard_show_panel_topography()
 end
 
 function on_wizard_topography_selected(player, value, id)
-  if tonumber(value) ~= 0 then
-    g_game_settings["table type"] = tonumber(value)
-    g_game_settings['topography'] = g_topographies[g_game_settings["table type"]+1]
-  end
+  g_game_settings["table type"] = tonumber(value)
+  g_game_settings['topography'] = g_topographies[g_game_settings["table type"]+1]
   wizard_panel_topography_update()
 end
 
 function on_wizard_panel_topography_spawn_table()
+  if g_game_settings['topography'] == nil then
+    return
+  end
   load_table(g_game_settings["table type"])
-  g_game_settings['table_spawned'] = true
 
   Wait.frames(
     function()
+      g_game_settings['table_spawned'] = true
       wizard_panel_topography_update()
     end,
     1)
@@ -407,8 +408,7 @@ function wizard_panel_topography_update()
       end
     end
   end
-
-  if g_game_settings['table_spawned'] == true and g_game_settings['topography'] != nil then
+  if (nil ~= g_game_settings['table_spawned'])  and (nil ~= g_game_settings['topography']) then
     UI.setAttribute("wizard_topography_arable", "interactable", false)
     UI.setAttribute("wizard_topography_forest", "interactable", false)
     UI.setAttribute("wizard_topography_hilly", "interactable", false)
@@ -423,7 +423,15 @@ function wizard_panel_topography_update()
         UI.setAttribute("wizard_panel_topography_next", "interactable", true)
       end,
       1)
+      return
   end
+
+  if (nil == g_game_settings['topography']) then
+    UI.setAttribute("wizard_panel_topography_spawn_table", "interactable", false)
+  else
+    UI.setAttribute("wizard_panel_topography_spawn_table", "interactable", true)
+  end
+
 end
 
 function on_wizard_panel_topography_previous()
