@@ -15,7 +15,7 @@
           <Toggle fontSize="16" id="wizard_togglegroup_game_grand_triumph">Grand Triumph!</Toggle>
         </VerticalLayout>
       </ToggleGroup>
-      <Button id="wizard_panel_game_next" onClick="on_wizard_button_forward_to_select_armies">Next</Button>
+      <Button id="wizard_panel_game_next" onClick="on_wizard_button_forward_to_select_armies" interactable="false">Next</Button>
     </VerticalLayout>
 </Panel>
 
@@ -24,7 +24,7 @@
       <Button id="button_create_army" onClick="create_army_options_menu">Select armies</Button>
       <HorizontalLayout>
         <Button id="wizard_panel_select_armies_previous" onClick="on_wizard_panel_select_armies_previous">Previous</Button>
-        <Button id="wizard_panel_select_armies_next" onClick="on_wizard_panel_select_armies_next">Next</Button>
+        <Button id="wizard_panel_select_armies_next" onClick="on_wizard_panel_select_armies_next" interactable="false">Next</Button>
       </HorizontalLayout>
     </VerticalLayout>
 </Panel>
@@ -34,7 +34,7 @@
       <Text>Select the troops from the armies</Text>
       <HorizontalLayout>
         <Button id="wizard_panel_select_troops_previous" onClick="on_wizard_panel_select_troops_previous">Previous</Button>
-        <Button id="wizard_panel_select_troops_next" onClick="on_wizard_panel_select_troops_next">Next</Button>
+        <Button id="wizard_panel_select_troops_next" onClick="on_wizard_panel_select_troops_next" interactable="true">Next</Button>
       </HorizontalLayout>
     </VerticalLayout>
 </Panel>
@@ -128,7 +128,7 @@
       <Cell>
       </Cell>
       <Cell>
-        <Button id="wizard_panel_invader_next" onClick="on_wizard_panel_invader_next" height="50">Next</Button>
+        <Button id="wizard_panel_invader_next" onClick="on_wizard_panel_invader_next" height="50" interactable="false">Next</Button>
       </Cell>
       </Row>
     </TableLayout>
@@ -146,7 +146,7 @@
       </Row>
       <Row preferredHeight="250">
         <Cell columnSpan="2">
-            <ToggleGroup id="wizard_topgraphy_group" onValueChanged="on_wizard_togoraphy_selected">
+            <ToggleGroup id="wizard_topography_group" onValueChanged="on_wizard_topography_selected">
               <TableLayout>
                 <Row>
                   <Cell>
@@ -175,12 +175,12 @@
           </Row>
           <Row>
             <Cell>
-              <Toggle fontSize="16" id="wizard_topography_delta">Delta</Toggle>
+              <Toggle fontSize="16" id="wizard_topography_marsh">Marsh</Toggle>
             </Cell>
           </Row>
           <Row>
             <Cell>
-              <Toggle fontSize="16" id="wizard_topography_marsh">Marsh</Toggle>
+              <Toggle fontSize="16" id="wizard_topography_delta">Delta</Toggle>
             </Cell>
           </Row>
               </TableLayout>
@@ -201,7 +201,7 @@
         <Cell>
         </Cell>
         <Cell>
-          <Button id="wizard_panel_topography_next" onClick="on_wizard_panel_topography_next" height="50">Next</Button>
+          <Button id="wizard_panel_topography_next" onClick="on_wizard_panel_topography_next" height="50" interactable="false">Next</Button>
         </Cell>
       </Row>
     </TableLayout>
@@ -304,7 +304,7 @@
     <Cell>
     </Cell>
     <Cell>
-      <Button id="wizard_panel_tactical_advantage_next" onClick="on_wizard_panel_tactical_advantage_next" height="50">Next</Button>
+      <Button id="wizard_panel_tactical_advantage_next" onClick="on_wizard_panel_tactical_advantage_next" height="50" interactable="false">Next</Button>
     </Cell>
     </Row>
   </TableLayout>
@@ -375,7 +375,7 @@
     <Cell>
     </Cell>
     <Cell>
-      <Button id="wizard_panel_terrain_pieces_roll_next" onClick="on_wizard_panel_terrain_pieces_roll_next" height="50">Next</Button>
+      <Button id="wizard_panel_terrain_pieces_roll_next" onClick="on_wizard_panel_terrain_pieces_roll_next" height="50" interactable="false">Next</Button>
     </Cell>
     </Row>
   </TableLayout>
@@ -526,7 +526,7 @@
         <Cell>
         </Cell>
         <Cell>
-          <Button id="wizard_panel_terrain_score_next" onClick="on_wizard_panel_terrain_score_next" height="50">Next</Button>
+          <Button id="wizard_panel_terrain_score_next" onClick="on_wizard_panel_terrain_score_next" height="50" interactable="false">Next</Button>
         </Cell>
       </Row>
     </TableLayout>
@@ -647,7 +647,7 @@
         <Cell>
         </Cell>
         <Cell>
-          <Button id="wizard_panel_terrain_placement_next" onClick="on_wizard_panel_terrain_placement_next" height="50">Next</Button>
+          <Button id="wizard_panel_terrain_placement_next" onClick="on_wizard_panel_terrain_placement_next" height="50" interactable="false">Next</Button>
         </Cell>
       </Row>
     </TableLayout>

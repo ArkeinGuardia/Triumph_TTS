@@ -73,6 +73,9 @@ function wizard_pannel_game_update()
 
   UI.setAttribute("wizard_togglegroup_game_triumph", "isOn", not is_grand_triumph)
   UI.setAttribute("wizard_togglegroup_game_grand_triumph", "isOn", is_grand_triumph)
+
+  local next_enabled = (g_game_settings['is_grand_triumph'] ~= nil)
+  UI.setAttribute("wizard_panel_game_next", "interactable", next_enabled)
 end
 
 function wizard_panel_game_enter()
@@ -95,9 +98,6 @@ end
 ------------------- Select armies
 -------------------
 
-function wizard_show_panel_select_armies()
-  wizard_show_panel("wizard_panel_select_armies")
-end
 
 function on_wizard_panel_select_armies_previous()
   wizard_show_panel_game()
@@ -106,6 +106,21 @@ end
 function on_wizard_panel_select_armies_next()
   wizard_show_panel_select_troops()
 end
+
+function wizard_panel_select_armies_update()
+  local enable_next = (g_game_settings['army_id'] ~= nil) and (g_game_settings['army_id'] ['red'] ~= nil) and (g_game_settings['army_id'] ['blue'] ~= nil)
+  UI.setAttribute("wizard_panel_select_armies_next", "interactable", enable_next)
+end
+
+function wizard_show_panel_select_armies()
+  wizard_show_panel("wizard_panel_select_armies")
+  g_load_army_callback = wizard_panel_select_armies_update
+  g_wizard_exit_panel_fn = function()
+    g_load_army_callback = nil
+  end
+  wizard_panel_select_armies_update()
+end
+
 
 -------------------
 ------------------- Select troops
@@ -241,8 +256,6 @@ function do_update_invasion_wizard_page()
   if g_game_settings['invader'] ~= nil then
     g_dice_callbacks['invasion_dice_rolled'] = nil
 
-    UI.setAttribute("wizard_panel_invader_next", "interactable", true)
-
     UI.setAttribute("red_invasion_rating", "interactable", false)
     UI.setAttribute("wizard_togglegroup_invasion_red_0", "interactable", false)
     UI.setAttribute("wizard_togglegroup_invasion_red_1", "interactable", false)
@@ -260,6 +273,12 @@ function do_update_invasion_wizard_page()
     UI.setAttribute("wizard_togglegroup_invasion_blue_4", "interactable", false)
     UI.setAttribute("wizard_togglegroup_invasion_blue_5", "interactable", false)
     UI.setAttribute("button_blue_invasion_roll", "interactable", false)
+
+    Wait.frames(
+      function()
+        UI.setAttribute("wizard_panel_invader_next", "interactable", true)
+      end,
+      1)
 
     return
   end
@@ -279,7 +298,6 @@ function do_update_invasion_wizard_page()
     g_game_settings['invader']=nil
     return
   end
-  UI.setAttribute("wizard_panel_invader_next", "interactable", true)
   if red_score > blue_score then
     UI.setAttribute("invader", "text", "Red invades")
     g_game_settings['invader'] = "red"
@@ -292,6 +310,13 @@ function do_update_invasion_wizard_page()
     g_game_settings['invader']="blue"
   end
   do_update_invasion_wizard_page()
+
+  Wait.frames(
+    function()
+      UI.setAttribute("wizard_panel_invader_next", "interactable", true)
+    end,
+    1)
+
 end
 
 
@@ -320,43 +345,70 @@ end
 g_topographies = {'arable', 'forest', 'hilly', 'dry', 'steepe', 'marsh', 'delta'}
 
 function wizard_show_panel_topography()
-  wizard_show_panel("wizard_panel_topography")
+  -- set the table type before populating otherwise it will be set to zero.
   local defender
   if g_game_settings['invader']=='blue' then
     defender = 'red'
   else
     defender = 'blue'
   end
-  UI.setAttribute("wizard_topgraphy_defender", "text", defender)
   local army_id = g_game_settings['army_id'] [defender]
   local army = army[army_id]
   local data = army['data']
   local homeTopographies =  data['homeTopographies']
-  for _,topo in ipairs(g_topographies) do
+  for table_type,topo in ipairs(g_topographies) do
+    local active =  find_in_array(homeTopographies, topo, str_equals_case_insensitive)
+    if active then
+      g_game_settings["table type"] = table_type
+    end
+  end
+
+  wizard_show_panel("wizard_panel_topography")
+  UI.setAttribute("wizard_topgraphy_defender", "text", defender)
+  for table_type,topo in ipairs(g_topographies) do
       local active =  find_in_array(homeTopographies, topo, str_equals_case_insensitive)
       local id = "wizard_topography_" .. topo
       UI.setAttribute(id, "active", tostring(active))
   end
   wizard_panel_topography_update()
+  g_wizard_exit_panel_fn = wizard_panel_topography_exit
+
 end
 
-function on_wizard_togoraphy_selected(player, value, id)
-  g_game_settings['table_spawned'] = (value == tonumber(g_current_table_type))
-  g_current_table_type = tonumber(value)
+function on_wizard_topography_selected(player, value, id)
+  if tonumber(value) ~= 0 then
+    g_game_settings["table type"] = tonumber(value)
+    g_game_settings['topography'] = g_topographies[g_game_settings["table type"]+1]
+  end
   wizard_panel_topography_update()
 end
 
 function on_wizard_panel_topography_spawn_table()
-  load_table(g_current_table_type)
+  load_table(g_game_settings["table type"])
   g_game_settings['table_spawned'] = true
-  g_game_settings['topography'] = g_topographies[g_current_table_type + 1]
-  wizard_panel_topography_update()
+
+  Wait.frames(
+    function()
+      wizard_panel_topography_update()
+    end,
+    1)
 end
 
 function wizard_panel_topography_update()
-  UI.setAttribute("wizard_panel_topography_next", "interactable",
-    g_game_settings['table_spawned'])
-  if  g_game_settings['table_spawned'] == true then
+  if nil ~= g_game_settings["topography"] then
+    -- select the topography that has been previously chosen
+    local selected_id = "wizard_topography_" .. g_game_settings["topography"]
+    for _,topo in ipairs(g_topographies) do
+      local id = "wizard_topography_" .. topo
+      if selected_id == id then
+        UI.setAttribute(id, "isOn", true)
+      else
+        UI.setAttribute(id, "isOn", false)
+      end
+    end
+  end
+
+  if g_game_settings['table_spawned'] == true and g_game_settings['topography'] != nil then
     UI.setAttribute("wizard_topography_arable", "interactable", false)
     UI.setAttribute("wizard_topography_forest", "interactable", false)
     UI.setAttribute("wizard_topography_hilly", "interactable", false)
@@ -365,8 +417,13 @@ function wizard_panel_topography_update()
     UI.setAttribute("wizard_topography_delta", "interactable", false)
     UI.setAttribute("wizard_topography_marsh", "interactable", false)
     UI.setAttribute("wizard_panel_topography_spawn_table", "interactable", false)
-  end
 
+    Wait.frames(
+      function()
+        UI.setAttribute("wizard_panel_topography_next", "interactable", true)
+      end,
+      1)
+  end
 end
 
 function on_wizard_panel_topography_previous()
@@ -377,6 +434,9 @@ function on_wizard_panel_topography_next()
   wizard_show_panel_tactical_advantage()
 end
 
+function wizard_panel_topography_exit()
+  g_load_table_callback = nil
+end
 
 -------------------
 ------------------- Tatucal Advantage
@@ -568,8 +628,14 @@ function do_update_tactical_advantage_wizard_page()
     UI.setAttribute("wizard_maneuver_rating_blue", "interactable", false)
     UI.setAttribute("wizard_button_red_maneuver_roll", "interactable", false)
     UI.setAttribute("wizard_button_blue_maneuver_roll", "interactable", false)
-    UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", true)
     g_dice_callbacks['tactical_advantage_dice_rolled'] = nil
+
+    Wait.frames(
+      function()
+        UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", true)
+      end,
+      1)
+
     return
   end
 
@@ -580,14 +646,12 @@ function do_update_tactical_advantage_wizard_page()
   if red_score == nil or blue_score == nil then
     UI.setAttribute("wizard_text_tactical_advantage_player", "text", "")
     UI.setAttribute("wizard_text_tactical_advantage_score", "text", "")
-    UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", false)
     return
   end
   if red_score == blue_score then
     UI.setAttribute("wizard_text_tactical_advantage_player", "text", "tie, roll again")
     UI.setAttribute("wizard_maneuver_roll_value_red", "text", nil)
     UI.setAttribute("wizard_maneuver_roll_value_blue", "text", nil)
-    UI.setAttribute("wizard_panel_tactical_advantage_next", "interactable", false)
     return
   end
   local advantage = math.abs(red_score - blue_score)
@@ -664,7 +728,11 @@ function wizard_panel_terrain_pieces_roll_update()
     g_dice_callbacks['terrain_pieces_dice_rolled'] = nil
     UI.setAttribute("wizard_button_red_terrain_pieces", "interactable", false)
     UI.setAttribute("wizard_button_blue_terrain_pieces", "interactable", false)
-    UI.setAttribute("wizard_panel_terrain_pieces_roll_next", "interactable", true)
+    Wait.frames(
+      function()
+        UI.setAttribute("wizard_panel_terrain_pieces_roll_next", "interactable", true)
+      end,
+      1)
     return
   end
 
@@ -673,7 +741,6 @@ function wizard_panel_terrain_pieces_roll_update()
   if g_game_settings["wizard_terrain_pieces_roll_value_blue"] == nil or
      g_game_settings["wizard_terrain_pieces_roll_value_red"] == nil
   then
-    UI.setAttribute("wizard_panel_terrain_pieces_roll_next", "interactable", false)
     UI.setAttribute("wizard_panel_terrain_pieces_roll_total", "text", "")
     UI.setAttribute("wizard_panel_terrain_pieces_roll_terrain_score", "text", "")
     return
@@ -692,8 +759,6 @@ function wizard_panel_terrain_pieces_roll_update()
   end
   local terrain_score = "Terrain Score: " .. tostring(low) .. " - " .. tostring(high)
   UI.setAttribute("wizard_panel_terrain_pieces_roll_terrain_score", "text", terrain_score)
-
-  UI.setAttribute("wizard_panel_terrain_pieces_roll_next", "interactable", true)
 
   g_game_settings['terrain_score_low'] = low
   g_game_settings['terrain_score_high'] = high
@@ -717,7 +782,6 @@ terrain_coast = {false,false,true,false,false,true,false,false,true,false,false}
 
 function wizard_show_panel_terrain_score()
   wizard_show_panel("wizard_panel_terrain_score")
-  g_wizard_exit_panel_fn = wizard_panel_exit_terrain_score
 
   -- Enable and disable the toggles for the terain score
   for score=2,g_game_settings['terrain_score_low']-1 , 1 do
@@ -740,6 +804,8 @@ function wizard_show_panel_terrain_score()
     local value = terrain_nb_pieces[topography][score-1]
     UI.setAttribute(id, "text", tostring(value))
   end
+  wizard_panel_terrain_score_update()
+  g_wizard_exit_panel_fn = wizard_panel_exit_terrain_score
 end
 
 function on_wizard_panel_terrain_score_previous()
@@ -755,6 +821,7 @@ function on_wizard_tarrain_score_selected(player, value, id)
   g_game_settings['terrain_score']  = tonumber(value) + 2
   local terrain_score = g_game_settings['terrain_score']
   g_game_settings['coast_allowed'] =  terrain_coast[terrain_score-1]
+  wizard_panel_terrain_score_update()
 end
 
 
@@ -770,6 +837,16 @@ function wizard_panel_exit_terrain_score()
   end
   print_important("terrain score: " .. tostring(terrain_score) .. " nb pieces: " .. tostring(nb_pieces) ..  coast)
 end
+
+function wizard_panel_terrain_score_update()
+  if g_game_settings['terrain_score'] ~= nil then
+    UI.setAttribute("wizard_panel_terrain_score_next", "interactable", true)
+    local id = "wizard_terrain_score_" .. tostring(g_game_settings['terrain_score'])
+    UI.setAttribute(id, "isOn", true)
+  end
+end
+
+
 
 -------------------
 ------------------- Terrain Selection
@@ -857,7 +934,13 @@ function wizard_panel_terrain_placement_update()
   local table_can_be_locked = not table_locked
   UI.setAttribute("wizard_panel_terrain_placement_advantage", "text", advantage)
   UI.setAttribute("wizard_panel_terrain_placement_lock_table", "interactable", table_can_be_locked)
-  UI.setAttribute("wizard_panel_terrain_placement_next", "interactable", table_locked)
+  if table_locked then
+    Wait.frames(
+      function()
+        UI.setAttribute("wizard_panel_terrain_placement_next", "interactable", true)
+      end,
+      1)
+  end
 end
 
 function on_wizard_panel_terrain_placement_lock_table()
