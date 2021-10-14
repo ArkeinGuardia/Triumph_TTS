@@ -66,8 +66,7 @@ function onload(saved_data)
     end
 
 
-    update_dead_zones()
-    update_army_builder_zones()
+    update_points_zones()
 
     -- Do not allow the Red player to roll the blud die, and the Blue
     -- player cannot roll the red dice.
@@ -144,6 +143,9 @@ function restore_extra_data(saved_data)
   end
   if g_game_settings["table type"] == nil then
     g_game_settings["table type"] = 0
+  end
+  if  g_game_settings['use_army_builder'] == nil then
+    g_game_settings['use_army_builder'] = true
   end
 end
 

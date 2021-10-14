@@ -145,6 +145,8 @@ function wizard_show_panel_select_troops()
       base.setInvisibleTo({"Blue"})
     end
   end
+
+  g_game_settings['use_army_builder'] = true
 end
 
 
@@ -1031,6 +1033,8 @@ end
 
 function on_wizard_panel_first_move_previous()
   wizard_show_panel_deploy_troops()
+  g_game_settings['use_army_builder'] = true
+  update_points_zones()
 end
 
 
@@ -1043,6 +1047,8 @@ function wizard_show_panel_first_move()
   local advantage = g_game_settings['tactical_advantage']
   UI.setAttribute("wizard_panel_first_move_advantage", "text", advantage)
   wizard_show_panel("wizard_panel_first_move")
+  g_game_settings['use_army_builder'] = false
+  update_points_zones()
 end
 
 

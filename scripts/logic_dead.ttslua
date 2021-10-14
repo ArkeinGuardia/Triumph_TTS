@@ -191,22 +191,110 @@ function calculate_dead_points(objects)
   return result
 end
 
+function is_points_zone_red(zone)
+  local name = zone.getName()
+  local is_red = false
+  if str_has_substr(name, 'red') then
+      is_red = true
+  end
+  return is_red
+end
 
--- Update the score based on the contents of a dead zone.
--- zone: dead zone that has been modified.
-function update_dead_zone_value(zone)
+-- Update the text for a zone (casualties or army builder role)
+-- zone: Zone to update
+-- points: Points to display.  String.
+function update_points_zone_text(zone, points)
+  local is_red = is_points_zone_red(zone)
+  local text_id = 'text_dead_'
+  if is_red then
+      text_id = text_id .. 'red'
+  else
+      text_id = text_id .. 'blue'
+  end
+  UI.setValue(text_id, points)
+  UI.hide(text_id)
+  Wait.frames(function ()
+      UI.show(text_id)
+  end, 1)
+end
+
+-- Reterieve the number of points in the zone.
+-- Can be victory points or army builder points
+function get_zone_points(zone)
+  local objects = zone.getObjects()
+  if not g_game_settings['use_army_builder'] then
+    local ran,result =  pcall(calculate_dead_points, objects)
+    return ran, result
+  else
+    local ran,result =  pcall(get_army_builder_points_for_base_objects, objects)
+    return ran, result
+  end
+end
+
+-- Change the skeleton image
+-- is_red true to update the read image, false for blue
+-- dead Victory points
+function update_dead_image(is_red, dead)
+  local image_id = 'dead_'
+  local image_suffix = ''
+  if is_red then
+      image_id = image_id .. 'red'
+      image_suffix = 'r'
+  else
+      image_id = image_id .. 'blue'
+      image_suffix = 'b'
+  end
+  if dead == 0 then
+      UI.setAttribute(image_id, 'image', 'skeleton0' .. image_suffix)
+  elseif dead == 1 or dead == 2 or dead == 3 or dead == 4 or dead == 5 or dead == 6 or dead == 7 or dead == 8 then
+      UI.setAttribute(image_id, 'image', 'skeleton1' .. image_suffix)
+  elseif dead == 9 or dead == 10 or dead == 11 or dead == 12 or dead == 13 or dead == 14 or dead == 15 then
+      UI.setAttribute(image_id, 'image', 'skeleton2' .. image_suffix)
+  elseif dead == 16 or dead == 17 or dead == 18 or dead == 19 then
+      UI.setAttribute(image_id, 'image', 'skeleton3' .. image_suffix)
+  else
+      UI.setAttribute(image_id, 'image', 'skeleton4' .. image_suffix)
+  end
+end
+
+-- Change the recruiting officer image
+-- is_red true to update the read image, false for blue
+-- points Army points
+function update_recruiting_image(is_red, points)
+  local image_id = 'dead_'
+  local image_suffix = ''
+  if is_red then
+      image_id = image_id .. 'red'
+      image_suffix = 'r'
+  else
+      image_id = image_id .. 'blue'
+      image_suffix = 'b'
+  end
+  local image_name = 'recruiting0' .. image_suffix
+  UI.setAttribute(image_id, 'image', image_name)
+  print("update_recruiting_image ", image_id, ' ', image_name, " ", is_red)
+end
+
+function update_points_zone_image(zone, points)
+  print("update_points_zone_image ", zone, " ", points)
+  local is_red = is_points_zone_red(zone)
+  if not g_game_settings['use_army_builder'] then
+    update_dead_image(is_red, points)
+  else
+    update_recruiting_image(is_red, points)
+  end
+end
+
+-- Update the score based on the contents of a zone to
+-- display the victory points or the army points.
+-- zone:  zone that has been modified.
+function update_points_zone_value(zone)
     if zone == nil then
       print_error("zone is nil")
       return
     end
 
-    local name = zone.getName()
-    if str_has_substr(name, 'Army') then
-        return
-    end
-
-    local objects = zone.getObjects()
-    local ran,result =  pcall(calculate_dead_points, objects)
+    local ran,result =  get_zone_points(zone)
 
     if not ran then
       local error = result
@@ -214,54 +302,23 @@ function update_dead_zone_value(zone)
       return
     end
 
-    local dead = result
-
-    local is_red = false
-    if str_has_substr(name, 'red') then
-        is_red = true
-    end
-    local text_id = 'text_dead_'
-    local image_id = 'dead_'
-    local image_suffix = ''
-    if is_red then
-        text_id = text_id .. 'red'
-        image_id = image_id .. 'red'
-        image_suffix = 'r'
-    else
-        text_id = text_id .. 'blue'
-        image_id = image_id .. 'blue'
-        image_suffix = 'b'
-    end
-    UI.setValue(text_id, dead)
-    UI.hide(text_id)
-    Wait.frames(function ()
-        UI.show(text_id)
-    end, 1)
-    if dead == 0 then
-        UI.setAttribute(image_id, 'image', 'skeleton0' .. image_suffix)
-    elseif dead == 1 or dead == 2 or dead == 3 or dead == 4 or dead == 5 or dead == 6 or dead == 7 or dead == 8 then
-        UI.setAttribute(image_id, 'image', 'skeleton1' .. image_suffix)
-    elseif dead == 9 or dead == 10 or dead == 11 or dead == 12 or dead == 13 or dead == 14 or dead == 15 then
-        UI.setAttribute(image_id, 'image', 'skeleton2' .. image_suffix)
-    elseif dead == 16 or dead == 17 or dead == 18 or dead == 19 then
-        UI.setAttribute(image_id, 'image', 'skeleton3' .. image_suffix)
-    else
-        UI.setAttribute(image_id, 'image', 'skeleton4' .. image_suffix)
-    end
-    print_debug('Updated dead zone ' .. zone.getName())
+    local points = result
+    update_points_zone_text(zone, tostring(points))
+    update_points_zone_image(zone, points)
+    print_debug('Updated zone ' .. zone.getName())
     g_updating_zone[zone.getName()] = false
 end
 
 
 
-function update_dead_zones()
+function update_points_zones()
   local red_zone = get_red_dead_zone()
   if red_zone ~= nil then
-    update_dead_zone_value(red_zone)
+    update_points_zone_value(red_zone)
   end
   local blue_zone = get_blue_dead_zone()
   if blue_zone ~= nil then
-    update_dead_zone_value(blue_zone)
+    update_points_zone_value(blue_zone)
   end
 end
 
@@ -284,71 +341,12 @@ function calculate_army_builder_points(objects)
 end
 
 
-function update_armyzone_value(zone)
-    local name = zone.getName()
-    local is_red = false
-    -- if str_has_substr(name, 'dead') then
-    --     return
-    -- end
-    if str_has_substr(name, 'red') then
-        is_red = true
-    end
-
-    local objects = zone.getObjects()
-    local ran,result =  pcall(calculate_army_builder_points, objects)
-
-    if not ran then
-      local error = result
-      print_error(tostring(error))
-      return
-    end
-
-    local armyvalue = result
-
-    for _,obj in ipairs(getAllObjects()) do
-        local name = obj.getName()
-        if is_red then
-            if str_starts_with(name, 'NumberRed ') then
-                -- This executes on next frame
-                obj.destroy()
-            end
-        else
-            if str_starts_with(name, 'NumberBlue ') then
-                -- This executes on next frame
-                obj.destroy()
-            end
-        end
-    end
-    Wait.frames(function ()
-        if is_red then
-            spawn_number_red(tostring(armyvalue), { -46.5, 1.5, -36})
-        else
-            spawn_number_blue(tostring(armyvalue), { -52.25, 1.5, 36})
-        end
-    end, 1)
-    print_debug('Updated army zone ' .. zone.getName())
-    g_updating_zone[zone.getName()] = false
-end
-
-
-function update_army_builder_zones()
-  local red_zone = get_red_army_builder_zone()
-  if red_zone ~= nil then
-    update_armyzone_value(red_zone)
-  end
-  local blue_zone = get_blue_army_builder_zone()
-  if blue_zone ~= nil then
-    update_armyzone_value(blue_zone)
-  end
-end
-
 function callback_zone(zone, name, color)
     print_debug('Dead zone callback ' .. zone.getName())
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_dead_zone_value(zone)
-            update_armyzone_value(zone)
+            update_points_zone_value(zone)
         end, 30)
     else
         print_debug('Ignoring dead callback because already updating')
@@ -374,8 +372,7 @@ function onObjectEnterScriptingZone(zone, obj)
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_dead_zone_value(zone)
-            update_armyzone_value(zone)
+            update_points_zone_value(zone)
         end, 60)
     else
         print_debug('Ignoring dead Enter because already updating')
@@ -401,8 +398,7 @@ function doOnObjectLeaveScriptingZone(zone, obj)
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
-            update_dead_zone_value(zone)
-            update_armyzone_value(zone)
+            update_points_zone_value(zone)
         end, 60)
     else
         print_debug('Ignoring dead Leave because already updating')
