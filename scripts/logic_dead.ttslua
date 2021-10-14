@@ -21,19 +21,15 @@ function get_blue_dead_zone()
 end
 
 function get_red_army_builder_zone()
-  local result = get_object_by_name(g_army_builder_zone_red_name)
-  if result == nil then
-    print_error("Unable to find: " .. g_army_builder_zone_red_name)
-  end
-  return result
+  -- same zone is used for casulaties and army builder with
+  -- state sensitive calculations,
+  return get_red_dead_zone()
 end
 
 function get_blue_army_builder_zone()
-  local result = get_object_by_name(g_army_builder_zone_blue_name)
-  if result == nil then
-    print_error("Unable to find: " .. g_army_builder_zone_blue_name)
-  end
-  return result
+  -- same zone is used for casulaties and army builder with
+  -- state sensitive calculations,
+  return get_blue_dead_zone()
 end
 
 
@@ -293,9 +289,9 @@ end
 function update_armyzone_value(zone)
     local name = zone.getName()
     local is_red = false
-    if str_has_substr(name, 'dead') then
-        return
-    end
+    -- if str_has_substr(name, 'dead') then
+    --     return
+    -- end
     if str_has_substr(name, 'red') then
         is_red = true
     end
