@@ -607,8 +607,8 @@ function get_model_base_tile(base_definition)
   local army_data = army[ army_id ]['data']
   local style = army_data['base']
   if style == nil then
-    print_error("base definition is no base and army has no base for default.")
-    return nil
+    print_debug("army has no default base.")
+    style = "tile_grass"
   end
   local depth = get_base_depth_from_base_definition(base_definition)
   local model_base_name = style .. "_" .. tostring(g_base_width_in_mm) .. "x" .. tostring(depth)
