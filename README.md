@@ -56,21 +56,25 @@ Base definition fields are:
 * name Augmented type of the base. Starts with the type, e.g. "Knights".  
   Can have a suffix added to indicate a general "  General".
   Can have a suffix added to indicate mounted infantry "_Mounted".
-* base Tile tht the figures are to be placed on when rendering.
+* base name of file, e.g. "tile_grass_40x40" Optional. Tile that the figures
+  are to be placed on when rendering.  If tile is not defined then the army's
+  value for "base" is appended with "_"<width>"x"<depth> where width and depth
+  are calculated based on the troop_type value
 * n_models Number of models to place on the base
 * fixed_models Figures to add to the base when rendering.
-* loose = true (optional) Indictes that the models should be placed in a
+* loose = true (optional) Indicates that the models should be placed in a
     non-grid formation.  Used to indicate open order troops.
 * points (optional) Number of points the base is worth. Default is the points
   for the type.
 * max (optional) Indicates that the base definition is for multiple bases,
-  all of which will use the same defintion.  e.g, max=4, will create four
+  all of which will use the same definition.  e.g, max=4, will create four
   bases when the the army is spawned.
-* battle_card (optional) Battle card that modifies the standard behviour of
+* battle_card (optional) Battle card that modifies the standard behavior of
   the type
 * dismount_as (optional) String containing the name of the variable for
-  the base defintion of that will replace this base if the unit
+  the base definition of that will replace this base if the unit
   is dismounted.  i.e. The base is mobile infantry.
+* troop_type String defining the troop, e.g. "Bow Levy"
 
 A base definition that has points, battle_card, or dismount_as set must be an external
 base definition, otherwise it may be external or internal.
@@ -82,14 +86,14 @@ An army is declared with data for the army, and its bases.  For an external
 base definition the definition is a string of the variable name.  Example:
 base1 = "burgundian_ordannances_1471_to_1477_ad_knights_gen",
 
-An internal base defintion is just the table itself.  Internal definitions will take
-a tiny amount of less memory.
+An internal base definition is just the table itself.  Internal definitions
+will take a tiny amount of less memory.
 
 How to add a building to terrain
 --------------------------------
 
 Buildings are placed in Villages.  In DBA, villages are called
-Built Up Areas (BUA), so BUA is used in the code.w
+Built Up Areas (BUA), so BUA is used in the code.
 
 When the terrain is locked, the buildings are added to make the table look
 pretty.  The have no effect in the game, as the area of the village

@@ -272,11 +272,9 @@ function update_recruiting_image(is_red, points)
   end
   local image_name = 'recruiting0' .. image_suffix
   UI.setAttribute(image_id, 'image', image_name)
-  print("update_recruiting_image ", image_id, ' ', image_name, " ", is_red)
 end
 
 function update_points_zone_image(zone, points)
-  print("update_points_zone_image ", zone, " ", points)
   local is_red = is_points_zone_red(zone)
   if not g_game_settings['use_army_builder'] then
     update_dead_image(is_red, points)

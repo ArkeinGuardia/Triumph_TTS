@@ -39,6 +39,16 @@ allies={}
 #include fake_meshwesh/army_data/all_armies
 #include scripts/data/data_models
 
+-- Set up back link from base definitions to the armies the definitions
+-- belong to.
+for army_id,army_table in pairs(army) do
+  for key,value in pairs(army_table) do
+    if key ~= "data" then
+      value["army_id"] = army_id
+    end
+  end
+end
+
 
 function onSave()
   g_decorations['g_game_settings'] = g_game_settings

@@ -593,6 +593,28 @@ function base_highlight(base_obj, command_color)
   end
 end
 
+
+-- Get the tile to place the figures on
+-- base_definition: Description on how the base should look like.
+-- return: string for the tile e.g. "tile_grass_40x20"
+function get_model_base_tile(base_definition)
+  local model_base_name = base_definition['base']
+  if model_base_name ~= nil then
+    return model_base_name
+  end
+  -- get the base name from the army.
+  local army_id = base_definition['army_id']
+  local army_data = army[ army_id ]['data']
+  local style = army_data['base']
+  if style == nil then
+    print_error("base definition is no base and army has no base for default.")
+    return nil
+  end
+  local depth = get_base_depth_from_base_definition(base_definition)
+  local model_base_name = style .. "_" .. tostring(g_base_width_in_mm) .. "x" .. tostring(depth)
+  return model_base_name
+end
+
 -- base: base_definition base_definition
 -- pos: position where the base will be located
 -- y_rotation: in degrees
@@ -615,11 +637,18 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     end
 
     local model_definition = get_a_model_definition(base_definition)
+
+    --Get the tile to place the models on
     local model_base_name = model_definition['base']
+    if model_base_name == nil then
+       model_definition['base'] = get_model_base_tile(base_definition)
+    end
+    model_base_name = model_definition['base']
     if model_base_name == nil then
       print_error("no base for model definition")
       return
     end
+
     local model_base = _G[model_base_name]
     if model_base == nil then
       print_error("No variable defined for " .. tostring(model_base_name))
@@ -771,30 +800,7 @@ function get_plain_model_tile_name(base_definition)
 end
 
 
--- Get a model definition, base and figures, that can be used to represent
--- a base definition.
-function get_a_model_definition(base_definition)
-  if not g_use_plain_bases then
-    -- try to use models
-    local id = base_definition.id
-    if nil ~= id then
-      if g_models[ id ] ~= nil then
-        -- choose a random model definition
-        local models = g_models[ id ]
-        local index = math.random(1, #models)
-        local model = models[index]
-        assert(nil ~= model)
-        return model
-       end
-    end
-  end
-
-  if  base_definition.n_models ~= nil then
-    -- base definition is model definition,
-    -- Used for proxy bases
-    return base_definition
-  end
-
+function get_plan_base_model_definition(base_definition)
   -- Use a plain base.
   local tile_name = get_plain_model_tile_name(base_definition)
   local base_def_name = base_definition.name
@@ -804,6 +810,35 @@ function get_a_model_definition(base_definition)
       n_models = 0,
       base = tile_name,
   }
+end
+
+-- Get a model definition, base and figures, that can be used to represent
+-- a base definition.
+function get_a_model_definition(base_definition)
+  if  g_use_plain_bases then
+    return get_plan_base_model_definition(base_definition)
+  end
+  -- try to use models
+  local id = base_definition.id
+  if nil ~= id then
+    if g_models[ id ] ~= nil then
+      -- choose a random model definition
+      local models = g_models[ id ]
+      local index = math.random(1, #models)
+      local model = models[index]
+      assert(nil ~= model)
+      return model
+     end
+  end
+
+  if  base_definition.n_models ~= nil then
+    -- base definition is model definition,
+    -- Used for proxy bases
+    return base_definition
+  end
+
+  -- default to plain base if no model is availab le.
+  return get_plan_base_model_definition(base_definition)
 end
 
 
