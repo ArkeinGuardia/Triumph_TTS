@@ -5,6 +5,7 @@
 
 -- Camillan Roman
 army['5fb1b9dce1af060017709543'].data.has_models = true
+army['5fb1b9dce1af060017709543'].data.base = "tile_grass"
 
 --data = {
 --  Invasion = 3,
@@ -18,14 +19,12 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Roman and better ally horsemen - JavCav
     g_models[g_str_5fb1ba26e1af06001770c71c] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_camillan_roman_bodyguard'
       }
     }
     -- Italian ally horsemen - BadHorse
     g_models[g_str_5fb1ba26e1af06001770c71e] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_camillan_roman_cavalry'
       }
     }
@@ -33,11 +32,9 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Triarii, principes, and better-equipped hastati
     g_models[g_str_5fb1ba26e1af06001770c720] = {
       {
-        base = 'tile_grass_40x15',
         model_data = 'troop_camillan_roman_spear'
       },
       {
-        base = 'tile_grass_40x15',
         model_data = 'troop_camillan_roman_blade'
       }
     }
@@ -45,7 +42,6 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Hastati, or Latin ally heavy infantry
     g_models[g_str_5fb1ba26e1af06001770c723] = {
       {
-        base = 'tile_grass_40x15',
         model_data = 'troop_camillan_roman_blade_plain_shield'
       }
     }
@@ -53,7 +49,6 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Leves and rorarii
     g_models[g_str_5fb1ba26e1af06001770c725] = {
       {
-        base = 'tile_grass_40x30',
         loose = true,
         model_data = 'troop_camillan_roman_psiloi'
       }
@@ -62,7 +57,6 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Accensi
     g_models[g_str_5fb1ba26e1af06001770c727] = {
       {
-        base = 'tile_grass_40x15',
         model_data = 'troop_camillan_roman_accensi'
       }
     }
@@ -70,7 +64,6 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Italian allied infantry
     g_models[g_str_5fb1ba26e1af06001770c729] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_camillan_roman_allied_spear'
       }
     }
@@ -78,7 +71,6 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Javelin Cavalry General
     g_models[g_str_5fb1ba26e1af06001770c71c_general] = {
       {
-        base = 'tile_grass_40x30',
         n_models = 2,
         fixed_models = {
             [1] = 'troop_camillan_roman_bodyguard',
@@ -90,7 +82,6 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Bad Horse General
     g_models[g_str_5fb1ba26e1af06001770c71e_general] = {
       {
-        base = 'tile_grass_40x30',
         n_models = 3,
         fixed_models = {
             [1] = 'troop_camillan_roman_cavalry',
@@ -103,7 +94,6 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Elite Foot General
     g_models[g_str_5fb1ba26e1af06001770c720_general] = {
         {
-          base = 'tile_grass_40x15',
           n_models = 4,
           fixed_models = {
             [1] = 'troop_camillan_roman_spear',
@@ -120,7 +110,6 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
     -- Roman Camp Fortified
     g_models[g_str_5fb1b9dce1af060017709543_camp_fortified] = {
       {
-        base = 'tile_grass_40x40',
         overlay_models = { -- each of the models are placed on top of the base
           {
             model_data="troop_fortified_camp_outline_40x40",
@@ -155,20 +144,18 @@ army['5fb1b9dce1af060017709543'].data.has_models = true
 
 -- Polybian Roman
 army['5fb1b9dde1af0600177095c0'].data.has_models = true
+army['5fb1b9dde1af0600177095c0'].data.base = "tile_grass"
 
 
     -- Roman, Gallic, Spanish, and effective allied horsemen - JavCav
     g_models[g_str_5fb1ba27e1af06001770c8e2] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_camillan_roman_bodyguard'
       },
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_gallic_cav'
       },
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_ancient_spanish_lh'
       }
     }
@@ -188,7 +175,6 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
     -- Velites - Light Foot
     g_models[g_str_5fb1ba27e1af06001770c8f0] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_camillan_roman_psiloi'
       }
     }
@@ -196,11 +182,9 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
     -- Italian allied horsemen or hamippoi (light foot mixed with cavalry)
     g_models[g_str_5fb1ba27e1af06001770c8f2] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_camillan_roman_cavalry'
       },
       {
-        base = 'tile_grass_40x30',
         n_models = 3,
         fixed_models = {
             [1] = 'troop_camillan_roman_cavalry',
@@ -208,8 +192,7 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
             [3] = 'troop_camillan_roman_cavalry'
         }
       },
-            {
-        base = 'tile_grass_40x30',
+      {
         n_models = 3,
         fixed_models = {
           [1] = 'troop_camillan_roman_cavalry',
@@ -222,7 +205,6 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
     -- Italian allied light infantry
     g_models[g_str_5fb1ba27e1af06001770c8f4] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_camillan_roman_accensi'
       }
     }
@@ -233,11 +215,9 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
     -- Spanish or Illyrian light infantry
     g_models[g_str_5fb1ba27e1af06001770c8f8] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_ancient_spanish_caetrati'
       },
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_successors_psiloi'
       }
     }
@@ -245,7 +225,6 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
     -- Gallic tribesmen - Warriors
     g_models[g_str_5fb1ba27e1af06001770c8fb] = {
       {
-        base = 'tile_grass_40x15',
         random_models = {
           'troop_gallic_warriors',
           'troop_gallic_warriors_2'
@@ -256,7 +235,6 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
     -- Roman, Gallic, Spanish, and effective allied horsemen - JavCav General
     g_models[g_str_5fb1ba27e1af06001770c8e2_general] = {
       {
-        base = 'tile_grass_40x30',
         n_models = 2,
         fixed_models = {
             [1] = 'troop_camillan_roman_bodyguard',
@@ -264,7 +242,6 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
         }
       },
       {
-        base = 'tile_grass_40x30',
         n_models = 2,
         fixed_models = {
             [1] = 'troop_camillan_roman_general',
@@ -272,7 +249,6 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
         }
       },
       {
-        base = 'tile_grass_40x30',
         n_models = 2,
         fixed_models = {
             [1] = 'troop_ancient_spanish_lh',
@@ -298,12 +274,12 @@ army['5fb1b9dde1af0600177095c0'].data.has_models = true
 
 -- Marian Roman
 army['5fb1b9e1e1af06001770980d'].data.has_models = true
+army['5fb1b9e1e1af06001770980d'].data.base = "tile_grass"
 
 
     -- Allied veteran horsemen - JavCav Gen
     g_models[g_str_5fb1ba2be1af06001770d1c9_general] = {
       {
-        base = 'tile_grass_40x30',
         n_models = 3,
         fixed_models = {
           [1] = 'troop_marian_roman_cv_bearer',
@@ -316,7 +292,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Allied veteran horsemen - JavCav
     g_models[g_str_5fb1ba2be1af06001770d1c9] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_marian_roman_cv'
       }
     }
@@ -324,7 +299,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Legionaries - EF Gen
     g_models[g_str_5fb1ba2be1af06001770d1cb_general] = {
       {
-        base = 'tile_grass_40x15',
         n_models = 4,
         model_data = 'troop_marian_roman_bd_gen'
       }
@@ -332,7 +306,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Legionaries - EF
     g_models[g_str_5fb1ba2be1af06001770d1cb] = {
       {
-        base = 'tile_grass_40x15',
         n_models = 4,
         model_data = 'troop_marian_roman_bd_elite'
       }
@@ -340,7 +313,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Unreliable or raw Gallic or other horsemen - Bad Horse
     g_models[g_str_5fb1ba2be1af06001770d1ce] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_gallic_cav'
       }
     }
@@ -348,7 +320,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Raw Legionaries - HF
     g_models[g_str_5fb1ba2be1af06001770d1d0] = {
       {
-        base = 'tile_grass_40x15',
         n_models = 4,
         model_data = 'troop_marian_roman_bd'
       }
@@ -357,7 +328,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Skirmishing slingers or bowmen -- Sk
     g_models[g_str_5fb1ba2be1af06001770d1d2] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_carthaginian_slingers'
       }
     }
@@ -365,7 +335,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Velites or allied javelinmen - LF
     g_models[g_str_5fb1ba2be1af06001770d1d4] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_camillan_roman_psiloi'
       }
     }
@@ -373,7 +342,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Thureophoroi or peltasts - LF
     g_models[g_str_5fb1ba2be1af06001770d1d6] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_successors_psiloi'
       }
     }
@@ -381,7 +349,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Bolt shooters - Art
     g_models[g_str_5fb1ba2be1af06001770d1d8] = {
       {
-        base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_successors_art'
       }
@@ -390,7 +357,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Thracian or client horse archers - Horse Bow
     g_models[g_str_5fb1ba0de1af06001770acb3] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_marian_roman_lh'
       }
     }
@@ -398,7 +364,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Client foot bowmen - Archers
     g_models[g_str_5fb1ba0de1af06001770acb5] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_gallic_ps_archer'
       }
     }
@@ -406,7 +371,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Client foot bowmen - Bow Levy
     g_models[g_str_5fb1ba0de1af06001770acb6] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_gallic_ps_archer'
       }
     }
@@ -417,7 +381,6 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
     -- Marian Roman Camp Fort
     g_models[g_str_5fb1b9e1e1af06001770980d_camp_fortified] = {
       {
-        base = 'tile_grass_40x40',
         n_models = 1,
         model_data = 'troop_marian_roman_camp'
       }
@@ -432,12 +395,12 @@ army['5fb1b9e1e1af06001770980d'].data.has_models = true
 
 -- Campanian
 army['5fb1b9dbe1af06001770952e'].data.has_models = true
+army['5fb1b9dbe1af06001770952e'].data.base = "tile_grass"
 
 
     -- Horsemen - JavCav Gen
     g_models[g_str_5fb1ba25e1af06001770c6eb_general] = {
       {
-        base = 'tile_grass_40x30',
         n_models = 3,
         model_data = 'troop_campanian_roman_cv_gen'
       }
@@ -446,7 +409,6 @@ army['5fb1b9dbe1af06001770952e'].data.has_models = true
     -- Horsemen - JavCav
     g_models[g_str_5fb1ba25e1af06001770c6eb] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_campanian_roman_cv'
       }
     }
@@ -454,7 +416,6 @@ army['5fb1b9dbe1af06001770952e'].data.has_models = true
     -- Velites or allied javelinmen - LF
     g_models[g_str_5fb1ba25e1af06001770c6ed] = {
       {
-        base = 'tile_grass_40x20',
         model_data = 'troop_successors_psiloi_green'
       }
     }
@@ -462,7 +423,6 @@ army['5fb1b9dbe1af06001770952e'].data.has_models = true
     -- Javelinmen without shields or disinterested foot -- Rabble
     g_models[g_str_5fb1ba25e1af06001770c6ef] = {
       {
-        base = 'tile_grass_40x30',
         model_data = 'troop_successors_ax_green'
       }
     }
@@ -470,13 +430,12 @@ army['5fb1b9dbe1af06001770952e'].data.has_models = true
     -- Hoplites - HF
     g_models[g_str_5fb1ba25e1af06001770c6f1] = {
       {
-        base = 'tile_grass_40x15',
         n_models = 4,
         random_models = {
           'troop_successors_spear1_green',
           'troop_successors_spear2_green'
         }
-        
+
       }
     }
 
