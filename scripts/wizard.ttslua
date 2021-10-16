@@ -53,6 +53,16 @@ function wizard_hide()
   update_current_ui()
 end
 
+function is_wizard_showing()
+  if not g_game_settings['wizard_page'] then
+    return false
+  end
+  if g_game_settings['wizard_page'] == "none" then
+    return false
+  end
+  return true
+end
+
 
 -------------------
 ------------------- Game Panel
@@ -134,10 +144,12 @@ function wizard_show_panel_select_troops()
       base.setInvisibleTo({})
     end
     g_movement_reporting_enabled = true
+    g_gizmo_drawing_disabled = false
   end
 
   -- make the bases invisible to the other player
   g_movement_reporting_enabled = false
+  g_gizmo_drawing_disabled = true
   for _, base in pairs(get_all_bases()) do
     if is_base_blue_player(base) then
       base.setInvisibleTo({"Red"})
