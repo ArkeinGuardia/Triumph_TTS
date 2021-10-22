@@ -1115,16 +1115,12 @@ end
 
 
 g_current_table = nil
-function spawn_table_obj(model_url, texture_array_urls, is_large)
-    local tablescale = { x = 1, y = 1, z = 1}
-    if is_large then
-        tablescale = { x = 1.333, y = 1, z = 1.333}
-    end
+function spawn_table_obj(model_url, texture_array_urls)
     local obj = spawnObject({
         type = 'Custom_Model',
         position = { x = 0, y = g_base_height_tabletop, z = 0},
         rotation = { x = 0, y = 0, z = 0},
-        scale = tablescale,
+        scale = { x = 1, y = 1, z = 1},
         sound = false,
         snap_to_grid = false,
         callback_function = function(obj)
