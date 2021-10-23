@@ -39,6 +39,16 @@ allies={}
 #include fake_meshwesh/army_data/all_armies
 #include scripts/data/data_models
 
+-- Set up back link from base definitions to the armies the definitions
+-- belong to.
+for army_id,army_table in pairs(army) do
+  for key,value in pairs(army_table) do
+    if key ~= "data" then
+      value["army_id"] = army_id
+    end
+  end
+end
+
 
 function onSave()
   g_decorations['g_game_settings'] = g_game_settings
@@ -46,9 +56,10 @@ function onSave()
   return saved_data
 end
 
+g_build_date = "20211015"
 
 function onload(saved_data)
-    print_info('\n---------------------------------\nTriumph! v 2.1 build 20211007 alpha\n---------------------------------\n\nCheck the Notebook for instructions.')
+    print_info('\n---------------------------------\nTriumph! v 2.1 beta build ' .. g_build_date )
     Wait.time(main_loop, g_seconds_main_loop, -1)
     make_scenery_non_interactable()
     reset_state()
@@ -65,8 +76,7 @@ function onload(saved_data)
     end
 
 
-    update_dead_zones()
-    update_army_builder_zones()
+    update_points_zones()
 
     -- Do not allow the Red player to roll the blud die, and the Blue
     -- player cannot roll the red dice.
@@ -143,6 +153,9 @@ function restore_extra_data(saved_data)
   end
   if g_game_settings["table type"] == nil then
     g_game_settings["table type"] = 0
+  end
+  if  g_game_settings['use_army_builder'] == nil then
+    g_game_settings['use_army_builder'] = true
   end
 end
 

@@ -710,15 +710,6 @@ function on_toggle_zoc(player, value, id)
 end
 
 
-g_current_table_size = 'large'
-function on_toggle_table_size(player, value, id)
-    if value == "0" then
-        g_current_table_size = 'small'
-    else
-        g_current_table_size = 'large'
-    end
-end
-
 
 g_use_3d_terrain = true
 function on_toggle_3dterrain(player, value, id)
@@ -765,13 +756,11 @@ function load_table(topography_index)
     end
     local tex = tables[type]['table_tex']
 
-    local is_large = g_current_table_size == 'large'
-
     if g_current_table == nil then
         if g_game_settings['is_grand_triumph'] then
-            spawn_table_obj(tables['model_double'], tex, is_large)
+            spawn_table_obj(tables['model_double'], tex)
         else
-            spawn_table_obj(tables['model'], tex, is_large)
+            spawn_table_obj(tables['model'], tex)
         end
         change_bases_to_terrain(type)
     else

@@ -149,9 +149,7 @@ function fix_terrain_and_lock()
                 if g_use_3d_terrain then
                     process_vegetation(terrain, terrain_type)
                 end
-
                 terrain.setLock(true)
-                print_info('Attaching ' .. terrain.getName())
             end, 1)
         end
     end
@@ -169,10 +167,14 @@ function fix_terrain_and_lock()
     end, 1)
 end
 
+-- change the texture for a terrain object
+-- terrain_obj: Object to modify
+-- new_tex_url:  URL of the texture to apply.
 function change_texture_terrain(terrain_obj, new_tex_url)
     local custom = terrain_obj.getCustomObject()
     custom['diffuse'] = new_tex_url
     terrain_obj.setCustomObject(custom)
+    terrain_obj.reload()
 end
 
 function set_forest(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
@@ -503,8 +505,10 @@ function set_bua(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table
     print_error("bua options is nil for " .. tostring(table_type))
     return
   end
-  change_texture_terrain(terrain_obj, random_element(options['texture']))
-  terrain_obj.setLock(true)
+
+  local new_texture = random_element(options['texture'])
+  change_texture_terrain(terrain_obj, new_texture)
+  --terrain_obj.setLock(true)
   add_buildings(terrain_obj, terrain_rotation, options)
 end
 
