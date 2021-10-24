@@ -1122,7 +1122,6 @@ function spawn_table_obj(model_url, texture_array_urls)
         snap_to_grid = false,
         callback_function = function(obj)
             g_current_table = obj.getGUID()
-            print_info('Table is set to ' .. g_current_table)
         end
     })
     local tex_index = math.random(1, #texture_array_urls)
