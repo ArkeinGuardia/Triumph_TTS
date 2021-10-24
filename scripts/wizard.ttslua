@@ -1,3 +1,148 @@
+
+terrain_manditory = {}
+terrain_manditory['steepe']={{type="Gentle hills"}}
+terrain_manditory['dry']={{type="Rough"}}
+terrain_manditory['forest']={{type="Woods"}}
+terrain_manditory['marsh']={{type="Marsh"}}
+terrain_manditory['arable']={{type="Village"}}
+terrain_manditory['hilly']={{type="Steep hills"}}
+terrain_manditory['delta']={{type="Coast"}}
+terrain_optional = {}
+terrain_optional['steepe']={
+  {type="Stream"},
+  {type="Rough"},
+  {type="Woods", max=1},
+  {type={"Gentle hills"}}
+}
+terrain_optional['dry']={
+  {type="Dunes"},
+  {type="Steep Hills"},
+  {type="Oasis"},
+  {type="Rough"}
+}
+terrain_optional['forest']={
+  {type="Stream"},
+  {type="Marsh"},
+  {type="Wooded Hills"},
+  {type="Woods"}
+}
+terrain_optional['marsh']={
+  {type="Woods"},
+  {type="Stream"},
+  {type="Coast"},
+  {type="Marsh"}
+}
+terrain_optional['arable']={
+  {type="Stream"},
+  {type="Steep Hills"},
+  {type="Gentle Hills", max=1},
+  {type="Woods"},
+  {type="Wooded Hills"},
+  {type="Coast"},
+  {type="Rough"},
+  {type="Ploughed Fields"}
+}
+terrain_optional['hilly']={
+  {type="Stream"},
+  {type="Woods"},
+  {type="Wooded Hills"},
+  {type="Steep Hills"}
+}
+terrain_optional['delta']={
+  {type="Marsh"},
+  {type="Dunes"},
+  {type="Village"}
+}
+
+local terrain_bag_names = {
+  "Dunes Ordinary Small",
+  "Woods Ordinary Small",
+  "Steep Hills Ordinary Small",
+  "Gentle Hills Ordinary Small",
+  "Wooded Hills Ordinary Small",
+  "Rough Ordinary Small",
+  "Marshes Ordinary Small",
+  "Oasis Ordinary Small",
+  "Villages Ordinary Small",
+  "Ploughed Fields Ordinary Small",
+
+  "Dunes Ordinary Large",
+  "Woods Ordinary Large",
+  "Steep Hills Ordinary Large",
+  "Gentle Hills Ordinary Large",
+  "Wooded Hills Ordinary Large",
+  "Rough Ordinary Large",
+  "Marshes Ordinary Large",
+  "Oasis Ordinary Large",
+  "Villages Ordinary Large",
+  "Ploughed Fields Ordinary Large",
+
+  "Dunes Edge Small",
+  "Woods Edge Small",
+  "Steep Hills Edge Small",
+  "Gentle Hills Edge Small",
+  "Wooded Hills Edge Small",
+  "Rough Edge Small",
+  "Marshes Edge Small",
+  "Oasis Edge Small",
+  "Villages Edge Small",
+  "Ploughed Fields Edge Small",
+
+  "Dunes Edge Large",
+  "Woods Edge Large",
+  "Steep Hills Edge Large",
+  "Gentle Hills Edge Large",
+  "Wooded Hills Edge Large",
+  "Rough Edge Large",
+  "Marshes Edge Large",
+  "Oasis Edge Large",
+  "Villages Edge Large",
+  "Ploughed Fields Edge Large",
+
+  "Coasts",
+  "Streams"
+}
+
+-- used: Set of names of the terrain that can be placed on the table_type.
+--  e.g. "Woods"
+-- bag_name: Name of a bag to check. e.g. "Gentle Hills Ordinary Small"
+function is_terrain_bag_used(used, bag_name)
+  for terrain,_ in pairs(used) do
+    if  str_starts_with(bag_name, terrain) then
+      return true
+    end
+  end
+  return false
+end
+
+function destroy_unused_terrain_bags()
+  local topography = g_game_settings['topography']
+  -- build up the used terrain
+  local used = {}
+  for _,terrain in pairs(terrain_manditory[topography]) do
+    local type = terrain['type']
+    used[type] = true
+  end
+  for _,terrain in pairs(terrain_optional[topography]) do
+    local type = terrain['type']
+    used[type] = true
+  end
+  for _,bag_name in pairs(terrain_bag_names) do
+    local bag = get_object_by_name(bag_name)
+    if nil == bag then
+      print_warning("Unable to find terrain bag " .. bag_name)
+    else
+      if not is_terrain_bag_used(used, bag_name) then
+        bag.destruct()
+      end
+    end
+  end
+end
+
+
+
+
+
 g_wizard_exit_panel_fn = nil
 
 
@@ -404,6 +549,7 @@ function on_wizard_panel_topography_spawn_table()
   Wait.frames(
     function()
       g_game_settings['table_spawned'] = true
+      destroy_unused_terrain_bags()
       wizard_panel_topography_update()
     end,
     1)
@@ -869,65 +1015,10 @@ function wizard_panel_terrain_score_update()
 end
 
 
-
 -------------------
 ------------------- Terrain Selection
 -------------------
 
-terrain_manditory = {}
-terrain_manditory['steepe']={{type="Gentle hills"}}
-terrain_manditory['dry']={{type="Rough"}}
-terrain_manditory['forest']={{type="Woods"}}
-terrain_manditory['marsh']={{type="Marsh"}}
-terrain_manditory['arable']={{type="Village"}}
-terrain_manditory['hilly']={{ype="Steep hills"}}
-terrain_manditory['delta']={{ype="Coast"}}
-terrain_optional = {}
-terrain_optional['steepe']={
-  {type="Stream"},
-  {type="Rough"},
-  {type="Woods", max=1},
-  type={"Gentle hills"}
-}
-terrain_optional['dry']={
-  {type="Dunes"},
-  {type="Steep Hills"},
-  {type="Oasis"},
-  {type="Rough"}
-}
-terrain_optional['forest']={
-  {type="Stream"},
-  {type="Marsh"},
-  {type="Wooded Hills"},
-  {type="Woods"}
-}
-terrain_optional['marsh']={
-  {type="Woods"},
-  {type="Stream"},
-  {type="Coast"},
-  {type="Marsh"}
-}
-terrain_optional['arable']={
-  {type="Stream"},
-  {type="Steep Hills"},
-  {type="Gentle Hills", max=1},
-  {type="Woods"},
-  {type="Wooded Hills"},
-  {type="Coast"},
-  {type="Rough"},
-  {type="Ploughed Fields"}
-}
-terrain_optional['hilly']={
-  {type="Stream"},
-  {type="Woods"},
-  {type="Wooded Hills"},
-  {type="Steep Hills"}
-}
-terrain_optional['delta']={
-  {type="Marsh"},
-  {type="Dunes"},
-  {type="Village"}
-}
 
 -- terrain_list: an entery from the terrain_optional table_type
 -- return: string for human consumption
