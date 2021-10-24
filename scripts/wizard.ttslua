@@ -875,21 +875,77 @@ end
 -------------------
 
 terrain_manditory = {}
-terrain_manditory['steepe']="Gentle hills"
-terrain_manditory['dry']="Rough"
-terrain_manditory['forest']="Woods"
-terrain_manditory['marsh']="Marsh"
-terrain_manditory['arable']="Village"
-terrain_manditory['hilly']="Steep hills"
-terrain_manditory['delta']="Coast"
+terrain_manditory['steepe']={type="Gentle hills"}
+terrain_manditory['dry']={type="Rough"}
+terrain_manditory['forest']={type="Woods"}
+terrain_manditory['marsh']={type="Marsh"}
+terrain_manditory['arable']={type="Village"}
+terrain_manditory['hilly']={type="Steep hills"}
+terrain_manditory['delta']={type="Coast"}
 terrain_optional = {}
-terrain_optional['steepe']="Stream, Rough, Woods (1), Gentle hills"
-terrain_optional['dry']="Dunes, Steep Hills, Oasis, Rough"
-terrain_optional['forest']="Stream, Marsh, Wooded Hills, Woods"
-terrain_optional['marsh']="Woods, Stream, Coast, Marsh"
-terrain_optional['arable']="Stream, Steep Hills, Gentle Hills (1), Woods, Wooded Hills, Coast, Rough, Ploughed Fields"
-terrain_optional['hilly']="Stream, Woods, Wooded Hills, Steep Hills"
-terrain_optional['delta']="Marsh, Dunes, Village"
+terrain_optional['steepe']={
+  {type="Stream"},
+  {type="Rough"},
+  {type="Woods", max=1},
+  type={"Gentle hills"}
+}
+terrain_optional['dry']={
+  {type="Dunes"},
+  {type="Steep Hills"},
+  {type="Oasis"},
+  {type="Rough"}
+}
+terrain_optional['forest']={
+  {type="Stream"},
+  {type="Marsh"},
+  {type="Wooded Hills"},
+  {type="Woods"}
+}
+terrain_optional['marsh']={
+  {type="Woods"},
+  {type="Stream"},
+  {type="Coast"},
+  {type="Marsh"}
+}
+terrain_optional['arable']={
+  {type="Stream"},
+  {type="Steep Hills"},
+  {type="Gentle Hills", max=1},
+  {type="Woods"},
+  {type="Wooded Hills"},
+  {type="Coast"},
+  {type="Rough"},
+  {type="Ploughed Fields"}
+}
+terrain_optional['hilly']={
+  {type="Stream"},
+  {type="Woods"},
+  {type="Wooded Hills"},
+  {type="Steep Hills"}
+}
+terrain_optional['delta']={
+  {type="Marsh"},
+  {type="Dunes"},
+  {type="Village"}
+}
+
+-- terrain_list: an entery from the terrain_optional table_type
+-- return: string for human consumption
+function format_terrain_list(terrain_list)
+  local result = ""
+  local first = true
+  for _,terrain in pairs(terrain_list) do
+    if not first then
+      result = result .. ", "
+    end
+    first = false
+    result = result .. terrain['type']
+    if nil ~= terrain['max'] then
+      result = result .. "(" .. tostring(terrain['max']) .. ")"
+    end
+  end
+  return result
+end
 
 
 function on_wizard_panel_terrain_selection_previous()
@@ -918,12 +974,13 @@ function wizard_show_panel_terrain_selection()
     coast = ""
   end
   UI.setAttribute("wizard_terrain_selection_coast", "text", coast);
-  UI.setAttribute("wizard_terrain_selection_manditory", "text", terrain_manditory[topography]);
+  UI.setAttribute("wizard_terrain_selection_manditory", "text", terrain_manditory[topography]['type']);
   UI.setAttribute("wizard_terrain_selection_optional_nb_pieces", "text", tostring(nb_optional_pieces));
   if nb_optional_pieces <= 0 then
     UI.setAttribute("wizard_terrain_selection_optional", "text", "");
   else
-    UI.setAttribute("wizard_terrain_selection_optional", "text", terrain_optional[topography]);
+    UI.setAttribute("wizard_terrain_selection_optional", "text",
+      format_terrain_list( terrain_optional[topography]) );
   end
   wizard_show_panel("wizard_panel_terrain_selection")
 end
