@@ -875,13 +875,13 @@ end
 -------------------
 
 terrain_manditory = {}
-terrain_manditory['steepe']={type="Gentle hills"}
-terrain_manditory['dry']={type="Rough"}
-terrain_manditory['forest']={type="Woods"}
-terrain_manditory['marsh']={type="Marsh"}
-terrain_manditory['arable']={type="Village"}
-terrain_manditory['hilly']={type="Steep hills"}
-terrain_manditory['delta']={type="Coast"}
+terrain_manditory['steepe']={{type="Gentle hills"}}
+terrain_manditory['dry']={{type="Rough"}}
+terrain_manditory['forest']={{type="Woods"}}
+terrain_manditory['marsh']={{type="Marsh"}}
+terrain_manditory['arable']={{type="Village"}}
+terrain_manditory['hilly']={{ype="Steep hills"}}
+terrain_manditory['delta']={{ype="Coast"}}
 terrain_optional = {}
 terrain_optional['steepe']={
   {type="Stream"},
@@ -974,7 +974,8 @@ function wizard_show_panel_terrain_selection()
     coast = ""
   end
   UI.setAttribute("wizard_terrain_selection_coast", "text", coast);
-  UI.setAttribute("wizard_terrain_selection_manditory", "text", terrain_manditory[topography]['type']);
+  UI.setAttribute("wizard_terrain_selection_manditory", "text",
+    format_terrain_list(terrain_manditory[topography]));
   UI.setAttribute("wizard_terrain_selection_optional_nb_pieces", "text", tostring(nb_optional_pieces));
   if nb_optional_pieces <= 0 then
     UI.setAttribute("wizard_terrain_selection_optional", "text", "");
