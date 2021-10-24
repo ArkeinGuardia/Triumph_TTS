@@ -139,8 +139,14 @@ function destroy_unused_terrain_bags()
   end
 end
 
-
-
+function destroy_all_terrain_bags()
+  for _,bag_name in pairs(terrain_bag_names) do
+    local bag = get_object_by_name(bag_name)
+    if nil ~= bag then
+      bag.destruct()
+    end
+  end
+end
 
 
 g_wizard_exit_panel_fn = nil
@@ -1116,6 +1122,7 @@ end
 
 function on_wizard_panel_terrain_placement_lock_table()
   fix_terrain_and_lock()
+  destroy_all_terrain_bags()
 end
 
 
