@@ -1,4 +1,22 @@
 
+triumph_terrain_nb_pieces = {}
+triumph_terrain_nb_pieces['steepe']={1,1,1,2,2,3,3,4,4,5,5}
+triumph_terrain_nb_pieces['dry']=triumph_terrain_nb_pieces['steepe']
+triumph_terrain_nb_pieces['forest']={2,3,3,4,4,5,5,6,6,6,6}
+triumph_terrain_nb_pieces['marsh']=triumph_terrain_nb_pieces['forest']
+triumph_terrain_nb_pieces['arable']={1,2,2,3,3,3,4,4,5,5,6,6}
+triumph_terrain_nb_pieces['hilly']=triumph_terrain_nb_pieces['arable']
+triumph_terrain_nb_pieces['delta']=triumph_terrain_nb_pieces['arable']
+
+grand_triumph_terrain_nb_pieces = {}
+grand_triumph_terrain_nb_pieces['steepe']={1,1,2,3,4,5,6,6,7,7,9}
+grand_triumph_terrain_nb_pieces['dry']=grand_triumph_terrain_nb_pieces['steepe']
+grand_triumph_terrain_nb_pieces['forest']={4,5,6,6,7,7,8,9,10,10,10}
+grand_triumph_terrain_nb_pieces['marsh']=grand_triumph_terrain_nb_pieces['forest']
+grand_triumph_terrain_nb_pieces['arable']={2,3,4,5,6,6,7,7,8,9,10}
+grand_triumph_terrain_nb_pieces['hilly']=grand_triumph_terrain_nb_pieces['arable']
+grand_triumph_terrain_nb_pieces['delta']=grand_triumph_terrain_nb_pieces['arable']
+
 terrain_manditory = {}
 terrain_manditory['steepe']={{type="Gentle hills"}}
 terrain_manditory['dry']={{type="Rough"}}
@@ -248,6 +266,11 @@ end
 
 function on_wizard_togglegroup_game(player, value, id)
   g_game_settings['is_grand_triumph'] = (value == "1")
+  if g_game_settings['is_grand_triumph']  then
+    terrain_nb_pieces = grand_triumph_terrain_nb_pieces
+  else
+    terrain_nb_pieces = triumph_terrain_nb_pieces
+  end
   wizard_pannel_game_update()
 end
 
@@ -943,14 +966,8 @@ end
 -------------------
 ------------------- nb terrain pieces selection
 -------------------
-terrain_nb_pieces = {}
-terrain_nb_pieces['steepe']={1,1,1,2,2,3,3,4,4,5,5}
-terrain_nb_pieces['dry']=terrain_nb_pieces['steepe']
-terrain_nb_pieces['forest']={2,3,3,4,4,5,5,6,6,6,6}
-terrain_nb_pieces['marsh']=terrain_nb_pieces['forest']
-terrain_nb_pieces['arable']={1,2,2,3,3,3,4,4,5,5,6,6}
-terrain_nb_pieces['hilly']=terrain_nb_pieces['arable']
-terrain_nb_pieces['delta']=terrain_nb_pieces['arable']
+
+
 -- is a coast required.  index+1 = terrain score
 terrain_coast = {false,false,true,false,false,true,false,false,true,false,false}
 
