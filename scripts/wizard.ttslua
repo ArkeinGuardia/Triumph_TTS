@@ -148,7 +148,7 @@ function destroy_unused_terrain_bags()
   for _,bag_name in pairs(terrain_bag_names) do
     local bag = get_object_by_name(bag_name)
     if nil == bag then
-      print_warning("Unable to find terrain bag " .. bag_name)
+      print_debug("Unable to find terrain bag " .. bag_name)
     else
       if not is_terrain_bag_used(used, bag_name) then
         bag.destruct()
@@ -166,27 +166,20 @@ function destroy_all_terrain_bags()
   end
 end
 
+function get_terrain_nb_pieces()
+  if g_game_settings['is_grand_triumph']  then
+    return grand_triumph_terrain_nb_pieces
+  else
+    return triumph_terrain_nb_pieces
+  end
+end
 
-g_wizard_exit_panel_fn = nil
 
 
-
-
-wizard_panels = {
-  "wizard_panel_game",
-  "wizard_panel_select_armies",
-  "wizard_panel_select_troops",
-   "wizard_panel_invader",
-   "wizard_panel_topography",
-   "wizard_panel_tactical_advantage",
-   "wizard_panel_terrain_pieces_roll",
-   "wizard_panel_terrain_score",
-   "wizard_panel_terrain_selection",
-   "wizard_panel_terrain_placement",
-   "wizard_panel_camps",
-   "wizard_panel_deploy_troops",
-   "wizard_panel_first_move",
-}
+-- name: ID of panel in XML file.
+-- exit: function to call when the panel changes from active to inactive
+-- enter: function to call when the panel changes from inactive to active
+wizard_panels = {}
 
 function get_tactical_disadvantage()
   local advantage = g_game_settings['tactical_advantage']
@@ -202,19 +195,43 @@ function get_tactical_disadvantage()
 end
 
 
+-- Entry from wizard_panels that is currently showing.
+g_current_showing_wizard_panel = nil
+
+
 function wizard_show_panel(panel_name)
-  if g_wizard_exit_panel_fn then
-    g_wizard_exit_panel_fn()
-    g_wizard_exit_panel_fn = nil
+  -- cleanup the current panel
+  if nil ~= g_current_showing_wizard_panel then
+    -- hide the panel so there can be no more UI input
+    UI.setAttribute(g_current_showing_wizard_panel['name'], "active", false)
+    local exit_fn = g_current_showing_wizard_panel['exit']
+    if nil ~= exit_fn then
+      exit_fn()
+    end
   end
+  g_current_showing_wizard_panel = nil
+
+  -- Find the new panel
   local wizard_active = false
-  for _,name in pairs(wizard_panels) do
-    local panel_active = (name == panel_name)
-    UI.setAttribute(name, "active", panel_active)
+  for _,panel in pairs(wizard_panels) do
+    local panel_active = (panel['name'] == panel_name)
     wizard_active = wizard_active or panel_active
+    if panel_active then
+      g_current_showing_wizard_panel = panel
+    end
   end
   UI.setAttribute("panel_wizard_bg", "active", wizard_active)
   g_game_settings['wizard_page'] = panel_name
+
+  if nil ~= g_current_showing_wizard_panel then
+    -- prepare the panel
+    local enter_fn = g_current_showing_wizard_panel['enter']
+    if nil ~= enter_fn then
+      enter_fn()
+    end
+    -- show the panel
+    UI.setAttribute(g_current_showing_wizard_panel['name'], "active", true)
+  end
 end
 
 function wizard_hide()
@@ -239,7 +256,6 @@ end
 
 function wizard_show_panel_game()
   wizard_show_panel("wizard_panel_game")
-  wizard_panel_game_enter()
 end
 
 function wizard_pannel_game_update()
@@ -259,24 +275,23 @@ end
 
 function wizard_panel_game_enter()
   wizard_pannel_game_update()
-  g_wizard_exit_panel_fn = function()
-    spawn_all_dice()
-  end
+end
+
+function wizard_panel_game_exit()
+  spawn_all_dice()
 end
 
 function on_wizard_togglegroup_game(player, value, id)
   g_game_settings['is_grand_triumph'] = (value == "1")
-  if g_game_settings['is_grand_triumph']  then
-    terrain_nb_pieces = grand_triumph_terrain_nb_pieces
-  else
-    terrain_nb_pieces = triumph_terrain_nb_pieces
-  end
   wizard_pannel_game_update()
 end
 
 function on_wizard_button_forward_to_select_armies()
       wizard_show_panel_select_armies()
 end
+
+table.insert(wizard_panels, {name="wizard_panel_game", exit=wizard_panel_game_exit, enter=wizard_panel_game_enter})
+
 
 -------------------
 ------------------- Select armies
@@ -298,13 +313,19 @@ end
 
 function wizard_show_panel_select_armies()
   wizard_show_panel("wizard_panel_select_armies")
+end
+
+function wizard_panel_select_armies_enter()
   g_load_army_callback = wizard_panel_select_armies_update
-  g_wizard_exit_panel_fn = function()
-    g_load_army_callback = nil
-  end
   wizard_panel_select_armies_update()
 end
 
+function wizard_panel_select_armies_exit()
+  g_load_army_callback = nil
+end
+
+
+table.insert(wizard_panels, {name="wizard_panel_select_armies", exit=wizard_panel_select_armies_exit, enter=wizard_panel_select_armies_enter})
 
 -------------------
 ------------------- Select troops
@@ -312,15 +333,19 @@ end
 
 function wizard_show_panel_select_troops()
   wizard_show_panel("wizard_panel_select_troops")
-  g_wizard_exit_panel_fn = function()
-    -- make the bases visible to everyone
-    for _, base in pairs(get_all_bases()) do
-      base.setInvisibleTo({})
-    end
-    g_movement_reporting_enabled = true
-    g_gizmo_drawing_disabled = false
-  end
+end
 
+
+function on_wizard_panel_select_troops_previous()
+  wizard_show_panel_select_armies()
+end
+
+
+function on_wizard_panel_select_troops_next()
+  wizard_show_panel_invader()
+end
+
+function wizard_panel_select_troops_enter()
   -- make the bases invisible to the other player
   g_movement_reporting_enabled = false
   g_gizmo_drawing_disabled = true
@@ -335,15 +360,16 @@ function wizard_show_panel_select_troops()
   g_game_settings['use_army_builder'] = true
 end
 
-
-function on_wizard_panel_select_troops_previous()
-  wizard_show_panel_select_armies()
+function wizard_panel_select_troops_exit()
+  -- make the bases visible to everyone
+  for _, base in pairs(get_all_bases()) do
+    base.setInvisibleTo({})
+  end
+  g_movement_reporting_enabled = true
+  g_gizmo_drawing_disabled = false
 end
 
-
-function on_wizard_panel_select_troops_next()
-  wizard_show_panel_invader()
-end
+table.insert(wizard_panels, {name="wizard_panel_select_troops", exit=wizard_panel_select_troops_exit, enter=wizard_panel_select_troops_enter})
 
 -------------------
 ------------------- Invader
@@ -351,12 +377,14 @@ end
 
 function wizard_show_panel_invader()
   wizard_show_panel("wizard_panel_invader")
-  g_wizard_exit_panel_fn = wizard_panel_exit_invader
+end
+
+
+function wizard_panel_invader_enter()
   wizard_panel_invader_set_ratings()
   g_dice_callbacks['invasion_dice_rolled'] = on_invasion_dice_rolled
   update_invasion_wizard_page()
 end
-
 
 function wizard_panel_exit_invader()
   g_dice_callbacks["invasion_dice_rolled"] = nil
@@ -526,6 +554,9 @@ function on_wizard_panel_invader_previous()
   wizard_show_panel_select_troops()
 end
 
+table.insert(wizard_panels, {name="wizard_panel_invader", exit=wizard_panel_exit_invader, enter=wizard_panel_invader_enter})
+
+
 -------------------
 ------------------- Topography
 -------------------
@@ -533,6 +564,10 @@ end
 g_topographies = {'arable', 'forest', 'hilly', 'dry', 'steepe', 'marsh', 'delta'}
 
 function wizard_show_panel_topography()
+  wizard_show_panel("wizard_panel_topography")
+end
+
+function wizard_panel_topography_enter()
   -- set the table type before populating otherwise it will be set to zero.
   local defender
   if g_game_settings['invader']=='blue' then
@@ -550,8 +585,6 @@ function wizard_show_panel_topography()
       g_game_settings["table type"] = table_type
     end
   end
-
-  wizard_show_panel("wizard_panel_topography")
   UI.setAttribute("wizard_topgraphy_defender", "text", defender)
   for table_type,topo in ipairs(g_topographies) do
       local active =  find_in_array(homeTopographies, topo, str_equals_case_insensitive)
@@ -559,8 +592,6 @@ function wizard_show_panel_topography()
       UI.setAttribute(id, "active", tostring(active))
   end
   wizard_panel_topography_update()
-  g_wizard_exit_panel_fn = wizard_panel_topography_exit
-
 end
 
 function on_wizard_topography_selected(player, value, id)
@@ -635,15 +666,19 @@ function wizard_panel_topography_exit()
   g_load_table_callback = nil
 end
 
+table.insert(wizard_panels, {name="wizard_panel_topography", exit=wizard_panel_topography_exit, enter=wizard_panel_topography_enter})
+
 -------------------
 ------------------- Tatucal Advantage
 -------------------
 
 function wizard_show_panel_tactical_advantage()
   wizard_show_panel("wizard_panel_tactical_advantage")
+end
+
+function wizard_panel_tactical_advantage_enter()
   wizard_panel_tactical_advantage_update_manueuver_ratings()
   g_dice_callbacks['tactical_advantage_dice_rolled'] = on_tactical_advantage_dice_rolled
-  g_wizard_exit_panel_fn = wizard_panel_exit_tactical_advantage
   do_update_tactical_advantage_wizard_page()
 end
 
@@ -878,14 +913,18 @@ function wizard_panel_tactical_advantage_update()
     1)
 end
 
+table.insert(wizard_panels, {name="wizard_panel_tactical_advantage", exit=wizard_panel_exit_tactical_advantage, enter=wizard_panel_tactical_advantage_enter})
+
 -------------------
 ------------------- terrain pieces roll
 -------------------
 
 function wizard_show_panel_terrain_pieces_roll()
   wizard_show_panel("wizard_panel_terrain_pieces_roll")
+end
+
+function wizard_panel_terrain_pieces_roll_enter()
   g_dice_callbacks['terrain_pieces_dice_rolled'] = on_terrain_pieces_dice_rolled
-  g_wizard_exit_panel_fn = wizard_panel_exit_terrain_pieces_roll
   wizard_panel_terrain_pieces_roll_update()
 end
 
@@ -962,6 +1001,7 @@ function wizard_panel_terrain_pieces_roll_update()
   wizard_panel_terrain_pieces_roll_update()
 end
 
+table.insert(wizard_panels, {name="wizard_panel_terrain_pieces_roll", exit=wizard_panel_exit_terrain_pieces_roll, enter=wizard_panel_terrain_pieces_roll_enter})
 
 -------------------
 ------------------- nb terrain pieces selection
@@ -973,6 +1013,26 @@ terrain_coast = {false,false,true,false,false,true,false,false,true,false,false}
 
 function wizard_show_panel_terrain_score()
   wizard_show_panel("wizard_panel_terrain_score")
+end
+
+function on_wizard_panel_terrain_score_previous()
+  wizard_show_panel_terrain_pieces_roll()
+end
+
+
+function on_wizard_panel_terrain_score_next()
+  wizard_show_panel_terrain_selection()
+end
+
+function on_wizard_tarrain_score_selected(player, value, id)
+  g_game_settings['terrain_score']  = tonumber(value) + 2
+  local terrain_score = g_game_settings['terrain_score']
+  g_game_settings['coast_allowed'] =  terrain_coast[terrain_score-1]
+  wizard_panel_terrain_score_update()
+end
+
+function wizard_panel_terrain_score_enter()
+  local terrain_nb_pieces = get_terrain_nb_pieces()
 
   -- Enable and disable the toggles for the terain score
   for score=2,g_game_settings['terrain_score_low']-1 , 1 do
@@ -996,27 +1056,11 @@ function wizard_show_panel_terrain_score()
     UI.setAttribute(id, "text", tostring(value))
   end
   wizard_panel_terrain_score_update()
-  g_wizard_exit_panel_fn = wizard_panel_exit_terrain_score
 end
-
-function on_wizard_panel_terrain_score_previous()
-  wizard_show_panel_terrain_pieces_roll()
-end
-
-
-function on_wizard_panel_terrain_score_next()
-  wizard_show_panel_terrain_selection()
-end
-
-function on_wizard_tarrain_score_selected(player, value, id)
-  g_game_settings['terrain_score']  = tonumber(value) + 2
-  local terrain_score = g_game_settings['terrain_score']
-  g_game_settings['coast_allowed'] =  terrain_coast[terrain_score-1]
-  wizard_panel_terrain_score_update()
-end
-
 
 function wizard_panel_exit_terrain_score()
+  local terrain_nb_pieces = get_terrain_nb_pieces()
+
   local terrain_score = g_game_settings['terrain_score']
   local topography =  g_game_settings['topography']
   local nb_pieces = terrain_nb_pieces[topography][terrain_score-1]
@@ -1037,6 +1081,7 @@ function wizard_panel_terrain_score_update()
   end
 end
 
+table.insert(wizard_panels, {name="wizard_panel_terrain_score", exit=wizard_panel_exit_terrain_score, enter=wizard_panel_terrain_score_enter})
 
 -------------------
 ------------------- Terrain Selection
@@ -1073,6 +1118,13 @@ end
 
 
 function wizard_show_panel_terrain_selection()
+  wizard_show_panel("wizard_panel_terrain_selection")
+  wizard_panel_terrain_selection_enter()
+end
+
+function wizard_panel_terrain_selection_enter()
+  local terrain_nb_pieces = get_terrain_nb_pieces()
+
   local advantage = g_game_settings['tactical_advantage']
   local terrain_score = g_game_settings['terrain_score']
   local topography =  g_game_settings['topography']
@@ -1097,8 +1149,9 @@ function wizard_show_panel_terrain_selection()
     UI.setAttribute("wizard_terrain_selection_optional", "text",
       format_terrain_list( terrain_optional[topography]) );
   end
-  wizard_show_panel("wizard_panel_terrain_selection")
 end
+
+table.insert(wizard_panels, {name="wizard_panel_terrain_selection", enter=wizard_panel_terrain_selection_enter })
 
 -------------------
 ------------------- Terrain Placement
@@ -1144,12 +1197,16 @@ end
 
 
 function wizard_show_panel_terrain_placement()
-  wizard_panel_terrain_placement_update()
   wizard_show_panel("wizard_panel_terrain_placement")
-  g_wizard_exit_panel_fn = wizard_panel_exit_terrain_placement
+end
+
+function wizard_panel_terrain_placement_enter()
+  wizard_panel_terrain_placement_update()
   g_game_table_callbacks['wizard_panel_terrain_placement'] = wizard_panel_terrain_placement_update
   draw_deployment_lines()
 end
+
+table.insert(wizard_panels, {name="wizard_panel_terrain_placement", exit=wizard_panel_exit_terrain_placement, enter=wizard_panel_terrain_placement_enter})
 
 -------------------
 ------------------- Camps
@@ -1171,14 +1228,18 @@ end
 
 
 function wizard_show_panel_camps()
+  wizard_show_panel("wizard_panel_camps")
+end
+
+function wizard_panel_camps_enter()
   local advantage = g_game_settings['tactical_advantage']
   local disadvantage = get_tactical_disadvantage()
   UI.setAttribute("wizard_panel_camps_disadvantage", "text", disadvantage)
   UI.setAttribute("wizard_panel_camps_advantage", "text", advantage)
-  wizard_show_panel("wizard_panel_camps")
-  g_wizard_exit_panel_fn = wizard_panel_exit_camps
   draw_deployment_lines()
 end
+
+table.insert(wizard_panels, {name="wizard_panel_camps", exit=wizard_panel_exit_camps, enter=wizard_panel_camps_enter})
 
 -------------------
 ------------------- Deploy Troops
@@ -1200,17 +1261,19 @@ end
 
 
 function wizard_show_panel_deploy_troops()
+  wizard_show_panel("wizard_panel_deploy_troops")
+end
+
+function wizard_panel_deploy_troops_enter()
   local advantage = g_game_settings['tactical_advantage']
   local disadvantage = get_tactical_disadvantage()
   UI.setAttribute("wizard_panel_deploy_troops_disadvantage_center_line", "text", disadvantage)
   UI.setAttribute("wizard_panel_deploy_troops_advantage", "text", advantage)
   UI.setAttribute("wizard_panel_deploy_troops_disadvantage_remainder", "text", disadvantage)
-  wizard_show_panel("wizard_panel_deploy_troops")
-  g_wizard_exit_panel_fn = wizard_panel_exit_deploy_troops
   draw_deployment_lines()
 end
 
-
+table.insert(wizard_panels, {name="wizard_panel_deploy_troops", exit=wizard_panel_exit_deploy_troops, enter=wizard_panel_deploy_troops_enter})
 
 -------------------
 ------------------- First Move
@@ -1229,13 +1292,17 @@ end
 
 
 function wizard_show_panel_first_move()
+  wizard_show_panel("wizard_panel_first_move")
+end
+
+function wizard_panel_first_move_enter()
   local advantage = g_game_settings['tactical_advantage']
   UI.setAttribute("wizard_panel_first_move_advantage", "text", advantage)
-  wizard_show_panel("wizard_panel_first_move")
   g_game_settings['use_army_builder'] = false
   update_points_zones()
 end
 
+table.insert(wizard_panels, {name="wizard_panel_first_move", enter=wizard_panel_first_move_enter})
 
 -------------------
 -------------------
