@@ -648,18 +648,16 @@ end
 function on_wizard_red_maneuver_rating_selected(player, value, id)
   print_info("Red maneuver rating " .. tostring(value))
   local maneuverRatings =  get_maneuver_ratings_for_color('red')
-  local rating = maneuverRatings[value]
+  local rating = maneuverRatings[tonumber(value)]
   g_game_settings['wizard_maneuver_rating_red'] = rating
-  set_maneuver_rating_selected(id, rating)
   wizard_panel_tactical_advantage_update()
 end
 
 function on_wizard_blue_maneuver_rating_selected(player, value, id)
   print_info("Blue maneuver rating " .. tostring(value))
   local maneuverRatings =  get_maneuver_ratings_for_color('blue')
-  local rating = maneuverRatings[value]
+  local rating = maneuverRatings[tonumber(value)]
   g_game_settings['wizard_maneuver_rating_blue'] = rating
-  set_maneuver_rating_selected(id, rating)
   wizard_panel_tactical_advantage_update()
 end
 
@@ -694,7 +692,7 @@ function wizard_tactical_advantage_update_maneuver_rating(xml, color)
       selected_index = index
     end
   end
-  if selected_idex == nil then
+  if selected_index == nil then
     selected_index = 1
     g_game_settings[menu_id] = maneuverRatings[selected_index]
   end
@@ -812,6 +810,8 @@ function do_update_tactical_advantage_wizard_page()
 
     return
   end
+
+  wizard_panel_tactical_advantage_update_manueuver_ratings()
 
   local red_score = update_tactical_maneuver_wizard_score("red")
   local blue_score = update_tactical_maneuver_wizard_score("blue")
