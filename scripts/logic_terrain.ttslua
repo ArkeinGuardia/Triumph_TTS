@@ -146,10 +146,10 @@ function fix_terrain_and_lock()
             terrain.setPosition(current_pos)
 
             Wait.frames(function ()
+                terrain.setLock(true)
                 if g_use_3d_terrain then
                     process_vegetation(terrain, terrain_type)
                 end
-                terrain.setLock(true)
             end, 1)
         end
     end
