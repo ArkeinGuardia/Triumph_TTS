@@ -7,8 +7,42 @@ and the writes the data to the same file.
 
 import datetime
 import json
+import os
 import re
 import sys
+
+def read_source_file(file) :
+    contents = ""
+    with open(file + ".ttslua", "r") as input :
+        contents = contents + "----#include " + file + "\n"
+        old_dir = os.getcwd()
+        new_dir = os.path.dirname(file)
+        if new_dir == "" :
+            new_dir = "."
+        os.chdir(new_dir)
+        line = input.readline()
+        while line :
+            if line.startswith("#include ") :
+                (directive,nested_file) = line.split()
+                contents = contents + read_source_file(nested_file)
+            else:
+                contents = contents + line
+            line = input.readline()
+        contents = contents + "\n----#include " + file + "\n"
+        os.chdir(old_dir)
+    return contents
+
+def read_source_files() :
+    old_dir = os.getcwd()
+    try :
+        os.chdir("..")
+        project_dir = os.path.basename(os.getcwd())
+        print("project_dir=", project_dir)
+        os.chdir("..")
+        text=read_source_file(os.path.join(project_dir, "main"))
+        return text.replace('\r\n', '\n')
+    finally:
+        os.chdir(old_dir)
 
 def is_not_number(object) :
     if 'Nickname' not in object :
@@ -32,6 +66,9 @@ def clean_file(file_name) :
     if 'ObjectStates' in data:
         new_objects = [ x for x in data['ObjectStates'] if is_not_number(x) ]
         data['ObjectStates'] = new_objects
+
+    # Build up the LuaScript from the source files
+    data['LuaScript'] = read_source_files()
 
     # Update the build date used in the inital version display
     script = data['LuaScript']

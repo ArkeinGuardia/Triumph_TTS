@@ -6,6 +6,9 @@ directory and then executing:
 
 ./clean_save
 
+Cleaning will update the LuaScript in the save file
+to use the contents of the .ttslua data files.  
+
 Cleaning will remove extra data that should not be part 
 of a game that is in the store.
 
