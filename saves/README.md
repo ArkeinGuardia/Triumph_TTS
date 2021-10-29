@@ -18,7 +18,6 @@ for testing.
 
 Windows
 =======
-cp *.json  My\ Documents/My\ Games/Tabletop\ Simulator/Saves/
-cp *.png   My\ Documents/My\ Games/Tabletop\ Simulator/Saves/
+cp *.json  *.png ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/
 
 
