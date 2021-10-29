@@ -625,6 +625,13 @@ function random_point_ellipse(w, h, added_from_center)
     }
 end
 
+function is_table_empty(T)
+  for _ in pairs(T) do
+    return false
+  end
+  return true
+end
+
 function table_length(T)
   local count = 0
   for _ in pairs(T) do count = count + 1 end
