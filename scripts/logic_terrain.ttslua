@@ -177,28 +177,147 @@ function change_texture_terrain(terrain_obj, new_tex_url)
     terrain_obj.reload()
 end
 
-function set_forest(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
+-- Spawn a new terrain feature, e.g. a tree, that will be part of
+-- a terrain area (e.g. woods).
+-- description: Parameters for describing the feature and its location
+-- terrain_zone: scripting zone that will cause the created feature
+--  to auto hide, or come back as bases get close or go far away.
+function spawn_terrain_feature(description, terrain_zone)
+  local feature = spawn_model(
+    description.model_name,
+    description.position,
+    description.rotation.y,
+    minimal_collider,  nil, nil, nil, true)
+  feature.setName(description.name)
+  feature.setLock(true)
+  description.hidden = False
+  add_to_decoration_list_obj(terrain_zone, "terrain features", description)
+  return tree
+end
+
+function remove_colliding_terrain_feature(terrain_feature, base)
+  if not terrain_feature.hidden then
+    local feature_obj = get_object_by_name(terrain_feature.name)
+    if nil ~= feature_obj then
+      feature_obj.destruct()
+    end
+  end
+  terrain_feature.hidden = true
+end
+
+-- Remove all the terrain features in a zone that collide with a
+-- base
+-- terrain_zone: Zone that may have terrain features to remove.
+-- base: base that is entered or moved in the zone.
+function remove_colliding_terrain_features(terrain_zone, base)
+  local features = get_decoration_for_obj(terrain_zone, "terrain features")
+  for _,feature in ipairs(features) do
+    remove_colliding_terrain_feature(feature, base)
+  end
+end
+
+function onObjectEnterScriptingZoneTerrainArea(terrain_zone, obj)
+  if is_base_obj(obj) then
+    remove_colliding_terrain_features(terrain_zone, obj)
+  end
+end
+
+
+function restore_terrain_feature(terrain_feature, terrain_zone)
+  if terrain_feature.hidden then
+    local feature_obj = get_object_by_name(terrain_feature.name)
+    if nil == feature_obj then
+      spawn_terrain_feature(terrain_feature, terrain_zone)
+    end
+  end
+end
+
+
+function restore_terrain_features(terrain_zone)
+  local features = get_decoration_for_obj(terrain_zone, "terrain features")
+  for _,feature in ipairs(features) do
+    restore_terrain_feature(feature, terrain_zone)
+  end
+end
+
+function onObjectLeaveScriptingZoneTerrainArea(terrain_zone, obj)
+  stop_zone_timer(terrain_zone)
+  if is_any_base_in_zone(terrain_zone) then
+    return
+  end
+  -- in the future restore the building.
+  local callback = function(zone)
+    restore_terrain_features(zone)
+  end
+
+  start_zone_timer(terrain_zone, callback)
+end
+
+-- Create ascripting  zone that will cover a terrain area.
+-- terrain_obj: terrain object being covered
+-- return: newly created zone
+function create_terrain_zone( terrain_obj)
+  local bounds = terrain_obj.getBounds()
+  local size = shallow_copy(bounds['size'])
+  size.y = 4
+  local position = shallow_copy(terrain_obj.getPosition())
+  position['y'] = position['y'] + (size.y / 2) - (bounds['size']['y'] / 2)
+  local zone_spawn = {
+    position = terrain_obj.getPosition(),
+    rotation = terrain_obj.getRotation(),
+    scale = size,
+    type = 'ScriptingTrigger'
+  }
+  local terrain_zone = spawnObject(zone_spawn)
+  local name = "zone " .. terrain_obj.getName()
+  terrain_zone.setName(name)
+  terrain_zone.setLock(true)
+  set_decoration_for_obj(terrain_zone, "onObjectEnterScriptingZone",
+    "onObjectEnterScriptingZoneTerrainArea")
+  set_decoration_for_obj(terrain_zone, "onObjectLeaveScriptingZone",
+    "onObjectLeaveScriptingZoneTerrainArea")
+  print_debug("zone created: " .. terrain_zone.getGUID() .. ' ' .. terrain_zone.getName())
+  return terrain_zone
+end
+
+
+-- DBA calls woods "forrest"
+function set_woods(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
+    local terrain_zone = create_terrain_zone(terrain_obj)
     local options = g_terrain[table_type]['forest']
     local multiplier = options['multiplier']
     local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier)
     for i=1,ntrees do
         local point = random_point_ellipse(terrain_size['x'] / 2.5, terrain_size['z'] / 2.5)
-        new_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
-        local obj = spawn_model(random_element(options['objects']), new_pos, math.random(1, 359), minimal_collider, true)
-        terrain_obj.addAttachment(obj)
+        local tree_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
+        local tree_name = "tree " .. tostring(i) .. " " .. terrain_obj.getName()
+        local description = {
+          name = tree_name,
+          model_name = random_element(options['objects']),
+          position = tree_pos,
+          rotation = {x=0, y=math.random(1, 359), z=0}
+        }
+        spawn_terrain_feature(description, terrain_zone)
     end
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
 function set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
+  local terrain_zone = create_terrain_zone(terrain_obj)
     local options = g_terrain[table_type]['forest']
     local multiplier = options['multiplier']
     local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier)
     for i=1,ntrees do
-        local point = random_point_ellipse(terrain_size['x'] / 2.5, terrain_size['z'] / 2.5)
-        new_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
-        local obj = spawn_model(random_element(options['objects']), new_pos, math.random(1, 359), minimal_collider, true)
-        terrain_obj.addAttachment(obj)
+      local point = random_point_ellipse(terrain_size['x'] / 2.5, terrain_size['z'] / 2.5)
+      local tree_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
+      local tree_name = "tree " .. tostring(i) .. " " .. terrain_obj.getName()
+      local description = {
+        name = tree_name,
+        model_name = random_element(options['objects']),
+        position = tree_pos,
+        rotation = {x=0, y=math.random(1, 359), z=0}
+      }
+      spawn_terrain_feature(description, terrain_zone)
     end
 end
 
@@ -333,10 +452,10 @@ function stop_zone_timer(zone)
   end
 end
 
-function start_zone_timer(zone)
+function start_zone_timer(zone, timer_expired_callback)
   stop_zone_timer(zone)
   timer_id = Wait.time(function ()
-    restore_buildings(zone)
+    timer_expired_callback(zone)
   end, 3, 1)
   zone.setVar("timer", timer_id)
 end
@@ -347,7 +466,11 @@ function onObjectLeaveScriptingZoneBuaLot(zone,obj)
     return
   end
   -- in the future restore the building.
-  start_zone_timer(zone)
+  local callback = function(zone)
+     restore_buildings(zone)
+  end
+
+  start_zone_timer(zone, callback)
 end
 
 -- Set the variables for the zone to indicate we are a building zone.
@@ -583,7 +706,7 @@ function process_vegetation(terrain_obj, type)
     local terrain_rotation = normalize_angle(math.rad(terrain_obj.getRotation()['y']))
     local terrain_size = terrain_obj.getBoundsNormalized()['size']
     if str_starts_with(terrain_obj.getName(), 'terrain Woods') then
-        set_forest(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_woods(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Rough') then
         set_arid(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Wooded Hill') then
