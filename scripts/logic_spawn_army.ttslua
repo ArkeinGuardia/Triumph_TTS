@@ -1179,7 +1179,11 @@ function change_bases_to_terrain(terrain_type)
 end
 
 
-function spawn_model(troop_name, pos, added_y_axis_rotation, collider, is_player_red, overridden_tex, overridden_mesh)
+function spawn_model(troop_name, pos, added_y_axis_rotation, collider, is_player_red, overridden_tex, overridden_mesh, locked)
+    if locked == nil then
+      locked = false
+    end
+
     -- Better pray that the input name actually exists! lol
     local model_data = _G[troop_name]
     if model_data == nil then
@@ -1216,6 +1220,7 @@ function spawn_model(troop_name, pos, added_y_axis_rotation, collider, is_player
         collider)
     spawn_data['spawn']['rotation']['y'] = spawn_data['spawn']['rotation']['y'] + added_y_axis_rotation
     local obj = spawnObject(spawn_data['spawn'])
+    obj.setLock(locked)
     obj.setCustomObject(spawn_data['custom_obj_attrs'])
 
     return obj
