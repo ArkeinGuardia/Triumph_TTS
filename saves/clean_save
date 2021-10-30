@@ -12,6 +12,8 @@ import re
 import subprocess
 import sys
 
+update_date = True
+
 # Project root directory
 project_dir = None
 # Prefix for assets URL.  https://... or file://....
@@ -161,12 +163,13 @@ def clean_file(file_name) :
     data['XmlUI'] = read_xml_ui()
 
     # Update the build date used in the inital version display
-    script = data['LuaScript']
-    today = datetime.date.today()
-    date='{:04}{:02}{:02}'.format( today.year, today.month, today.day )
-    new_date = 'g_build_date = "' + date + '"\\n'
-    new_script = re.sub('g_build_date = "\d+\"\\n', new_date, script)
-    data['LuaScript'] = new_script
+    if update_date :
+        script = data['LuaScript']
+        today = datetime.date.today()
+        date='{:04}{:02}{:02}'.format( today.year, today.month, today.day )
+        new_date = 'g_build_date = "' + date + '"\\n'
+        new_script = re.sub('g_build_date = "\d+\"\\n', new_date, script)
+        data['LuaScript'] = new_script
 
     discover_assets_remote_url()
     update_custom_assets(data)
@@ -174,6 +177,10 @@ def clean_file(file_name) :
     with open(file_name, "w") as f :
         f.write(json.dumps(data, indent=4, sort_keys="True"))
 
+if len(sys.argv) > 1 :
+    if sys.argv[1] == "--no-date" :
+        update_date = False
+        sys.argv.remove('--no-date')
 
 if len(sys.argv) == 1:
   clean_file("TS_Save_1.json")
