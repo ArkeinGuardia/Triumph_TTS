@@ -18,6 +18,9 @@ for testing.
 
 Windows
 =======
+
+cp ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/TS_Save_1.*
+
 cp *.json  *.png ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/
 
 

@@ -17,6 +17,13 @@ project_dir = None
 # Prefix for assets URL.  https://... or file://....
 assets_remote_url=None
 
+def read_xml_ui() :
+    file = os.path.join("..", "ui", "main.xml")
+    with open(file, "r") as input :
+        header = "<!-- include Triumph_TTS\\ui\\main.xml -->\n"
+        contents = "".join(input.readlines())
+        return header + contents
+
 def read_source_file(file) :
     contents = ""
     with open(file + ".ttslua", "r") as input :
@@ -151,6 +158,7 @@ def clean_file(file_name) :
 
     # Build up the LuaScript from the source files
     data['LuaScript'] = read_source_files()
+    data['XmlUI'] = read_xml_ui()
 
     # Update the build date used in the inital version display
     script = data['LuaScript']
