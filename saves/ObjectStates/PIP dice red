@@ -1,0 +1,110 @@
+{
+    "Autoraise": true,
+    "ColorDiffuse": {
+        "b": 1.0,
+        "g": 1.0,
+        "r": 1.0
+    },
+    "CustomMesh": {
+        "CastShadows": true,
+        "ColliderURL": "",
+        "Convex": true,
+        "CustomShader": {
+            "FresnelStrength": 0.107142858,
+            "SpecularColor": {
+                "b": 0.7463235,
+                "g": 0.812880337,
+                "r": 0.875
+            },
+            "SpecularIntensity": 0.0,
+            "SpecularSharpness": 0.0
+        },
+        "DiffuseURL": "http://cloud-3.steamusercontent.com/ugc/1483325549676274833/BA2F1424E61D7B0069F760A5FB583007F598B09C/",
+        "MaterialIndex": 1,
+        "MeshURL": "http://cloud-3.steamusercontent.com/ugc/1667985477144749065/BB7C61EB29049DFAE25D8FDD72B8D85B9D75CB75/",
+        "NormalURL": "",
+        "TypeIndex": 2
+    },
+    "Description": "",
+    "DragSelectable": true,
+    "GMNotes": "",
+    "GUID": "b85c7f",
+    "Grid": false,
+    "GridProjection": false,
+    "Hands": false,
+    "HideWhenFaceDown": false,
+    "IgnoreFoW": false,
+    "LayoutGroupSortIndex": 0,
+    "Locked": false,
+    "LuaScript": "        g_is_rolling = false\n\n        function onRandomize()\n            if not g_is_rolling then\n                Global.call(\"history_record_delta_snapshot\")\n                g_is_rolling = true\n                startLuaCoroutine(self, 'check_if_at_rest')\n            end\n        end\n\n\n        function onDrop()\n            if not g_is_rolling then\n                g_is_rolling = true\n                startLuaCoroutine(self, 'check_if_at_rest')\n            end\n        end\n\n        function check_if_at_rest()\n            while not self.resting do\n                coroutine.yield(0)\n            end\n            on_dice_stopped(self)\n            return 1\n        end\n\n        function on_dice_stopped(dice_obj)\n            g_is_rolling = false\n            local value = dice_obj.getRotationValue()\n            UI.setValue(\"text_pips_player_red\", value)\n            UI.hide(\"text_pips_player_red\")\n            Wait.frames(function()\n                UI.show(\"text_pips_player_red\")\n                Global.call('print_important', \"dice red: \" .. tostring(value))\n                Global.call('dice_callback', {\"red\",value})\n            end, 1)\n        end\n    ",
+    "LuaScriptState": "",
+    "MeasureMovement": false,
+    "Name": "Custom_Model",
+    "Nickname": "PIP dice red",
+    "RotationValues": [
+        {
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Value": "1"
+        },
+        {
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 270.0
+            },
+            "Value": "2"
+        },
+        {
+            "Rotation": {
+                "x": 270.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Value": "3"
+        },
+        {
+            "Rotation": {
+                "x": 90.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "Value": "4"
+        },
+        {
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 90.0
+            },
+            "Value": "5"
+        },
+        {
+            "Rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 180.0
+            },
+            "Value": "6"
+        }
+    ],
+    "Snap": false,
+    "Sticky": true,
+    "Tooltip": true,
+    "Transform": {
+        "posX": 6.57211341e-10,
+        "posY": 1.74998808,
+        "posZ": -20.0,
+        "rotX": -1.52297019e-07,
+        "rotY": 2.473955e-10,
+        "rotZ": -4.8499075e-08,
+        "scaleX": 0.75,
+        "scaleY": 0.75,
+        "scaleZ": 0.75
+    },
+    "Value": 0,
+    "XmlUI": ""
+}
