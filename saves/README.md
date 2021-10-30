@@ -4,11 +4,20 @@ Copying Saved Game
 
 To get a saved game from TTS into the correct directory for working on it:
 
+./from_tts
+or
 cp ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/TS_Save_1.* .
 
 To put the game into TTS so you can run it
 
+./to_tts 
+or
 cp *.json  *.png ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/
+
+You may have to create a symbolic link for "My Documents" in  your
+home directory.
+
+from_tts uses TS_Save_1.* as the file to copy into the current directory.
 
 Split Save
 ==========
