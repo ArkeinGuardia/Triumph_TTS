@@ -140,6 +140,7 @@ def discover_assets_remote_url() :
     if not url.startswith(github_url) :
         raise Exception("Remote must be github")
     assets_remote_url = "https://raw.githubusercontent.com/" + url[ len(github_url):] + "/" + id + "/"
+    print("Using github for assets: ", assets_remote_url)
 
 
 def asset_url(name) :
