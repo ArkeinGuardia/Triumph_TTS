@@ -1,26 +1,47 @@
-Saved game as it should be loaded into the Steam Store
-======================================================
 
-A saved game should be cleaned by copying it into this 
-directory and then executing:
+Copying Saved Game
+==================
 
-./clean_save
+To get a saved game from TTS into the correct directory for working on it:
 
-Cleaning will update the LuaScript in the save file
-to use the contents of the .ttslua data files.  
+cp ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/TS_Save_1.* .
+
+To put the game into TTS so you can run it
+
+cp *.json  *.png ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/
+
+Split Save
+==========
+
+Takes the saved game and extracts the objects so you can work on them.
+Also makes it easier to see what TTS changed if you create a new save
+file in TTS.
+
+./split_save
+
+Clean Save
+==========
+
+Updates the save file to contain the latest source.
+
+.ttslu files, main.xml are copied into the save file.
+The objects that have been extracted from split_save are used as the source for updating.
+
+The Lua script is modified with the current date unless the --no-date option is used.
 
 Cleaning will remove extra data that should not be part 
 of a game that is in the store.
 
-After thae game has been cleaned it should be moved
-to Table Top Simulator Saves directory for loading 
-for testing.
+Examples:
+  ./clean_save --no-date
 
-Windows
-=======
+If there are any modifications on the file system that have not pushed to Github then
+assets are referenced by a URL to the file system.  Otherwise assets are referenced
+with URL on Github.
 
-cp ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/TS_Save_1.*
+The version of TS_Save_1.json that has no assets referencing the file system may be 
+uploaded to Steam.
 
-cp *.json  *.png ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/
+
 
 

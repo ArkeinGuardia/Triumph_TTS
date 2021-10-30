@@ -1,0 +1,69 @@
+#!/usr/bin/python3
+
+"""
+Reads the save file, and extracts bits to the file system.
+The opposite of clean_save
+"""
+
+import datetime
+import json
+import os
+import re
+import subprocess
+import sys
+
+# Project root directory
+project_dir = None
+
+def get_nickname(obj) :
+    """Get the objects nickname.
+       @return None if the name is empty, otherwise the name.
+    """
+    if 'Nickname' in obj :
+      nickname = obj['Nickname']
+      if nickname is not None and len(nickname) > 0 :
+          return nickname
+    return None
+
+def split_contained_objects(obj) :
+    if not 'ContainedObjects' in obj :
+        return
+    objects = obj['ContainedObjects']
+    if objects is None :
+        return
+    for obj in objects :
+        split_object(obj)
+
+def split_child_objects(obj) :
+    if not 'ChildObjects' in obj :
+        return
+    objects = obj['ChildObjects']
+    if objects is None :
+        return
+    for obj in objects :
+        split_object(obj)
+
+def split_object(obj) :
+    split_contained_objects(obj)
+    split_child_objects(obj)
+    nickname = get_nickname(obj)
+    if nickname is not None :
+        object_file = os.path.join("ObjectStates", nickname) 
+        with open(object_file, "w") as f :
+            f.write(json.dumps(obj, indent=4, sort_keys="True"))
+    else:
+        print("Object has no nickname ", obj['GUID'])
+
+def split_file(file_name) :
+    with open(file_name, "r") as f :
+        data = json.load(f)
+
+    if 'ObjectStates' in data:
+        for obj in data['ObjectStates'] :
+            split_object(obj)
+
+if len(sys.argv) == 1:
+  split_file("TS_Save_1.json")
+else:
+    for file_name in sys.argv[1:] :
+        split_file(file_name)

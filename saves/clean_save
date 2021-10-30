@@ -135,6 +135,64 @@ def update_custom_assets(data) :
         if url is not None :
             asset['URL'] = url
 
+def get_nickname(obj) :
+    """Get the objects nickname.
+       @return None if the name is empty, otherwise the name.
+    """
+    if 'Nickname' in obj :
+      nickname = obj['Nickname']
+      if nickname is not None and len(nickname) > 0 :
+          return nickname
+    return None
+
+def unsplit_nested_objects(obj, container_name) :
+    if not container_name in obj :
+        return
+    objects = obj[container_name]
+    if objects is None :
+        return
+    for i in range(0, len(objects)) :
+        print (container_name, ' ', i, ' ', objects[i]['GUID'])
+        child = unsplit_object(objects[i])
+        if child is not None: 
+            objects[i] = child
+
+def unsplit_contained_objects(obj) :
+    unsplit_nested_objects(obj, 'ContainedObjects')
+
+def unsplit_child_objects(obj) :
+    unsplit_nested_objects(obj, 'ChildObjects')
+
+def unsplit_object(obj) :
+    try:
+        print("IN unsplit_object ", obj['GUID'])
+        unsplit_contained_objects(obj)
+        unsplit_child_objects(obj)
+        nickname = get_nickname(obj)
+        if nickname is None :
+            return None
+        object_file = os.path.join("ObjectStates", nickname) 
+        if not os.path.exists(object_file) :
+            return None
+        with open(object_file, "r") as f :
+            try :
+                new_obj = json.load(f)
+                unsplit_contained_objects(new_obj)
+                unsplit_child_objects(new_obj)
+                return new_obj
+            except:
+                print("Unable to read file ", object_file)
+                raise
+    finally:
+        print("OUT unsplit_object ", obj['GUID'])
+
+def unsplit_object_states(data) :
+    """The reverse of splt_save, takes the objects that are on the file system
+       and puts them into the json.
+    """
+    unsplit_nested_objects(data, 'ObjectStates')
+
+
 def is_not_number(object) :
     if 'Nickname' not in object :
         return True
@@ -170,6 +228,8 @@ def clean_file(file_name) :
         new_date = 'g_build_date = "' + date + '"\\n'
         new_script = re.sub('g_build_date = "\d+\"\\n', new_date, script)
         data['LuaScript'] = new_script
+
+    unsplit_object_states(data)     
 
     discover_assets_remote_url()
     update_custom_assets(data)
