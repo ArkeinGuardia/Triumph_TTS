@@ -1,0 +1,63 @@
+#!/usr/bin/python3
+
+import glob
+import json
+import os
+import subprocess
+
+
+def get_nickname(obj) :
+    """Get the objects nickname.
+       @return None if the name is empty, otherwise the name.
+    """
+    if 'Nickname' in obj :
+        nickname = obj['Nickname']
+        if nickname is not None and len(nickname) > 0 :
+            return nickname
+    return None
+
+def download_mesh(obj) :
+    nickname = get_nickname(obj)
+    if  nickname is None :
+        return
+    if not 'CustomMesh' in obj :
+        return
+    custom_mesh = obj['CustomMesh']
+    if 'MeshURL' in custom_mesh :
+        mesh_url = custom_mesh['MeshURL']
+        if mesh_url is not None and len(mesh_url) > 0 :
+          obj_file = nickname + ".obj"
+          cmd = [ 'curl', '-L', '-o', obj_file, mesh_url ]
+          subprocess.check_call(cmd)
+
+def download_diffuse(obj) :
+    nickname = get_nickname(obj)
+    if  nickname is None :
+        return
+    if not 'CustomMesh' in obj :
+        return
+    custom_mesh = obj['CustomMesh']
+    if 'DiffuseURL' not in custom_mesh :
+        return
+    diffuse_url = custom_mesh['DiffuseURL']
+    if diffuse_url is None or len(diffuse_url) < 1 :
+        return
+    cmd = [ 'curl', '-L', '-o', nickname, diffuse_url ]
+    subprocess.check_call(cmd)
+    cmd = ['file', nickname]
+    file_info = subprocess.check_output(cmd).decode("ascii")
+    if ' JPEG ' in file_info :
+        os.rename(nickname, nickname + ".jpg")
+        return
+    if ' PNG ' in file_info :
+        os.rename(nickname, nickname + ".png")
+        return
+    raise Exception("Unexpected file type " + file_info)
+
+for f in glob.glob('../../saves/ObjectStates/terrain*') :
+  print(f)
+  with open(f, "r") as input :
+      obj = json.load(input)
+  download_mesh(obj)
+  download_diffuse(obj)
+
