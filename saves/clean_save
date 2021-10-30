@@ -90,7 +90,7 @@ def discover_assets_remote_url() :
         dir = os.path.realpath("..")
         if dir.startswith(c_mount) :
             dir = "/C:/" + dir[len(c_mount):]
-        assets_remote_url="file://" + dir + "/Users/marcp/GitHub/Triumph_TTS"
+        assets_remote_url="file://" + dir  + "/"
         print("Using filesytem for assets: ", assets_remote_url)
         return
     cmd = ["git", "status", "--porcelain=v2", "--branch"]
