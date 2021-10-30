@@ -19,6 +19,17 @@ project_dir = None
 # Prefix for assets URL.  https://... or file://....
 assets_remote_url=None
 
+
+def get_nickname(obj) :
+    """Get the objects nickname.
+       @return None if the name is empty, otherwise the name.
+    """
+    if 'Nickname' in obj :
+      nickname = obj['Nickname']
+      if nickname is not None and len(nickname) > 0 :
+          return nickname
+    return None
+
 def read_xml_ui() :
     file = os.path.join("..", "ui", "main.xml")
     with open(file, "r") as input :
@@ -63,25 +74,36 @@ def use_file_system_assets() :
     """Should the file system be used for assets? """
     cmd = ["git", "status", "--porcelain=v2", "--branch"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE) as proc:
-        lines=proc.stdout.readlines()
-        change_count_line = lines[3].decode("ascii")
-        (field_hash, field_ab, ahead, behind) = change_count_line.split()
-        if 0 != int(ahead) :
-            print("remote not up to date: ", change_count_line )
-            return True
-        if 0 != int(behind) :
-            print("remote not up to date: ", change_count_line )
-            return True
-        for line in lines[4:] :
-            line = line.decode("ascii")
-            if line.startswith("?") :
-                print("Untracked item: ", line)
-                return True
-            elif line.startswith("!") :
+        line = proc.stdout.readline().decode("ascii")
+        while line :
+            if line.startswith("# branch.oid ") :
                 pass
+            elif line.startswith("# branch.head ") :
+                (field_hash, branch_stream, upstream) = line.split()
+                remote = upstream.split("/")[0]
+            elif line.startswith("# branch.upstream ") :
+                pass
+            elif line.startswith("# branch.ab ") :
+                (field_hash, field_ab, ahead, behind) = line.split()
+                if 0 != int(ahead) :
+                    print("remote not up to date: ", line )
+                    return True
+                if 0 != int(behind) :
+                    print("remote not up to date: ", line )
+                    return True
             else:
-                print("Modified file: ", line)
-                return True
+                if line.startswith("?") :
+                    print("Untracked item: ", line)
+                    return True
+                elif line.startswith("!") :
+                    pass
+                else:
+                    print("Modified file: ", line)
+                    return True
+            line = proc.stdout.readline().decode("ascii")
+    if remote is None :
+        print("Not on branch that is on remote repo")
+        return True
     return False
 
 def discover_assets_remote_url() :
@@ -98,17 +120,23 @@ def discover_assets_remote_url() :
     cmd = ["git", "status", "--porcelain=v2", "--branch"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE) as status_proc:
         line = status_proc.stdout.readline().decode("ascii")
-        (field_hash, field_oid, id ) = line.split()
-        line = status_proc.stdout.readline().decode("ascii")
-        line = status_proc.stdout.readline().decode("ascii")
-        (field_hash, branch_stream, upstream) = line.split()
-        remote = upstream.split("/")[0]
-        with subprocess.Popen(["git", "remote", "get-url", remote], stdout=subprocess.PIPE) as remote_proc:
-            url = remote_proc.stdout.readline().decode("ascii").strip()
-            github_url = "https://github.com/"
-            if not url.startswith(github_url) :
-                raise Exception("Remote must be github")
-            assets_remote_url = "https://raw.githubusercontent.com/" + url[ len(github_url):-4] + "/" + id + "/"
+        while line :
+            if line.startswith("# branch.oid ") :
+                (field_hash, field_oid, id ) = line.split()
+            elif line.startswith("# branch.head ") :
+                pass
+            elif line.startswith("# branch.upstream ") :
+                (field_hash, branch_stream, upstream) = line.split()
+                remote = upstream.split("/")[0]
+            elif line.startswith("# branch.ab ") :
+                pass
+            line = status_proc.stdout.readline().decode("ascii")
+
+    url = subprocess.check_output(["git", "remote", "get-url", remote]).decode("ascii")
+    github_url = "https://github.com/"
+    if not url.startswith(github_url) :
+        raise Exception("Remote must be github")
+    assets_remote_url = "https://raw.githubusercontent.com/" + url[ len(github_url):-4] + "/" + id + "/"
 
 
 def asset_url(name) :
@@ -135,15 +163,34 @@ def update_custom_assets(data) :
         if url is not None :
             asset['URL'] = url
 
-def get_nickname(obj) :
-    """Get the objects nickname.
-       @return None if the name is empty, otherwise the name.
-    """
-    if 'Nickname' in obj :
-      nickname = obj['Nickname']
-      if nickname is not None and len(nickname) > 0 :
-          return nickname
-    return None
+def file_to_url(file):
+    global assets_remote_url
+    assert assets_remote_url is not None
+    assert file is not None
+    root = os.path.abspath("..")
+    file_abs = os.path.abspath(file)
+    loc = file_abs[len(root)+1:]
+    return assets_remote_url + loc
+
+def update_custom_mesh_assets(obj)  :
+    """Change CustomMesh to use assets from the assets folder where possible""" 
+    nickname = get_nickname(obj)
+    if nickname is None :
+        return 
+    if not 'CustomMesh' in obj :
+        return
+    custom_mesh = obj['CustomMesh']
+    terrain_dir = os.path.join("..", "assets", "terrain")
+    terrain_name = os.path.join(terrain_dir, nickname)
+    obj_file = terrain_name + ".obj"
+    if os.path.exists(obj_file) :
+        custom_mesh['MeshURL'] = file_to_url(obj_file)
+    for diffuse_extension in ['.jpg', '.png'] :
+       diffuse_file = terrain_name + diffuse_extension
+       if os.path.exists(diffuse_file) :
+        custom_mesh['DiffuseURL'] = file_to_url(diffuse_file)
+        break
+  
 
 def unsplit_nested_objects(obj, container_name) :
     if not container_name in obj :
@@ -176,6 +223,7 @@ def unsplit_object(obj) :
             new_obj = json.load(f)
             unsplit_contained_objects(new_obj)
             unsplit_child_objects(new_obj)
+            update_custom_mesh_assets(new_obj)
             return new_obj
         except:
             print("Unable to read file ", object_file)
@@ -198,6 +246,8 @@ def is_not_number(object) :
     return True
 
 def clean_file(file_name) :
+    discover_assets_remote_url()
+
     with open(file_name, "r") as f :
         data = json.load(f)
 
@@ -226,7 +276,6 @@ def clean_file(file_name) :
 
     unsplit_object_states(data)     
 
-    discover_assets_remote_url()
     update_custom_assets(data)
 
     with open(file_name, "w") as f :
