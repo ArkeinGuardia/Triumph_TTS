@@ -152,7 +152,6 @@ def unsplit_nested_objects(obj, container_name) :
     if objects is None :
         return
     for i in range(0, len(objects)) :
-        print (container_name, ' ', i, ' ', objects[i]['GUID'])
         child = unsplit_object(objects[i])
         if child is not None: 
             objects[i] = child
@@ -164,27 +163,23 @@ def unsplit_child_objects(obj) :
     unsplit_nested_objects(obj, 'ChildObjects')
 
 def unsplit_object(obj) :
-    try:
-        print("IN unsplit_object ", obj['GUID'])
-        unsplit_contained_objects(obj)
-        unsplit_child_objects(obj)
-        nickname = get_nickname(obj)
-        if nickname is None :
-            return None
-        object_file = os.path.join("ObjectStates", nickname) 
-        if not os.path.exists(object_file) :
-            return None
-        with open(object_file, "r") as f :
-            try :
-                new_obj = json.load(f)
-                unsplit_contained_objects(new_obj)
-                unsplit_child_objects(new_obj)
-                return new_obj
-            except:
-                print("Unable to read file ", object_file)
-                raise
-    finally:
-        print("OUT unsplit_object ", obj['GUID'])
+    unsplit_contained_objects(obj)
+    unsplit_child_objects(obj)
+    nickname = get_nickname(obj)
+    if nickname is None :
+        return None
+    object_file = os.path.join("ObjectStates", nickname) 
+    if not os.path.exists(object_file) :
+        return None
+    with open(object_file, "r") as f :
+        try :
+            new_obj = json.load(f)
+            unsplit_contained_objects(new_obj)
+            unsplit_child_objects(new_obj)
+            return new_obj
+        except:
+            print("Unable to read file ", object_file)
+            raise
 
 def unsplit_object_states(data) :
     """The reverse of splt_save, takes the objects that are on the file system
