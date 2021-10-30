@@ -9,7 +9,13 @@ import datetime
 import json
 import os
 import re
+import subprocess
 import sys
+
+# Project root directory
+project_dir = None
+# Prefix for assets URL.  https://... or file://....
+assets_remote_url=None
 
 def read_source_file(file) :
     contents = ""
@@ -33,6 +39,7 @@ def read_source_file(file) :
     return contents
 
 def read_source_files() :
+    global project_dir
     old_dir = os.getcwd()
     try :
         os.chdir("..")
@@ -43,6 +50,70 @@ def read_source_files() :
         return text.replace('\r\n', '\n')
     finally:
         os.chdir(old_dir)
+
+def use_file_system_assets() :
+    """Should the file system be used for assets? """
+    cmd = ["git", "status", "--porcelain=v2", "--branch"]
+    with subprocess.Popen(cmd, stdout=subprocess.PIPE) as proc:
+        lines=proc.stdout.readlines()
+        change_count_line = lines[3].decode("ascii")
+        print("change_count_line ", change_count_line)
+        (field_hash, field_ab, ahead, behind) = change_count_line.split()
+        if 0 != int(ahead) :
+            print("remote not up to date: ", change_count_line )
+            return True
+        if 0 != int(behind) :
+            print("remote not up to date: ", change_count_line )
+            return True
+        for line in lines[4:] :
+            line = line.decode("ascii")
+            if line.startswith("?") :
+                print("Untracked item: ", line)
+                return True
+            elif line.startswith("!") :
+                pass
+            else:
+                print("Modified file: ", line)
+                return True
+    return False
+
+def discover_assets_remote_url() :
+    """Set the global variable for the start of the URL for assets."""
+    global assets_remote_url
+    if use_file_system_assets() :
+        c_mount = "/mnt/c/"
+        dir = os.path.realpath("..")
+        if dir.startswith(c_mount) :
+            dir = "/C:/" + dir[len(c_mount):]
+        assets_remote_url="file://" + dir + "/Users/marcp/GitHub/Triumph_TTS"
+        return
+    raise Exception("TODO")
+
+
+
+def asset_url(name) :
+    """See if there is an asset with the name.
+       If there is return a URL for the asset.
+       Otherwise return None.
+    """
+    global assets_remote_url
+    image_dir = os.path.join("..", "assets", "images")
+    image_file = os.path.realpath(os.path.join(image_dir, name + ".png"))
+    if os.path.exists(image_file) :
+        return assets_remote_url + "assets/images/" + name + ".png"
+    else:
+        #print("No asset: ", image_file)
+        pass
+    return None
+
+
+def update_custom_assets(data) :
+    custom_assets = data["CustomUIAssets"]
+    for asset in custom_assets :
+        name = asset['Name']
+        url = asset_url(name)
+        if url is not None :
+            asset['URL'] = url
 
 def is_not_number(object) :
     if 'Nickname' not in object :
@@ -78,6 +149,9 @@ def clean_file(file_name) :
     new_script = re.sub('g_build_date = "\d+\"\\n', new_date, script)
     data['LuaScript'] = new_script
 
+    discover_assets_remote_url()
+    update_custom_assets(data)
+
     with open(file_name, "w") as f :
         f.write(json.dumps(data, indent=4, sort_keys="True"))
 
@@ -87,4 +161,3 @@ if len(sys.argv) == 1:
 else:
     for file_name in sys.argv[1:] :
         clean_file(file_name)
-
