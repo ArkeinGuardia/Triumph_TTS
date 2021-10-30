@@ -44,7 +44,6 @@ def read_source_files() :
     try :
         os.chdir("..")
         project_dir = os.path.basename(os.getcwd())
-        print("project_dir=", project_dir)
         os.chdir("..")
         text=read_source_file(os.path.join(project_dir, "main"))
         return text.replace('\r\n', '\n')
@@ -57,7 +56,6 @@ def use_file_system_assets() :
     with subprocess.Popen(cmd, stdout=subprocess.PIPE) as proc:
         lines=proc.stdout.readlines()
         change_count_line = lines[3].decode("ascii")
-        print("change_count_line ", change_count_line)
         (field_hash, field_ab, ahead, behind) = change_count_line.split()
         if 0 != int(ahead) :
             print("remote not up to date: ", change_count_line )
@@ -86,9 +84,22 @@ def discover_assets_remote_url() :
         if dir.startswith(c_mount) :
             dir = "/C:/" + dir[len(c_mount):]
         assets_remote_url="file://" + dir + "/Users/marcp/GitHub/Triumph_TTS"
+        print("Using filesytem for assets: ", assets_remote_url)
         return
-    raise Exception("TODO")
-
+    cmd = ["git", "status", "--porcelain=v2", "--branch"]
+    with subprocess.Popen(cmd, stdout=subprocess.PIPE) as status_proc:
+        line = status_proc.stdout.readline().decode("ascii")
+        (field_hash, field_oid, id ) = line.split()
+        line = status_proc.stdout.readline().decode("ascii")
+        line = status_proc.stdout.readline().decode("ascii")
+        (field_hash, branch_stream, upstream) = line.split()
+        remote = upstream.split("/")[0]
+        with subprocess.Popen(["git", "remote", "get-url", remote], stdout=subprocess.PIPE) as remote_proc:
+            url = remote_proc.stdout.readline().decode("ascii").strip()
+            github_url = "https://github.com/"
+            if not url.startswith(github_url) :
+                raise Exception("Remote must be github")
+            assets_remote_url = "https://raw.githubusercontent.com/" + url[ len(github_url):-4] + "/" + id
 
 
 def asset_url(name) :
@@ -98,7 +109,7 @@ def asset_url(name) :
     """
     global assets_remote_url
     image_dir = os.path.join("..", "assets", "images")
-    image_file = os.path.realpath(os.path.join(image_dir, name + ".png"))
+    image_file = os.path.join(image_dir, name + ".png")
     if os.path.exists(image_file) :
         return assets_remote_url + "assets/images/" + name + ".png"
     else:
