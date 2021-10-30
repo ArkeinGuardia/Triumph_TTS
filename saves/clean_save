@@ -11,6 +11,8 @@ import os
 import re
 import subprocess
 import sys
+import urllib
+import urllib.parse
 
 update_date = True
 
@@ -170,7 +172,8 @@ def file_to_url(file):
     root = os.path.abspath("..")
     file_abs = os.path.abspath(file)
     loc = file_abs[len(root)+1:]
-    return assets_remote_url + loc
+    (loc_dir, loc_file) = os.path.split(loc)
+    return assets_remote_url + loc_dir + "/" + urllib.parse.quote(loc_file)
 
 def update_custom_mesh_assets(obj)  :
     """Change CustomMesh to use assets from the assets folder where possible""" 
