@@ -23,8 +23,9 @@ assets_remote_url=None
 
 def windows_url_fixup(url) :
     """If the URL is for a file use Windows conventions if applicable."""
-    if url.startswith("file://C:/") :
-      url=url[:7] + url[7:].replace("/", "\\")
+    if url.startswith("file:///C:/") :
+      url=url[:8] + url[8:].replace("/", "\\")
+      url=urllib.parse.unquote(url)
     return url
 
 
@@ -146,7 +147,7 @@ def discover_assets_remote_url() :
     if not url.startswith(github_url) :
         raise Exception("Remote must be github")
     assets_remote_url = "https://raw.githubusercontent.com/" + url[ len(github_url):] + "/" + id + "/"
-    print("Using github for assets: ", assets_remote_url)
+    print("Using github for assets: ", windows_url_fixup(assets_remote_url))
 
 
 def asset_url(name) :
@@ -183,7 +184,8 @@ def file_to_url(file):
     loc = file_abs[len(root)+1:]
     (loc_dir, loc_file) = os.path.split(loc)
     url = assets_remote_url + loc_dir + "/" + urllib.parse.quote(loc_file)
-    return windows_url_fixup(url)
+    url = windows_url_fixup(url)
+    return url
 
 def update_custom_mesh_assets(obj)  :
     """Change CustomMesh to use assets from the assets folder where possible""" 
