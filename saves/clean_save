@@ -21,6 +21,12 @@ project_dir = None
 # Prefix for assets URL.  https://... or file://....
 assets_remote_url=None
 
+def windows_url_fixup(url) :
+    """If the URL is for a file use Windows conventions if applicable."""
+    if url.startswith("file://C:/") :
+      url=url[:7] + url[7:].replace("/", "\\")
+    return url
+
 
 def get_nickname(obj) :
     """Get the objects nickname.
@@ -152,7 +158,8 @@ def asset_url(name) :
     image_dir = os.path.join("..", "assets", "images")
     image_file = os.path.join(image_dir, name + ".png")
     if os.path.exists(image_file) :
-        return assets_remote_url + "assets/images/" + name + ".png"
+        url =  assets_remote_url + "assets/images/" + name + ".png"
+        return windows_url_fixup(url)
     else:
         #print("No asset: ", image_file)
         pass
@@ -175,7 +182,8 @@ def file_to_url(file):
     file_abs = os.path.abspath(file)
     loc = file_abs[len(root)+1:]
     (loc_dir, loc_file) = os.path.split(loc)
-    return assets_remote_url + loc_dir + "/" + urllib.parse.quote(loc_file)
+    url = assets_remote_url + loc_dir + "/" + urllib.parse.quote(loc_file)
+    return windows_url_fixup(url)
 
 def update_custom_mesh_assets(obj)  :
     """Change CustomMesh to use assets from the assets folder where possible""" 
