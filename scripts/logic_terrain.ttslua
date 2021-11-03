@@ -255,16 +255,18 @@ end
 
 -- Create ascripting  zone that will cover a terrain area.
 -- terrain_obj: terrain object being covered
+-- terrain_pos:
+-- terrain_rotation
+-- terrain_size:
 -- return: newly created zone
-function create_terrain_zone( terrain_obj)
-  local bounds = terrain_obj.getBounds()
-  local size = shallow_copy(bounds['size'])
+function create_terrain_zone( terrain_obj, terrain_pos, terrain_rotation, terrain_size)
+  size = shallow_copy(terrain_size)
+  position = shallow_copy(terrain_pos)
   size.y = 4
-  local position = shallow_copy(terrain_obj.getPosition())
-  position['y'] = position['y'] + (size.y / 2) - (bounds['size']['y'] / 2)
+  position['y'] = position['y'] + (size.y / 2)
   local zone_spawn = {
-    position = terrain_obj.getPosition(),
-    rotation = terrain_obj.getRotation(),
+    position = position,
+    rotation = {x=0, y=terrain_rotation*180/3.1415927, z=0},
     scale = size,
     type = 'ScriptingTrigger'
   }
@@ -276,34 +278,58 @@ function create_terrain_zone( terrain_obj)
     "onObjectEnterScriptingZoneTerrainArea")
   set_decoration_for_obj(terrain_zone, "onObjectLeaveScriptingZone",
     "onObjectLeaveScriptingZoneTerrainArea")
-  print_debug("zone created: " .. terrain_zone.getGUID() .. ' ' .. terrain_zone.getName())
   return terrain_zone
+end
+
+function add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, terrain_zone)
+  print ("IN add_trees")
+  local terrain_name = terrain_obj.getName()
+
+  -- Get the locations where a tree can fit on the terrain area.
+  local tree_points = g_terrain_data[terrain_name]['points']
+  local points = shallow_copy(tree_points)
+  local nb_points = #points
+  if ntrees > nb_points then
+    ntrees = nb_points
+  end
+
+  for i=1,ntrees do
+      -- Select a point at random
+      local index = math.random(1, #points)
+      local point = points[index]
+      point['y'] = 0
+      points[index] = points[nb_points]
+      nb_points = nb_points - 1
+      local tree_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
+      local tree_name = "tree " .. tostring(i) .. " " .. terrain_name
+      local description = {
+        name = tree_name,
+        model_name = random_element(objects),
+        position = tree_pos,
+        rotation = {x=0, y=math.random(0, 359), z=0}
+      }
+      spawn_terrain_feature(description, terrain_zone)
+  end
 end
 
 
 -- DBA calls woods "forrest"
 function set_woods(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
-    local terrain_zone = create_terrain_zone(terrain_obj)
+    local terrain_name = terrain_obj.getName()
+    local terrain_zone = create_terrain_zone(terrain_obj, terrain_pos, terrain_rotation, terrain_size)
     local options = g_terrain[table_type]['forest']
     local multiplier = options['multiplier']
-    local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier)
-    for i=1,ntrees do
-        local point = random_point_ellipse(terrain_size['x'] / 2.5, terrain_size['z'] / 2.5)
-        local tree_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
-        local tree_name = "tree " .. tostring(i) .. " " .. terrain_obj.getName()
-        local description = {
-          name = tree_name,
-          model_name = random_element(options['objects']),
-          position = tree_pos,
-          rotation = {x=0, y=math.random(1, 359), z=0}
-        }
-        spawn_terrain_feature(description, terrain_zone)
+    local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier*2)
+    if ntrees < 1 then
+      ntrees = 1
     end
+    local objects = options['objects']
+    add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, terrain_zone)
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
 function set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
-  local terrain_zone = create_terrain_zone(terrain_obj)
+  local terrain_zone = create_terrain_zone(terrain_obj, terrain_pos, terrain_rotation, terrain_size)
     local options = g_terrain[table_type]['forest']
     local multiplier = options['multiplier']
     local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier)
