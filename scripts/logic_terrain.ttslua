@@ -288,34 +288,27 @@ end
 -- return List of the created features.  Can be passed to spawn_terrain_feature to
 -- recreate the feature.
 function add_terrain_features(terrain_obj, terrain_pos, terrain_rotation, n_features, objects, feature_name_prefix)
-  print("IN add_terrain_features")
   local terrain_name = terrain_obj.getName()
 
   -- Get the locations where a tree can fit on the terrain area.
   local terrain_data = g_terrain_data[terrain_name]
   if terrain_data == nil then
-    print_error("g_terrain_data[" + terrain_name + "] is nil, was the data generated?")
+    print_error("g_terrain_data[" .. terrain_name .. "] is nil, was the data generated in Blender?")
     return
   end
-  print(301)
   local feature_points = terrain_data['points']
   if feature_points == nil then
-    print_error("g_terrain_data[" + terrain_name + "]['points'] is nil, was the data generated?")
+    print_error("g_terrain_data[" .. terrain_name .. "]['points'] is nil, was the data generated in Blender?")
     return
   end
-  print(303)
   local points = shallow_copy(feature_points)
-  print(305)
-local nb_points = #points
-print(307)
+  local nb_points = #points
   if n_features > nb_points then
     n_features = nb_points
   end
-  print(311)
 
   local feature_desciptions = {}
 
-  print(309)
   for i=1,n_features do
       -- Select a point at random
       local index = math.random(1, #points)
@@ -323,7 +316,6 @@ print(307)
       point['y'] = 0
       points[index] = points[nb_points]
       nb_points = nb_points - 1
-      print(318)
       local feature_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
       local feature_name = feature_name_prefix .. " " .. tostring(i) .. " " .. terrain_name
       local description = {
@@ -332,26 +324,18 @@ print(307)
         position = feature_pos,
         rotation = {x=0, y=math.random(0, 359), z=0}
       }
-      print(336)
       local feature = spawn_terrain_feature(description)
-      print(338)
       table.insert(feature_desciptions, description)
-      print(340)
   end
-  print("OUT add_terrain_features")
   return feature_desciptions
 end
 
 function add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, terrain_zone)
-  print("IN add treess")
   local feature_desciptions = add_terrain_features( terrain_obj, terrain_pos,
     terrain_rotation, ntrees, objects,  "tree")
-  print(339)
   for _,description in ipairs(feature_desciptions) do
-    print(351)
     add_to_decoration_list_obj(terrain_zone, "terrain features", description)
   end
-  print("OUT add treess")
 end
 
 
@@ -390,15 +374,16 @@ function set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size
     end
 end
 
+function add_rocks(terrain_obj, terrain_pos, terrain_rotation, nrocks, objects)
+  add_terrain_features( terrain_obj, terrain_pos,
+    terrain_rotation, nrocks, objects,  "rock")
+end
+
 function set_rough(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
     local options = g_terrain[table_type]['rough']
+    local objects = options['objects']
     local nobjs = math.floor((terrain_size['x'] + terrain_size['z'])*2)
-    for i=1,nobjs do
-        local point = random_point_ellipse(terrain_size['x'] / 2.5, terrain_size['z'] / 2.5)
-        new_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
-        local obj = spawn_model(random_element(options['objects']), new_pos, math.random(1, 359), minimal_collider, true)
-        terrain_obj.addAttachment(obj)
-    end
+    add_rocks(terrain_obj, terrain_pos, terrain_rotation, nobjs, objects)
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
