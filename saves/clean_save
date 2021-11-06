@@ -6,6 +6,7 @@ and the writes the data to the same file.
 """
 
 import datetime
+import hashlib
 import json
 import os
 import re
@@ -20,6 +21,16 @@ update_date = True
 project_dir = None
 # Prefix for assets URL.  https://... or file://....
 assets_remote_url=None
+
+file_checksums = {}
+
+def getMd5(file_path):
+  m = hashlib.md5()
+  with open(file_path,'rb') as f:
+    line = f.read()
+    m.update(line)
+  md5code = m.hexdigest()
+  return md5code
 
 def windows_url_fixup(url) :
     """If the URL is for a file use Windows conventions if applicable."""
@@ -181,6 +192,17 @@ def file_to_url(file):
     assert file is not None
     root = os.path.realpath("..")
     file_abs = os.path.realpath(file)
+
+    # Use a file checksum to check if a URL has already
+    # been generated for another file with identical
+    # content.  If so then use the previous file so
+    # TTS will only download the content once.
+    checksum = getMd5(file_abs)
+    if checksum in file_checksums :
+        file_abs = file_checksums[checksum]
+    else:
+        file_checksums[checksum] = file_abs
+
     loc = file_abs[len(root)+1:]
     (loc_dir, loc_file) = os.path.split(loc)
     url = assets_remote_url + loc_dir + "/" + urllib.parse.quote(loc_file)
