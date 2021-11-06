@@ -27,18 +27,6 @@ function check_figure(figure)
 end
 
 
-function test_models_have_base()
-  for id,models in pairs(g_models) do
-    for i,model in pairs(models) do
-      local base = model['base']
-      if base == nil then
-        print("g_models['" .. id .. "'][" .. tostring(i) .. "] has no base.")
-        table_print(model)
-        lu.assertTrue(false)
-      end
-    end
-  end
-end
 
 function test_fixed_models()
   for id,models in pairs(g_models) do

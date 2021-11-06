@@ -9,7 +9,7 @@ function test_get_a_model_definition_returns_plain_base()
 end
 
 function test_get_a_model_definition_returns_model_base()
-    local base_def = g_base_definitions[g_str_5fb1ba34e1af06001770e186]
+    local base_def = g_base_definitions[g_str_5fb1b9dce1af06001770959d_camp]
     local model_def = get_a_model_definition(base_def)
     lu.assertEquals(model_def.base, 'tile_grass_40x40')
 end
