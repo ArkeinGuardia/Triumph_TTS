@@ -180,9 +180,7 @@ end
 -- Spawn a new terrain feature, e.g. a tree, that will be part of
 -- a terrain area (e.g. woods).
 -- description: Parameters for describing the feature and its location
--- terrain_zone: scripting zone that will cause the created feature
---  to auto hide, or come back as bases get close or go far away.
-function spawn_terrain_feature(description, terrain_zone)
+function spawn_terrain_feature(description)
   local feature = spawn_model(
     description.model_name,
     description.position,
@@ -191,7 +189,6 @@ function spawn_terrain_feature(description, terrain_zone)
   feature.setName(description.name)
   feature.setLock(true)
   description.hidden = False
-  add_to_decoration_list_obj(terrain_zone, "terrain features", description)
   return tree
 end
 
@@ -223,11 +220,11 @@ function onObjectEnterScriptingZoneTerrainArea(terrain_zone, obj)
 end
 
 
-function restore_terrain_feature(terrain_feature, terrain_zone)
+function restore_terrain_feature(terrain_feature)
   if terrain_feature.hidden then
     local feature_obj = get_object_by_name(terrain_feature.name)
     if nil == feature_obj then
-      spawn_terrain_feature(terrain_feature, terrain_zone)
+      spawn_terrain_feature(terrain_feature)
     end
   end
 end
@@ -236,7 +233,7 @@ end
 function restore_terrain_features(terrain_zone)
   local features = get_decoration_for_obj(terrain_zone, "terrain features")
   for _,feature in ipairs(features) do
-    restore_terrain_feature(feature, terrain_zone)
+    restore_terrain_feature(feature)
   end
 end
 
@@ -281,8 +278,17 @@ function create_terrain_zone( terrain_obj, terrain_pos, terrain_rotation, terrai
   return terrain_zone
 end
 
-function add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, terrain_zone)
-  print ("IN add_trees")
+-- Create terrain features for an area, e.g. trees for woods.
+-- terrain_obj: the terrain area, e.g. the Woods.
+-- terrain_pos: Position of the terrain_obj
+-- terrain_rotation: Toation on the y-axis of the terrain area.
+-- n_features: Number  of terrain features to create.
+-- objects: Desciption of the terrain features that can be created.
+-- feature_name_prefix: Text to that will prepend the features crated, e.g. "tree" or "rock".
+-- return List of the created features.  Can be passed to spawn_terrain_feature to
+-- recreate the feature.
+function add_terrain_features(terrain_obj, terrain_pos, terrain_rotation, n_features, objects, feature_name_prefix)
+  print("IN add_terrain_features")
   local terrain_name = terrain_obj.getName()
 
   -- Get the locations where a tree can fit on the terrain area.
@@ -291,30 +297,61 @@ function add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, 
     print_error("g_terrain_data[" + terrain_name + "] is nil, was the data generated?")
     return
   end
-  local tree_points = terrain_data['points']
-  local points = shallow_copy(tree_points)
-  local nb_points = #points
-  if ntrees > nb_points then
-    ntrees = nb_points
+  print(301)
+  local feature_points = terrain_data['points']
+  if feature_points == nil then
+    print_error("g_terrain_data[" + terrain_name + "]['points'] is nil, was the data generated?")
+    return
   end
+  print(303)
+  local points = shallow_copy(feature_points)
+  print(305)
+local nb_points = #points
+print(307)
+  if n_features > nb_points then
+    n_features = nb_points
+  end
+  print(311)
 
-  for i=1,ntrees do
+  local feature_desciptions = {}
+
+  print(309)
+  for i=1,n_features do
       -- Select a point at random
       local index = math.random(1, #points)
       local point = points[index]
       point['y'] = 0
       points[index] = points[nb_points]
       nb_points = nb_points - 1
-      local tree_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
-      local tree_name = "tree " .. tostring(i) .. " " .. terrain_name
+      print(318)
+      local feature_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
+      local feature_name = feature_name_prefix .. " " .. tostring(i) .. " " .. terrain_name
       local description = {
-        name = tree_name,
+        name = feature_name,
         model_name = random_element(objects),
-        position = tree_pos,
+        position = feature_pos,
         rotation = {x=0, y=math.random(0, 359), z=0}
       }
-      spawn_terrain_feature(description, terrain_zone)
+      print(336)
+      local feature = spawn_terrain_feature(description)
+      print(338)
+      table.insert(feature_desciptions, description)
+      print(340)
   end
+  print("OUT add_terrain_features")
+  return feature_desciptions
+end
+
+function add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, terrain_zone)
+  print("IN add treess")
+  local feature_desciptions = add_terrain_features( terrain_obj, terrain_pos,
+    terrain_rotation, ntrees, objects,  "tree")
+  print(339)
+  for _,description in ipairs(feature_desciptions) do
+    print(351)
+    add_to_decoration_list_obj(terrain_zone, "terrain features", description)
+  end
+  print("OUT add treess")
 end
 
 
@@ -348,11 +385,12 @@ function set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size
         position = tree_pos,
         rotation = {x=0, y=math.random(1, 359), z=0}
       }
-      spawn_terrain_feature(description, terrain_zone)
+      spawn_terrain_feature(description)
+      add_to_decoration_list_obj(terrain_zone, "terrain features", description)
     end
 end
 
-function set_arid(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
+function set_rough(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
     local options = g_terrain[table_type]['rough']
     local nobjs = math.floor((terrain_size['x'] + terrain_size['z'])*2)
     for i=1,nobjs do
@@ -739,7 +777,7 @@ function process_vegetation(terrain_obj, type)
     if str_starts_with(terrain_obj.getName(), 'terrain Woods') then
         set_woods(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Rough') then
-        set_arid(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_rough(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Wooded Hill') then
         set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Oasis') then
