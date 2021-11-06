@@ -107,14 +107,22 @@ terrain_data_file = os.path.join(terrain_dir, "terrain_data.ttslua")
 
 def is_inside(point,ob):
     box_size = 0.15
-    bpy.ops.mesh.primitive_cube_add(size=2, enter_editmode=False, align='WORLD', location=point, scale=(box_size,box_size,box_size))
+    bpy.ops.mesh.primitive_cube_add(size=box_size, enter_editmode=False, align='WORLD', location=point, scale=(1,1,1))
     box=bpy.data.objects[bpy.context.active_object.name]
+    vertices_before = len(box.data.vertices)
     try:
         bpy.ops.object.modifier_add(type='BOOLEAN')
         bpy.context.object.modifiers["Boolean"].operation = 'INTERSECT'
         bpy.context.object.modifiers["Boolean"].object =    ob
         bpy.ops.object.modifier_apply(modifier="Boolean")
-        result = (box.dimensions.x >= box_size) and (box.dimensions.y >= box_size) and (box.dimensions.z >= box_size)
+        vertices_after =  len(box.data.vertices)
+        result = (box.dimensions.x >= box_size) and \
+                 (box.dimensions.y >= box_size) and \
+                 (box.dimensions.z >= box_size) and \
+                 (vertices_after == vertices_before) 
+#        if not result:
+#            bpy.data.objects.remove(box, do_unlink=True)
+#        print(result, point)
         return result
     finally:
         bpy.data.objects.remove(box, do_unlink=True)
@@ -188,7 +196,7 @@ def clean_obj(model_name):
       
 
 
-def model_terrain_data(terrain_data_stream, model_name) :
+def calc_model_terrain_data(model_name) :
     """Write out the terrain data for a model."""
     # Set up a consistent environment
     bpy.context.scene.unit_settings.system = 'METRIC'
@@ -203,9 +211,9 @@ def model_terrain_data(terrain_data_stream, model_name) :
     delta = 0.5
     nb_x = math.floor(obj_object.dimensions.x / delta)
     nb_z = math.floor(obj_object.dimensions.z / delta)
+    
+    points = []
 
-    terrain_data_stream.write("g_terrain_data['%s']={\n" % (model_name))
-    terrain_data_stream.write("  points={" )
     half_x = obj_object.dimensions.x / 2
     half_z = obj_object.dimensions.z / 2
     x = -half_x
@@ -214,9 +222,19 @@ def model_terrain_data(terrain_data_stream, model_name) :
         while z <= half_z :
             p = mathutils.Vector((x, z, 0))
             if is_inside(p, obj_object) :
-                terrain_data_stream.write("{x=%f, z=%f}," % (x,-z))
+                points.append((x,z))
             z = z + delta
         x = x + delta
+    return points
+
+def model_terrain_data(terrain_data_stream, model_name) :
+    """Write out the terrain data for a model."""
+    points = calc_model_terrain_data(model_name)
+    terrain_data_stream.write("g_terrain_data['%s']={\n" % (model_name))
+    terrain_data_stream.write("  points={" )
+    for point in points :
+        (x,z) = point
+        terrain_data_stream.write("{x=%f, z=%f}," % (x,-z))
     terrain_data_stream.write("}\n}\n")
 
 def terrain_data() :
@@ -226,16 +244,25 @@ def terrain_data() :
     files=os.listdir(terrain_dir)
     files.sort()
     for file in files:
-        if file.endswith(".obj") and ("Woods" in file ) :
+        if file.endswith(".obj") :
+            if ("Rough" in file) or ("Woods" in file) or ("Marsh" in file) or ("Oasis" in file):
                 print("processing ", file[:-4])
                 model_terrain_data(terrain_data_stream, file[:-4])
     terrain_data_stream.close()      
             
-#terrain_data()
+
+
 
 #files=os.listdir(terrain_dir)
 #files.sort()
 #for file in files:
-#    if file.endswith(".obj") and ("Woods" in file ) :
+#  if file.endswith(".obj") :
+#    if "Oasis" in file or "Marsh" in file :
 #        print("Cleaning ", file[:-4])
 #        clean_obj(file[:-4])
+##
+terrain_data()
+
+#calc_model_terrain_data("terrain Marsh #70")
+
+print("DONE")
