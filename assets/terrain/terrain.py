@@ -7,6 +7,22 @@
 # After executing the script check that the objects are
 # still sane in Blender by examining from the "+z axis".
 
+# In the blender console
+# import importlib
+# import sys
+# sys.path.append( 'c:\\Users\\marcp\\GitHub\\Triumph_TTS\\assets\\terrain' )
+# import terrain
+# To reload:
+# terrain = importlib.reload(terrain)
+#
+# To generate data file containing location of terrain.
+#   terrain.terrain_data()
+#
+# To take an .obj file and make it ready for use in TTS:
+#   terrain.clean_obj("name of file without .obj extension") 
+
+
+
 import bpy
 import glob
 import math
@@ -110,7 +126,6 @@ def remove_all_objects() :
 
 def import_model(model_name) :
     obj_file= os.path.join(terrain_dir, model_name + ".obj")
-    # import the file we are going to normalize
     imported_object = bpy.ops.import_scene.obj(filepath=obj_file)
     obj_object = bpy.context.selected_objects[0] # Source file must have only one object
     obj_object.name = model_name
@@ -216,14 +231,11 @@ def terrain_data() :
                 model_terrain_data(terrain_data_stream, file[:-4])
     terrain_data_stream.close()      
             
-terrain_data()
+#terrain_data()
 
-#terrain_data_stream = open(terrain_data_file, "w")
-#terrain_data_stream.write("g_terrain_data = {}\n")
 #files=os.listdir(terrain_dir)
 #files.sort()
 #for file in files:
 #    if file.endswith(".obj") and ("Woods" in file ) :
 #        print("Cleaning ", file[:-4])
 #        clean_obj(file[:-4])
-#terrain_data_stream.close()      
