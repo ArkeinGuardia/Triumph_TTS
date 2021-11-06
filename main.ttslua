@@ -53,6 +53,7 @@ end
 
 function onSave()
   g_decorations['g_game_settings'] = g_game_settings
+  g_decorations['g_bases'] = g_bases
   local saved_data = JSON.encode(g_decorations)
   return saved_data
 end
@@ -157,6 +158,11 @@ function restore_extra_data(saved_data)
   end
   if  g_game_settings['use_army_builder'] == nil then
     g_game_settings['use_army_builder'] = true
+  end
+
+  local all_bases = g_decorations['g_bases']
+  if all_bases ~= nil then
+    g_bases = all_bases
   end
 end
 
