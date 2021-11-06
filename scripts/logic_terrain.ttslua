@@ -389,29 +389,19 @@ end
 
 function set_oasis(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
     local options = g_terrain[table_type]['oasis']
+    local objects = options['objects']
     local nobjs = math.floor((terrain_size['x'] + terrain_size['z'])*1.2)
-    for i=1,nobjs do
-        local point = random_point_ellipse(terrain_size['x'] / 4, terrain_size['z'] / 4,
-            math.min(terrain_size['x'] / 4, terrain_size['z'] / 4) - 0.3)
-
-        new_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
-        local obj = spawn_model(random_element(options['objects']), new_pos, math.random(1, 359), minimal_collider, true)
-        terrain_obj.addAttachment(obj)
-    end
+    add_terrain_features( terrain_obj, terrain_pos,
+      terrain_rotation, nobjs, objects,  "palm")
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
 function set_marsh(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
     local options = g_terrain[table_type]['marsh']
+    local objects = options['objects']
     local nobjs = math.floor((terrain_size['x'] + terrain_size['z'])*1.2)
-    for i=1,nobjs do
-        local point = random_point_ellipse(terrain_size['x'] / 4, terrain_size['z'] / 4,
-            math.min(terrain_size['x'] / 4, terrain_size['z'] / 4) - 0.3)
-
-        new_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
-        local obj = spawn_model(random_element(options['objects']), new_pos, math.random(1, 359), minimal_collider, true)
-        terrain_obj.addAttachment(obj)
-    end
+    add_terrain_features( terrain_obj, terrain_pos,
+      terrain_rotation, nobjs, objects,  "palm")
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
