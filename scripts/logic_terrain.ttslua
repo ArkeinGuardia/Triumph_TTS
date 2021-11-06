@@ -286,7 +286,12 @@ function add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, 
   local terrain_name = terrain_obj.getName()
 
   -- Get the locations where a tree can fit on the terrain area.
-  local tree_points = g_terrain_data[terrain_name]['points']
+  local terrain_data = g_terrain_data[terrain_name]
+  if terrain_data == nil then
+    print_error("g_terrain_data[" + terrain_name + "] is nil, was the data generated?")
+    return
+  end
+  local tree_points = terrain_data['points']
   local points = shallow_copy(tree_points)
   local nb_points = #points
   if ntrees > nb_points then
