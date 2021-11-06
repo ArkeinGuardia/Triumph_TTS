@@ -99,13 +99,9 @@ def is_inside(point,ob):
         bpy.context.object.modifiers["Boolean"].object =    ob
         bpy.ops.object.modifier_apply(modifier="Boolean")
         result = (box.dimensions.x >= box_size) and (box.dimensions.y >= box_size) and (box.dimensions.z >= box_size)
-#        print(result, " ", point, " ", box.dimensions)
-#        raise Exception("TODO")
-#        if not result :
-#            bpy.data.objects.remove(box, do_unlink=True)
         return result
     finally:
-        #bpy.data.objects.remove(box, do_unlink=True)
+        bpy.data.objects.remove(box, do_unlink=True)
         pass
 
 def remove_all_objects() :
