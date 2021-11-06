@@ -209,11 +209,37 @@ def file_to_url(file):
     url = windows_url_fixup(url)
     return url
 
+re_terrain_url = re.compile("[/\\\\]assets[/\\\\]terrain[/\\\\]")
+terrain_dir = os.path.join("..", "assets", "terrain")
+
+def find_mesh_file(obj) :
+    if not 'CustomMesh' in obj :
+        return None
+    custom_mesh = obj['CustomMesh']
+
+    if 'MeshURL' in custom_mesh :
+        mesh_url = custom_mesh['MeshURL']
+        s = re_terrain_url.search(mesh_url)
+        if s is not None :
+            name = mesh_url[ s[1] : ]
+            obj_file = os.path.join(terrain_dir, name)
+            if os.path.exists(obj_file) :
+                return obj_file
+
+    nickname = get_nickname(obj)
+    if nickname is not None :
+        terrain_name = os.path.join(terrain_dir, nickname)
+        obj_file = terrain_name + ".obj"
+        if os.path.exists(obj_file) :
+            return obj_file
+    return None
+
+
 def update_custom_mesh_assets(obj)  :
-    """Change CustomMesh to use assets from the assets folder where possible""" 
+    """Change CustomMesh to use assets from the assets folder where possible"""
     nickname = get_nickname(obj)
     if nickname is None :
-        return 
+        return
     if not 'CustomMesh' in obj :
         return
     custom_mesh = obj['CustomMesh']
@@ -227,7 +253,7 @@ def update_custom_mesh_assets(obj)  :
        if os.path.exists(diffuse_file) :
         custom_mesh['DiffuseURL'] = file_to_url(diffuse_file)
         break
-  
+
 
 def unsplit_nested_objects(obj, container_name) :
     if not container_name in obj :
@@ -237,7 +263,7 @@ def unsplit_nested_objects(obj, container_name) :
         return
     for i in range(0, len(objects)) :
         child = unsplit_object(objects[i])
-        if child is not None: 
+        if child is not None:
             objects[i] = child
 
 def unsplit_contained_objects(obj) :
@@ -252,7 +278,7 @@ def unsplit_object(obj) :
     nickname = get_nickname(obj)
     if nickname is None :
         return None
-    object_file = os.path.join("ObjectStates", nickname) 
+    object_file = os.path.join("ObjectStates", nickname)
     if not os.path.exists(object_file) :
         return None
     with open(object_file, "r") as f :
@@ -311,7 +337,7 @@ def clean_file(file_name) :
         new_script = re.sub('g_build_date = "\d+\"\\n', new_date, script)
         data['LuaScript'] = new_script
 
-    unsplit_object_states(data)     
+    unsplit_object_states(data)
 
     update_custom_assets(data)
 
