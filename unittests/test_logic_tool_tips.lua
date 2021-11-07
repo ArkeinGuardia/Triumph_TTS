@@ -52,23 +52,28 @@ function test_build_tool_tip_close_combat()
 end
 
 function test_build_tool_tip_target_combat_factor_missing()
-    local tip = get_tool_tip_for_base_definition({})
+    local def = g_base_definitions[g_str_5fb1b9f6e1af06001770a4c7_camp]
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "ranged combat: /X")
     lu.assertTrue(actual)
 end
 
-function test_build_tool_tip_target_close_combat_vs_foot_missing()
+function test_build_tool_tip_close_combat_camp()
+    local def = g_base_definitions[g_str_5fb1b9f6e1af06001770a45e_camp]
     local tip = get_tool_tip_for_base_definition(def)
-    local actual = str_has_substr(tip, "close combat: X/")
+    local actual = str_has_substr(tip, "close combat: 2/2")
+    print("tip is ", tip)
     lu.assertTrue(actual)
 end
 
-function test_build_tool_tip_target_close_combat_vs_mounted_missing()
-    local def = {}
+function test_build_tool_tip_close_combat_fortified_camp()
+    local def = g_base_definitions[g_str_5fb1b9f6e1af06001770a45e_camp_fortified]
     local tip = get_tool_tip_for_base_definition(def)
-    local actual = str_has_substr(tip, "close combat: X/X")
+    local actual = str_has_substr(tip, "close combat: 4/4")
+    print("tip is ", tip)
     lu.assertTrue(actual)
 end
+
 
 function test_general_gets_combat_factor()
     -- setup
@@ -149,7 +154,8 @@ function test_get_tool_tip_returns_tool_tip_if_tool_tips_enabled()
     g_tool_tips_enabled = true
 
     -- exercise
-    local tip = get_tool_tip("Bow Levy")
+    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c2]
+    local tip = get_tool_tip_for_base_definition(def)
 
     -- validate
     local actual = str_has_substr(tip, "MU")

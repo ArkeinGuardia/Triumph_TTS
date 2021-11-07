@@ -99,6 +99,9 @@ function get_tool_tip_for_base_definition(base_definition)
   if base_definition.shower_shooting then
     tip_name = tip_name .. "_shower_shooting"
   end
+  if base_definition.fortified_camp then
+    tip_name = tip_name .. "_fortified_camp"
+  end
 
   -- Use cached result.
   tip = g_tool_tips[tip_name]
@@ -174,6 +177,8 @@ function build_tool_tip_string_close_combat(base_definition)
   local foot
   if tip_data.combat_factor_vs_foot == nil then
     foot = "X"
+  elseif base_definition.fortified_camp then
+      foot = tostring(tip_data.combat_factor_vs_foot + 2)
   else
     foot = tostring(tip_data.combat_factor_vs_foot)
   end
@@ -181,6 +186,9 @@ function build_tool_tip_string_close_combat(base_definition)
   if tip_data.combat_factor_vs_mounted == nil then
     -- error condition, item missing from tip_data
     mounted = "X"
+    print_error("tip_data.combat_factor_vs_mounted == nil " .. base_definition.troop_type)
+  elseif base_definition.fortified_camp then
+    mounted = tostring(tip_data.combat_factor_vs_mounted + 2)
   else
     mounted = tostring(tip_data.combat_factor_vs_mounted)
    end
