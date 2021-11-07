@@ -120,9 +120,10 @@ def is_inside(point,ob):
                  (box.dimensions.y >= box_size) and \
                  (box.dimensions.z >= box_size) and \
                  (vertices_after == vertices_before) 
-#        if not result:
-#            bpy.data.objects.remove(box, do_unlink=True)
-#        print(result, point)
+        if not result:
+            #bpy.data.objects.remove(box, do_unlink=True)            
+            pass
+        #print(result, point, vertices_before, vertices_after)
         return result
     finally:
         bpy.data.objects.remove(box, do_unlink=True)
@@ -220,7 +221,7 @@ def calc_model_terrain_data(model_name) :
     while x <= half_x :
         z = -half_z
         while z <= half_z :
-            p = mathutils.Vector((x, z, 0))
+            p = mathutils.Vector((x, z, 0.1))
             if is_inside(p, obj_object) :
                 points.append((x,z))
             z = z + delta
