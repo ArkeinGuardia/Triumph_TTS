@@ -18,7 +18,7 @@ def make_safe_string(udata) :
     asciidata=udata.encode("ascii", "ignore").decode("ascii")
     if udata != asciidata :
         print(udata, " is not ascii.")
-        m=max( len(udata), len(asciidata)) 
+        m=max( len(udata), len(asciidata))
         for i in range(0,m-1) :
             print(i, ' ', udata[i], ' ', asciidata[i])
     return asciidata
@@ -193,7 +193,7 @@ def get_points_for_troop_type(troop_type) :
   raise Exception("troop_type not understood: " + str(troop_type))
 
 def is_general(base_definition):
-  return ('general' in base_definition) and (base_definition['general'] == True) 
+  return ('general' in base_definition) and (base_definition['general'] == True)
 
 def get_dismounting_type(base_definition, battle_card_note) :
   # DD  only 1477 AD: as Elite Foot
@@ -533,7 +533,7 @@ def write_plaustrella(file, base_definition, battle_card) :
   plaustrella['id'] = plaustrella['id'] + "_plaustrella"
 
   if 'description' not in plaustrella :
-    elephaplaustrellants['description'] = ""
+    plaustrella['description'] = ""
   else:
     plaustrella['description'] += "\\n"
   plaustrella['description'] += "Plaustrella"
@@ -541,6 +541,28 @@ def write_plaustrella(file, base_definition, battle_card) :
   plaustrella['plaustrella'] = True
   write_base_definition(file, plaustrella)
   return [ plaustrella ]
+
+def write_shower_shooting(file, base_definition, battle_card) :
+  shower_shooting = base_definition.copy()
+
+  if ("min" in battle_card)  and (battle_card["min"] is not None):
+    shower_shooting["min"] = battle_card["min"]
+  if ("max" in battle_card)  and (battle_card["max"] is not None):
+    shower_shooting["max"] = battle_card["max"]
+  if ('general' in base_definition) and (base_definition['general'] == True) :
+    shower_shooting["max"] = 1
+
+  shower_shooting['id'] = shower_shooting['id'] + "_shower_shooting"
+
+  if 'description' not in shower_shooting :
+    shower_shooting['description'] = ""
+  else:
+    shower_shooting['description'] += "\\n"
+  shower_shooting['description'] += "Shower Shooting"
+
+  shower_shooting['shower_shooting'] = True
+  write_base_definition(file, shower_shooting)
+  return [ shower_shooting ]
 
 
 def write_fortified_camp(file, camp_definition, battle_card) :
@@ -630,7 +652,7 @@ def write_base_definition_details(file, base_definition) :
     'deployment_dismounting',
     'mid_battle_dismounting',
     'mobile_infantry', 'armored_camelry', 'charging_camelry', 'light_camelry', 'elephant_screen',
-    'plaustrella',
+    'plaustrella', 'shower_shooting',
     'fortified_camp', 'pack_train', 'standard_wagon'] :
     if k in base_definition  and base_definition[k] == True :
       file.write("  %s=true,\n" % (k))
@@ -706,6 +728,9 @@ def write_battle_cards(file, army, troop_option, troop_entry, base_definition)  
         result.extend(extra)
     elif code == "PL" :
         extra = write_plaustrella(file, base_definition, battle_card)
+        result.extend(extra)
+    elif code == "SS" :
+        extra = write_shower_shooting(file, base_definition, battle_card)
         result.extend(extra)
     else:
       pass

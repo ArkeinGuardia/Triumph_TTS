@@ -140,11 +140,30 @@ function test_get_army_builder_points_plaustrella_one_point_per_stand()
   lu.assertEquals(actual, 4)
 end
 
-function test_get_army_builder_points_plaustrella_one_point_per_stand()
+function test_get_victory_points_plaustrella_one_point_per_stand()
   local def= g_base_definitions[g_str_5fb1ba35e1af06001770e449_plaustrella]
   local actual = get_victory_points_for_base_definitions({def})
   -- heavy foot are normally 3
   lu.assertEquals(actual, 4)
+end
+
+function test_base_definition_indicates_shower_shooting()
+  local def= g_base_definitions[g_str_5fb1ba3de1af06001770f2ae_shower_shooting]
+  lu.assertTrue(def.shower_shooting)
+end
+
+function test_get_army_builder_points_shower_shooting_one_point_per_stand()
+  local def= g_base_definitions[g_str_5fb1ba3de1af06001770f2ae_shower_shooting]
+  local actual = get_army_builder_points_for_base_definitions({def})
+  -- Elite cavalry are normally 4
+  lu.assertEquals(actual, 5)
+end
+
+function test_get_victory_points_shower_shooting_one_point_per_stand()
+  local def= g_base_definitions[g_str_5fb1ba3de1af06001770f2ae_shower_shooting]
+  local actual = get_victory_points_for_base_definitions({def})
+  -- Elite cavalry are normally 4
+  lu.assertEquals(actual, 5)
 end
 
 function test_get_army_builder_points_camp()

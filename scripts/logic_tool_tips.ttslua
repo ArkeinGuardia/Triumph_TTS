@@ -70,7 +70,7 @@ function get_tool_tip_for_base(base_obj)
   if nil == base_definition then
     print_debug("no base definition for ", base_name)
   else
-    description = base_definition['description']  
+    description = base_definition['description']
   end
   if description == nil then
     description = ""
@@ -84,14 +84,34 @@ function get_tool_tip_for_base(base_obj)
 end
 
 function get_tool_tip_for_base_definition(base_definition)
+  if not g_tool_tips_enabled then
+    return nil
+  end
   if base_definition == nil then
     return ""
   end
-  local type = base_definition.troop_type
-  if type == nil then
+  if base_definition.troop_type == nil then
+    print_error("base_definition.troop_type == nil")
     return ""
   end
-  return get_tool_tip(type)
+
+  local tip_name = base_definition.troop_type
+  if base_definition.shower_shooting then
+    tip_name = tip_name .. "_shower_shooting"
+  end
+
+  -- Use cached result.
+  tip = g_tool_tips[tip_name]
+  if nil ~= tip then
+    return tip
+  end
+
+  tip = build_tool_tip_string(base_definition)
+
+  -- Cache the result for next time
+  g_tool_tips[tip_name] =  tip
+
+  return tip
 end
 
 -- Example: "base Archers # 20" returns "Archers"
@@ -108,37 +128,37 @@ end
 -- Singleton.  Cache of tool tips for base type
 g_tool_tips = {}
 
--- base_type: name of the base type, e.g. "Archers"
-function get_tool_tip(base_type)
-  if not g_tool_tips_enabled then
-    return nil
-  end
-  local tip = g_tool_tips[base_type]
-  if tip ~= nil then
-    return tip
-  end
-  tip = build_tool_tip(base_type)
-  g_tool_tips[base_type] =  tip
-  return tip
-end
 
-function build_tool_tip_string_tactical_movement(tip_data)
+function build_tool_tip_string_tactical_movement(base_definition)
+  local tip_data = base_tool_tips[base_definition.troop_type]
+  if tip_data == nil then
+    return ""
+  end
  if nil == tip_data.tactical_move_distance then
    return ""
   end
   return tostring(tip_data.tactical_move_distance) .. " MU\n"
  end
 
-function build_tool_tip_string_ranged_combat(tip_data)
+function build_tool_tip_string_ranged_combat(base_definition)
+  local tip_data = base_tool_tips[base_definition.troop_type]
+  if tip_data == nil then
+    return ""
+  end
   local shooting
   if tip_data.shooting_combat_factor == nil then
-    shooting = ""
+    if base_definition.shower_shooting then
+      shooting = "2"
+    else
+      shooting = ""
+    end
   else
     shooting = tostring(tip_data.shooting_combat_factor)
   end
   local target = ""
   if tip_data.target_combat_factor == nil then
     -- error condition, item missing from tip_data
+    -- TODO print_error("tip_data.target_combat_factor == nil " .. base_definition.troop_type)
     target = "X"
   else
     target = tostring(tip_data.target_combat_factor)
@@ -146,7 +166,11 @@ function build_tool_tip_string_ranged_combat(tip_data)
   return string.format("ranged combat: %s/%s\n", shooting, target)
 end
 
-function build_tool_tip_string_close_combat(tip_data)
+function build_tool_tip_string_close_combat(base_definition)
+  local tip_data = base_tool_tips[base_definition.troop_type]
+  if tip_data == nil then
+    return ""
+  end
   local foot
   if tip_data.combat_factor_vs_foot == nil then
     foot = "X"
@@ -164,18 +188,9 @@ function build_tool_tip_string_close_combat(tip_data)
 end
 
 
-function build_tool_tip_string(tip_data)
-  result = build_tool_tip_string_tactical_movement(tip_data)
-  result = result .. build_tool_tip_string_ranged_combat(tip_data)
-  result = result .. build_tool_tip_string_close_combat(tip_data)
-  return result
-end
-
-function build_tool_tip(base_type)
-  local tip_data = base_tool_tips[base_type]
-  if tip_data == nil then
-    return ""
-  end
-  local result = build_tool_tip_string(tip_data)
+function build_tool_tip_string(base_definition)
+  result = build_tool_tip_string_tactical_movement(base_definition)
+  result = result .. build_tool_tip_string_ranged_combat(base_definition)
+  result = result .. build_tool_tip_string_close_combat(base_definition)
   return result
 end

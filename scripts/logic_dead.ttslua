@@ -81,17 +81,20 @@ function get_army_builder_points_for_base_definition(base_definition)
     local dismounted_points = get_army_builder_points_for_troop_type(dismounted_def.troop_type)
     return math.max(mounted_points, dismounted_points)
   end
+  if base_definition.fortified_camp then
+    return 1
+  end
+  if base_definition.pack_train then
+    return 1
+  end
   if base_definition.charging_camelry or base_definition.armored_camelry then
     return get_army_builder_points_for_troop_type(troop_type) - 1
   end
   if base_definition.plaustrella then
     return get_army_builder_points_for_troop_type(troop_type) + 1
   end
-  if base_definition.fortified_camp then
-    return 1
-  end
-  if base_definition.pack_train then
-    return 1
+  if base_definition.shower_shooting then
+    return get_army_builder_points_for_troop_type(troop_type) + 1
   end
   return get_army_builder_points_for_troop_type(troop_type)
 end
@@ -160,6 +163,10 @@ function get_victory_points_for_base_definition(base_definition)
   end
    if base_definition.plaustrella then
      return 4
+  end
+  if base_definition.shower_shooting then
+    local type_points = get_victory_points_for_troop_type(troop_type)
+    return type_points + 1
   end
   return get_victory_points_for_troop_type(troop_type)
 end

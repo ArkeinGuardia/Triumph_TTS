@@ -1,61 +1,71 @@
 lu = require('externals/luaunit/luaunit')
 require('flatten')
 
-function test_build_tool_tip_returns_empty_string_for_bad_type()
-    local actual = build_tool_tip("Children")
+-- Stub out print messges
+print_error=function(message) end
+
+function test_build_tool_tip_returns_empty_string_for_nil_definition()
+    local actual = get_tool_tip_for_base_definition(nil)
     lu.assertEquals(actual, "")
 end
 
 function test_build_tool_tip_does_not_include_movement_for_camp()
-    local tip = build_tool_tip("Camp")
+    local def = g_base_definitions[g_str_5fb1b9f6e1af06001770a4c7_camp]
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "MU")
     lu.assertFalse(actual)
 end
 
 function test_build_tool_tip_includes_movement()
-    local tip = build_tool_tip("Archers")
+    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c3]
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "3 MU")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_non_shooters()
-    local tip = build_tool_tip("Bow Levy")
+    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c5]
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "ranged combat: /")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_shooters()
-    local tip = build_tool_tip("Archers")
+    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c3]
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "ranged combat: 3/")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_target()
-    local tip = build_tool_tip("Bow Levy")
+    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c2]
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "ranged combat: /3")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_close_combat()
-    local tip = build_tool_tip("Bow Levy")
+    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c2]
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "close combat: 2/3")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_target_combat_factor_missing()
-    local tip = build_tool_tip_string({})
+    local tip = get_tool_tip_for_base_definition({})
     local actual = str_has_substr(tip, "ranged combat: /X")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_target_close_combat_vs_foot_missing()
-    local tip = build_tool_tip_string({})
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "close combat: X/")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_target_close_combat_vs_mounted_missing()
-    local tip = build_tool_tip_string({})
+    local def = {}
+    local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "close combat: X/X")
     lu.assertTrue(actual)
 end
@@ -123,7 +133,8 @@ function test_get_tool_tip_returns_nil_if_tool_tips_not_enabled()
     g_tool_tips_enabled = false
 
     -- exercise
-    local actual = get_tool_tip("Bow Levy")
+    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c2]
+    local tip = get_tool_tip_for_base_definition(def)
 
     -- validate
     lu.assertEquals(actual, nil)

@@ -760,14 +760,27 @@ function get_strokes_command(base_obj, transform, range)
 end
 
 
+function has_archer_shooting_arc(base_obj)
+  if str_has_substr(base_obj.getName(), 'Archers ')
+     or str_has_substr(base_obj.getName(), 'Pavisiers') then
+      return true
+  end
+  local base_def = get_base_definition_from_base_obj(base_obj)
+  if base_def == nil then
+    return false
+  end
+  if base_def.shower_shooting then
+    return true
+  end
+  return false
+end
 
 function get_strokes_base_pos(obj, transform)
     local strokes = {}
 
     table.insert(strokes, get_strokes_future_position(obj, transform))
 
-    if str_has_substr(obj.getName(), 'Archers ')
-       or str_has_substr(obj.getName(), 'Pavisiers') then
+    if has_archer_shooting_arc(obj) then
         table.insert(strokes, get_strokes_bow(obj, transform))
     elseif str_has_substr(obj.getName(), 'Artillery') then
         table.insert(strokes, get_strokes_art(obj, transform))
