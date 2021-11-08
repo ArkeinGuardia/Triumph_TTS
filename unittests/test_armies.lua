@@ -286,20 +286,18 @@ function test_spawn_army()
   -- Test double
   get_undeployed_bag = function()
 	  return {
-		  putObject = function () 
+		  putObject = function ()
 		  end
 	  }
   end
   local old_set_tablet = set_tablet
   local old_spawn_base = spawn_base
-  local old_spawn_note = spawn_note
   local old_print_error = print_error
   local old_print_important = print_important
   local old_print_info = print_info
   local old_update_tool_tips = update_tool_tips
   set_tablet = function() end
   spawn_base = function() end
-  spawn_note = function() end
   update_tool_tips = function() end
   print_important = function() end
   print_info = function() end
@@ -318,7 +316,6 @@ function test_spawn_army()
   print_info = old_print_info
   print_important = old_print_important
   print_error = old_print_error
-  spawn_note = old_spawn_note
   spawn_base = old_spawn_base
   set_tablet = old_set_tablet
 end

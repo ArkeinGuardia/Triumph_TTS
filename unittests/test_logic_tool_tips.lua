@@ -193,7 +193,7 @@ end
 
 -- asterix is added to the name of a base to indicate that there
 -- is something special about it, and the tool tips should
--- be consultex
+-- be consulted
 function test_get_base_type_from_name_removes_asterix()
     local actual = get_base_type_from_name("base Archers  General* # 3")
     lu.assertEquals(actual, "Archers")

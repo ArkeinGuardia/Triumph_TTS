@@ -946,6 +946,43 @@ function set_tablet(is_red_player, army)
   print_info(url)
 end
 
+-- Spawn a token that can be used to buy the Charge Through battle card.
+function spawn_charge_through_token(pos)
+  local object = spawnObjectData({
+    data = {
+        Name = "Custom_Tile",
+        Transform = {
+            posX = pos['x'],
+            posY = pos['y'],
+            posZ = pos['z'],
+            rotX = 0,
+            rotY = 180,
+            rotZ = 0,
+            scaleX = 0.7602123,
+            scaleY = 1,
+            scaleZ = 0.7602123
+        },
+        ColorDiffuse = {
+            r = 0.3,
+            g = 0.5,
+            b = 0.8
+        },
+        CustomImage = {
+          ImageURL = "https://github.com/marcpawl/Triumph_TTS/raw/a4569404a8da9fdcbcebb67cb761c092b1d53279/assets/images/charge_through_token/charge_through.png",
+          ImageSecondaryURL = "https://github.com/marcpawl/Triumph_TTS/raw/a4569404a8da9fdcbcebb67cb761c092b1d53279/assets/images/charge_through_token/charge_through.png",
+          ImageScalar =  1.0,
+          WidthScale = 0.0,
+          CustomTile = {
+           Type = 2,
+           Thickness = 0.197222441,
+           Stackable = false,
+           Stretch = false
+       }
+     },
+    }    })
+    set_decoration_for_obj(object, "token_charge_through", true)
+end
+
 -- Given an army object data, spawns it on the center of the table.
 -- Hope nothing is in there and that all data is correct because this doesn't
 -- validate
@@ -979,6 +1016,7 @@ function spawn_army(army, is_red_player, command_color, army_nb)
         z_pos_modifier = -1 * z_pos_modifier
     end
 
+    local army_charge_through_limit_fulfilled = false
     local column = 0
     local row = 0
     local last_troop_option = nil
@@ -1033,7 +1071,22 @@ function spawn_army(army, is_red_player, command_color, army_nb)
                 end
               end
             end
+        if base_definition.charge_through and not army_charge_through_limit_fulfilled then
+          local location = {
+              x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
+              y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
+              z = row_z_pos}
+          spawn_charge_through_token(location)
+          column = column + 1
+          local location = {
+              x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
+              y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
+              z = row_z_pos}
+          spawn_charge_through_token(location)
+          column = column + 1
+          army_charge_through_limit_fulfilled = true
         end
+      end
     end
 
     update_tool_tips()
@@ -1385,17 +1438,4 @@ function spawn_proxy_bases()
     Wait.frames(function()
         spawn_proxy_after_deletion()
     end, 1)
-end
-
-function spawn_note(title, desc, pos, y_angle)
-    local obj = spawnObject({
-        type = "Notecard",
-        position          = pos,
-        rotation          = {x=0, y=y_angle, z=0},
-        scale             = {x=1, y=1, z=1},
-        sound             = false,
-        snap_to_grid      = false,
-    })
-    obj.setName(title)
-    obj.setDescription(desc)
 end

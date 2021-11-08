@@ -49,6 +49,10 @@ function get_battle_card_for_base_obj(base_obj)
     end
   end
 
+  if base_definition.charge_through then
+    tip = tip .. "Charge Through\n"
+  end
+
   local battle_card = base_definition['battle_card']
   if nil ~= battle_card then
     tip = tip .. battle_card
@@ -170,6 +174,9 @@ function build_tool_tip_string_ranged_combat(base_definition)
 end
 
 function build_tool_tip_string_close_combat(base_definition)
+  if str_has_substr(base_definition.troop_type, "Counter") then
+    return ""
+  end
   local tip_data = base_tool_tips[base_definition.troop_type]
   if tip_data == nil then
     return ""
