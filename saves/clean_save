@@ -160,22 +160,27 @@ def discover_assets_remote_url() :
     assets_remote_url = "https://raw.githubusercontent.com/" + url[ len(github_url):] + "/" + id + "/"
     print("Using github for assets: ", windows_url_fixup(assets_remote_url))
 
+re_asset=re.compile("[\\/]assets[\\/](.*)")
 
-def asset_url(name) :
-    """See if there is an asset with the name.
+def asset_url(old_url) :
+    """See if there is a file in the asset directory with the same
+       trailing path.
        If there is return a URL for the asset.
-       Otherwise return None.
+       Otherwise return the original URL.
     """
     global assets_remote_url
-    image_dir = os.path.join("..", "assets", "images")
-    image_file = os.path.join(image_dir, name + ".png")
-    if os.path.exists(image_file) :
-        url =  assets_remote_url + "assets/images/" + name + ".png"
+    m = re_asset.match(old_url)
+    if m is None :
+        return old_url
+
+    assets_dir = os.path.join("..", "assets")
+    asset_file = os.path.join(assets_dir, m.group(1)).replace("\\","/")
+
+    if os.path.exists(asset_file) :
+        url =  (assets_remote_url + "assets/" + m.group(1)).replace("\\","./")
         return windows_url_fixup(url)
-    else:
-        #print("No asset: ", image_file)
-        pass
-    return None
+
+    return old_url
 
 
 def update_custom_assets() :
@@ -185,8 +190,7 @@ def update_custom_assets() :
     with open("CustomUIAssets", "r") as f :
       custom_assets = json.load(f)
       for asset in custom_assets :
-        name = asset['Name']
-        url = asset_url(name)
+        url = asset_url(asset['URL'])
         if url is not None :
             asset['URL'] = url
     return custom_assets
