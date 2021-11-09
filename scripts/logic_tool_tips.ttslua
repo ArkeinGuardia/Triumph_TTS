@@ -55,6 +55,9 @@ function get_battle_card_for_base_obj(base_obj)
   if base_definition.hold_the_line then
     tip = tip .. "Hold the Line\n"
   end
+  if base_definition.hoplite_deep_formation then
+    tip = tip .. "Hoplite Deep formation\n"
+  end
 
   local battle_card = base_definition['battle_card']
   if nil ~= battle_card then

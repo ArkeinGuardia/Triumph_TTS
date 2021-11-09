@@ -624,6 +624,8 @@ def create_base_definition(troop_option, troop_entry) :
       code = battle_card['battleCardCode']
       if code == "CT" :
           base_definition['charge_through'] = True
+      elif code == "HD" :
+          base_definition['hoplite_deep_formation'] = True
       elif code == "HL" :
           base_definition['hold_the_line'] = True
 
@@ -657,7 +659,7 @@ def write_base_definition_details(file, base_definition) :
     file.write("  dismounted_from=%s,\n" % (base_definition['dismounted_from']))
   for k in [
     'general',
-    'charge_through', 'hold_the_line',
+    'charge_through', 'hold_the_line', 'hoplite_deep_formation',
     'deployment_dismounting',
     'mid_battle_dismounting',
     'mobile_infantry', 'armored_camelry', 'charging_camelry', 'light_camelry', 'elephant_screen',
