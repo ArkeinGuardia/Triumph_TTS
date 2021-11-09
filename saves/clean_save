@@ -16,6 +16,7 @@ import urllib
 import urllib.parse
 
 update_date = True
+force_remote = False
 
 # Project root directory
 project_dir = None
@@ -92,6 +93,8 @@ def read_source_files() :
 
 def use_file_system_assets() :
     """Should the file system be used for assets? """
+    if force_remote :
+        return False
     cmd = ["git", "status", "--porcelain=v2", "--branch"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE) as proc:
         line = proc.stdout.readline().decode("ascii")
@@ -160,7 +163,7 @@ def discover_assets_remote_url() :
     assets_remote_url = "https://raw.githubusercontent.com/" + url[ len(github_url):] + "/" + id + "/"
     print("Using github for assets: ", windows_url_fixup(assets_remote_url))
 
-re_asset=re.compile("[\\/]assets[\\/](.*)")
+re_asset=re.compile('^.*[/\\\\]assets[/\\\\](.*)$')
 
 def asset_url(old_url) :
     """See if there is a file in the asset directory with the same
@@ -175,10 +178,9 @@ def asset_url(old_url) :
 
     assets_dir = os.path.join("..", "assets")
     asset_file = os.path.join(assets_dir, m.group(1)).replace("\\","/")
-
     if os.path.exists(asset_file) :
-        url =  (assets_remote_url + "assets/" + m.group(1)).replace("\\","./")
-        return windows_url_fixup(url)
+      new_url = file_to_url(asset_file)
+      return new_url
 
     return old_url
 
@@ -358,6 +360,11 @@ if len(sys.argv) > 1 :
     if sys.argv[1] == "--no-date" :
         update_date = False
         sys.argv.remove('--no-date')
+
+if len(sys.argv) > 1 :
+    if sys.argv[1] == "--force-remote" :
+        force_remote=True
+        sys.argv.remove('--force-remote')
 
 if len(sys.argv) == 1:
   clean_file("TS_Save_1.json")
