@@ -52,6 +52,9 @@ function get_battle_card_for_base_obj(base_obj)
   if base_definition.charge_through then
     tip = tip .. "Charge Through\n"
   end
+  if base_definition.hold_the_line then
+    tip = tip .. "Hold the Line\n"
+  end
 
   local battle_card = base_definition['battle_card']
   if nil ~= battle_card then

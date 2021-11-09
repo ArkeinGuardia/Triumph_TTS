@@ -946,6 +946,25 @@ function set_tablet(is_red_player, army)
   print_info(url)
 end
 
+function is_token_obj(obj)
+  if true == get_decoration_for_obj(obj, "token_charge_through") then
+    return true
+  else
+    return false
+  end
+end
+
+function get_custom_asset_url(name)
+  local assets = UI.getCustomAssets()
+  for _,asset in ipairs(assets) do
+    if name == asset['name'] then
+      return asset['url']
+    end
+  end
+  print_error("Asset not found ", name)
+  return ""
+end
+
 -- Spawn a token that can be used to buy the Charge Through battle card.
 function spawn_charge_through_token(pos)
   local object = spawnObjectData({
@@ -968,8 +987,8 @@ function spawn_charge_through_token(pos)
             b = 0.8
         },
         CustomImage = {
-          ImageURL = "https://github.com/marcpawl/Triumph_TTS/raw/a4569404a8da9fdcbcebb67cb761c092b1d53279/assets/images/charge_through_token/charge_through.png",
-          ImageSecondaryURL = "https://github.com/marcpawl/Triumph_TTS/raw/a4569404a8da9fdcbcebb67cb761c092b1d53279/assets/images/charge_through_token/charge_through.png",
+          ImageURL = get_custom_asset_url("token_charge_through"),
+          ImageSecondaryURL = get_custom_asset_url("counter_background"),
           ImageScalar =  1.0,
           WidthScale = 0.0,
           CustomTile = {
@@ -981,6 +1000,7 @@ function spawn_charge_through_token(pos)
      },
     }    })
     set_decoration_for_obj(object, "token_charge_through", true)
+    object.setName("Charge Through")
 end
 
 -- Given an army object data, spawns it on the center of the table.

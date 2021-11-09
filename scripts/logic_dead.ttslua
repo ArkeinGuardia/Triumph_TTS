@@ -249,7 +249,7 @@ function get_zone_points(zone)
     local ran,result =  pcall(calculate_dead_points, objects)
     return ran, result
   else
-    local ran,result =  pcall(get_army_builder_points_for_base_objects, objects)
+    local ran,result =  pcall(calculate_army_builder_points, objects)
     return ran, result
   end
 end
@@ -343,13 +343,27 @@ function update_points_zones()
   end
 end
 
+function get_army_builder_points_for_tokens(token_objs)
+  local result = 0
+  for _,token_obj in pairs(token_objs) do
+    if true == get_decoration_for_obj(token_obj, "token_charge_through") then
+      result = result + 1
+    end
+  end
+  return result
+end
+
 -- Calculate the number of points for an army builder zone
 -- objects: objects that are in the zone
 -- return: number of points
 function calculate_army_builder_points(objects)
+  -- Is this code dead
+  local tokens = {}
   local definitions = {}
   for _,obj in pairs(objects) do
-    if is_base_obj(obj) then
+    if is_token_obj(obj) then
+      table.insert(tokens, obj)
+    elseif is_base_obj(obj) then
       local base_obj = obj
       local base_definition = get_base_definition_from_base_obj(base_obj)
       if base_definition ~= nil then
@@ -357,13 +371,13 @@ function calculate_army_builder_points(objects)
       end
     end
   end
-  local result = get_army_builder_points_for_base_definitions(definitions)
+  local result = get_army_builder_points_for_base_definitions(definitions) +
+    get_army_builder_points_for_tokens(tokens)
   return result
 end
 
 
 function callback_zone(zone, name, color)
-    print_debug('Dead zone callback ' .. zone.getName())
     if not g_updating_zone[zone.getName()] then
         g_updating_zone[zone.getName()] = true
         Wait.frames(function ()
@@ -375,7 +389,7 @@ function callback_zone(zone, name, color)
 end
 
 function onObjectEnterScriptingZone(zone, obj)
-    if not str_has_substr(obj.getName(), 'base') then
+    if (not is_base_obj(obj)) and (not is_token_obj(obj)) then
         return
     end
     print_debug(obj.getName() .. ' entered ' .. zone.getName())
@@ -401,7 +415,7 @@ function onObjectEnterScriptingZone(zone, obj)
 end
 
 function doOnObjectLeaveScriptingZone(zone, obj)
-    if not str_has_substr(obj.getName(), 'base') then
+    if (not is_base_obj(obj)) and (not is_token_obj(obj)) then
         return
     end
     print_debug(obj.getName() .. ' left ' .. zone.getName())
