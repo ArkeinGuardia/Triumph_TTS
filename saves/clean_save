@@ -178,13 +178,19 @@ def asset_url(name) :
     return None
 
 
-def update_custom_assets(data) :
-    custom_assets = data["CustomUIAssets"]
-    for asset in custom_assets :
+def update_custom_assets() :
+    """Reads the CustomUIAssets,fixes up URL.
+       @return new CustomUIAssets.
+    """
+    with open("CustomUIAssets", "r") as f :
+      custom_assets = json.load(f)
+      for asset in custom_assets :
         name = asset['Name']
         url = asset_url(name)
         if url is not None :
             asset['URL'] = url
+    return custom_assets
+
 
 def file_to_url(file):
     global assets_remote_url
@@ -339,7 +345,7 @@ def clean_file(file_name) :
 
     unsplit_object_states(data)
 
-    update_custom_assets(data)
+    data['CustomUIAssets'] = update_custom_assets()
 
     with open(file_name, "w") as f :
         f.write(json.dumps(data, indent=4, sort_keys="True"))

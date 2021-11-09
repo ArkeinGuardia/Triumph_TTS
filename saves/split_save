@@ -58,6 +58,10 @@ def split_file(file_name) :
     with open(file_name, "r") as f :
         data = json.load(f)
 
+    if 'CustomUIAssets' in data :
+      with open("CustomUIAssets", "w") as f :
+        f.write(json.dumps(data['CustomUIAssets'], indent=4, sort_keys="True"))
+
     if 'ObjectStates' in data:
         for obj in data['ObjectStates'] :
             split_object(obj)
