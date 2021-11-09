@@ -947,7 +947,7 @@ function set_tablet(is_red_player, army)
 end
 
 function is_token_obj(obj)
-  if true == get_decoration_for_obj(obj, "token_charge_through") then
+  if true == get_decoration_for_obj(obj, "token") then
     return true
   else
     return false
@@ -958,15 +958,22 @@ function get_custom_asset_url(name)
   local assets = UI.getCustomAssets()
   for _,asset in ipairs(assets) do
     if name == asset['name'] then
-      return asset['url']
+      local url = asset['url']
+      if url == nil then
+        print_error("Asset url not found " .. tostring(name))
+        return ""
+      end
+      return url
     end
   end
-  print_error("Asset not found ", name)
+  print_error("Asset not found " .. tostring(name))
   return ""
 end
 
--- Spawn a token that can be used to buy the Charge Through battle card.
-function spawn_charge_through_token(pos)
+-- Spawn a token that can be used to buy a battle card
+-- name: name of the token.
+-- pos: location token will be spawned
+function spawn_battle_card_token(name, pos)
   local object = spawnObjectData({
     data = {
         Name = "Custom_Tile",
@@ -987,7 +994,7 @@ function spawn_charge_through_token(pos)
             b = 0.8
         },
         CustomImage = {
-          ImageURL = get_custom_asset_url("token_charge_through"),
+          ImageURL = get_custom_asset_url(name),
           ImageSecondaryURL = get_custom_asset_url("counter_background"),
           ImageScalar =  1.0,
           WidthScale = 0.0,
@@ -999,8 +1006,22 @@ function spawn_charge_through_token(pos)
        }
      },
     }    })
-    set_decoration_for_obj(object, "token_charge_through", true)
-    object.setName("Charge Through")
+    set_decoration_for_obj(object, "token", true)
+    return object
+end
+
+-- Spawn a token that can be used to buy the Charge Through battle card.
+function spawn_charge_through_token(pos)
+  local object = spawn_battle_card_token("token_charge_through", pos)
+  object.setName("Charge Through")
+  set_decoration_for_obj(object, "token_charge_through", true)
+end
+
+-- Spawn a token that can be used to buy the Hold The Line battle card.
+function spawn_hold_the_line_token(pos)
+  local object = spawn_battle_card_token("token_hold_the_line", pos)
+  object.setName("Hold The Line")
+  set_decoration_for_obj(object, "token_hold_the_line", true)
 end
 
 -- Given an army object data, spawns it on the center of the table.
@@ -1037,6 +1058,7 @@ function spawn_army(army, is_red_player, command_color, army_nb)
     end
 
     local army_charge_through_limit_fulfilled = false
+    local army_hold_the_line_limit_fulfilled = false
     local column = 0
     local row = 0
     local last_troop_option = nil
@@ -1092,20 +1114,28 @@ function spawn_army(army, is_red_player, command_color, army_nb)
               end
             end
         if base_definition.charge_through and not army_charge_through_limit_fulfilled then
-          local location = {
-              x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
-              y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
-              z = row_z_pos}
-          spawn_charge_through_token(location)
-          column = column + 1
-          local location = {
-              x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
-              y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
-              z = row_z_pos}
-          spawn_charge_through_token(location)
-          column = column + 1
+          for i=1,2 do
+            local location = {
+                x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
+                y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
+                z = row_z_pos}
+            spawn_charge_through_token(location)
+            column = column + 1
+          end
           army_charge_through_limit_fulfilled = true
         end
+        if base_definition.hold_the_line and not army_hold_the_line_limit_fulfilled then
+          for i= 1,3 do
+            local location = {
+                x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
+                y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
+                z = row_z_pos}
+            spawn_hold_the_line_token(location)
+            column = column + 1
+          end
+          army_charge_through_limit_fulfilled = true
+        end
+
       end
     end
 
