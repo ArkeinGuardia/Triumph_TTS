@@ -14,6 +14,7 @@ import subprocess
 import sys
 import urllib
 import urllib.parse
+from slpp.slpp import slpp as lua
 
 update_date = True
 force_remote = False
@@ -320,8 +321,28 @@ def is_not_number(object) :
         return False
     return True
 
+
+def update_assets_ttslua() :
+    """Update URLs in assets.ttslua."""
+
+    with open("../assets/assets.ttslua", "r") as f :
+        text = f.read()
+        data = lua.decode(text)
+    for k in data.keys() :
+        v = data[k]
+        data[k] = asset_url(v)
+    with open("../assets/assets.ttslua", "w") as f :
+        f.write("{\n")
+        for k in data.keys() :
+            v = data[k]
+            f.write('  "%s"="%s"\n,' % (k,v))
+        f.write("}\n")
+
+
 def clean_file(file_name) :
     discover_assets_remote_url()
+
+    update_assets_ttslua()
 
     with open(file_name, "r") as f :
         data = json.load(f)
