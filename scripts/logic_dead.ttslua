@@ -74,6 +74,9 @@ function get_army_builder_points_for_troop_type(troop_type)
 end
 
 function get_army_builder_points_for_base_definition(base_definition)
+  if nil ~= base_definition.prepared_defenses then
+    return 0
+  end
   local troop_type = base_definition.troop_type
   if base_definition.dismount_as ~= nil then
     local mounted_points = get_army_builder_points_for_troop_type(troop_type)
@@ -104,6 +107,7 @@ end
 -- same base definition may be in the collection multiple times.
 function get_army_builder_points_for_base_definitions(base_definitions)
   local total_points = 0
+  local prepared_defenses_points = 0
   local deployment_dismounting_points = 0
   local mid_battle_dismounting_points = 0
   local nb_mobile_infantry = 0
@@ -121,11 +125,15 @@ function get_army_builder_points_for_base_definitions(base_definitions)
       if base_definition.elephant_screen then
         elephant_screen_points = 2
       end
+      if base_definition.prepared_defenses ~= nil then
+        prepared_defenses_points = prepared_defenses_points + 0.5
+      end
       total_points = total_points + get_army_builder_points_for_base_definition(base_definition)
   end
   total_points = total_points + deployment_dismounting_points
   total_points = total_points + mid_battle_dismounting_points
   total_points = total_points + elephant_screen_points
+  total_points = total_points + prepared_defenses_points
   if nb_mobile_infantry > 1 then
     total_points = total_points + 1
   end
@@ -144,6 +152,9 @@ end
 function get_victory_points_for_base_definition(base_definition)
   if base_definition.victory_points then
     return base_definition.victory_points
+  end
+  if base_definition.prepared_defenses ~= nil then
+    return 0
   end
   local troop_type = base_definition.troop_type
   if base_definition.mid_battle_dismounting then

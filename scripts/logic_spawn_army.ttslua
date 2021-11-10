@@ -775,24 +775,26 @@ troop_type_to_plain_model_tile_name['Elephant Screen']='tile_plain_40x10_El_Scre
 -- Return name (a string) of the variable that is plain tile for
 -- the base definition
 function get_plain_model_tile_name(base_definition)
-    if base_definition.troop_type == 'Camp' then
-      if base_definition.pack_train then
-        return 'tile_plain_40x40_Trains_And_Herds_Donkeys'
-      end
-      if base_definition.standard_wagon then
-        return 'tile_plain_40x80_Standard_Wagon'
-      end
-      if base_definition.fortified_camp then
-        return 'tile_plain_40x40_Fortified_Camp'
-      end
-      if base_definition.prepared_defenses then
-        return 'prepared_defenses_2d'
-      end
+  if base_definition.troop_type == 'Camp' then
+    if base_definition.pack_train then
+      return 'tile_plain_40x40_Trains_And_Herds_Donkeys'
     end
+    if base_definition.standard_wagon then
+      return 'tile_plain_40x80_Standard_Wagon'
+    end
+    if base_definition.fortified_camp then
+      return 'tile_plain_40x40_Fortified_Camp'
+    end
+  end
+  if nil ~= base_definition['prepared_defenses'] then
+    -- TODO
+    return 'tile_plain_40x40_Fortified_Camp'
+  end
   local name = base_definition.name
   local tile = troop_type_to_plain_model_tile_name[name]
   if tile == nil then
     print_error("No plain tile for " .. tostring(name))
+    table_print(base_definition)
     -- TODO choose something that is an obvious error -- like a plain tile with no info.
     return  'tile_grass_40x15'
     end
@@ -800,7 +802,7 @@ function get_plain_model_tile_name(base_definition)
 end
 
 
-function get_plan_base_model_definition(base_definition)
+function get_plain_base_model_definition(base_definition)
   -- Use a plain base.
   local tile_name = get_plain_model_tile_name(base_definition)
   local base_def_name = base_definition.name
@@ -815,8 +817,17 @@ end
 -- Get a model definition, base and figures, that can be used to represent
 -- a base definition.
 function get_a_model_definition(base_definition)
+  if nil ~= base_definition.prepared_defenses then
+    return {
+      name = base_definition.name,
+      ignore_terrain = 'false',
+      n_models = 0,
+      base = "model_prepared_defenses_2d",
+    }
+  end
+
   if  g_use_plain_bases then
-    return get_plan_base_model_definition(base_definition)
+    return get_plain_base_model_definition(base_definition)
   end
   -- try to use models
   local id = base_definition.id
@@ -838,7 +849,7 @@ function get_a_model_definition(base_definition)
   end
 
   -- default to plain base if no model is availab le.
-  return get_plan_base_model_definition(base_definition)
+  return get_plain_base_model_definition(base_definition)
 end
 
 
