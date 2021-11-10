@@ -785,6 +785,9 @@ function get_plain_model_tile_name(base_definition)
       if base_definition.fortified_camp then
         return 'tile_plain_40x40_Fortified_Camp'
       end
+      if base_definition.prepared_defenses then
+        return 'prepared_defenses_2d'
+      end
     end
   local name = base_definition.name
   local tile = troop_type_to_plain_model_tile_name[name]
@@ -954,26 +957,12 @@ function is_token_obj(obj)
   end
 end
 
-function get_custom_asset_url(name)
-  local assets = UI.getCustomAssets()
-  for _,asset in ipairs(assets) do
-    if name == asset['name'] then
-      local url = asset['url']
-      if url == nil then
-        print_error("Asset url not found " .. tostring(name))
-        return ""
-      end
-      return url
-    end
-  end
-  print_error("Asset not found " .. tostring(name))
-  return ""
-end
 
 -- Spawn a token that can be used to buy a battle card
 -- name: name of the token.
 -- pos: location token will be spawned
 function spawn_battle_card_token(name, pos)
+  print("965 spawn_battle_card_token g_assets=", g_assets)
   local object = spawnObjectData({
     data = {
         Name = "Custom_Tile",
@@ -994,8 +983,8 @@ function spawn_battle_card_token(name, pos)
             b = 0.8
         },
         CustomImage = {
-          ImageURL = get_custom_asset_url(name),
-          ImageSecondaryURL = get_custom_asset_url("counter_background"),
+          ImageURL = g_assets[name],
+          ImageSecondaryURL = g_assets["counter_background"],
           ImageScalar =  1.0,
           WidthScale = 0.0,
           CustomTile = {

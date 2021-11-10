@@ -335,7 +335,7 @@ def update_assets_ttslua() :
         f.write("{\n")
         for k in data.keys() :
             v = data[k]
-            f.write('  "%s"="%s"\n,' % (k,v))
+            f.write('  %s="%s",\n' % (k,v.replace("\\", "\\\\")))
         f.write("}\n")
 
 

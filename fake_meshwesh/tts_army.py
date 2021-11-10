@@ -79,6 +79,8 @@ def set_date_range(destination, dates) :
     dest['endDate'] = min( dates['endDate'], dest['endDate'] )
 
 def troop_type_to_name(troop_type) :
+  if troop_type == "Prepared Defenses" :
+      return troop_type
   if troop_type == "WWG" :
     return "War Wagons"
   if troop_type == "CAT" :
@@ -595,6 +597,48 @@ def write_standard_wagon(file, camp_definition, battle_card) :
   write_base_definition(file, wagon)
   return [ wagon ]
 
+def write_fortified_camp(file, camp_definition, battle_card) :
+  fort = camp_definition.copy()
+
+  fort['id'] = fort['id'] + "_fortified"
+
+  fort['fortified_camp'] = True
+  fort['description'] = "Fortified camp"
+  write_base_definition(file, fort)
+  return [ fort ]
+
+def write_pack_train_and_herds(file, camp_definition, battle_card) :
+  pack_train = camp_definition.copy()
+
+  pack_train['id'] = pack_train['id'] + "_pack_train"
+
+  pack_train['pack_train'] = True
+  pack_train['description'] = "Pack Train"
+  write_base_definition(file, pack_train)
+  return [ pack_train ]
+
+def write_prepared_defenses(file, army_id, battle_card) :
+  min = 0
+  max = 12 # There is no maximum on the battle card
+
+  id = army_id + "_prepared_defenses"
+  description = "Prepared Defenses"
+  troop_type = "Prepared Defenses"
+  name = "Prepared Defenses"
+
+  #troop_option_id = troop_option['_id']
+
+  base_definition = {
+    'id': id, 'name':name, 
+    'troop_type':troop_type,
+    'min':min, 'max':max,
+    'description': battle_card['note'],
+    #'troop_option_id': troop_option_id 
+    'prepared_defenses':True
+    }
+  write_base_definition(file, base_definition)
+  return [ base_definition ]
+
 def create_base_definition(troop_option, troop_entry) :
   min = troop_option['min']
   max = troop_option['max']
@@ -664,7 +708,7 @@ def write_base_definition_details(file, base_definition) :
     'mid_battle_dismounting',
     'mobile_infantry', 'armored_camelry', 'charging_camelry', 'light_camelry', 'elephant_screen',
     'plaustrella', 'shower_shooting',
-    'fortified_camp', 'pack_train', 'standard_wagon'] :
+    'fortified_camp', 'pack_train', 'standard_wagon', 'prepared_defenses'] :
     if k in base_definition  and base_definition[k] == True :
       file.write("  %s=true,\n" % (k))
   troop_type_name = troop_type_to_name( base_definition['troop_type'])
@@ -832,6 +876,9 @@ def generate_base_definitions(file, army_json) :
           definitions.extend(extra)
         elif battle_card['battleCardCode'] == "SW" :
           extra = write_standard_wagon(file, camp_definition, battle_card)
+          definitions.extend(extra)
+        elif battle_card['battleCardCode'] == "PD" :
+          extra = write_prepared_defenses(file, army_id, battle_card)
           definitions.extend(extra)
   return definitions
 

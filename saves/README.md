@@ -2,12 +2,6 @@
 Copying Saved Game
 ==================
 
-To get a saved game from TTS into the correct directory for working on it:
-
-./from_tts
-or
-cp ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/TS_Save_1.* .
-
 To put the game into TTS so you can run it
 
 ./to_tts 
@@ -52,5 +46,49 @@ The version of TS_Save_1.json that has no assets referencing the file system may
 uploaded to Steam.
 
 
+to_tts
+======
+
+To get a saved game from TTS into the correct directory for working on it:
+
+./from_tts
+or
+cp ~/My\ Documents/My\ Games/Tabletop\ Simulator/Saves/TS_Save_1.* .
 
 
+workflow
+========
+
+When working on files other than source
+---------------------------------------
+
+git restore TS_Save_1.json && ./clean_save && to_save
+
+If you are working on assets, you should disable mod-caching in TTS.
+In TTS load game 1.
+
+When working in TTS
+-------------------
+
+./from_tts && ./split_save
+
+Perform a git restore on the files that should not be 
+changed.  One common change is that TTS slightly moves objects around. You want
+to reduce the scope of the change to make it clear in the history what has been done.
+
+Check that the files build for TTS with:
+
+git restore TS_Save_1.json && ./clean_save && to_save
+
+assets/assets.ttslua
+====================
+
+Images and meshes that are in the assets directory should be listed in
+assets/assets.ttslua
+
+clean_save will walk through the file and change the URL to the file system
+or github.  The file system is used if there are files that have yet to
+be pushed to github.
+
+You can modify the file and then use "Save and  Play" in Atom.  The file's
+table is accessed in lua by the variable g_assets.
