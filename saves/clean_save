@@ -34,10 +34,15 @@ def getMd5(file_path):
   md5code = m.hexdigest()
   return md5code
 
+re_backslash = re.compile("\\\\")
+re_multi_slash = re.compile("/+")
 def windows_url_fixup(url) :
     """If the URL is for a file use Windows conventions if applicable."""
-    if url.startswith("file:///C:/") :
-      url=url[:8] + url[8:].replace("/", "\\")
+    windows_prefix = "file:///C:"
+    if url.startswith(windows_prefix) :
+      url=url[:len(windows_prefix)] + re_backslash.sub("/", url[len(windows_prefix):])
+      url=url[:len(windows_prefix)] + re_multi_slash.sub("/", url[len(windows_prefix):])
+      url=url[:len(windows_prefix)] + re_multi_slash.sub("\\\\", url[len(windows_prefix):])
       url=urllib.parse.unquote(url)
     return url
 
@@ -335,7 +340,9 @@ def update_assets_ttslua() :
         f.write("{\n")
         for k in data.keys() :
             v = data[k]
-            f.write('  %s="%s",\n' % (k,v.replace("\\", "\\\\")))
+            v = windows_url_fixup(v)
+            v = v.replace("\\","\\\\")
+            f.write('  %s="%s",\n' % (k,v))
         f.write("}\n")
 
 
