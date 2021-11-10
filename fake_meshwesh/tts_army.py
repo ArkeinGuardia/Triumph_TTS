@@ -619,7 +619,7 @@ def write_pack_train_and_herds(file, camp_definition, battle_card) :
 
 def write_prepared_defenses(file, army_id, battle_card) :
   min = 0
-  max = 12 # There is no maximum on the battle card
+  max = 16 # There is no maximum on the battle card
 
   id = army_id + "_prepared_defenses"
   description = "Prepared Defenses"
