@@ -1270,10 +1270,38 @@ function wizard_panel_disadventaged_center_deployment_enter()
   UI.setAttribute("wizard_panel_disadvantaged_center_deployment_who", "text", disadvantage)
 
   local flank = g_game_settings[ disadvantage .. "_flank_march"]
-  print(1273, "flank=", flank)
   UI.setAttribute("wizard_panel_disadventaged_center_deployment_flank_march", "active", flank)
 
+
+  local prepared_defenses = get_all_prepared_defenses()
+  local players_prepared_defenses = filter_bases_by_player_color(prepared_defenses, disadvantage)
+  local show_lock = not is_table_empty(players_prepared_defenses)
+  UI.setAttribute("wizard_panel_disadventaged_center_deployment_lock_button", "interactable", show_lock)
+  UI.setAttribute("wizard_panel_disadventaged_center_deployment_lock", "active", show_lock)
+
   draw_deployment_lines()
+  wizard_panel_disadventaged_center_deployment_update()
+end
+
+function on_wizard_panel_disadventaged_center_deployment_lock_prepared_defenses()
+  UI.setAttribute("wizard_panel_disadventaged_center_deployment_lock_button", "interactable", false)
+  on_next_frame( function()
+    local disadvantage = get_tactical_disadvantage()
+    local prepared_defenses = get_all_prepared_defenses()
+    local players_prepared_defenses = filter_bases_by_player_color(prepared_defenses, disadvantage)
+    for _, defense in pairs(players_prepared_defenses) do
+      defense.setLock(true)
+    end
+    wizard_panel_disadventaged_center_deployment_update()
+  end)
+end
+
+function wizard_panel_disadventaged_center_deployment_update()
+  on_next_frame( function()
+    local interactable = UI.getAttribute("wizard_panel_disadventaged_center_deployment_lock_button", "interactable")
+    local next_enabled = ("True" ~= interactable)
+    UI.setAttribute("wizard_panel_disadvantaged_center_deployment_next", "interactable", next_enabled)
+  end)
 end
 
 table.insert(wizard_panels, {name="wizard_panel_disadvantaged_center_deployment",
@@ -1308,13 +1336,41 @@ table.insert(wizard_panels, {name="wizard_panel_disadvantaged_center_deployment"
     UI.setAttribute("wizard_panel_advantaged_deployment_who", "text", advantage)
 
     local flank = g_game_settings[ advantage .. "_flank_march"]
-    print(1273, "flank=", flank)
     UI.setAttribute("wizard_panel_advantaged_deployment_flank_march", "active", flank)
 
+    local prepared_defenses = get_all_prepared_defenses()
+    local players_prepared_defenses = filter_bases_by_player_color(prepared_defenses, advantage)
+    local show_lock = not is_table_empty(players_prepared_defenses)
+    UI.setAttribute("wizard_panel_advantaged_deployment_prepared_defenses_lock_button", "interactable", show_lock)
+    UI.setAttribute("wizard_panel_advantaged_deployment_prepared_defenses_lock", "active", show_lock)
+
     draw_deployment_lines()
+
+    wizard_panel_advantaged_deployment_update()
   end
 
-  table.insert(wizard_panels, {name="wizard_panel_advantaged_deployment",
+  function on_wizard_panel_advantaged_deployment_lock_prepared_defenses()
+    UI.setAttribute("wizard_panel_advantaged_deployment_prepared_defenses_lock_button", "interactable", false)
+    on_next_frame( function()
+      local advantage = g_game_settings['tactical_advantage']
+      local prepared_defenses = get_all_prepared_defenses()
+      local players_prepared_defenses = filter_bases_by_player_color(prepared_defenses, advantage)
+      for _, defense in pairs(players_prepared_defenses) do
+        defense.setLock(true)
+      end
+      wizard_panel_advantaged_deployment_update()
+    end)
+end
+
+function wizard_panel_advantaged_deployment_update()
+  on_next_frame( function()
+    local interactable = UI.getAttribute("wizard_panel_advantaged_deployment_prepared_defenses_lock_button", "interactable")
+    local next_enabled = ("True" ~= interactable)
+    UI.setAttribute("wizard_panel_advantaged_deployment_next", "interactable", next_enabled)
+  end)
+end
+
+table.insert(wizard_panels, {name="wizard_panel_advantaged_deployment",
     exit=wizard_panel_advantaged_deployment_exit,
     enter=wizard_panel_advantaged_deployment_enter})
 

@@ -1,0 +1,20 @@
+
+-- Given a list of objects in a table, returns another table with ONLY
+-- those that are prepared defenses
+function filter_prepared_defenses(list)
+    local filtered = {}
+    for _,obj in ipairs(list) do
+      local base_definition = get_base_definition_from_base_obj(obj)
+      if base_definition then
+        if base_definition.prepared_defenses then
+            table.insert(filtered, obj)
+        end
+      end
+    end
+    return filtered
+end
+
+
+function get_all_prepared_defenses()
+      return filter_prepared_defenses(getAllObjects())
+end
