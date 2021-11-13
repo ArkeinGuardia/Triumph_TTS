@@ -14,6 +14,7 @@ import subprocess
 import sys
 import urllib
 import urllib.parse
+import xml
 from slpp.slpp import slpp as lua
 
 update_date = True
@@ -56,6 +57,12 @@ def get_nickname(obj) :
       if nickname is not None and len(nickname) > 0 :
           return nickname
     return None
+
+def check_xml(file) :
+    """Parse the XML file to see that it is well formed.
+       throws exception if not a valid XML file.
+    """
+    xml.dom.minidom.parse(file)
 
 def read_xml_ui() :
     file = os.path.join("..", "ui", "main.xml")
