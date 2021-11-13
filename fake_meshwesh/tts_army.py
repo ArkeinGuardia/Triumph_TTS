@@ -618,8 +618,14 @@ def write_pack_train_and_herds(file, camp_definition, battle_card) :
   return [ pack_train ]
 
 def write_prepared_defenses(file, army_id, battle_card) :
-  min = 0
-  max = 16 # There is no maximum on the battle card
+  if "min" in battle_card :
+    min = battle_card['min']
+  else:
+    min = 0
+  if "max" in battle_card:
+    max = battle_card['max']
+  else:
+    max = 16 # No specific mention in the battle card rules
 
   id = army_id + "_prepared_defenses"
   description = "Prepared Defenses"
