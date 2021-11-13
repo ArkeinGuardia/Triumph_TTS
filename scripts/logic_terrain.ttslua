@@ -255,8 +255,10 @@ end
 -- terrain_pos:
 -- terrain_rotation
 -- terrain_size:
+-- terrain_feature_descriptions:  Terrain feature object creation descitions,
+--  that are toe monitored by the zone.
 -- return: newly created zone
-function create_terrain_zone( terrain_obj, terrain_pos, terrain_rotation, terrain_size)
+function create_terrain_zone( terrain_obj, terrain_pos, terrain_rotation, terrain_size, terrain_feature_descriptions)
   size = shallow_copy(terrain_size)
   position = shallow_copy(terrain_pos)
   size.y = 4
@@ -275,6 +277,9 @@ function create_terrain_zone( terrain_obj, terrain_pos, terrain_rotation, terrai
     "onObjectEnterScriptingZoneTerrainArea")
   set_decoration_for_obj(terrain_zone, "onObjectLeaveScriptingZone",
     "onObjectLeaveScriptingZoneTerrainArea")
+  for _, description in pairs(terrain_feature_descriptions) do
+    add_to_decoration_list_obj(terrain_zone, "terrain features", description)
+  end
   return terrain_zone
 end
 
@@ -330,19 +335,19 @@ function add_terrain_features(terrain_obj, terrain_pos, terrain_rotation, n_feat
   return feature_desciptions
 end
 
-function add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, terrain_zone)
+function add_trees(terrain_obj, terrain_pos, terrain_rotation, terrain_size, ntrees, objects)
+  local descriptions = {}
   local feature_desciptions = add_terrain_features( terrain_obj, terrain_pos,
     terrain_rotation, ntrees, objects,  "tree")
   for _,description in ipairs(feature_desciptions) do
-    add_to_decoration_list_obj(terrain_zone, "terrain features", description)
+    table.insert(descriptions, description)
   end
+  create_terrain_zone(terrain_obj, terrain_pos, terrain_rotation, terrain_size, descriptions)
 end
-
 
 -- DBA calls woods "forrest"
 function set_woods(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
     local terrain_name = terrain_obj.getName()
-    local terrain_zone = create_terrain_zone(terrain_obj, terrain_pos, terrain_rotation, terrain_size)
     local options = g_terrain[table_type]['forest']
     local multiplier = options['multiplier']
     local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier*2)
@@ -350,12 +355,12 @@ function set_woods(terrain_obj, terrain_pos, terrain_rotation, terrain_size, tab
       ntrees = 1
     end
     local objects = options['objects']
-    add_trees(terrain_obj, terrain_pos, terrain_rotation, ntrees, objects, terrain_zone)
+    add_trees(terrain_obj, terrain_pos, terrain_rotation, terrain_size, ntrees, objects)
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
 function set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
-  local terrain_zone = create_terrain_zone(terrain_obj, terrain_pos, terrain_rotation, terrain_size)
+    local descriptions = {}
     local options = g_terrain[table_type]['forest']
     local multiplier = options['multiplier']
     local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier)
@@ -370,8 +375,9 @@ function set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size
         rotation = {x=0, y=math.random(1, 359), z=0}
       }
       spawn_terrain_feature(description)
-      add_to_decoration_list_obj(terrain_zone, "terrain features", description)
+      table.insert(descriptions, description)
     end
+    create_terrain_zone(terrain_obj, terrain_pos, terrain_rotation, terrain_size, descriptions)
 end
 
 function add_rocks(terrain_obj, terrain_pos, terrain_rotation, nrocks, objects)
