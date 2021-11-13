@@ -208,6 +208,9 @@ end
 -- base: base that is entered or moved in the zone.
 function remove_colliding_terrain_features(terrain_zone, base)
   local features = get_decoration_for_obj(terrain_zone, "terrain features")
+  if features == nil then
+    return
+  end
   for _,feature in ipairs(features) do
     remove_colliding_terrain_feature(feature, base)
   end
@@ -232,6 +235,9 @@ end
 
 function restore_terrain_features(terrain_zone)
   local features = get_decoration_for_obj(terrain_zone, "terrain features")
+  if features == nil then
+    return
+  end
   for _,feature in ipairs(features) do
     restore_terrain_feature(feature)
   end
@@ -250,15 +256,47 @@ function onObjectLeaveScriptingZoneTerrainArea(terrain_zone, obj)
   start_zone_timer(terrain_zone, callback)
 end
 
+function split_terrain_zone_by_width(zone_name, terrain_pos, terrain_rotation, terrain_size, terrain_feature_descriptions)
+  local split_size = {
+    x= terrain_size.x / 2,
+    y = terrain_size.y,
+    z = terrain_size.z }
+  local left_pos = {
+    x = terrain_pos.x - (terrain_size.x * 0.25),
+    y = terrain_pos.y,
+    z = terrain_pos.z }
+  local right_pos = {
+      x = terrain_pos.x + (terrain_size.x  * 0.25),
+      y = terrain_pos.y,
+      z = terrain_pos.z }
+  local left_features = {}
+  local right_features = {}
+  for _, feature in pairs(terrain_feature_descriptions) do
+    local pos = feature.position
+    if pos.x < terrain_pos.x then
+      table.insert(left_features, feature)
+    else
+      table.insert(right_features, feature)
+    end
+  end
+  create_terrain_zone(zone_name .. "L", left_pos, terrain_rotation, split_size, left_features)
+  create_terrain_zone(zone_name .. "R", right_pos, terrain_rotation, split_size, right_features)
+end
+
 -- Create ascripting  zone that will cover a terrain area.
--- terrain_obj: terrain object being covered
+-- zone_name: name to give the zone
 -- terrain_pos:
 -- terrain_rotation
 -- terrain_size:
 -- terrain_feature_descriptions:  Terrain feature object creation descitions,
 --  that are toe monitored by the zone.
 -- return: newly created zone
-function create_terrain_zone( terrain_obj, terrain_pos, terrain_rotation, terrain_size, terrain_feature_descriptions)
+function create_terrain_zone( zone_name, terrain_pos, terrain_rotation, terrain_size, terrain_feature_descriptions)
+  if terrain_size.x > g_max_terrain_terrain_feature_zone_size then
+    split_terrain_zone_by_width(zone_name, terrain_pos, terrain_rotation, terrain_size, terrain_feature_descriptions)
+    return
+  end
+
   size = shallow_copy(terrain_size)
   position = shallow_copy(terrain_pos)
   size.y = 4
@@ -270,8 +308,7 @@ function create_terrain_zone( terrain_obj, terrain_pos, terrain_rotation, terrai
     type = 'ScriptingTrigger'
   }
   local terrain_zone = spawnObject(zone_spawn)
-  local name = "zone " .. terrain_obj.getName()
-  terrain_zone.setName(name)
+  terrain_zone.setName(zone_name)
   terrain_zone.setLock(true)
   set_decoration_for_obj(terrain_zone, "onObjectEnterScriptingZone",
     "onObjectEnterScriptingZoneTerrainArea")
@@ -342,7 +379,7 @@ function add_trees(terrain_obj, terrain_pos, terrain_rotation, terrain_size, ntr
   for _,description in ipairs(feature_desciptions) do
     table.insert(descriptions, description)
   end
-  create_terrain_zone(terrain_obj, terrain_pos, terrain_rotation, terrain_size, descriptions)
+  create_terrain_zone("zone " .. terrain_obj.getName(), terrain_pos, terrain_rotation, terrain_size, descriptions)
 end
 
 -- DBA calls woods "forrest"
@@ -377,7 +414,7 @@ function set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size
       spawn_terrain_feature(description)
       table.insert(descriptions, description)
     end
-    create_terrain_zone(terrain_obj, terrain_pos, terrain_rotation, terrain_size, descriptions)
+    create_terrain_zone("zone " .. terrain_obj.getName(), terrain_pos, terrain_rotation, terrain_size, descriptions)
 end
 
 function add_rocks(terrain_obj, terrain_pos, terrain_rotation, nrocks, objects)
