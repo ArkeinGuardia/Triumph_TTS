@@ -766,6 +766,55 @@ function wizard_panel_tactical_advantage_update_manueuver_ratings()
   UI.setXmlTable(xml)
 end
 
+function spawn_flank_march_card(color)
+  local face_URL
+  local z_pos = 35.50
+  local y_rotation = 0
+  if color == "red" then
+    face_URL=g_assets['flank_march_card_red']
+    z_pos = -z_pos
+    y_rotation = 180
+  else
+    face_URL=g_assets['flank_march_card_blue']
+  end
+  -- Card is sized to be 4 MU, which is the limits of entering on
+  -- a flank march
+  local flank_card_data =
+   {
+     Name= "CardCustom",
+     Transform= {
+       posX= 0,
+       posY= 3.01,
+       posZ= z_pos,
+       rotX= 0,
+       rotY= y_rotation,
+       rotZ= 180.0,
+       scaleX= 1,
+       scaleY= 1,
+       scaleZ= 1
+     },
+     ColorDiffuse= {
+       r= 1.0,
+       g= 0.0,
+       b= 0.0
+     },
+   }
+  local flank_card_custom = function(flank_card)
+    flank_card.setCustomObject( {
+       type=1,
+       face=face_URL,
+       back=face_URL } )
+    local size = flank_card.getBounds()['size']
+    local z_size = size.z
+    local desired_size = from_mu_to_in(4)
+    local z_scale = desired_size/ z_size
+    y_scale=5
+    flank_card.scale(z_scale)
+    flank_card.reload()
+  end
+  spawnObjectData( { data=flank_card_data, callback_function=flank_card_custom})
+end
+
 function wizard_update_flank_march_for_color(color)
   local flank_id = color .. "_flank_march"
   if g_game_settings[flank_id] ~= nil then
@@ -781,48 +830,14 @@ function wizard_update_flank_march_for_color(color)
   if dice == nil then
     return
   end
-  local flank = ((dice == 1) or (dice < maneuver_rating))
+  local flank = ((dice == 1) or (dice < maneuver_rating)) 
 
   g_game_settings[flank_id] = flank
   local wizard_id = "wizard_" .. flank_id
   if flank then
     UI.setAttribute(wizard_id, "text", "Flank March")
     print_info(color .. " is eligible for flank march.")
-    local face_URL
-    local z_pos = 35.50
-    local y_rotation = 0
-    if color == "red" then
-      face_URL="http://cloud-3.steamusercontent.com/ugc/1807610517240746012/48DD837201B66B45C44C45CB86585773540F54DF/"
-      z_pos = -z_pos
-      y_rotation = 180
-    else
-      face_URL="http://cloud-3.steamusercontent.com/ugc/1807610517240745877/939F09683E86259AB2F0D92A721F0C173651C78C/"
-    end
-    local flank_card_data =
-     {
-       Name= "CardCustom",
-       Transform= {
-         posX= 0,
-         posY= 3.01,
-         posZ= z_pos,
-         rotX= 0,
-         rotY= y_rotation,
-         rotZ= 180.0,
-         scaleX= 1.87838769,
-         scaleY= 1.0,
-         scaleZ= 1.87838769
-       },
-       ColorDiffuse= {
-         r= 1.0,
-         g= 0.0,
-         b= 0.0
-       },
-     }
-    local flank_card= spawnObjectData( { data=flank_card_data})
-    flank_card.setCustomObject( {
-       type=1,
-       face=face_URL,
-       back=face_URL } )
+    spawn_flank_march_card(color)
   else
     UI.setAttribute(wizard_id, "text", "")
     print_info("No flank march for " .. color)
