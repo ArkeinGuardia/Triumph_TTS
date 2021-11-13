@@ -230,7 +230,8 @@ function wizard_show_panel(panel_name)
       enter_fn()
     end
     -- show the panel
-    UI.setAttribute(g_current_showing_wizard_panel['name'], "active", true)
+    local current_panel_name = g_current_showing_wizard_panel['name']
+    UI.setAttribute(current_panel_name, "active", true)
   end
 end
 
@@ -1218,7 +1219,7 @@ end
 
 
 function on_wizard_panel_camps_next()
-  wizard_show_panel_deploy_troops()
+  wizard_panel_show_panel_disadvantaged_center_deployment()
 end
 
 
@@ -1242,38 +1243,106 @@ end
 table.insert(wizard_panels, {name="wizard_panel_camps", exit=wizard_panel_exit_camps, enter=wizard_panel_camps_enter})
 
 -------------------
-------------------- Deploy Troops
+------------------- wizard_panel_disadventaged_center_deployment
 -------------------
 
-function on_wizard_panel_deploy_troops_previous()
+function on_wizard_panel_disadvantaged_center_deployment_previous()
   wizard_show_panel_camps()
 end
 
 
-function on_wizard_panel_deploy_troops_next()
-  wizard_show_panel_first_move()
+function on_wizard_panel_disadvantaged_center_deployment_next()
+  wizard_panel_advantaged_deployment_show()
 end
 
 
-function wizard_panel_exit_deploy_troops()
+function wizard_panel_exit_disadvantaged_center_deployment()
   remove_deployment_lines()
 end
 
 
-function wizard_show_panel_deploy_troops()
-  wizard_show_panel("wizard_panel_deploy_troops")
+function wizard_panel_show_panel_disadvantaged_center_deployment()
+  wizard_show_panel("wizard_panel_disadvantaged_center_deployment")
 end
 
-function wizard_panel_deploy_troops_enter()
-  local advantage = g_game_settings['tactical_advantage']
+function wizard_panel_disadventaged_center_deployment_enter()
   local disadvantage = get_tactical_disadvantage()
-  UI.setAttribute("wizard_panel_deploy_troops_disadvantage_center_line", "text", disadvantage)
-  UI.setAttribute("wizard_panel_deploy_troops_advantage", "text", advantage)
-  UI.setAttribute("wizard_panel_deploy_troops_disadvantage_remainder", "text", disadvantage)
+  UI.setAttribute("wizard_panel_disadvantaged_center_deployment_who", "text", disadvantage)
   draw_deployment_lines()
 end
 
-table.insert(wizard_panels, {name="wizard_panel_deploy_troops", exit=wizard_panel_exit_deploy_troops, enter=wizard_panel_deploy_troops_enter})
+table.insert(wizard_panels, {name="wizard_panel_disadvantaged_center_deployment",
+  exit=wizard_panel_exit_disadvantaged_center_deployment,
+  enter=wizard_panel_disadventaged_center_deployment_enter})
+
+  -------------------
+  ------------------- wizard_panel_advantaged_deployment
+  -------------------
+
+  function on_wizard_panel_advantaged_deployment_previous()
+    wizard_panel_show_panel_disadvantaged_center_deployment()
+  end
+
+
+  function on_wizard_panel_advantaged_deployment_next()
+    wizard_panel_disadvantaged_deployment_show()
+  end
+
+
+  function wizard_panel_advantaged_deployment_exit()
+    remove_deployment_lines()
+  end
+
+
+  function wizard_panel_advantaged_deployment_show()
+    wizard_show_panel("wizard_panel_advantaged_deployment")
+  end
+
+  function wizard_panel_advantaged_deployment_enter()
+    local advantage = g_game_settings['tactical_advantage']
+    UI.setAttribute("wizard_panel_advantaged_deployment_who", "text", advantage)
+    draw_deployment_lines()
+  end
+
+  table.insert(wizard_panels, {name="wizard_panel_advantaged_deployment",
+    exit=wizard_panel_advantaged_deployment_exit,
+    enter=wizard_panel_advantaged_deployment_enter})
+
+
+    -------------------
+    ------------------- wizard_panel_disadventaged_deployment
+    -------------------
+
+    function on_wizard_panel_disadvantaged_deployment_previous()
+      wizard_panel_advantaged_deployment_show()
+    end
+
+
+    function on_wizard_panel_disadvantaged_deployment_next()
+      wizard_show_panel_first_move()
+    end
+
+
+    function wizard_panel_disadvantaged_deployment_exit()
+      remove_deployment_lines()
+    end
+
+
+    function wizard_panel_disadvantaged_deployment_show()
+      wizard_show_panel("wizard_panel_disadvantaged_deployment")
+    end
+
+    function wizard_panel_disadventaged_deployment_enter()
+      local disadvantage = get_tactical_disadvantage()
+      UI.setAttribute("wizard_panel_disadvantaged_deployment_who", "text", disadvantage)
+      draw_deployment_lines()
+    end
+
+    table.insert(
+      wizard_panels,
+      {name="wizard_panel_disadvantaged_deployment",
+       exit=wizard_panel_disadvantaged_deployment_exit,
+       enter=wizard_panel_disadventaged_deployment_enter})
 
 -------------------
 ------------------- First Move
