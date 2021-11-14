@@ -635,11 +635,11 @@ def write_prepared_defenses(file, army_id, battle_card) :
   #troop_option_id = troop_option['_id']
 
   base_definition = {
-    'id': id, 'name':name, 
+    'id': id, 'name':name,
     'troop_type':troop_type,
     'min':min, 'max':max,
     'description': battle_card['note'],
-    #'troop_option_id': troop_option_id 
+    #'troop_option_id': troop_option_id
     'prepared_defenses':True
     }
   write_base_definition(file, base_definition)
@@ -1103,7 +1103,12 @@ def generate_army(army_id) :
       file.write("      startDate=%d,\n" %
         (army_json['dateRange']['startDate']))
       file.write("      endDate=%d,\n"  % (army_json['dateRange']['endDate']))
-      file.write("    }\n")
+      file.write("    },\n")
+
+      if 'battleCardEntries' in army_json :
+          for battle_card in army_json['battleCardEntries'] :
+              if battle_card['battleCardCode'] == "AM" :
+                  file.write("    ambush=true,")
       file.write("  },\n")
 
       # Bases that make up the army
@@ -1183,6 +1188,7 @@ def generate_army(army_id) :
         file.write("  startDate=%d,\n" %  (startDate))
         file.write("  endDate=%d\n" %  (endDate))
         file.write("}\n")
+
 
 def generate_ally_base_definitions(army_id) :
   """Generate any base definitions for an armies allies that have
