@@ -1009,6 +1009,14 @@ function spawn_battle_card_token(name, pos)
     return object
 end
 
+
+-- Spawn a token that can be used to buy the Ambush battle card.
+function spawn_ambush_token(pos)
+  local object = spawn_battle_card_token("token_ambush", pos)
+  object.setName("Ambush")
+  set_decoration_for_obj(object, "token_ambush", true)
+end
+
 -- Spawn a token that can be used to buy the Charge Through battle card.
 function spawn_charge_through_token(pos)
   local object = spawn_battle_card_token("token_charge_through", pos)
@@ -1112,6 +1120,7 @@ function spawn_army(army, is_red_player, command_color, army_nb)
                 end
               end
             end
+        local row_z_pos = (g_base_width_in_inches + 0.75) * (1 + row) * z_pos_modifier + z_pos_0
         if base_definition.charge_through and not army_charge_through_limit_fulfilled then
           for i=1,2 do
             local location = {
@@ -1136,6 +1145,17 @@ function spawn_army(army, is_red_player, command_color, army_nb)
         end
 
       end
+    end
+    column = 0
+    row = row + 1
+    local row_z_pos = (g_base_width_in_inches + 0.75) * (1 + row) * z_pos_modifier + z_pos_0
+    if army.data.ambush  then
+      local location = {
+          x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
+          y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
+          z = row_z_pos}
+      spawn_ambush_token(location)
+      column = column + 1
     end
 
     update_tool_tips()
