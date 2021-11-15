@@ -768,7 +768,7 @@ end
 
 function spawn_flank_march_card(color)
   local face_URL
-  local z_pos = 35.50
+  local z_pos = 4.59
   local y_rotation = 0
   if color == "red" then
     face_URL=g_assets['flank_march_card_red']
@@ -800,6 +800,8 @@ function spawn_flank_march_card(color)
      },
    }
   local flank_card_custom = function(flank_card)
+    flank_card.setName("flank march card")
+    set_decoration_for_obj(flank_card, "flank_march_card", color)
     flank_card.setCustomObject( {
        type=1,
        face=face_URL,
@@ -812,7 +814,7 @@ function spawn_flank_march_card(color)
     flank_card.scale(z_scale)
     flank_card.reload()
   end
-  spawnObjectData( { data=flank_card_data, callback_function=flank_card_custom})
+  local flank_card = spawnObjectData( { data=flank_card_data, callback_function=flank_card_custom})
 end
 
 function wizard_update_flank_march_for_color(color)
@@ -830,7 +832,7 @@ function wizard_update_flank_march_for_color(color)
   if dice == nil then
     return
   end
-  local flank = ((dice == 1) or (dice < maneuver_rating)) 
+  local flank = ((dice == 1) or (dice < maneuver_rating))
 
   g_game_settings[flank_id] = flank
   local wizard_id = "wizard_" .. flank_id
@@ -1184,7 +1186,8 @@ end
 
 
 function wizard_panel_exit_terrain_placement()
-  remove_deployment_lines()
+  g_game_settings['show_deployment_lines']['wizard'] = nil
+  update_deployment_lines()
   g_game_table_callbacks['wizard_panel_terrain_placement'] = nil
 end
 
@@ -1217,9 +1220,9 @@ function wizard_show_panel_terrain_placement()
 end
 
 function wizard_panel_terrain_placement_enter()
-  wizard_panel_terrain_placement_update()
+  g_game_settings['show_deployment_lines']['wizard'] = true
+  update_deployment_lines()
   g_game_table_callbacks['wizard_panel_terrain_placement'] = wizard_panel_terrain_placement_update
-  draw_deployment_lines()
 end
 
 table.insert(wizard_panels, {name="wizard_panel_terrain_placement", exit=wizard_panel_exit_terrain_placement, enter=wizard_panel_terrain_placement_enter})
@@ -1239,7 +1242,8 @@ end
 
 
 function wizard_panel_exit_camps()
-  remove_deployment_lines()
+  g_game_settings['show_deployment_lines']['wizard'] = nil
+  update_deployment_lines()
 end
 
 
@@ -1252,7 +1256,8 @@ function wizard_panel_camps_enter()
   local disadvantage = get_tactical_disadvantage()
   UI.setAttribute("wizard_panel_camps_disadvantage", "text", disadvantage)
   UI.setAttribute("wizard_panel_camps_advantage", "text", advantage)
-  draw_deployment_lines()
+  g_game_settings['show_deployment_lines']['wizard'] = true
+  update_deployment_lines()
 end
 
 table.insert(wizard_panels, {name="wizard_panel_camps", exit=wizard_panel_exit_camps, enter=wizard_panel_camps_enter})
@@ -1272,7 +1277,8 @@ end
 
 
 function wizard_panel_exit_disadvantaged_center_deployment()
-  remove_deployment_lines()
+  g_game_settings['show_deployment_lines']['wizard'] = nil
+  update_deployment_lines()
 end
 
 
@@ -1294,7 +1300,8 @@ function wizard_panel_disadventaged_center_deployment_enter()
   UI.setAttribute("wizard_panel_disadventaged_center_deployment_lock_button", "interactable", show_lock)
   UI.setAttribute("wizard_panel_disadventaged_center_deployment_lock", "active", show_lock)
 
-  draw_deployment_lines()
+  g_game_settings['show_deployment_lines']['wizard'] = true
+  update_deployment_lines()
   wizard_panel_disadventaged_center_deployment_update()
 end
 
@@ -1338,7 +1345,8 @@ table.insert(wizard_panels, {name="wizard_panel_disadvantaged_center_deployment"
 
 
   function wizard_panel_advantaged_deployment_exit()
-    remove_deployment_lines()
+    g_game_settings['show_deployment_lines']['wizard'] = nil
+    update_deployment_lines()
   end
 
 
@@ -1359,7 +1367,8 @@ table.insert(wizard_panels, {name="wizard_panel_disadvantaged_center_deployment"
     UI.setAttribute("wizard_panel_advantaged_deployment_prepared_defenses_lock_button", "interactable", show_lock)
     UI.setAttribute("wizard_panel_advantaged_deployment_prepared_defenses_lock", "active", show_lock)
 
-    draw_deployment_lines()
+    g_game_settings['show_deployment_lines']['wizard'] = true
+    update_deployment_lines()
 
     wizard_panel_advantaged_deployment_update()
   end
@@ -1405,7 +1414,8 @@ table.insert(wizard_panels, {name="wizard_panel_advantaged_deployment",
 
 
     function wizard_panel_disadvantaged_deployment_exit()
-      remove_deployment_lines()
+      g_game_settings['show_deployment_lines']['wizard'] = nil
+      update_deployment_lines()
     end
 
 
@@ -1416,7 +1426,8 @@ table.insert(wizard_panels, {name="wizard_panel_advantaged_deployment",
     function wizard_panel_disadventaged_deployment_enter()
       local disadvantage = get_tactical_disadvantage()
       UI.setAttribute("wizard_panel_disadvantaged_deployment_who", "text", disadvantage)
-      draw_deployment_lines()
+      g_game_settings['show_deployment_lines']['wizard'] = true
+      update_deployment_lines()
     end
 
     table.insert(

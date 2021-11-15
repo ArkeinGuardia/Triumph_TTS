@@ -1254,7 +1254,42 @@ end
 -- Display to chat movement of a base
 g_movement_reporting_enabled = true
 
+--Is the object just on top of the object.
+function is_on_table(obj)
+  local parameters = {
+    origin = obj.getPosition(),
+    direction = {0,-1, 0},
+    parameters_type=1,
+    max_distance=5
+  }
+  local res = Physics.cast(parameters)
+  for _,collision in pairs(res) do
+    if g_current_table == collision.hit_object.getGUID() then
+      return true
+    end
+  end
+  return false
+end
+
+-- If the flank card is dropped on the table the draw the deployment lines,
+-- otherwise remove them.
+function on_flank_card_dropped(card)
+  local color = get_decoration_for_obj(card, "flank_march_card" )
+  local table_collision = is_on_table(card)
+  if table_collision then
+      g_game_settings['show_deployment_lines'][color] = true
+  else
+      g_game_settings['show_deployment_lines'][color] = nil
+  end
+  update_deployment_lines()
+end
+
 function onObjectDrop(player_color,  picked_up_object)
+    if get_decoration_for_obj(picked_up_object, "flank_march_card") ~= nil then
+      on_flank_card_dropped(picked_up_object)
+      return
+    end
+
     g_picked_base_objects[picked_up_object] = nil
     picked_up_object.setVelocity({x=0, y=0, z=0})
     picked_up_object.setAngularVelocity({x=0, y=0, z=0})

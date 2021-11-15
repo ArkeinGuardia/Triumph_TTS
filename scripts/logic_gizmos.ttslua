@@ -1410,6 +1410,15 @@ function remove_deployment_lines()
     end
 end
 
+
+function update_deployment_lines()
+  if g_game_settings['show_deployment_lines']['wizard'] or g_game_settings['show_deployment_lines']['red'] or  g_game_settings['show_deployment_lines']['blue'] then
+    draw_deployment_lines()
+  else
+    remove_deployment_lines()
+  end
+end
+
 function get_strokes_arrow_position(base_obj, transform)
     local stroke_points = {}
     local p = transform['position']

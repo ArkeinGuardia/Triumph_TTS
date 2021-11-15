@@ -166,6 +166,9 @@ function restore_extra_data(saved_data)
   if  g_game_settings['use_army_builder'] == nil then
     g_game_settings['use_army_builder'] = true
   end
+  if g_game_settings['show_deployment_lines'] == nil then
+    g_game_settings['show_deployment_lines'] = {}
+  end
 
   local all_bases = g_decorations['g_bases']
   if all_bases ~= nil then
