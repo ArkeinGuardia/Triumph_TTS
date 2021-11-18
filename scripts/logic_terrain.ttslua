@@ -138,7 +138,8 @@ function fix_terrain_and_lock()
             print_debug('The terrain had rotation ' .. vec_to_str(current_rotation))
             current_rotation.x = 0
 
-            if str_starts_with(terrain.getName(), 'terrain Stream ') then
+            if str_starts_with(terrain.getName(), 'terrain Stream ') 
+               or str_starts_with(terrain.getName(), 'terrain coast ') then
               if angle_difference_degrees(terrain.getRotation()['z'], 180) < 45 then
                 current_rotation.z = 180
               else
