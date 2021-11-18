@@ -137,7 +137,16 @@ function fix_terrain_and_lock()
             local current_rotation = terrain.getRotation()
             print_debug('The terrain had rotation ' .. vec_to_str(current_rotation))
             current_rotation.x = 0
-            current_rotation.z = 0
+
+            if str_starts_with(terrain.getName(), 'terrain Stream ') then
+              if angle_difference_degrees(terrain.getRotation()['z'], 180) < 45 then
+                current_rotation.z = 180
+              else
+                current_rotation.z = 0
+              end
+            else
+              current_rotation.z = 0
+            end
             terrain.setRotation(current_rotation)
 
             local current_pos = terrain.getPosition()
