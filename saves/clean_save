@@ -278,6 +278,8 @@ def update_custom_mesh_assets(obj)  :
        if os.path.exists(diffuse_file) :
         custom_mesh['DiffuseURL'] = file_to_url(diffuse_file)
         break
+    custom_mesh['MeshURL'] = asset_url(custom_mesh['MeshURL'])
+    custom_mesh['DiffuseURL'] = asset_url(custom_mesh['DiffuseURL'])
 
 
 def unsplit_nested_objects(obj, container_name) :
