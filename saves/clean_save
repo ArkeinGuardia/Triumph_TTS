@@ -19,6 +19,7 @@ from slpp import slpp as lua
 
 update_date = True
 force_remote = False
+force_local = False
 
 # Project root directory
 project_dir = None
@@ -108,6 +109,8 @@ def use_file_system_assets() :
     """Should the file system be used for assets? """
     if force_remote :
         return False
+    if force_local :
+        return  True
     cmd = ["git", "status", "--porcelain=v2", "--branch"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE) as proc:
         line = proc.stdout.readline().decode("ascii")
@@ -402,6 +405,11 @@ if len(sys.argv) > 1 :
     if sys.argv[1] == "--force-remote" :
         force_remote=True
         sys.argv.remove('--force-remote')
+
+if len(sys.argv) > 1 :
+    if sys.argv[1] == "--force-local" :
+        force_local=True
+        sys.argv.remove('--force-local')
 
 if len(sys.argv) == 1:
   clean_file("TS_Save_1.json")
