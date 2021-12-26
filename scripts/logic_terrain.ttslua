@@ -127,46 +127,37 @@ function fix_terrain_and_lock()
 
             local current_scale = terrain.getScale()
             print_debug('The terrain had scale ' .. vec_to_str(current_scale))
-            if str_has_substr(terrain.getName(), 'Road') then
+            if str_starts_with(terrain.getName(), 'terrain Steep Hill ')  or
+               str_starts_with(terrain.getName(), 'terrain Wooded Hill ')  or
+               str_starts_with(terrain.getName(), 'terrain Village ') or
+               str_starts_with(terrain.getName(), 'terrain Gentle Hill ') or
+               str_starts_with(terrain.getName(), 'terrain Marsh ') or
+               str_starts_with(terrain.getName(), 'terrain Oasis ') or
+               str_starts_with(terrain.getName(), 'terrain Ploughed Fields ') or
+               str_starts_with(terrain.getName(), 'terrain Rough ') or
+               str_starts_with(terrain.getName(), 'terrain Woods ') or
+              str_starts_with(terrain.getName(), 'terrain Dune ') then
+              -- Do not change the scale, the scale was adjusted in
+              -- Blender.
+            elseif str_has_substr(terrain.getName(), 'Road') then
                 current_scale.y = 0.8 + math.random()*0.1 - 0.05
             else
                 current_scale.y = 0.1
             end
             terrain.setScale(current_scale)
 
-            local current_rotation = terrain.getRotation()
-            print_debug('The terrain had rotation ' .. vec_to_str(current_rotation))
-            current_rotation.x = 0
-
-            if str_starts_with(terrain.getName(), 'terrain Stream ') 
-               or str_starts_with(terrain.getName(), 'terrain coast ') then
-              if angle_difference_degrees(terrain.getRotation()['z'], 180) < 45 then
-                current_rotation.z = 180
-              else
-                current_rotation.z = 0
-              end
-            else
-              current_rotation.z = 0
-            end
-            terrain.setRotation(current_rotation)
-
-            local current_pos = terrain.getPosition()
-            print_debug('The terrain had position ' .. vec_to_str(current_pos))
-            current_pos.y = g_terrain_pos
-            terrain.setPosition(current_pos)
-
             Wait.frames(function ()
-                terrain.setLock(true)
                 if g_use_3d_terrain then
                     process_vegetation(terrain, terrain_type)
                 end
+                Wait.frames(function ()
+                  terrain.setLock(true)
+                end, 1)
             end, 1)
         end
     end
     Wait.frames(function()
         g_current_table = gametable.getGUID()
-        gametable.setRotation({ x = 0, y = 0, z = 0})
-        gametable.setPosition({ x = 0, y = g_base_height_tabletop, z = 0})
         gametable.setLock(true)
         g_game_settings['table locked'] = true
         -- Notify listener that gametable has been locked
@@ -187,19 +178,20 @@ function change_texture_terrain(terrain_obj, new_tex_url)
     terrain_obj.reload()
 end
 
--- Spawn a new terrain feature, e.g. a tree, that will be part of
+-- Spawn a new terrain decoration, e.g. a tree, that will be part of
 -- a terrain area (e.g. woods).
 -- description: Parameters for describing the feature and its location
-function spawn_terrain_feature(description)
+function spawn_terrain_decoration(description)
   local feature = spawn_model(
     description.model_name,
     description.position,
     description.rotation.y,
     minimal_collider,  nil, nil, nil, true)
   feature.setName(description.name)
+  feature.setPosition(description.position)
   feature.setLock(true)
   description.hidden = False
-  return tree
+  return feature
 end
 
 function remove_colliding_terrain_feature(terrain_feature, base)
@@ -237,7 +229,7 @@ function restore_terrain_feature(terrain_feature)
   if terrain_feature.hidden then
     local feature_obj = get_object_by_name(terrain_feature.name)
     if nil == feature_obj then
-      spawn_terrain_feature(terrain_feature)
+      spawn_terrain_decoration(terrain_feature)
     end
   end
 end
@@ -266,81 +258,116 @@ function onObjectLeaveScriptingZoneTerrainArea(terrain_zone, obj)
   start_zone_timer(terrain_zone, callback)
 end
 
-function split_terrain_zone_by_width(zone_name, terrain_pos, terrain_rotation, terrain_size, terrain_feature_descriptions)
+-- Return relative locations for terrain zones that will keep track of
+-- terrain decorations.
+-- zone_name: base name of the zones being created.
+-- zone_pos: center point of the created zones, relative to (0,0,0)
+-- zone_size Size of all the zones
+-- terrain_decoration_descriptions: Descriptions of the decorations, rocks or terees, ...
+-- that are to be controlled in a zone.
+-- return: Zones with the decorations they should control.  The zones will have
+-- position relative to (0,0,0) and will not be rotated.
+function split_terrain_zones(zone_name,  zone_pos, zone_size, terrain_decoration_descriptions)
+  local zones = {}
+  if zone_size.x <= g_max_terrain_terrain_feature_zone_size then
+    local zone_spawn = {
+      name = zone_name,
+      position = zone_pos,
+      rotation = {x=0, y=0, z=0},
+      scale = shallow_copy(zone_size),
+      type = 'ScriptingTrigger',
+      terrain_decoration_descriptions=terrain_decoration_descriptions
+    }
+    table.insert(zones, zone_spawn)
+    return zones
+  end
+
   local split_size = {
-    x= terrain_size.x / 2,
-    y = terrain_size.y,
-    z = terrain_size.z }
+    x= zone_size.x / 2,
+    y = zone_size.y,
+    z = zone_size.z }
   local left_pos = {
-    x = terrain_pos.x - (terrain_size.x * 0.25),
-    y = terrain_pos.y,
-    z = terrain_pos.z }
+    x = zone_pos.x - (zone_size.x * 0.25),
+    y = zone_pos.y,
+    z = zone_pos.z }
   local right_pos = {
-      x = terrain_pos.x + (terrain_size.x  * 0.25),
-      y = terrain_pos.y,
-      z = terrain_pos.z }
-  local left_features = {}
-  local right_features = {}
-  for _, feature in pairs(terrain_feature_descriptions) do
+      x = zone_pos.x + (zone_size.x  * 0.25),
+      y = zone_pos.y,
+      z = zone_pos.z }
+
+  local left_decorations = {}
+  local right_decorations = {}
+  for _, feature in pairs(terrain_decoration_descriptions) do
     local pos = feature.position
-    if pos.x < terrain_pos.x then
-      table.insert(left_features, feature)
+    if pos.x < zone_pos.x then
+      table.insert(left_decorations, feature)
     else
-      table.insert(right_features, feature)
+      table.insert(right_decorations, feature)
     end
   end
-  create_terrain_zone(zone_name .. "L", left_pos, terrain_rotation, split_size, left_features)
-  create_terrain_zone(zone_name .. "R", right_pos, terrain_rotation, split_size, right_features)
+  local left_name = zone_name .. "L"
+  local right_name = zone_name .. "R"
+  local left_zones = split_terrain_zones(left_name, left_pos, split_size, left_decorations)
+  local right_zones = split_terrain_zones(right_name, right_pos, split_size, right_decorations)
+  for _,z in pairs(left_zones) do
+    table.insert(zones, z)
+  end
+  for _,z in pairs(right_zones) do
+    table.insert(zones, z)
+  end
+  return zones
 end
 
--- Create ascripting  zone that will cover a terrain area.
+
+-- Create scripting  zones that will cover a terrain area to control the
+-- appearance of terrain decorations.
 -- zone_name: name to give the zone
--- terrain_pos:
--- terrain_rotation
--- terrain_size:
+-- terrain_obj: Object that is to be covered in scripting zones.
 -- terrain_feature_descriptions:  Terrain feature object creation descitions,
 --  that are toe monitored by the zone.
--- return: newly created zone
-function create_terrain_zone( zone_name, terrain_pos, terrain_rotation, terrain_size, terrain_feature_descriptions)
-  if terrain_size.x > g_max_terrain_terrain_feature_zone_size then
-    split_terrain_zone_by_width(zone_name, terrain_pos, terrain_rotation, terrain_size, terrain_feature_descriptions)
-    return
-  end
+-- return: None
+function create_terrain_zones( zone_name, terrain_obj,  terrain_feature_descriptions)
+  local terrain_pos = terrain_obj.getPosition()
+  local terrain_rotation = terrain_obj.getRotation()
+  local terrain_rotation_theta = normalize_angle(math.rad(terrain_rotation['y']))
+  local terrain_size = terrain_obj.getBoundsNormalized()['size']
 
-  size = shallow_copy(terrain_size)
-  position = shallow_copy(terrain_pos)
-  size.y = 4
-  position['y'] = position['y'] + (size.y / 2)
-  local zone_spawn = {
-    position = position,
-    rotation = {x=0, y=terrain_rotation*180/3.1415927, z=0},
-    scale = size,
-    type = 'ScriptingTrigger'
-  }
-  local terrain_zone = spawnObject(zone_spawn)
-  terrain_zone.setName(zone_name)
-  terrain_zone.setLock(true)
-  set_decoration_for_obj(terrain_zone, "onObjectEnterScriptingZone",
-    "onObjectEnterScriptingZoneTerrainArea")
-  set_decoration_for_obj(terrain_zone, "onObjectLeaveScriptingZone",
-    "onObjectLeaveScriptingZoneTerrainArea")
-  for _, description in pairs(terrain_feature_descriptions) do
-    add_to_decoration_list_obj(terrain_zone, "terrain features", description)
+  local zones = split_terrain_zones(zone_name,  {x=0,y=0,z=0}, terrain_size, terrain_feature_descriptions)
+  for _,zone in pairs(zones) do
+    -- adjust the position
+    zone.position = rotate_point_relative(zone.position, terrain_pos, terrain_rotation_theta)
+    -- asjust the rotation
+    zone.rotation = terrain_rotation
+    -- adjust the height of the terrain zones
+    zone.scale.y = 4
   end
-  return terrain_zone
+  for _,zone in pairs(zones) do
+    local terrain_zone = spawnObject(zone)
+    terrain_zone.setName(zone.name)
+    terrain_zone.setLock(true)
+    set_decoration_for_obj(terrain_zone, "onObjectEnterScriptingZone",
+      "onObjectEnterScriptingZoneTerrainArea")
+    set_decoration_for_obj(terrain_zone, "onObjectLeaveScriptingZone",
+      "onObjectLeaveScriptingZoneTerrainArea")
+    for _, description in pairs(zone.terrain_decoration_descriptions) do
+      add_to_decoration_list_obj(terrain_zone, "terrain features", description)
+    end
+  end
 end
 
--- Create terrain features for an area, e.g. trees for woods.
+-- Create terrain decorations for an area, e.g. trees for woods.
 -- terrain_obj: the terrain area, e.g. the Woods.
--- terrain_pos: Position of the terrain_obj
--- terrain_rotation: Toation on the y-axis of the terrain area.
--- n_features: Number  of terrain features to create.
+-- density: Density of decorations to add per a square inch.
 -- objects: Desciption of the terrain features that can be created.
 -- feature_name_prefix: Text to that will prepend the features crated, e.g. "tree" or "rock".
--- return List of the created features.  Can be passed to spawn_terrain_feature to
+-- return List of the created features.  Can be passed to spawn_terrain_decoration to
 -- recreate the feature.
-function add_terrain_features(terrain_obj, terrain_pos, terrain_rotation, n_features, objects, feature_name_prefix)
+function add_terrain_decorations(terrain_obj, density, objects, feature_name_prefix)
   local terrain_name = terrain_obj.getName()
+  local terrain_pos = terrain_obj.getPosition()
+  local terrain_rotation = terrain_obj.getRotation()
+  local terrain_rotation_theta = normalize_angle(math.rad(terrain_rotation['y']))
+
 
   -- Get the locations where a tree can fit on the terrain area.
   local terrain_data = g_terrain_data[terrain_name]
@@ -355,6 +382,9 @@ function add_terrain_features(terrain_obj, terrain_pos, terrain_rotation, n_feat
   end
   local points = shallow_copy(feature_points)
   local nb_points = #points
+  -- points are placed at 1/2 inch intervals, so we use (1/2)^2 to transform
+  -- number of points to square inches.
+  local n_features = math.ceil(density * nb_points / 4.0)
   if n_features > nb_points then
     n_features = nb_points
   end
@@ -363,12 +393,18 @@ function add_terrain_features(terrain_obj, terrain_pos, terrain_rotation, n_feat
 
   for i=1,n_features do
       -- Select a point at random
-      local index = math.random(1, #points)
-      local point = points[index]
-      point['y'] = 0
+      local index = math.random(1, nb_points)
+      local point = deep_copy(points[index])
+      -- nil is only needed while the data points have yet to be regenerated.
+      if point['y'] == nil then
+        point['y'] = 0
+      end
       points[index] = points[nb_points]
       nb_points = nb_points - 1
-      local feature_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
+      local feature_pos = rotate_point_relative(point, terrain_pos, terrain_rotation_theta)
+      feature_pos['y'] = terrain_pos['y'] + point['y']
+
+
       local feature_name = feature_name_prefix .. " " .. tostring(i) .. " " .. terrain_name
       local description = {
         name = feature_name,
@@ -376,60 +412,81 @@ function add_terrain_features(terrain_obj, terrain_pos, terrain_rotation, n_feat
         position = feature_pos,
         rotation = {x=0, y=math.random(0, 359), z=0}
       }
-      local feature = spawn_terrain_feature(description)
+      local feature = spawn_terrain_decoration(description)
+      feature.setPosition(feature_pos)
       table.insert(feature_desciptions, description)
   end
   return feature_desciptions
 end
 
-function add_trees(terrain_obj, terrain_pos, terrain_rotation, terrain_size, ntrees, objects)
+-- Add tree decorations on a terrain object.
+-- terrain_obj: Object that will receive the decorations.
+-- density: Number of decorations per a square inch.
+-- objects: Description of the terrain decorations that will be created.
+-- e.g. instructions on how to create a tree.
+function add_trees(terrain_obj,  density, objects)
   local descriptions = {}
-  local feature_desciptions = add_terrain_features( terrain_obj, terrain_pos,
-    terrain_rotation, ntrees, objects,  "tree")
+  local feature_desciptions = add_terrain_decorations( terrain_obj, density, objects,  "tree")
   for _,description in ipairs(feature_desciptions) do
     table.insert(descriptions, description)
   end
-  create_terrain_zone("zone " .. terrain_obj.getName(), terrain_pos, terrain_rotation, terrain_size, descriptions)
+  create_terrain_zones("zone " .. terrain_obj.getName(), terrain_obj, descriptions)
 end
 
 -- DBA calls woods "forrest"
-function set_woods(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
+-- Add terrain details for a Woods
+-- terrain_obj:  The terrain object that will have the details added.
+-- table_type: Type of terrain, arable, marsh, ...
+function set_woods(terrain_obj, table_type)
     local terrain_name = terrain_obj.getName()
     local options = g_terrain[table_type]['forest']
-    local multiplier = options['multiplier']
-    local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier*2)
-    if ntrees < 1 then
-      ntrees = 1
-    end
+    local density = options['multiplier']
     local objects = options['objects']
-    add_trees(terrain_obj, terrain_pos, terrain_rotation, terrain_size, ntrees, objects)
+    add_trees(terrain_obj,  density, objects)
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
-function set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
-    local descriptions = {}
-    local options = g_terrain[table_type]['forest']
-    local multiplier = options['multiplier']
-    local ntrees = math.floor((terrain_size['x'] + terrain_size['z'])*multiplier)
-    for i=1,ntrees do
-      local point = random_point_ellipse(terrain_size['x'] / 2.5, terrain_size['z'] / 2.5)
-      local tree_pos = rotate_point_relative(point, terrain_pos, terrain_rotation)
-      local tree_name = "tree " .. tostring(i) .. " " .. terrain_obj.getName()
-      local description = {
-        name = tree_name,
-        model_name = random_element(options['objects']),
-        position = tree_pos,
-        rotation = {x=0, y=math.random(1, 359), z=0}
-      }
-      spawn_terrain_feature(description)
-      table.insert(descriptions, description)
-    end
-    create_terrain_zone("zone " .. terrain_obj.getName(), terrain_pos, terrain_rotation, terrain_size, descriptions)
+-- Add terrain details for a gentle hill
+-- terrain_obj:  The terrain object that will have the details added.
+-- table_type: Type of terrain, arable, marsh, ...
+function set_gentlehill(terrain_obj,  table_type)
+  local terrain_name = terrain_obj.getName()
+  local options = g_terrain[table_type]['gentle_hill']
+  local density = options['multiplier']
+  local objects = options['objects']
+  add_trees(terrain_obj,   density, objects)
 end
 
-function add_rocks(terrain_obj, terrain_pos, terrain_rotation, nrocks, objects)
-  add_terrain_features( terrain_obj, terrain_pos,
-    terrain_rotation, nrocks, objects,  "rock")
+-- Add terrain details for a Wooded hill
+-- terrain_obj:  The terrain object that will have the details added.
+-- table_type: Type of terrain, arable, marsh, ...
+function set_woodedhill(terrain_obj, table_type)
+  local terrain_name = terrain_obj.getName()
+  local options = g_terrain[table_type]['wooded_hill']
+  local density = options['multiplier']
+  local objects = options['objects']
+  add_trees(terrain_obj,  density, objects)
+end
+
+-- Add terrain details for a steep hill
+-- terrain_obj:  The terrain object that will have the details added.
+-- table_type: Type of terrain, arable, marsh, ...
+function set_steephill(terrain_obj, table_type)
+  local terrain_name = terrain_obj.getName()
+  local options = g_terrain[table_type]['steep_hill']
+  local density = options['multiplier']
+  local objects = options['objects']
+  add_trees(terrain_obj, density, objects)
+end
+
+-- Add rocks as decorations to a terrain object.
+-- terrain_obj:
+-- terrain_pos:
+-- terrain_rotation:
+-- density: Number of decorations to add per a square inch.
+-- objects: Descriiptions on how to create the rocks.
+function add_rocks(terrain_obj, terrain_pos, terrain_rotation, density, objects)
+  add_terrain_decorations( terrain_obj,  density, objects,  "rock")
 end
 
 function set_rough(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
@@ -443,18 +500,16 @@ end
 function set_oasis(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
     local options = g_terrain[table_type]['oasis']
     local objects = options['objects']
-    local nobjs = math.floor((terrain_size['x'] + terrain_size['z'])*1.2)
-    add_terrain_features( terrain_obj, terrain_pos,
-      terrain_rotation, nobjs, objects,  "palm")
+    local density = 0.3
+    add_terrain_decorations( terrain_obj,  nobjs, objects,  "palm")
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
 function set_marsh(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
     local options = g_terrain[table_type]['marsh']
     local objects = options['objects']
-    local nobjs = math.floor((terrain_size['x'] + terrain_size['z'])*1.2)
-    add_terrain_features( terrain_obj, terrain_pos,
-      terrain_rotation, nobjs, objects,  "palm")
+    local density = 0.3
+    add_terrain_decorations( terrain_obj, nobjs, objects,  "palm")
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
@@ -692,22 +747,6 @@ function add_buildings(terrain_obj, terrain_rotation, options)
   local lots = calc_bua_lots(terrain_obj)
   for _,lot in pairs(lots) do
     lot.model_name = random_element(options['objects'])
-
-    -- Cube to show center of the bua_lot. (DEBUGGING ONLY)
-    -- The building should be in the center of the building.
-    -- local cube = spawnObject({
-    --   position = lot.position,
-    --   rotation = lot.rotation,
-    --   scale = {x=0.25,y=5,z=0.25},
-    --   type = 'BlockSquare' }
-    -- )
-    -- cube.setLock(true)
-    -- cube.setColorTint({r=0,g=1,b=0,a=0.5})
-    -- print("cube ")
-    -- table_print(lot.position)
-    -- table_print(lot.rotation)
-    -- table_print(lot.size)
-
     local zone_name = "zone bua building " .. terrain_obj.getGUID()
     local zone = create_bua_lot_zone(lot, zone_name)
     local building = spawn_building(lot, zone)
@@ -800,23 +839,27 @@ end
 
 function process_vegetation(terrain_obj, type)
     local terrain_pos = terrain_obj.getPosition()
-    local terrain_rotation = normalize_angle(math.rad(terrain_obj.getRotation()['y']))
+    local terrain_rotation_theta = normalize_angle(math.rad(terrain_obj.getRotation()['y']))
     local terrain_size = terrain_obj.getBoundsNormalized()['size']
     if str_starts_with(terrain_obj.getName(), 'terrain Woods') then
-        set_woods(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_woods(terrain_obj, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Rough') then
-        set_rough(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_rough(terrain_obj, terrain_pos, terrain_rotation_theta, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Wooded Hill') then
-        set_woodedhill(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_woodedhill(terrain_obj, type)
+    elseif str_starts_with(terrain_obj.getName(), 'terrain Gentle Hill') then
+          set_gentlehill(terrain_obj, type)
+    elseif str_starts_with(terrain_obj.getName(), 'terrain Steep Hill') then
+          set_steephill(terrain_obj, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Oasis') then
-        set_oasis(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_oasis(terrain_obj, terrain_pos, terrain_rotation_theta, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Ploughed Fields') then
-        set_plough(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_plough(terrain_obj, terrain_pos, terrain_rotation_theta, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Enclosure') then
-        set_enclosure(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_enclosure(terrain_obj, terrain_pos, terrain_rotation_theta, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Marsh') then
-        set_marsh(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_marsh(terrain_obj, terrain_pos, terrain_rotation_theta, terrain_size, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Village') then
-        set_bua(terrain_obj, terrain_pos, terrain_rotation, terrain_size, type)
+        set_bua(terrain_obj, terrain_pos, terrain_rotation_theta, terrain_size, type)
     end
 end
