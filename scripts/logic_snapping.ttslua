@@ -280,7 +280,6 @@ function snap_picked_base(obj)
         obj.setRotation(transform_to_rotation_vector(g_picked_base_initial_transform))
     else
         -- No snapping, return the distance between positions
-        pos['y'] = g_base_height_tabletop + g_table_thickness + g_base_height_inches
         obj.setPosition(pos)
     end
     return calculate_transform(obj)
