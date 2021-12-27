@@ -141,6 +141,10 @@ function move_base(obj, how_much_movement, ignore_history)
     local magnitude = how_much_movement
     local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
 
+    -- Bunny hop the base so it climbs up terrain, instead of tunnelling
+    -- through hills.
+    destination['y'] = destination['y'] + 1
+
     obj.setPosition(destination)
 
     if not ignore_history then
