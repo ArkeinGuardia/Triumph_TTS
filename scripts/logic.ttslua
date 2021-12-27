@@ -248,6 +248,11 @@ function do_push_back(base_obj)
   local displacement_vector = rad_to_vector(angle)
 
   local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
+
+  -- Bunny hop the base so it climbs up terrain, instead of tunnelling
+  -- through hills.
+  destination['y'] = destination['y'] + 1
+  
   base_obj.setPosition(destination)
 
   local new_transform = calculate_transform(base_obj)
@@ -309,6 +314,11 @@ function move_base_forward(base_obj, distance_inches)
   local displacement_vector = rad_to_vector(angle)
 
   local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
+
+  -- Bunny hop the base so it climbs up terrain, instead of tunnelling
+  -- through hills.
+  destination['y'] = destination['y'] + 1
+
   base_obj.setPosition(destination)
 
   local new_transform = calculate_transform(base_obj)
