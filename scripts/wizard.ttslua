@@ -1181,7 +1181,7 @@ end
 
 
 function on_wizard_panel_terrain_placement_next()
-  wizard_show_panel_camps()
+  wizard_show_panel_terrain_lock()
 end
 
 
@@ -1193,25 +1193,7 @@ end
 
 function wizard_panel_terrain_placement_update()
   local advantage = g_game_settings['tactical_advantage']
-  local table_locked = g_game_settings['table locked']
-  if (not table_locked) then
-    table_locked = false
-  end
-  local table_can_be_locked = not table_locked
   UI.setAttribute("wizard_panel_terrain_placement_advantage", "text", advantage)
-  UI.setAttribute("wizard_panel_terrain_placement_lock_table", "interactable", table_can_be_locked)
-  if table_locked then
-    Wait.frames(
-      function()
-        UI.setAttribute("wizard_panel_terrain_placement_next", "interactable", true)
-      end,
-      1)
-  end
-end
-
-function on_wizard_panel_terrain_placement_lock_table()
-  fix_terrain_and_lock()
-  destroy_all_terrain_bags()
 end
 
 
@@ -1226,6 +1208,61 @@ function wizard_panel_terrain_placement_enter()
 end
 
 table.insert(wizard_panels, {name="wizard_panel_terrain_placement", exit=wizard_panel_exit_terrain_placement, enter=wizard_panel_terrain_placement_enter})
+
+-------------------
+------------------- Terrain Lock
+-------------------
+
+function on_wizard_panel_terrain_lock_previous()
+  wizard_show_panel_terrain_placement()
+end
+
+
+function on_wizard_panel_terrain_lock_next()
+  wizard_show_panel_camps()
+end
+
+
+function wizard_panel_exit_terrain_lock()
+  g_game_settings['show_deployment_lines']['wizard'] = nil
+  update_deployment_lines()
+  g_game_table_callbacks['wizard_panel_terrain_lock'] = nil
+end
+
+function wizard_panel_terrain_lock_update()
+  local table_locked = g_game_settings['table locked']
+  if (not table_locked) then
+    table_locked = false
+  end
+  local table_can_be_locked = not table_locked
+  UI.setAttribute("wizard_panel_terrain_lock_table", "interactable", table_can_be_locked)
+  if table_locked then
+    Wait.frames(
+      function()
+        UI.setAttribute("wizard_panel_terrain_lock_next", "interactable", true)
+      end,
+      1)
+  end
+end
+
+
+function on_wizard_panel_terrain_lock_table()
+  fix_terrain_and_lock()
+  destroy_all_terrain_bags()
+end
+
+function wizard_show_panel_terrain_lock()
+  wizard_show_panel("wizard_panel_terrain_lock")
+end
+
+function wizard_panel_terrain_lock_enter()
+  g_game_settings['show_deployment_lines']['wizard'] = true
+  update_deployment_lines()
+  g_game_table_callbacks['wizard_panel_terrain_lock'] = wizard_panel_terrain_lock_update
+end
+
+table.insert(wizard_panels, {name="wizard_panel_terrain_lock", exit=wizard_panel_exit_terrain_lock, enter=wizard_panel_terrain_lock_enter})
+
 
 -------------------
 ------------------- Camps
