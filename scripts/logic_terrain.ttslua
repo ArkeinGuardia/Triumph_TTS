@@ -269,6 +269,18 @@ end
 -- return: Zones with the decorations they should control.  The zones will have
 -- position relative to (0,0,0) and will not be rotated.
 function split_terrain_zones(zone_name,  zone_size, terrain_decoration_descriptions)
+  if zone_name == nil then
+    error("split_terrain_zones zone_name is nil")
+    return
+  end
+  if zone_size == nil then
+    error("split_terrain_zones zone_size is nil")
+    return
+  end
+  if terrain_decoration_descriptions == nil then
+    error("split_terrain_zones terrain_decoration_descriptions is nil")
+    return
+  end
   local far_left = -(zone_size.x)/2
   local nb_zones = math.ceil(zone_size.x / g_max_terrain_terrain_feature_zone_size)
   local zone_width = zone_size.x / nb_zones
@@ -292,6 +304,13 @@ function split_terrain_zones(zone_name,  zone_size, terrain_decoration_descripti
   end
   for _, decoration in pairs(terrain_decoration_descriptions) do
     local bucket = math.floor((decoration.position.x - far_left) / g_max_terrain_terrain_feature_zone_size)
+    if (bucket < 0) then
+      error("split_terrain_zones bucket invalid " .. bucket .. '/' .. nb_zones)
+      return
+    end
+    if (bucket >= nb_zones) then
+      bucket = nb_zones - 1
+    end
     table.insert( zones[bucket].terrain_decoration_descriptions, decoration)
   end
   return zones
@@ -353,32 +372,7 @@ function select_terrain_decorations(terrain_obj, density, objects, feature_name_
   return decorations
 end
 
-
--- Create terrain decorations for an area, e.g. trees for woods.
--- terrain_obj: the terrain area, e.g. the Woods.
--- density: Density of decorations to add per a square inch.
--- objects: Desciption of the terrain features that can be created.
--- feature_name_prefix: Text to that will prepend the features crated, e.g. "tree" or "rock".
-function add_terrain_decorations(terrain_obj, density, objects, feature_name_prefix)
-  local decorations = select_terrain_decorations(terrain_obj, density, objects, feature_name_prefix)
-
-  local terrain_size = terrain_obj.getBoundsNormalized()['size']
-  local zone_name = "zone " .. terrain_obj.getName()
-  local zones = split_terrain_zones(zone_name,  terrain_size, decorations)
-
-  -- Spawn the decorations
-  local terrain_pos = terrain_obj.getPosition()
-  local terrain_rotation = terrain_obj.getRotation()
-  local terrain_rotation_theta = normalize_angle(math.rad(terrain_rotation['y']))
-  for _,zone in pairs(zones) do
-    for _,decoration in ipairs(zone.terrain_decoration_descriptions) do
-      decoration.position =
-        rotate_point_relative(decoration.position, terrain_pos, terrain_rotation_theta)
-      spawn_terrain_decoration(decoration)
-    end
-  end
-
-  -- Spawn the zones
+function spawn_terrain_zones(zones, terrain_pos)
   for _,zone in pairs(zones) do
     zone.position.x = zone.position.x + terrain_pos.x
     zone.position.y = 2
@@ -397,15 +391,59 @@ function add_terrain_decorations(terrain_obj, density, objects, feature_name_pre
   end
 end
 
+-- Create terrain decorations for an area, e.g. trees for woods.
+-- terrain_obj: the terrain area, e.g. the Woods.
+-- density: Density of decorations to add per a square inch.
+-- objects: Desciption of the terrain features that can be created.
+-- feature_name_prefix: Text to that will prepend the features crated, e.g. "tree" or "rock".
+function add_terrain_decorations(terrain_obj, density, objects, feature_name_prefix)
+  local ran, retval = pcall( select_terrain_decorations, terrain_obj, density, objects, feature_name_prefix)
+  if not ran then
+    error("add_terrain_decorations select_terrain_decorations " .. retval)
+    return
+  end
+  local decorations = retval
+
+  local terrain_size = terrain_obj.getBoundsNormalized()['size']
+  local zone_name = "zone " .. terrain_obj.getName()
+  local ran, retval = pcall( split_terrain_zones, zone_name,  terrain_size, decorations)
+  if not ran then
+    error("add_terrain_decorations split_terrain_zones " .. retval)
+    return
+  end
+  local zones = retval
+
+  -- Spawn the decorations
+  local terrain_pos = terrain_obj.getPosition()
+  local terrain_rotation = terrain_obj.getRotation()
+  local terrain_rotation_theta = normalize_angle(math.rad(terrain_rotation['y']))
+  for _,zone in pairs(zones) do
+    for _,decoration in ipairs(zone.terrain_decoration_descriptions) do
+      decoration.position =
+        rotate_point_relative(decoration.position, terrain_pos, terrain_rotation_theta)
+      spawn_terrain_decoration(decoration)
+    end
+  end
+
+  -- Spawn the zones
+  local ran, retval = pcall( spawn_terrain_zones, zones, terrain_pos)
+  if not ran then
+    error("add_terrain_decorations spawn_terrain_zones " .. retval)
+    return
+  end
+end
+
 -- Add tree decorations on a terrain object.
 -- terrain_obj: Object that will receive the decorations.
 -- density: Number of decorations per a square inch.
 -- objects: Description of the terrain decorations that will be created.
 -- e.g. instructions on how to create a tree.
 function add_trees(terrain_obj,  density, objects)
-  local decorations = select_terrain_decorations(terrain_obj, density, objects, "tree")
-  local descriptions = {}
-  add_terrain_decorations( terrain_obj, density, objects,  "tree")
+  local ran, errorMsg = pcall(  add_terrain_decorations, terrain_obj, density, objects,  "tree")
+  if not ran then
+    error("add_trees add_terrain_decorations " .. errorMsg)
+    return
+  end
 end
 
 -- DBA calls woods "forrest"
@@ -437,7 +475,10 @@ function set_woodedhill(terrain_obj, table_type)
   local options = g_terrain[table_type]['wooded_hill']
   local density = options['multiplier']
   local objects = options['objects']
-  add_trees(terrain_obj,  density, objects)
+  local ran, errorMsg = pcall( add_trees, terrain_obj,  density, objects)
+  if not ran then
+    print_error("set_woodedhill add_trees" .. errorMsg)
+  end
 end
 
 -- Add terrain details for a steep hill
