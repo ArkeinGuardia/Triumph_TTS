@@ -204,15 +204,23 @@ function snap_corners(moving_base_cache, snap_rule)
   local moving_corner_name = snap_rule.moving_corner
   local moving_corner = new_corners[ moving_corner_name ]
 
-  -- Calculate how much the corner has to move to touch
+  -- Calculate how much the corner has to move to almost touch
+  --
+  -- Expand the stable base size by a tiny amount and then place
+  -- the moving base to the expanded corner,
+  local stable_position = snap_rule.stable_base.getPosition()
+  local expanded_stable_size = get_size(snap_rule.stable_base.getName())
+  expanded_stable_size.x = expanded_stable_size.x + g_snap_seperation
+  expanded_stable_size.z = expanded_stable_size.z + g_snap_seperation
+  local stable_rotation_theta = stable_heading / (180 / math.pi)
+  local expanded_stable_corners = compute_corners_coords(expanded_stable_size, stable_rotation_theta, stable_position)
+
   local stable_corner_name = snap_rule.stable_corner
-  local stable_corner = snap_rule.stable_base.getCorners()[ stable_corner_name ]
+  local stable_corner = expanded_stable_corners[ stable_corner_name ]
   local x_diff = stable_corner.x - moving_corner.x
-  local y_diff = stable_corner.y - moving_corner.y
   local z_diff = stable_corner.z -moving_corner.z
   local new_pos = moving_base_cache.getPosition()
   new_pos.x = new_pos.x + x_diff
-  new_pos.y = new_pos.y + y_diff
   new_pos.z = new_pos.z + z_diff
   moving_base_cache.setPosition(new_pos)
 

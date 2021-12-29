@@ -37,7 +37,7 @@ function compute_corners_base(base_obj, size)
 end
 
 -- Like compute_corners_base but instead of a base obj all coords are given
--- sizeXZ:
+-- sizeXZ: {x=width, z=depth}
 -- rotationT: -in radians
 -- pos:
 function compute_corners_coords(sizeXZ, rotationY, pos)
@@ -252,7 +252,7 @@ function do_push_back(base_obj)
   -- Bunny hop the base so it climbs up terrain, instead of tunnelling
   -- through hills.
   destination['y'] = destination['y'] + 1
-  
+
   base_obj.setPosition(destination)
 
   local new_transform = calculate_transform(base_obj)
