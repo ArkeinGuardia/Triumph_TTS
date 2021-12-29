@@ -663,6 +663,8 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     end
 
     local base_obj = spawn_model(model_base_name, pos, 0, nil, is_red_player, overriden_tex)
+    base_obj.dynamic_friction = 1.0
+    base_obj.static_friction = 1.0
 
     if base_definition['name'] == nil then
         print_error('One of the base definitions of this army has no name! Please report to us so we can fix it asap')
