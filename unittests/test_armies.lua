@@ -57,6 +57,7 @@ function get_valid_base_names_triumph()
   valid['Camp']=true
 
   valid['Elephant Screen']=true
+  valid['Prepared Defenses']=true
   return valid
  end
 
@@ -292,10 +293,17 @@ function test_spawn_army()
   end
   local old_set_tablet = set_tablet
   local old_spawn_base = spawn_base
+  local old_spawn_object_data = spawnObjectData
   local old_print_error = print_error
   local old_print_important = print_important
   local old_print_info = print_info
   local old_update_tool_tips = update_tool_tips
+  spawnObjectData = function() 
+	  return {
+		  getGUID = function() return "ABCDEF" end,
+		  setName = function() end
+	  }
+  end
   set_tablet = function() end
   spawn_base = function() end
   update_tool_tips = function() end
@@ -318,6 +326,7 @@ function test_spawn_army()
   print_error = old_print_error
   spawn_base = old_spawn_base
   set_tablet = old_set_tablet
+  spawnObjectData = old_spawn_object_data
 end
 
 
