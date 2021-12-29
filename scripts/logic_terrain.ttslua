@@ -116,6 +116,25 @@ function fix_terrain_and_lock()
     local pos_table = gametable.getPosition()
     local terrain_type = from_toggle_number_to_table_type(g_game_settings["table type"])
 
+    if g_game_settings['3d_terrain'] == true then
+      print_debug("3D terrain " .. tostring(g_game_settings['3d_terrain']))
+    else
+      -- shrink the terrain height
+      print_debug("Shrinking 3d terrain height")
+      for _,terrain in ipairs(terrains) do
+        local terrain_size = terrain.getBoundsNormalized()['size']
+        if terrain_size.y > 0.004 then
+          local scale = terrain.getScale()
+          scale.y = scale.y * (0.004 / terrain_size.y)
+          terrain.setScale(scale)
+          print_debug("shrinking " .. terrain.getName() .. " " .. tostring(scale.y))
+          local pos = terrain.getPosition()
+          pos.y = 1.18
+          terrain.setPosition(pos)
+        end
+      end
+    end
+
     for _,terrain in ipairs(terrains) do
       terrain.setLock(true)
     end
@@ -127,33 +146,10 @@ function fix_terrain_and_lock()
             and pos_table['y'] < terrain_pos['y'] then
 
             print_debug('Found terrain with name ' .. terrain.getName())
-
-            local current_scale = terrain.getScale()
-            print_debug('The terrain had scale ' .. vec_to_str(current_scale))
-            if str_starts_with(terrain.getName(), 'terrain Steep Hill ')  or
-               str_starts_with(terrain.getName(), 'terrain Wooded Hill ')  or
-               str_starts_with(terrain.getName(), 'terrain Village ') or
-               str_starts_with(terrain.getName(), 'terrain Gentle Hill ') or
-               str_starts_with(terrain.getName(), 'terrain Marsh ') or
-               str_starts_with(terrain.getName(), 'terrain Oasis ') or
-               str_starts_with(terrain.getName(), 'terrain Ploughed Fields ') or
-               str_starts_with(terrain.getName(), 'terrain Rough ') or
-               str_starts_with(terrain.getName(), 'terrain Woods ') or
-              str_starts_with(terrain.getName(), 'terrain Dune ') then
-              -- Do not change the scale, the scale was adjusted in
-              -- Blender.
-            elseif str_has_substr(terrain.getName(), 'Road') then
-                current_scale.y = 0.8 + math.random()*0.1 - 0.05
-            else
-                current_scale.y = 0.1
+            print_debug("terrain_decorations " .. tostring(g_game_settings['terrain_decorations']))
+            if g_game_settings['terrain_decorations'] == true then
+                process_vegetation(terrain, terrain_type)
             end
-            terrain.setScale(current_scale)
-
-            Wait.frames(function ()
-                if g_use_3d_terrain then
-                    process_vegetation(terrain, terrain_type)
-                end
-            end, 1)
         end
     end
     Wait.frames(function()
@@ -290,7 +286,7 @@ function split_terrain_zones(zone_name,  zone_size, terrain_decoration_descripti
   local position
   local scale
   for i=0,nb_zones-1,1 do
-    name = zone_name .. '-' .. (i+1)
+    name = zone_name .. '-' ..  tostring(i+1)
     position = {x=mid + i * zone_width, y=0,z=0}
     scale = {x=zone_width, y=zone_size.y, z=zone_size.z}
     zones[i] = {
@@ -305,7 +301,7 @@ function split_terrain_zones(zone_name,  zone_size, terrain_decoration_descripti
   for _, decoration in pairs(terrain_decoration_descriptions) do
     local bucket = math.floor((decoration.position.x - far_left) / g_max_terrain_terrain_feature_zone_size)
     if (bucket < 0) then
-      error("split_terrain_zones bucket invalid " .. bucket .. '/' .. nb_zones)
+      error("split_terrain_zones bucket invalid " .. tostring(bucket) .. '/' .. tostring(nb_zones))
       return
     end
     if (bucket >= nb_zones) then
@@ -421,6 +417,12 @@ function add_terrain_decorations(terrain_obj, density, objects, feature_name_pre
     for _,decoration in ipairs(zone.terrain_decoration_descriptions) do
       decoration.position =
         rotate_point_relative(decoration.position, terrain_pos, terrain_rotation_theta)
+      print_debug("3d_terrain " .. ' ' .. tostring(g_game_settings['3d_terrain']))
+      if g_game_settings['3d_terrain'] == false then
+        print_debug("Moving decoration down")
+        decoration.position.y = g_terrain_pos
+      end
+
       spawn_terrain_decoration(decoration)
     end
   end
@@ -850,6 +852,7 @@ function set_enclosure(terrain_obj, terrain_pos, terrain_rotation, terrain_size,
 end
 
 function process_vegetation(terrain_obj, type)
+    print_debug("IN process_vegetation")
     local terrain_pos = terrain_obj.getPosition()
     local terrain_rotation_theta = normalize_angle(math.rad(terrain_obj.getRotation()['y']))
     local terrain_size = terrain_obj.getBoundsNormalized()['size']
@@ -874,4 +877,5 @@ function process_vegetation(terrain_obj, type)
     elseif str_starts_with(terrain_obj.getName(), 'terrain Village') then
         set_bua(terrain_obj, terrain_pos, terrain_rotation_theta, terrain_size, type)
     end
+    print_debug("OUT process_vegetation")
 end

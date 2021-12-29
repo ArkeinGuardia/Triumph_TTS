@@ -1231,6 +1231,8 @@ function wizard_panel_exit_terrain_lock()
 end
 
 function wizard_panel_terrain_lock_update()
+  UI.setAttribute("wizard_panel_terrain_3d", "isOn", g_game_settings['3d_terrain'])
+  UI.setAttribute("wizard_panel_terrain_decorations", "isOn", g_game_settings['terrain_decorations'])
   local table_locked = g_game_settings['table locked']
   if (not table_locked) then
     table_locked = false
@@ -1246,6 +1248,19 @@ function wizard_panel_terrain_lock_update()
   end
 end
 
+function wizard_panel_terrain_3d_changed(player, value, id)
+  value = tostring(value)
+  g_game_settings['3d_terrain'] = ((value == "true") or (value=="True"))
+  print_debug("3d_terrain " .. tostring(g_game_settings['3d_terrain']))
+  wizard_panel_terrain_lock_update()
+end
+
+function wizard_panel_terrain_decorations_changed(player, value, id)
+  value = tostring(value)
+  g_game_settings['terrain_decorations'] = ((value == "true") or (value=="True"))
+  print_debug("terrain_decorations " .. tostring(g_game_settings['terrain_decorations']))
+  wizard_panel_terrain_lock_update()
+end
 
 function on_wizard_panel_terrain_lock_table()
   fix_terrain_and_lock()
@@ -1254,6 +1269,7 @@ end
 
 function wizard_show_panel_terrain_lock()
   wizard_show_panel("wizard_panel_terrain_lock")
+  wizard_panel_terrain_lock_update()
 end
 
 function wizard_panel_terrain_lock_enter()

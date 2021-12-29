@@ -711,15 +711,6 @@ end
 
 
 
-g_use_3d_terrain = true
-function on_toggle_3dterrain(player, value, id)
-    if value == "True" then
-        g_use_3d_terrain = true
-    else
-        g_use_3d_terrain = false
-    end
-end
-
 function on_toggle_table_type(player, value, id)
     g_game_settings["table type"] = tonumber(value)
 end
