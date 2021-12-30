@@ -931,19 +931,23 @@ end
 
 function update_current_ui()
   if not(g_game_settings['wizard_page'] == "none") then
+    UI.setAttribute('panel_dba_orders_bg', 'active', false)
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', false)
     UI.setAttribute('panel_wheel', 'active', false)
   elseif g_current_wheel_group ~= nil  then
+    UI.setAttribute('panel_dba_orders_bg', 'active', true)
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', false)
     UI.setAttribute('panel_wheel', 'active', true)
   elseif g_picked_base_objects ~= nil and  not is_table_empty(g_picked_base_objects) then
+    UI.setAttribute('panel_dba_orders_bg', 'active', true)
     UI.setAttribute('panel_dba_orders', 'active', false)
     UI.setAttribute('panel_current_movement', 'active', true)
     UI.setAttribute('panel_wheel', 'active', false)
     update_movement_panel()
   else
+    UI.setAttribute('panel_dba_orders_bg', 'active', true)
     UI.setAttribute('panel_dba_orders', 'active', true)
     UI.setAttribute('panel_current_movement', 'active', false)
     UI.setAttribute('panel_wheel', 'active', false)
