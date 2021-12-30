@@ -301,10 +301,11 @@ function split_terrain_zones(zone_name,  zone_size, terrain_decoration_descripti
   for _, decoration in pairs(terrain_decoration_descriptions) do
     local bucket = math.floor((decoration.position.x - far_left) / g_max_terrain_terrain_feature_zone_size)
     if (bucket < 0) then
-      error("split_terrain_zones bucket invalid " .. tostring(bucket) .. '/' .. tostring(nb_zones))
-      return
+      print_warning("split_terrain_zones bucket invalid " .. tostring(bucket) .. '/' .. tostring(nb_zones))
+      bucket = 0
     end
     if (bucket >= nb_zones) then
+      print_warning("split_terrain_zones bucket invalid " .. tostring(bucket) .. '/' .. tostring(nb_zones))
       bucket = nb_zones - 1
     end
     table.insert( zones[bucket].terrain_decoration_descriptions, decoration)
@@ -321,6 +322,10 @@ end
 -- return: List of the descriptions of the decorations,  The decorations
 --   position will be relative to 0,0,0
 function select_terrain_decorations(terrain_obj, density, objects, feature_name_prefix)
+  if density == nil then
+    print_warning(terrain_obj.getName() .. " density is nil")
+    density = 0.1
+  end
   local terrain_name = terrain_obj.getName()
 
   -- Get the locations where a tree can fit on the terrain area.
@@ -368,7 +373,7 @@ function select_terrain_decorations(terrain_obj, density, objects, feature_name_
   return decorations
 end
 
-function spawn_terrain_zones(zones, terrain_pos)
+function spawn_terrain_zones(zones, terrain_pos, terrain_rotation)
   for _,zone in pairs(zones) do
     zone.position.x = zone.position.x + terrain_pos.x
     zone.position.y = 2
@@ -395,7 +400,7 @@ end
 function add_terrain_decorations(terrain_obj, density, objects, feature_name_prefix)
   local ran, retval = pcall( select_terrain_decorations, terrain_obj, density, objects, feature_name_prefix)
   if not ran then
-    error("add_terrain_decorations select_terrain_decorations " .. retval)
+    error("add_terrain_decorations select_terrain_decorations " .. retval .. " " .. terrain_obj.getName())
     return
   end
   local decorations = retval
@@ -428,7 +433,7 @@ function add_terrain_decorations(terrain_obj, density, objects, feature_name_pre
   end
 
   -- Spawn the zones
-  local ran, retval = pcall( spawn_terrain_zones, zones, terrain_pos)
+  local ran, retval = pcall( spawn_terrain_zones, zones, terrain_pos, terrain_rotation)
   if not ran then
     error("add_terrain_decorations spawn_terrain_zones " .. retval)
     return
@@ -504,11 +509,13 @@ function add_rocks(terrain_obj, terrain_pos, terrain_rotation, density, objects)
 end
 
 function set_rough(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
-    local options = g_terrain[table_type]['rough']
-    local objects = options['objects']
-    local nobjs = math.floor((terrain_size['x'] + terrain_size['z'])*2)
-    add_rocks(terrain_obj, terrain_pos, terrain_rotation, nobjs, objects)
-    change_texture_terrain(terrain_obj, random_element(options['texture']))
+  print_debug("IN set_rough " .. terrain_obj.getName())
+  local options = g_terrain[table_type]['rough']
+  local density = options['multiplier']
+  local objects = options['objects']
+  add_trees(terrain_obj,  density, objects)
+  change_texture_terrain(terrain_obj, random_element(options['texture']))
+  print_debug("OUT set_rough " .. terrain_obj.getName())
 end
 
 function set_oasis(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
