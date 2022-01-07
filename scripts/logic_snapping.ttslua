@@ -212,7 +212,7 @@ function snap_corners(moving_base_cache, snap_rule)
   local expanded_stable_size = get_size(snap_rule.stable_base.getName())
   expanded_stable_size.x = expanded_stable_size.x + g_snap_seperation
   expanded_stable_size.z = expanded_stable_size.z + g_snap_seperation
-  local stable_rotation_theta = stable_heading / (180 / math.pi)
+  local stable_rotation_theta = -math.rad(stable_heading)
   local expanded_stable_corners = compute_corners_coords(expanded_stable_size, stable_rotation_theta, stable_position)
 
   local stable_corner_name = snap_rule.stable_corner
