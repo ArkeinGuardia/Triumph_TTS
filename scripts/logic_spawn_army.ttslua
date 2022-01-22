@@ -125,6 +125,8 @@ function onObjectSpawn(new_obj)
 
         if found_base ~= nil then
             on_clone(found_base, new_obj)
+        else
+          add_context_menu_base(new_obj)
         end
     end
 end
