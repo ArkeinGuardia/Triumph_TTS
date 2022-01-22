@@ -259,40 +259,43 @@ end
 -- Return relative locations for terrain zones that will keep track of
 -- terrain decorations.
 -- zone_name: base name of the zones being created.
--- zone_size Size of all the zones
+-- terrain_obj terrain we are creating the zones for.
 -- terrain_decoration_descriptions: Descriptions of the decorations, rocks or terees, ...
 -- that are to be controlled in a zone.
 -- return: Zones with the decorations they should control.  The zones will have
 -- position relative to (0,0,0) and will not be rotated.
-function split_terrain_zones(zone_name,  zone_size, terrain_decoration_descriptions)
+function split_terrain_zones(zone_name,  terrain_obj, terrain_decoration_descriptions)
   if zone_name == nil then
     error("split_terrain_zones zone_name is nil")
     return
   end
-  if zone_size == nil then
-    error("split_terrain_zones zone_size is nil")
+  if terrain_obj == nil then
+    error("split_terrain_zones terrain_obj is nil")
     return
   end
   if terrain_decoration_descriptions == nil then
     error("split_terrain_zones terrain_decoration_descriptions is nil")
     return
   end
+  local zone_size = terrain_obj.getBoundsNormalized()['size']
   local far_left = -(zone_size.x)/2
   local nb_zones = math.ceil(zone_size.x / g_max_terrain_terrain_feature_zone_size)
   local zone_width = zone_size.x / nb_zones
-  local mid = far_left + (zone_width/2)
   local zones = {}
-  local name
-  local position
-  local scale
+  local half_zones = (nb_zones+1)/2.0
   for i=0,nb_zones-1,1 do
-    name = zone_name .. '-' ..  tostring(i+1)
-    position = {x=mid + i * zone_width, y=0,z=0}
-    scale = {x=zone_width, y=zone_size.y, z=zone_size.z}
+    local name = zone_name .. '-' ..  tostring(i+1)
+    local zone_nb = ((i+1) - half_zones)
+    local magnitude =  zone_nb * zone_width
+    local current_rotation_y = from_degrees_to_rad(terrain_obj.getRotation())['y'] + (math.pi / 2.0)
+    local displacement_vector = rad_to_vector(current_rotation_y)
+    local position = vec_add(terrain_obj.getPosition(), vec_mul_escalar(displacement_vector, magnitude))
+
+    local scale = {x=zone_width, y=zone_size.y, z=zone_size.z}
     zones[i] = {
       name = name,
       position = position,
-      rotation = {x=0, y=0, z=0},
+      rotation = terrain_obj.getRotation(),
       scale = scale,
       type = 'ScriptingTrigger',
       terrain_decoration_descriptions={}
@@ -373,12 +376,9 @@ function select_terrain_decorations(terrain_obj, density, objects, feature_name_
   return decorations
 end
 
-function spawn_terrain_zones(zones, terrain_pos, terrain_rotation)
+function spawn_terrain_zones(zones)
   for _,zone in pairs(zones) do
-    zone.position.x = zone.position.x + terrain_pos.x
     zone.position.y = 2
-    zone.position.z = zone.position.z + terrain_pos.z
-    zone.rotation = terrain_rotation
     zone.scale.y = 4
     local terrain_zone = spawnObject(zone)
     terrain_zone.setName(zone.name)
@@ -407,7 +407,7 @@ function add_terrain_decorations(terrain_obj, density, objects, feature_name_pre
 
   local terrain_size = terrain_obj.getBoundsNormalized()['size']
   local zone_name = "zone " .. terrain_obj.getName()
-  local ran, retval = pcall( split_terrain_zones, zone_name,  terrain_size, decorations)
+  local ran, retval = pcall( split_terrain_zones, zone_name,  terrain_obj, decorations)
   if not ran then
     error("add_terrain_decorations split_terrain_zones " .. retval)
     return
@@ -433,7 +433,7 @@ function add_terrain_decorations(terrain_obj, density, objects, feature_name_pre
   end
 
   -- Spawn the zones
-  local ran, retval = pcall( spawn_terrain_zones, zones, terrain_pos, terrain_rotation)
+  local ran, retval = pcall( spawn_terrain_zones, zones)
   if not ran then
     error("add_terrain_decorations spawn_terrain_zones " .. retval)
     return
