@@ -173,8 +173,9 @@ def discover_assets_remote_url() :
 
     url = subprocess.check_output(["git", "remote", "get-url", remote]).decode("ascii").strip()
     url = url[:-4]
-    github_url = "https://github.com/"
-    if not url.startswith(github_url) :
+    github_url = "^https://([^@]*@)?github.com/.*$"
+    github_re = re.compile(github_url)
+    if not guthub_re.match(url) :
         raise Exception("Remote must be github")
     assets_remote_url = "https://raw.githubusercontent.com/" + url[ len(github_url):] + "/" + id + "/"
     print("Using github for assets: ", windows_url_fixup(assets_remote_url))
