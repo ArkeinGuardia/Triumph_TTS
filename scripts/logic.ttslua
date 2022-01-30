@@ -1171,11 +1171,12 @@ function max_distance_between_bases_front_corners(base1_corners, base2_corners)
     })
 end
 
--- All the objects being picjed up.  Key us the object, value is the
+-- All the objects being picked up.  Key us the object, value is the
 -- transform for where the object was picked up.
 g_picked_base_objects = {}
 -- last object picked up
-g_picked_base_obj = nil
+g_picked_base = nil
+
 -- location of the last object picked up when it was initially picked up
 g_picked_base_initial_transform = nil
 
@@ -1198,13 +1199,26 @@ function onObjectPickUp(player_color,  picked_up_object)
         return
     end
 
-    if g_picked_base_obj ~= nil then
+    if g_movement_reporting_enabled == true then
+      if g_picked_base ~= nil then
         print_warning("There's already a player picking up an object. Please, wait until he finishes moving.")
         return
+      end
     end
 
-    g_picked_base_obj = picked_up_object
     g_picked_base_initial_transform = calculate_transform(picked_up_object)
+    g_picked_base = {
+      obj = picked_up_object,
+      initial_position = picked_up_object.getPosition(),
+      initial_rotation = picked_up_object.getRotation(),
+      initial_transform = g_picked_base_initial_transform
+    }
+
+    -- Bump up the object a bit in height so it does not get stuck in
+    -- terrain.
+    local pos = picked_up_object.getPosition()
+    pos.y = pos.y + 0.5
+    picked_up_object.setPosition(pos)
 
     draw_all_gizmos()
 end
@@ -1332,7 +1346,7 @@ function onObjectDrop(player_color,  picked_up_object)
         return
     end
 
-    if g_picked_base_obj == nil or obj_name ~= g_picked_base_obj.getName() then
+    if g_picked_base == nil or obj_name ~= g_picked_base.obj.getName() then
         -- Ignore, this is not the one we were counting distances
         return
     end
@@ -1353,13 +1367,9 @@ function onObjectDrop(player_color,  picked_up_object)
         local mu = inches_to_mu_display_string(distance)
         print_info(string.format('Movement for %q is %s', obj_name, mu))
       end
-    else
-      if g_movement_reporting_enabled == true then
-        print_info(string.format('Movement for %q has been reset', obj_name))
-      end
     end
 
-    g_picked_base_obj = nil
+    g_picked_base = nil
     g_picked_base_initial_transform = nil
     Global.setVectorLines({})
 
@@ -1517,7 +1527,7 @@ function main_loop()
     check_selection_change()
     check_change_zoc()
 
-    if g_draw_all_gizmos or g_picked_base_obj then
+    if g_draw_all_gizmos or (g_picked_base ~= nil) then
         draw_all_gizmos_execute()
         g_draw_all_gizmos = false
     end
@@ -1530,7 +1540,7 @@ end
 -- The tile is also given as an aproximation given the current size.
 function reset_state()
     g_selected_objects = {}
-    g_picked_base_obj = nil
+    g_picked_base = nil
     g_picked_base_objects = {}
     g_picked_base_initial_transform = nil
     g_last_zoc_value = nil
