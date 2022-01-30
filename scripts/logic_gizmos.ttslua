@@ -900,13 +900,14 @@ function get_bases_for_gizmos()
     local bases = get_bases_with_guid(all_objs)
 
     local picked_base = nil
-    if g_picked_base_obj then
-        if bases[g_picked_base_obj.getGUID()] then
-            picked_base = g_picked_base_obj
-            bases[g_picked_base_obj.getGUID()] = nil
+    if g_picked_base ~= nil then
+        local picked_base_obj = g_picked_base.obj
+        if bases[picked_base_obj.getGUID()] then
+            picked_base = picked_base_obj
+            bases[picked_base_obj.getGUID()] = nil
         end
-
     end
+
     local bases_selected = {}
     local player_colors = getSeatedPlayers()
     for _, player_color in ipairs(player_colors) do
