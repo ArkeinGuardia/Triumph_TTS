@@ -350,10 +350,10 @@ function wizard_panel_select_troops_enter()
   -- make the bases invisible to the other player
   g_movement_reporting_enabled = false
   g_gizmo_drawing_disabled = true
-  for _, base in pairs(get_all_bases()) do
+  for _, base in pairs(getAllObjects()) do
     if is_base_blue_player(base) then
       base.setInvisibleTo({"Red"})
-    else
+    elseif is_base_red_player(base) then
       base.setInvisibleTo({"Blue"})
     end
   end
@@ -363,8 +363,8 @@ end
 
 function wizard_panel_select_troops_exit()
   -- make the bases visible to everyone
-  for _, base in pairs(get_all_bases()) do
-    base.setInvisibleTo({})
+  for _, obj in pairs(getAllObjects()) do
+    obj.setInvisibleTo({})
   end
   g_movement_reporting_enabled = true
   g_gizmo_drawing_disabled = false

@@ -976,7 +976,8 @@ end
 -- Spawn a token that can be used to buy a battle card
 -- name: name of the token.
 -- pos: location token will be spawned
-function spawn_battle_card_token(name, pos)
+-- player: "RED" or "BLUE"
+function spawn_battle_card_token(name, pos, player)
   local object = spawnObjectData({
     data = {
         Name = "Custom_Tile",
@@ -1010,27 +1011,35 @@ function spawn_battle_card_token(name, pos)
      },
     }    })
     set_decoration_for_obj(object, "token", true)
+    set_decoration_for_obj(object, "player_color", player)
+
     return object
 end
 
 
 -- Spawn a token that can be used to buy the Ambush battle card.
-function spawn_ambush_token(pos)
-  local object = spawn_battle_card_token("token_ambush", pos)
+-- pos: location of the token
+-- player: RED or BLUE
+function spawn_ambush_token(pos, player)
+  local object = spawn_battle_card_token("token_ambush", pos, player)
   object.setName("Ambush")
   set_decoration_for_obj(object, "token_ambush", true)
 end
 
 -- Spawn a token that can be used to buy the Charge Through battle card.
-function spawn_charge_through_token(pos)
-  local object = spawn_battle_card_token("token_charge_through", pos)
+-- pos: location of the token
+-- player: RED or BLUE
+function spawn_charge_through_token(pos, player)
+  local object = spawn_battle_card_token("token_charge_through", pos, player)
   object.setName("Charge Through")
   set_decoration_for_obj(object, "token_charge_through", true)
 end
 
 -- Spawn a token that can be used to buy the Hold The Line battle card.
-function spawn_hold_the_line_token(pos)
-  local object = spawn_battle_card_token("token_hold_the_line", pos)
+-- pos: location of the token
+-- player: RED or BLUE
+function spawn_hold_the_line_token(pos, player)
+  local object = spawn_battle_card_token("token_hold_the_line", pos, player)
   object.setName("Hold The Line")
   set_decoration_for_obj(object, "token_hold_the_line", true)
 end
@@ -1043,6 +1052,13 @@ end
 -- command_color: color within the players troops, e.g. "Orange"
 -- army_nb: Army number for the player, main army is 1, allies are 2 or 3
 function spawn_army(army, is_red_player, command_color, army_nb)
+    local player
+    if is_red_player then
+      player = "RED"
+    else
+      player = "BLUE"
+    end
+
     g_movement_reporting_enabled = false
 
     distance_between_armies = (g_max_bases_row+1) * g_base_width_in_inches
@@ -1131,7 +1147,7 @@ function spawn_army(army, is_red_player, command_color, army_nb)
                 x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
                 y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
                 z = row_z_pos}
-            spawn_charge_through_token(location)
+            spawn_charge_through_token(location, player)
             column = column + 1
           end
           army_charge_through_limit_fulfilled = true
@@ -1142,7 +1158,7 @@ function spawn_army(army, is_red_player, command_color, army_nb)
                 x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
                 y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
                 z = row_z_pos}
-            spawn_hold_the_line_token(location)
+            spawn_hold_the_line_token(location, player)
             column = column + 1
           end
           army_hold_the_line_limit_fulfilled = true
@@ -1158,7 +1174,7 @@ function spawn_army(army, is_red_player, command_color, army_nb)
           x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
           y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
           z = row_z_pos}
-      spawn_ambush_token(location)
+      spawn_ambush_token(location, player)
       column = column + 1
     end
 
