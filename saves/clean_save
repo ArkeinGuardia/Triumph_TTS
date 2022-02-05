@@ -179,6 +179,8 @@ def discover_assets_remote_url() :
     if not github_match :
         raise Exception("Remote must be github")
     print(github_match)
+    print("group 0: ", github_match.group(0))
+    print("group 1: ", github_match.group(1))
     github_url_len = len(github_match.group(1))
     assets_remote_url = "https://raw.githubusercontent.com/" + url[ github_url_len:] +  id + "/"
     print("Using github for assets: ", windows_url_fixup(assets_remote_url))
