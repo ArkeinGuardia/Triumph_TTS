@@ -173,7 +173,7 @@ def discover_assets_remote_url() :
 
     url = subprocess.check_output(["git", "remote", "get-url", remote]).decode("ascii").strip()
     url = url[:-4]
-    github_url = "^https://(([^@]*@)?github.com/).*$"
+    github_url = "^(https://([^@]*@)?github.com/).*$"
     github_re = re.compile(github_url)
     github_match = github_re.match(url)
     if not github_match :
