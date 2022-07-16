@@ -24,6 +24,15 @@ infantry = [
 
 for color in ['red', 'blue']:
     for foot in infantry:
-        cmd = [ 'convert', f'mi_{color}.png', f"{foot}.png",  '-composite', f"{foot}_mi_{color}.png" ] 
+        cmd = [ 'convert', 
+                f'mi_{color}.png', 
+                f"{foot}.png",  '-composite', f"{foot}_mi_{color}.png" ] 
+        print(cmd)
+        subprocess.check_call(cmd)
+
+        cmd = [ 'convert', 
+                f"40x40_mi_general_{color}.png",  \
+                f"{foot}.png",  
+                '-composite', f"{foot}_mi_general_{color}.png" ] 
         print(cmd)
         subprocess.check_call(cmd)
