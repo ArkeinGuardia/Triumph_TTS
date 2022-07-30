@@ -507,7 +507,7 @@ def write_elephant_screen(file, base_definition, battle_card) :
   elephant_screen_counter = {
     'name' : 'Elephant Screen',
     'troop_type' : 'Elephant Screen Counter',
-    'base_definition':'tile_plain__El_Screen',
+    'base_definition':'tile_plain_El_Screen',
    }
   elephant_screen_counter['id'] = with_elephants['id'] + "_elephant_screen_counter"
   if ("min" in battle_card)  and (battle_card["min"] is not None):

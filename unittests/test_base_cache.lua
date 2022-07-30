@@ -13,7 +13,7 @@ end
 -- testing
 function build_base(base_name, tile)
   if tile == nil then
-    tile="tile_plain__Archers"
+    tile="tile_plain_Archers"
   end
 
   local base = {
