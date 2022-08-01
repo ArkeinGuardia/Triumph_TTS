@@ -795,6 +795,9 @@ function get_plain_model_tile_name(base_definition)
     return 'tile_plain_Fortified_Camp'
   end
   local name = base_definition.name
+  if base_definition.mobile_infantry then
+    return get_mobile_infanty_plain_tile(base_definition.troop_type, base_definition.general)
+  end
   local tile = troop_type_to_plain_model_tile_name[name]
   if tile == nil then
     print_error("No plain tile for " .. tostring(name))

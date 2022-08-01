@@ -1194,3 +1194,35 @@ troop_general_plain = {
     player_red_tex = 'http://cloud-3.steamusercontent.com/ugc/1781713182598131193/194225176C14E627CC2AB25CD200C3659116BED0/',
     player_blue_tex = 'http://cloud-3.steamusercontent.com/ugc/1781713182598131061/BF09D847D6782A7BD4106F1815D18F1EA1448825/'
 }
+
+-- Get the Mobile Infantry definition for a plain tile.
+-- long_name: name of the type, e.g. 'Heavy Foot'
+-- general: boolean, Need to get a type for a general.
+-- return: name of the variable
+function get_mobile_infanty_plain_tile(long_name, general)
+  tile_name = 'tile_plain_' .. long_name:gsub(' ', '_')
+  if general then
+    tile_name = tile_name .. '_Gen'
+  end
+  mi_tile_name = tile_name .. '_MI'
+  if _G[mi_tile_name] then
+    return mi_tile_name
+  end
+  mi_tile = shallow_copy(_G[tile_name])
+  mi_tile.depth = 40
+  mi_tile.description = long_name .. ' Mobile Infantry'
+  if mi_tile.author then
+    mi_tile.author = 'Modified My Marc Pawlowsky based on ' .. mi_tile.author
+  else
+    mi_tile.author = ""
+  end
+  mi_tile.mesh = {  g_assets['dir'] .. 'troops/tile_40_40.obj'}
+  file_name = string.lower(long_name):gsub(' ', '') .. '_mi'
+  if general then
+    file_name = file_name .. '_general'
+  end
+  mi_tile.player_red_tex = g_assets['dir'] .. 'troops/icons/' .. file_name .. '_red.png'
+  mi_tile.player_blue_tex = g_assets['dir'] .. 'troops/icons/' .. file_name .. '_blue.png'
+  _G[mi_tile_name] = mi_tile
+  return mi_tile_name
+end
