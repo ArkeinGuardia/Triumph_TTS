@@ -240,8 +240,13 @@ def file_to_url(file):
 
     loc = file_abs[len(root)+1:]
     (loc_dir, loc_file) = os.path.split(loc)
-    url = assets_remote_url + loc_dir + "/" + urllib.parse.quote(loc_file)
+    url = assets_remote_url + loc_dir
+    if not url.endswith("/") :
+        url = url  + "/"
+    url = url + urllib.parse.quote(loc_file)
     url = windows_url_fixup(url)
+    if file.endswith("/") and (not url.endswith("/")):
+        url = url + "/"
     return url
 
 terrain_dir = os.path.join("..", "assets", "terrain")
