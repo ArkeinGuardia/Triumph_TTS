@@ -227,15 +227,16 @@ def file_to_url(file):
     root = os.path.realpath("..")
     file_abs = os.path.realpath(file)
 
-    # Use a file checksum to check if a URL has already
-    # been generated for another file with identical
-    # content.  If so then use the previous file so
-    # TTS will only download the content once.
-    checksum = getMd5(file_abs)
-    if checksum in file_checksums :
-        file_abs = file_checksums[checksum]
-    else:
-        file_checksums[checksum] = file_abs
+    if not os.path.isdir(file_abs):
+        # Use a file checksum to check if a URL has already
+        # been generated for another file with identical
+        # content.  If so then use the previous file so
+        # TTS will only download the content once.
+        checksum = getMd5(file_abs)
+        if checksum in file_checksums :
+            file_abs = file_checksums[checksum]
+        else:
+            file_checksums[checksum] = file_abs
 
     loc = file_abs[len(root)+1:]
     (loc_dir, loc_file) = os.path.split(loc)
