@@ -10,48 +10,44 @@ g_base_definitions={}
 army={}
 allies={}
 
--- Tricky stuff variable definition is in assets/assets.ttslua
-g_assets=
-#include assets/assets
-
-
-#include assets/terrain/terrain_data
-#include assets/terrain/terrain_gentle_hill/terrain_gentle_hill_data
-#include assets/terrain/terrain_steep_hill/terrain_steep_hill_data
-#include assets/terrain/terrain_wooded_hill/terrain_wooded_hill_data
-#include assets/terrain/terrain_rough/terrain_rough_data
-#include assets/terrain/terrain_woods/terrain_woods_data
-#include scripts/data/data_settings
-#include scripts/data/data_tables
-#include scripts/data/data_terrain
-#include scripts/data/data_prepared_defenses
-#include scripts/data/data_troops_plain_tiles
-#include scripts/data/data_troops
-#include scripts/data/data_troops_greek_successors
-#include scripts/data/data_cheat_sheet
-#include scripts/base_cache
-#include scripts/base_definition
-#include scripts/log
-#include scripts/logic_decorations
-#include scripts/utilities_lua
-#include scripts/utilities
-#include scripts/logic_base_obj
-#include scripts/logic_terrain
-#include scripts/logic_gizmos
-#include scripts/logic_spawn_army
-#include scripts/logic_dead
-#include scripts/logic_dice
-#include scripts/logic_history_stack
-#include scripts/logic_history_object_move
-#include scripts/logic_history_object_destroy
-#include scripts/logic_tool_tips
-#include scripts/logic_snapping
-#include scripts/logic_prepared_defenses
-#include scripts/logic
-#include scripts/uievents
-#include scripts/wizard
-#include fake_meshwesh/army_data/all_armies
-#include scripts/data/data_models
+require("Triumph_TTS/assets/assets")
+require("Triumph_TTS/assets/terrain/terrain_data")
+require("Triumph_TTS/assets/terrain/terrain_gentle_hill/terrain_gentle_hill_data")
+require("Triumph_TTS/assets/terrain/terrain_steep_hill/terrain_steep_hill_data")
+require("Triumph_TTS/assets/terrain/terrain_wooded_hill/terrain_wooded_hill_data")
+require("Triumph_TTS/assets/terrain/terrain_rough/terrain_rough_data")
+require("Triumph_TTS/assets/terrain/terrain_woods/terrain_woods_data")
+require("Triumph_TTS/scripts/data/data_settings")
+require("Triumph_TTS/scripts/data/data_tables")
+require("Triumph_TTS/scripts/data/data_terrain")
+require("Triumph_TTS/scripts/data/data_prepared_defenses")
+require("Triumph_TTS/scripts/data/data_troops_plain_tiles")
+require("Triumph_TTS/scripts/data/data_troops")
+require("Triumph_TTS/scripts/data/data_troops_greek_successors")
+require("Triumph_TTS/scripts/data/data_cheat_sheet")
+require("Triumph_TTS/scripts/base_cache")
+require("Triumph_TTS/scripts/base_definition")
+require("Triumph_TTS/scripts/log")
+require("Triumph_TTS/scripts/logic_decorations")
+require("Triumph_TTS/scripts/utilities_lua")
+require("Triumph_TTS/scripts/utilities")
+require("Triumph_TTS/scripts/logic_base_obj")
+require("Triumph_TTS/scripts/logic_terrain")
+require("Triumph_TTS/scripts/logic_gizmos")
+require("Triumph_TTS/scripts/logic_spawn_army")
+require("Triumph_TTS/scripts/logic_dead")
+require("Triumph_TTS/scripts/logic_dice")
+require("Triumph_TTS/scripts/logic_history_stack")
+require("Triumph_TTS/scripts/logic_history_object_move")
+require("Triumph_TTS/scripts/logic_history_object_destroy")
+require("Triumph_TTS/scripts/logic_tool_tips")
+require("Triumph_TTS/scripts/logic_snapping")
+require("Triumph_TTS/scripts/logic_prepared_defenses")
+require("Triumph_TTS/scripts/logic")
+require("Triumph_TTS/scripts/uievents")
+require("Triumph_TTS/scripts/wizard")
+require("Triumph_TTS/fake_meshwesh/army_data/all_armies")
+require("Triumph_TTS/scripts/data/data_models")
 
 -- Set up back link from base definitions to the armies the definitions
 -- belong to.
