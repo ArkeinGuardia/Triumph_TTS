@@ -24,8 +24,6 @@ function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
   if nil == decorations then
     return
   end
-  local is_red_player = decorations['is_red_player']
-  local command_color = decorations['command_color']
 
   base_obj.addContextMenuItem('Dismount', function()
     local old_name = base_obj.getName()
@@ -33,6 +31,9 @@ function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
     local rotation = base_obj.getRotation()
     local y_rotation = rotation.y
     base_obj.destruct()
+    local player_color = get_decoration_for_guid(base_obj.getGUID(), 'player_color')
+    local command_color = get_decoration_for_guid(base_obj.getGUID(), 'command_color')
+    local is_red_player = (player_color == "RED")
 
     local new_obj = spawn_base(dismounted_definition, pos, y_rotation,
       is_red_player, command_color)
