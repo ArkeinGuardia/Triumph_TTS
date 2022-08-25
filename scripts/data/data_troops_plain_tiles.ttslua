@@ -1226,3 +1226,15 @@ function get_mobile_infanty_plain_tile(long_name, general)
   _G[mi_tile_name] = mi_tile
   return mi_tile_name
 end
+
+
+-- Get the Light Camelry definition for a plain tile.
+-- general: boolean, Need to get a type for a general.
+-- return: name of the variable
+function get_light_camelry_plain_tile(general)
+    if general then
+        return "tile_plain_Light_Camels_Bad_Horse_Gen"
+    else 
+        return "tile_plain_Light_Camels_Bad_Horse"
+    end
+end
