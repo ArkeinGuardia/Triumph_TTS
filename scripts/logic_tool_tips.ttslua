@@ -112,6 +112,9 @@ function get_tool_tip_for_base_definition(base_definition)
   if base_definition.fortified_camp then
     tip_name = tip_name .. "_fortified_camp"
   end
+  if base_definition.mobile_infantry then
+    tip_name = tip_name .. "_mobile_infantry"
+  end
 
   -- Use cached result.
   tip = g_tool_tips[tip_name]
@@ -143,6 +146,9 @@ g_tool_tips = {}
 
 
 function build_tool_tip_string_tactical_movement(base_definition)
+  if base_definition.mobile_infantry then
+    return "6/3MU\n"
+  end
   local tip_data = base_tool_tips[base_definition.troop_type]
   if tip_data == nil then
     return ""
@@ -159,7 +165,9 @@ function build_tool_tip_string_ranged_combat(base_definition)
     return ""
   end
   local shooting
-  if tip_data.shooting_combat_factor == nil then
+  if base_definition.mobile_infantry then
+    shooting = ""
+  elseif tip_data.shooting_combat_factor == nil then
     if base_definition.shower_shooting then
       shooting = "2"
     else
@@ -174,7 +182,11 @@ function build_tool_tip_string_ranged_combat(base_definition)
     -- TODO print_error("tip_data.target_combat_factor == nil " .. base_definition.troop_type)
     target = "X"
   else
-    target = tostring(tip_data.target_combat_factor)
+    if base_definition.mobile_infantry then
+      target = tostring(tip_data.target_combat_factor) ..  '-1'
+    else
+      target = tostring(tip_data.target_combat_factor)
+    end
    end
   return string.format("ranged combat: %s/%s\n", shooting, target)
 end
@@ -192,6 +204,8 @@ function build_tool_tip_string_close_combat(base_definition)
     foot = "X"
   elseif base_definition.fortified_camp then
       foot = tostring(tip_data.combat_factor_vs_foot + 2)
+  elseif base_definition.mobile_infantry then
+    foot = tostring(tip_data.combat_factor_vs_foot) .. '-1'
   else
     foot = tostring(tip_data.combat_factor_vs_foot)
   end
@@ -202,6 +216,8 @@ function build_tool_tip_string_close_combat(base_definition)
     print_error("tip_data.combat_factor_vs_mounted == nil " .. base_definition.troop_type)
   elseif base_definition.fortified_camp then
     mounted = tostring(tip_data.combat_factor_vs_mounted + 2)
+  elseif base_definition.mobile_infantry then
+    mounted = tostring(tip_data.combat_factor_vs_mounted) .. '-1'
   else
     mounted = tostring(tip_data.combat_factor_vs_mounted)
    end

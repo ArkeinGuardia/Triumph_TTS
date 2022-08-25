@@ -7,5 +7,5 @@ https://github.com/ArkeinGuardia/Triumph_TTS/blob/master/LICENSE.md
 
 All other trademarks, and copyrights are the property of their respective owners.
 
-Copyright 2021 Marc Pawlowsky, and others.
+Copyright 2022 Marc Pawlowsky, and others.
 

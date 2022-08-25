@@ -1,5 +1,5 @@
 -- In the global file of your game, simply add this line
--- #include main
+-- require("Triumph_TTS/main")
 -- Then, in Atom package settings, go to the TTS package and define the path
 -- to this folder. Since this main file already includes the others no further
 -- operation is required for scripts. The XML needs to be copied manually
@@ -67,7 +67,7 @@ function onSave()
   return saved_data
 end
 
-g_build_date = "20211015"
+g_build_date = "20220825"
 
 function onload(saved_data)
     print_info('\n---------------------------------\nTriumph! v 2.2 alpha build ' .. g_build_date )
