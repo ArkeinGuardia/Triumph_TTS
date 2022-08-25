@@ -340,6 +340,7 @@ def update_assets_ttslua() :
             v = data[k]
             data[k] = asset_url(v)
     with open("../assets/assets.ttslua", "w") as f :
+        f.write("g_assets =\n")
         f.write("{\n")
         for k in data.keys() :
             v = data[k]
