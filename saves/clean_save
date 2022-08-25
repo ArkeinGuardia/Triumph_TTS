@@ -133,7 +133,7 @@ def use_file_system_assets() :
             else:
                 if line.startswith("?") :
                     print("Untracked item: ", line)
-                    return True
+                    #return True
                 elif line.startswith("!") :
                     pass
                 else:
@@ -333,11 +333,12 @@ def update_assets_ttslua() :
     """Update URLs in assets.ttslua."""
 
     with open("../assets/assets.ttslua", "r") as f :
+        f.readline()
         text = f.read()
         data = lua.decode(text)
-    for k in data.keys() :
-        v = data[k]
-        data[k] = asset_url(v)
+        for k in data.keys() :
+            v = data[k]
+            data[k] = asset_url(v)
     with open("../assets/assets.ttslua", "w") as f :
         f.write("{\n")
         for k in data.keys() :
