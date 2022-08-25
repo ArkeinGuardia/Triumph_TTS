@@ -321,7 +321,7 @@ end
 -- terrain_obj: Terrain feature that is to be decorated
 -- density: Density of decorations to add per a square inch.
 -- objects: Desciption of the terrain features that can be created.
--- feature_name_prefix: Text to that will prepend the features crated, e.g. "tree" or "rock".
+-- feature_name_prefix: Text to that will prepend the features created, e.g. "tree" or "rock".
 -- return: List of the descriptions of the decorations,  The decorations
 --   position will be relative to 0,0,0
 function select_terrain_decorations(terrain_obj, density, objects, feature_name_prefix)
@@ -521,8 +521,8 @@ end
 function set_oasis(terrain_obj, terrain_pos, terrain_rotation, terrain_size, table_type)
     local options = g_terrain[table_type]['oasis']
     local objects = options['objects']
-    local density = 0.3
-    add_terrain_decorations( terrain_obj,  nobjs, objects,  "palm")
+    local density = 0.1
+    add_terrain_decorations( terrain_obj,  density, objects,  "palm")
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
@@ -530,7 +530,7 @@ function set_marsh(terrain_obj, terrain_pos, terrain_rotation, terrain_size, tab
     local options = g_terrain[table_type]['marsh']
     local objects = options['objects']
     local density = 0.3
-    add_terrain_decorations( terrain_obj, nobjs, objects,  "palm")
+    add_terrain_decorations( terrain_obj, density, objects,  "palm")
     change_texture_terrain(terrain_obj, random_element(options['texture']))
 end
 
