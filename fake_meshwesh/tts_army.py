@@ -1320,13 +1320,13 @@ with open("army_data/all_armies.ttslua", "w") as all_armies:
 
   for army_entry in summary :
     army_id = army_entry['id']
-    all_armies.write("#include %s_troop_options\n" % (army_id))
+    all_armies.write('require("Triumph_TTS/fake_meshwesh/army_data/%s_troop_options")\n' % (army_id))
   for army_entry in summary :
     army_id = army_entry['id']
-    all_armies.write( "#include %s_base_definitions\n" % (army_id))
+    all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s_base_definitions")\n' % (army_id))
   for army_entry in summary :
     army_id = army_entry['id']
-    all_armies.write( "#include %s\n" % (army_id))
+    all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s")\n' % (army_id))
   for army_entry in summary :
     army_id = army_entry['id']
-    all_armies.write( "#include %s_allies\n" % (army_id))
+    all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s_allies")\n' % (army_id))
