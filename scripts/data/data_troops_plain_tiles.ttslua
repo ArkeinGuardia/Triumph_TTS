@@ -175,10 +175,10 @@ tile_plain_Elite_Foot_Gen = {
     depth = 15,
     description = '40x15 Elite Foot General Tile',
     author = 'Plain tile, original work by Arkein (model) and Rod (texture), using troop icon from Lorenzo Moro.',
-    mesh = { 'http://cloud-3.steamusercontent.com/ugc/1727667649958150257/803DC934AC6C45BAA9F29F877BF156216C568A98/'
+    mesh = { g_assets['dir'] .. 'troops/tile_40_15.obj'
     },
-    player_red_tex = 'http://cloud-3.steamusercontent.com/ugc/1781713182598131193/194225176C14E627CC2AB25CD200C3659116BED0/',
-    player_blue_tex = 'http://cloud-3.steamusercontent.com/ugc/1781713182598131061/BF09D847D6782A7BD4106F1815D18F1EA1448825/'
+    player_red_tex = g_assets['dir'] .. 'troops/icons/elite_foot_general_red.png',
+    player_blue_tex = g_assets['dir'] .. 'troops/icons/elite_foot_general_blue.png',
 }
 
 tile_plain_Heavy_Foot = {
@@ -1234,7 +1234,7 @@ end
 function get_light_camelry_plain_tile(general)
     if general then
         return "tile_plain_Light_Camels_Bad_Horse_Gen"
-    else 
+    else
         return "tile_plain_Light_Camels_Bad_Horse"
     end
 end
