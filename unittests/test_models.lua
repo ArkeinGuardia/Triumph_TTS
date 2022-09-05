@@ -1,5 +1,7 @@
 lu = require('externals/luaunit/luaunit')
-require('flatten')
+require("Triumph_TTS/fake_meshwesh/army_data/all_armies")
+require("Triumph_TTS/scripts/data/data_models")
+require("Triumph_TTS/scripts/utilities_lua")
 
 function check_figure(figure)
   lu.assertEquals(type(figure.height_correction), 'number')

@@ -1294,6 +1294,22 @@ def write_troop_options(army_id) :
 summary = read_json("armyLists/summary")
 
 with open("army_data/all_armies.ttslua", "w") as all_armies:
+
+  all_armies.write("""  
+-- Each army book will add to this, but the object table needs to be created
+-- first
+armies = { }
+
+troop_options={}
+
+-- Data for the bases that make up the armies
+g_base_definitions={}
+
+army={}
+allies={}
+
+  """)
+
   for army_entry in summary :
     army_id = army_entry['id']
     write_troop_options(army_id)

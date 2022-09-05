@@ -1,4 +1,5 @@
 lu = require('externals/luaunit/luaunit')
+require("Triumph_TTS/assets/assets")
 require('scripts/data/data_settings')
 require('scripts/data/data_tables')
 require('scripts/data/data_terrain')

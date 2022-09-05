@@ -1,5 +1,6 @@
 lu = require('externals/luaunit/luaunit')
-require('flatten')
+require("Triumph_TTS/scripts/logic_gizmos")
+
 
 function test_has_archer_arc_returns_false_for_cavalry()
   local base_obj = {
@@ -57,7 +58,7 @@ function test_shower_shooting_has_archer_arc()
       return "1234"
     end,
   }
-  set_decoration_for_obj(base_obj, "base_definition_name", g_str_5fb1ba3de1af06001770f2ae_shower_shooting)
+  set_decoration_for_obj(base_obj, "base_definition_name", g_str_615351b203385c0016b88332_shower_shooting)
   local actual = has_archer_shooting_arc(base_obj)
   lu.assertTrue(actual)
 end

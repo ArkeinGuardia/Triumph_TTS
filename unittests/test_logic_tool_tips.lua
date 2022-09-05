@@ -1,5 +1,7 @@
 lu = require('externals/luaunit/luaunit')
-require('flatten')
+require("Triumph_TTS/scripts/logic_tool_tips")
+require("Triumph_TTS/scripts/utilities_lua")
+require("Triumph_TTS/fake_meshwesh/army_data/all_armies")
 
 -- Stub out print messges
 print_error=function(message) end
@@ -17,35 +19,35 @@ function test_build_tool_tip_does_not_include_movement_for_camp()
 end
 
 function test_build_tool_tip_includes_movement()
-    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c3]
+    local def = g_base_definitions[g_str_615351a503385c0016b8613c]
     local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "3 MU")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_non_shooters()
-    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c5]
+    local def = g_base_definitions[g_str_615351a503385c0016b8613e]
     local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "ranged combat: /")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_shooters()
-    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c3]
+    local def = g_base_definitions[g_str_615351a503385c0016b8613c]
     local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "ranged combat: 3/")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_target()
-    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c2]
+    local def = g_base_definitions[g_str_615351a503385c0016b8613b]
     local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "ranged combat: /3")
     lu.assertTrue(actual)
 end
 
 function test_build_tool_tip_close_combat()
-    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c2]
+    local def = g_base_definitions[g_str_615351a503385c0016b8613b]
     local tip = get_tool_tip_for_base_definition(def)
     local actual = str_has_substr(tip, "close combat: 2/3")
     lu.assertTrue(actual)
@@ -83,7 +85,7 @@ function test_general_gets_combat_factor()
     local base = {
         getName = function() return "mounted" end,
         getGUID = function() return "ABCDE" end,
-        base_definition_name = g_str_5fb1ba24e1af06001770c50f_general
+        base_definition_name = g_str_615351a103385c0016b85517_general
     }
     g_decorations[ base.getGUID() ] = {base_definition_name =  base.base_definition_name}
 
@@ -112,7 +114,7 @@ function test_build_tool_tip_battle_card_added()
     local base = {
         getName = function() return "mounted" end,
         getGUID = function() return "ABCDE" end,
-        base_definition_name = g_str_5fb1ba24e1af06001770c50f_mounted
+        base_definition_name = g_str_615351a103385c0016b85517_mounted
     }
     g_decorations[ base.getGUID() ] = {base_definition_name =  base.base_definition_name}
 
@@ -138,7 +140,7 @@ function test_get_tool_tip_returns_nil_if_tool_tips_not_enabled()
     g_tool_tips_enabled = false
 
     -- exercise
-    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c2]
+    local def = g_base_definitions[g_str_615351a503385c0016b8613b]
     local tip = get_tool_tip_for_base_definition(def)
 
     -- validate
@@ -154,7 +156,7 @@ function test_get_tool_tip_returns_tool_tip_if_tool_tips_enabled()
     g_tool_tips_enabled = true
 
     -- exercise
-    local def = g_base_definitions[g_str_5fb1ba2ae1af06001770d0c2]
+    local def = g_base_definitions[g_str_615351a503385c0016b8613b]
     local tip = get_tool_tip_for_base_definition(def)
 
     -- validate

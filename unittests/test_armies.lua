@@ -1,6 +1,8 @@
 lu = require('externals/luaunit/luaunit')
-require('flatten')
-
+require("Triumph_TTS/fake_meshwesh/army_data/all_armies")
+require("Triumph_TTS/scripts/logic")
+require("Triumph_TTS/scripts/logic_spawn_army")
+require("Triumph_TTS/scripts/log")
 
 local function starts_with(str, start)
    return str:sub(1, #start) == start
@@ -220,8 +222,8 @@ function test_get_base_depth_mobile()
   end
 
   -- Exercise
-  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba22e1af06001770c30b_general_mounted_mobile_infantry])
-  lu.assertEquals(actual, 40)
+   local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_615351a003385c0016b85313_general_mounted_mobile_infantry])
+   lu.assertEquals(actual, 40)
 
   -- Cleanup
   print_error = old_print_error
@@ -256,7 +258,7 @@ function test_get_base_depth_elite_foot()
   end
 
   -- Exercise
-  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba20e1af06001770c0c3])
+  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_6153519f03385c0016b850c9])
   lu.assertEquals(actual, 15)
 
   -- Cleanup
@@ -272,7 +274,7 @@ function test_get_base_depth_elite_foot_general()
   end
 
   -- Exercise
-  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_5fb1ba21e1af06001770c110_general])
+  local actual = get_base_depth_from_base_definition(g_base_definitions[g_str_6153519f03385c0016b85117_general])
   lu.assertEquals(actual, 15)
 
   -- Cleanup
