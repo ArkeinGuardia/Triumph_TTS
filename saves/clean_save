@@ -27,6 +27,7 @@ project_dir = None
 assets_remote_url=None
 
 file_checksums = {}
+included = set()
 
 def getMd5(file_path):
   m = hashlib.md5()
@@ -36,8 +37,10 @@ def getMd5(file_path):
   md5code = m.hexdigest()
   return md5code
 
+re_require = re.compile("^\s*require\s*\(['\"](.*)['\"]\)\s*")
 re_backslash = re.compile("\\\\")
 re_multi_slash = re.compile("/+")
+
 def windows_url_fixup(url) :
     """If the URL is for a file use Windows conventions if applicable."""
     windows_prefix = "file:///C:"
@@ -73,6 +76,7 @@ def read_xml_ui() :
         return header + contents
 
 def read_source_file(file) :
+    global project_dir
     contents = ""
     with open(file + ".ttslua", "r") as input :
         contents = contents + "----#include " + file + "\n"
@@ -85,11 +89,17 @@ def read_source_file(file) :
         while line :
             if line.startswith("#include ") :
                 (directive,nested_file) = line.split()
+                #--contents = contents + "\n----#include " + nested_file + "\n"
                 contents = contents + read_source_file(nested_file)
+            elif m:= re_require.match(line) :
+                #--contents = contents + line
+                file = os.path.join(project_dir, "..", m.group(1) )
+                if file not in included:
+                    included.add(file)
+                    contents = contents + read_source_file(file)
             else:
                 contents = contents + line
             line = input.readline()
-        contents = contents + "\n----#include " + file + "\n"
         os.chdir(old_dir)
     return contents
 
@@ -98,7 +108,7 @@ def read_source_files() :
     old_dir = os.getcwd()
     try :
         os.chdir("..")
-        project_dir = os.path.basename(os.getcwd())
+        project_dir = os.path.abspath(".")
         os.chdir("..")
         text=read_source_file(os.path.join(project_dir, "main"))
         return text.replace('\r\n', '\n')
