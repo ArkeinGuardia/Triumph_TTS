@@ -40,6 +40,48 @@ function vec_add_n(points)
   return result
 end
 
+-- Are the two vectors the same.
+function vec_equals_3d(vec1, vec2)
+  if vec1 == vec2 then
+    return false
+  end
+  if vec1 == nil or vec2 == nil then
+    return false
+  end
+
+  if vec1.x == nil then
+    if vec1[0] ~= vec2[0] then
+      print_info("0 differs " .. tostring(vec1[0]) .. ' ' .. tostring(vec2[0]))
+      return false
+    end
+    if vec1[1] ~= vec2[1] then
+      print_info("1 differs " .. tostring(vec1[1]) .. ' ' .. tostring(vec2[1]))
+      return false
+    end
+    if vec1[2] ~= vec2[2] then
+      print_info("2 differs " .. tostring(vec1[2]) .. ' ' .. tostring(vec2[2]))
+      return false
+    end
+    return true
+  else
+    if vec1.x ~= vec2.x then
+      print_info("x differs " .. tostring(vec1.x) .. ' ' .. tostring(vec2.x))
+      return false
+    end
+    if vec1.y ~= vec2.y then
+      print_info("y differs " .. tostring(vec1.y) .. ' ' .. tostring(vec2.y))
+      return false
+    end
+    if vec1.z ~= vec2.z then
+      print_info("z differs " .. tostring(vec1.z) .. ' ' .. tostring(vec2.z))
+      return false
+    end
+    return true
+  end
+
+end
+
+
 -- Given two tables with x,y,z numerical components, computes the vec1-vec2
 function vec_sub_3d(vec1, vec2)
     return { x = vec1['x'] - vec2['x'], y = vec1['y'] - vec2['y'], z = vec1['z'] - vec2['z'] }
@@ -111,7 +153,7 @@ function relative_angle_from_point(pointA, pointB, rotationA)
     return angle_adjusted_coords
 end
 
--- Normalize an angle between 0 and 360
+-- Normalize an angle between [0,360)
 function normalize_degrees(angle_degrees)
   while (angle_degrees < 0) do
     angle_degrees = angle_degrees + 360
@@ -161,6 +203,28 @@ function is_rad_angle_diff(angleA, angleB, delta)
   -- Check if the value is close to 2 PI + threshold
   diff_angle =  (2 * math.pi)- diff_angle
   if diff_angle < g_max_angle_pushback_rad then
+    return true
+  end
+
+  return false
+end
+
+-- Are two angles approximately the same.  Angles are measured in degrees.
+-- delta is the expected difference.
+function is_degree_angle_diff(angleA, angleB, delta)
+  threshold = 1
+  -- normalize to be between [0.360]
+  angleA = normalize_degrees(angleA - delta)
+  angleB = normalize_degrees(angleB)
+  local diff_angle = math.abs(angleA - angleB)
+  -- Check if the difference
+  if diff_angle < 1 then
+    return true
+  end
+
+  -- Check if the value is close to 360 + threshold
+  diff_angle =  360 - diff_angle
+  if diff_angle < threshold then
     return true
   end
 

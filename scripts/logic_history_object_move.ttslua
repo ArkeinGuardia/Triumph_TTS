@@ -16,6 +16,22 @@ function set_last_snapshot()
   end
 end
 
+
+-- is the position or rotation of the objects different?
+-- old: old position and rotation
+-- new: new position and rotation
+function _is_object_snapshot_different(old, new)
+  if not vec_equals_3d(old.position, new.position) then 
+    print_info("positions differ")
+    return true
+  end
+  if not is_degree_angle_diff(old.rotation['y'], new.rotation['y'], 0) then
+    return true
+  end
+  return false
+end
+
+
 -- Return the differences between the last known positions
 -- and the current positions.  nil if the difference could not
 -- be calculated.
@@ -31,10 +47,14 @@ function create_delta_snapshot()
 		local old_rot = old_obj.rotation
 		local new_pos = base.getPosition()
 		local new_rot = base.getRotation()
-		delta[guid] = {
-			old = { position=old_pos, rotation=old_rot},
-			new = { position=new_pos, rotation = new_rot}
-		}
+		old = { position=old_pos, rotation=old_rot}
+		new = { position=new_pos, rotation = new_rot}
+		if _is_object_snapshot_different(old, new) then
+		  delta[guid] = {
+		  	old = old,
+			new = new
+		  }
+		end
 	  end
 	end
 	return delta
@@ -53,19 +73,19 @@ function create_delta_snapshot_event()
 	end
 	set_last_snapshot()
 
-  local event = {deltas=deltas}
+    local event = {deltas=deltas}
 	local self = event
 
-	event['undo'] = function(self)
-	  for guid,delta in pairs(self.deltas) do
-			local base_obj = getObjectFromGUID(guid)
-			if base_obj == nil then
-				print_error("base missing " .. tostring(base_obj))
-			else
-				base_obj.setRotation(delta.old.rotation)
-				base_obj.setPosition(delta.old.position)
-			end
-		end
+    event['undo'] = function(self)
+        for guid,delta in pairs(self.deltas) do
+		    local base_obj = getObjectFromGUID(guid)
+		    if base_obj == nil then
+                print_error("base missing " .. tostring(base_obj))
+		    else
+			    base_obj.setRotation(delta.old.rotation)
+			    base_obj.setPosition(delta.old.position)
+		    end
+	    end
 		set_last_snapshot()
 	end
 
