@@ -1,196 +1,143 @@
-Stack = {}
+require("Triumph_TTS/scripts/stack")
+
+HistoryStack = {}
 
 
 -- This is NOT a true stack, but more like a list that behaves with a browsable
 -- head. It imitates history stacks: you can go down but doesnt remember elements
 -- until you go up. However, if you add something, everything up of the current
 -- is removed.
-function Stack:Create()
-
-  -- Fake node that is before the first recorded position
-  local tail = { after=nil, before=nil,
-    type="tail",
-    undo = function()
-      print_important("Before first event")
-    end,
-    redo = function()
-    end
-    }
-
-    -- Fake node that is after the last recorded position.
-    -- Current should never point to head.
-    local head = {
-      type="head",
-      after=nil,
-      before=nil,
-      redo = function()
-        print_important("After last event")
-      end,
-      undo = function()
-      end
-    }
-    tail.before = tail
-    tail.after = head
-    head.after = head
-    head.before = tail
+function HistoryStack:Create()
 
     local _stack = {}
 
-    -- number of events created
-    _stack._event_id = 0
 
     -- Maximum number of events to keep
     _stack._capacity = 60
 
-    -- dummy nodes indicating one past the last known events.
-    _stack._head = head
-    _stack._tail = tail
-
-
-    -- Board as we know it.
-    _stack._current = _stack._head.before
-
-    -- number of events
-    _stack._size = 0
+    -- Nodes that can be undone
+    _stack._history = Stack:Create()
+    -- Nodes that have been undone
+    _stack._undone = Stack:Create()
 
     function _stack:size()
-      return self._size
-    end
-
-    -- Is the current node at the last known event.
-    function _stack:is_at_top()
-      return (_stack._current == _stack._head.before)
+      return self._history:size()
     end
 
 
     -- Return the most recent event that is known in the history.
     -- nil if no events are known.
     function _stack:top()
-      if _stack:size() == 0 then
+      if self._history:size() == 0 then
         return nil
       end
-      return _stack._head.before
+      return self._history:top()
     end
 
     -- Enters the value into the stack at the top.
-    function _stack:push(event)
+    function _stack:push(event)      
       if nil == event then
-        print_error("pushing nil")
+        print_error(debug.traceback())
+        error("pushing nil")
         return
       end
-
-      if _stack._head == _stack._current then
-        _stack._current = _stack._head.before
+      if event.undo == nil then
+        print_error(debug.traceback())
+        error("Event is not undoable")
+        return
+      end
+      if event.redo == nil then
+        print_error(debug.traceback())
+        error("Event is not redoable")
+        return
+      end
+      if event.rename_guid == nil then
+        print_error(debug.traceback())
+        error("Event does not support rename_guid")
+        return
+      end
+      self._undone:clear()
+      if self._history:size() == 0 then
+        event.id = 1
       else
-        self:_pop_to_current()
+        event.id = self._history:top().id + 1
       end
 
-      while _stack._size >= _stack._capacity do
-        _stack:_delete_node(_stack._tail.after)
+      self._history:push(event)
+
+      if self._history:size() > _stack._capacity then
+        self._history:pop_front()
       end
 
-      _stack._event_id = _stack._event_id + 1
-
-      -- Make new node to be the top of stack.
-      local new_node = {
-        after = _stack._head,
-        before = _stack._head.before,
-        id =   _stack._event_id
-      }
-      if event.undo ~= nil then
-        new_node.undo = function()
-          event:undo()
-        end
-      end
-      if event.redo ~= nil then
-        new_node.redo = function()
-          event:redo()
-        end
-      end
-      if event.rename_guid ~= nil then
-        new_node.rename_guid = function(self, old_guid, new_guid)
-        event:rename_guid(old_guid, new_guid)
-      end
-    end
-      _stack._head.before.after = new_node
-      _stack._head.before = new_node
-      _stack._current = new_node
-
-      _stack._size = _stack._size + 1
+      print_info("Move #" .. tostring(event.id))
+      table_print(event)
     end
 
 
     -- Gets the current element and advances current lower into the stack, as if
     -- the element is removed (but it isn't). Cannot go lower than the bottom.
     function _stack:go_back()
-        if self._current.undo == nil then
-          print_error("History event not understood")
-          return
-        end
-        self._current:undo()
-        self._current = self._current.before
+      if self._history:size() == 0 then 
+        print_important("History stack is empty")
+        return
+      end
+      event = self._history:pop()
+      self._undone:push(event)
+      if event.undo == nil then
+        print_error("Event is not undoable")
+        return
+      end
+      event:undo()
+      print_info("Undone move #" .. tostring(event.id))
+      if self._history:size() != 0 then
+        print_info("Back at move #" .. tostring(self._history:top().id))
+      end
     end
 
     -- Goes up in the stack, setting the current to the top of the current one,
     -- and returns it. The stack itself is not modified. Cannot go upper than
     -- the top.
     function _stack:go_forward()
-        self._current = self._current.after
-        self._current:redo()
-    end
-
-
-    function _stack:_delete_node(node)
-
-      node.before.after = node.after
-      node.after.before = node.before
-      -- nil the pointers so the node can be garbage collected
-      node.before = nil
-      node.after = nil
-
-      self._size = self._size - 1
-    end
-
-    -- Drops everything on top of the current.
-    function _stack:_pop_to_current()
-      local current = self._current
-      while self._current ~= self._head.before do
-        self:_delete_node(self._head.before)
+      if self._undone:size() == 0 then
+        print_error("undo stack is empty")
+        return
       end
+      event = self._undone:pop()
+      if event.redo == nil then 
+        print_error("event is not redoable")
+        return
+      end
+      event:redo()
+      self._history:push(event)
+      print_info("Restored move #" .. tostring(event.id))
     end
+
 
     -- Is there an event to undo?
     function _stack:is_undoable()
-      if self._size == 0 then
-        return false
-      end
-      return (self._current ~= self._tail)
+      return self._history:size() ~= 0
     end
 
     -- Is there an event to redo?
     function _stack:is_redoable()
-      if self._size == 0 then
-        return false
-      end
-      return (self._current ~= self._head.before)
+      return self._undone:size() ~= 0
     end
+
 
     -- Send to all the history events that an object's GUID has changed.
     function _stack:rename_guid(old_guid, new_guid)
-      local current = self._head
-      repeat
-        if nil ~= current['rename_guid'] then
-          current:rename_guid(old_guid, new_guid)
-        end
-        current = current.before
-      until (current == self._tail)
+      rename = function(event)
+        event:rename_guid(old_guid, new_guid)
+      end
+      self._undone:apply(rename)
+      self._history:apply(rename)
     end
 
     return _stack
 end
 
 -- Number of history events created
-g_history_stack = Stack:Create()
+g_history_stack = HistoryStack:Create()
 
 
 function push_to_history_stack(event)
