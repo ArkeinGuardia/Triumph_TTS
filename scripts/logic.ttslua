@@ -124,12 +124,12 @@ function turn_around_base(obj)
     rotation['y'] = rotation['y'] + 180
     obj.setRotation(rotation)
 
-    history_record_delta_snapshot()
     local new_transform = calculate_transform(obj)
 
     local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
     local mu = inches_to_mu_display_string(distance)
     print_info(obj.getName() .. ' has turned around 180º, which costs ' .. mu)
+    history_record_delta_snapshot()
 end
 
 -- Moves one or more DBA bases g_mu_movement forward
@@ -686,8 +686,6 @@ end
 
 -- Pushes back a whole column, that may not be exactly aligned
 function push_back_column(objs)
-    history_record_delta_snapshot()
-
     -- We use many comparisons for the column so we precalculate all the
     -- transforms
     local transforms = {}
@@ -737,6 +735,8 @@ function push_back_column(objs)
 
         magnitude = magnitude + base_depth / 2
     end
+
+    history_record_delta_snapshot()
 end
 
 -- Calculates the future position of the given group of objs, assuming a wheel
@@ -838,7 +838,6 @@ function apply_transform_obj(base_obj, old_transform, new_transform)
 end
 
 function perform_wheels()
-    history_record_delta_snapshot()
     local new_transforms = g_current_wheel_newtransforms
     local old_transforms = g_current_wheel_transforms
     local front_elements = g_current_wheel_group['front_elements']
@@ -856,6 +855,7 @@ function perform_wheels()
                 new_transforms[current_element])
         end
     end
+    history_record_delta_snapshot()
 end
 
 function calculate_future_position_wheel(obj, transform, pivot_point, angle, is_left, depth)
