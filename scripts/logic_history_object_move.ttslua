@@ -22,7 +22,6 @@ end
 -- new: new position and rotation
 function _is_object_snapshot_different(old, new)
   if not vec_equals_3d(old.position, new.position) then 
-    print_info("positions differ")
     return true
   end
   if not is_degree_angle_diff(old.rotation['y'], new.rotation['y'], 0) then

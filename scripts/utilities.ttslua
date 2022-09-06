@@ -51,29 +51,23 @@ function vec_equals_3d(vec1, vec2)
 
   if vec1.x == nil then
     if vec1[0] ~= vec2[0] then
-      print_info("0 differs " .. tostring(vec1[0]) .. ' ' .. tostring(vec2[0]))
       return false
     end
     if vec1[1] ~= vec2[1] then
-      print_info("1 differs " .. tostring(vec1[1]) .. ' ' .. tostring(vec2[1]))
       return false
     end
     if vec1[2] ~= vec2[2] then
-      print_info("2 differs " .. tostring(vec1[2]) .. ' ' .. tostring(vec2[2]))
       return false
     end
     return true
   else
     if vec1.x ~= vec2.x then
-      print_info("x differs " .. tostring(vec1.x) .. ' ' .. tostring(vec2.x))
       return false
     end
     if vec1.y ~= vec2.y then
-      print_info("y differs " .. tostring(vec1.y) .. ' ' .. tostring(vec2.y))
       return false
     end
     if vec1.z ~= vec2.z then
-      print_info("z differs " .. tostring(vec1.z) .. ' ' .. tostring(vec2.z))
       return false
     end
     return true
