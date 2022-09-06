@@ -43,5 +43,9 @@ function history_record_object_destroy(dying_object)
       base.destruct()
     end
 
+  event['rename_guid'] = function(old_guid, new_guid)
+    event.guid = new_guid
+  end
+
   push_to_history_stack(event)
 end
