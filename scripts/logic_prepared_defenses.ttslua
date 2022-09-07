@@ -1,17 +1,26 @@
 
+function is_base_prepared_defenses(base_obj)
+  local base_definition = get_base_definition_from_base_obj(base_obj)
+  if base_definition == nil then
+    return false
+  end
+  if base_definition.prepared_defenses then
+    return true
+  end
+  return false
+end
+
+
 -- Given a list of objects in a table, returns another table with ONLY
 -- those that are prepared defenses
 function filter_prepared_defenses(list)
-    local filtered = {}
-    for _,obj in ipairs(list) do
-      local base_definition = get_base_definition_from_base_obj(obj)
-      if base_definition then
-        if base_definition.prepared_defenses then
-            table.insert(filtered, obj)
-        end
-      end
+  local filtered = {}
+  for _,obj in ipairs(list) do
+    if is_base_prepared_defenses(obj) then
+          table.insert(filtered, obj)
     end
-    return filtered
+  end
+  return filtered
 end
 
 

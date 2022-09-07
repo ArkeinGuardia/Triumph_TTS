@@ -185,12 +185,15 @@ function get_strokes_zoc(base_obj, transform)
     if base_obj == nil then
       return {}
     end
+    if is_base_prepared_defenses(base_obj) then 
+      return {}
+    end
     if str_has_substr(base_obj.getName(), 'Elephant Screen') then
       return {}
     end
     if str_has_substr(base_obj.getName(), 'Camp') then
       -- In Triumph! camps do not have a zoc
-      return nil
+      return {}
     end
 
     if str_has_substr(base_obj.getName(), 'War Wagons') then

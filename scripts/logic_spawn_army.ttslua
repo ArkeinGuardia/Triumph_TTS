@@ -1314,14 +1314,7 @@ end
 
 
 function _is_base_to_have_terrain(base_obj)
-  if base_obj == nil then
-    return false
-  end
-  local base_definition = get_base_definition_from_base_obj(base_obj)
-  if base_definition == nil then
-    return false
-  end
-  if base_definition.prepared_defenses then
+  if is_base_prepared_defenses(base_obj) then
     return false
   end
   local name = base_obj.getName() 
