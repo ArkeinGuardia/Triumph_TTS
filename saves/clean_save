@@ -363,8 +363,9 @@ def update_assets_ttslua() :
 def update_date_file() :
     if not update_date:
         return
-    today = datetime.date.today()
-    date_string='{:04}{:02}{:02}'.format( today.year, today.month, today.day )
+    today = datetime.datetime.now()
+    date_string='{:04}{:02}{:02}.{:02}{:02}'.format( today.year, today.month, today.day, today.hour, today.minute )
+    print(date_string)
     with open("ObjectStates/version_text", "r") as file:
         data = json.load(file)
     data['Text']['Text'] = \
@@ -399,8 +400,8 @@ def clean_file(file_name) :
     # Update the build date used in the inital version display
     if update_date :
         script = data['LuaScript']
-        today = datetime.date.today()
-        date='{:04}{:02}{:02}'.format( today.year, today.month, today.day )
+        today = datetime.datetime.now()
+        date='{:04}{:02}{:02}.{:02}{:02}'.format( today.year, today.month, today.day, today.hour, today.minute )
         new_date = 'g_build_date = "' + date + '"\\n'
         new_script = re.sub('g_build_date = "\d+\"\\n', new_date, script)
         data['LuaScript'] = new_script
