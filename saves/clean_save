@@ -360,8 +360,22 @@ def update_assets_ttslua() :
         f.write("}\n")
 
 
+def update_date_file() :
+    if not update_date:
+        return
+    today = datetime.date.today()
+    date_string='{:04}{:02}{:02}'.format( today.year, today.month, today.day )
+    with open("ObjectStates/version_text", "r") as file:
+        data = json.load(file)
+    data['Text']['Text'] = \
+        f"Triumph! TTSMod\nv2.2 alpha {date_string}\nhttps://github.com/marcpawl/Triumph_TTS/tree/v2.2"
+    with open("ObjectStates/version_text", "w") as file:
+        file.write(json.dumps(data, indent=4, sort_keys="True"))
+
+
 def clean_file(file_name) :
     discover_assets_remote_url()
+    update_date_file()
 
     update_assets_ttslua()
 
