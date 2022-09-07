@@ -962,12 +962,16 @@ end
 
 -- Add 3d terrain extras to make the prepared defense look nicer
 function add_prepared_defenses_decorations(prepared_defense)
+  if not g_game_settings['terrain_decorations'] then
+      return
+  end
+
   local base_definition = get_base_definition_from_base_obj(prepared_defense)
   if base_definition == nil then
     return
   end
   local pos = prepared_defense.getPosition()
-  local rotation = prepared_defense.getRotation()['y']  local up_description = string.upper(base_definition.description)
+  local rotation = prepared_defense.getRotation()['y'] 
   detail_data = {
     model_name = 'terrain_palisade',
     pos = pos,
