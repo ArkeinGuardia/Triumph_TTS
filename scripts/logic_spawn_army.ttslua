@@ -1312,27 +1312,51 @@ function spawn_table_obj(model_url, texture_array_urls)
     obj.setLock(true)
 end
 
+
+function _is_base_to_have_terrain(base_obj)
+  if base_obj == nil then
+    return false
+  end
+  local base_definition = get_base_definition_from_base_obj(base_obj)
+  if base_definition == nil then
+    return false
+  end
+  if base_definition.prepared_defenses then
+    return false
+  end
+  local name = base_obj.getName() 
+  if name == nil then
+    return false
+  end
+  if g_bases[name] == nil then 
+    return false
+  end
+  if str_has_substr(g_bases[name]['tile'], 'plain') then
+    return false
+  end
+  return true
+end
+
+
 function change_bases_to_terrain(terrain_type)
     print_debug('Changing bases to ' .. terrain_type)
     local all_objs = getAllObjects()
     local bases = filter_bases(all_objs)
     for _,base in ipairs(bases) do
+      if _is_base_to_have_terrain(base) then
         local name = base.getName()
-        if g_bases[name] ~= nil
-            and not str_has_substr(g_bases[name]['tile'], 'plain') then
-
-            print_debug('Changing ' .. name)
-            local is_red = g_bases[name]['is_red_player']
-            local tex = tables[terrain_type]['blue_player_base_tex']
-            if is_red then
-                tex = tables[terrain_type]['red_player_base_tex']
-            end
-            local custom = base.getCustomObject()
-            custom['diffuse'] = tex
-            base.setCustomObject(custom)
-            g_ignore_next_delete[name] = true
-            base.reload()
+        print_debug('Changing ' .. name)
+        local is_red = g_bases[name]['is_red_player']
+        local tex = tables[terrain_type]['blue_player_base_tex']
+        if is_red then
+          tex = tables[terrain_type]['red_player_base_tex']
         end
+        local custom = base.getCustomObject()
+        custom['diffuse'] = tex
+        base.setCustomObject(custom)
+        g_ignore_next_delete[name] = true
+        base.reload()
+      end
     end
     Wait.frames(function()
         local all_objs = getAllObjects()
