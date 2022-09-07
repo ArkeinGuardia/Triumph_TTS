@@ -968,28 +968,26 @@ function add_prepared_defenses_decorations(prepared_defense)
   end
   local pos = prepared_defense.getPosition()
   local rotation = prepared_defense.getRotation()['y']  local up_description = string.upper(base_definition.description)
-  if string.find(up_description, 'PALISADE') then
-    detail_data = {
-      model_name = 'terrain_palisade',
-      pos = pos,
-      rotation = rotation,
-      prepared_defense = prepared_defense.getGUID()
-    }
+  detail_data = {
+    model_name = 'terrain_palisade',
+    pos = pos,
+    rotation = rotation,
+    prepared_defense = prepared_defense.getGUID()
+  }
 
-    local zone_name = "zone " .. prepared_defense.getName()
-    local scale = prepared_defense.getScale()
-    zone_spawn = {
-      name = zone_name,
-      position = pos,
-      rotation = prepared_defense.getRotation(),
-      scale = scale,
-      type = 'ScriptingTrigger',
-      terrain_decoration_descriptions={}
-    }
-    local zone = spawnObject(zone_spawn)
-    zone.setLock(true)
-    setZonePreparedDefenseCallback(zone)
-    set_decoration_for_obj(zone, 'detail', detail_data)
-    restore_prepared_defense_detail(zone)
-  end
+  local zone_name = "zone " .. prepared_defense.getName()
+  local scale = prepared_defense.getScale()
+  zone_spawn = {
+    name = zone_name,
+    position = pos,
+    rotation = prepared_defense.getRotation(),
+    scale = scale,
+    type = 'ScriptingTrigger',
+    terrain_decoration_descriptions={}
+  }
+  local zone = spawnObject(zone_spawn)
+  zone.setLock(true)
+  setZonePreparedDefenseCallback(zone)
+  set_decoration_for_obj(zone, 'detail', detail_data)
+  restore_prepared_defense_detail(zone)
 end
