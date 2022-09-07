@@ -575,7 +575,10 @@ end
 function is_any_base_in_zone(zone)
   for _,obj in pairs(zone.getObjects()) do
     if is_base_obj(obj) then
-      return true
+      local base_definition = get_base_definition_from_base_obj(obj)
+      if not base_definition.prepared_defenses then
+        return true
+      end
     end
   end
   return false
@@ -885,4 +888,108 @@ function process_vegetation(terrain_obj, type)
         set_bua(terrain_obj, terrain_pos, terrain_rotation_theta, terrain_size, type)
     end
     print_debug("OUT process_vegetation")
+end
+
+
+function get_prepared_defense_detail_obj(detail_data)
+  local detail_guid = detail_data['guid']
+  if detail_guid == nil then
+    return nil
+  end
+  local detail_obj = getObjectFromGUID(detail_guid)
+  return detail_obj
+end
+
+function restore_prepared_defense_detail(zone)
+  if is_any_base_in_zone(zone) then
+    return
+  end
+  local detail_data = get_decoration_for_obj(zone, "detail")
+  local detail_obj = get_prepared_defense_detail_obj(detail_data)
+  if nil ~= detail_obj then
+    return
+  end
+  local model_name = detail_data['model_name']
+  local pos = detail_data['pos']
+  local rotation = detail_data['rotation']
+  local detail = spawn_model(
+      model_name,
+      pos,
+      rotation,
+      minimal_collider,  nil, nil, nil, true)
+  detail_data['guid'] = detail.getGUID()
+end
+
+function remove_prepared_defense_detail(zone)
+  if not is_any_base_in_zone(zone) then
+    return
+  end
+  local detail_data = get_decoration_for_obj(zone, "detail")
+  local detail_obj = get_prepared_defense_detail_obj(detail_data)
+  if nil == detail_obj then
+    return
+  end
+  destroyObject(detail_obj)
+  detail_data['guid'] = nil
+end
+
+function onObjectEnterScriptingZonePreparedDefense(zone,obj)
+  remove_prepared_defense_detail(zone)
+end
+
+function onObjectLeaveScriptingZonePreparedDefense(zone,obj)
+  stop_zone_timer(zone)
+  if is_any_base_in_zone(zone) then
+    return
+  end
+  -- in the future restore the detail
+  local callback = function(zone)
+    restore_prepared_defense_detail(zone)
+  end
+
+  start_zone_timer(zone, callback)
+end
+
+---- Set the variables for the zone to indicate we are a prepared defense zone
+function setZonePreparedDefenseCallback(obj)
+  set_decoration_for_obj(obj, "onObjectEnterScriptingZone",
+    "onObjectEnterScriptingZonePreparedDefense")
+  set_decoration_for_obj(obj, "onObjectLeaveScriptingZone",
+    "onObjectLeaveScriptingZonePreparedDefense")
+end
+
+
+
+-- Add 3d terrain extras to make the prepared defense look nicer
+function add_prepared_defenses_decorations(prepared_defense)
+  local base_definition = get_base_definition_from_base_obj(prepared_defense)
+  if base_definition == nil then
+    return
+  end
+  local pos = prepared_defense.getPosition()
+  local rotation = prepared_defense.getRotation()['y']  local up_description = string.upper(base_definition.description)
+  if string.find(up_description, 'PALISADE') then
+    detail_data = {
+      model_name = 'terrain_palisade',
+      pos = pos,
+      rotation = rotation,
+      prepared_defense = prepared_defense.getGUID()
+    }
+
+    local zone_name = "zone " .. prepared_defense.getName()
+    local scale = prepared_defense.getScale()
+    zone_spawn = {
+      name = zone_name,
+      position = pos,
+      rotation = prepared_defense.getRotation(),
+      scale = scale,
+      type = 'ScriptingTrigger',
+      terrain_decoration_descriptions={}
+    }
+    local zone = spawnObject(zone_spawn)
+    zone.setLock(true)
+    setZonePreparedDefenseCallback(zone)
+    set_decoration_for_obj(zone, 'detail', detail_data)
+    restore_prepared_defense_detail(zone)
+  end
 end

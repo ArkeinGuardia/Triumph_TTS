@@ -1367,6 +1367,7 @@ function on_wizard_panel_disadventaged_center_deployment_lock_prepared_defenses(
     local players_prepared_defenses = filter_bases_by_player_color(prepared_defenses, disadvantage)
     for _, defense in pairs(players_prepared_defenses) do
       defense.setLock(true)
+      add_prepared_defenses_decorations(defense)
     end
     wizard_panel_disadventaged_center_deployment_update()
   end)
@@ -1434,6 +1435,7 @@ table.insert(wizard_panels, {name="wizard_panel_disadvantaged_center_deployment"
       local prepared_defenses = get_all_prepared_defenses()
       local players_prepared_defenses = filter_bases_by_player_color(prepared_defenses, advantage)
       for _, defense in pairs(players_prepared_defenses) do
+        add_prepared_defenses_decorations(defense)
         defense.setLock(true)
       end
       wizard_panel_advantaged_deployment_update()
