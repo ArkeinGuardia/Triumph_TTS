@@ -959,6 +959,30 @@ function setZonePreparedDefenseCallback(obj)
 end
 
 
+-- Return the models can be used for the base definition
+function get_prepared_defense_models(base_definition)
+  local description = string.upper(base_definition.description)
+  local models = {}
+  if str_has_substr(description, "STAKE") then
+    table.insert(models, 'terrain_chevaux_de_frise')
+  end
+  if str_has_substr(description, "PALISADE") then
+    table.insert(models, 'terrain_palisade')
+  end
+  if tlen(models) == 0 then
+    table.insert(models, 'terrain_palisade')
+    table.insert(models, 'terrain_chevaux_de_frise')
+  end
+  return models
+end
+
+
+-- Return the model that should be used for a base definition
+function get_prepared_defense_model(base_definition)
+  local models = get_prepared_defense_models(base_definition)
+  return random_element(models)
+end
+
 
 -- Add 3d terrain extras to make the prepared defense look nicer
 function add_prepared_defenses_decorations(prepared_defense)
@@ -970,10 +994,11 @@ function add_prepared_defenses_decorations(prepared_defense)
   if base_definition == nil then
     return
   end
+  local model_name = get_prepared_defense_model(base_definition)
   local pos = prepared_defense.getPosition()
   local rotation = prepared_defense.getRotation()['y'] 
   detail_data = {
-    model_name = 'terrain_palisade',
+    model_name = model_name,
     pos = pos,
     rotation = rotation,
     prepared_defense = prepared_defense.getGUID()
