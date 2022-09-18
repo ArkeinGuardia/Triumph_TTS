@@ -1,5 +1,6 @@
 
 require("Triumph_TTS/scripts/logic_decorations")
+require("Triumph_TTS/scripts/sets")
 
 
 -- Format a distance in inches for displaying to the user.
@@ -1503,11 +1504,28 @@ end
 g_selected_objects = {}
 g_last_zoc_value = nil
 
+function _selected_same(old_selected, new_selected)
+  if old_selected == new_selected then
+    return true
+  end 
+  if old_selected == nil or new_selected == nil then
+    return false
+  end
+  local new_set = Set.new(new_selected)
+  local old_set = Set.new(old_selected)
+  return Set.equals(new_set, old_set)
+end
+  
 
 function check_selection_change()
     local players = Player.getPlayers()
     for _, player in ipairs(players) do
         local selected_objs = player.getSelectedObjects()
+        if is_table_empty(selected_objs) and (not _selected_same(selected_objs, g_selected_objects[player.color])) then
+          --- First object selected, set move distance to zero, so it is easy to see who in 
+          -- in ZOC and firing distance.
+          update_move_controls(0)
+        end
         if has_changed_selection_for_player(player.color, selected_objs) then
             on_selection_changed(player.color, selected_objs)
             g_selected_objects[player.color] = selected_objs

@@ -1,8 +1,18 @@
 -- Global number of MU to move
 g_mu_movement = 3
 
--- Updates the global that manages the number of MUs moved by the other functions, and updates the UI
-function slider_MUs_changed(player, value, id)
+function update_button_move_forward()
+    -- It's undocumented, but changing the value of the button does not update
+    -- the button_move_forward
+    -- Instead we have to change the undocumented text attribute, but we still
+    -- change the value because it's the proper thing
+    UI.setAttribute('button_move_forward', 'text', 'Move ' .. g_mu_movement .. ' MU')
+    UI.setValue('button_move_forward', 'Move ' .. g_mu_movement .. ' MU')
+end
+
+-- Update the slider and button based on the desired amount to move.
+-- value: amount that is wanted to move.
+function update_move_controls(value)
     g_mu_movement = round_to_decimals(value, 1)
 
     if math.abs(g_mu_movement - 1) < g_ui_snap_slider_movement then
@@ -12,21 +22,20 @@ function slider_MUs_changed(player, value, id)
     elseif math.abs(g_mu_movement - 3) < g_ui_snap_slider_movement then
         g_mu_movement = 3
     end
-
-    -- It's undocumented, but changing the value of the button does not update
-    -- the button_move_forward
-    -- Instead we have to change the undocumented text attribute, but we still
-    -- change the value because it's the proper thing
-    UI.setAttribute('button_move_forward', 'text', 'Move ' .. g_mu_movement .. ' MU')
-    UI.setValue('button_move_forward', 'Move ' .. g_mu_movement .. ' MU')
-
+    
     -- Make it consistent for all players
     Wait.frames(function()
         UI.setAttribute('slider_MUs', 'value', value)
+        update_button_move_forward()
     end, 1)
 
     -- Update any gizmo
     draw_all_gizmos()
+end
+
+-- Updates the global that manages the number of MUs moved by the other functions, and updates the UI
+function slider_MUs_changed(player, value, id)
+  update_move_controls(value)
 end
 
 function move_bases(player, value, id)
