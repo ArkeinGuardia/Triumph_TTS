@@ -597,15 +597,6 @@ def write_standard_wagon(file, camp_definition, battle_card) :
   write_base_definition(file, wagon)
   return [ wagon ]
 
-def write_fortified_camp(file, camp_definition, battle_card) :
-  fort = camp_definition.copy()
-
-  fort['id'] = fort['id'] + "_fortified"
-
-  fort['fortified_camp'] = True
-  fort['description'] = "Fortified camp"
-  write_base_definition(file, fort)
-  return [ fort ]
 
 def write_pack_train_and_herds(file, camp_definition, battle_card) :
   pack_train = camp_definition.copy()
@@ -616,6 +607,7 @@ def write_pack_train_and_herds(file, camp_definition, battle_card) :
   pack_train['description'] = "Pack Train"
   write_base_definition(file, pack_train)
   return [ pack_train ]
+
 
 def write_prepared_defenses(file, army_id, battle_card) :
   if "min" in battle_card :
@@ -1109,6 +1101,8 @@ def generate_army(army_id) :
           for battle_card in army_json['battleCardEntries'] :
               if battle_card['battleCardCode'] == "AM" :
                   file.write("    ambush=true,")
+              elif battle_card['battleCardCode'] == "NC" :
+                  file.write("    no_camp=true,")
       file.write("  },\n")
 
       # Bases that make up the army

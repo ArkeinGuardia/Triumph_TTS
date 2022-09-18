@@ -359,6 +359,9 @@ function get_army_builder_points_for_tokens(token_objs)
   local result = 0
   local nb_hold_the_line = 0
   for _,token_obj in pairs(token_objs) do
+    if true == get_decoration_for_obj(token_obj, "token_no_camp") then
+      result = result + 3
+    end
     if true == get_decoration_for_obj(token_obj, "token_ambush") then
       result = result + 1
     elseif true == get_decoration_for_obj(token_obj, "token_charge_through") then

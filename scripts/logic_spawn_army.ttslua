@@ -1052,6 +1052,16 @@ function spawn_ambush_token(pos, player)
   set_decoration_for_obj(object, "token_ambush", true)
 end
 
+-- Spawn a token that can be used to buy the No Camp battle card.
+-- pos: location of the token
+-- player: RED or BLUE
+function spawn_no_camp_token(pos, player)
+  local object = spawn_battle_card_token("token_no_camp", pos, player)
+  object.setName("No Camp")
+  set_decoration_for_obj(object, "token_no_camp", true)
+end
+
+
 -- Spawn a token that can be used to buy the Charge Through battle card.
 -- pos: location of the token
 -- player: RED or BLUE
@@ -1201,6 +1211,14 @@ function spawn_army(army, is_red_player, command_color, army_nb)
           y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
           z = row_z_pos}
       spawn_ambush_token(location, player)
+      column = column + 1
+    end
+    if army.data.no_camp  then
+      local location = {
+          x = g_offset_deployment_x + column * g_base_width_in_inches + (army_nb - 1 ) * distance_between_armies,
+          y = g_base_height_tabletop + g_table_thickness + g_base_height_inches / 2,
+          z = row_z_pos}
+      spawn_no_camp_token(location, player)
       column = column + 1
     end
 
