@@ -969,9 +969,13 @@ function get_prepared_defense_models(base_definition)
   if str_has_substr(description, "PALISADE") then
     table.insert(models, 'terrain_palisade')
   end
+  if str_has_substr(description, "STONE") or str_has_substr(description, "ROCK") then
+    table.insert(models, 'terrain_rock_wall')
+  end
   if tlen(models) == 0 then
     table.insert(models, 'terrain_palisade')
     table.insert(models, 'terrain_chevaux_de_frise')
+    table.insert(models, 'terrain_rock_wall')
   end
   return models
 end
