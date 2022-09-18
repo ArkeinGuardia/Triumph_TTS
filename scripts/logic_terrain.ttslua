@@ -1023,4 +1023,9 @@ function add_prepared_defenses_decorations(prepared_defense)
   setZonePreparedDefenseCallback(zone)
   set_decoration_for_obj(zone, 'detail', detail_data)
   restore_prepared_defense_detail(zone)
+
+   -- Now that the prepared defense can no longer be moved take it out of 
+   -- the players army, it is just another piece of terrain.
+  set_decoration_for_obj(prepared_defense, "player_color", nil)
+  prepared_defense.highlightOff()
 end
