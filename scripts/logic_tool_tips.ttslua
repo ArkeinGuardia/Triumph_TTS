@@ -118,6 +118,9 @@ function get_tool_tip_for_base_definition(base_definition)
   if base_definition.mobile_infantry then
     tip_name = tip_name .. "_mobile_infantry"
   end
+  if base_definition.general then
+    tip_name = tip_name .. "general"
+  end
 
   -- Use cached result.
   tip = g_tool_tips[tip_name]
@@ -185,11 +188,13 @@ function build_tool_tip_string_ranged_combat(base_definition)
     -- TODO print_error("tip_data.target_combat_factor == nil " .. base_definition.troop_type)
     target = "X"
   else
+    target = tostring(tip_data.target_combat_factor)
     if base_definition.mobile_infantry then
-      target = tostring(tip_data.target_combat_factor) ..  '-1'
-    else
-      target = tostring(tip_data.target_combat_factor)
+      target = target ..  '-1'
+    elseif base_definition.general then
+      target = target ..  '*-1'
     end
+
    end
   return string.format("ranged combat: %s/%s\n", shooting, target)
 end
@@ -209,6 +214,8 @@ function build_tool_tip_string_close_combat(base_definition)
       foot = tostring(tip_data.combat_factor_vs_foot + 2)
   elseif base_definition.mobile_infantry then
     foot = tostring(tip_data.combat_factor_vs_foot) .. '-1'
+  elseif base_definition.general then
+    foot = tostring(tip_data.combat_factor_vs_foot) .. '+1'
   else
     foot = tostring(tip_data.combat_factor_vs_foot)
   end
@@ -221,6 +228,8 @@ function build_tool_tip_string_close_combat(base_definition)
     mounted = tostring(tip_data.combat_factor_vs_mounted + 2)
   elseif base_definition.mobile_infantry then
     mounted = tostring(tip_data.combat_factor_vs_mounted) .. '-1'
+  elseif base_definition.general then
+    mounted = tostring(tip_data.combat_factor_vs_mounted) .. '+1'
   else
     mounted = tostring(tip_data.combat_factor_vs_mounted)
    end
