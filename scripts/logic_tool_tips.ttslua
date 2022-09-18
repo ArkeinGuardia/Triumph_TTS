@@ -228,9 +228,32 @@ function build_tool_tip_string_close_combat(base_definition)
 end
 
 
+-- Return the tool top string indicating if the base is open or close order, foot or mounted
+function build_tool_tip_string_order(base_definition)
+  local tip_data = base_tool_tips[base_definition.troop_type]
+  if tip_data == nil then
+    return ""
+  end
+  if tip_data.open_order_foot then 
+    return "Open order foot\n"
+  end
+  if tip_data.close_order_foot then 
+    return "Close order foot\n"
+  end
+  if tip_data.open_order_mounted then 
+    return "Open order mounted\n"
+  end
+  if tip_data.close_order_mounted then 
+    return "Close order mounted\n"
+  end
+  return ""
+end
+
+
 function build_tool_tip_string(base_definition)
   result = build_tool_tip_string_tactical_movement(base_definition)
   result = result .. build_tool_tip_string_ranged_combat(base_definition)
   result = result .. build_tool_tip_string_close_combat(base_definition)
+  result = result .. build_tool_tip_string_order(base_definition)
   return result
 end
