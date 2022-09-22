@@ -5,8 +5,8 @@ require("Triumph_TTS/scripts/sets")
 
 -- Format a distance in inches for displaying to the user.
 function inches_to_mu_display_string(distance_inches)
-  local mu = from_in_to_mu(distance_inches)
-  return  string.format('%.1f MU', mu)
+local mu = from_in_to_mu(distance_inches)
+return  string.format('%.1f MU', mu)
 end
 
 -- Given a base object, computes the 4 bounds points, returned in a table,
@@ -28,14 +28,14 @@ end
 -- size: nil in which case the size is the base size, otherwise
 -- a table [x,y,z] for size in inches (width, height, depth).
 function compute_corners_base(base_obj, size)
-    local rotation = normalize_angle(from_degrees_to_rad(base_obj.getRotation())['y'])
-    -- print_debug(base_obj.getName() .. ' rotation is ' .. rotation)
-    if nil == size then
-      size = get_size(base_obj.getName())
-    end
-    local pos = base_obj.getPosition()
-    -- print_debug(base_obj.getName() .. ' pos is ' .. vec_to_str(vec_in_to_mm(pos)))
-    return compute_corners_coords(size, rotation, pos)
+local rotation = normalize_angle(from_degrees_to_rad(base_obj.getRotation())['y'])
+-- print_debug(base_obj.getName() .. ' rotation is ' .. rotation)
+if nil == size then
+size = get_size(base_obj.getName())
+end
+local pos = base_obj.getPosition()
+-- print_debug(base_obj.getName() .. ' pos is ' .. vec_to_str(vec_in_to_mm(pos)))
+return compute_corners_coords(size, rotation, pos)
 end
 
 -- Like compute_corners_base but instead of a base obj all coords are given
@@ -43,15 +43,15 @@ end
 -- rotationT: -in radians
 -- pos:
 function compute_corners_coords(sizeXZ, rotationY, pos)
-    local xhalf = sizeXZ['x'] / 2
-    local zhalf = sizeXZ['z'] / 2
+local xhalf = sizeXZ['x'] / 2
+local zhalf = sizeXZ['z'] / 2
 
-    return {
-        topright = rotate_point_relative({x = xhalf, y = 0, z = zhalf}, pos, rotationY),
-        botright = rotate_point_relative({x = xhalf, y = 0, z =-zhalf}, pos, rotationY),
-        topleft  = rotate_point_relative({x =-xhalf, y = 0, z = zhalf}, pos, rotationY),
-        botleft  = rotate_point_relative({x =-xhalf, y = 0, z =-zhalf}, pos, rotationY)
-    }
+return {
+topright = rotate_point_relative({x = xhalf, y = 0, z = zhalf}, pos, rotationY),
+botright = rotate_point_relative({x = xhalf, y = 0, z =-zhalf}, pos, rotationY),
+topleft  = rotate_point_relative({x =-xhalf, y = 0, z = zhalf}, pos, rotationY),
+botleft  = rotate_point_relative({x =-xhalf, y = 0, z =-zhalf}, pos, rotationY)
+}
 end
 
 -- Aligns base2 to a base1, where base1 is an object that will be (but may not
@@ -59,118 +59,118 @@ end
 -- Base2 is to the right of Base1 in the x axis
 -- Returns a transform table with the new pos, corners and rot
 function align_two_bases(base2, position, corners, rotation)
-    base2.setRotation(rotation)
-    local corners2 = compute_corners_base(base2)
+base2.setRotation(rotation)
+local corners2 = compute_corners_base(base2)
 
-    local angle = normalize_angle(math.rad(rotation['y']))
-    local relative_angle = relative_angle_from_point(position, base2.getPosition(), angle)
+local angle = normalize_angle(math.rad(rotation['y']))
+local relative_angle = relative_angle_from_point(position, base2.getPosition(), angle)
 
-    local translation = nil
-    -- Note that since we know that base1 is to the left of base2, the angle
-    -- is 0-90 or 270-360
-    if relative_angle > g_alignment_angle_side
-       and relative_angle < math.pi then
-        -- Angle the back of base2 with the front of base1
-        translation = vec_sub_3d(corners['topright'], corners2['botright'])
-    elseif relative_angle <= g_alignment_angle_side
-           or relative_angle >= (2*math.pi - g_alignment_angle_side) then
-        -- Angle the left side of base2 with the right of base1
-        translation = vec_sub_3d(corners['topright'], corners2['topleft'])
-    else
-        -- Angle the front of base2 with the back of base1
-        translation = vec_sub_3d(corners['botleft'], corners2['topleft'])
-    end
+local translation = nil
+-- Note that since we know that base1 is to the left of base2, the angle
+-- is 0-90 or 270-360
+if relative_angle > g_alignment_angle_side
+and relative_angle < math.pi then
+-- Angle the back of base2 with the front of base1
+translation = vec_sub_3d(corners['topright'], corners2['botright'])
+elseif relative_angle <= g_alignment_angle_side
+or relative_angle >= (2*math.pi - g_alignment_angle_side) then
+-- Angle the left side of base2 with the right of base1
+translation = vec_sub_3d(corners['topright'], corners2['topleft'])
+else
+-- Angle the front of base2 with the back of base1
+translation = vec_sub_3d(corners['botleft'], corners2['topleft'])
+end
 
-    local new_pos = vec_add(base2.getPosition(), translation)
-    base2.setPosition(new_pos)
+local new_pos = vec_add(base2.getPosition(), translation)
+base2.setPosition(new_pos)
 
-    return {
-        position = new_pos,
-        corners = compute_corners_coords(get_size(base2.getName()),angle, new_pos),
-        rotation = rotation
-    }
+return {
+position = new_pos,
+corners = compute_corners_coords(get_size(base2.getName()),angle, new_pos),
+rotation = rotation
+}
 end
 
 -- Given a list of objects in a table, returns another table with ONLY
 -- those who start with 'base', ignoring the keys
 function filter_bases(list)
-    local filtered = {}
-    for _,obj in ipairs(list) do
-        local name = obj.getName()
-        if g_bases[name] ~= nil or str_starts_with(obj.getName(), 'base') then
-            table.insert(filtered, obj)
-        end
-    end
-    return filtered
+local filtered = {}
+for _,obj in ipairs(list) do
+local name = obj.getName()
+if g_bases[name] ~= nil or str_starts_with(obj.getName(), 'base') then
+table.insert(filtered, obj)
+end
+end
+return filtered
 end
 
 -- This is like filter_bases, but instead of a plain array, returns a list
 -- of GUID to base. This useful for when using a big list which will be operated
 -- and searched upon
 function get_bases_with_guid(list)
-    local filtered = {}
-    for _,obj in ipairs(list) do
-        local name = obj.getName()
-        if g_bases[name] ~= nil or str_starts_with(obj.getName(), 'base') then
-            filtered[obj.getGUID()] = obj
-        end
-    end
-    return filtered
+local filtered = {}
+for _,obj in ipairs(list) do
+local name = obj.getName()
+if g_bases[name] ~= nil or str_starts_with(obj.getName(), 'base') then
+filtered[obj.getGUID()] = obj
+end
+end
+return filtered
 end
 
 -- 180º rotation a base
 function turn_around_base(obj)
-    local initial_transform = calculate_transform(obj)
-    local rotation = obj.getRotation()
-    rotation['y'] = rotation['y'] + 180
-    obj.setRotation(rotation)
+local initial_transform = calculate_transform(obj)
+local rotation = obj.getRotation()
+rotation['y'] = rotation['y'] + 180
+obj.setRotation(rotation)
 
-    local new_transform = calculate_transform(obj)
+local new_transform = calculate_transform(obj)
 
-    local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-    local mu = inches_to_mu_display_string(distance)
-    print_info(obj.getName() .. ' has turned around 180º, which costs ' .. mu)
-    history_record_delta_snapshot()
+local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
+local mu = inches_to_mu_display_string(distance)
+print_info(obj.getName() .. ' has turned around 180º, which costs ' .. mu)
+history_record_delta_snapshot()
 end
 
 -- Moves one or more DBA bases g_mu_movement forward
 -- ASSUMES all bases are in a flat board!!!!
 -- Returns how much it moved (it can move less in a collision)
 function move_base(obj, how_much_movement, ignore_history)
-    local initial_transform = calculate_transform(obj)
-    local current_rotation = from_degrees_to_rad(obj.getRotation())
-    local displacement_vector = rad_to_vector(current_rotation['y'])
-    local magnitude = how_much_movement
-    local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
+local initial_transform = calculate_transform(obj)
+local current_rotation = from_degrees_to_rad(obj.getRotation())
+local displacement_vector = rad_to_vector(current_rotation['y'])
+local magnitude = how_much_movement
+local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
 
-    -- Bunny hop the base so it climbs up terrain, instead of tunnelling
-    -- through hills.
-    destination['y'] = destination['y'] + 1
+-- Bunny hop the base so it climbs up terrain, instead of tunnelling
+-- through hills.
+destination['y'] = destination['y'] + 1
 
-    obj.setPosition(destination)
+obj.setPosition(destination)
 
-    if not ignore_history then
-        history_record_delta_snapshot()
-    end
-    return how_much_movement
+if not ignore_history then
+history_record_delta_snapshot()
+end
+return how_much_movement
 end
 
 function make_general (obj)
-    if is_base_army_general(obj) then
-      return
-    end
+if is_base_army_general(obj) then
+return
+end
 
-    local name = obj.getName()
-    local pos = string.find(name, " #")
-    if pos == nil then
-      print_error("troop has no serial number: " .. name)
-      obj.setName(name .. "  General")
-    else
-      local new_name = string.sub(name, 1,pos-1) .. "  General" .. string.sub(name, pos)
-      obj.setName(new_name)
-    end
+local name = obj.getName()
+local pos = string.find(name, " #")
+if pos == nil then
+print_error("troop has no serial number: " .. name)
+obj.setName(name .. "  General")
+else
+local new_name = string.sub(name, 1,pos-1) .. "  General" .. string.sub(name, pos)
+obj.setName(new_name)
+end
 
-    reset_state()
+reset_state()
 end
 
 -- base_obj: base we are checking if it can move without colliding
@@ -182,99 +182,99 @@ end
 -- return: nil when there is no collision, otherwise the distance the
 -- base may move and the object it would collide with.
 function will_base_contact_other_base(base_obj, relative_direction, max_distance)
-  local base_depth_mm = get_base_depth_from_base_obj(base_obj)
-  local base_depth = from_mm_to_in(base_depth_mm)
-  local base_size={g_collision_base_width_in_inches,1,base_depth}
-  local initial_position = base_obj.getPosition()
-  local direction = degrees_to_vector_xz(base_obj.getRotation()['y'] + relative_direction)
-  local orientation = base_obj.getRotation()
-  orientation['y'] = orientation['y'] + relative_direction
-  local cast_params = {
-    origin=initial_position,
-    direction=direction,
-    type=3, -- box
-    size=base_size,
-    orientation = orientation,
-    max_distance=max_distance,
-    debug=false
-  }
-  local intersects=Physics.cast(cast_params)
-  local distance = math.huge
-  local intersecting_base = nil
-  for _,intersection in pairs(intersects) do
-    if base_obj ~= intersection.hit_object then
-      if (intersection.distance > 0) and (intersection.distance < distance) then
-        if is_base_obj(intersection.hit_object) then
-          distance = intersection.distance
-          intersecting_base = intersection.hit_object
-        end
-      end
-    end
-  end
-  local result
-  if intersecting_base == nil then
-    result = nil
-  else
-   result = {colliding_base=intersecting_base, distance=distance}
- end
- return result
+local base_depth_mm = get_base_depth_from_base_obj(base_obj)
+local base_depth = from_mm_to_in(base_depth_mm)
+local base_size={g_collision_base_width_in_inches,1,base_depth}
+local initial_position = base_obj.getPosition()
+local direction = degrees_to_vector_xz(base_obj.getRotation()['y'] + relative_direction)
+local orientation = base_obj.getRotation()
+orientation['y'] = orientation['y'] + relative_direction
+local cast_params = {
+origin=initial_position,
+direction=direction,
+type=3, -- box
+size=base_size,
+orientation = orientation,
+max_distance=max_distance,
+debug=false
+}
+local intersects=Physics.cast(cast_params)
+local distance = math.huge
+local intersecting_base = nil
+for _,intersection in pairs(intersects) do
+if base_obj ~= intersection.hit_object then
+if (intersection.distance > 0) and (intersection.distance < distance) then
+if is_base_obj(intersection.hit_object) then
+distance = intersection.distance
+intersecting_base = intersection.hit_object
+end
+end
+end
+end
+local result
+if intersecting_base == nil then
+result = nil
+else
+result = {colliding_base=intersecting_base, distance=distance}
+end
+return result
 end
 
 -- Moves ONE single base by it's depth
 -- base_obj: Base to move back
 -- return: true on success, false if there was a collision with another base.
 function do_push_back(base_obj)
-  local base_depth_mm = get_base_depth_from_base_obj(base_obj)
-  local base_depth = from_mm_to_in(base_depth_mm)
+local base_depth_mm = get_base_depth_from_base_obj(base_obj)
+local base_depth = from_mm_to_in(base_depth_mm)
 
-  local collision = will_base_contact_other_base(base_obj, 180, base_depth)
-  local magnitude
-  if collision == nil then
-    magnitude = base_depth
-  else
-    magnitude = collision.distance
-    local mu = inches_to_mu_display_string(magnitude)
-    local message = string.format(
-      "Collision with %s",
-      collision.colliding_base.getName())
-    print_important(message)
-  end
+local collision = will_base_contact_other_base(base_obj, 180, base_depth)
+local magnitude
+if collision == nil then
+magnitude = base_depth
+else
+magnitude = collision.distance
+local mu = inches_to_mu_display_string(magnitude)
+local message = string.format(
+"Collision with %s",
+collision.colliding_base.getName())
+print_important(message)
+end
 
-  local initial_transform = calculate_transform(base_obj)
-  local angle = from_degrees_to_rad(base_obj.getRotation())['y']
-  angle = angle + math.pi
-  if angle > 2*math.pi then
-      angle = angle - 2*math.pi
-  end
+local initial_transform = calculate_transform(base_obj)
+local angle = from_degrees_to_rad(base_obj.getRotation())['y']
+angle = angle + math.pi
+if angle > 2*math.pi then
+angle = angle - 2*math.pi
+end
 
-  local displacement_vector = rad_to_vector(angle)
+local displacement_vector = rad_to_vector(angle)
 
-  local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
+local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
 
-  -- Bunny hop the base so it climbs up terrain, instead of tunnelling
-  -- through hills.
-  destination['y'] = destination['y'] + 1
+-- Bunny hop the base so it climbs up terrain, instead of tunnelling
+-- through hills.
+destination['y'] = destination['y'] + 1
 
-  base_obj.setPosition(destination)
+base_obj.setPosition(destination)
 
-  local new_transform = calculate_transform(base_obj)
+local new_transform = calculate_transform(base_obj)
 
-  local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-  local mu = inches_to_mu_display_string(distance)
-  if collision == nil then
-    print_info(base_obj.getName() .. ' has moved back its own depth, ' .. mu)
-  else
-    print_info(base_obj.getName() .. ' has moved back ' .. mu)
-  end
+local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
+local mu = inches_to_mu_display_string(distance)
+if collision == nil then
+print_info(base_obj.getName() .. ' has moved back its own depth, ' .. mu)
+else
+print_info(base_obj.getName() .. ' has moved back ' .. mu)
+end
 
-  return not collision
+return not collision
 end
 
 
 -- Moves ONE single base by it's depth
 function push_back(base_obj)
-    do_push_back(base_obj)
-    history_record_delta_snapshot()
+do_push_back(base_obj)
+history_record_delta_snapshot()
 end
 
 
@@ -283,102 +283,102 @@ end
 -- negative indicates moving backwards without changing its facing.
 -- return: nil on success, otherwise the collision information
 function move_base_forward(base_obj, distance_inches)
-  local is_backwards = (distance_inches < 0)
-  local relative_course
-  local relative_distance
-  if is_backwards then
-   relative_course = 180
-   relative_distance = - distance_inches
-  else
-    relative_course = 0
-    relative_distance = distance_inches
-  end
-  local collision = will_base_contact_other_base(base_obj, relative_course, relative_distance)
-  local magnitude
-  if collision == nil then
-    magnitude = distance_inches
-  else
-    magnitude = collision.distance
-    local mu = inches_to_mu_display_string(magnitude)
-    local message =
-      string.format(
-        "Collision with %s at %s",
-        collision.colliding_base.getName(),
-        mu)
-    print_important(message)
-    if is_backwards then
-      magnitude = -magnitude
-    end
-  end
+local is_backwards = (distance_inches < 0)
+local relative_course
+local relative_distance
+if is_backwards then
+relative_course = 180
+relative_distance = - distance_inches
+else
+relative_course = 0
+relative_distance = distance_inches
+end
+local collision = will_base_contact_other_base(base_obj, relative_course, relative_distance)
+local magnitude
+if collision == nil then
+magnitude = distance_inches
+else
+magnitude = collision.distance
+local mu = inches_to_mu_display_string(magnitude)
+local message =
+string.format(
+"Collision with %s at %s",
+collision.colliding_base.getName(),
+mu)
+print_important(message)
+if is_backwards then
+magnitude = -magnitude
+end
+end
 
-  local initial_transform = calculate_transform(base_obj)
-  local angle = from_degrees_to_rad(base_obj.getRotation())['y']
-  local displacement_vector = rad_to_vector(angle)
+local initial_transform = calculate_transform(base_obj)
+local angle = from_degrees_to_rad(base_obj.getRotation())['y']
+local displacement_vector = rad_to_vector(angle)
 
-  local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
+local destination = vec_add(initial_transform['position'], vec_mul_escalar(displacement_vector, magnitude))
 
-  -- Bunny hop the base so it climbs up terrain, instead of tunnelling
-  -- through hills.
-  destination['y'] = destination['y'] + 1
+-- Bunny hop the base so it climbs up terrain, instead of tunnelling
+-- through hills.
+destination['y'] = destination['y'] + 1
 
-  base_obj.setPosition(destination)
+base_obj.setPosition(destination)
 
-  local new_transform = calculate_transform(base_obj)
+local new_transform = calculate_transform(base_obj)
 
-  local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
-  local mu = inches_to_mu_display_string(distance)
-  print_info(base_obj.getName() .. ' has moved forward ' .. mu)
-  return collision
+local distance = max_distance_between_bases_front_corners(initial_transform['corners'], new_transform['corners'])
+local mu = inches_to_mu_display_string(distance)
+print_info(base_obj.getName() .. ' has moved forward ' .. mu)
+return collision
 end
 
 -- Like push back but in the other direction
 function push_forward(base_obj)
-    local base_depth_mm = get_base_depth_from_base_obj(base_obj)
-    local base_depth = from_mm_to_in(base_depth_mm)
+local base_depth_mm = get_base_depth_from_base_obj(base_obj)
+local base_depth = from_mm_to_in(base_depth_mm)
 
-    local collision = move_base_forward(base_obj, base_depth)
-    if nil == collision then
-      print_info(base_obj.getName() .. ' has moved forward its own depth ')
-    end
+local collision = move_base_forward(base_obj, base_depth)
+if nil == collision then
+print_info(base_obj.getName() .. ' has moved forward its own depth ')
+end
 
-    history_record_delta_snapshot()
+history_record_delta_snapshot()
 end
 
 
 function panic(base_obj)
-  -- Rule 84.1
+-- Rule 84.1
 
-  -- 84.1.a
-  local no_collision = do_push_back(base_obj)
-  if no_collision then
-    -- 84.1.b
-    turn_around_base(base_obj)
-    -- 84.1.c full tactical move
-    local movement_mu = get_tactical_move_distance(base_obj)
-    if movement_mu == nil then
-      print_error("Unable to get tactical move distance")
-      return
-    end
-    print_info("panicing for " .. tostring(movement_mu) .. " MU")
-    local movement_inches = from_mu_to_in(movement_mu)
-    move_base_forward(base_obj, movement_inches)
-  end
-  history_record_delta_snapshot()
+-- 84.1.a
+local no_collision = do_push_back(base_obj)
+if no_collision then
+-- 84.1.b
+turn_around_base(base_obj)
+-- 84.1.c full tactical move
+local movement_mu = get_tactical_move_distance(base_obj)
+if movement_mu == nil then
+print_error("Unable to get tactical move distance")
+return
+end
+print_info("panicing for " .. tostring(movement_mu) .. " MU")
+local movement_inches = from_mu_to_in(movement_mu)
+move_base_forward(base_obj, movement_inches)
+end
+history_record_delta_snapshot()
 end
 
 
 function evade(base_obj)
-  -- Rule 83.1
+-- Rule 83.1
 
-  -- 83.1.a
-  local no_collision = do_push_back(base_obj)
-  if no_collision then
-    -- 83.1.b move 4 MU directly to its rear
-    print_info("Evading for 4 MU")
-    local movement_inches = from_mu_to_in(4)
-    move_base_forward(base_obj, -movement_inches)
-  end
-  history_record_delta_snapshot()
+-- 83.1.a
+local no_collision = do_push_back(base_obj)
+if no_collision then
+-- 83.1.b move 4 MU directly to its rear
+print_info("Evading for 4 MU")
+local movement_inches = from_mu_to_in(4)
+move_base_forward(base_obj, -movement_inches)
+end
+history_record_delta_snapshot()
 end
 
 -- Move a base so it's curner is at the specified location.
@@ -389,41 +389,41 @@ end
 --
 -- The base is not rotated
 function move_corner_to_position(base_cache, corner_name, new_corner_pos)
-    local corners = base_cache.getCorners()
-    local original_corner_position = corners[corner_name]
-    local delta = vec_sub_3d(new_corner_pos, original_corner_position)
-    local position = base_cache.getPosition()
-    position = vec_add(position, delta)
-    base_cache.setPosition(position)
+local corners = base_cache.getCorners()
+local original_corner_position = corners[corner_name]
+local delta = vec_sub_3d(new_corner_pos, original_corner_position)
+local position = base_cache.getPosition()
+position = vec_add(position, delta)
+base_cache.setPosition(position)
 end
 
 
 function right_turn_to_face(base_obj)
-  local base_cache = build_base_cache(base_obj)
+local base_cache = build_base_cache(base_obj)
 
-  local corners = base_cache.getCorners()
-  local old_corner = corners['topright']
+local corners = base_cache.getCorners()
+local old_corner = corners['topright']
 
-  local rotation = base_cache.getRotation()
-  rotation['y'] = rotation['y'] + 90
-  base_cache.setRotation(rotation)
-  move_corner_to_position(base_cache, "topleft", old_corner)
+local rotation = base_cache.getRotation()
+rotation['y'] = rotation['y'] + 90
+base_cache.setRotation(rotation)
+move_corner_to_position(base_cache, "topleft", old_corner)
 
-  history_record_delta_snapshot()
+history_record_delta_snapshot()
 end
 
 function left_turn_to_face(base_obj)
-  local base_cache = build_base_cache(base_obj)
+local base_cache = build_base_cache(base_obj)
 
-  local corners = base_cache.getCorners()
-  local old_corner = corners['topleft']
+local corners = base_cache.getCorners()
+local old_corner = corners['topleft']
 
-  local rotation = base_cache.getRotation()
-  rotation['y'] = rotation['y'] - 90
-  base_cache.setRotation(rotation)
-  move_corner_to_position(base_cache, "topright", old_corner)
+local rotation = base_cache.getRotation()
+rotation['y'] = rotation['y'] - 90
+base_cache.setRotation(rotation)
+move_corner_to_position(base_cache, "topright", old_corner)
 
-  history_record_delta_snapshot()
+history_record_delta_snapshot()
 end
 
 -- Given a bunch of objects returns them in a column, which is
@@ -431,86 +431,86 @@ end
 -- of where they are relative to each other.
 -- Returns nil if it's not a column.
 function calculate_column(objs, transforms)
-    print_debug('Trying to detect if the given objects are a proper column')
-    local front_of = {}
-    local behind_of = {}
-    local not_connected = {}
-    for _, objA in ipairs(objs) do
-        local in_front = nil
-        local in_back = nil
+print_debug('Trying to detect if the given objects are a proper column')
+local front_of = {}
+local behind_of = {}
+local not_connected = {}
+for _, objA in ipairs(objs) do
+local in_front = nil
+local in_back = nil
 
-        for _, objB in ipairs(objs) do
-            local skip = false
-            if not_connected[objA] ~= nil and not_connected[objA][objB] == true then
-                skip = true
-            end
+for _, objB in ipairs(objs) do
+local skip = false
+if not_connected[objA] ~= nil and not_connected[objA][objB] == true then
+skip = true
+end
 
-            if objA == objB  then
-                skip = true
-            end
+if objA == objB  then
+skip = true
+end
 
-            if not equals_float(transforms[objA]['rotation'],
-                                transforms[objB]['rotation']) then
-                print_debug(objA.getName()
-                    .. ' doesn\'t have the same rotation ('
-                    .. transforms[objA]['rotation'] .. ') '
-                    .. 'as ' .. objB.getName() .. ' ('
-                    .. transforms[objB]['rotation'] .. ') '
-                    .. 'which means this column will not be valid.')
-                skip = true
-            end
+if not equals_float(transforms[objA]['rotation'],
+transforms[objB]['rotation']) then
+print_debug(objA.getName()
+.. ' doesn\'t have the same rotation ('
+.. transforms[objA]['rotation'] .. ') '
+.. 'as ' .. objB.getName() .. ' ('
+.. transforms[objB]['rotation'] .. ') '
+.. 'which means this column will not be valid.')
+skip = true
+end
 
-            if not skip then
-                if front_of[objA] == objB
-                   or is_behind(transforms[objA], transforms[objB]) then
-                    in_front = objB
-                elseif behind_of[objA] == objB
-                       or is_behind(transforms[objB], transforms[objA]) then
-                    in_back = objB
-                else
-                    if not_connected[objA] == nil then
-                        not_connected[objA] = {}
-                    end
-                    not_connected[objA][objB] = true
-                end
-            end
-        end
+if not skip then
+if front_of[objA] == objB
+or is_behind(transforms[objA], transforms[objB]) then
+in_front = objB
+elseif behind_of[objA] == objB
+or is_behind(transforms[objB], transforms[objA]) then
+in_back = objB
+else
+if not_connected[objA] == nil then
+not_connected[objA] = {}
+end
+not_connected[objA][objB] = true
+end
+end
+end
 
-        if in_front == nil and in_back == nil then
-            print_debug(objA.getName() .. ' is isolated and not part of a column')
-            return nil
-        end
+if in_front == nil and in_back == nil then
+print_debug(objA.getName() .. ' is isolated and not part of a column')
+return nil
+end
 
-        if in_front ~= nil then
-            front_of[objA] = in_front
-            behind_of[in_front] = objA
-            print_debug(objA.getName() .. ' has ' .. in_front.getName() .. ' in front')
-        end
-        if in_back ~= nil then
-            front_of[in_back] = objA
-            behind_of[objA] = in_back
-            print_debug(objA.getName() .. ' has ' .. in_back.getName() .. ' behind')
-        end
-    end
+if in_front ~= nil then
+front_of[objA] = in_front
+behind_of[in_front] = objA
+print_debug(objA.getName() .. ' has ' .. in_front.getName() .. ' in front')
+end
+if in_back ~= nil then
+front_of[in_back] = objA
+behind_of[objA] = in_back
+print_debug(objA.getName() .. ' has ' .. in_back.getName() .. ' behind')
+end
+end
 
-    local front_element = nil
-    for _, obj in ipairs(objs) do
-        if front_of[obj] == nil then
-            front_element = obj
-            break
-        end
-    end
+local front_element = nil
+for _, obj in ipairs(objs) do
+if front_of[obj] == nil then
+front_element = obj
+break
+end
+end
 
-    if front_element == nil then
-        print_debug('There\'s no front element in this column')
-        return nil
-    end
+if front_element == nil then
+print_debug('There\'s no front element in this column')
+return nil
+end
 
-    return {
-        front_of = front_of,
-        behind_of = behind_of,
-        front_element = front_element
-    }
+return {
+front_of = front_of,
+behind_of = behind_of,
+front_element = front_element
+}
 end
 
 -- Like calculate column, but for a group. Returns
@@ -523,221 +523,221 @@ end
 -- Each front_element correspond with the front of a column.
 -- All front elements are left_of or right of someone else
 function calculate_group(objs, transforms)
-    local front_of = {}
-    local behind_of = {}
-    local not_connected = {}
-    for _, objA in ipairs(objs) do
-        local in_front = nil
-        local in_back = nil
+local front_of = {}
+local behind_of = {}
+local not_connected = {}
+for _, objA in ipairs(objs) do
+local in_front = nil
+local in_back = nil
 
-        for _, objB in ipairs(objs) do
-            local skip = false
-            if not_connected[objA] ~= nil and not_connected[objA][objB] == true then
-                skip = true
-            end
+for _, objB in ipairs(objs) do
+local skip = false
+if not_connected[objA] ~= nil and not_connected[objA][objB] == true then
+skip = true
+end
 
-            if objA == objB  then
-                skip = true
-            end
+if objA == objB  then
+skip = true
+end
 
-            if not skip then
-                if front_of[objA] == objB
-                   or is_behind(transforms[objA], transforms[objB]) then
-                    in_front = objB
-                elseif behind_of[objA] == objB
-                       or is_behind(transforms[objB], transforms[objA]) then
-                    in_back = objB
-                else
-                    if not_connected[objA] == nil then
-                        not_connected[objA] = {}
-                    end
-                    not_connected[objA][objB] = true
-                end
-            end
-        end
+if not skip then
+if front_of[objA] == objB
+or is_behind(transforms[objA], transforms[objB]) then
+in_front = objB
+elseif behind_of[objA] == objB
+or is_behind(transforms[objB], transforms[objA]) then
+in_back = objB
+else
+if not_connected[objA] == nil then
+not_connected[objA] = {}
+end
+not_connected[objA][objB] = true
+end
+end
+end
 
-        if in_front ~= nil then
-            front_of[objA] = in_front
-            behind_of[in_front] = objA
-        end
-        if in_back ~= nil then
-            front_of[in_back] = objA
-            behind_of[objA] = in_back
-        end
-    end
+if in_front ~= nil then
+front_of[objA] = in_front
+behind_of[in_front] = objA
+end
+if in_back ~= nil then
+front_of[in_back] = objA
+behind_of[objA] = in_back
+end
+end
 
-    local col_index = 0
-    local cols = {}
-    for _, obj in ipairs(objs) do
-        if front_of[obj] ~= nil then
-            if cols[front_of[obj]] ~= nil then
-                -- This belongs to the same column
-                cols[obj] = cols[front_of[obj]]
-            else
-                -- Neither belong to a column yet, add it
-                cols[obj] = col_index
-                col_index = col_index + 1
-            end
-        elseif behind_of[obj] ~= nil then
-            if cols[behind_of[obj]] ~= nil then
-                -- This belongs to the same column
-                cols[obj] = cols[behind_of[obj]]
-            else
-                -- Neither belong to a column yet, add it
-                cols[obj] = col_index
-                col_index = col_index + 1
-            end
-        else
-            -- Column of one element
-            cols[obj] = col_index
-            col_index = col_index + 1
-        end
-    end
+local col_index = 0
+local cols = {}
+for _, obj in ipairs(objs) do
+if front_of[obj] ~= nil then
+if cols[front_of[obj]] ~= nil then
+-- This belongs to the same column
+cols[obj] = cols[front_of[obj]]
+else
+-- Neither belong to a column yet, add it
+cols[obj] = col_index
+col_index = col_index + 1
+end
+elseif behind_of[obj] ~= nil then
+if cols[behind_of[obj]] ~= nil then
+-- This belongs to the same column
+cols[obj] = cols[behind_of[obj]]
+else
+-- Neither belong to a column yet, add it
+cols[obj] = col_index
+col_index = col_index + 1
+end
+else
+-- Column of one element
+cols[obj] = col_index
+col_index = col_index + 1
+end
+end
 
-    local front_elements = {}
-    local max_col_depth = 0
-    for i = 0, col_index-1 do
-        local col_depth = 0
-        for obj, col in pairs(cols) do
-            if col == i then
-                if front_of[obj] == nil then
-                    front_elements[col] = obj
-                end
-                col_depth = col_depth + get_size(obj.getName())['z'];
-            end
-        end
-        if col_depth > max_col_depth then
-            max_col_depth = col_depth
-        end
-    end
+local front_elements = {}
+local max_col_depth = 0
+for i = 0, col_index-1 do
+local col_depth = 0
+for obj, col in pairs(cols) do
+if col == i then
+if front_of[obj] == nil then
+front_elements[col] = obj
+end
+col_depth = col_depth + get_size(obj.getName())['z'];
+end
+end
+if col_depth > max_col_depth then
+max_col_depth = col_depth
+end
+end
 
-    local not_connected = {}
-    local left_of = {}
-    local right_of = {}
-    for _, objA in pairs(front_elements) do
-        local in_left = nil
-        local in_right = nil
+local not_connected = {}
+local left_of = {}
+local right_of = {}
+for _, objA in pairs(front_elements) do
+local in_left = nil
+local in_right = nil
 
-        for _, objB in pairs(front_elements) do
-            local skip = false
-            if not_connected[objA] ~= nil and not_connected[objA][objB] == true then
-                skip = true
-            end
+for _, objB in pairs(front_elements) do
+local skip = false
+if not_connected[objA] ~= nil and not_connected[objA][objB] == true then
+skip = true
+end
 
-            if objA == objB  then
-                skip = true
-            end
+if objA == objB  then
+skip = true
+end
 
-            if not skip then
-                if right_of[objA] == objB
-                   or is_left_side(transforms[objA], transforms[objB]) then
-                    print_debug(objA.getName() .. ' is to the left of ' .. objB.getName())
-                    in_right = objB
-                elseif left_of[objA] == objB
-                       or is_right_side(transforms[objA], transforms[objB]) then
-                    print_debug(objA.getName() .. ' is to the right of ' .. objB.getName())
-                    in_left = objB
-                else
-                    print_debug(objA.getName() .. ' is not connected to ' .. objB.getName())
-                    if not_connected[objA] == nil then
-                        not_connected[objA] = {}
-                    end
-                    not_connected[objA][objB] = true
-                end
-            end
-        end
+if not skip then
+if right_of[objA] == objB
+or is_left_side(transforms[objA], transforms[objB]) then
+print_debug(objA.getName() .. ' is to the left of ' .. objB.getName())
+in_right = objB
+elseif left_of[objA] == objB
+or is_right_side(transforms[objA], transforms[objB]) then
+print_debug(objA.getName() .. ' is to the right of ' .. objB.getName())
+in_left = objB
+else
+print_debug(objA.getName() .. ' is not connected to ' .. objB.getName())
+if not_connected[objA] == nil then
+not_connected[objA] = {}
+end
+not_connected[objA][objB] = true
+end
+end
+end
 
-        if in_left == nil and in_right == nil then
-            -- This shouild only happen if there's only one column
-            if col_index > 1 then
-                return nil
-            end
-        end
+if in_left == nil and in_right == nil then
+-- This shouild only happen if there's only one column
+if col_index > 1 then
+return nil
+end
+end
 
-        if in_left ~= nil then
-            left_of[objA] = in_left
-            right_of[in_left] = objA
-        end
-        if in_right ~= nil then
-            left_of[in_right] = objA
-            right_of[objA] = in_right
-        end
-    end
+if in_left ~= nil then
+left_of[objA] = in_left
+right_of[in_left] = objA
+end
+if in_right ~= nil then
+left_of[in_right] = objA
+right_of[objA] = in_right
+end
+end
 
-    local leftmost = nil
-    local rightmost = nil
-    for _, obj in pairs(front_elements) do
-        if left_of[obj] == nil then
-            leftmost = obj
-        end
-        if right_of[obj] == nil then
-            rightmost = obj
-        end
-    end
+local leftmost = nil
+local rightmost = nil
+for _, obj in pairs(front_elements) do
+if left_of[obj] == nil then
+leftmost = obj
+end
+if right_of[obj] == nil then
+rightmost = obj
+end
+end
 
-    return {
-        front_of = front_of,
-        behind_of = behind_of,
-        front_elements = front_elements,
-        leftmost = leftmost,
-        rightmost = rightmost,
-        depth = max_col_depth
-    }
+return {
+front_of = front_of,
+behind_of = behind_of,
+front_elements = front_elements,
+leftmost = leftmost,
+rightmost = rightmost,
+depth = max_col_depth
+}
 end
 
 -- Pushes back a whole column, that may not be exactly aligned
 function push_back_column(objs)
-    -- We use many comparisons for the column so we precalculate all the
-    -- transforms
-    local transforms = {}
-    for _, obj in ipairs(objs) do
-        transforms[obj] = calculate_transform(obj)
-    end
+-- We use many comparisons for the column so we precalculate all the
+-- transforms
+local transforms = {}
+for _, obj in ipairs(objs) do
+transforms[obj] = calculate_transform(obj)
+end
 
-    local column = calculate_column(objs, transforms)
-    if column == nil then
-        print_warning('Trying to push back but it\'s not a proper column')
-        return
-    end
+local column = calculate_column(objs, transforms)
+if column == nil then
+print_warning('Trying to push back but it\'s not a proper column')
+return
+end
 
-    local behind_of = column['behind_of']
-    local front_element = column['front_element']
+local behind_of = column['behind_of']
+local front_element = column['front_element']
 
-    local base_depth = get_size(front_element.getName())['z']
-    local distance = base_depth
-    if distance > g_two_movement_units_in_inches then
-        distance = g_two_movement_units_in_inches
-    end
+local base_depth = get_size(front_element.getName())['z']
+local distance = base_depth
+if distance > g_two_movement_units_in_inches then
+distance = g_two_movement_units_in_inches
+end
 
-    local angle = from_degrees_to_rad(front_element.getRotation())['y']
-    angle = angle + math.pi
-    if angle > 2*math.pi then
-        angle = angle - 2*math.pi
-    end
+local angle = from_degrees_to_rad(front_element.getRotation())['y']
+angle = angle + math.pi
+if angle > 2*math.pi then
+angle = angle - 2*math.pi
+end
 
 
-    -- Move the front_element fist, then align the others to its back
-    local displacement_vector = rad_to_vector(angle)
-    local destination = vec_add(front_element.getPosition(), vec_mul_escalar(displacement_vector, distance))
-    front_element.setPosition(destination)
+-- Move the front_element fist, then align the others to its back
+local displacement_vector = rad_to_vector(angle)
+local destination = vec_add(front_element.getPosition(), vec_mul_escalar(displacement_vector, distance))
+front_element.setPosition(destination)
 
-    local magnitude = base_depth / 2
-    local next_element = behind_of[front_element]
-    while next_element ~= nil do
-        next_element.setRotation(front_element.getRotation())
+local magnitude = base_depth / 2
+local next_element = behind_of[front_element]
+while next_element ~= nil do
+next_element.setRotation(front_element.getRotation())
 
-        base_depth = get_size(next_element.getName())['z']
-        magnitude = magnitude + base_depth / 2
-        local next_destination = vec_add(destination, vec_mul_escalar(displacement_vector, magnitude))
-        next_element.setPosition(next_destination)
+base_depth = get_size(next_element.getName())['z']
+magnitude = magnitude + base_depth / 2
+local next_destination = vec_add(destination, vec_mul_escalar(displacement_vector, magnitude))
+next_element.setPosition(next_destination)
 
-        front_element = next_element
-        next_element = behind_of[next_element]
+front_element = next_element
+next_element = behind_of[next_element]
 
-        magnitude = magnitude + base_depth / 2
-    end
+magnitude = magnitude + base_depth / 2
+end
 
-    history_record_delta_snapshot()
+history_record_delta_snapshot()
 end
 
 -- Calculates the future position of the given group of objs, assuming a wheel
@@ -752,140 +752,140 @@ g_current_wheel_group = nil
 g_current_wheel_transforms = nil
 g_current_wheel_newtransforms = nil
 function wheel_group(objs, angle, direction)
-    -- HC SVNT DRACONES
-    if g_current_wheel_group == nil then
-        -- We use many comparisons for the column so we precalculate all the
-        -- transforms
-        local transforms = {}
-        for _, obj in ipairs(objs) do
-            transforms[obj] = calculate_transform(obj)
-        end
+-- HC SVNT DRACONES
+if g_current_wheel_group == nil then
+-- We use many comparisons for the column so we precalculate all the
+-- transforms
+local transforms = {}
+for _, obj in ipairs(objs) do
+transforms[obj] = calculate_transform(obj)
+end
 
-        g_current_wheel_group = calculate_group(objs, transforms)
-        if g_current_wheel_group == nil then
-            print_warning('Trying to wheel but it\'s not a proper group')
-            return -1
-        end
+g_current_wheel_group = calculate_group(objs, transforms)
+if g_current_wheel_group == nil then
+print_warning('Trying to wheel but it\'s not a proper group')
+return -1
+end
 
-        g_current_wheel_transforms = transforms
-    end
+g_current_wheel_transforms = transforms
+end
 
-    local transform_pivot = g_current_wheel_transforms[g_current_wheel_group['leftmost']]
-    local pivot_point = transform_pivot['corners']['topleft']
-    if direction == 'right' then
-        transform_pivot = g_current_wheel_transforms[g_current_wheel_group['rightmost']]
-        pivot_point = transform_pivot['corners']['topright']
-    end
+local transform_pivot = g_current_wheel_transforms[g_current_wheel_group['leftmost']]
+local pivot_point = transform_pivot['corners']['topleft']
+if direction == 'right' then
+transform_pivot = g_current_wheel_transforms[g_current_wheel_group['rightmost']]
+pivot_point = transform_pivot['corners']['topright']
+end
 
-    local front_elements = g_current_wheel_group['front_elements']
-    local furthest_element = nil
-    local furthest_element_distance = 0
-    for col, front_element in pairs(front_elements) do
-        local transform = g_current_wheel_transforms[front_element]
-        local distance = distance_points_flat_sq(pivot_point, transform['position'])
-        if distance > furthest_element_distance then
-            furthest_element_distance = distance
-            furthest_element = front_element
-        end
-    end
+local front_elements = g_current_wheel_group['front_elements']
+local furthest_element = nil
+local furthest_element_distance = 0
+for col, front_element in pairs(front_elements) do
+local transform = g_current_wheel_transforms[front_element]
+local distance = distance_points_flat_sq(pivot_point, transform['position'])
+if distance > furthest_element_distance then
+furthest_element_distance = distance
+furthest_element = front_element
+end
+end
 
-    local behind_of = g_current_wheel_group['behind_of']
-    local depth = g_current_wheel_group['depth']
+local behind_of = g_current_wheel_group['behind_of']
+local depth = g_current_wheel_group['depth']
 
-    local new_transforms = {}
-    for col, front_element in pairs(front_elements) do
-        new_transforms[front_element] = calculate_future_position_wheel(
-            front_element,
-            g_current_wheel_transforms[front_element],
-            pivot_point,
-            angle,
-            direction == 'left',
-            depth)
-        local current_element = front_element
-        while behind_of[current_element] ~= nil do
-            current_element = behind_of[current_element]
+local new_transforms = {}
+for col, front_element in pairs(front_elements) do
+new_transforms[front_element] = calculate_future_position_wheel(
+front_element,
+g_current_wheel_transforms[front_element],
+pivot_point,
+angle,
+direction == 'left',
+depth)
+local current_element = front_element
+while behind_of[current_element] ~= nil do
+current_element = behind_of[current_element]
 
-            new_transforms[current_element] = calculate_future_position_wheel(
-                current_element,
-                g_current_wheel_transforms[current_element],
-                pivot_point,
-                angle,
-                direction == 'left',
-                depth)
-        end
-    end
-    draw_gizmo_wheeling(new_transforms)
+new_transforms[current_element] = calculate_future_position_wheel(
+current_element,
+g_current_wheel_transforms[current_element],
+pivot_point,
+angle,
+direction == 'left',
+depth)
+end
+end
+draw_gizmo_wheeling(new_transforms)
 
-    local max_movement_distance = 0
-    if direction == 'right' then
-        max_movement_distance = distance_points_flat(
-            g_current_wheel_transforms[furthest_element]['corners']['topleft'],
-            new_transforms[furthest_element]['corners']['topleft'])
-    else
-        max_movement_distance = distance_points_flat(
-            g_current_wheel_transforms[furthest_element]['corners']['topright'],
-            new_transforms[furthest_element]['corners']['topright'])
-    end
-    g_current_wheel_newtransforms = new_transforms
-    return max_movement_distance
+local max_movement_distance = 0
+if direction == 'right' then
+max_movement_distance = distance_points_flat(
+g_current_wheel_transforms[furthest_element]['corners']['topleft'],
+new_transforms[furthest_element]['corners']['topleft'])
+else
+max_movement_distance = distance_points_flat(
+g_current_wheel_transforms[furthest_element]['corners']['topright'],
+new_transforms[furthest_element]['corners']['topright'])
+end
+g_current_wheel_newtransforms = new_transforms
+return max_movement_distance
 end
 
 function apply_transform_obj(base_obj, old_transform, new_transform)
-    local distance = max_distance_between_bases_front_corners(old_transform['corners'], new_transform['corners'])
-    local mu = inches_to_mu_display_string(distance)
-    print_info('Base ' .. base_obj.getName() .. ' is moving ' .. mu)
-    base_obj.setPosition(new_transform['position'])
-    base_obj.setRotation(transform_to_rotation_vector(new_transform))
+local distance = max_distance_between_bases_front_corners(old_transform['corners'], new_transform['corners'])
+local mu = inches_to_mu_display_string(distance)
+print_info('Base ' .. base_obj.getName() .. ' is moving ' .. mu)
+base_obj.setPosition(new_transform['position'])
+base_obj.setRotation(transform_to_rotation_vector(new_transform))
 end
 
 function perform_wheels()
-    local new_transforms = g_current_wheel_newtransforms
-    local old_transforms = g_current_wheel_transforms
-    local front_elements = g_current_wheel_group['front_elements']
-    local behind_of = g_current_wheel_group['behind_of']
+local new_transforms = g_current_wheel_newtransforms
+local old_transforms = g_current_wheel_transforms
+local front_elements = g_current_wheel_group['front_elements']
+local behind_of = g_current_wheel_group['behind_of']
 
-    for col, front_element in pairs(front_elements) do
-        local current_element = front_element
-        apply_transform_obj(current_element,
-            old_transforms[current_element],
-            new_transforms[current_element])
-        while behind_of[current_element] ~= nil do
-            current_element = behind_of[current_element]
-            apply_transform_obj(current_element,
-                old_transforms[current_element],
-                new_transforms[current_element])
-        end
-    end
-    history_record_delta_snapshot()
+for col, front_element in pairs(front_elements) do
+local current_element = front_element
+apply_transform_obj(current_element,
+old_transforms[current_element],
+new_transforms[current_element])
+while behind_of[current_element] ~= nil do
+current_element = behind_of[current_element]
+apply_transform_obj(current_element,
+old_transforms[current_element],
+new_transforms[current_element])
+end
+end
+history_record_delta_snapshot()
 end
 
 function calculate_future_position_wheel(obj, transform, pivot_point, angle, is_left, depth)
-    local new_angle = positive_angle(transform['rotation'] + angle)
-    local effective_angle = angle
-    if not is_left then
-        new_angle = positive_angle(transform['rotation'] - angle)
-        effective_angle = -angle
-    end
+local new_angle = positive_angle(transform['rotation'] + angle)
+local effective_angle = angle
+if not is_left then
+new_angle = positive_angle(transform['rotation'] - angle)
+effective_angle = -angle
+end
 
-    local new_pos = rotate_point(transform['position'], pivot_point, effective_angle)
-    local size = get_size(obj.getName())
-    local new_corners = compute_corners_coords(size, new_angle, new_pos)
+local new_pos = rotate_point(transform['position'], pivot_point, effective_angle)
+local size = get_size(obj.getName())
+local new_corners = compute_corners_coords(size, new_angle, new_pos)
 
-    return get_transform(new_pos, new_corners, new_angle)
+return get_transform(new_pos, new_corners, new_angle)
 end
 
 
 function transform_to_shape(transform)
-  local corners=transform['corners']
-  return corners_to_shape(corners)
+local corners=transform['corners']
+return corners_to_shape(corners)
 end
 
 function corners_to_shape(corners)
-  local shape={
-    corners['topright'], corners['topleft'], corners['botleft'],
-    corners['botright']
-  }
-  return shape
+local shape={
+corners['topright'], corners['topleft'], corners['botleft'],
+corners['botright']
+}
+return shape
 end
 
 -- get a shape that defines a quarter of a base.
@@ -893,27 +893,27 @@ end
 -- quadrant: "topright", "topleft", "botright", or "botleft"
 -- return the shape of the quadrant
 function base_quadrant_shape(transform, quadrant)
-  local corners = transform['corners']
-  local mid = mid_point(corners)
-  if quadrant == "topleft" then
-    local topmid = mid_point(corners['topleft'], corners['topright'])
-    local midleft = mid_point(corners['topleft'], corners['botleft'])
-    return { corners['topleft'], topmid, mid, midleft }
-  end
-  if quadrant == "topright" then
-    local topmid = mid_point(corners['topleft'], corners['topright'])
-    local midright = mid_point(corners['topright'], corners['botright'])
-    return { corners['topright'], topmid, mid, midright }
-  end
-  if quadrant == "botleft" then
-    local botmid = mid_point(corners['botleft'], corners['botright'])
-    local midleft = mid_point(corners['topleft'], corners['botleft'])
-    return { corners['botleft'], botmid, mid, midleft }
-  end
-  -- botright
-  local botmid = mid_point(corners['botleft'], corners['botright'])
-  local midright = mid_point(corners['topright'], corners['botright'])
-  return { corners['botright'], botmid, mid, midright }
+local corners = transform['corners']
+local mid = mid_point(corners)
+if quadrant == "topleft" then
+local topmid = mid_point(corners['topleft'], corners['topright'])
+local midleft = mid_point(corners['topleft'], corners['botleft'])
+return { corners['topleft'], topmid, mid, midleft }
+end
+if quadrant == "topright" then
+local topmid = mid_point(corners['topleft'], corners['topright'])
+local midright = mid_point(corners['topright'], corners['botright'])
+return { corners['topright'], topmid, mid, midright }
+end
+if quadrant == "botleft" then
+local botmid = mid_point(corners['botleft'], corners['botright'])
+local midleft = mid_point(corners['topleft'], corners['botleft'])
+return { corners['botleft'], botmid, mid, midleft }
+end
+-- botright
+local botmid = mid_point(corners['botleft'], corners['botright'])
+local midright = mid_point(corners['topright'], corners['botright'])
+return { corners['botright'], botmid, mid, midright }
 end
 
 
@@ -922,29 +922,29 @@ end
 -- Second corner is transformB[cornerBLabel]
 -- return is the square of the distance
 function corner_snapping_distance(transformA, transformB, cornerALabel,cornerBLabel)
-  local cornersA = transformA['corners']
-  local cornersB = transformB['corners']
-  local pointA = cornersA [ cornerALabel ]
-  local pointB = cornersB [ cornerBLabel ]
-  local distance_sq = distance_points_flat_sq(pointA, pointB)
-  return distance_sq
+local cornersA = transformA['corners']
+local cornersB = transformB['corners']
+local pointA = cornersA [ cornerALabel ]
+local pointB = cornersB [ cornerBLabel ]
+local distance_sq = distance_points_flat_sq(pointA, pointB)
+return distance_sq
 end
 
 -- How close are the set of corners that should be together.
 -- Return the maximum (distance^2) between the pairs.
 function corners_snapping_distance(transformA, transformB, matching_corners)
-  local result = 0
-  for _,pair in ipairs(matching_corners) do
-    local d2 = corner_snapping_distance(transformA, transformB, pair[1], pair[2])
-    result = math.max(result, d2)
-  end
-  return result
+local result = 0
+for _,pair in ipairs(matching_corners) do
+local d2 = corner_snapping_distance(transformA, transformB, pair[1], pair[2])
+result = math.max(result, d2)
+end
+return result
 end
 
 -- Are two edges considered to be touching each other.
 -- Distance between the corners squared.
 function is_corners_adjacent(distance_sq)
-  return distance_sq < g_max_corner_distance_snap_sq
+return distance_sq < g_max_corner_distance_snap_sq
 end
 
 -- Checks if the object A defined by its transform is inmediately behind
@@ -964,24 +964,24 @@ end
 --    +---------+
 --
 function distance_front_to_back(transformA, transformB)
-    local angleA = transformA['rotation']
-    local angleB = transformB['rotation']
-    if not is_rad_angle_diff(angleA, angleB, 0) then
-       -- Angle is too different, skip
-       return math.huge
-    end
+local angleA = transformA['rotation']
+local angleB = transformB['rotation']
+if not is_rad_angle_diff(angleA, angleB, 0) then
+-- Angle is too different, skip
+return math.huge
+end
 
-    local matching_corners = {
-        {'topright', 'botright'},
-        {'topleft', 'botleft'}
-    }
+local matching_corners = {
+{'topright', 'botright'},
+{'topleft', 'botleft'}
+}
 
-    return corners_snapping_distance(transformA, transformB, matching_corners)
+return corners_snapping_distance(transformA, transformB, matching_corners)
 end
 
 
 function is_behind(transformA, transformB)
-  return is_corners_adjacent(distance_front_to_back(transformA, transformB))
+return is_corners_adjacent(distance_front_to_back(transformA, transformB))
 end
 
 -- Determines if A is to the left of B
@@ -995,24 +995,24 @@ end
 --   +----------+---------+
 --
 function distance_right_to_left_side(transformA, transformB)
-    local angleA = transformA['rotation']
-    local angleB = transformB['rotation']
-    if not is_rad_angle_diff(angleA, angleB, 0) then
-       -- Angle is too different, skip
-       return math.huge
-    end
+local angleA = transformA['rotation']
+local angleB = transformB['rotation']
+if not is_rad_angle_diff(angleA, angleB, 0) then
+-- Angle is too different, skip
+return math.huge
+end
 
-    local matching_corners = {
-        {'topright', 'topleft'}
-    }
-    -- Note: We do not check the bottom because bases may be of different
-    -- sizes and we already check the angle
+local matching_corners = {
+{'topright', 'topleft'}
+}
+-- Note: We do not check the bottom because bases may be of different
+-- sizes and we already check the angle
 
-    return corners_snapping_distance(transformA, transformB, matching_corners)
+return corners_snapping_distance(transformA, transformB, matching_corners)
 end
 
 function is_left_side(transformA, transformB)
-  return is_corners_adjacent(distance_right_to_left_side(transformA, transformB))
+return is_corners_adjacent(distance_right_to_left_side(transformA, transformB))
 end
 
 -- Determines if A is to the right of B
@@ -1026,11 +1026,11 @@ end
 --   +----------+---------+
 --
 function distance_left_to_right_side(transformA, transformB)
-  return distance_right_to_left_side(transformB, transformA)
+return distance_right_to_left_side(transformB, transformA)
 end
 
 function is_right_side(transformA, transformB)
-  return is_corners_adjacent(distance_left_to_right_side(transformA, transformB))
+return is_corners_adjacent(distance_left_to_right_side(transformA, transformB))
 end
 
 -- Determines if A is in front of B
@@ -1049,11 +1049,11 @@ end
 --    +---------+
 --
 function distance_back_to_front(transformA, transformB)
-  return distance_front_to_back(transformB, transformA)
+return distance_front_to_back(transformB, transformA)
 end
 
 function is_infront(transformA, transformB)
-  return is_corners_adjacent(distance_back_to_front(transformA, transformB))
+return is_corners_adjacent(distance_back_to_front(transformA, transformB))
 end
 
 
@@ -1073,9 +1073,9 @@ base_depth_by_troop_type['Elite Foot']=15
 base_depth_by_troop_type['Heavy Foot']=15
 base_depth_by_troop_type['Horde']=40
 base_depth_by_troop_type['Pavisiers']=40
-   -- Appendix A uses "Pike"
+-- Appendix A uses "Pike"
 base_depth_by_troop_type['Pikes']=15
-  -- Appendix A uses "Spear"
+-- Appendix A uses "Spear"
 base_depth_by_troop_type['Spears']=15
 base_depth_by_troop_type['War Wagons']=40
 base_depth_by_troop_type['Warriors']=15
@@ -1092,85 +1092,85 @@ base_depth_by_troop_type['Camp']=40
 
 -- @return Depth in millimeters
 function get_base_depth_from_base_definition(base_definition)
-  if base_definition == nil then
-    print_error('base definition is nil')
-    return 40
-  end
+if base_definition == nil then
+print_error('base definition is nil')
+return 40
+end
 
-  if nil ~= base_definition['mobile_infantry'] then
-    -- Battle card Mobile Infanty.  Always on square base.
-    return 40
-  end
-  local troop_type = base_definition['troop_type']
-  if troop_type == nil then
-    print_error('troop type missing from base definition.')
-    return 40 -- dummy value
-  end
-  if troop_type == 'Elite Foot' then
-    return 15
-  end
-  local depth = base_depth_by_troop_type[troop_type]
-  if depth == nil then
-    print_error("No depth for : '" .. tostring(troop_type))
-    return 40 -- dummy value
-  end
-  return depth
+if nil ~= base_definition['mobile_infantry'] then
+-- Battle card Mobile Infanty.  Always on square base.
+return 40
+end
+local troop_type = base_definition['troop_type']
+if troop_type == nil then
+print_error('troop type missing from base definition.')
+return 40 -- dummy value
+end
+if troop_type == 'Elite Foot' then
+return 15
+end
+local depth = base_depth_by_troop_type[troop_type]
+if depth == nil then
+print_error("No depth for : '" .. tostring(troop_type))
+return 40 -- dummy value
+end
+return depth
 end
 
 -- tile_name: string.  e.g. 'tile_plain_War_Wagon'  Name of the
 -- variable that contains the information for a tile.
 function get_depth_base(tile_name)
-    local base_data = _G[tile_name]
-    if base_data == nil then
-      print_error("No variable " .. tostring(tile_name))
-      assert(false)
-    end
-    local depth = base_data['depth']
-    if depth == nil then
-      print_error("No depth for tile " .. tostring(tile_name))
-      assert(false)
-    end
-    return from_mm_to_in(depth)
+local base_data = _G[tile_name]
+if base_data == nil then
+print_error("No variable " .. tostring(tile_name))
+assert(false)
+end
+local depth = base_data['depth']
+if depth == nil then
+print_error("No depth for tile " .. tostring(tile_name))
+assert(false)
+end
+return from_mm_to_in(depth)
 end
 
 -- Returns the size of a base
 -- base_name: name of the base
 -- return: table x= width in inches, y=height in inches, z = depth in inches
 function get_size(base_name)
-  local tile = g_bases[base_name]['tile']
-  return {
-        x = g_base_width_in_inches,
-        y = g_base_height_inches,
-        z = get_depth_base(tile)
-  }
+local tile = g_bases[base_name]['tile']
+return {
+x = g_base_width_in_inches,
+y = g_base_height_inches,
+z = get_depth_base(tile)
+}
 end
 
 function is_base_red_player(base_obj)
-  local color = get_decoration_for_obj(base_obj, "player_color")
-  return color == "RED"
+local color = get_decoration_for_obj(base_obj, "player_color")
+return color == "RED"
 end
 
 function is_base_blue_player(base_obj)
-  local color = get_decoration_for_obj(base_obj, "player_color")
-  return color == "BLUE"
+local color = get_decoration_for_obj(base_obj, "player_color")
+return color == "BLUE"
 end
 
 function max_distance_between_bases(base1_corners, base2_corners)
-    return compute_max_array({
-        distance_points_flat(base1_corners['topright'], base2_corners['topright']),
-        distance_points_flat(base1_corners['topleft'], base2_corners['topleft']),
-        distance_points_flat(base1_corners['botright'], base2_corners['botright']),
-        distance_points_flat(base1_corners['botleft'], base2_corners['botleft'])
-    })
+return compute_max_array({
+distance_points_flat(base1_corners['topright'], base2_corners['topright']),
+distance_points_flat(base1_corners['topleft'], base2_corners['topleft']),
+distance_points_flat(base1_corners['botright'], base2_corners['botright']),
+distance_points_flat(base1_corners['botleft'], base2_corners['botleft'])
+})
 end
 
 -- On tactical moves, you only use the front corners to measure, even if the
 -- back corner moves more!
 function max_distance_between_bases_front_corners(base1_corners, base2_corners)
-    return compute_max_array({
-        distance_points_flat(base1_corners['topright'], base2_corners['topright']),
-        distance_points_flat(base1_corners['topleft'], base2_corners['topleft'])
-    })
+return compute_max_array({
+distance_points_flat(base1_corners['topright'], base2_corners['topright']),
+distance_points_flat(base1_corners['topleft'], base2_corners['topleft'])
+})
 end
 
 -- All the objects being picked up.  Key us the object, value is the
@@ -1183,102 +1183,102 @@ g_picked_base = nil
 g_picked_base_initial_transform = nil
 
 function onObjectPickUp(player_color,  picked_up_object)
-    -- record the objects that are up in the air
-    if is_base_obj(picked_up_object) then
-      g_picked_base_objects[picked_up_object] = calculate_transform(picked_up_object)
-    end
+-- record the objects that are up in the air
+if is_base_obj(picked_up_object) then
+g_picked_base_objects[picked_up_object] = calculate_transform(picked_up_object)
+end
 
-    if g_bases[picked_up_object.getName()] == nil then
-        return
-    end
+if g_bases[picked_up_object.getName()] == nil then
+return
+end
 
-    local objs = filter_bases(Player[player_color].getSelectedObjects())
+local objs = filter_bases(Player[player_color].getSelectedObjects())
 
 
-    local n_objs = tlen(objs)
-    if n_objs > 1 then
-        -- Ignoring this, we don't want to print the circle for more than one unit
-        return
-    end
+local n_objs = tlen(objs)
+if n_objs > 1 then
+-- Ignoring this, we don't want to print the circle for more than one unit
+return
+end
 
-    if g_movement_reporting_enabled == true then
-      if g_picked_base ~= nil then
-        print_warning("There's already a player picking up an object. Please, wait until he finishes moving.")
-        return
-      end
-    end
+if g_movement_reporting_enabled == true then
+if g_picked_base ~= nil then
+print_warning("There's already a player picking up an object. Please, wait until he finishes moving.")
+return
+end
+end
 
-    g_picked_base_initial_transform = calculate_transform(picked_up_object)
-    g_picked_base = {
-      obj = picked_up_object,
-      initial_position = picked_up_object.getPosition(),
-      initial_rotation = picked_up_object.getRotation(),
-      initial_transform = g_picked_base_initial_transform
-    }
+g_picked_base_initial_transform = calculate_transform(picked_up_object)
+g_picked_base = {
+obj = picked_up_object,
+initial_position = picked_up_object.getPosition(),
+initial_rotation = picked_up_object.getRotation(),
+initial_transform = g_picked_base_initial_transform
+}
 
-    -- Bump up the object a bit in height so it does not get stuck in
-    -- terrain.
-    local pos = picked_up_object.getPosition()
-    pos.y = pos.y + 0.5
-    picked_up_object.setPosition(pos)
+-- Bump up the object a bit in height so it does not get stuck in
+-- terrain.
+local pos = picked_up_object.getPosition()
+pos.y = pos.y + 0.5
+picked_up_object.setPosition(pos)
 
-    draw_all_gizmos()
+draw_all_gizmos()
 end
 
 function snap_to_base(obj, transformObj, base, transformBase, direction)
-    print_info(obj.getName() .. ' is snapping to ' .. base.getName() .. ', ' .. direction)
-    local new_rotation = base.getRotation()
-    if direction == 'opposite' then
-        local new_y = 0
-        if direction == 'opposite' then
-            new_y = new_rotation['y'] + 180
-        end
-        if new_y >= 360 then
-            new_y = new_y - 360
-        elseif new_y < 0 then
-            new_y = new_y + 360
-        end
-        new_rotation['y'] = new_y
-    end
-    obj.setRotation(new_rotation)
+print_info(obj.getName() .. ' is snapping to ' .. base.getName() .. ', ' .. direction)
+local new_rotation = base.getRotation()
+if direction == 'opposite' then
+local new_y = 0
+if direction == 'opposite' then
+new_y = new_rotation['y'] + 180
+end
+if new_y >= 360 then
+new_y = new_y - 360
+elseif new_y < 0 then
+new_y = new_y + 360
+end
+new_rotation['y'] = new_y
+end
+obj.setRotation(new_rotation)
 
-    local sizeObj = get_size(obj.getName())
-    local sizeBase = get_size(base.getName())
+local sizeObj = get_size(obj.getName())
+local sizeBase = get_size(base.getName())
 
-    local relative_pos = {x = 0, y = 0, z = 0 }
+local relative_pos = {x = 0, y = 0, z = 0 }
 
-    if direction == 'infront' or direction == 'opposite' then
-        relative_pos['z'] = sizeObj['z'] / 2 + sizeBase['z'] / 2
-    elseif direction == 'behind' then
-        relative_pos['z'] = -1*(sizeObj['z'] / 2 + sizeBase['z'] / 2)
-    elseif direction == 'right' then
-        -- Since bases maybe of different sizes, we need to align the front
-        relative_pos['x'] = sizeObj['x'] / 2 + sizeBase['x'] / 2
-        relative_pos['z'] = -1*(sizeObj['z'] - sizeBase['z']) / 2
-    elseif direction == 'left' then
-        relative_pos['x'] = -1*(sizeObj['x'] / 2 + sizeBase['x'] / 2)
-        relative_pos['z'] = -1*(sizeObj['z'] - sizeBase['z']) / 2
-    else
-      print_error('Tried to snap ' .. obj.getName() .. ' in unknown direction ' .. direction)
-      return
-    end
+if direction == 'infront' or direction == 'opposite' then
+relative_pos['z'] = sizeObj['z'] / 2 + sizeBase['z'] / 2
+elseif direction == 'behind' then
+relative_pos['z'] = -1*(sizeObj['z'] / 2 + sizeBase['z'] / 2)
+elseif direction == 'right' then
+-- Since bases maybe of different sizes, we need to align the front
+relative_pos['x'] = sizeObj['x'] / 2 + sizeBase['x'] / 2
+relative_pos['z'] = -1*(sizeObj['z'] - sizeBase['z']) / 2
+elseif direction == 'left' then
+relative_pos['x'] = -1*(sizeObj['x'] / 2 + sizeBase['x'] / 2)
+relative_pos['z'] = -1*(sizeObj['z'] - sizeBase['z']) / 2
+else
+print_error('Tried to snap ' .. obj.getName() .. ' in unknown direction ' .. direction)
+return
+end
 
-    local new_pos = rotate_point_relative(
-        relative_pos, transformBase['position'], transformBase['rotation'])
-    new_pos['y'] = transformBase['position']['y']
+local new_pos = rotate_point_relative(
+relative_pos, transformBase['position'], transformBase['rotation'])
+new_pos['y'] = transformBase['position']['y']
 
-    obj.setPosition(new_pos)
+obj.setPosition(new_pos)
 
-    print_debug(obj.getName() .. ' rotation ' .. tostring( obj.getRotation() ))
-    print_debug(base.getName() .. ' rotation ' .. tostring( base.getRotation() ))
-    --local diff = obj.getRotation()['y'] - base.getRotation()['y']
-    --print_info(tostring( diff ))
+print_debug(obj.getName() .. ' rotation ' .. tostring( obj.getRotation() ))
+print_debug(base.getName() .. ' rotation ' .. tostring( base.getRotation() ))
+--local diff = obj.getRotation()['y'] - base.getRotation()['y']
+--print_info(tostring( diff ))
 end
 
 
 
 function get_all_bases()
-    return filter_bases(getAllObjects())
+return filter_bases(getAllObjects())
 end
 
 -- Display to chat movement of a base
@@ -1286,121 +1286,121 @@ g_movement_reporting_enabled = true
 
 --Is the object just on top of the object.
 function is_on_table(obj)
-  local parameters = {
-    origin = obj.getPosition(),
-    direction = {0,-1, 0},
-    parameters_type=1,
-    max_distance=5
-  }
-  local res = Physics.cast(parameters)
-  for _,collision in pairs(res) do
-    if g_current_table == collision.hit_object.getGUID() then
-      return true
-    end
-  end
-  return false
+local parameters = {
+origin = obj.getPosition(),
+direction = {0,-1, 0},
+parameters_type=1,
+max_distance=5
+}
+local res = Physics.cast(parameters)
+for _,collision in pairs(res) do
+if g_current_table == collision.hit_object.getGUID() then
+return true
+end
+end
+return false
 end
 
 -- If the flank card is dropped on the table the draw the deployment lines,
 -- otherwise remove them.
 function on_flank_card_dropped(card)
-  local color = get_decoration_for_obj(card, "flank_march_card" )
-  local table_collision = is_on_table(card)
-  if table_collision then
-      g_game_settings['show_deployment_lines'][color] = true
-  else
-      g_game_settings['show_deployment_lines'][color] = nil
-  end
-  update_deployment_lines()
+local color = get_decoration_for_obj(card, "flank_march_card" )
+local table_collision = is_on_table(card)
+if table_collision then
+g_game_settings['show_deployment_lines'][color] = true
+else
+g_game_settings['show_deployment_lines'][color] = nil
+end
+update_deployment_lines()
 end
 
 function onObjectDrop(player_color,  picked_up_object)
-    if get_decoration_for_obj(picked_up_object, "flank_march_card") ~= nil then
-      on_flank_card_dropped(picked_up_object)
-      return
-    end
+if get_decoration_for_obj(picked_up_object, "flank_march_card") ~= nil then
+on_flank_card_dropped(picked_up_object)
+return
+end
 
-    g_picked_base_objects[picked_up_object] = nil
-    picked_up_object.setVelocity({x=0, y=0, z=0})
-    picked_up_object.setAngularVelocity({x=0, y=0, z=0})
-    if is_base_obj(picked_up_object) then
-      if is_table_empty(g_picked_base_objects) then
-        history_record_delta_snapshot()
-      end
-    end
+g_picked_base_objects[picked_up_object] = nil
+picked_up_object.setVelocity({x=0, y=0, z=0})
+picked_up_object.setAngularVelocity({x=0, y=0, z=0})
+if is_base_obj(picked_up_object) then
+if is_table_empty(g_picked_base_objects) then
+history_record_delta_snapshot()
+end
+end
 
-    local obj_name = picked_up_object.getName()
-    if (str_has_substr(obj_name, 'coast')) then
-        snap_coast(picked_up_object)
-    elseif (str_has_substr(obj_name, 'Road')) then
-        snap_road(picked_up_object)
-    end
+local obj_name = picked_up_object.getName()
+if (str_has_substr(obj_name, 'coast')) then
+snap_coast(picked_up_object)
+elseif (str_has_substr(obj_name, 'Road')) then
+snap_road(picked_up_object)
+end
 
-    if g_bases[obj_name] == nil then
-        return
-    end
+if g_bases[obj_name] == nil then
+return
+end
 
-    local objs = filter_bases(Player[player_color].getSelectedObjects())
+local objs = filter_bases(Player[player_color].getSelectedObjects())
 
-    local n_objs = tlen(objs)
-    if n_objs > 1 then
-        draw_all_gizmos()
-        return
-    end
+local n_objs = tlen(objs)
+if n_objs > 1 then
+draw_all_gizmos()
+return
+end
 
-    if g_picked_base == nil or obj_name ~= g_picked_base.obj.getName() then
-        -- Ignore, this is not the one we were counting distances
-        return
-    end
+if g_picked_base == nil or obj_name ~= g_picked_base.obj.getName() then
+-- Ignore, this is not the one we were counting distances
+return
+end
 
 
-    if g_snap_mode_enabled then
-        new_transform = snap_picked_base(picked_up_object)
-    else
-        new_transform = calculate_transform(picked_up_object)
-    end
+if g_snap_mode_enabled then
+new_transform = snap_picked_base(picked_up_object)
+else
+new_transform = calculate_transform(picked_up_object)
+end
 
-    local distance = max_distance_between_bases_front_corners(
-        new_transform['corners'],
-        g_picked_base_initial_transform['corners'])
+local distance = max_distance_between_bases_front_corners(
+new_transform['corners'],
+g_picked_base_initial_transform['corners'])
 
-    if distance > 0 then
-      if g_movement_reporting_enabled == true then
-        local mu = inches_to_mu_display_string(distance)
-        print_info(string.format('Movement for %q is %s', obj_name, mu))
-      end
-    end
+if distance > 0 then
+if g_movement_reporting_enabled == true then
+local mu = inches_to_mu_display_string(distance)
+print_info(string.format('Movement for %q is %s', obj_name, mu))
+end
+end
 
-    g_picked_base = nil
-    g_picked_base_initial_transform = nil
-    Global.setVectorLines({})
+g_picked_base = nil
+g_picked_base_initial_transform = nil
+Global.setVectorLines({})
 
-    -- If its dropped it may have moved, therefore update the gizmo, in case
-    -- its selected
-    draw_all_gizmos()
+-- If its dropped it may have moved, therefore update the gizmo, in case
+-- its selected
+draw_all_gizmos()
 end
 
 function onObjectRotate(object, spin, flip, player_color, old_spin, old_flip)
-    if nil == g_picked_base_objects[object] then
-      if is_base_obj(object) then
-        history_record_delta_snapshot()
-      end
-    end
+if nil == g_picked_base_objects[object] then
+if is_base_obj(object) then
+history_record_delta_snapshot()
+end
+end
 end
 
 function calculate_future_position(base_obj, movement)
-    local rotation = from_degrees_to_rad(base_obj.getRotation())['y']
-    local displacement_vector = rad_to_vector(rotation)
-    local destination = vec_add(base_obj.getPosition(), vec_mul_escalar(displacement_vector, movement))
-    local size = get_size(base_obj.getName())
-    local normalized_rotation = normalize_angle(rotation)
-    local corners = compute_corners_coords(size, normalized_rotation, destination)
+local rotation = from_degrees_to_rad(base_obj.getRotation())['y']
+local displacement_vector = rad_to_vector(rotation)
+local destination = vec_add(base_obj.getPosition(), vec_mul_escalar(displacement_vector, movement))
+local size = get_size(base_obj.getName())
+local normalized_rotation = normalize_angle(rotation)
+local corners = compute_corners_coords(size, normalized_rotation, destination)
 
-    return get_transform(
-        destination,
-        corners,
-        normalized_rotation
-    )
+return get_transform(
+destination,
+corners,
+normalized_rotation
+)
 end
 
 -- Calculate how the base is positioned.
@@ -1409,147 +1409,147 @@ end
 -- a table [x,y,z] for size in inches (width, height, depth).  AS non-nil
 -- size may be used for displaying the base at a larger than life size,
 function calculate_transform(base_obj, size)
-  local angle_degrees = normalize_degrees(base_obj.getRotation()['y'])
-  local angle_rad = math.rad(angle_degrees)
-    return {
-        position = base_obj.getPosition(),
-        corners = compute_corners_base(base_obj, size),
-        rotation = normalize_angle(angle_rad)
-    }
+local angle_degrees = normalize_degrees(base_obj.getRotation()['y'])
+local angle_rad = math.rad(angle_degrees)
+return {
+position = base_obj.getPosition(),
+corners = compute_corners_base(base_obj, size),
+rotation = normalize_angle(angle_rad)
+}
 end
 
 -- Shape is the corners of the transform is a specific order so adjoining
 -- points form an edge, with an implied edge from the last to the
 -- first point.
 function transform_to_shape(transform)
-  local corners = transform['corners']
-  return { corners['topleft'], corners['topright'],
-      corners['botright'], corners['botleft']  }
+local corners = transform['corners']
+return { corners['topleft'], corners['topright'],
+corners['botright'], corners['botleft']  }
 end
 
 function transform_to_str(transform)
-    if transform == nil then
-        return 'NIL'
-    end
-    if transform['rotation'] == nil then
-        print_error('Rotation of the given transform is NULL. Report to the developers!!')
-        log(transform)
-    end
-    return 'Postion: ' .. vec_to_str(transform['position'])
-        .. ' Rotation: ' .. math.deg(transform['rotation'])
+if transform == nil then
+return 'NIL'
+end
+if transform['rotation'] == nil then
+print_error('Rotation of the given transform is NULL. Report to the developers!!')
+log(transform)
+end
+return 'Postion: ' .. vec_to_str(transform['position'])
+.. ' Rotation: ' .. math.deg(transform['rotation'])
 end
 
 function get_transform(position, corners, rotation)
-    return {
-        position = position,
-        corners = corners,
-        rotation = rotation
-    }
+return {
+position = position,
+corners = corners,
+rotation = rotation
+}
 end
 
 function transform_to_rotation_vector(transform)
-    -- The normalization of a normalized is the original
-    return {
-        x = 0,
-        y = math.deg(normalize_angle(transform['rotation'])),
-        z = 0
-    }
+-- The normalization of a normalized is the original
+return {
+x = 0,
+y = math.deg(normalize_angle(transform['rotation'])),
+z = 0
+}
 end
 
 function get_closest_transform(pos, transforms)
-    local min_distance = nil
-    local min_transform = nil
+local min_distance = nil
+local min_transform = nil
 
-    for base_name, transform in pairs(transforms) do
-        local distance = distance_points_flat_sq(transform['corners']['topleft'], pos)
-        if min_distance == nil or min_distance > distance then
-            min_distance = distance
-            min_transform = transform
-        end
-    end
-    return min_transform
+for base_name, transform in pairs(transforms) do
+local distance = distance_points_flat_sq(transform['corners']['topleft'], pos)
+if min_distance == nil or min_distance > distance then
+min_distance = distance
+min_transform = transform
+end
+end
+return min_transform
 end
 
 function on_selection_changed(player_color, new_selected_items)
-    if player_color == g_player_wheeling then
-        -- If someone is wheeling then changes its selected, deselect and move on
-        print_info(Player[player_color].steam_name .. ' has canceled the wheeling by deselecting.')
-        on_cancel_wheeling(nil, nil, nil)
-        return
-    end
-    if g_current_wheel_group ~= nil then
-        -- Do not draw anything while someone is wheeling
-        return
-    end
-    draw_all_gizmos()
+if player_color == g_player_wheeling then
+-- If someone is wheeling then changes its selected, deselect and move on
+print_info(Player[player_color].steam_name .. ' has canceled the wheeling by deselecting.')
+on_cancel_wheeling(nil, nil, nil)
+return
+end
+if g_current_wheel_group ~= nil then
+-- Do not draw anything while someone is wheeling
+return
+end
+draw_all_gizmos()
 end
 
 function on_zoc_changed()
-    if g_current_wheel_group ~= nil then
-        -- While someone is wheeling we are not going to update the UI
-        return
-    end
-    draw_all_gizmos()
+if g_current_wheel_group ~= nil then
+-- While someone is wheeling we are not going to update the UI
+return
+end
+draw_all_gizmos()
 end
 
 function has_changed_selection_for_player(player_color, selected_objs)
-    return not array_equals(
-                selected_objs,
-                g_selected_objects[player_color],
-                function(obj1, obj2)
-                    return obj1.guid == obj2.guid
-                end)
+return not array_equals(
+selected_objs,
+g_selected_objects[player_color],
+function(obj1, obj2)
+return obj1.guid == obj2.guid
+end)
 end
 
 g_selected_objects = {}
 g_last_zoc_value = nil
 
 function _selected_same(old_selected, new_selected)
-  if old_selected == new_selected then
-    return true
-  end 
-  if old_selected == nil or new_selected == nil then
-    return false
-  end
-  local new_set = Set.new(new_selected)
-  local old_set = Set.new(old_selected)
-  return Set.equals(new_set, old_set)
+if old_selected == new_selected then
+return true
+end 
+if old_selected == nil or new_selected == nil then
+return false
 end
-  
+local new_set = Set.new(new_selected)
+local old_set = Set.new(old_selected)
+return Set.equals(new_set, old_set)
+end
+
 
 function check_selection_change()
-    local players = Player.getPlayers()
-    for _, player in ipairs(players) do
-        local selected_objs = player.getSelectedObjects()
-        if is_table_empty(selected_objs) and (not _selected_same(selected_objs, g_selected_objects[player.color])) then
-          --- First object selected, set move distance to zero, so it is easy to see who in 
-          -- in ZOC and firing distance.
-          update_move_controls(0)
-        end
-        if has_changed_selection_for_player(player.color, selected_objs) then
-            on_selection_changed(player.color, selected_objs)
-            g_selected_objects[player.color] = selected_objs
-        end
-    end
+local players = Player.getPlayers()
+for _, player in ipairs(players) do
+local selected_objs = player.getSelectedObjects()
+if (nil ~= selected_objs) and is_table_empty(selected_objs) and (not _selected_same(selected_objs, g_selected_objects[player.color])) then
+--- First object selected, set move distance to zero, so it is easy to see who in 
+-- in ZOC and firing distance.
+update_move_controls(0)
+end
+if has_changed_selection_for_player(player.color, selected_objs) then
+on_selection_changed(player.color, selected_objs)
+g_selected_objects[player.color] = selected_objs
+end
+end
 end
 
 function check_change_zoc()
-    if g_last_zoc_value ~= g_zoc_enabled then
-        -- This affect all players!
-        on_zoc_changed()
-        g_last_zoc_value = g_zoc_enabled
-    end
+if g_last_zoc_value ~= g_zoc_enabled then
+-- This affect all players!
+on_zoc_changed()
+g_last_zoc_value = g_zoc_enabled
+end
 end
 
 -- Each half a second second execute this
 function main_loop()
-    check_selection_change()
-    check_change_zoc()
+check_selection_change()
+check_change_zoc()
 
-    if g_draw_all_gizmos or (g_picked_base ~= nil) then
-        draw_all_gizmos_execute()
-        g_draw_all_gizmos = false
-    end
+if g_draw_all_gizmos or (g_picked_base ~= nil) then
+draw_all_gizmos_execute()
+g_draw_all_gizmos = false
+end
 end
 
 
@@ -1558,145 +1558,145 @@ end
 -- Sadly all bases get assigned red_player because we don't have that info.
 -- The tile is also given as an aproximation given the current size.
 function reset_state()
-    g_selected_objects = {}
-    g_picked_base = nil
-    g_picked_base_objects = {}
-    g_picked_base_initial_transform = nil
-    g_last_zoc_value = nil
-    g_current_wheel_group = nil
-    g_current_wheel_transforms = nil
-    g_current_wheel_newtransforms = nil
+g_selected_objects = {}
+g_picked_base = nil
+g_picked_base_objects = {}
+g_picked_base_initial_transform = nil
+g_last_zoc_value = nil
+g_current_wheel_group = nil
+g_current_wheel_transforms = nil
+g_current_wheel_newtransforms = nil
 
-    local all_objs = getAllObjects()
+local all_objs = getAllObjects()
 
-    g_bases = {}
-    local bases = filter_bases(all_objs)
-    for _,base in ipairs(bases) do
-        local new_tile = get_closest_tile(base)
-        if new_tile == nil then
-            print_info('There\'s no appropiate base for ' .. base.getName())
-        else
-            print_info('Setting ' .. base.getName() .. ' as base')
-            g_bases[base.getName()] = {
-                tile = new_tile,
-                is_red_player = true
-            }
-            base.clearContextMenu()
-            add_context_menu_base(base)
-        end
-    end
+g_bases = {}
+local bases = filter_bases(all_objs)
+for _,base in ipairs(bases) do
+local new_tile = get_closest_tile(base)
+if new_tile == nil then
+print_info('There\'s no appropiate base for ' .. base.getName())
+else
+print_info('Setting ' .. base.getName() .. ' as base')
+g_bases[base.getName()] = {
+tile = new_tile,
+is_red_player = true
+}
+base.clearContextMenu()
+add_context_menu_base(base)
+end
+end
 
-    g_current_table = nil
-    for _,obj in ipairs(all_objs) do
-        if is_table(obj) then
-            g_current_table = obj.getGUID()
-            obj.clearContextMenu()
-            add_context_menu_table(obj)
-            print_info('Setting as current table = ' .. g_current_table)
-        end
-    end
-    print_info('If there\'s terrain on top of the table, please, do a Fix and Lock')
+g_current_table = nil
+for _,obj in ipairs(all_objs) do
+if is_table(obj) then
+g_current_table = obj.getGUID()
+obj.clearContextMenu()
+add_context_menu_table(obj)
+print_info('Setting as current table = ' .. g_current_table)
+end
+end
+print_info('If there\'s terrain on top of the table, please, do a Fix and Lock')
 
-    remove_deployment_lines()
+remove_deployment_lines()
 end
 
 function get_closest_tile(base_obj)
-    local bounds = base_obj.getBoundsNormalized()
-    if bounds == nil or bounds['size'] == nil then
-        -- If it has no size its not a proper base and we ignore it
-        return false
-    end
+local bounds = base_obj.getBoundsNormalized()
+if bounds == nil or bounds['size'] == nil then
+-- If it has no size its not a proper base and we ignore it
+return false
+end
 
-    local size = bounds['size']
-    if math.abs(size['x'] - g_base_width_in_inches) > 0.01 then
-        -- Too wide or too small, ignore
-        return true
-    end
+local size = bounds['size']
+if math.abs(size['x'] - g_base_width_in_inches) > 0.01 then
+-- Too wide or too small, ignore
+return true
+end
 
-    if math.abs(size['z'] - from_mm_to_in(15)) < 0.01 then
-        return 'tile_grass_40x15'
-    end
+if math.abs(size['z'] - from_mm_to_in(15)) < 0.01 then
+return 'tile_grass_40x15'
+end
 
-    if math.abs(size['z'] - from_mm_to_in(20)) < 0.01 then
-        return 'tile_grass_40x20'
-    end
+if math.abs(size['z'] - from_mm_to_in(20)) < 0.01 then
+return 'tile_grass_40x20'
+end
 
-    if math.abs(size['z'] - from_mm_to_in(30)) < 0.01 then
-        return 'tile_grass_40x30'
-    end
+if math.abs(size['z'] - from_mm_to_in(30)) < 0.01 then
+return 'tile_grass_40x30'
+end
 
-    if math.abs(size['z'] - from_mm_to_in(40)) < 0.01 then
-        return 'tile_grass_40x40'
-    end
+if math.abs(size['z'] - from_mm_to_in(40)) < 0.01 then
+return 'tile_grass_40x40'
+end
 
-    if math.abs(size['z'] - from_mm_to_in(60)) < 0.01 then
-        return 'tile_grass_40x60'
-    end
+if math.abs(size['z'] - from_mm_to_in(60)) < 0.01 then
+return 'tile_grass_40x60'
+end
 
-    if math.abs(size['z'] - from_mm_to_in(80)) < 0.01 then
-        return 'tile_grass_40x80'
-    end
+if math.abs(size['z'] - from_mm_to_in(80)) < 0.01 then
+return 'tile_grass_40x80'
+end
 
-    return nil
+return nil
 end
 
 function is_table(obj)
-    -- There's nothing identifying the table itself, so we use heuristics
-    local pos = obj.getPosition()
-    if math.abs(pos['x']) > 5 or math.abs(pos['z']) > 5 then
-        -- Too far to be a table unless they messed up royally
-        return false
-    end
-    local bounds = obj.getBoundsNormalized()
-    if bounds == nil or bounds['size'] == nil then
-        -- If it has no size its not a table for sure
-        return false
-    end
+-- There's nothing identifying the table itself, so we use heuristics
+local pos = obj.getPosition()
+if math.abs(pos['x']) > 5 or math.abs(pos['z']) > 5 then
+-- Too far to be a table unless they messed up royally
+return false
+end
+local bounds = obj.getBoundsNormalized()
+if bounds == nil or bounds['size'] == nil then
+-- If it has no size its not a table for sure
+return false
+end
 
-    local size = bounds['size']
-    if math.abs(size['x'] - g_width_table_in) < 1 and math.abs(size['z'] - g_depth_table_in) < 1 then
-        -- If it's essnetially the same size, it is the table unless they
-        -- have summoned something weird
-        return true
-    end
+local size = bounds['size']
+if math.abs(size['x'] - g_width_table_in) < 1 and math.abs(size['z'] - g_depth_table_in) < 1 then
+-- If it's essnetially the same size, it is the table unless they
+-- have summoned something weird
+return true
+end
 
-    if math.abs(size['x'] - 2 * g_width_table_in) < 1 and math.abs(size['z'] - g_depth_table_in) < 1 then
-        -- Double DBA!
-        return true
-    end
+if math.abs(size['x'] - 2 * g_width_table_in) < 1 and math.abs(size['z'] - g_depth_table_in) < 1 then
+-- Double DBA!
+return true
+end
 
-    if math.abs(size['x'] - g_width_large_table_in) < 1 and math.abs(size['z'] - g_depth_large_table_in) < 1 then
-        -- It's a large table
-        return true
-    end
+if math.abs(size['x'] - g_width_large_table_in) < 1 and math.abs(size['z'] - g_depth_large_table_in) < 1 then
+-- It's a large table
+return true
+end
 
-    if math.abs(size['x'] - 2 * g_width_large_table_in) < 1 and math.abs(size['z'] - g_depth_large_table_in) < 1 then
-        -- Double DBA large table
-        return true
-    end
-    return false
+if math.abs(size['x'] - 2 * g_width_large_table_in) < 1 and math.abs(size['z'] - g_depth_large_table_in) < 1 then
+-- Double DBA large table
+return true
+end
+return false
 end
 
 function print_state()
-    if g_current_table == nil then
-        print_info('There\'s no current table.')
-    else
-        local obj = getObjectFromGUID(g_current_table)
-        if obj == nil then
-            print_error('There\'s a table stored with GUID ' .. g_current_table
-                .. ' but there\'s no object. Please do a !triumph_reset.')
-        else
-            print_info('Current table GUID: ' .. g_current_table)
-        end
-    end
+if g_current_table == nil then
+print_info('There\'s no current table.')
+else
+local obj = getObjectFromGUID(g_current_table)
+if obj == nil then
+print_error('There\'s a table stored with GUID ' .. g_current_table
+.. ' but there\'s no object. Please do a !triumph_reset.')
+else
+print_info('Current table GUID: ' .. g_current_table)
+end
+end
 
-    if g_bases == nil then
-        print_error('There are no bases registered. Please do a !triumph_reset.')
-    else
-        local str = 'The current registered bases are: '
-        for base_name,_ in pairs(g_bases) do
-            str = str .. base_name .. ', '
-        end
-        print_info(str)
-    end
+if g_bases == nil then
+print_error('There are no bases registered. Please do a !triumph_reset.')
+else
+local str = 'The current registered bases are: '
+for base_name,_ in pairs(g_bases) do
+str = str .. base_name .. ', '
+end
+print_info(str)
+end
 end
