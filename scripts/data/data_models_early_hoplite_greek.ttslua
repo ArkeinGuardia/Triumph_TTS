@@ -1,0 +1,77 @@
+-- Early Hoplite Greek  669 to 449 BC
+-- Note: all the models are coming from other armies.
+army['5fb1b9dbe1af0600177094fb'].data.has_models = true
+army['5fb1b9dbe1af0600177094fb'].data.base="tile_grass"
+
+-- Heavy Foot General Hoplites
+g_models[g_str_615351a103385c0016b85603_general] = {
+  {
+    n_models = 4,
+    fixed_models = {
+      [1] = 'troop_spartan_general_hoplite',
+      [2] ='troop_carthaginian_allied_greek_spear',
+      [3] ='troop_carthaginian_allied_greek_spear',
+      [4] ='troop_carthaginian_allied_greek_spear',
+    }
+  }
+}
+
+-- Heavy Foot Hoplites
+g_models[g_str_615351a103385c0016b85603] = {
+  {
+    n_models = 4,
+    fixed_models = {
+      [1] ='troop_carthaginian_allied_greek_spear',
+      [2] ='troop_carthaginian_allied_greek_spear',
+      [3] ='troop_carthaginian_allied_greek_spear',
+      [4] ='troop_carthaginian_allied_greek_spear',
+    }
+  }
+}
+
+
+-- Skirmishing bowmen and slingers
+g_models[g_str_615351a103385c0016b85606] = {
+  {
+    n_models = 2,
+    random_models = {
+      'troop_successors_skirmishers',
+      'troop_successors_skirmishers_archers',
+    },
+    loose = true
+   }
+}
+
+-- Rabble Javelinmen
+g_models[g_str_615351a103385c0016b85609] = {
+  {
+    n_models = 3,
+    random_models = {
+      'troop_successors_psiloi',
+      'troop_successors_psiloi_black',
+      'troop_successors_psiloi_red',
+      'troop_successors_psiloi_blue',
+      'troop_successors_psiloi_green'
+    },
+    loose = true
+  }  
+}
+
+-- Light Foot Thracian peltasts
+g_models[g_str_615351a103385c0016b8560d] = g_models[g_str_615351a303385c0016b85be0]
+
+-- Javelin Cavalry Thessalian horsemen
+g_models[g_str_615351a103385c0016b85611] = g_models[g_str_615351a303385c0016b85aef] 
+
+-- Skirmishers Athenian bowmen
+g_models[g_str_615351a103385c0016b85615] =  g_models[g_str_615351a303385c0016b85afa] 
+
+-- Bow Levy Athenian bowmen
+g_models[g_str_615351a103385c0016b85616] =  g_models[g_str_615351a303385c0016b85afa] 
+
+-- Camp
+g_models[g_str_5fb1b9dbe1af0600177094fb_camp] =  g_models[g_str_5fb1b9dce1af06001770959d_camp]
+
+-- Javelin Cavalry Thessalian horsemen
+g_models[g_str_6153518f03385c0016b837eb] = g_models[g_str_615351a303385c0016b85aef] 
+ 
