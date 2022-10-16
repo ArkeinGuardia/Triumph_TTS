@@ -1,0 +1,108 @@
+-- 5fb1b9dbe1af0600177094f5 Early Hoplite Siciliot, Italiot, or Ionian  669 to 449 BC
+-- Note: all the models are coming from other armies.
+
+require("Triumph_TTS/scripts/data/data_troops")
+
+army['5fb1b9dbe1af0600177094f5'].data.has_models = true
+army['5fb1b9dbe1af0600177094f5'].data.base="tile_grass"
+
+-- Jav Cav General
+g_models[g_str_615351a103385c0016b855e9_general] = {
+  {
+    n_models = 2,
+    fixed_models = {
+      [1] ='troop_thracian_cv',
+      [2] = 'troop_successors_cavalry_general_red'
+    }
+  }
+}
+
+
+-- Jav Cav
+g_models[g_str_615351a103385c0016b855e9] = g_models[g_str_615351a303385c0016b85aef]
+
+-- Heavy Foot Hoplites General
+g_models[g_str_615351a103385c0016b855eb_general] = {
+  {
+    n_models = 4,
+    fixed_models = {
+      [1] ='troop_carthaginian_allied_greek_spear',
+      [2] ='troop_spartan_general_hoplite_03',
+      [3] ='troop_carthaginian_allied_greek_spear',
+      [4] ='troop_carthaginian_allied_greek_spear',
+    }
+  }
+}
+
+-- Heavy Foot Hoplites
+g_models[g_str_615351a103385c0016b855eb] = {
+  {
+    n_models = 4,
+    fixed_models = {
+      [1] ='troop_carthaginian_allied_greek_spear',
+      [2] ='troop_carthaginian_allied_greek_spear',
+      [3] ='troop_carthaginian_allied_greek_spear',
+      [4] ='troop_carthaginian_allied_greek_spear',
+    }
+  }
+}
+
+
+-- Skirmishing bowmen and slingers
+g_models[g_str_615351a103385c0016b855ee] = {
+  {
+    n_models = 2,
+    random_models = {
+      'troop_successors_skirmishers',
+      'troop_successors_skirmishers_archers',
+    },
+    loose = true
+   }
+}
+
+
+-- Rabble Javelinmen
+g_models[g_str_615351a103385c0016b855f1] = {
+  {
+    n_models = 3,
+    loose = true,
+    random_models = {
+      'troop_successors_psiloi',
+      'troop_successors_psiloi_black',
+      'troop_successors_psiloi_red',
+      'troop_successors_psiloi_blue',
+      'troop_successors_psiloi_green',
+      'troop_successors_ax_red',
+      'troop_successors_ax_blue',
+      'troop_successors_ax_green',
+      'troop_successors_ax_black',
+      'troop_successors_ax',
+    },
+  }
+}
+
+
+
+-- 'Sicel tribesmen', "Light Foot",
+g_models[g_str_615351a103385c0016b855f4] = g_models[g_str_615351a303385c0016b85b00]
+
+-- 'Sicel tribesmen', "Light Foot",
+g_models[g_str_615351a103385c0016b855f8] =  g_models[g_str_615351a303385c0016b85b00]
+
+--  'War dogs', "Warband",
+g_models[g_str_615351a103385c0016b855fb] = {
+  {
+    n_models = 3,
+    loose = true,
+    fixed_models = {
+      [1] = 'troop_roman_wardog',
+      [2] = 'troop_successors_psiloi_black',
+      [3] = 'troop_roman_wardog',
+    }
+  }
+}
+
+
+-- Camp
+g_models[g_str_5fb1b9dbe1af0600177094f5_camp] =  g_models[g_str_5fb1b9dce1af06001770959d_camp]
+
