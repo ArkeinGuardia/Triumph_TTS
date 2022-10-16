@@ -290,13 +290,13 @@ end
 
 -- Get the figure object,
 -- base_obj: Object that will have the model attached to it.
--- model_name: Name of the figure to add. e.g. 'troop_norman_knight_lance_pennat'
+-- model_name: Name of the figure to add. e.g. 'troop_norman_knight_lance_pennat'.
+--  The string is used to workaround having to forward declare the object.
 -- model_pos: location on the base to place the model. Base center is (0,0,0)
 -- model_y_rotation_degrees: Rotation of the model on the base.  Towards front is zero.  In degrees.
 -- is_red_player:
 -- mesh: default to use for the model for the texture.
 function get_model_obj(base_obj, model_name, model_pos, model_y_rotation_degrees, is_red_player, mesh)
-
   local pos = base_obj.getPosition()
   local relative_pos = {
       x = pos['x'] + model_pos['x'],
@@ -867,7 +867,10 @@ function get_a_model_definition(base_definition)
       local models = g_models[ id ]
       local index = math.random(1, #models)
       local model = models[index]
-      assert(nil ~= model)
+      if model == nil then
+        print_error("model is nil.  id=" .. tostring(id) .. " index=" .. tostring(index))
+        return get_plain_base_model_definition(base_definition)
+      end
       return model
      end
   end
@@ -1325,11 +1328,11 @@ function _is_base_to_have_terrain(base_obj)
   if is_base_prepared_defenses(base_obj) then
     return false
   end
-  local name = base_obj.getName() 
+  local name = base_obj.getName()
   if name == nil then
     return false
   end
-  if g_bases[name] == nil then 
+  if g_bases[name] == nil then
     return false
   end
   if str_has_substr(g_bases[name]['tile'], 'plain') then
