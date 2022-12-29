@@ -352,7 +352,9 @@ function add_overlay_models(base_obj, model_definition, is_red_player)
     end
     local model_pos = overlay_model['position']
     if model_pos == nil then
-      model_pos = { x=0,y=0,z=0}
+      model_pos = {x=0,y=0,z=0}
+    else
+      model_pos = deep_copy(model_pos)
     end
     local model_y_rotation_degrees = overlay_model['rotation']
     if model_y_rotation_degrees == nil then
