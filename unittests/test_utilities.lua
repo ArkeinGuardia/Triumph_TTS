@@ -421,4 +421,9 @@ function test_angle_difference_small_negative_angle()
 end
 
 
+function test_in_table()
+  lu.assertTrue(in_table(4, {3,4,5,6}))
+  lu.assertFalse(in_table(7, {3,4,5,6}))
+end
+
 os.exit( lu.LuaUnit.run() )

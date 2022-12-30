@@ -696,6 +696,32 @@ function table_length(T)
   return count
 end
 
+
+-- find element v of l satisfying f(v)
+function table_find(f, l) 
+  for _, v in ipairs(l) do
+    if f(v) then
+      return v
+    end
+  end
+  return nil
+end
+
+
+-- Is an element in a list.
+-- needle: Item to search for
+-- haystack: list to search through
+-- return: true or false
+function in_table(needle, haystack) 
+  for _, v in ipairs(haystack) do
+    if v == needle then
+      return true
+    end
+  end
+  return false
+end
+
+
 function is_vec_3d(obj)
   if type(obj) ~= "table" then
     return false
