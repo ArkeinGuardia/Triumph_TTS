@@ -196,7 +196,7 @@ end
 function will_base_contact_other_base(base_obj, relative_direction, max_distance)
     local base_depth_mm = get_base_depth_from_base_obj(base_obj)
     local base_depth = from_mm_to_in(base_depth_mm)
-    local base_size = {g_collision_base_width_in_inches, 1, base_depth}
+    local base_size = {g_collision_base_width_in_inches, 1, base_depth - g_collision_spacing_in_inches}
     local initial_position = base_obj.getPosition()
     local direction = degrees_to_vector_xz(base_obj.getRotation()['y'] + relative_direction)
     local orientation = base_obj.getRotation()
