@@ -160,9 +160,12 @@ def discover_assets_remote_url() :
     global assets_remote_url
     if use_file_system_assets() :
         c_mount = "/mnt/c/"
+        cygdrive = "/cygdrive/"
         dir = os.path.realpath("..")
         if dir.startswith(c_mount) :
             dir = "/C:/" + dir[len(c_mount):]
+        elif dir.startswith(cygdrive) :
+            dir = "/" + dir[len(cygdrive)].upper() + ":/" + dir[len(cygdrive)+2:]
         assets_remote_url="file://" + dir  + "/"
         print("Using filesytem for assets: ", assets_remote_url)
         return
@@ -363,7 +366,7 @@ def update_assets_ttslua() :
 def update_date_file() :
     if not update_date:
         return
-    today = datetime.datetime.now()
+    today = datetime.datetime.utcnow()
     date_string='{:04}{:02}{:02}.{:02}{:02}'.format( today.year, today.month, today.day, today.hour, today.minute )
     print(date_string)
     with open("ObjectStates/version_text", "r") as file:
