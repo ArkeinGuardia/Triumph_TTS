@@ -1098,13 +1098,28 @@ function get_depth_base(tile_name)
     return from_mm_to_in(depth)
 end
 
+-- tile_name: string.  e.g. 'tile_plain_War_Wagon'  Name of the
+-- variable that contains the information for a tile.
+function get_width_base(tile_name)
+    local base_data = _G[tile_name]
+    if base_data == nil then
+        print_error("No variable " .. tostring(tile_name))
+        assert(false)
+    end
+    local depth = base_data['width']
+    if depth == nil then
+        return g_base_width_in_inches
+    end
+    return from_mm_to_in(depth)
+end
+
 -- Returns the size of a base
 -- base_name: name of the base
 -- return: table x= width in inches, y=height in inches, z = depth in inches
 function get_size(base_name)
     local tile = g_bases[base_name]['tile']
     return {
-        x = g_base_width_in_inches,
+        x = get_width_base(tile),
         y = g_base_height_inches,
         z = get_depth_base(tile)
     }
