@@ -4,10 +4,24 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "arg": [],
             "name": "launch test_models",
             "program": "Triumph_TTS/unittests/test_models.lua",
+            "request": "launch",
+            "stopOnEntry": true,
+            "type": "lua",
+            "cwd": "/home/marcpawl/github",
+            "path": [
+                "${workspaceFolder}/../?.lua",
+                "${workspaceFolder}/../?.ttslua"
+            ]
+        },
+        {
+            "arg": [],
+            "name": "launch test_spawnarmy",
+            "program": "Triumph_TTS/unittests/test_spawnarmy.lua",
             "request": "launch",
             "stopOnEntry": true,
             "type": "lua",
