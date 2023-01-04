@@ -632,7 +632,8 @@ function get_model_base_tile(base_definition)
     style = "tile_grass"
   end
   local depth = get_base_depth_from_base_definition(base_definition)
-  local model_base_name = style .. "_" .. tostring(g_base_width_in_mm) .. "x" .. tostring(depth)
+  local width = get_base_width_from_base_definition(base_definition)
+  local model_base_name = style .. "_" .. tostring(width) .. "x" .. tostring(depth)
   return model_base_name
 end
 
@@ -883,7 +884,7 @@ function get_a_model_definition(base_definition)
     return base_definition
   end
 
-  -- default to plain base if no model is availab le.
+  -- default to plain base if no model is available.
   return get_plain_base_model_definition(base_definition)
 end
 

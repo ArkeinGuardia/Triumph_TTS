@@ -1082,6 +1082,24 @@ function get_base_depth_from_base_definition(base_definition)
     return depth
 end
 
+-- @return Width in millimeters
+function get_base_width_from_base_definition(base_definition)
+    if base_definition == nil then
+        print_error('base definition is nil')
+        return 40
+    end
+    local troop_type = base_definition['troop_type']
+    if troop_type == nil then
+        print_error('troop type missing from base definition.')
+        return 40 -- dummy value
+    end
+    if troop_type == 'Camp' then
+        -- Hard coded default value.  Camps can be wider.
+        return 80
+    end
+    return g_base_width_in_mm
+end
+
 -- tile_name: string.  e.g. 'tile_plain_War_Wagon'  Name of the
 -- variable that contains the information for a tile.
 function get_depth_base(tile_name)
