@@ -16,6 +16,12 @@ army['5fb1b9e5e1af060017709a95'].data.base="tile_grass"
 -- Middle Anglo-Saxon
 army['5fb1b9e5e1af060017709acf'].data.has_models = true
 army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
+-- Breton
+army['5fb1b9e4e1af060017709a4c'].data.has_models = true
+army['5fb1b9e4e1af060017709a4c'].data.base="tile_grass"
+-- Anglo-Danish
+army['5fb1b9e5e1af060017709ad5'].data.has_models = true
+army['5fb1b9e5e1af060017709ad5'].data.base="tile_grass"
 
 -- Viking
 -- 850 AD to 1280 AD
@@ -219,11 +225,7 @@ army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
     g_models[g_str_615351a903385c0016b86a94] = g_models[g_str_615351a903385c0016b86b49]
 
     -- Javelinmen - Rabble
-    g_models[g_str_615351a903385c0016b86a96] = {
-      {
-        model_data = 'troop_viking_hird_javelin'
-      }
-    }
+    g_models[g_str_615351a903385c0016b86a96] = g_models[g_str_615351a903385c0016b86a93]
 
     -- Massed levy bowmen - Bow Levy
     g_models[g_str_615351a903385c0016b86a98] = {
@@ -318,7 +320,7 @@ army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
     g_models[g_str_615351aa03385c0016b86ba7_general] = g_models[g_str_615351aa03385c0016b86ba4_general]
 
     -- Hird - Warriors
-    g_models[g_str_615351aa03385c0016b86ba7] = g_models[g_str_615351aa03385c0016b86ba4_general]
+    g_models[g_str_615351aa03385c0016b86ba7] = g_models[g_str_615351aa03385c0016b86ba4]
 
     -- Hird - HF  General
     g_models[g_str_615351aa03385c0016b86ba8_general] = {
@@ -365,3 +367,137 @@ army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
 
     --Middle Anglo-Saxon Camp
     g_models[g_str_5fb1b9e5e1af060017709acf_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
+
+-- Breton
+-- 580 AD to 1072 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e4e1af060017709a4c/explore
+-- As of: 20230112
+
+    -- Horsemen - Jav Cav General
+    g_models[g_str_615351a903385c0016b869db_general] = {
+      {
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_viking_rider_generic_cape',
+          [2] = 'troop_viking_general_1'
+        }
+      }
+    }
+
+    -- Horsemen - Jav Cav
+    g_models[g_str_615351a903385c0016b869db] = {
+      {
+        model_data = 'troop_viking_rider_generic'
+      }
+    }
+
+    -- Javelinmen - Light Foot
+    g_models[g_str_615351a903385c0016b869dd] = g_models[g_str_615351a903385c0016b86b49]
+
+    -- Peasants - Horde
+    g_models[g_str_615351a903385c0016b869df] = g_models[g_str_615351a903385c0016b86ae8]
+
+    -- Unarmoured Horsemen - Jav Cav General
+    g_models[g_str_615351a903385c0016b869e2_general] = g_models[g_str_615351a903385c0016b869db_general]
+
+    -- Unarmoured Horsemen - Jav Cav
+    g_models[g_str_615351a903385c0016b869e2] = g_models[g_str_615351a903385c0016b869db]
+
+    -- Disguised Saxons - Warriors 
+    g_models[g_str_615351a903385c0016b869e5] = g_models[g_str_615351aa03385c0016b86ba4]
+
+    --Breaton Camp
+    g_models[g_str_5fb1b9e4e1af060017709a4c_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
+    
+    --Breton Camp - Fortified
+    g_models[g_str_5fb1b9e4e1af060017709a4c_camp_fortified] = {
+      {
+        overlay_models = { -- each of the models are placed on top of the base
+          {
+            model_data="troop_fortified_camp_outline_40x40",
+            position={x=0,y=0,z=0}, -- optional defaults to (0,0,0)
+            rotation=0, -- optional defaults to 0
+            scale=1, -- optional defaults t0 1
+          },
+          {
+            model_data = 'troop_campfire',
+            scale=0.75,
+          }
+        }
+      }
+    }
+
+-- Anglo-Danish
+-- 1016 AD to 1075 AD
+-- https://meshwesh.wgcwar.com/armyList/5fb1b9e5e1af060017709ad5/explore
+-- As of: 20230112
+
+
+    -- Huscarles or huscarles on horses - EF General
+    g_models[g_str_615351aa03385c0016b86bc4_general] = g_models[g_str_615351a903385c0016b86b21_general]
+
+    -- Huscarles or huscarles on horses - EF
+    g_models[g_str_615351aa03385c0016b86bc4] = g_models[g_str_615351a903385c0016b86b21]
+
+    -- Huscarles or huscarles on horses - Bad Horse General
+    g_models[g_str_615351aa03385c0016b86bc5_general] = {
+      {
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_viking_rider_generic_unarmoured',
+          [2] = 'troop_viking_general_1',
+          [3] = 'troop_viking_rider_generic_unarmoured'
+        }
+      }
+    }
+
+    -- Huscarles or huscarles on horses - Bad Horse
+    g_models[g_str_615351aa03385c0016b86bc5] = {
+      {
+        model_data = 'troop_viking_rider_generic_unarmoured'
+      }
+    }
+
+    -- Huscarles or huscarles on horses - Knights General
+    g_models[g_str_615351aa03385c0016b86bc5_general] = {
+      {
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_viking_rider_generic_cape',
+          [2] = 'troop_viking_general_1',
+          [3] = 'troop_viking_rider_generic_cape'
+        }
+      }
+    }
+
+    -- Huscarles or huscarles on horses - Knights
+    g_models[g_str_615351aa03385c0016b86bc5] = {
+      {
+        model_data = 'troop_viking_rider_generic_cape'
+      }
+    }
+
+    -- Select fyrd - HF
+    g_models[g_str_615351aa03385c0016b86bca] = g_models[g_str_615351a903385c0016b86b24]
+
+    -- Great fyrd - HF
+    g_models[g_str_615351aa03385c0016b86bcd] = = {
+      {
+        model_data = 'troop_viking_warrior'
+      }
+    }
+
+    -- Peasants - Horde
+    g_models[g_str_615351aa03385c0016b86bcf] = g_models[g_str_615351a903385c0016b86ae8]
+
+    -- Hird bowmen - Sk
+    g_models[g_str_615351aa03385c0016b86bb0] = g_models[g_str_615351aa03385c0016b86bd1]
+
+    -- Viking Camp
+    g_models[g_str_5fb1b9e4e1af060017709a4c_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
+
+    --Scouts and javelinmen - Rabble
+    g_models[g_str_615351aa03385c0016b86bd4] = g_models[g_str_615351a903385c0016b86a96]
+    
+    -- Breton Camp - Fortified
+    g_models[g_str_5fb1b9e5e1af060017709ad5_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
