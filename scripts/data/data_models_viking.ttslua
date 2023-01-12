@@ -13,9 +13,6 @@ army['5fb1b9e4e1af060017709a75'].data.base="tile_grass"
 -- Pre-Viking Scandinavian
 army['5fb1b9e5e1af060017709a95'].data.has_models = true
 army['5fb1b9e5e1af060017709a95'].data.base="tile_grass"
--- Middle Anglo-Saxon
-army['5fb1b9e5e1af060017709acf'].data.has_models = true
-army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
 
 -- Viking
 -- 850 AD to 1280 AD
@@ -25,13 +22,8 @@ army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
     -- Huscarles - EF General
     g_models[g_str_615351a903385c0016b86b21_general] = {
       {
-        n_models = 3,
-        fixed_models = {
-          [1] = 'troop_viking_huscarls',
-          [2] = 'troop_viking_general_2',
-          [3] = 'troop_viking_general_1',
-          [4] = 'troop_viking_huscarls'
-        }
+        n_models = 4,
+        model_data = 'troop_viking_huscarl_general'
       }
     }
 
@@ -288,97 +280,3 @@ army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
 
     --Pre-Viking Scandinavian Camp
     g_models[g_str_5fb1b9e5e1af060017709a95_camp] = g_models[g_str_5fb1b9e5e1af060017709aae_camp]
-
--- Middle Anglo-Saxon
--- 617 AD to 1016 AD
--- https://meshwesh.wgcwar.com/armyList/5fb1b9e5e1af060017709acf/explore
--- As of: 20230112
-
-    -- Hird - Warriors General
-    g_models[g_str_615351aa03385c0016b86ba4_general] = {
-      {
-        n_models = 3,
-        fixed_models = {
-          [1] = 'troop_viking_warrior',
-          [2] = 'troop_viking_general_1',
-          [3] = 'troop_viking_warrior',
-          [4] = 'troop_viking_general_2'
-        }
-      }
-    }
-
-    -- Hird - Warriors 
-    g_models[g_str_615351aa03385c0016b86ba4] = {
-      {
-        model_data = 'troop_viking_warrior'
-      }
-    }
-
-
-    -- Saxon thegns - EF General
-    g_models[g_str_615351aa03385c0016b86bac_general] = g_models[g_str_615351a903385c0016b86b21_general]
-
-    -- Saxon thegns - EF General
-    g_models[g_str_615351aa03385c0016b86bac] =g_models[g_str_615351a903385c0016b86b21]
-
-
-    -- Hird - Heavy Foot
-    g_models[g_str_615351a903385c0016b86b24] = {
-      {
-        model_data = 'troop_viking_hird_spear'
-      }
-    }
-
-    -- Hird\nDismounted mobile infantry - Heavy Foot
-    g_models[g_str_615351a903385c0016b86b24_dismounted_mobile_infantry] = g_models[g_str_615351a903385c0016b86b24]
-
-    -- Hird\nmounted mobile infantry - Heavy Foot
-    g_models[g_str_615351a903385c0016b86b24_mounted_mobile_infantry] = {
-      {
-        model_data = 'troop_viking_rider_generic'
-      }
-    }
-
-    -- Freelance marauders - Raiders
-    g_models[g_str_615351a903385c0016b86b27] = {
-      {
-        model_data = 'troop_viking_warrior'
-      }
-    }
-
-    -- Freelance marauders\nDismounted mobile infantry - Raiders
-    g_models[g_str_615351a903385c0016b86b27_dismounted_mobile_infantry] = g_models[g_str_615351a903385c0016b86b27]
-
-    -- Freelance marauders\nmounted mobile infantry - Raiders
-    g_models[g_str_615351a903385c0016b86b27_mounted_mobile_infantry] = {
-      {
-        model_data = 'troop_viking_rider_generic'
-      }
-    }
-
-    --Hird bowmen - Archers
-    g_models[g_str_615351a903385c0016b86b2a] = {
-      {
-        model_data = 'troop_viking_archers'
-      }
-    }
-
-    --Hird bowmen - Sk
-    g_models[g_str_615351a903385c0016b86b2b] = {
-      {
-        model_data = 'troop_viking_archers',
-        loose = true
-      }
-    }
-
-    --Besirkir - Warband
-    g_models[g_str_615351a903385c0016b86b2e] = {
-      {
-        model_data = 'troop_viking_berserker'
-      }
-    }
-
-    --Viking Camp
-    g_models[g_str_5fb1b9e5e1af060017709aae_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
-    --Viking Trains
-    g_models[g_str_5fb1b9e5e1af060017709aae_camp_pack_train] = g_models[g_str_5fb1b9e1e1af060017709849_camp_pack_train]
