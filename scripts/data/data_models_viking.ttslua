@@ -280,8 +280,8 @@ army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
       {
         random_models = {
           'troop_viking_hird_javelin',
-          'troop_viking_warrior',
-          'troop_viking_berserker'
+          'troop_viking_hird_spear',
+          'troop_saxon_horde'
         }
       }
     }
@@ -314,71 +314,54 @@ army['5fb1b9e5e1af060017709acf'].data.base="tile_grass"
       }
     }
 
+    -- Hird - Warriors  General
+    g_models[g_str_615351aa03385c0016b86ba7_general] = g_models[g_str_615351aa03385c0016b86ba4_general]
+
+    -- Hird - Warriors
+    g_models[g_str_615351aa03385c0016b86ba7] = g_models[g_str_615351aa03385c0016b86ba4_general]
+
+    -- Hird - HF  General
+    g_models[g_str_615351aa03385c0016b86ba8_general] = {
+      {
+        n_models = 3,
+        fixed_models = {
+          [1] = 'troop_viking_general_1',
+          [2] = 'troop_viking_hird_spear',
+          [3] = 'troop_viking_general_2',
+          [4] = 'troop_viking_hird_spear'
+        }
+      }
+    }
+  
+    -- Hird - HF
+    g_models[g_str_615351aa03385c0016b86ba8] = g_models[g_str_615351a903385c0016b86b24]
+    
+    -- Saxon thegns - HF General
+    g_models[g_str_615351aa03385c0016b86bab_general] = g_models[g_str_615351aa03385c0016b86ba8_general]
+
+    -- Saxon thegns - HF
+    g_models[g_str_615351aa03385c0016b86bab] = g_models[g_str_615351aa03385c0016b86ba8]
 
     -- Saxon thegns - EF General
     g_models[g_str_615351aa03385c0016b86bac_general] = g_models[g_str_615351a903385c0016b86b21_general]
 
-    -- Saxon thegns - EF General
+    -- Saxon thegns - EF
     g_models[g_str_615351aa03385c0016b86bac] =g_models[g_str_615351a903385c0016b86b21]
 
+    -- Select fyrd - HF General
+    g_models[g_str_615351aa03385c0016b86bae_general] = g_models[g_str_615351aa03385c0016b86ba8_general]
 
-    -- Hird - Heavy Foot
-    g_models[g_str_615351a903385c0016b86b24] = {
-      {
-        model_data = 'troop_viking_hird_spear'
-      }
-    }
-
-    -- Hird\nDismounted mobile infantry - Heavy Foot
-    g_models[g_str_615351a903385c0016b86b24_dismounted_mobile_infantry] = g_models[g_str_615351a903385c0016b86b24]
-
-    -- Hird\nmounted mobile infantry - Heavy Foot
-    g_models[g_str_615351a903385c0016b86b24_mounted_mobile_infantry] = {
-      {
-        model_data = 'troop_viking_rider_generic'
-      }
-    }
-
-    -- Freelance marauders - Raiders
-    g_models[g_str_615351a903385c0016b86b27] = {
-      {
-        model_data = 'troop_viking_warrior'
-      }
-    }
-
-    -- Freelance marauders\nDismounted mobile infantry - Raiders
-    g_models[g_str_615351a903385c0016b86b27_dismounted_mobile_infantry] = g_models[g_str_615351a903385c0016b86b27]
-
-    -- Freelance marauders\nmounted mobile infantry - Raiders
-    g_models[g_str_615351a903385c0016b86b27_mounted_mobile_infantry] = {
-      {
-        model_data = 'troop_viking_rider_generic'
-      }
-    }
-
-    --Hird bowmen - Archers
-    g_models[g_str_615351a903385c0016b86b2a] = {
-      {
-        model_data = 'troop_viking_archers'
-      }
-    }
+    -- Select fyrd - HF
+    g_models[g_str_615351aa03385c0016b86bae] = g_models[g_str_615351aa03385c0016b86ba8]
 
     --Hird bowmen - Sk
-    g_models[g_str_615351a903385c0016b86b2b] = {
-      {
-        model_data = 'troop_viking_archers',
-        loose = true
-      }
-    }
+    g_models[g_str_615351aa03385c0016b86bb0] = g_models[g_str_615351a903385c0016b86b2b]
 
-    --Besirkir - Warband
-    g_models[g_str_615351a903385c0016b86b2e] = {
-      {
-        model_data = 'troop_viking_berserker'
-      }
-    }
+    --Scouts and javelinmen - Rabble
+    g_models[g_str_615351aa03385c0016b86bb2] = g_models[g_str_615351a903385c0016b86a96]
 
-    --Viking Camp
-    g_models[g_str_5fb1b9e5e1af060017709aae_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
-    --Viking Trains
-    g_models[g_str_5fb1b9e5e1af060017709aae_camp_pack_train] = g_models[g_str_5fb1b9e1e1af060017709849_camp_pack_train]
+    --Great fyrd - Horde
+    g_models[g_str_615351aa03385c0016b86bb4] = g_models[g_str_615351a903385c0016b86ae8]
+
+    --Middle Anglo-Saxon Camp
+    g_models[g_str_5fb1b9e5e1af060017709acf_camp] = g_models[g_str_5fb1b9dce1af06001770959d_camp]
