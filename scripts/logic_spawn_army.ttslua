@@ -116,16 +116,21 @@ end
 function on_clone(source_obj, new_obj)
     local name = source_obj.getName()
     print_info(name .. " has been duplicated.")
-    local new_name = name .. " clone " .. new_obj.getGUID()
-    new_obj.setName(new_name)
-    g_bases[new_name] = {
+    local base_definition = get_base_definition_from_guid(source_obj.getGUID())
+    if base_definition == nil then
+      print_error("Base definition is nil")
+      return
+    end
+    local base_name = 'base ' .. base_definition['name'] .. ' #' .. g_base_index
+    g_base_index = g_base_index + 1
+    new_obj.setName(base_name)
+    g_bases[base_name] = {
         tile = g_bases[name]['tile'],
         is_red_player = g_bases[name]['is_red_player']
     }
     new_obj.clearContextMenu()
     g_decorations[new_obj.getGUID()] = deep_copy(g_decorations[source_obj.getGUID()])
     add_context_menu_base(new_obj)
-
 end
 
 function onObjectSpawn(new_obj)
