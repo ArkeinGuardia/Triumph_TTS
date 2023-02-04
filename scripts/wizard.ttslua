@@ -449,6 +449,9 @@ function update_invasion_wizard_score(color)
   local score_id = color .. "_invasion_score"
   local dice_id = "text_" .. color .. "_invasion_roll_value"
   local dice_str = UI.getAttribute(dice_id, "text")
+  if dice_str == nil or dice_str == "" then
+    return nil
+  end
   local dice = tonumber(dice_str)
   if dice == nil then
     UI.setAttribute(score_id, "text", "")
@@ -513,6 +516,15 @@ function do_update_invasion_wizard_page()
     UI.setAttribute("text_red_invasion_roll_value", "text", "")
     UI.setAttribute("wizard_panel_invader_next", "interactable", false)
     g_game_settings['invader']=nil
+    g_dice_callbacks['invasion_dice_rolled'] = nil
+    -- Wait a frame for the UI elements to be updated before 
+    -- they can be queried
+    Wait.frames(
+      function()
+        g_dice_callbacks['invasion_dice_rolled'] = on_invasion_dice_rolled
+        do_update_invasion_wizard_page()
+      end,
+      1)
     return
   end
   if red_score > blue_score then
