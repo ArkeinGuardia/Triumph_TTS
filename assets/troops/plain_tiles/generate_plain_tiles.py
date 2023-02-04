@@ -6,6 +6,7 @@ import sys
 
 
 text_bottom_margin = 15 - 13.857281
+icon_bottom_margin = 15 - 9.5093451
 
 def make_svg(color:str, troop_name: str, troop_data: dict):
     svg_file_name = (color + "_" + troop_name + ".svg").lower().replace(' ','_')
@@ -60,6 +61,8 @@ def make_svg(color:str, troop_name: str, troop_data: dict):
     image = res[0]
     image.setProp("sodipodi:absref", icon_file_name)
     image.setProp("xlink:href", icon_file_name)
+    image.setProp("preserveAspectRatio", "xMidYMid")
+    image.setProp("height", str(troop_data["base_depth"] - icon_bottom_margin));
 
     doc.saveFileEnc(svg_file_name, "UTF-8")
     doc.freeDoc()
