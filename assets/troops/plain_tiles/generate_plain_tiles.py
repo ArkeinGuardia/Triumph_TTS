@@ -13,6 +13,35 @@ icon_bottom_margin = 15 - 9.5093451
 plain_army = {}
 
 base_definitions = {}
+base_definitions["camp"]={
+  "id":"camp",
+  "name":'Camp',
+  "min":0,
+  "max":1,
+  "description":'Camp',
+  "troop_type":"Camp",
+}
+base_definitions["camp_fortified"]={
+  "id":"camp_fortified",
+  "name":'Camp',
+  "min":0,
+  "max":1,
+  "description":'Fortified Camp',
+  "fortified_camp":True,
+  "troop_type":"Camp",
+}
+base_definitions["camp_pack_train"]={
+  "id":"camp_pack_train",
+  "name":'Camp',
+  "min":0,
+  "max":1,
+  "description":'Pack Train',
+  "pack_train":True,
+  "troop_type":"Camp",
+}
+plain_army[ 'camp' ] = base_definitions['camp']
+plain_army[ 'camp_fortified' ] = base_definitions['camp_fortified']
+plain_army[ 'camp_pack_train' ] = base_definitions['camp_pack_train']
 
 def is_foot(troop_data: dict) -> bool:
     if 'open_order_foot' in troop_data:
@@ -41,25 +70,30 @@ def change_fill(elem, color:str):
     new_style = new_style[:-1]
     elem.setProp("style", new_style)
 
-def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile_infantry: bool):
+def calc_code_name(troop_name: str, general: bool, mobile_infantry: bool) :
     if general:
         general_file_name = "_general"
     else:
         general_file_name = ""
+    mobile_infantry_file_name = ""
+    if mobile_infantry:
+        mobile_infantry_file_name = "_mi"
+    code_name = (f"{troop_name}{general_file_name}{mobile_infantry_file_name}").lower().replace(' ','_')
+    return code_name
+
+def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile_infantry: bool):
     
     name_suffix = ""
-    mobile_infantry_file_name = ""
     base_depth = troop_data['base_depth']
     y_adjustment = 0
     movement_rate = troop_data['tactical_move_distance']
     if mobile_infantry:
-        mobile_infantry_file_name = "_mi"
         base_depth = 40
         y_adjustment = (troop_data['base_depth'] - base_depth) / 2.0
         movement_rate = 6
         name_suffix = name_suffix + " MI"
 
-    code_name = (f"{troop_name}{general_file_name}{mobile_infantry_file_name}").lower().replace(' ','_')
+    code_name = calc_code_name(troop_name=troop_name, general=general, mobile_infantry=mobile_infantry)
     svg_file_name = f"{color}_{code_name}.svg"
     png_file_name = svg_file_name[:-3] + "png"
     icon_file_name = f"../icons/{troop_name.lower().replace(' ','_')}.png"
@@ -118,7 +152,12 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
     # Set the combat factors text
     res = ctxt.xpathEval("//svg:text[@inkscape:label='combat factors']/svg:tspan/text()")
     text_combat = res[0]
-    combat = f" {troop_data['combat_factor_vs_foot']}/{troop_data['combat_factor_vs_mounted']}"
+    foot_cf = troop_data['combat_factor_vs_foot']
+    mounted_cf = troop_data['combat_factor_vs_mounted']
+    if general:
+        foot_cf = foot_cf + 1
+        mounted_cf = mounted_cf + 1
+    combat = f" +{foot_cf}/+{mounted_cf}"
     text_combat.setContent(combat)
 
     # Set the movement rate
@@ -182,6 +221,12 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
             'troop_type':troop_name,
             'troop_option_id':"plain_base",
         }
+        if mobile_infantry:
+            base_definitions[code_name]['mobile_infantry'] = True
+            dismount_code_name = calc_code_name(troop_name=troop_name, general=general, mobile_infantry=False)
+            base_definitions[code_name]['dismount_as'] = dismount_code_name
+        if general:
+            base_definitions[code_name]['general'] =True
         plain_army[ code_name ] = base_definitions[code_name]
     
 
@@ -201,7 +246,7 @@ with open("data.json", "r") as data_file:
 
     
 
-with open("plain_army.lua", "w") as data_file:
+with open("plain_army.ttslua", "w") as data_file:
     data_file.write("""
 troop_options['plain_base'] = {
   min=0,
@@ -216,11 +261,18 @@ troop_options['plain_base'] = {
         data_file.write(f"g_base_definitions['{key}']={{\n")
         for k in base_definitions[key]:
             value = base_definitions[key][k]
-            if isinstance(value, numbers.Number):
+            if isinstance(value, bool):
+                if value :
+                    value = "true"
+                else:
+                    value = "false"
+                data_file.write(f'  {k}={value},\n')
+            elif isinstance(value, numbers.Number):
                 data_file.write(f'  {k}={value},\n')
             else:
                 data_file.write(f'  {k}="{value}",\n')
         data_file.write("}\n\n")
+
 
     data_file.write("""
 army['plain_army']={
@@ -262,10 +314,25 @@ army['plain_army']={
         data_file.write(f"  g_base_definitions['{key}'],\n")
     data_file.write("}\n\n")
     data_file.write("""
+army['plain_army_ally_plain_army'] = army["plain_army"]
 allies['plain_army'] = {
   {
     id='plain_army',
     dateRange={startDate=-50000, endDate=50000}
   }
 }
+
+if nil == armies["All"] then
+  armies["All"] ={}
+end
+armies["All"][army["plain_army"].data.name] = army["plain_army"]
+if nil == army_dates then
+  army_dates={}
+end
+army_dates["plain_army"] = {}
+army_dates["plain_army"]["5000 BC to 5000 AD"] = {
+  startDate=-5000,
+  endDate=5000
+}
+
 """)
