@@ -1,5 +1,6 @@
 require("Triumph_TTS/scripts/logic_decorations")
 require("Triumph_TTS/scripts/sets")
+require("Triumph_TTS/scripts/data/data_cheat_sheet")
 
 -- Format a distance in inches for displaying to the user.
 function inches_to_mu_display_string(distance_inches)
@@ -1023,38 +1024,6 @@ function is_infront(transformA, transformB)
     return is_corners_adjacent(distance_back_to_front(transformA, transformB))
 end
 
--- Appendix A: Troop Types
-base_depth_by_troop_type = {}
-base_depth_by_troop_type['Archers'] = 20
-base_depth_by_troop_type['Bow Levy'] = 30
-base_depth_by_troop_type['Light Foot'] = 20
-base_depth_by_troop_type['Light Spear'] = 20
-base_depth_by_troop_type['Rabble'] = 30
-base_depth_by_troop_type['Raiders'] = 20
-base_depth_by_troop_type['Skirmishers'] = 20
-base_depth_by_troop_type['Warband'] = 20
-base_depth_by_troop_type['Artillery'] = 40
-base_depth_by_troop_type['Elite Foot'] = 15
-base_depth_by_troop_type['Heavy Foot'] = 15
-base_depth_by_troop_type['Horde'] = 40
-base_depth_by_troop_type['Pavisiers'] = 40
--- Appendix A uses "Pike"
-base_depth_by_troop_type['Pikes'] = 15
--- Appendix A uses "Spear"
-base_depth_by_troop_type['Spears'] = 15
-base_depth_by_troop_type['War Wagons'] = 40
-base_depth_by_troop_type['Warriors'] = 15
-base_depth_by_troop_type['Bad Horse'] = 30
-base_depth_by_troop_type['Battle Taxi'] = 40
-base_depth_by_troop_type['Chariots'] = 40
-base_depth_by_troop_type['Elite Cavalry'] = 30
-base_depth_by_troop_type['Horse Bow'] = 30
-base_depth_by_troop_type['Javelin Cavalry'] = 30
-base_depth_by_troop_type['Knights'] = 30
-base_depth_by_troop_type['Cataphracts'] = 40
-base_depth_by_troop_type['Elephants'] = 40
-base_depth_by_troop_type['Camp'] = 40
-
 -- @return Depth in millimeters
 function get_base_depth_from_base_definition(base_definition)
     if base_definition == nil then
@@ -1071,10 +1040,12 @@ function get_base_depth_from_base_definition(base_definition)
         print_error('troop type missing from base definition.')
         return 40 -- dummy value
     end
-    if troop_type == 'Elite Foot' then
-        return 15
+    local type_data = base_tool_tips[troop_type]
+    if type_data == nil then
+        print_error('type_data missing for ' .. troop_type)
+        return 40 -- dummy value
     end
-    local depth = base_depth_by_troop_type[troop_type]
+    local depth = type_data['base_depth']
     if depth == nil then
         print_error("No depth for : '" .. tostring(troop_type))
         return 40 -- dummy value
