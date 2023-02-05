@@ -29,8 +29,12 @@ def change_fill(elem, color:str):
     new_style = new_style[:-1]
     elem.setProp("style", new_style)
 
-def make_svg(color:str, troop_name: str, troop_data: dict):
-    svg_file_name = (color + "_" + troop_name + ".svg").lower().replace(' ','_')
+def make_svg(color:str, general: bool, troop_name: str, troop_data: dict):
+    if general:
+        general_file_name = "_general"
+    else:
+        general_file_name = ""
+    svg_file_name = (f"{color}_{troop_name}{general_file_name}.svg").lower().replace(' ','_')
     icon_file_name = f"../icons/{troop_name.lower().replace(' ','_')}.png"
     icon_path = pathlib.Path(icon_file_name)
     if not icon_path.exists():
@@ -54,13 +58,19 @@ def make_svg(color:str, troop_name: str, troop_data: dict):
 
     res = ctxt.xpathEval("//svg:rect[@inkscape:label='general outside']")
     rect = res[0]
-    rect.setProp("height", str(troop_data['base_depth']))
+    if general:
+        rect.setProp("height", str(troop_data['base_depth']))
+    else:
+        rect.unlinkNode()
 
     res = ctxt.xpathEval("//svg:rect[@inkscape:label='general inside']")
     rect = res[0]
-    # 0.5mm width of general decoration
-    rect.setProp("height", str(troop_data['base_depth'] - 1))
-    change_fill(rect, color)
+    if general:
+        # 0.5mm width of general decoration
+        rect.setProp("height", str(troop_data['base_depth'] - 1))
+        change_fill(rect, color)
+    else:
+        rect.unlinkNode()
 
     # Replace the text
     text_y = str(troop_data['base_depth'] - text_bottom_margin)
@@ -102,7 +112,8 @@ def make_svg(color:str, troop_name: str, troop_data: dict):
 
 def make_svgs(troop_name: str, troop_data: dict):
     for color in ['red', 'blue'] :
-        make_svg(color, type, data[type])
+        for general in [ True, False]:
+            make_svg(color, general, type, data[type])
 
 with open("data.json", "r") as data_file:
     data = json.load(data_file)
