@@ -334,6 +334,8 @@ tile_plain_Archers_General = {
     player_red_tex = 'http://cloud-3.steamusercontent.com/ugc/1781713182598131193/194225176C14E627CC2AB25CD200C3659116BED0/',
     player_blue_tex = 'http://cloud-3.steamusercontent.com/ugc/1781713182598131061/BF09D847D6782A7BD4106F1815D18F1EA1448825/'
 }
+-- Create alias to work around inconsistent naming when generating names.
+tile_plain_Archers_Gen = tile_plain_Archers_General
 
 tile_plain_Light_Foot = {
     height_correction = 0,
@@ -757,6 +759,34 @@ tile_plain_Artillery_Gen = {
     },
     player_red_tex = 'http://cloud-3.steamusercontent.com/ugc/1781713182598131193/194225176C14E627CC2AB25CD200C3659116BED0/',
     player_blue_tex = 'http://cloud-3.steamusercontent.com/ugc/1781713182598131061/BF09D847D6782A7BD4106F1815D18F1EA1448825/'
+}
+
+tile_plain_Artillery_MI = {
+    height_correction = 0,
+    scale = 1,
+    rotation = 0,
+    depth = 40,
+    description = 'Artillery Mobile Infantry',
+    author = 'Plain tile, original work by Arkein (model) and Rod (texture), using troop icon from Lorenzo Moro, modified by Marc.',
+    mesh = { 
+        g_assets['dir'] .. "troops/plain_tiles/tile_40_40.obj"
+    },
+    player_red_tex =  g_assets['dir'] .. "troops/plain_tiles/red_artillery_mi.png",
+    player_blue_tex =  g_assets['dir'] .. "troops/plain_tiles/blue_artillery_mi.png"
+}
+
+tile_plain_Artillery_Gen_MI = {
+    height_correction = 0,
+    scale = 1,
+    rotation = 0,
+    depth = 40,
+    description = 'Artillery General Mobile Infantry',
+    author = 'Plain tile, original work by Arkein (model) and Rod (texture), using troop icon from Lorenzo Moro, modified by Marc',
+    mesh = { 
+        g_assets['dir'] .. "troops/plain_tiles/tile_40_40.obj"
+    },
+    player_red_tex =  g_assets['dir'] .. "troops/plain_tiles/red_artillery_general_mi.png",
+    player_blue_tex =  g_assets['dir'] .. "troops/plain_tiles/blue_artillery_general_mi.png"
 }
 
 tile_plain_Battle_Taxi = {
@@ -1229,6 +1259,12 @@ function get_mobile_infanty_plain_tile(long_name, general)
   mi_tile_name = tile_name .. '_MI'
   if _G[mi_tile_name] then
     return mi_tile_name
+  end
+
+  -- Build up Mobile infrantry tile on the fly.
+  if nil == _G[tile_name] then
+    print_error("No variable for tile name: " .. tile_name)
+    return nil
   end
   mi_tile = shallow_copy(_G[tile_name])
   mi_tile.depth = 40

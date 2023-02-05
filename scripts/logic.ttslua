@@ -1040,6 +1040,12 @@ function get_base_depth_from_base_definition(base_definition)
         print_error('troop type missing from base definition.')
         return 40 -- dummy value
     end
+    if troop_type == "Camp" then
+        -- Rule 16.2
+        -- hard code a dummy value, it really should be based on the model since
+        -- camps do not have to have a fixed size.  
+        return 40
+    end
     local type_data = base_tool_tips[troop_type]
     if type_data == nil then
         print_error('type_data missing for ' .. troop_type)
