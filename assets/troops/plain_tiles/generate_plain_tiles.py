@@ -2,15 +2,39 @@
 
 import json
 import libxml2
+import pathlib
 import sys
 
 
 text_bottom_margin = 15 - 13.857281
 icon_bottom_margin = 15 - 9.5093451
 
+def get_color_code(color):
+    if color == "red":
+        return "#b52327"
+    if color == "blue":
+        return "#235db5"
+    raise Exception("Unexpected color")
+
+def change_fill(elem, color:str):
+    color_code = get_color_code(color)
+    style = elem.prop("style")
+    new_style = ""
+    for part in style.split(";"):
+        name,value = part.split(":")
+        if name != "fill":
+            new_style = new_style + name + ":" + value + ";"
+        else:
+            new_style = new_style + name + ":" + color_code + ";"
+    new_style = new_style[:-1]
+    elem.setProp("style", new_style)
+
 def make_svg(color:str, troop_name: str, troop_data: dict):
     svg_file_name = (color + "_" + troop_name + ".svg").lower().replace(' ','_')
     icon_file_name = f"../icons/{troop_name.lower().replace(' ','_')}.png"
+    icon_path = pathlib.Path(icon_file_name)
+    if not icon_path.exists():
+        raise Exception("Icon missing: " + icon_file_name)
     doc = libxml2.parseFile("drawing.svg")
     ctxt = doc.xpathNewContext()
     ctxt.xpathRegisterNs("svg", "http://www.w3.org/2000/svg")
@@ -22,16 +46,21 @@ def make_svg(color:str, troop_name: str, troop_data: dict):
     svg.setProp("height", f"{troop_data['base_depth']}mm")
     svg.setProp("viewBox", f"0 0 40 {troop_data['base_depth']}")
     svg.setProp("sodipodi:docname", svg_file_name)
+    
     res = ctxt.xpathEval("//svg:rect[@inkscape:label='background']")
     rect = res[0]
     rect.setProp("height", str(troop_data['base_depth']))
+    change_fill(rect, color)
+
     res = ctxt.xpathEval("//svg:rect[@inkscape:label='general outside']")
     rect = res[0]
     rect.setProp("height", str(troop_data['base_depth']))
+
     res = ctxt.xpathEval("//svg:rect[@inkscape:label='general inside']")
     rect = res[0]
     # 0.5mm width of general decoration
     rect.setProp("height", str(troop_data['base_depth'] - 1))
+    change_fill(rect, color)
 
     # Replace the text
     text_y = str(troop_data['base_depth'] - text_bottom_margin)
@@ -47,14 +76,17 @@ def make_svg(color:str, troop_name: str, troop_data: dict):
     text = res[0]
     text.setProp("y", text_y)
 
+    # Set the combat factors text
+    res = ctxt.xpathEval("//svg:text[@inkscape:label='combat factors']/svg:tspan/text()")
+    text_combat = res[0]
+    combat = f" {troop_data['combat_factor_vs_foot']}/{troop_data['combat_factor_vs_mounted']}"
+    text_combat.setContent(combat)
+
+    # Set the movement rate
     res = ctxt.xpathEval("//svg:text[@inkscape:label='combat factors']/svg:tspan/svg:tspan")
     tspan_movement = res[0]
     tspan_movement.setContent(f"{troop_data['tactical_move_distance']}MU")
     tspan.setContent(troop_name)
-    res = ctxt.xpathEval("//svg:text[@inkscape:label='combat factors']/svg:tspan")
-    tspan_combat = res[0]
-    combat = f" {troop_data['combat_factor_vs_foot']}/{troop_data['combat_factor_vs_mounted']}"
-    tspan_combat.setContent(combat)
 
     # Replace the icon
     res = ctxt.xpathEval("//svg:image[@inkscape:label='icon']")
@@ -68,10 +100,13 @@ def make_svg(color:str, troop_name: str, troop_data: dict):
     doc.freeDoc()
     ctxt.xpathFreeContext()
 
+def make_svgs(troop_name: str, troop_data: dict):
+    for color in ['red', 'blue'] :
+        make_svg(color, type, data[type])
 
 with open("data.json", "r") as data_file:
     data = json.load(data_file)
     for type in data:
         if type not in ["Camp", 'Elephant Screen Counter']:
-            make_svg("red", type, data[type])
+            make_svgs(type, data[type])
 
