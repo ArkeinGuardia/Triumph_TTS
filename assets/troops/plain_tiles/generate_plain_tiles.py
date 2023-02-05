@@ -3,7 +3,7 @@
 import json
 import libxml2
 import pathlib
-import sys
+import subprocess
 
 
 text_bottom_margin = 15 - 13.857281
@@ -55,6 +55,7 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
         name_suffix = name_suffix + " MI"
 
     svg_file_name = (f"{color}_{troop_name}{general_file_name}{mobile_infantry_file_name}.svg").lower().replace(' ','_')
+    png_file_name = svg_file_name[:-3] + "png"
     icon_file_name = f"../icons/{troop_name.lower().replace(' ','_')}.png"
     icon_path = pathlib.Path(icon_file_name)
     if not icon_path.exists():
@@ -154,6 +155,13 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
     doc.saveFileEnc(svg_file_name, "UTF-8")
     doc.freeDoc()
     ctxt.xpathFreeContext()
+
+    # Convert SVG to PNG
+    cmd = ['/cygdrive/c/Program Files/Inkscape/inkscape.exe',  '--without-gui',
+      '-w', str(22 * 40), '-h', str(22 * base_depth),
+      '-f', svg_file_name, 
+      '-e', png_file_name]
+    subprocess.check_call(cmd)
 
 def make_svgs(troop_name: str, troop_data: dict):
     for color in ['red', 'blue'] :
