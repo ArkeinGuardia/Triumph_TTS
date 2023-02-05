@@ -2,12 +2,17 @@
 
 import json
 import libxml2
+import numbers
 import pathlib
 import subprocess
 
 
 text_bottom_margin = 15 - 13.857281
 icon_bottom_margin = 15 - 9.5093451
+
+plain_army = {}
+
+base_definitions = {}
 
 def is_foot(troop_data: dict) -> bool:
     if 'open_order_foot' in troop_data:
@@ -54,7 +59,8 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
         movement_rate = 6
         name_suffix = name_suffix + " MI"
 
-    svg_file_name = (f"{color}_{troop_name}{general_file_name}{mobile_infantry_file_name}.svg").lower().replace(' ','_')
+    code_name = (f"{troop_name}{general_file_name}{mobile_infantry_file_name}").lower().replace(' ','_')
+    svg_file_name = f"{color}_{code_name}.svg"
     png_file_name = svg_file_name[:-3] + "png"
     icon_file_name = f"../icons/{troop_name.lower().replace(' ','_')}.png"
     icon_path = pathlib.Path(icon_file_name)
@@ -163,6 +169,22 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
       '-e', png_file_name]
     subprocess.check_call(cmd)
 
+    # Record the plain tile for the plain army
+    global plain_army
+    global base_definitions
+    if code_name not in base_definitions:
+        base_definitions[code_name]={
+            'id':code_name,
+            'name':troop_name,
+            'min':0,
+            'max':1,
+            'description':'',
+            'troop_type':troop_name,
+            'troop_option_id':"plain_base",
+        }
+        plain_army[ code_name ] = base_definitions[code_name]
+    
+
 def make_svgs(troop_name: str, troop_data: dict):
     for color in ['red', 'blue'] :
         for general in [ True, False]:
@@ -177,3 +199,73 @@ with open("data.json", "r") as data_file:
         if type not in ["Camp", 'Elephant Screen Counter']:
             make_svgs(type, data[type])
 
+    
+
+with open("plain_army.lua", "w") as data_file:
+    data_file.write("""
+troop_options['plain_base'] = {
+  min=0,
+  max=1,
+  dateRange={
+    startDate=-5000,
+    endDate=5000,
+  }
+}
+""")
+    for key in base_definitions:
+        data_file.write(f"g_base_definitions['{key}']={{\n")
+        for k in base_definitions[key]:
+            value = base_definitions[key][k]
+            if isinstance(value, numbers.Number):
+                data_file.write(f'  {k}={value},\n')
+            else:
+                data_file.write(f'  {k}="{value}",\n')
+        data_file.write("}\n\n")
+
+    data_file.write("""
+army['plain_army']={
+  data={
+    invasionRatings={
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+    },
+    maneuverRatings={
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+    },
+    homeTopographies = {
+      'Ariable',
+      'Forest',
+      'Hilly',
+      'Dry',
+      'Steepe',
+      'Delta',
+      'Marsh',
+    },
+    name = ' Plain Bases',
+    id = 'plain_army',
+    dateRange = {
+      startDate = -5000,
+      endDate = 5000,
+    },
+  },
+""")
+    for key in plain_army:
+        data_file.write(f"  g_base_definitions['{key}'],\n")
+    data_file.write("}\n\n")
+    data_file.write("""
+allies['plain_army'] = {
+  {
+    id='plain_army',
+    dateRange={startDate=-50000, endDate=50000}
+  }
+}
+""")
