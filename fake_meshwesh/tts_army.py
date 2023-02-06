@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# Create the TTS army defintions.
+# Create the TTS army definitions.
 
 import json
 import os
@@ -1087,7 +1087,7 @@ def generate_army(army_id) :
 
       #escape quotes
       army_name = make_safe_string(army_name)
-      name = army_name.replace("'", "\\'")
+      name = army_name.replace("'", "\\'").strip()
 
       file.write("    name='%s',\n" %(name))
       file.write("    id='%s',\n" %(army_id))
@@ -1216,6 +1216,10 @@ def generate_allies(army_id) :
   """
   allies_file_name = os.path.join("army_data", army_id + "_allies.ttslua")
   with open(allies_file_name, "w") as file :
+    file.write("""
+-- GENERATED FILE DO NOT EDIT
+-- See tts_army.py
+""")
     army_ally_options_json  = read_army_ally_options(army_id)
     file.write("allies['%s'] = {\n" % (army_id))
     for allies_for_date in army_ally_options_json :
@@ -1271,6 +1275,10 @@ def write_troop_options(army_id) :
   """Write the troop options data so they can be accessed in LUA."""
   file_name = os.path.join("army_data", army_id + "_troop_options.ttslua")
   with open(file_name, "w") as file :
+    file.write("""
+-- GENERATED FILE DO NOT EDIT
+-- See tts_army.py
+""")
     army_json = read_army_json(army_id)
     troop_options = army_json['troopOptions']
     for troop_option in  troop_options :
@@ -1288,55 +1296,66 @@ def write_troop_options(army_id) :
 summary = read_json("armyLists/summary")
 
 with open("army_data/all_armies.ttslua", "w") as all_armies:
+    all_armies.write("""
+-- GENERATED FILE DO NOT EDIT
+-- See tts_army.py
 
-  all_armies.write("""  
 -- Each army book will add to this, but the object table needs to be created
 -- first
 armies = { }
 
-troop_options={}
+if nil == troop_options then
+  troop_options={}
+end
 
 -- Data for the bases that make up the armies
-g_base_definitions={}
+if nil == g_base_definitions then
+  g_base_definitions={}
+end
 
-army={}
-allies={}
+if nil == army then
+  army={}
+end
 
-  """)
+if nil == allies then
+  allies={}
+end
 
-  for army_entry in summary :
-    army_id = army_entry['id']
-    write_troop_options(army_id)
+""")
 
-  for army_entry in summary :
-    army_id = army_entry['id']
-    print(army_id)
-    try :
-      generate_army(army_id)
-    except:
-      print(army_entry['name'])
-      raise
+    for army_entry in summary :
+        army_id = army_entry['id']
+        write_troop_options(army_id)
 
-  for army_entry in summary :
-    army_id = army_entry['id']
-    generate_ally_base_definitions(army_id)
+    for army_entry in summary :
+        army_id = army_entry['id']
+        print(army_id)
+        try :
+            generate_army(army_id)
+        except:
+            print(army_entry['name'])
+            raise
 
-  for army_entry in summary :
-    army_id = army_entry['id']
+    for army_entry in summary :
+        army_id = army_entry['id']
+        generate_ally_base_definitions(army_id)
 
-  for army_entry in summary :
-    army_id = army_entry['id']
-    generate_allies(army_id)
+    for army_entry in summary :
+        army_id = army_entry['id']
 
-  for army_entry in summary :
-    army_id = army_entry['id']
-    all_armies.write('require("Triumph_TTS/fake_meshwesh/army_data/%s_troop_options")\n' % (army_id))
-  for army_entry in summary :
-    army_id = army_entry['id']
-    all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s_base_definitions")\n' % (army_id))
-  for army_entry in summary :
-    army_id = army_entry['id']
-    all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s")\n' % (army_id))
-  for army_entry in summary :
-    army_id = army_entry['id']
-    all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s_allies")\n' % (army_id))
+    for army_entry in summary :
+        army_id = army_entry['id']
+        generate_allies(army_id)
+
+    for army_entry in summary :
+        army_id = army_entry['id']
+        all_armies.write('require("Triumph_TTS/fake_meshwesh/army_data/%s_troop_options")\n' % (army_id))
+    for army_entry in summary :
+        army_id = army_entry['id']
+        all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s_base_definitions")\n' % (army_id))
+    for army_entry in summary :
+        army_id = army_entry['id']
+        all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s")\n' % (army_id))
+    for army_entry in summary :
+        army_id = army_entry['id']
+        all_armies.write( 'require("Triumph_TTS/fake_meshwesh/army_data/%s_allies")\n' % (army_id))
