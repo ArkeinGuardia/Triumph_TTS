@@ -1219,6 +1219,9 @@ def generate_allies(army_id) :
     file.write("""
 -- GENERATED FILE DO NOT EDIT
 -- See tts_army.py
+
+require("Triumph_TTS/scripts/static_maps")
+
 """)
     army_ally_options_json  = read_army_ally_options(army_id)
     file.write("allies['%s'] = {\n" % (army_id))
@@ -1278,6 +1281,9 @@ def write_troop_options(army_id) :
     file.write("""
 -- GENERATED FILE DO NOT EDIT
 -- See tts_army.py
+
+require("Triumph_TTS/scripts/static_maps")
+
 """)
     army_json = read_army_json(army_id)
     troop_options = army_json['troopOptions']
@@ -1300,26 +1306,7 @@ with open("army_data/all_armies.ttslua", "w") as all_armies:
 -- GENERATED FILE DO NOT EDIT
 -- See tts_army.py
 
--- Each army book will add to this, but the object table needs to be created
--- first
-armies = { }
-
-if nil == troop_options then
-  troop_options={}
-end
-
--- Data for the bases that make up the armies
-if nil == g_base_definitions then
-  g_base_definitions={}
-end
-
-if nil == army then
-  army={}
-end
-
-if nil == allies then
-  allies={}
-end
+require("Triumph_TTS/scripts/static_maps")
 
 """)
 

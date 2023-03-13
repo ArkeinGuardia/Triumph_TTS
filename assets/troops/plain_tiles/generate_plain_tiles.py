@@ -10,6 +10,12 @@ import subprocess
 text_bottom_margin = 15 - 13.857281
 icon_bottom_margin = 15 - 9.5093451
 
+with open("data.json", "r") as data_file:
+    base_tool_tips = json.load(data_file)
+    for troop_type in base_tool_tips:
+        # Add the key as a data field to make processing easier
+        base_tool_tips[troop_type]['troop_type'] = troop_type
+
 plain_army = {}
 
 base_definitions = {}
@@ -81,7 +87,87 @@ def calc_code_name(troop_name: str, general: bool, mobile_infantry: bool) :
     code_name = (f"{troop_name}{general_file_name}{mobile_infantry_file_name}").lower().replace(' ','_')
     return code_name
 
+def calc_code_name_from_definition(base_definition: dict) :
+    general = 'general' in base_definition and base_definition['general']
+    mobile_infantry = 'mobile_infantry' in base_definition and base_definition['mobile_infantry']
+    return calc_code_name(troop_name=base_definition['troop_type'], general=general, mobile_infantry=mobile_infantry)
+
+def calc_tile_name(base_definition: dict) :
+    tile_name = "tile_plain_" 
+    tile_name = tile_name + base_definition['troop_type']
+    if 'general' in base_definition and base_definition['general']:
+        tile_name = tile_name + "_Gen"
+    if 'mobile_infantry' in base_definition and base_definition['mobile_infantry']:
+        tile_name = tile_name + "_MI"
+    tile_name = tile_name.replace(' ', '_')
+    return tile_name
+
+def write_tile(output, base_definition: dict):
+    tool_tips = base_tool_tips[ base_definition['troop_type']]
+    if 'base_depth' not in tool_tips:
+        return
+    base_depth = tool_tips['base_depth']
+    if 'mobile_infantry' in base_definition and base_definition['mobile_infantry']:
+        base_depth = 40
+
+    tile_name = calc_tile_name(base_definition)
+    description = base_definition['troop_type']
+    if 'general' in base_definition and base_definition['general']:
+        description = description + " General"
+    if 'mobile_infantry' in base_definition and base_definition['mobile_infantry']:
+        description = description + " Mobile Infrantry"
+    description = description + " Tile"
+    author = 'Plain tile, original work by Arkein (model) and Rod (texture), using troop icon from Lorenzo Moro, modified by Marc.'
+    mesh = f"g_assets['dir'] .. 'troops/plain_tiles/tile_40_{base_depth}.obj'"
+    code_name = calc_code_name_from_definition(base_definition)
+    red_tex = f"g_assets['dir'] .. 'troops/plain_tiles/red_{code_name}.png'"
+    blue_tex = f"g_assets['dir'] .. 'troops/plain_tiles/blue_{code_name}.png'"
+
+    output.write(f"""
+{tile_name} = {{
+  height_correction = 0,
+  scale = 1,
+  rotation = 0,
+  depth = {base_depth},
+  description = '{description}',
+  author = '{author}',
+  mesh = {{ {mesh}, }},
+  player_red_tex = {red_tex},
+  player_blue_tex = {blue_tex},
+}}
+""")
+
+
+def make_base_definition(general: bool, troop_name: str, troop_data: dict, mobile_infantry: bool):
+    code_name = calc_code_name(troop_name=troop_name, general=general, mobile_infantry=mobile_infantry)
+
+    # Record the plain tile for the plain army
+    global plain_army
+    global base_definitions
+    if code_name not in base_definitions:
+        base_definition_name = troop_name
+        if general:
+            base_definition_name = base_definition_name + " General"
+        base_definitions[code_name]={
+            'id':code_name,
+            'name':base_definition_name,
+            'min':0,
+            'max':1,
+            'description':'',
+            'troop_type':troop_name,
+            'troop_option_id':"plain_base",
+        }
+        if mobile_infantry:
+            base_definitions[code_name]['mobile_infantry'] = True
+            dismount_code_name = calc_code_name(troop_name=troop_name, general=general, mobile_infantry=False)
+            base_definitions[code_name]['dismount_as'] = dismount_code_name
+        if general:
+            base_definitions[code_name]['general'] =True
+        plain_army[ code_name ] = base_definitions[code_name]
+
+
 def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile_infantry: bool):
+    code_name = calc_code_name(troop_name=troop_name, general=general, mobile_infantry=mobile_infantry)
     
     name_suffix = ""
     base_depth = troop_data['base_depth']
@@ -93,7 +179,8 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
         movement_rate = 6
         name_suffix = name_suffix + " MI"
 
-    code_name = calc_code_name(troop_name=troop_name, general=general, mobile_infantry=mobile_infantry)
+
+
     svg_file_name = f"{color}_{code_name}.svg"
     png_file_name = svg_file_name[:-3] + "png"
     icon_file_name = f"../icons/{troop_name.lower().replace(' ','_')}.png"
@@ -202,19 +289,21 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
     ctxt.xpathFreeContext()
 
     # Convert SVG to PNG
-    cmd = ['/cygdrive/c/Program Files/Inkscape/inkscape.exe',  '--without-gui',
-      '-w', str(22 * 40), '-h', str(22 * base_depth),
-      '-f', svg_file_name, 
-      '-e', png_file_name]
+    cmd = ['/cygdrive/c/Program Files/Inkscape/inkscape.exe',  
+        '--without-gui',
+        '-w', str(22 * 40), '-h', str(22 * base_depth),
+        '-f', svg_file_name, 
+        '-e', png_file_name]
     subprocess.check_call(cmd)
 
     # Record the plain tile for the plain army
-    global plain_army
-    global base_definitions
     if code_name not in base_definitions:
+        base_definition_name = troop_name
+        if general:
+            base_definition_name = base_definition_name + " General"
         base_definitions[code_name]={
             'id':code_name,
-            'name':troop_name,
+            'name':base_definition_name,
             'min':0,
             'max':1,
             'description':'',
@@ -228,25 +317,59 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
         if general:
             base_definitions[code_name]['general'] =True
         plain_army[ code_name ] = base_definitions[code_name]
-    
 
-def make_svgs(troop_name: str, troop_data: dict):
-    for color in ['red', 'blue'] :
-        for general in [ True, False]:
-            make_svg(color, general, type, data[type], mobile_infantry=False)
-            if is_foot(troop_data):
-                if type not in ["War Wagons"]:
-                    make_svg(color, general, type, data[type], mobile_infantry=True)
 
-with open("data.json", "r") as data_file:
-    data = json.load(data_file)
+def make_base_definitions(data):
     for type in data:
         if type not in ["Camp", 'Elephant Screen Counter']:
-            make_svgs(type, data[type])
+            troop_data = data[type]
+            for general in [ True, False]:
+                make_base_definition(general=general, troop_name=type, troop_data=troop_data,  mobile_infantry=False)
+                if is_foot(troop_data) and type not in ["War Wagons"]:
+                    make_base_definition(general=general, troop_name=type, troop_data=data[type], mobile_infantry=True)
 
+
+def make_svgs(base_tool_tip: dict):
+    for color in ['red', 'blue'] :
+        for general in [ True, False]:
+            make_svg(color, general, type, base_tool_tip, mobile_infantry=False)
+            if is_foot(base_tool_tip):
+                if base_tool_tip['troop_type'] not in ["War Wagons"]:
+                    make_svg(color, general, type, base_tool_tip, mobile_infantry=True)
+
+def write_base_definition(data_file, key) :
+    data_file.write(f"g_base_definitions['{key}']={{\n")
+    for k in base_definitions[key]:
+        value = base_definitions[key][k]
+        if isinstance(value, bool):
+            if value :
+                value = "true"
+            else:
+                value = "false"
+            data_file.write(f'  {k}={value},\n')
+        elif isinstance(value, numbers.Number):
+            data_file.write(f'  {k}={value},\n')
+        else:
+            data_file.write(f'  {k}="{value}",\n')
+    data_file.write("}\n\n")
     
+make_base_definitions(base_tool_tips)
+for type in base_tool_tips:
+    if type not in ["Camp", 'Elephant Screen Counter']:
+        make_svgs(base_tool_tips[type])    
 
 with open("plain_army.ttslua", "w") as data_file:
+    data_file.write("""
+-- GENERATED FILE
+-- DO NOT EDIT
+-- see generate_plain_tiles.py
+
+require("Triumph_TTS/scripts/static_maps")
+""")
+    # Write out the plain tiles
+    for key in base_definitions:
+        write_tile(data_file, base_definitions[key])
+
     data_file.write("""
 troop_options['plain_base'] = {
   min=0,
@@ -258,21 +381,7 @@ troop_options['plain_base'] = {
 }
 """)
     for key in base_definitions:
-        data_file.write(f"g_base_definitions['{key}']={{\n")
-        for k in base_definitions[key]:
-            value = base_definitions[key][k]
-            if isinstance(value, bool):
-                if value :
-                    value = "true"
-                else:
-                    value = "false"
-                data_file.write(f'  {k}={value},\n')
-            elif isinstance(value, numbers.Number):
-                data_file.write(f'  {k}={value},\n')
-            else:
-                data_file.write(f'  {k}="{value}",\n')
-        data_file.write("}\n\n")
-
+        write_base_definition(data_file=data_file, key=key)
 
     data_file.write("""
 army['plain_army']={
@@ -322,13 +431,7 @@ allies['plain_army'] = {
   }
 }
 
-if nil == armies["All"] then
-  armies["All"] ={}
-end
 armies["All"][army["plain_army"].data.name] = army["plain_army"]
-if nil == army_dates then
-  army_dates={}
-end
 army_dates["plain_army"] = {}
 army_dates["plain_army"]["5000 BC to 5000 AD"] = {
   startDate=-5000,

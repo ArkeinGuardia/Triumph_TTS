@@ -53,6 +53,12 @@ function test_get_plain_model_tile_name_fortified()
     lu.assertEquals(actual, 'tile_plain_Fortified_Camp')
 end
 
+function test_get_plain_model_tile_name_prepared_defenses()
+  local base_def = g_base_definitions[g_str_5fb1b9f3e1af06001770a2be_prepared_defenses]
+  local actual = get_plain_model_tile_name(base_def)
+  lu.assertEquals(actual, 'tile_plain_Prepared_defenses')
+end
+
 -- Verify that a mesh is not selected more than once if there are enough
 -- meshes
 function test_calculate_random_meshes()

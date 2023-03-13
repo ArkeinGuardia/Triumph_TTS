@@ -140,7 +140,7 @@ function test_turn_around_base()
 end
 
 function test_calculate_transform_keeps_rotation_between_zero_and_two_pi_negative_degrees()
-  local base = build_base("base WWg # 19", 'tile_plain_War_Wagon')
+  local base = build_base("base WWg # 19", 'tile_plain_War_Wagons')
   base.setRotation({0, -90, 0})
   local t = calculate_transform(base)
   local actual= t.rotation
@@ -149,7 +149,7 @@ function test_calculate_transform_keeps_rotation_between_zero_and_two_pi_negativ
 end
 
 function test_calculate_transform_keeps_rotation_between_zero_and_two_pi_large_positive_degrees()
-  local base = build_base("base WWg # 19", 'tile_plain_War_Wagon')
+  local base = build_base("base WWg # 19", 'tile_plain_War_Wagons')
   base.setRotation({0,  90 + 720, 0 })
   local t = calculate_transform(base)
   local actual= t.rotation
@@ -158,8 +158,8 @@ function test_calculate_transform_keeps_rotation_between_zero_and_two_pi_large_p
 end
 
 function test_rotate_CCW_90()
-  lu.assertNotNil(tile_plain_War_Wagon)
-  local moving_base = build_base("base WWg # 19", 'tile_plain_War_Wagon')
+  lu.assertNotNil(tile_plain_War_Wagons)
+  local moving_base = build_base("base WWg # 19", 'tile_plain_War_Wagons')
   local before = calculate_transform(moving_base)
   moving_base.setRotation({0, -90, 0})
   local after = calculate_transform(moving_base)
@@ -354,7 +354,7 @@ function test_distance_back_to_front_returns_huge_when_angle_too_different()
   local resting_base = build_base("base Bw # 19")
   local transform_resting = calculate_transform(resting_base)
 
-  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagon')
+  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagons')
   local transform_moving = calculate_transform(moving_base)
   local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.botleft.x
   local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.botleft.z
@@ -371,7 +371,7 @@ function test_distance_back_to_front_returns_distance()
   local resting_base = build_base("base Bw # 19")
   local transform_resting = calculate_transform(resting_base)
 
-  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagon')
+  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagons')
   local transform_moving = calculate_transform(moving_base)
   local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.botleft.x
   local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.botleft.z
@@ -389,7 +389,7 @@ function test_snap_to_base_infront()
   local original_base = deep_copy(resting_base)
   local transform_resting = calculate_transform(resting_base)
 
-  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagon')
+  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagons')
   local transform_moving = calculate_transform(moving_base)
   local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.botleft.x
   local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.botleft.z
@@ -421,7 +421,7 @@ function test_snap_to_base_behind()
   local original_base = deep_copy(resting_base)
   local transform_resting = calculate_transform(resting_base)
 
-  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagon')
+  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagons')
   local transform_moving = calculate_transform(moving_base)
   local delta_x = transform_resting.corners.botleft.x - transform_moving.corners.topleft.x
   local delta_z = transform_resting.corners.botleft.z - transform_moving.corners.topleft.z
@@ -454,7 +454,7 @@ function test_snap_to_base_opposite()
   local original_base = deep_copy(resting_base)
   local transform_resting = calculate_transform(resting_base)
 
-  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagon')
+  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagons')
   local transform_moving = calculate_transform(moving_base)
   local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.topright.x
   local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.topright.z
@@ -482,7 +482,7 @@ function test_snap_to_base_left()
   local original_base = deep_copy(resting_base)
   local transform_resting = calculate_transform(resting_base)
 
-  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagon')
+  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagons')
   local transform_moving = calculate_transform(moving_base)
   local delta_x = transform_resting.corners.topleft.x - transform_moving.corners.topright.x
   local delta_z = transform_resting.corners.topleft.z - transform_moving.corners.topright.z
@@ -514,7 +514,7 @@ function test_snap_to_base_right()
   local original_base = deep_copy(resting_base)
   local transform_resting = calculate_transform(resting_base)
 
-  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagon')
+  local moving_base = build_base("base WWg # 20", 'tile_plain_War_Wagons')
   local transform_moving = calculate_transform(moving_base)
   local delta_x = transform_resting.corners.topright.x - transform_moving.corners.topleft.x
   local delta_z = transform_resting.corners.topright.z - transform_moving.corners.topleft.z

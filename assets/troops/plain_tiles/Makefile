@@ -15,7 +15,7 @@ data.json: ../../../../Triumph_TTS/submodules/lunajson/src/lunajson.lua
 data.json: get_data.lua 
 	LUA_PATH="${LUA_PATH}" lua get_data.lua > $@
 
-plain_army.lua: svg
+plain_army.ttslua: svg
 
 
 .PHONY: svg

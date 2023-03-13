@@ -1,6 +1,7 @@
 
 
 require("Triumph_TTS/assets/assets")
+require("Triumph_TTS/scripts/static_maps")
 require("Triumph_TTS/scripts/data/data_models")
 require("Triumph_TTS/scripts/data/data_settings")
 require("Triumph_TTS/scripts/logic_decorations")
@@ -740,65 +741,10 @@ function spawn_base(base_definition, pos, y_rotation, is_red_player, command_col
     return base_obj
 end
 
-troop_type_to_plain_model_tile_name = {}
-troop_type_to_plain_model_tile_name['Archers']='tile_plain_Archers'
-troop_type_to_plain_model_tile_name['Bow Levy']='tile_plain_Bow_Levy'
-troop_type_to_plain_model_tile_name['Light Foot']='tile_plain_Light_Foot'
-troop_type_to_plain_model_tile_name['Light Spear']='tile_plain_Light_Spear'
-troop_type_to_plain_model_tile_name['Rabble']='tile_plain_Rabble'
-troop_type_to_plain_model_tile_name['Raiders']='tile_plain_Raiders'
-troop_type_to_plain_model_tile_name['Skirmishers']='tile_plain_Skirmishers'
-troop_type_to_plain_model_tile_name['Warband']='tile_plain_Warband'
-troop_type_to_plain_model_tile_name['Artillery']='tile_plain_Artillery'
-troop_type_to_plain_model_tile_name['Elite Foot']='tile_plain_Elite_Foot'
-troop_type_to_plain_model_tile_name['Heavy Foot']='tile_plain_Heavy_Foot'
-troop_type_to_plain_model_tile_name['Horde']='tile_plain_Horde'
 troop_type_to_plain_model_tile_name['Pavisiers']='tile_plain_Pavisiers'
-   -- Appendix A uses "Pike"
-troop_type_to_plain_model_tile_name['Pikes']='tile_plain_Pikes'
-  -- Appendix A uses "Spear"
-troop_type_to_plain_model_tile_name['Spears']='tile_plain_Spears'
-troop_type_to_plain_model_tile_name['War Wagons']='tile_plain_War_Wagon'
-troop_type_to_plain_model_tile_name['Warriors']='tile_plain_Warriors'
-troop_type_to_plain_model_tile_name['Bad Horse']='tile_plain_Bad_Horse'
-troop_type_to_plain_model_tile_name['Battle Taxi']='tile_plain_Battle_Taxi'
-troop_type_to_plain_model_tile_name['Chariots']='tile_plain_Chariots'
-troop_type_to_plain_model_tile_name['Elite Cavalry']='tile_plain_Elite_Cav'
-troop_type_to_plain_model_tile_name['Horse Bow']='tile_plain_Horse_Bow'
-troop_type_to_plain_model_tile_name['Javelin Cavalry']='tile_plain_Jav_Cav'
-troop_type_to_plain_model_tile_name['Knights']='tile_plain_Knights'
-troop_type_to_plain_model_tile_name['Cataphracts']='tile_plain_Cataphracts'
-troop_type_to_plain_model_tile_name['Elephants']='tile_plain_Elephants'
 troop_type_to_plain_model_tile_name['Camp']='tile_plain_Camp'
 
-troop_type_to_plain_model_tile_name['Archers General']='tile_plain_Archers_General'
-troop_type_to_plain_model_tile_name['Bow Levy General']='tile_plain_Bow_Levy_Gen'
-troop_type_to_plain_model_tile_name['Light Foot General']='tile_plain_Light_Foot_Gen'
-troop_type_to_plain_model_tile_name['Light Spear General']='tile_plain_Light_Spear_Gen'
-troop_type_to_plain_model_tile_name['Rabble General']='tile_plain_Rabble_Gen'
-troop_type_to_plain_model_tile_name['Raiders General']='tile_plain_Raiders_Gen'
-troop_type_to_plain_model_tile_name['Skirmishers General']='tile_plain_Skirmishers_Gen'
-troop_type_to_plain_model_tile_name['Warband General']='tile_plain_Warband_Gen'
-troop_type_to_plain_model_tile_name['Artillery General']='tile_plain_Artillery_Gen'
-troop_type_to_plain_model_tile_name['Elite Foot General']='tile_plain_Elite_Foot_Gen'
-troop_type_to_plain_model_tile_name['Heavy Foot General']='tile_plain_Heavy_Foot_Gen'
-troop_type_to_plain_model_tile_name['Horde General']='tile_plain_Horde_Gen'
 troop_type_to_plain_model_tile_name['Pavisiers General']='tile_plain_Pavisiers_Gen'
-   -- Appendix A uses "Pike"
-troop_type_to_plain_model_tile_name['Pikes General']='tile_plain_Pikes_Gen'
-  -- Appendix A uses "Spear"
-troop_type_to_plain_model_tile_name['Spears General']='tile_plain_Spears_Gen'
-troop_type_to_plain_model_tile_name['War Wagons General']='tile_plain_War_Wagon_Gen'
-troop_type_to_plain_model_tile_name['Warriors General']='tile_plain_Warriors_Gen'
-troop_type_to_plain_model_tile_name['Bad Horse General']='tile_plain_Bad_Horse_Gen'
-troop_type_to_plain_model_tile_name['Battle Taxi General']='tile_plain_Battle_Taxi_Gen'
-troop_type_to_plain_model_tile_name['Chariots General']='tile_plain_Chariots_Gen'
-troop_type_to_plain_model_tile_name['Elite Cavalry General']='tile_plain_Elite_Cav_Gen'
-troop_type_to_plain_model_tile_name['Horse Bow General']='tile_plain_Horse_Bow_Gen'
-troop_type_to_plain_model_tile_name['Javelin Cavalry General']='tile_plain_Jav_Cav_Gen'
-troop_type_to_plain_model_tile_name['Knights General']='tile_plain_Knights_Gen'
-troop_type_to_plain_model_tile_name['Cataphracts General']='tile_plain_Cataphracts_Gen'
-troop_type_to_plain_model_tile_name['Elephants General']='tile_plain_Elephants_Gen'
 troop_type_to_plain_model_tile_name['Camp General']='tile_plain_Camp_Gen'
 
 troop_type_to_plain_model_tile_name['Elephant Screen']='tile_plain_El_Screen'
@@ -806,6 +752,22 @@ troop_type_to_plain_model_tile_name['Elephant Screen']='tile_plain_El_Screen'
 -- Return name (a string) of the variable that is plain tile for
 -- the base definition
 function get_plain_model_tile_name(base_definition)
+  -- Check if the plain tile for the base has been generated by generate_plain_tiles.py
+  if nill == base_definition.troop_type then
+    print_error("Troop type is missing")
+    return nil
+  end
+  code = "tile_plain_" .. (base_definition.troop_type:gsub(' ','_'))
+  if base_definition.general then
+    code = code .. "_Gen"
+  end
+  if base_definition.mobile_infantry and base_definition.dismount_as == nil then
+      code = code .. "_MI"
+  end
+  if _G[code] then
+    return code
+  end
+
   if base_definition.troop_type == 'Camp' then
     if base_definition.pack_train then
       return 'tile_plain_Trains_And_Herds_Donkeys'
@@ -818,13 +780,9 @@ function get_plain_model_tile_name(base_definition)
     end
   end
   if nil ~= base_definition['prepared_defenses'] then
-    -- TODO
-    return 'tile_plain_Fortified_Camp'
+    return 'tile_plain_Prepared_defenses'
   end
   local name = base_definition.name
-  if base_definition.mobile_infantry then
-    return get_mobile_infanty_plain_tile(base_definition.troop_type, base_definition.general)
-  end
   if base_definition.light_camelry then
     return get_light_camelry_plain_tile(base_definition.general)
   end

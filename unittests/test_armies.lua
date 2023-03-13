@@ -4,6 +4,7 @@ require("Triumph_TTS/scripts/logic")
 require("Triumph_TTS/scripts/logic_spawn_army")
 require("Triumph_TTS/scripts/log")
 
+
 local function starts_with(str, start)
    return str:sub(1, #start) == start
 end
@@ -206,6 +207,31 @@ function test_base_models_exist()
   end
   for _,army_obj in pairs(army) do
     assert_base_definitions_models_exist(army_obj)
+  end
+end
+
+
+function assert_plain_bases_defined(army_obj)
+  for base_id,base_data  in pairs(army_obj) do
+    if base_id ~= 'data' then
+      local base_definition = get_base_definition(base_data)
+      local actual = get_plain_model_tile_name(base_data)
+      if (actual == nil or actual == 'tile_grass_40x15') then
+        print("actual=", actual)
+        lu.assertTrue(false)
+      end
+    end
+  end
+end
+
+function test_plain_bases_defined()
+  for themes,armies_in_theme in pairs(armies) do
+    for _,army_obj in pairs(armies_in_theme) do
+      assert_plain_bases_defined(army_obj)
+    end
+  end
+  for _,army_obj in pairs(army) do
+    assert_plain_bases_defined(army_obj)
   end
 end
 
