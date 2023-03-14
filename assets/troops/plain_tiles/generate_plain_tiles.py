@@ -200,25 +200,25 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
     svg.setProp("sodipodi:docname", svg_file_name)
     
     res = ctxt.xpathEval("//svg:rect[@inkscape:label='background']")
-    rect = res[0]
-    rect.setProp("height", str(base_depth))
-    change_fill(rect, color)
+    background = res[0]
+    background.setProp("height", str(base_depth))
+    change_fill(background, color)
 
     res = ctxt.xpathEval("//svg:rect[@inkscape:label='general outside']")
     rect = res[0]
     if not general:
         rect.unlinkNode()
     else:
-        rect.setProp("height", str(base_depth))
+         rect.setProp("y", str(base_depth - 3.9))
 
-    res = ctxt.xpathEval("//svg:rect[@inkscape:label='general inside']")
-    rect = res[0]
-    if not general:
-        rect.unlinkNode()
-    else:
-        # 0.5mm width of general decoration
-        rect.setProp("height", str(base_depth - 1))
-        change_fill(rect, color)
+    # res = ctxt.xpathEval("//svg:rect[@inkscape:label='general inside']")
+    # rect = res[0]
+    # if not general:
+    #     rect.unlinkNode()
+    # else:
+    #     # 0.5mm width of general decoration
+    #     rect.setProp("height", str(base_depth - 1))
+    #     change_fill(rect, color)
 
     # Replace the text
     text_y = str(base_depth - text_bottom_margin)
