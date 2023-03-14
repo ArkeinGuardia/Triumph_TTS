@@ -31,6 +31,22 @@ function test_get_a_model_definition_returns_plain_base_if_preferred()
     g_use_plain_bases = old
 end
 
+function test_mobile_infrantry_tile_has_mi_in_name()
+  -- Setup
+  -- local old = g_use_plain_bases
+  -- g_use_plain_bases = true
+
+  -- Exercise
+  local base_def = g_base_definitions["heavy_foot_general_mi"]
+  local name = get_plain_model_tile_name(base_def)
+
+  -- Validate
+  lu.assertEquals(name, '_mi')
+
+  -- Cleanup
+  -- g_use_plain_bases = old
+end
+
 -- Random model iterator will always return a non-nil figure to add to a base.
 function test_random_model_iterator()
     local model_def = g_models[g_str_615351a203385c0016b8588f]

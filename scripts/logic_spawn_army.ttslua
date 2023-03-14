@@ -761,7 +761,7 @@ function get_plain_model_tile_name(base_definition)
   if base_definition.general then
     code = code .. "_Gen"
   end
-  if base_definition.mobile_infantry and base_definition.dismount_as == nil then
+  if base_definition.mobile_infantry and base_definition.dismount_as ~= nil then
       code = code .. "_MI"
   end
   if _G[code] then

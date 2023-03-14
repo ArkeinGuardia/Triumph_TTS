@@ -262,6 +262,7 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
     image.setProp("height", str(image_area_height));
     if mobile_infantry:
         mi_icon_file_name = "../icons/mobileinf.png"
+        print(mi_icon_file_name)
         mi_image = image.copyNode(True)
         mi_image.setProp("sodipodi:absref", mi_icon_file_name)
         mi_image.setProp("xlink:href", mi_icon_file_name)
