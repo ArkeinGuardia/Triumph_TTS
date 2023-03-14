@@ -51,9 +51,9 @@ plain_army[ 'camp_pack_train' ] = base_definitions['camp_pack_train']
 
 def is_foot(troop_data: dict) -> bool:
     if 'open_order_foot' in troop_data:
-        return troop_data['open_order_foot']
+        return True
     if 'close_order_foot' in troop_data:
-        return troop_data['close_order_foot']
+        return True
     return False
 
 def get_color_code(color):
@@ -241,9 +241,10 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
     text_combat = res[0]
     foot_cf = troop_data['combat_factor_vs_foot']
     mounted_cf = troop_data['combat_factor_vs_mounted']
-    if general:
-        foot_cf = foot_cf + 1
-        mounted_cf = mounted_cf + 1
+    # Uncomment to include the generals +1
+    # if general:
+    #     foot_cf = foot_cf + 1
+    #     mounted_cf = mounted_cf + 1
     combat = f" +{foot_cf}/+{mounted_cf}"
     text_combat.setContent(combat)
 
