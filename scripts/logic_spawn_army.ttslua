@@ -63,6 +63,11 @@ end
 
 function add_context_menu_base(base_obj)
     base_obj.clearContextMenu()
+    local definition = get_base_definition_from_base_obj(base_obj)
+    if definition == nil then
+      -- no context menu for proxy bases, they are not part of an army.
+      return
+    end
     base_obj.addContextMenuItem("Turn around", function()
         turn_around_base(base_obj)
     end)
@@ -1543,25 +1548,29 @@ function spawn_proxy_after_deletion()
         name = 'Proxy 40x15',
         base = 'tile_proxy_15',
         ignore_terrain = 'false',
-        n_models = 0
+        n_models = 0,
+        proxy = true
     }, {x=-42, y=2, z=-20}, 0, true)
     spawn_base({
         name = 'Proxy 40x20',
         base = 'tile_proxy_20',
         ignore_terrain = 'false',
-        n_models = 0
+        n_models = 0,
+        proxy = true
     }, {x=-42, y=2, z=-21}, 0, true)
     spawn_base({
         name = 'Proxy 40x30',
         base = 'tile_proxy_30',
         ignore_terrain = 'false',
-        n_models = 0
+        n_models = 0,
+        proxy = true
     }, {x=-42, y=2, z=-22.5}, 0, true)
     spawn_base({
         name = 'Proxy 40x40',
         base = 'tile_proxy_40',
         ignore_terrain = 'false',
-        n_models = 0
+        n_models = 0,
+        proxy = true
     }, {x=-42, y=2, z=-24}, 0, true)
 
 
@@ -1569,25 +1578,29 @@ function spawn_proxy_after_deletion()
         name = 'Proxy 40x15',
         base = 'tile_proxy_15',
         ignore_terrain = 'false',
-        n_models = 0
+        n_models = 0,
+        proxy = true
     }, {x=-42, y=2, z=20}, 180, false)
     spawn_base({
         name = 'Proxy 40x20',
         base = 'tile_proxy_20',
         ignore_terrain = 'false',
-        n_models = 0
+        n_models = 0,
+        proxy = true
     }, {x=-42, y=2, z=21}, 180, false)
     spawn_base({
         name = 'Proxy 40x30',
         base = 'tile_proxy_30',
         ignore_terrain = 'false',
-        n_models = 0
+        n_models = 0,
+        proxy = true
     }, {x=-42, y=2, z=22.5}, 180, false)
     spawn_base({
         name = 'Proxy 40x40',
         base = 'tile_proxy_40',
         ignore_terrain = 'false',
-        n_models = 0
+        n_models = 0,
+        proxy = true
     }, {x=-42, y=2, z=24}, 180, false)
 end
 
