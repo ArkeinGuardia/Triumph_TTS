@@ -204,6 +204,10 @@ def make_svg(color:str, general: bool, troop_name: str, troop_data: dict, mobile
     background.setProp("height", str(base_depth))
     change_fill(background, color)
 
+    res = ctxt.xpathEval("//svg:rect[@inkscape:label='background_edges']")
+    background = res[0]
+    background.setProp("height", str(base_depth))
+
     res = ctxt.xpathEval("//svg:rect[@inkscape:label='general outside']")
     rect = res[0]
     if not general:
