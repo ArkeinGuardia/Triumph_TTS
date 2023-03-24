@@ -1061,7 +1061,38 @@ function on_wizard_tarrain_score_selected(player, value, id)
   wizard_panel_terrain_score_update()
 end
 
+
+function is_coast_supported(terrain_allowed) 
+  for _, v in pairs(terrain_allowed) do
+    if v['type'] == 'Coast' then
+      return true
+    end  
+  end
+  return false
+end
+
+function is_coast_available_for_topography(topography)
+  local manditory_terrain_types = terrain_manditory[topography]
+  if is_coast_supported(manditory_terrain_types) then
+    return true
+  end
+  local optional_terrain_types = terrain_optional[topography]
+  if is_coast_supported(optional_terrain_types) then
+    return true
+  end
+  return false
+end
+
+
 function wizard_panel_terrain_score_enter()
+  -- Remove coast for terrain where it is not allowed
+  if not is_coast_available_for_topography(g_game_settings['topography']) then
+    for score=2,12 , 1 do
+      local id = "wizard_terrain_score_nb_coast_" .. tostring(score)
+      UI.setAttribute(id, "text", '-')
+    end
+  end
+  
   local terrain_nb_pieces = get_terrain_nb_pieces()
 
   -- Enable and disable the toggles for the terain score
