@@ -39,9 +39,10 @@ function test_mobile_infrantry_tile_has_mi_in_name()
   -- Exercise
   local base_def = g_base_definitions["heavy_foot_general_mi"]
   local name = get_plain_model_tile_name(base_def)
+  local mi = string.find(name, "_MI")
 
   -- Validate
-  lu.assertEquals(name, '_mi')
+  lu.assertNotIsNil(mi)
 
   -- Cleanup
   -- g_use_plain_bases = old
