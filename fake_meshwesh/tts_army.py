@@ -371,6 +371,13 @@ def write_mobile_infantry(file, base_definition, battle_card):
      @param battle_card Battle card being applied.
      @return the extra base definitions for the mounted and dismounted infantry.
   """
+  troop_type_name = troop_type_to_name( base_definition['troop_type'])
+  if troop_type_name == "Bad Horse":
+      # Kievan Rus have Elite Foot or Bad Horse with Mobile Infantry
+      # battle card.  We are not going to place the horses in
+      # trailers.
+      return []
+
   mounted = base_definition.copy()
   dismounted = base_definition.copy()
 
