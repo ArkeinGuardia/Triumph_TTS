@@ -1071,25 +1071,34 @@ function is_coast_supported(terrain_allowed)
   return false
 end
 
-function is_coast_available_for_topography(topography)
+function is_coast_compulsory_for_topography(topography)
   local manditory_terrain_types = terrain_manditory[topography]
-  if is_coast_supported(manditory_terrain_types) then
-    return true
-  end
+  return is_coast_supported(manditory_terrain_types) 
+end
+
+function is_coast_optional_for_topography(topography)
   local optional_terrain_types = terrain_optional[topography]
-  if is_coast_supported(optional_terrain_types) then
-    return true
-  end
-  return false
+  return is_coast_supported(optional_terrain_types)
+end
+
+
+function is_coast_available_for_topography(topography)
+  return is_coast_compulsory_for_topography(topography) or is_coast_optional_for_topography(topography)
 end
 
 
 function wizard_panel_terrain_score_enter()
-  -- Remove coast for terrain where it is not allowed
-  if not is_coast_available_for_topography(g_game_settings['topography']) then
+  if is_coast_compulsory_for_topography(g_game_settings['topography']) then
+    -- Indicate all choices have a coast, rule 25.1b
     for score=2,12 , 1 do
       local id = "wizard_terrain_score_nb_coast_" .. tostring(score)
-      UI.setAttribute(id, "text", '-')
+      UI.setAttribute(id, "text", 'Coast')
+    end
+  elseif not is_coast_optional_for_topography(g_game_settings['topography']) then
+    -- Remove coast for terrain where it is not allowed
+    for score=2,12 , 1 do
+      local id = "wizard_terrain_score_nb_coast_" .. tostring(score)
+      UI.setAttribute(id, "text", '')
     end
   end
   
@@ -1149,19 +1158,21 @@ table.insert(wizard_panels, {name="wizard_panel_terrain_score", exit=wizard_pane
 -------------------
 
 
--- terrain_list: an entery from the terrain_optional table_type
--- return: string for human consumption
-function format_terrain_list(terrain_list)
+-- terrain_list: an entry from the terrain_optional table_type
+-- return: string for human consumption, except no coast
+function format_terrain_list_no_coast(terrain_list)
   local result = ""
   local first = true
   for _,terrain in pairs(terrain_list) do
-    if not first then
-      result = result .. ", "
-    end
-    first = false
-    result = result .. terrain['type']
-    if nil ~= terrain['max'] then
-      result = result .. "(" .. tostring(terrain['max']) .. ")"
+    if terrain['type'] ~= "Coast" then
+      if not first then
+        result = result .. ", "
+      end
+      first = false
+      result = result .. terrain['type']
+      if nil ~= terrain['max'] then
+        result = result .. "(" .. tostring(terrain['max']) .. ")"
+      end
     end
   end
   return result
@@ -1190,25 +1201,28 @@ function wizard_panel_terrain_selection_enter()
   local terrain_score = g_game_settings['terrain_score']
   local topography =  g_game_settings['topography']
   local nb_pieces = terrain_nb_pieces[topography][terrain_score-1]
-  local nb_optional_pieces = nb_pieces - 1
+  local nb_optional_pieces = nb_pieces
   UI.setAttribute("wizard_terrain_selection_advantage", "text", advantage);
   UI.setAttribute("wizard_terrain_selection_topography", "text", topography);
   UI.setAttribute("wizard_terrain_selection_terrain_score", "text", tostring(terrain_score));
-  local coast
-  if g_game_settings['coast_allowed'] then
-    coast = " coast allowed"
-  else
-    coast = ""
+  compulsory_terrain  = terrain_manditory[topography][1]['type']
+  UI.setAttribute("wizard_terrain_selection_manditory", "text", compulsory_terrain)
+  if "Coast" ~= compulsory_terrain then
+    -- See rule 24.1
+    nb_optional_pieces = nb_optional_pieces - 1
   end
-  UI.setAttribute("wizard_terrain_selection_coast", "text", coast);
-  UI.setAttribute("wizard_terrain_selection_manditory", "text",
-    format_terrain_list(terrain_manditory[topography]));
+  if is_coast_optional_for_topography(topography) then
+    -- See rule 24.1
+    UI.setAttribute("wizard_terrain_selection_optional_coast", "text", "optional coast");
+  else
+    UI.setAttribute("wizard_terrain_selection_optional_coast", "text", "");    
+  end
   UI.setAttribute("wizard_terrain_selection_optional_nb_pieces", "text", tostring(nb_optional_pieces));
   if nb_optional_pieces <= 0 then
     UI.setAttribute("wizard_terrain_selection_optional", "text", "");
   else
     UI.setAttribute("wizard_terrain_selection_optional", "text",
-      format_terrain_list( terrain_optional[topography]) );
+      format_terrain_list_no_coast( terrain_optional[topography]) );
   end
 end
 
