@@ -45,9 +45,21 @@ base_definitions["camp_pack_train"]={
   "pack_train":True,
   "troop_type":"Camp",
 }
+
+base_definitions["prepared_defenses"]={
+  "id":"prepared_defenses",
+  "name":"Prepared Defenses",
+  "min":0,
+  "max":1,
+  "description":'',
+  "prepared_defenses": True,
+  "troop_type":"Prepared Defenses",
+}
+
 plain_army[ 'camp' ] = base_definitions['camp']
 plain_army[ 'camp_fortified' ] = base_definitions['camp_fortified']
 plain_army[ 'camp_pack_train' ] = base_definitions['camp_pack_train']
+plain_army[ 'prepared_defenses' ] = base_definitions['prepared_defenses']
 
 def is_foot(troop_data: dict) -> bool:
     if 'open_order_foot' in troop_data:
@@ -103,7 +115,11 @@ def calc_tile_name(base_definition: dict) :
     return tile_name
 
 def write_tile(output, base_definition: dict):
-    tool_tips = base_tool_tips[ base_definition['troop_type']]
+    troop_type = base_definition['troop_type']
+    if troop_type == "Prepared Defenses":
+        # No tile is generated, the tile is predefined
+        return
+    tool_tips = base_tool_tips[ troop_type]
     if 'base_depth' not in tool_tips:
         return
     base_depth = tool_tips['base_depth']
