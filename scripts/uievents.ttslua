@@ -246,12 +246,12 @@ g_use_plain_bases = false
 
 -- Indication that the preference to use use plain bases or models has been made.
 function on_use_plain_bases(player, value, id)
-    g_use_plain_bases = value == "True"
+    g_use_plain_bases = (value == "True")
     UI.setAttribute('toggle_use_plain_bases', 'isOn', g_use_plain_bases)
 end
 
 function on_filter_models(player, value, id)
-    g_filter_armies_models = value == "True"
+    g_filter_armies_models = (value == "True")
     on_next_frame(function()
         update_deploy_army_dialog()
     end)
@@ -278,6 +278,7 @@ function update_deploy_army_dialog()
       update_armies_menu(xml, 'blue')
       update_years_menu(xml, 'red')
       update_years_menu(xml, 'blue')
+      update_army_counts(xml)
       UI.setXmlTable(xml)
     end,
     function () end,
@@ -383,11 +384,33 @@ function theme_compare(a,b)
   return a < b
 end
 
+function count_armies()
+  local nb_armies = 0
+  local nb_armies_with_models = 0
+  for name, army in pairs(armies['All']) do
+    nb_armies = nb_armies + 1
+    if is_army_with_models(army) then
+      nb_armies_with_models = nb_armies_with_models + 1
+    end  
+  end
+  return {nb_armies=nb_armies, nb_armies_with_models=nb_armies_with_models}
+end
+
+g_army_counts = count_armies()
+
+-- Update the number of armies that can be chosen.
+-- xml:  Result of UI.getXmlTable() that will be modified.
+function update_army_counts(xml)
+  local counts = count_armies()
+  local count_str = tostring(g_army_counts.nb_armies_with_models) .. '/' .. tostring(g_army_counts.nb_armies)
+  UI.setAttribute("nb_armies", "text", count_str)
+end
+
 
 -- Update the menu item for all the themes that match the filter criteria.
 -- filtered on model availablity.
 -- Updates g_theme_selected
--- -- xml:  Result of UI.getXmlTable() that will be modified.
+-- xml:  Result of UI.getXmlTable() that will be modified.
 function update_theme_menu(xml)
     local selected = nil
     local selected_index = nil
