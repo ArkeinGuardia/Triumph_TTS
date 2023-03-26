@@ -165,6 +165,29 @@ function build_tool_tip_string_tactical_movement(base_definition)
   return tostring(tip_data.tactical_move_distance) .. " MU\n"
  end
 
+
+ -- Return the ranged combat target factor
+ function build_tool_tip_string_ranged_combat_target(base_definition)
+  local tip_data = base_tool_tips[base_definition.troop_type]
+  if tip_data == nil then
+    return ""
+  end
+  if tip_data.target_combat_factor == nil then
+    -- error condition, item missing from tip_data
+    -- TODO print_error("tip_data.target_combat_factor == nil " .. base_definition.troop_type)
+    return "X"
+  end
+    
+  local target = tostring(tip_data.target_combat_factor)
+  if base_definition.mobile_infantry then
+    target = target ..  '-1'
+  end
+  if base_definition.general then
+    target = target ..  '*-1'
+  end
+  return target
+end
+
 function build_tool_tip_string_ranged_combat(base_definition)
   local tip_data = base_tool_tips[base_definition.troop_type]
   if tip_data == nil then
@@ -182,57 +205,64 @@ function build_tool_tip_string_ranged_combat(base_definition)
   else
     shooting = tostring(tip_data.shooting_combat_factor)
   end
-  local target = ""
-  if tip_data.target_combat_factor == nil then
-    -- error condition, item missing from tip_data
-    -- TODO print_error("tip_data.target_combat_factor == nil " .. base_definition.troop_type)
-    target = "X"
-  else
-    target = tostring(tip_data.target_combat_factor)
-    if base_definition.mobile_infantry then
-      target = target ..  '-1'
-    elseif base_definition.general then
-      target = target ..  '*-1'
-    end
-
-   end
+  local target = build_tool_tip_string_ranged_combat_target(base_definition)
   return string.format("ranged combat: %s/%s\n", shooting, target)
+end
+
+-- return: bonus and penalties for being a generl or mobile infantry
+function tool_tip_close_combat_modifiers(base_definition)
+  local result = ""
+  if base_definition.mobile_infantry then
+    result = result .. '-1'
+  end
+  if base_definition.general then
+    result = result .. '+1'
+  end
+  return result
+end
+
+function build_tool_tip_string_close_combat_vs_foot(base_definition)
+  local tip_data = base_tool_tips[base_definition.troop_type]
+  if tip_data == nil then
+    return ""
+  end
+  if tip_data.combat_factor_vs_foot == nil then
+    return "X"
+  end
+  local foot
+  if base_definition.fortified_camp then
+    foot = tostring(tip_data.combat_factor_vs_foot + 2)
+  else
+    foot = tostring(tip_data.combat_factor_vs_foot)
+  end
+  foot = foot .. tool_tip_close_combat_modifiers(base_definition)
+  return foot
+end
+
+function build_tool_tip_string_close_combat_vs_mounted(base_definition)
+  local tip_data = base_tool_tips[base_definition.troop_type]
+  if tip_data == nil then
+    return ""
+  end
+  if tip_data.combat_factor_vs_mounted == nil then
+    return "X"
+  end
+  local mounted
+  if base_definition.fortified_camp then
+    mounted = tostring(tip_data.combat_factor_vs_mounted + 2)
+  else
+    mounted = tostring(tip_data.combat_factor_vs_mounted)
+  end
+  mounted = mounted .. tool_tip_close_combat_modifiers(base_definition)
+  return mounted
 end
 
 function build_tool_tip_string_close_combat(base_definition)
   if str_has_substr(base_definition.troop_type, "Counter") then
     return ""
   end
-  local tip_data = base_tool_tips[base_definition.troop_type]
-  if tip_data == nil then
-    return ""
-  end
-  local foot
-  if tip_data.combat_factor_vs_foot == nil then
-    foot = "X"
-  elseif base_definition.fortified_camp then
-      foot = tostring(tip_data.combat_factor_vs_foot + 2)
-  elseif base_definition.mobile_infantry then
-    foot = tostring(tip_data.combat_factor_vs_foot) .. '-1'
-  elseif base_definition.general then
-    foot = tostring(tip_data.combat_factor_vs_foot) .. '+1'
-  else
-    foot = tostring(tip_data.combat_factor_vs_foot)
-  end
-  local mounted = ""
-  if tip_data.combat_factor_vs_mounted == nil then
-    -- error condition, item missing from tip_data
-    mounted = "X"
-    print_error("tip_data.combat_factor_vs_mounted == nil " .. base_definition.troop_type)
-  elseif base_definition.fortified_camp then
-    mounted = tostring(tip_data.combat_factor_vs_mounted + 2)
-  elseif base_definition.mobile_infantry then
-    mounted = tostring(tip_data.combat_factor_vs_mounted) .. '-1'
-  elseif base_definition.general then
-    mounted = tostring(tip_data.combat_factor_vs_mounted) .. '+1'
-  else
-    mounted = tostring(tip_data.combat_factor_vs_mounted)
-   end
+  local foot = build_tool_tip_string_close_combat_vs_foot(base_definition)
+  local mounted = build_tool_tip_string_close_combat_vs_mounted(base_definition)
   return string.format("close combat: %s/%s\n", foot, mounted)
 end
 

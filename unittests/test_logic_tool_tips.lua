@@ -201,4 +201,68 @@ function test_get_base_type_from_name_removes_asterix()
     lu.assertEquals(actual, "Archers")
 end
 
+function test_build_tool_tip_string_ranged_combat_target()
+    local actual = build_tool_tip_string_ranged_combat_target(g_base_definitions['warriors'])
+    lu.assertEquals(actual, "3")
+end
+
+function test_build_tool_tip_string_ranged_combat_target_mi()
+    local actual = build_tool_tip_string_ranged_combat_target(g_base_definitions['warriors_mi'])
+    lu.assertEquals(actual, "3-1")
+end
+
+function test_build_tool_tip_string_ranged_combat_target_general()
+    local actual = build_tool_tip_string_ranged_combat_target(g_base_definitions['warriors_general'])
+    lu.assertEquals(actual, "3*-1")
+    
+end
+
+function test_build_tool_tip_string_ranged_combat_target_mi_general()
+    local actual = build_tool_tip_string_ranged_combat_target(g_base_definitions['warriors_general_mi'])
+    lu.assertEquals(actual, "3-1*-1")
+end
+
+function test_build_tool_tip_string_close_combat_vs_foot()
+    local actual = build_tool_tip_string_close_combat_vs_foot(g_base_definitions['archers'])
+    lu.assertEquals(actual, "2")
+end
+
+function test_build_tool_tip_string_close_combat_vs_foot_mi()
+    local actual = build_tool_tip_string_close_combat_vs_foot(g_base_definitions['archers_mi'])
+    lu.assertEquals(actual, "2-1")
+end
+
+function test_build_tool_tip_string_close_combat_vs_foot_general()
+    local actual = build_tool_tip_string_close_combat_vs_foot(g_base_definitions['archers_general'])
+    lu.assertEquals(actual, "2+1")
+    
+end
+
+function test_build_tool_tip_string_close_combat_vs_foot_mi_general()
+    local actual = build_tool_tip_string_close_combat_vs_foot(g_base_definitions['archers_general_mi'])
+    lu.assertEquals(actual, "2-1+1")
+end
+
+function test_build_tool_tip_string_close_combat_vs_mounted()
+    local actual = build_tool_tip_string_close_combat_vs_mounted(g_base_definitions['archers'])
+    lu.assertEquals(actual, "4")
+end
+
+function test_build_tool_tip_string_close_combat_vs_mounted_mi()
+    local actual = build_tool_tip_string_close_combat_vs_mounted(g_base_definitions['archers_mi'])
+    lu.assertEquals(actual, "4-1")
+end
+
+function test_build_tool_tip_string_close_combat_vs_mounted_general()
+    local actual = build_tool_tip_string_close_combat_vs_mounted(g_base_definitions['archers_general'])
+    lu.assertEquals(actual, "4+1")
+    
+end
+
+function test_build_tool_tip_string_close_combat_vs_mounted_mi_general()
+    local actual = build_tool_tip_string_close_combat_vs_mounted(g_base_definitions['archers_general_mi'])
+    lu.assertEquals(actual, "4-1+1")
+end
+
+
 os.exit( lu.LuaUnit.run() )
