@@ -169,20 +169,7 @@ def discover_assets_remote_url() :
         assets_remote_url="file://" + dir  + "/"
         print("Using filesytem for assets: ", assets_remote_url)
         return
-    cmd = ["git", "status", "--porcelain=v2", "--branch"]
-    with subprocess.Popen(cmd, stdout=subprocess.PIPE) as status_proc:
-        line = status_proc.stdout.readline().decode("ascii")
-        while line :
-            if line.startswith("# branch.oid ") :
-                (field_hash, field_oid, id ) = line.split()
-            elif line.startswith("# branch.head ") :
-                pass
-            elif line.startswith("# branch.upstream ") :
-                (field_hash, branch_stream, upstream) = line.split()
-                remote = upstream.split("/")[0]
-            elif line.startswith("# branch.ab ") :
-                pass
-            line = status_proc.stdout.readline().decode("ascii")
+    id, remote = get_remote_branch()
 
     url = subprocess.check_output(["git", "remote", "get-url", remote]).decode("ascii").strip()
     url = url[:-4]
@@ -197,6 +184,27 @@ def discover_assets_remote_url() :
     github_url_len = len(github_match.group(1))
     assets_remote_url = "https://raw.githubusercontent.com/" + url[ github_url_len:] +  "/" + id + "/"
     print("Using github for assets: ", windows_url_fixup(assets_remote_url))
+
+def get_remote_branch():
+    id = None
+    remote = None
+    cmd = ["git", "status", "--porcelain=v2", "--branch"]
+    with subprocess.Popen(cmd, stdout=subprocess.PIPE) as status_proc:
+        line = status_proc.stdout.readline().decode("ascii")
+        while line :
+            if line.startswith("# branch.oid ") :
+                (field_hash, field_oid, id ) = line.split()
+            elif line.startswith("# branch.head ") :
+                pass
+            elif line.startswith("# branch.upstream ") :
+                (field_hash, branch_stream, upstream) = line.split()
+                remote = upstream.split("/")[0]
+            elif line.startswith("# branch.ab ") :
+                pass
+            line = status_proc.stdout.readline().decode("ascii")
+    if id is None or remote is None:
+        raise Exception("Id or remote is not found: " + " ".join(cmd))
+    return id,remote
 
 re_asset=re.compile('^.*[/\\\\]assets[/\\\\](.*)$')
 
