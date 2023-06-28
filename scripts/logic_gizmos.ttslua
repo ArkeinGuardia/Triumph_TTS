@@ -181,9 +181,16 @@ function get_strokes_zoc_wwg(base_obj, transform)
     }
 end
 
+function is_proxy_base(base_obj)
+    return str_has_substr(base_obj.getName(), 'Proxy')
+end
+
 function get_strokes_zoc(base_obj, transform)
     if base_obj == nil then
       return {}
+    end
+    if is_proxy_base(base_obj) then
+        return {}
     end
     if is_base_prepared_defenses(base_obj) then 
       return {}
