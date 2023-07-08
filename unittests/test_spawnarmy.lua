@@ -1,4 +1,5 @@
 lu = require('externals/luaunit/luaunit')
+JSON = require("lunajson")
 require("Triumph_TTS/scripts/logic_spawn_army")
 
 function test_get_a_model_definition_returns_plain_base()

@@ -1,4 +1,5 @@
 lu = require('externals/luaunit/luaunit')
+JSON = require("lunajson")
 require("Triumph_TTS/scripts/logic_gizmos")
 
 

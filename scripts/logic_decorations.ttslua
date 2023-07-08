@@ -1,4 +1,3 @@
-
 -- Extra information that is to be persisted.
 -- key is object GUID, value is a table of the properties for the object.
 g_decorations = {}
@@ -9,15 +8,8 @@ g_decorations = {}
 -- key: Name of the decoration we are search for, for the object.
 -- return: nil if the decoration is not found, otherwise the value.
 function get_decoration_for_guid(guid, key)
-  if guid == nil then
-    return nil
-  end
- local decorations = g_decorations[guid]
- if decorations == nil then
-   return nil
- end
- local decoration = decorations[key]
- return decoration
+  local obj = getObjectFromGUID(guid)
+  return get_decoration_for_obj(obj, key)
 end
 
 -- Set a decoration for an object.  A decoration is extra information for the
@@ -28,15 +20,8 @@ end
 -- decoration.
 -- return: true on success, false on failure.
 function set_decoration_for_guid(guid, key, value)
-  if guid == nil then
-    print_error("GUID is nil")
-    return false
-  end
- if g_decorations[guid] == nil then
-   g_decorations[guid] = {}
- end
- g_decorations[guid][key] = value
- return true
+  local obj = getObjectFromGUID(guid)
+  return set_decoration_for_obj(obj, key, value)
 end
 
 -- Add an to the list of items.  If the list does not exist a new list
@@ -54,13 +39,31 @@ function add_to_decoration_list_guid(guid, key, new_item)
 end
 
 
-function get_decoration_for_obj(obj, key)
+function get_decorations_for_obj(obj)
   if obj == nil then
     return nil
   end
   local guid = obj.getGUID()
-  return get_decoration_for_guid(guid, key)
+  local cached = g_decorations[guid] 
+  if cached == nil then
+    if nil == obj.script_state then 
+      return nil
+    end
+    g_decorations[guid] = JSON.decode(obj.script_state)
+    cached = g_decorations[guid] 
+  end
+  return cached
 end
+
+
+function get_decoration_for_obj(obj, key)
+  local cached = get_decorations_for_obj(obj)
+  if cached == nil then 
+    return nil
+  end
+  return cached[key]
+end
+
 
 -- Set the decoration for an object
 -- obj: Object to decorate
@@ -72,10 +75,17 @@ function set_decoration_for_obj(obj, key, value)
     print_error("obj is nil")
     return false
   end
+  local cached = get_decorations_for_obj(obj)
+  if cached == nil then
+    cached = {}
+  end
+  cached[key] = value
   local guid = obj.getGUID()
-  local result = set_decoration_for_guid(guid, key, value)
-  return result
+  g_decorations[guid] = cached
+  obj.script_state = JSON.encode(cached)
+  return true
 end
+
 
 -- Add an to the list of items.  If the list does not exist a new list
 -- is created
@@ -96,7 +106,8 @@ function remove_decorations_for_guid(guid)
   if guid == nil then
     return
   end
-  g_decorations[guid] = nil
+  local obj = getObjectFromGUID(guid)
+  remove_decorations_for_obj(obj)
 end
 
 -- Delete the reference to the object from the decorations table
@@ -104,5 +115,7 @@ function remove_decorations_for_obj(obj)
   if obj == nil then
     return
   end
-  remove_decorations_for_guid(obj.getGUID())
+  local guid = obj.getGUID()
+  g_decorations[guid] = nil
+  obj.script_state = nil
 end
