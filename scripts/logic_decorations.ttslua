@@ -64,6 +64,12 @@ function get_decoration_for_obj(obj, key)
   return cached[key]
 end
 
+function set_decorations_for_obj(obj, decorations)
+  local guid = obj.getGUID()
+  g_decorations[guid] = decorations
+  obj.script_state = JSON.encode(decorations)
+end
+
 
 -- Set the decoration for an object
 -- obj: Object to decorate
@@ -80,9 +86,7 @@ function set_decoration_for_obj(obj, key, value)
     cached = {}
   end
   cached[key] = value
-  local guid = obj.getGUID()
-  g_decorations[guid] = cached
-  obj.script_state = JSON.encode(cached)
+  set_decorations_for_obj(obj, cached)
   return true
 end
 
