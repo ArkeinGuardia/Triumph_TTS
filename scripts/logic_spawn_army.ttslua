@@ -13,7 +13,6 @@ g_base_index = 1
 g_bases = {}
 
 
-
 -- If the base is dismountable add a menu item to dismount
 -- the base
 function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
@@ -30,7 +29,7 @@ function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
     return
   end
 
-  local decorations = g_decorations[base_obj.getGUID()]
+  local decorations = get_decoration_for_obj[base_obj]
   if nil == decorations then
     return
   end
@@ -122,7 +121,7 @@ end
 function on_clone(source_obj, new_obj)
     local name = source_obj.getName()
     print_info(name .. " has been duplicated.")
-    local base_definition = get_base_definition_from_guid(source_obj.getGUID())
+    local base_definition = get_base_definition_from_base_obj(source_obj)
     if base_definition == nil then
       print_error("Base definition is nil")
       return
@@ -135,7 +134,7 @@ function on_clone(source_obj, new_obj)
         is_red_player = g_bases[name]['is_red_player']
     }
     new_obj.clearContextMenu()
-    g_decorations[new_obj.getGUID()] = deep_copy(g_decorations[source_obj.getGUID()])
+    set_decorations_for_obj(new_obj, deep_copy(get_decorations_for_obj[source_obj]))
     add_context_menu_base(new_obj)
 end
 

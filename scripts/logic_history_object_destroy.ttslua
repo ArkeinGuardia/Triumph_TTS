@@ -9,7 +9,7 @@ function history_record_object_destroy(dying_object)
     name = dying_object.getName(),
     location = dying_object.getPosition(),
     y_rotation = dying_object.getRotation()['y'],
-    decorations = g_decorations[ dying_object.getGUID() ]
+    decorations = get_decoration_for_obj(dying_object)
   }
   local self = event
 
@@ -29,7 +29,7 @@ function history_record_object_destroy(dying_object)
       -- change the decoration to use the new guid
       local new_guid = base_obj.getGUID()
       g_history_stack:rename_guid(self.guid, new_guid)
-      g_decorations[new_guid] = event.decorations
+      set_decorations_for_obj(base_obj, event.decorations)
       self.guid = new_guid
     end
 
