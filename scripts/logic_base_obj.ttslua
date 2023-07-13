@@ -22,7 +22,8 @@ function get_base_definition_from_base_obj(base_obj)
   end
   local base_definition_name = get_decoration_for_obj(base_obj, "base_definition_name")
   if nil == base_definition_name then
-    print_error("No base definition name for " .. base_obj.getName())
+    -- counters like hold the line do not have a base definition
+    print_debug("No base definition name for " .. base_obj.getName())
     return nil
   end
   return get_base_definition_from_name(base_definition_name)
