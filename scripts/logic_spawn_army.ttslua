@@ -29,7 +29,7 @@ function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
     return
   end
 
-  local decorations = get_decoration_for_obj[base_obj]
+  local decorations = get_decoration_for_obj(base_obj)
   if nil == decorations then
     return
   end
