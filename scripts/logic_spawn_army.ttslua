@@ -134,7 +134,7 @@ function on_clone(source_obj, new_obj)
         is_red_player = g_bases[name]['is_red_player']
     }
     new_obj.clearContextMenu()
-    set_decorations_for_obj(new_obj, deep_copy(get_decorations_for_obj[source_obj]))
+    set_decorations_for_obj(new_obj, deep_copy(get_decorations_for_obj(source_obj)))
     add_context_menu_base(new_obj)
 end
 
