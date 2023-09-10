@@ -1296,6 +1296,9 @@ function change_bases_to_terrain(terrain_type)
     for _,base in ipairs(bases) do
       if _is_base_to_have_terrain(base) then
         local name = base.getName()
+        if str_starts_with(name, "base Proxy") then
+          return
+        end
         print_debug('Changing ' .. name)
         local is_red = g_bases[name]['is_red_player']
         local tex = tables[terrain_type]['blue_player_base_tex']
