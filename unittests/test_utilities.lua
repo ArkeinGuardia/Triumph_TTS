@@ -426,4 +426,13 @@ function test_in_table()
   lu.assertFalse(in_table(7, {3,4,5,6}))
 end
 
+function test_filter()
+  is_odd = function(obj)
+    return obj % 2 == 1
+  end
+
+  actual = filter(is_odd, {7,9,10,12,1})
+  lu.assertEquals(actual, {7,9,1})
+end
+
 os.exit( lu.LuaUnit.run() )

@@ -815,3 +815,18 @@ function get_object_by_name(name)
   end
   return nil
 end
+
+
+-- Find objects in list that meet the criteria
+-- criteria: function that object must return true
+-- list: List of objects to search through
+-- returns: list of objects in list that match criteria
+function filter(criteria, list)
+  local filtered = {}
+  for _,obj in ipairs(list) do
+    if criteria(obj) then
+      table.insert(filtered, obj)
+    end
+  end
+  return filtered
+end
