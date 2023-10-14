@@ -1374,6 +1374,16 @@ function onObjectRotate(object, spin, flip, player_color, old_spin, old_flip)
             history_record_delta_snapshot()
         end
     end
+    if is_base_obj(object) then
+        -- Redraw zoc
+        Global.setVectorLines({})
+        -- klude wait a bit for the object to settle
+        Wait.frames(
+            function()
+                Global.setVectorLines({})
+                draw_all_gizmos()
+            end, 10)
+    end
 end
 
 function calculate_future_position(base_obj, movement)
