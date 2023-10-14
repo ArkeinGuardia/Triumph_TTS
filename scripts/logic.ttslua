@@ -1376,6 +1376,7 @@ function onObjectRotate(object, spin, flip, player_color, old_spin, old_flip)
     end
     if is_base_obj(object) then
         -- Redraw zoc
+        g_cache_zocs[object.getName()] = None
         Global.setVectorLines({})
         -- klude wait a bit for the object to settle
         Wait.frames(

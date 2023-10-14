@@ -92,6 +92,19 @@ function array_equals(t1, t2, comparison_function)
     return true
   end
 
+  -- to make comparison easier round corrdinates to 1/10th of an inch
+function decimalize(coordinates)
+    if type(coordinates) == "number" then
+        return round_to_decimals(coordinates, 1)
+    end
+    local result = {}
+    for k,v in pairs(coordinates) do
+      result[k] = decimalize(v)
+    end
+    return result
+end
+
+
 -- Rounds a number to the power of ten given
 -- For example, round_to_power(123, 1) => 120, round_to_power(123, 2) => 100
 function round_to_power(number, power)

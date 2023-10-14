@@ -110,5 +110,33 @@ function test_str_remove_suffix()
   lu.assertEquals(actual, "4Bd")
 end
 
+function test_decimalize_number()
+  local actual = decimalize(4.3763232)
+  lu.assertEquals(tostring(actual), "4.4")
+end
+
+function test_decimalize_coords()
+  local before = {}
+  before['x'] = 1.21212121
+  before['y'] = 2.3
+  local actual = decimalize(before)
+  expected = {x=1.2, y=2.3}
+  lu.assertEquals(actual, expected)
+end
+
+function test_decimalize_vector()
+  local expected = {1,2,3}
+  local actual = decimalize(expected)
+  lu.assertEquals(actual, expected)
+end
+
+
+function test_decimalize_line_segment()
+  local point1 = {x=1.2, y=2.3}
+  local point2 = {x=3.4, y=4.6}
+  local expected = {point1, point2}
+  local actual = decimalize(expected)
+  lu.assertEquals(actual, expected)
+end
 
 os.exit( lu.LuaUnit.run() )

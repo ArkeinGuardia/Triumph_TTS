@@ -223,7 +223,6 @@ end
 function test_degrees_to_vector_xz_towards_battle_cards()
   local actual = degrees_to_vector_xz(90)
   local expected = {x=1, y=0, z=0}
-  print("220 actual=", actual)
   lu.assertAlmostEquals(actual.x, expected.x, 1e-4)
   lu.assertAlmostEquals(actual.y, expected.y, 1e-4)
   lu.assertAlmostEquals(actual.z, expected.z, 1e-4)
