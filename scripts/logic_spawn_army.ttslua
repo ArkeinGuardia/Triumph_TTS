@@ -7,6 +7,7 @@ require("Triumph_TTS/scripts/data/data_settings")
 require("Triumph_TTS/scripts/logic_decorations")
 require("Triumph_TTS/scripts/utilities_lua")
 require("Triumph_TTS/scripts/logic_base_obj")
+require("Triumph_TTS/scripts/zoc")
 
 
 g_base_index = 1
@@ -52,8 +53,6 @@ function add_dismount_context_menu_base(base_obj, is_red_player, command_color)
     local new_depth = get_base_depth_from_base_obj(new_obj)
     local depth_difference_mm = old_depth - new_depth;
     local depth_difference_inches = from_mm_to_in(depth_difference_mm)
-    print("depth_difference_mm=", depth_difference_mm)
-    print("depth_difference_inches=", depth_difference_inches)
     move_base_forward(new_obj, depth_difference_inches/2.0)
 
     local new_name = new_obj.getName()
@@ -1467,6 +1466,7 @@ function onObjectDestroy(dying_object)
       set_last_snapshot()
       history_record_object_destroy(dying_object)
       remove_decorations_for_obj(dying_object)
+      zoc_invalidate_base(dying_object)
     end
 end
 

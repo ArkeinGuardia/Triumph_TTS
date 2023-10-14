@@ -1,5 +1,6 @@
 require("Triumph_TTS/scripts/logic_decorations")
 require("Triumph_TTS/scripts/sets")
+require("Triumph_TTS/scripts/zoc")
 require("Triumph_TTS/scripts/data/data_cheat_sheet")
 
 -- Format a distance in inches for displaying to the user.
@@ -1376,8 +1377,7 @@ function onObjectRotate(object, spin, flip, player_color, old_spin, old_flip)
     end
     if is_base_obj(object) then
         -- Redraw zoc
-        g_cache_zocs[object.getName()] = None
-        Global.setVectorLines({})
+        zoc_invalidate_base(object)
         -- klude wait a bit for the object to settle
         Wait.frames(
             function()

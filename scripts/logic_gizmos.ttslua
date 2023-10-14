@@ -1,6 +1,8 @@
+require("Triumph_TTS/scripts/base_cache")
 require("Triumph_TTS/scripts/utilities_lua")
 require("Triumph_TTS/scripts/logic_spawn_army")
-require("Triumph_TTS/scripts/geometry")
+require("Triumph_TTS/scripts/zoc")
+
 
 
 function set_vec_to_above_terrain(vec)
@@ -41,237 +43,6 @@ function get_strokes_future_position(base_obj, transform)
     }
 end
 
-
-function get_strokes_zoc_wwg(base_obj, transform)
-    -- ZOC is one base width in front.  See Rule 51.2
-    local size = get_size(base_obj.getName())
-    local color = g_gizmo_zoc_color_player_red
-    if is_base_blue_player(base_obj) then
-        color = g_gizmo_zoc_color_player_blue
-    end
-
-    local stroke_points = {}
-    local tr = { x = size['x'] / 2, y = 0, z = size['z'] / 2 }
-    local tl = { x = -size['x'] / 2, y = 0, z = size['z'] / 2 }
-    local br = { x = size['x'] / 2, y = 0, z = -size['z'] / 2 }
-    local bl = { x = -size['x'] / 2, y = 0, z = -size['z'] / 2 }
-
-    -- TOP
-
-    table.insert(stroke_points, {
-        x = tr['x'],
-        y = tr['y'],
-        z = tr['z']
-    })
-    table.insert(stroke_points, {
-        x = tr['x'],
-        y = tr['y'],
-        z = tr['z'] + g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = tl['x'],
-        y = tl['y'],
-        z = tl['z'] + g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = tl['x'],
-        y = tl['y'],
-        z = tl['z']
-    })
-
-    -- SIDE LEFT
-
-    table.insert(stroke_points, {
-        x = tl['x'] - g_base_width_in_inches,
-        y = tl['y'],
-        z = tl['z']
-    })
-    table.insert(stroke_points, {
-        x = bl['x'] - g_base_width_in_inches,
-        y = bl['y'],
-        z = bl['z']
-    })
-    table.insert(stroke_points, {
-        x = bl['x'],
-        y = bl['y'],
-        z = bl['z']
-    })
-
-    -- BOTTOM
-
-    table.insert(stroke_points, {
-        x = bl['x'],
-        y = bl['y'],
-        z = bl['z'] - g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = br['x'],
-        y = br['y'],
-        z = br['z'] - g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = br['x'],
-        y = br['y'],
-        z = br['z']
-    })
-
-    -- SIDE RIGHT
-
-    table.insert(stroke_points, {
-        x = br['x'] + g_base_width_in_inches,
-        y = br['y'],
-        z = br['z']
-    })
-    table.insert(stroke_points, {
-        x = tr['x'] + g_base_width_in_inches,
-        y = tr['y'],
-        z = tr['z']
-    })
-    table.insert(stroke_points, {
-        x = tr['x'],
-        y = tr['y'],
-        z = tr['z']
-    })
-
-    local rotation = transform['rotation']
-    local pos = transform['position']
-    for _, paux in ipairs(stroke_points) do
-        local paux_rotated = rotate_point_relative(paux, pos, rotation)
-        paux['x'] = paux_rotated['x']
-        paux['y'] = set_vec_to_above_terrain(paux_rotated)['y']
-        paux['z'] = paux_rotated['z']
-    end
-
-    return
-    {
-        points    = stroke_points,
-        color     = color,
-        thickness = g_line_thickness,
-        rotation  = {0,0,0}
-    }
-end
-
-function is_proxy_base(base_obj)
-    return str_has_substr(base_obj.getName(), 'Proxy')
-end
-
-
-
-function is_in_front_contact(base_obj_cache, other_base_obj_cache)
-    print("IN is_in_front_contact ", base_obj_cache.getName(), ' ', other_base_obj_cache.getName())
-    local other_base_obj_corners = other_base_obj_cache.getCorners()
-    local base_obj_corners = base_obj_cache.getCorners()
-    local base_front = { base_obj_corners['topleft'], base_obj_corners['topright'] }
-    local other_base_front = { other_base_obj_corners['topleft'], other_base_obj_corners['topright'] }
-    base_front = decimalize(base_front)
-    other_base_front = decimalize(other_base_front)
-    -- print("base_front")
-    -- table_print(base_front)
-    -- print("other_base_front")
-    -- table_print(other_base_front)
-    -- Handle the case where the bases are not the same size like a camp
-    result = is_segment_contained(base_front, other_base_front) or is_segment_contained(other_base_front, base_front)
-    print("OUT is_in_front_contact ", tostring(result), base_obj_cache.getName(), ' ', other_base_obj_cache.getName())
-    return result
-end
-
--- is there another base in front, flank, or rear contact.
--- See 18 FRONT, FLANK AND REAR CONTACT
-function is_in_close_combat(base_obj)
-    print("IN is_in_close_combat ", base_obj.getName())
-    local base_obj_cache = build_base_cache(base_obj)
-    local all_bases = get_all_bases()
-    for _,other_base_obj in pairs(all_bases) do
-        if base_obj ~= other_base_obj then
-            local other_base_obj_cache = build_base_cache(other_base_obj)
-            if is_in_front_contact(base_obj_cache, other_base_obj_cache) then
-                g_cache_zocs[base_obj_cache.getName()] = None
-                g_cache_zocs[other_base_obj_cache.getName()] = None
-                print("192 OUT is_in_close_combat true ",  base_obj.getName())
-                return true
-            end
-            -- TODO flank and rear
-        end
-    end
-    print("198 OUT is_in_close_combat false ", base_obj.getName())
-    return false
-end
-
-function get_strokes_zoc(base_obj, transform)
-    if base_obj == nil then
-      return {}
-    end
-    if is_proxy_base(base_obj) then
-        return {}
-    end
-    if is_base_prepared_defenses(base_obj) then 
-      return {}
-    end
-    if str_has_substr(base_obj.getName(), 'Elephant Screen') then
-      return {}
-    end
-    if str_has_substr(base_obj.getName(), 'Camp') then
-      -- In Triumph! camps do not have a zoc
-      return {}
-    end
-
-    if is_in_close_combat(base_obj) then
-        -- 51.5 Any stand which has an enemy stand in front
-        -- contact, flank contact, or rear contact with it
-        -- does not exert a ZOC.
-        return {}
-    end
-
-    if str_has_substr(base_obj.getName(), 'War Wagons') then
-        local color = g_gizmo_zoc_color_player_red
-        if is_base_blue_player(base_obj) then
-            color = g_gizmo_zoc_color_player_blue
-        end
-
-        return get_strokes_zoc_wwg(base_obj, transform)
-    end
-
-    local stroke_points = {}
-    local p = transform['corners']['topright']
-    table.insert(stroke_points, p)
-    table.insert(stroke_points, {
-        x = p['x'],
-        y = p['y'],
-        z = p['z'] + g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = p['x'] - g_base_width_in_inches,
-        y = p['y'],
-        z = p['z'] + g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = p['x'] - g_base_width_in_inches,
-        y = p['y'],
-        z = p['z']
-    })
-    table.insert(stroke_points, p)
-
-    local rotation = transform['rotation']
-    for _, paux in ipairs(stroke_points) do
-        local paux_rotated = rotate_point(paux, p, rotation)
-        paux['x'] = paux_rotated['x']
-        paux['y'] = set_vec_to_above_terrain(paux_rotated)['y']
-        paux['z'] = paux_rotated['z']
-    end
-
-    local color = g_gizmo_zoc_color_player_red
-    if is_base_blue_player(base_obj) then
-        color = g_gizmo_zoc_color_player_blue
-    end
-
-    return
-    {
-        points    = stroke_points,
-        color     = color,
-        thickness = g_line_thickness,
-        rotation  = {0,0,0}
-    }
-end
 
 
 -- See the DBA2 repo for this, is a bit hellish... Combined with way too many
@@ -839,7 +610,7 @@ function get_strokes_base_pos(obj, transform)
     end
 
     if g_zoc_enabled then
-        table.insert(strokes, get_strokes_zoc(obj, transform))
+        table.insert(strokes, zoc_get_strokes(obj))
     end
     return strokes
 end
@@ -903,13 +674,6 @@ function get_strokes_future_movements(new_selected_items)
     return strokes
 end
 
--- This caches the strokes for a given base in certain pos and rotation
--- g_cache_zocs["basename"] =  {
---      "pos" = {x=1,y=1,z=1}
---      "rot" = {x=1,y=1,z=1}
---      "strokes" = {}
---   }
-g_cache_zocs = {}
 
 function get_strokes_bases_nothing(bases)
     if bases == nil or #bases == 0 then
@@ -919,22 +683,8 @@ function get_strokes_bases_nothing(bases)
     local strokes = {}
     for _, obj in ipairs(bases) do
         if g_zoc_enabled then
-            local name = obj.getName()
-            local pos = obj.getPosition()
-            local rot = obj.getRotation()
-            if g_cache_zocs[name]
-                and g_cache_zocs[name].pos == pos
-                and g_cache_zocs[name].rot == rot then
-
-                table.insert(strokes, g_cache_zocs[name].strokes)
-            else
-                local base_strokes = get_strokes_zoc(obj, calculate_transform(obj))
-                table.insert(strokes, base_strokes)
-                g_cache_zocs[name] = {}
-                g_cache_zocs[name].pos = pos
-                g_cache_zocs[name].rot = rot
-                g_cache_zocs[name].strokes = base_strokes
-            end
+            local base_strokes = zoc_get_strokes(obj)
+            table.insert(strokes, base_strokes)
         end
     end
     return strokes
