@@ -10,6 +10,10 @@ function build_base_cache(base)
     shape = nil,
   }
 
+  cache['getGUID'] = function()
+    return cache['base'].getGUID()
+  end
+
   cache['getName'] = function()
     return cache['base'].getName()
   end
