@@ -152,6 +152,23 @@ function is_in_front_contact(base_obj_cache, other_base_obj_cache)
 end
 
 
+-- Is front_base_obj_cache front edge in contact with the rear edge of rear_base_obj_cache
+function is_in_rear_contact(front_base_obj_cache, rear_base_obj_cache)
+    local rear_corners = rear_base_obj_cache.getCorners()
+    local front_corners = front_base_obj_cache.getCorners()
+    local front = { front_corners['topleft'], front_corners['topright'] }
+    local rear = { rear_corners['botleft'], rear_corners['botright'] }
+    front = decimalize(front)
+    rear = decimalize(rear)
+    result = is_segment_contained(front, rear)
+    return result
+end
+
+function is_contacted_in_rear(a, b)
+    return is_in_rear_contact(b, a)
+end
+
+
 -- BUG Base moving out of combat must restore the other guys zoc
 
 -- is there another base in front, flank, or rear contact.
@@ -160,20 +177,24 @@ function is_in_close_combat(base_obj_cached)
     local all_bases = get_all_bases()
     for _,other_base_obj in pairs(all_bases) do
         if base_obj_cached.getGUID() ~= other_base_obj.getGUID() then
-            -- TODO color has to differ
-            local other_base_obj_cache = build_base_cache(other_base_obj)
-            if is_in_front_contact(base_obj_cached, other_base_obj_cache) then
-                _zoc_invalidate_strokes(base_obj_cached)
-                _zoc_invalidate_strokes(other_base_obj_cache)
-                _zoc_add_blocker(base_obj_cached, other_base_obj_cache)
-                _zoc_add_blocker(other_base_obj_cache, base_obj_cached)
-                return true
+            if is_base_blue_player(base_obj_cached) ~= is_base_blue_player(other_base_obj) then
+                local other_base_obj_cache = build_base_cache(other_base_obj)
+                if is_in_front_contact(base_obj_cached, other_base_obj_cache) or
+                is_in_rear_contact(base_obj_cached, other_base_obj_cache) or
+                is_contacted_in_rear(base_obj_cached, other_base_obj_cache) 
+                then
+                    zoc_invalidate_base(base_obj_cached)
+                    zoc_invalidate_base(other_base_obj_cache)
+                    _zoc_add_blocker(base_obj_cached, other_base_obj_cache)
+                    _zoc_add_blocker(other_base_obj_cache, base_obj_cached)
+                    return true
+                end
             end
-            -- TODO flank and rear
         end
     end
     return false
 end
+
 
 function _get_zoc_strokes_color(base_obj)
     if is_base_blue_player(base_obj) then
@@ -269,7 +290,9 @@ function _zoc_invalidate_base_guid(base_guid)
         end
     end
     Global.setVectorLines({})
-    draw_all_gizmos()
+    -- Kludge if we schedule the redraw immediately the old lines just
+    -- come back
+    Wait.frames(function() draw_all_gizmos() end, 15)
 end
 
 
