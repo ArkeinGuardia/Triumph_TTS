@@ -202,8 +202,7 @@ function _zoc_calc_zoc_max(base, cached_bases)
     if not g_cache_zocs[guid].zoc_max then
         _zoc_initialize_zoc_max(base)
     end
-
-    -- TODO _set_close_combat_distance(base, cached_bases)
+    _set_close_combat_distance(base, cached_bases)
 end
 
 
@@ -389,15 +388,15 @@ function _zoc_add_blocker(blocker, blocked, zoc_max)
         g_cache_zocs[blocker_guid].blocks = {}
     end
     g_cache_zocs[blocker_guid].blocks[blocked_guid] = true
-    _zoc_initialize_zoc_max(blocker_guid)
+    _zoc_initialize_zoc_max(blocker)
     after = shallow_copy(g_cache_zocs[blocker_guid].zoc_max)
     for k,v in pairs(zoc_max) do
-        after = math.min(v, g_cache_zocs[blocker_guid].zoc_max[k])
+        after[k] = math.min(v, g_cache_zocs[blocker_guid].zoc_max[k])
     end
-    if g_cache_zocs[blocker_guid].zoc_max ~= after then
-        zoc_invalidate_strokes(blocker)
-        zoc_invalidate_strokes(blocked)
+    if not table_equals(g_cache_zocs[blocker_guid].zoc_max, after) then
         g_cache_zocs[blocker_guid].zoc_max = after
+        _zoc_invalidate_strokes(blocker)
+        _zoc_invalidate_strokes(blocked)
     end
 
 end
