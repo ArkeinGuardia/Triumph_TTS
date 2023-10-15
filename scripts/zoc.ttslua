@@ -22,8 +22,8 @@ function _zoc_get_color(base_obj)
 end
 
 
-function _zoc_calc_stroke_points(base_guid)
-    -- ZOC is one base width in front.  See Rule 51.2
+-- Return the rectangles that make up the ZOCs for a base.
+function _zoc_calc_zocs(base_guid)
     if not g_cache_zocs then
         print_error("_zoc_calc_stroke_points: g_cache_zocs is nil")
         return {}
@@ -31,6 +31,9 @@ function _zoc_calc_stroke_points(base_guid)
     if not g_cache_zocs[base_guid] then
         print_error("_zoc_calc_stroke_points: g_cache_zocs[" .. base_guid .. "] is nil")
         return {}
+    end
+    if g_cache_zocs[base_guid].zocs then
+        return g_cache_zocs[base_guid].zocs
     end
     if not g_cache_zocs[base_guid].transform then
         print_error("_zoc_calc_stroke_points:  g_cache_zocs[" .. base_guid .. "].transform is nil")
@@ -55,98 +58,136 @@ function _zoc_calc_stroke_points(base_guid)
     local br = { x = size['x'] / 2, y = 0, z = -size['z'] / 2 }
     local bl = { x = -size['x'] / 2, y = 0, z = -size['z'] / 2 }
 
-    -- Result
-    local stroke_points = {}
+    local zocs = {}
 
     -- TOP
     if zoc_max.top > 0 then
-        table.insert(stroke_points, {
+        local top = {}
+        table.insert(top, {
             x = tr['x'],
             y = tr['y'],
             z = tr['z']
         })
-        table.insert(stroke_points, {
+        table.insert(top, {
             x = tr['x'],
             y = tr['y'],
             z = tr['z'] + zoc_max.top
         })
-        table.insert(stroke_points, {
+        table.insert(top, {
             x = tl['x'],
             y = tl['y'],
             z = tl['z'] + zoc_max.top
         })
-        table.insert(stroke_points, {
+        table.insert(top, {
             x = tl['x'],
             y = tl['y'],
             z = tl['z']
         })
+        zocs['top'] = top
     end
 
     -- SIDE LEFT
     if zoc_max.left > 0 then
-        table.insert(stroke_points, {
+        local left = {}
+        table.insert(left, {
             x = tl['x'] - zoc_max.left,
             y = tl['y'],
             z = tl['z']
         })
-        table.insert(stroke_points, {
+        table.insert(left, {
             x = bl['x'] - zoc_max.left,
             y = bl['y'],
             z = bl['z']
         })
-        table.insert(stroke_points, {
+        table.insert(left, {
             x = bl['x'],
             y = bl['y'],
             z = bl['z']
         })
+        table.insert(left, {
+            x = tl['x'],
+            y = tl['y'],
+            z = tl['z']
+        })
+        zocs['left'] = left
     end
 
     -- BOTTOM
     if zoc_max.bottom > 0 then
-        table.insert(stroke_points, {
+        local bottom = {}
+        table.insert(bottom, {
             x = bl['x'],
             y = bl['y'],
             z = bl['z'] - zoc_max.bottom
         })
-        table.insert(stroke_points, {
+        table.insert(bottom, {
             x = br['x'],
             y = br['y'],
             z = br['z'] - zoc_max.bottom
         })
-        table.insert(stroke_points, {
+        table.insert(bottom, {
             x = br['x'],
             y = br['y'],
             z = br['z']
         })
+        table.insert(bottom, {
+            x = bl['x'],
+            y = bl['y'],
+            z = bl['z']
+        })
+        zocs['bottom'] = bottom
     end
-
+    
     -- SIDE RIGHT
     if zoc_max.right > 0 then
-        table.insert(stroke_points, {
+        local right = {}
+        table.insert(right, {
             x = br['x'] + zoc_max.right,
             y = br['y'],
             z = br['z']
         })
-        table.insert(stroke_points, {
+        table.insert(right, {
             x = tr['x'] + zoc_max.right,
             y = tr['y'],
             z = tr['z']
         })
-        table.insert(stroke_points, {
+        table.insert(right, {
             x = tr['x'],
             y = tr['y'],
             z = tr['z']
         })
+        table.insert(right, {
+            x = br['x'],
+            y = br['y'],
+            z = br['z']
+        })
+        zocs['right'] = right
     end
 
-    for _, paux in ipairs(stroke_points) do
-        local paux_rotated = rotate_point_relative(paux, pos, rotation)
-        paux['x'] = paux_rotated['x']
-        paux['y'] = set_vec_to_above_terrain(paux_rotated)['y']
-        paux['z'] = paux_rotated['z']
+    for _, zoc in pairs(zocs) do
+        for _, paux in pairs(zoc) do
+            -- using side effect that paux is a reference to the entry in zocs
+            local paux_rotated = rotate_point_relative(paux, pos, rotation)
+            paux['x'] = paux_rotated['x']
+            paux['y'] = set_vec_to_above_terrain(paux_rotated)['y']
+            paux['z'] = paux_rotated['z']
+        end
     end
 
+    g_cache_zocs[base_guid].zocs = zocs
+    return zocs
+end
 
+
+function _zoc_calc_stroke_points(base_guid)
+    -- Result
+    local zocs = _zoc_calc_zocs(base_guid)
+    local stroke_points = {}
+    for _, zoc in pairs(zocs) do
+        for _,point in pairs(zoc) do 
+            table.insert(stroke_points, point)
+        end
+    end
     return stroke_points
 end
 
