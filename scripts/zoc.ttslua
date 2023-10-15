@@ -1,6 +1,7 @@
 require("Triumph_TTS/scripts/geometry")
 require("Triumph_TTS/scripts/base_cache")
 require("Triumph_TTS/scripts/logic_prepared_defenses")
+require("Triumph_TTS/scripts/logic_decorations")
 require("Triumph_TTS/scripts/data/data_settings")
 
 
@@ -14,11 +15,11 @@ g_cache_zocs = {}
 
 
 function _zoc_set_cached_strokes(base_obj, base_strokes)
-    local name = base_obj.getName()
-    g_cache_zocs[name] = {}
-    g_cache_zocs[name].pos = base_obj.getPosition() 
-    g_cache_zocs[name].rot = base_obj.getRotation() 
-    g_cache_zocs[name].strokes = base_strokes
+    local guid = base_obj.getGUID()
+    g_cache_zocs[guid] = {}
+    g_cache_zocs[guid].pos = base_obj.getPosition() 
+    g_cache_zocs[guid].rot = base_obj.getRotation() 
+    g_cache_zocs[guid].strokes = base_strokes
 end
 
 
@@ -162,8 +163,10 @@ function is_in_close_combat(base_obj_cached)
             -- TODO color has to differ
             local other_base_obj_cache = build_base_cache(other_base_obj)
             if is_in_front_contact(base_obj_cached, other_base_obj_cache) then
-                zoc_invalidate_base(base_obj_cached)
-                zoc_invalidate_base(other_base_obj_cache)
+                _zoc_invalidate_strokes(base_obj_cached)
+                _zoc_invalidate_strokes(other_base_obj_cache)
+                _zoc_add_blocker(base_obj_cached, other_base_obj_cache)
+                _zoc_add_blocker(other_base_obj_cache, base_obj_cached)
                 return true
             end
             -- TODO flank and rear
@@ -171,6 +174,15 @@ function is_in_close_combat(base_obj_cached)
     end
     return false
 end
+
+function _get_zoc_strokes_color(base_obj)
+    if is_base_blue_player(base_obj) then
+        return g_gizmo_zoc_color_player_blue
+    else
+        return g_gizmo_zoc_color_player_red
+    end
+end
+
 
 function _get_strokes_zoc(base_obj_cached)
     if is_proxy_base(base_obj_cached) then
@@ -227,15 +239,11 @@ function _get_strokes_zoc(base_obj_cached)
         paux['z'] = paux_rotated['z']
     end
 
-    local color = g_gizmo_zoc_color_player_red
-    if is_base_blue_player(base_obj) then
-        color = g_gizmo_zoc_color_player_blue
-    end
-
+    local strokes_color = _get_zoc_strokes_color(base_obj_cached)
     local result =
     {
         points    = stroke_points,
-        color     = color,
+        color     = strokes_color,
         thickness = g_line_thickness,
         rotation  = {0,0,0}
     }
@@ -245,7 +253,30 @@ end
 
 -- Clear the cache for a base
 function zoc_invalidate_base(base_obj)
-    g_cache_zocs[base_obj.getName()] = None
+    guid = base_obj.getGUID()
+    _zoc_invalidate_base_guid(guid)
+end
+
+
+function _zoc_invalidate_base_guid(base_guid)
+    if g_cache_zocs[base_guid] then
+        local blocks = g_cache_zocs[base_guid].blocks
+        g_cache_zocs[base_guid] = nil
+        if blocks then
+            for blocked_guid, _ in pairs(blocks) do
+                _zoc_invalidate_base_guid(blocked_guid)
+            end
+        end
+    end
+    Global.setVectorLines({})
+end
+
+
+function _zoc_invalidate_strokes(base_obj)
+    local name = base_obj.getGUID()
+    if g_cache_zocs[name] then
+        g_cache_zocs[name].strokes = nil
+    end
     Global.setVectorLines({})
 end
 
@@ -274,3 +305,15 @@ function zoc_get_strokes(base_obj)
     return strokes
 end
 
+-- indicated that blocker is reducing the zoc of blocked
+function _zoc_add_blocker(blocker, blocked)
+    local blocker_guid = blocker.getGUID()
+    local blocked_guid = blocked.getGUID()
+    if not g_cache_zocs[blocker_guid] then
+        g_cache_zocs[blocker_guid] = {}
+    end
+    if not g_cache_zocs[blocker_guid].blocks then
+        g_cache_zocs[blocker_guid].blocks = {}
+    end
+    g_cache_zocs[blocker_guid].blocks[blocked_guid] = true
+end
