@@ -1,4 +1,5 @@
 require("Triumph_TTS/scripts/armies")
+require("Triumph_TTS/scripts/zoc")
 
 -- Global number of MU to move
 g_mu_movement = 3
@@ -54,7 +55,7 @@ function move_bases(player, value, id)
             .. from_in_to_mu(moved) .. ' MU forward')
     end
 
-    -- Moving the bases shpuld imply update the gizmos
+    -- Moving the bases should imply update the gizmos
     draw_all_gizmos()
     history_record_delta_snapshot()
 end
@@ -729,6 +730,7 @@ end
 g_zoc_enabled = false
 function on_toggle_zoc(player, value, id)
     g_zoc_enabled = value == "True"
+    zoc_invalidate_cache()
 
     if g_zoc_enabled then
         UI.setValue('toggle_zoc', 'Show ZOC')

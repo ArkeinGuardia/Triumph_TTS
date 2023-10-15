@@ -1,0 +1,104 @@
+
+-- Check if two bases are in contact with each other.
+
+require("Triumph_TTS/scripts/geometry")
+require("Triumph_TTS/scripts/base_cache")
+require("Triumph_TTS/scripts/utilities")
+require("Triumph_TTS/scripts/data/data_settings")
+
+
+-- Are the two bases are far enought that we know that the
+-- two bases cannot be in combat.
+function _contact_far_enough(a_base_obj_cache, b_base_obj_cache)
+    local a_pos = a_base_obj_cache.getPosition()
+    local b_pos = b_base_obj_cache.getPosition()
+    local distance_sq = distance_points_flat_sq(a_pos, b_pos)
+    if distance_sq > g_min_zoc_interference_in_inches then
+        return true
+    end
+return false
+end
+
+
+-- are the two bases in front to front concat.
+-- to be in contact the front corners must be in contact
+function is_in_front_contact(a_base_obj_cache, b_base_obj_cache)
+    local a_corners = a_base_obj_cache.getCorners()
+    local b_corners = b_base_obj_cache.getCorners()
+
+    local a_front = { a_corners['topleft'], a_corners['topright'] }
+    local b_front = { b_corners['topleft'], b_corners['topright'] }
+    a_front = decimalize(a_front)
+    b_front = decimalize(b_front)
+    result = is_segment_contained(a_front, b_front)
+    return result
+end
+
+
+-- Is front_base_obj_cache front edge in contact with the rear edge of rear_base_obj_cache
+function is_in_rear_contact(front_base_obj_cache, rear_base_obj_cache)
+    local rear_corners = rear_base_obj_cache.getCorners()
+    local front_corners = front_base_obj_cache.getCorners()
+    local front = { front_corners['topleft'], front_corners['topright'] }
+    local rear = { rear_corners['botleft'], rear_corners['botright'] }
+    front = decimalize(front)
+    rear = decimalize(rear)
+    result = is_segment_contained(front, rear)
+    return result
+end
+
+
+-- Is a_base_obj_cache front edge in contact with the right edge of b_base_obj_cache
+function is_in_right_flank_contact(a_base_obj_cache, b_base_obj_cache)
+    local front_corners = a_base_obj_cache.getCorners()
+    local right_corners = b_base_obj_cache.getCorners()
+    local front = { front_corners['topleft'], front_corners['topright'] }
+    local right = { right_corners['topright'], right_corners['botright'] }
+    front = decimalize(front)
+    right = decimalize(right)
+    result = is_segment_contained(front, right)
+    return result
+end
+
+
+-- Is a_base_obj_cache front edge in contact with the left edge of b_base_obj_cache
+function is_in_left_flank_contact(a_base_obj_cache, b_base_obj_cache)
+    local front_corners = a_base_obj_cache.getCorners()
+    local left_corners = b_base_obj_cache.getCorners()
+    local front = { front_corners['topleft'], front_corners['topright'] }
+    local left = { left_corners['topleft'], left_corners['botleft'] }
+    front = decimalize(front)
+    left = decimalize(left)
+    result = is_segment_contained(front, left)
+    return result
+end
+
+
+function are_bases_in_close_combat(base_obj_cached, other_base_obj_cache)
+    if _contact_far_enough(base_obj_cached, other_base_obj_cache) then
+      return false
+    end
+    if is_in_front_contact(base_obj_cached, other_base_obj_cache) then
+      return true
+    end
+    if is_in_rear_contact(base_obj_cached, other_base_obj_cache) then
+      return true
+    end
+    if is_in_right_flank_contact(base_obj_cached, other_base_obj_cache) then
+      return true
+    end
+    if is_in_left_flank_contact(base_obj_cached, other_base_obj_cache) then
+      return true
+    end
+    if is_in_rear_contact(other_base_obj_cache, base_obj_cached) then
+        return true
+      end
+      if is_in_right_flank_contact(other_base_obj_cache, base_obj_cached) then
+        return true
+      end
+      if is_in_left_flank_contact(other_base_obj_cache, base_obj_cached) then
+        return true
+      end
+      return false
+  end
+  

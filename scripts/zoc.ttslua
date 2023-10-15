@@ -1,4 +1,5 @@
-require("Triumph_TTS/scripts/geometry")
+require("Triumph_TTS/scripts/log")
+require("Triumph_TTS/scripts/contact")
 require("Triumph_TTS/scripts/base_cache")
 require("Triumph_TTS/scripts/logic_prepared_defenses")
 require("Triumph_TTS/scripts/logic_decorations")
@@ -6,197 +7,13 @@ require("Triumph_TTS/scripts/data/data_settings")
 
 
 -- This caches the strokes for a given base in certain pos and rotation
--- g_cache_zocs["basename"] =  {
---      "pos" = {x=1,y=1,z=1}
---      "rot" = {x=1,y=1,z=1}
---      "strokes" = {}
---   }
 g_cache_zocs = {}
 
-
-function _zoc_set_cached_strokes(base_obj, base_strokes)
-    local guid = base_obj.getGUID()
-    g_cache_zocs[guid] = {}
-    g_cache_zocs[guid].pos = base_obj.getPosition() 
-    g_cache_zocs[guid].rot = base_obj.getRotation() 
-    g_cache_zocs[guid].strokes = base_strokes
+function zoc_invalidate_cache()
+    g_cache_zocs = {}
 end
 
-
-function _get_strokes_zoc_wwg(base_obj_cached)
-    -- ZOC is one base width in front.  See Rule 51.2
-    local size = get_size(base_obj_cached.getName())
-
-    local stroke_points = {}
-    local tr = { x = size['x'] / 2, y = 0, z = size['z'] / 2 }
-    local tl = { x = -size['x'] / 2, y = 0, z = size['z'] / 2 }
-    local br = { x = size['x'] / 2, y = 0, z = -size['z'] / 2 }
-    local bl = { x = -size['x'] / 2, y = 0, z = -size['z'] / 2 }
-
-    -- TOP
-
-    table.insert(stroke_points, {
-        x = tr['x'],
-        y = tr['y'],
-        z = tr['z']
-    })
-    table.insert(stroke_points, {
-        x = tr['x'],
-        y = tr['y'],
-        z = tr['z'] + g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = tl['x'],
-        y = tl['y'],
-        z = tl['z'] + g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = tl['x'],
-        y = tl['y'],
-        z = tl['z']
-    })
-
-    -- SIDE LEFT
-
-    table.insert(stroke_points, {
-        x = tl['x'] - g_base_width_in_inches,
-        y = tl['y'],
-        z = tl['z']
-    })
-    table.insert(stroke_points, {
-        x = bl['x'] - g_base_width_in_inches,
-        y = bl['y'],
-        z = bl['z']
-    })
-    table.insert(stroke_points, {
-        x = bl['x'],
-        y = bl['y'],
-        z = bl['z']
-    })
-
-    -- BOTTOM
-
-    table.insert(stroke_points, {
-        x = bl['x'],
-        y = bl['y'],
-        z = bl['z'] - g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = br['x'],
-        y = br['y'],
-        z = br['z'] - g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = br['x'],
-        y = br['y'],
-        z = br['z']
-    })
-
-    -- SIDE RIGHT
-
-    table.insert(stroke_points, {
-        x = br['x'] + g_base_width_in_inches,
-        y = br['y'],
-        z = br['z']
-    })
-    table.insert(stroke_points, {
-        x = tr['x'] + g_base_width_in_inches,
-        y = tr['y'],
-        z = tr['z']
-    })
-    table.insert(stroke_points, {
-        x = tr['x'],
-        y = tr['y'],
-        z = tr['z']
-    })
-
-    local rotation = transform['rotation']
-    local pos = transform['position']
-    for _, paux in ipairs(stroke_points) do
-        local paux_rotated = rotate_point_relative(paux, pos, rotation)
-        paux['x'] = paux_rotated['x']
-        paux['y'] = set_vec_to_above_terrain(paux_rotated)['y']
-        paux['z'] = paux_rotated['z']
-    end
-
-    local color = g_gizmo_zoc_color_player_red
-    if is_base_blue_player(base_obj_cached) then
-        color = g_gizmo_zoc_color_player_blue
-    end
-
-    return
-    {
-        points    = stroke_points,
-        color     = color,
-        thickness = g_line_thickness,
-        rotation  = {0,0,0}
-    }
-end
-
-function is_proxy_base(base_obj_cached)
-    return str_has_substr(base_obj_cached.getName(), 'Proxy')
-end
-
-
-
-function is_in_front_contact(base_obj_cache, other_base_obj_cache)
-    local other_base_obj_corners = other_base_obj_cache.getCorners()
-    local base_obj_corners = base_obj_cache.getCorners()
-    local base_front = { base_obj_corners['topleft'], base_obj_corners['topright'] }
-    local other_base_front = { other_base_obj_corners['topleft'], other_base_obj_corners['topright'] }
-    base_front = decimalize(base_front)
-    other_base_front = decimalize(other_base_front)
-    -- Handle the case where the bases are not the same size like a camp
-    result = is_segment_contained(base_front, other_base_front) or is_segment_contained(other_base_front, base_front)
-    return result
-end
-
-
--- Is front_base_obj_cache front edge in contact with the rear edge of rear_base_obj_cache
-function is_in_rear_contact(front_base_obj_cache, rear_base_obj_cache)
-    local rear_corners = rear_base_obj_cache.getCorners()
-    local front_corners = front_base_obj_cache.getCorners()
-    local front = { front_corners['topleft'], front_corners['topright'] }
-    local rear = { rear_corners['botleft'], rear_corners['botright'] }
-    front = decimalize(front)
-    rear = decimalize(rear)
-    result = is_segment_contained(front, rear)
-    return result
-end
-
-function is_contacted_in_rear(a, b)
-    return is_in_rear_contact(b, a)
-end
-
-
--- BUG Base moving out of combat must restore the other guys zoc
-
--- is there another base in front, flank, or rear contact.
--- See 18 FRONT, FLANK AND REAR CONTACT
-function is_in_close_combat(base_obj_cached)
-    local all_bases = get_all_bases()
-    for _,other_base_obj in pairs(all_bases) do
-        if base_obj_cached.getGUID() ~= other_base_obj.getGUID() then
-            if is_base_blue_player(base_obj_cached) ~= is_base_blue_player(other_base_obj) then
-                local other_base_obj_cache = build_base_cache(other_base_obj)
-                if is_in_front_contact(base_obj_cached, other_base_obj_cache) or
-                is_in_rear_contact(base_obj_cached, other_base_obj_cache) or
-                is_contacted_in_rear(base_obj_cached, other_base_obj_cache) 
-                then
-                    zoc_invalidate_base(base_obj_cached)
-                    zoc_invalidate_base(other_base_obj_cache)
-                    _zoc_add_blocker(base_obj_cached, other_base_obj_cache)
-                    _zoc_add_blocker(other_base_obj_cache, base_obj_cached)
-                    return true
-                end
-            end
-        end
-    end
-    return false
-end
-
-
-function _get_zoc_strokes_color(base_obj)
+function _zoc_get_color(base_obj)
     if is_base_blue_player(base_obj) then
         return g_gizmo_zoc_color_player_blue
     else
@@ -205,70 +22,273 @@ function _get_zoc_strokes_color(base_obj)
 end
 
 
-function _get_strokes_zoc(base_obj_cached)
-    if is_proxy_base(base_obj_cached) then
+function _zoc_calc_stroke_points(base_guid)
+    -- ZOC is one base width in front.  See Rule 51.2
+    if not g_cache_zocs then
+        print_error("_zoc_calc_stroke_points: g_cache_zocs is nil")
         return {}
     end
-    if is_base_prepared_defenses(base_obj_cached) then 
+    if not g_cache_zocs[base_guid] then
+        print_error("_zoc_calc_stroke_points: g_cache_zocs[" .. base_guid .. "] is nil")
         return {}
     end
-    if str_has_substr(base_obj_cached.getName(), 'Elephant Screen') then
+    if not g_cache_zocs[base_guid].transform then
+        print_error("_zoc_calc_stroke_points:  g_cache_zocs[" .. base_guid .. "].transform is nil")
         return {}
     end
-    if str_has_substr(base_obj_cached.getName(), 'Camp') then
-      -- In Triumph! camps do not have a zoc
+    if not g_cache_zocs[base_guid].size then
+        print_error("_zoc_calc_stroke_points:  g_cache_zocs[" .. base_guid .. "].size is nil")
         return {}
     end
+    if not g_cache_zocs[base_guid].zoc_max then
+        print_error("_zoc_calc_stroke_points:  g_cache_zocs[" .. base_guid .. "].zoc_max is nil")
+        return {}
+    end
+    -- Rename common expressions to make it easier to work with.
+    local size =  g_cache_zocs[base_guid].size
+    local zoc_max =  g_cache_zocs[base_guid].zoc_max
+    local rotation = g_cache_zocs[base_guid].transform.rotation
+    local pos = g_cache_zocs[base_guid].transform.position
 
-    if is_in_close_combat(base_obj_cached) then
-        -- 51.5 Any stand which has an enemy stand in front
-        -- contact, flank contact, or rear contact with it
-        -- does not exert a ZOC.
-        return {}
-    end
+    local tr = { x = size['x'] / 2, y = 0, z = size['z'] / 2 }
+    local tl = { x = -size['x'] / 2, y = 0, z = size['z'] / 2 }
+    local br = { x = size['x'] / 2, y = 0, z = -size['z'] / 2 }
+    local bl = { x = -size['x'] / 2, y = 0, z = -size['z'] / 2 }
 
-    if str_has_substr(base_obj_cached.getName(), 'War Wagons') then
-        return _get_strokes_zoc_wwg(base_obj_cached, transform)
-    end
-
-    local transform = base_obj_cached.getTransform()
+    -- Result
     local stroke_points = {}
-    local p = transform['corners']['topright']
-    table.insert(stroke_points, p)
-    table.insert(stroke_points, {
-        x = p['x'],
-        y = p['y'],
-        z = p['z'] + g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = p['x'] - g_base_width_in_inches,
-        y = p['y'],
-        z = p['z'] + g_base_width_in_inches
-    })
-    table.insert(stroke_points, {
-        x = p['x'] - g_base_width_in_inches,
-        y = p['y'],
-        z = p['z']
-    })
-    table.insert(stroke_points, p)
 
-    local rotation = transform['rotation']
+    -- TOP
+    if zoc_max.top > 0 then
+        table.insert(stroke_points, {
+            x = tr['x'],
+            y = tr['y'],
+            z = tr['z']
+        })
+        table.insert(stroke_points, {
+            x = tr['x'],
+            y = tr['y'],
+            z = tr['z'] + zoc_max.top
+        })
+        table.insert(stroke_points, {
+            x = tl['x'],
+            y = tl['y'],
+            z = tl['z'] + zoc_max.top
+        })
+        table.insert(stroke_points, {
+            x = tl['x'],
+            y = tl['y'],
+            z = tl['z']
+        })
+    end
+
+    -- SIDE LEFT
+    if zoc_max.left > 0 then
+        table.insert(stroke_points, {
+            x = tl['x'] - zoc_max.left,
+            y = tl['y'],
+            z = tl['z']
+        })
+        table.insert(stroke_points, {
+            x = bl['x'] - zoc_max.left,
+            y = bl['y'],
+            z = bl['z']
+        })
+        table.insert(stroke_points, {
+            x = bl['x'],
+            y = bl['y'],
+            z = bl['z']
+        })
+    end
+
+    -- BOTTOM
+    if zoc_max.bottom > 0 then
+        table.insert(stroke_points, {
+            x = bl['x'],
+            y = bl['y'],
+            z = bl['z'] - zoc_max.bottom
+        })
+        table.insert(stroke_points, {
+            x = br['x'],
+            y = br['y'],
+            z = br['z'] - zoc_max.bottom
+        })
+        table.insert(stroke_points, {
+            x = br['x'],
+            y = br['y'],
+            z = br['z']
+        })
+    end
+
+    -- SIDE RIGHT
+    if zoc_max.right > 0 then
+        table.insert(stroke_points, {
+            x = br['x'] + zoc_max.right,
+            y = br['y'],
+            z = br['z']
+        })
+        table.insert(stroke_points, {
+            x = tr['x'] + zoc_max.right,
+            y = tr['y'],
+            z = tr['z']
+        })
+        table.insert(stroke_points, {
+            x = tr['x'],
+            y = tr['y'],
+            z = tr['z']
+        })
+    end
+
     for _, paux in ipairs(stroke_points) do
-        local paux_rotated = rotate_point(paux, p, rotation)
+        local paux_rotated = rotate_point_relative(paux, pos, rotation)
         paux['x'] = paux_rotated['x']
         paux['y'] = set_vec_to_above_terrain(paux_rotated)['y']
         paux['z'] = paux_rotated['z']
     end
 
-    local strokes_color = _get_zoc_strokes_color(base_obj_cached)
-    local result =
-    {
-        points    = stroke_points,
-        color     = strokes_color,
-        thickness = g_line_thickness,
-        rotation  = {0,0,0}
-    }
-    return result
+
+    return stroke_points
+end
+
+
+function _zoc_set_strokes(base_guid)
+    -- ZOC is one base width in front.  See Rule 51.2
+    if g_cache_zocs and g_cache_zocs[base_guid] and g_cache_zocs[base_guid].strokes then
+        return g_cache_zocs[base_guid].strokes
+    end
+
+    local stroke_points =  _zoc_calc_stroke_points(base_guid)
+
+    g_cache_zocs[base_guid].strokes =
+        {
+            points    = stroke_points,
+            color     = g_cache_zocs[base_guid].color,
+            thickness = g_line_thickness,
+            rotation  = {0,0,0}
+        }
+end
+
+
+function is_proxy_base(base_obj_cached)
+    return str_has_substr(base_obj_cached.getName(), 'Proxy')
+end
+
+
+  
+-- is there another base in front, flank, or rear contact.
+-- See 18 FRONT, FLANK AND REAR CONTACT
+function _set_close_combat_distance(base_obj_cached, cached_bases)
+    for _,other_base_obj in pairs(cached_bases) do
+        if base_obj_cached.getGUID() ~= other_base_obj.getGUID() then
+            if is_base_blue_player(base_obj_cached) ~= is_base_blue_player(other_base_obj) then
+            local other_base_obj_cache = build_base_cache(other_base_obj)
+            if are_bases_in_close_combat(base_obj_cached, other_base_obj_cache) then
+                local all_edges_blocked = {top=0, left=0, bottom=0, right=0}
+                _zoc_add_blocker(base_obj_cached, other_base_obj_cache, all_edges_blocked)
+                return true
+            end
+            end
+        end
+    end
+    return false
+end
+
+
+function _zoc_calc_zoc_max(base, cached_bases)
+    local guid = base.getGUID()
+    if not g_cache_zocs[guid] then
+        g_cache_zocs[guid] = {}
+    end
+    if not g_cache_zocs[guid].zoc_max then
+        _zoc_initialize_zoc_max(base)
+    end
+
+    -- TODO _set_close_combat_distance(base, cached_bases)
+end
+
+
+function _can_have_zoc(base_obj)
+    if is_proxy_base(base_obj) then
+        return false
+    end
+    if is_base_prepared_defenses(base_obj) then 
+        return false
+    end
+    if str_has_substr(base_obj.getName(), 'Elephant Screen') then
+        return false
+    end
+    if str_has_substr(base_obj.getName(), 'Camp') then
+      -- In Triumph! camps do not have a zoc
+        return false
+    end
+    return true
+end
+
+
+function zoc_get_all_strokes()
+    if not g_zoc_enabled then
+        return {}
+    end
+
+    local base
+
+    local all_bases = get_all_bases()
+    local cached_bases = {}
+    for _, base in pairs(all_bases) do        
+        if _can_have_zoc(base) then
+            table.insert(cached_bases, build_base_cache(base))
+        end
+    end
+
+    -- Verify the base has an entry, transform, size, color
+    for _, base in pairs(cached_bases) do
+        local guid = base.getGUID()
+        if not g_cache_zocs[guid] then
+            g_cache_zocs[guid] = {}
+        end
+        if not g_cache_zocs[guid].transform then
+            g_cache_zocs[guid].transform = base.getTransform()
+        end
+        if not g_cache_zocs[guid].size then
+            g_cache_zocs[guid].size = get_size(base.getName())
+        end
+        if not g_cache_zocs[guid].color then
+            g_cache_zocs[guid].color = _zoc_get_color(base)
+        end
+    end
+
+    -- Have all bases have valid zoc_max entries
+    for _, base in pairs(cached_bases) do
+        local guid = base.getGUID()
+        if not g_cache_zocs[guid].zoc_max then
+            _zoc_calc_zoc_max(base, cached_bases)
+        end
+    end
+
+    -- Have all bases have strokes
+    for _, base in pairs(cached_bases) do
+        local guid = base.getGUID()
+        if not g_cache_zocs[guid].strokes then
+            _zoc_set_strokes(guid)
+        end
+    end
+    
+    -- Return all the strokes
+    local strokes = {}
+    for _, base in pairs(cached_bases) do
+        local guid = base.getGUID()
+        table.insert(strokes, g_cache_zocs[guid].strokes)
+    end
+    return strokes
+end
+
+  
+
+function _is_war_wagon(base_obj)
+    if str_has_substr(base_obj.getName(), 'War Wagons') then
+        return true
+    end
+    return false 
 end
 
 
@@ -306,32 +326,60 @@ function _zoc_invalidate_strokes(base_obj)
 end
 
 
--- Return the strokes that make up a zoc
--- base_obj: Object to get the strokes for.
--- returns: table of strokes.  Table may be empty.
-function zoc_get_strokes(base_obj)
-    local base_obj_cached = build_base_cache(base_obj)
-    local name = base_obj.getGUID()
-    if g_cache_zocs[name] then
-        if g_cache_zocs[name].pos and g_cache_zocs[name].pos == base_obj_cached.getPosition() and 
-        g_cache_zocs[name].rot and g_cache_zocs[name].rot == base_obj_cached.getRotation() 
-        then
-            local strokes = g_cache_zocs[name].strokes
-            if strokes then
-                return strokes
-            end
-        else
-            zoc_invalidate_base(base_obj)
-        end
+function _zoc_is_transform_cached(base_guid, transform)
+    if not g_cache_zocs[base_guid] then
+        return false
     end
-    local transform = base_obj_cached.getTransform()
-    local strokes = _get_strokes_zoc(base_obj_cached)
-    _zoc_set_cached_strokes(base_obj, strokes)
-    return strokes
+    if not g_cache_zocs[base_guid].transform then
+        return false
+    end
+    if not table_equals(g_cache_zocs[base_guid].transform, transform, true) then
+        return false
+    end
+    return true
+end
+    
+-- Return the strokes that make up a zoc
+-- base_guid: Identifier for to get the strokes for.
+-- transform: Location of the base where we are getting the zoc for.
+-- returns: table of strokes.  Table may be empty.
+function zoc_get_strokes(base_guid, transform)
+    if not _zoc_is_transform_cached(base_guid, transform) then
+        _zoc_invalidate_base_guid(base_guid)
+        g_cache_zocs[base_guid] = {}
+        g_cache_zocs[base_guid].transform = transform
+    end
+    zoc_get_all_strokes()
+    return g_cache_zocs[base_guid].strokes
 end
 
+
+function _zoc_initialize_zoc_max(base_obj)
+    local guid = base_obj.getGUID()
+    if _is_war_wagon(base_obj) then
+        g_cache_zocs[guid].zoc_max =
+            {
+                top=g_zoc_height_in_inches,
+                left=g_zoc_height_in_inches,
+                right=g_zoc_height_in_inches,
+                bottom=g_zoc_height_in_inches                
+            }
+    else
+        g_cache_zocs[guid].zoc_max =
+            {
+                top=g_zoc_height_in_inches,
+                left=0,
+                right=0,
+                bottom=0                
+            }
+    end
+end
+
+
 -- indicated that blocker is reducing the zoc of blocked
-function _zoc_add_blocker(blocker, blocked)
+-- zoc_max: Maximum size in inches that the blocked base can
+-- have as their zoc.  dictionary of left, right, front, bottom.
+function _zoc_add_blocker(blocker, blocked, zoc_max)
     local blocker_guid = blocker.getGUID()
     local blocked_guid = blocked.getGUID()
     if not g_cache_zocs[blocker_guid] then
@@ -341,4 +389,15 @@ function _zoc_add_blocker(blocker, blocked)
         g_cache_zocs[blocker_guid].blocks = {}
     end
     g_cache_zocs[blocker_guid].blocks[blocked_guid] = true
+    _zoc_initialize_zoc_max(blocker_guid)
+    after = shallow_copy(g_cache_zocs[blocker_guid].zoc_max)
+    for k,v in pairs(zoc_max) do
+        after = math.min(v, g_cache_zocs[blocker_guid].zoc_max[k])
+    end
+    if g_cache_zocs[blocker_guid].zoc_max ~= after then
+        zoc_invalidate_strokes(blocker)
+        zoc_invalidate_strokes(blocked)
+        g_cache_zocs[blocker_guid].zoc_max = after
+    end
+
 end

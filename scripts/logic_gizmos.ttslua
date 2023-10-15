@@ -4,6 +4,14 @@ require("Triumph_TTS/scripts/logic_spawn_army")
 require("Triumph_TTS/scripts/zoc")
 
 
+function _get_zoc_strokes_color(base_obj)
+    if is_base_blue_player(base_obj) then
+        return g_gizmo_zoc_color_player_blue
+    else
+        return g_gizmo_zoc_color_player_red
+    end
+end
+
 
 function set_vec_to_above_terrain(vec)
     vec['y'] = g_terrain_pos + g_base_height_inches
@@ -591,6 +599,9 @@ function has_archer_shooting_arc(base_obj)
   return false
 end
 
+-- Get the strokes for base as if it is in a position
+-- obj: Base 
+-- transform: Treat the base as if it is at that location
 function get_strokes_base_pos(obj, transform)
     local strokes = {}
 
@@ -610,15 +621,14 @@ function get_strokes_base_pos(obj, transform)
     end
 
     if g_zoc_enabled then
-        table.insert(strokes, zoc_get_strokes(obj))
+        local guid = obj.getGUID()
+        local zoc_strokes = zoc_get_strokes(guid, transform)
+        table.insert(strokes, zoc_strokes)
     end
     return strokes
 end
 
-function get_strokes_pickup(picked_up_object)
-    if picked_up_object == nil then
-        return {}
-    end
+function _get_strokes_pickup(pickedup_object_cached)
     local pos = g_picked_base_initial_transform['position']
     local radius = from_mu_to_in(g_mu_movement)
 
@@ -628,14 +638,14 @@ function get_strokes_pickup(picked_up_object)
     end
 
     local strokes = {}
-    table.insert(strokes, get_strokes_arrow_position(picked_up_object, g_picked_base_initial_transform))
+    table.insert(strokes, get_strokes_arrow_position(pickedup_object_cached, g_picked_base_initial_transform))
     table.insert(strokes, {
         points    = get_coordinates_circle(pos, radius, g_precision_circle),
         color     = color,
         thickness = g_line_thickness,
         rotation  = {0,0,0}
     })
-    local transform = calculate_transform(picked_up_object)
+    local transform = pickedup_object_cached.getTransform()
     local height = g_picked_base_initial_transform['position'].y
     transform['corners']['topright'] = {
         x = transform['corners']['topright'].x, y = height, z = transform['corners']['topright'].z
@@ -652,7 +662,7 @@ function get_strokes_pickup(picked_up_object)
     transform['corners']['botright'] = {
         x = transform['corners']['botright'].x, y = height, z = transform['corners']['botright'].z
     }
-    array_concat(strokes, get_strokes_base_pos(picked_up_object, transform))
+    array_concat(strokes, get_strokes_base_pos(pickedup_object_cached, transform))
     return strokes
 end
 
@@ -666,8 +676,8 @@ function get_strokes_future_movements(new_selected_items)
     for _, obj in ipairs(new_selected_items) do
         if is_base_obj(obj) ~= nil then
             local transform = calculate_future_position(obj, magnitude)
-
-            array_concat(strokes, get_strokes_base_pos(obj, transform))
+            local base_strokes = get_strokes_base_pos(obj, transform)
+            array_concat(strokes, base_strokes)
         end
 
     end
@@ -683,7 +693,7 @@ function get_strokes_bases_nothing(bases)
     local strokes = {}
     for _, obj in ipairs(bases) do
         if g_zoc_enabled then
-            local base_strokes = zoc_get_strokes(obj)
+            local base_strokes = zoc_get_strokes(obj.getGUID(), calculate_transform(obj))
             table.insert(strokes, base_strokes)
         end
     end
@@ -730,21 +740,25 @@ function draw_all_gizmos()
 end
 
 function draw_all_gizmos_execute()
+    if g_gizmo_drawing_disabled then
+        local strokes = {}
+        Global.setVectorLines(strokes)
+    end
+
     local strokes = {}
 
-    if not g_gizmo_drawing_disabled then
-      -- This is terrible code!
-      local moving_selected_items, pickedup_object, other_bases = get_bases_for_gizmos()
+    -- This is terrible code!
+    local moving_selected_items, pickedup_object, other_bases = get_bases_for_gizmos()
 
-      if pickedup_object then
-          array_concat(strokes, get_strokes_pickup(pickedup_object))
-      end
-      if moving_selected_items and #moving_selected_items > 0 then
-          array_concat(strokes, get_strokes_future_movements(moving_selected_items))
-      end
-      if g_zoc_enabled then
-          array_concat(strokes, get_strokes_bases_nothing(other_bases))
-      end
+    if pickedup_object then
+        local pickedup_object_cached = build_base_cache(pickedup_object)
+        array_concat(strokes, _get_strokes_pickup(pickedup_object_cached))
+    end
+    if moving_selected_items and #moving_selected_items > 0 then
+        array_concat(strokes, get_strokes_future_movements(moving_selected_items))
+    end
+    if g_zoc_enabled then
+        array_concat(strokes, get_strokes_bases_nothing(other_bases))
     end
     Global.setVectorLines(strokes)
 end

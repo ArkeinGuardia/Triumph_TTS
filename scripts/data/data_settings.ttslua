@@ -5,6 +5,16 @@ require("Triumph_TTS/assets/assets")
 g_base_width_in_mm = 40;
 g_base_width_in_inches = 1.5748031496062992126
 
+g_zoc_height_in_inches = g_base_width_in_inches
+
+-- 40 mm
+g_max_base_depth_in_inches = g_base_width_in_mm
+
+-- upper bound of the maximum distance betwen two
+-- bases for one base to change the zoc distance of
+-- another base.
+g_min_zoc_interference_in_inches = 4.6
+
 -- Base width for detecting collisions with other bases when moving.
 -- Slightly smaller since bases when snapped overlap on the corners,
 -- so we do not want to stop on a base we are snapped with.  Also
