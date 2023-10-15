@@ -241,6 +241,7 @@ end
 -- base_obj: Base to move back
 -- return: true on success, false if there was a collision with another base.
 function do_push_back(base_obj)
+    zoc_invalidate_base(base_obj)
     local base_depth_mm = get_base_depth_from_base_obj(base_obj)
     local base_depth = from_mm_to_in(base_depth_mm)
 
@@ -287,11 +288,13 @@ end
 
 -- Moves ONE single base by it's depth
 function push_back(base_obj)
+    zoc_invalidate_base(base_obj)
     do_push_back(base_obj)
     history_record_delta_snapshot()
 end
 
 function move_object_forward(obj, distance_inches, bunny_hop)
+    zoc_invalidate_base(obj)
     local angle_degrees = normalize_degrees(obj.getRotation()['y'])
     local angle_rad = math.rad(angle_degrees)
     local position = obj.getPosition()
@@ -417,6 +420,7 @@ end
 
 function right_turn_to_face(base_obj)
     local base_cache = build_base_cache(base_obj)
+    zoc_invalidate_base(base_cache)
 
     local corners = base_cache.getCorners()
     local old_corner = corners['topright']
@@ -431,6 +435,7 @@ end
 
 function left_turn_to_face(base_obj)
     local base_cache = build_base_cache(base_obj)
+    zoc_invalidate_base(base_cache)
 
     local corners = base_cache.getCorners()
     local old_corner = corners['topleft']

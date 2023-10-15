@@ -582,6 +582,7 @@ function base_killed(base)
       print_error("base is nil")
       return
     end
+    zoc_invalidate_base(base)
     local base_name = base.getName()
     local dead_zone
     local army_mat
