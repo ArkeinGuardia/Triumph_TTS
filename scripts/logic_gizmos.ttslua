@@ -749,6 +749,12 @@ function draw_all_gizmos_execute()
 
     -- This is terrible code!
     local moving_selected_items, pickedup_object, other_bases = get_bases_for_gizmos()
+    if pickedup_object then
+        zoc_set_transform(pickedup_object, calculate_transform(pickedup_object))
+    end
+    for _,moving_object in pairs(moving_selected_items) do
+        zoc_set_transform(moving_object, calculate_transform(moving_object))
+    end
 
     if pickedup_object then
         local pickedup_object_cached = build_base_cache(pickedup_object)
@@ -762,6 +768,7 @@ function draw_all_gizmos_execute()
     end
     Global.setVectorLines(strokes)
 end
+
 
 function draw_gizmo_wheeling(transforms)
     local strokes = {}

@@ -12,7 +12,7 @@ function _contact_far_enough(a_transform, b_transform)
     local a_pos = a_transform.position
     local b_pos = b_transform.position
     local distance_sq = distance_points_flat_sq(a_pos, b_pos)
-    if distance_sq > g_min_zoc_interference_in_inches then
+    if distance_sq > g_min_zoc_interference_in_inches_sq then
         return true
     end
 return false

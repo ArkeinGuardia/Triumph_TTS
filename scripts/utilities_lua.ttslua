@@ -251,3 +251,19 @@ function equals_float(f1, f2, epsilon)
     epsilon = epsilon or 0.00001
     return math.abs(f1 - f2) < epsilon
 end
+
+
+function equals_position(p1, p2, epsilon)
+    if p1 == p2 then
+        return true
+    end
+    if p1 == nil then
+        return false
+    end
+    if p2 == nil then 
+        return false
+    end
+    return equals_float(p1.x, p2.x, epsilon) and
+           equals_float(p1.y, p2.y, epsilon) and
+           equals_float(p1.z, p2.z, epsilon)
+end

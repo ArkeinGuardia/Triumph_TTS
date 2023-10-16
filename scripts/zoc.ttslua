@@ -3,15 +3,78 @@ require("Triumph_TTS/scripts/contact")
 require("Triumph_TTS/scripts/base_cache")
 require("Triumph_TTS/scripts/logic_prepared_defenses")
 require("Triumph_TTS/scripts/logic_decorations")
+require("Triumph_TTS/scripts/utilities_lua")
 require("Triumph_TTS/scripts/data/data_settings")
 
 
 -- This caches the strokes for a given base in certain pos and rotation
 g_cache_zocs = {}
 
+
 function zoc_invalidate_cache()
     g_cache_zocs = {}
 end
+
+
+function _zoc_compare_transforms(a_transform, b_transform)
+    if a_transform == b_transform then
+        return true
+    end
+    if a_transform == nil then
+        return false
+    end
+    if b_transform == nil then
+        return false
+    end
+    local a_pos = a_transform.position
+    local b_pos = b_transform.position
+    if not equals_position(a_pos, b_pos, 0.02) then
+        return false
+    end
+    local a_rot = a_transform.rotation
+    local b_rot = b_transform.rotation
+    if not equals_float(a_rot, b_rot, 0.00001) then
+        return false
+    end
+    return true
+end
+
+
+-- Indicate that the location of a base for drawing 
+-- ZOC has changed.
+-- @param base_obj: Base whose location is being changed
+-- @param transform: New location of the base for ZOC calculation.
+--   Note that the transform might not be the actual bases location.
+function zoc_set_transform(base_obj, transform)
+    _zoc_initialize_base(base_obj)
+    local base_guid = base_obj.getGUID()
+    if _zoc_compare_transforms(g_cache_zocs[base_guid]['transform'], transform) then
+        -- location  has not changed
+        return
+    end
+    g_cache_zocs[base_guid]['transform'] = transform
+    g_cache_zocs[base_guid]['zoc_max'] = nil
+    g_cache_zocs[base_guid]['zocs'] = nil
+    g_cache_zocs[base_guid]['strokes'] = nil
+    for other_guid,_ in pairs(g_cache_zocs) do
+        if other_guid ~= base_guid then
+            if g_cache_zocs[other_guid].transform then
+                if not _contact_far_enough(transform, g_cache_zocs[other_guid].transform) then
+                    -- The other zoc might be blocked, re-examine.
+                    g_cache_zocs[other_guid]['zoc_max'] = nil
+                    g_cache_zocs[other_guid]['zocs'] = nil
+                    g_cache_zocs[other_guid]['strokes'] = nil
+                end
+            end
+        end
+    end
+    Global.setVectorLines({})
+    -- Kludge if we schedule the redraw immediately the old lines just
+    -- come back
+    Wait.frames(function() draw_all_gizmos() end, 15)
+end
+
+
 
 function _zoc_get_color(base_obj)
     if is_base_blue_player(base_obj) then
@@ -355,6 +418,27 @@ function _can_have_zoc(base_obj)
 end
 
 
+function _zoc_initialize_base(base_obj)
+    local guid = base_obj.getGUID()
+    if not g_cache_zocs[guid] then
+        g_cache_zocs[guid] = {}
+    end
+    if not g_cache_zocs[guid].base_size then
+        g_cache_zocs[guid]['base_size'] = get_size(base_obj.getName())
+        if not g_cache_zocs[guid].base_size then
+            print_error("zoc_get_all_strokes unable to set size for " .. guid .. ' ' .. base_obj.getName())
+            return {}
+        end
+    end
+    if not g_cache_zocs[guid].color then
+        g_cache_zocs[guid]['color'] = _zoc_get_color(base_obj)
+    end
+    if g_cache_zocs[guid].is_war_wagon == nil then
+        g_cache_zocs[guid]['is_war_wagon'] = _is_war_wagon(base_obj)
+    end
+end
+
+
 function zoc_get_all_strokes()
     if not g_zoc_enabled then
         return {}
@@ -373,24 +457,9 @@ function zoc_get_all_strokes()
     -- Verify the base has an entry, transform, size, color
     for _, base in pairs(cached_bases) do
         local guid = base.getGUID()
-        if not g_cache_zocs[guid] then
-            g_cache_zocs[guid] = {}
-        end
+        _zoc_initialize_base(base)
         if not g_cache_zocs[guid].transform then
             g_cache_zocs[guid].transform = base.getTransform()
-        end
-        if not g_cache_zocs[guid].base_size then
-            g_cache_zocs[guid].base_size = get_size(base.getName())
-            if not g_cache_zocs[guid].base_size then
-                print_error("zoc_get_all_strokes unable to set size for " .. guid .. ' ' .. base.getName())
-                return {}
-            end
-        end
-        if not g_cache_zocs[guid].color then
-            g_cache_zocs[guid].color = _zoc_get_color(base)
-        end
-        if g_cache_zocs[guid].is_war_wagon then
-            g_cache_zocs[guid].is_war_wagon = _is_war_wagon(base)
         end
     end
 
