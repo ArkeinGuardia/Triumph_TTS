@@ -326,6 +326,53 @@ function _zoc_blocker_shape(blocker_guid)
 end
 
 
+-- Determine the size the zoc should have.
+-- @param zoc Shape of the zoc, the four corners unlabled
+-- @param blocker_guid Identifier of the base that is blocking the zoc.
+-- @param blocker_shape Shape of the base that can block the zoc,
+--          the four corners.
+-- @param blocked_edge Edge from base being blocked that the ZOC 
+--  extends from.  Two points.
+
+-- @returns Distance from the blocked edge to the blocker shape.
+function _zoc_size(zoc, blocker_guid, blocker_shape, blocked_edge)
+    local min_distance = math.huge
+    if is_2d_shapes_intersecting(zoc, blocker_shape) then
+        local zoc_edges = {
+            { zoc[1], zoc[2] },
+            { zoc[2], zoc[3] },
+            { zoc[3], zoc[4] },
+            { zoc[4], zoc[1] } }
+        local intersecting_points = {}
+        if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.topleft, zoc) then
+            table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.topleft)
+        end
+        if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.topright, zoc) then
+            table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.topright)
+        end
+        if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.botleft, zoc) then
+            table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.botleft)
+        end
+        if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.botright, zoc) then
+            table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.botright)
+        end
+        for _,zoc_edge in pairs(zoc_edges) do
+            local segment_intersecting_points = _zoc_segment_rectangle_intersections(zoc_edge, g_cache_zocs[blocker_guid].transform.corners)
+            for _,segment_intersecting_point in pairs(segment_intersecting_points) do
+                table.insert(intersecting_points, segment_intersecting_point)
+            end            
+        end
+        if not is_table_empty(intersecting_points) then
+            for _,intersecting_point in pairs(intersecting_points) do
+                local distance = distance_point_to_segment(intersecting_point, blocked_edge)
+                min_distance = math.min(min_distance, distance)
+            end
+        end
+    end
+    return min_distance
+end
+
+
 function _zoc_friendly_base_blocking_bases(blocked_guid, blocker_guid)
     if blocked_guid == blocker_guid then
         return
@@ -336,43 +383,13 @@ function _zoc_friendly_base_blocking_bases(blocked_guid, blocker_guid)
     local zocs = _zoc_calc_zocs(blocked_guid)
     local blocker_shape = _zoc_blocker_shape(blocker_guid)
     local constraints = shallow_copy(g_cache_zocs[blocked_guid].zoc_max)
-    if zocs.top then
-        if is_2d_shapes_intersecting(zocs.top, blocker_shape) then
-            local zoc_edges = {
-                { zocs.top[1], zocs.top[2] },
-                { zocs.top[2], zocs.top[3] },
-                { zocs.top[3], zocs.top[4] },
-                { zocs.top[4], zocs.top[1] } }
-            local intersecting_points = {}
-            if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.topleft, zocs.top) then
-                table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.topleft)
-            end
-            if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.topright, zocs.top) then
-                table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.topright)
-            end
-            if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.botleft, zocs.top) then
-                table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.botleft)
-            end
-            if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.botright, zocs.top) then
-                table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.botright)
-            end
-            for _,zoc_edge in pairs(zoc_edges) do
-                local segment_intersecting_points = _zoc_segment_rectangle_intersections(zoc_edge, g_cache_zocs[blocker_guid].transform.corners)
-                for _,segment_intersecting_point in pairs(segment_intersecting_points) do
-                    table.insert(intersecting_points, segment_intersecting_point)
-                end            
-            end
-            if not is_table_empty(intersecting_points) then
-                local blocked_top_edge = {
-                    g_cache_zocs[blocked_guid].transform.corners.topleft,
-                    g_cache_zocs[blocked_guid].transform.corners.topright}
-                for _,intersecting_point in pairs(intersecting_points) do
-                    local distance = distance_point_to_segment(intersecting_point, blocked_top_edge)
-                    constraints.top = math.min(constraints.top, distance)
-                end
-                print("TODO SHRINKING TOP ", blocked_guid)
-            end
-        end
+    if zocs.top and g_cache_zocs[blocked_guid].zoc_max.top > 0 then
+        local zoc = zocs.top
+        local blocked_edge = {
+            g_cache_zocs[blocked_guid].transform.corners.topleft,
+            g_cache_zocs[blocked_guid].transform.corners.topright}
+        local distance = _zoc_size(zoc, blocker_guid, blocker_shape, blocked_edge)
+        constraints.top = math.min(constraints.top, distance)
     end
     -- TODO check other edges for war wagons
     if not table_equals(constraints, g_cache_zocs[blocked_guid].zoc_max, true ) then
