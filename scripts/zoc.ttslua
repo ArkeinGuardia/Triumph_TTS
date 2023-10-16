@@ -253,6 +253,16 @@ function _zoc_segment_rectangle_intersections(segment, corners)
 end
 
 
+-- Get the shape for the base that will block a ZOC.
+function _zoc_blocker_shape(blocker_guid)
+    -- shrink the blocker just a little bit so if it is snapped size by side
+    --  to the base we are examining, the ZOC is not reducde
+    local shrunken = shrink_rotated_rectangle(g_cache_zocs[blocker_guid].transform.corners, 0.02)
+    local shape = { shrunken.topleft, shrunken.topright, shrunken.botright, shrunken.botleft }
+    return shape
+end
+
+
 function _zoc_friendly_base_blocking_bases(blocked_guid, blocker_guid)
     if blocked_guid == blocker_guid then
         return
@@ -261,12 +271,7 @@ function _zoc_friendly_base_blocking_bases(blocked_guid, blocker_guid)
         return
     end
     local zocs = _zoc_calc_zocs(blocked_guid)
-    local blocker_shape = {
-        g_cache_zocs[blocker_guid].transform.corners.topleft,
-        g_cache_zocs[blocker_guid].transform.corners.topright,
-        g_cache_zocs[blocker_guid].transform.corners.botright,
-        g_cache_zocs[blocker_guid].transform.corners.botleft
-    }
+    local blocker_shape = _zoc_blocker_shape(blocker_guid)
     local constraints = shallow_copy(g_cache_zocs[blocked_guid].zoc_max)
     if zocs.top then
         if is_2d_shapes_intersecting(zocs.top, blocker_shape) then

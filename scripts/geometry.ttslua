@@ -1,3 +1,6 @@
+require("Triumph_TTS/scripts/utilities")
+require("Triumph_TTS/scripts/utilities_lua")
+
 
 -- Are two line segments overlaying one other,
 -- same slope and go through the same point.
@@ -223,3 +226,55 @@ function distance_point_to_segment(point, segment)
         return math.min(d1, d2)
     end
 end
+
+-- @param corners: Corners of the rectangle
+-- @param shrinkage: How many inches to reduce the size of the rectangle sides.
+-- @erturns New corners of shrunken rectangle
+function shrink_rotated_rectangle(corners, shrinkage)
+    local function rotate_point(point, center, angle)
+        local dx = point.x - center.x
+        local dz = point.z - center.z
+        local newX = center.x + dx * math.cos(angle) - dz * math.sin(angle)
+        local newZ = center.z + dx * math.sin(angle) + dz * math.cos(angle)
+        return {x = newX, z = newZ}
+    end
+    
+    -- Calculate the center of the rectangle
+    local center = {x = 0, z = 0}
+    for _, point in pairs(corners) do
+        center.x = center.x + point.x
+        center.z = center.z + point.z
+    end
+    center.x = center.x / 4
+    center.z = center.z / 4
+    
+    -- Calculate half-width and half-height of the rectangle
+    local w, h = 0, 0
+    for _, point in pairs(corners) do
+        local dx = point.x - center.x
+        local dz = point.z - center.z
+        w = math.max(w, math.abs(dx))
+        h = math.max(h, math.abs(dz))
+    end
+    
+    -- Shrink the rectangle
+    local wShrunken = w - shrinkage
+    local hShrunken = h - shrinkage
+    
+    -- Rotate and create new points for the shrunken rectangle
+    local angle = math.atan2(corners.topleft.z - center.z, corners.topleft.x - center.x)
+    local newCorners = {}
+    for i, point in pairs(corners) do
+        local rotatedPoint = rotate_point(point, center, -angle)
+        local newDx = rotatedPoint.x - center.x
+        local newDz = rotatedPoint.z - center.z
+        local newDxScaled = newDx * wShrunken / w
+        local newDzScaled = newDz * hShrunken / h
+        local newRotatedPoint = {x = center.x + newDxScaled, z = center.z + newDzScaled}
+        local newPoint = rotate_point(newRotatedPoint, center, angle)
+        newCorners[i] = newPoint
+    end
+    
+    return newCorners
+end
+
