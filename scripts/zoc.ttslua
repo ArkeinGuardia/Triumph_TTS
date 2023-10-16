@@ -39,8 +39,8 @@ function _zoc_calc_zocs(base_guid)
         print_error("_zoc_calc_stroke_points:  g_cache_zocs[" .. base_guid .. "].transform is nil")
         return {}
     end
-    if not g_cache_zocs[base_guid].size then
-        print_error("_zoc_calc_stroke_points:  g_cache_zocs[" .. base_guid .. "].size is nil")
+    if not g_cache_zocs[base_guid].base_size then
+        print_error("_zoc_calc_stroke_points:  g_cache_zocs." .. base_guid .. ".base_size is nil")
         return {}
     end
     if not g_cache_zocs[base_guid].zoc_max then
@@ -48,7 +48,7 @@ function _zoc_calc_zocs(base_guid)
         return {}
     end
     -- Rename common expressions to make it easier to work with.
-    local size =  g_cache_zocs[base_guid].size
+    local size =  g_cache_zocs[base_guid].base_size
     local zoc_max =  g_cache_zocs[base_guid].zoc_max
     local rotation = g_cache_zocs[base_guid].transform.rotation
     local pos = g_cache_zocs[base_guid].transform.position
@@ -218,16 +218,16 @@ end
   
 -- is there another base in front, flank, or rear contact.
 -- See 18 FRONT, FLANK AND REAR CONTACT
-function _set_close_combat_distance(base_obj_cached, cached_bases)
-    for _,other_base_obj in pairs(cached_bases) do
-        if base_obj_cached.getGUID() ~= other_base_obj.getGUID() then
-            if is_base_blue_player(base_obj_cached) ~= is_base_blue_player(other_base_obj) then
-            local other_base_obj_cache = build_base_cache(other_base_obj)
-            if are_bases_in_close_combat(base_obj_cached, other_base_obj_cache) then
-                local all_edges_blocked = {top=0, left=0, bottom=0, right=0}
-                _zoc_add_blocker(base_obj_cached, other_base_obj_cache, all_edges_blocked)
-                return true
-            end
+function _set_close_combat_distance(base_guid)
+    for other_guid,_ in pairs(g_cache_zocs) do
+        if base_guid ~= other_guid then
+            if g_cache_zocs[base_guid].color ~= g_cache_zocs[other_guid].color then
+                if are_bases_in_close_combat(g_cache_zocs[base_guid].transform, g_cache_zocs[other_guid].transform) then
+                    local all_edges_blocked = {top=0, left=0, bottom=0, right=0}
+                    _zoc_add_blocker(base_guid, other_guid, all_edges_blocked)
+                    _zoc_add_blocker(other_guid, base_guid, all_edges_blocked)
+                    return true
+                end
             end
         end
     end
@@ -235,15 +235,100 @@ function _set_close_combat_distance(base_obj_cached, cached_bases)
 end
 
 
-function _zoc_calc_zoc_max(base, cached_bases)
-    local guid = base.getGUID()
+
+function _zoc_segment_rectangle_intersections(segment, corners)
+    local top = { corners.topleft, corners.topright}
+    local bottom = { corners.botleft, corners.botright}
+    local left = { corners.topleft, corners.botleft}
+    local right = { corners.topright, corners.botright}
+    local edges = {top, left, bottom, right}
+    local intersections = {}
+    for _,edge in pairs(edges) do
+        local point = findLineSegmentIntersection(segment, edge)
+        if point then
+            table.insert(intersections, point)
+        end
+    end
+    return intersections
+end
+
+
+function _zoc_friendly_base_blocking_bases(blocked_guid, blocker_guid)
+    if blocked_guid == blocker_guid then
+        return
+    end
+    if g_cache_zocs[blocked_guid].color ~= g_cache_zocs[blocker_guid].color then
+        return
+    end
+    local zocs = _zoc_calc_zocs(blocked_guid)
+    local blocker_shape = {
+        g_cache_zocs[blocker_guid].transform.corners.topleft,
+        g_cache_zocs[blocker_guid].transform.corners.topright,
+        g_cache_zocs[blocker_guid].transform.corners.botright,
+        g_cache_zocs[blocker_guid].transform.corners.botleft
+    }
+    local constraints = shallow_copy(g_cache_zocs[blocked_guid].zoc_max)
+    if zocs.top then
+        if is_2d_shapes_intersecting(zocs.top, blocker_shape) then
+            local zoc_edges = {
+                { zocs.top[1], zocs.top[2] },
+                { zocs.top[2], zocs.top[3] },
+                { zocs.top[3], zocs.top[4] },
+                { zocs.top[4], zocs.top[1] } }
+            local intersecting_points = {}
+            if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.topleft, zocs.top) then
+                table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.topleft)
+            end
+            if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.topright, zocs.top) then
+                table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.topright)
+            end
+            if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.botleft, zocs.top) then
+                table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.botleft)
+            end
+            if is_point_in_2d_shape(g_cache_zocs[blocker_guid].transform.corners.botright, zocs.top) then
+                table.insert(intersecting_points, g_cache_zocs[blocker_guid].transform.corners.botright)
+            end
+            for _,zoc_edge in pairs(zoc_edges) do
+                local segment_intersecting_points = _zoc_segment_rectangle_intersections(zoc_edge, g_cache_zocs[blocker_guid].transform.corners)
+                for _,segment_intersecting_point in pairs(segment_intersecting_points) do
+                    table.insert(intersecting_points, segment_intersecting_point)
+                end            
+            end
+            if not is_table_empty(intersecting_points) then
+                local blocked_top_edge = {
+                    g_cache_zocs[blocked_guid].transform.corners.topleft,
+                    g_cache_zocs[blocked_guid].transform.corners.topright}
+                for _,intersecting_point in pairs(intersecting_points) do
+                    local distance = distance_point_to_segment(intersecting_point, blocked_top_edge)
+                    constraints.top = math.min(constraints.top, distance)
+                end
+                print("TODO SHRINKING TOP ", blocked_guid)
+            end
+        end
+    end
+    -- TODO check other edges for war wagons
+    if not table_equals(constraints, g_cache_zocs[blocked_guid].zoc_max, true ) then
+        _zoc_add_blocker(blocked_guid, blocker_guid, constraints)
+    end
+end
+
+
+function _zoc_friendly_base_blocking(blocked)
+    for blocker,_ in pairs(g_cache_zocs) do
+        _zoc_friendly_base_blocking_bases(blocked, blocker)
+    end
+end
+
+
+function _zoc_calc_zoc_max(guid)
     if not g_cache_zocs[guid] then
         g_cache_zocs[guid] = {}
     end
     if not g_cache_zocs[guid].zoc_max then
-        _zoc_initialize_zoc_max(base)
+        _zoc_initialize_zoc_max(guid)
     end
-    _set_close_combat_distance(base, cached_bases)
+    _set_close_combat_distance(guid)
+    _zoc_friendly_base_blocking(guid)
 end
 
 
@@ -289,25 +374,33 @@ function zoc_get_all_strokes()
         if not g_cache_zocs[guid].transform then
             g_cache_zocs[guid].transform = base.getTransform()
         end
-        if not g_cache_zocs[guid].size then
-            g_cache_zocs[guid].size = get_size(base.getName())
+        if not g_cache_zocs[guid].base_size then
+            g_cache_zocs[guid].base_size = get_size(base.getName())
+            if not g_cache_zocs[guid].base_size then
+                print_error("zoc_get_all_strokes unable to set size for " .. guid .. ' ' .. base.getName())
+                return {}
+            end
         end
         if not g_cache_zocs[guid].color then
             g_cache_zocs[guid].color = _zoc_get_color(base)
         end
+        if g_cache_zocs[guid].is_war_wagon then
+            g_cache_zocs[guid].is_war_wagon = _is_war_wagon(base)
+        end
     end
 
+    -- After this point the bases are not used only the entries
+    -- in g_cache_zocs
+
     -- Have all bases have valid zoc_max entries
-    for _, base in pairs(cached_bases) do
-        local guid = base.getGUID()
+    for guid,_ in pairs(g_cache_zocs) do
         if not g_cache_zocs[guid].zoc_max then
-            _zoc_calc_zoc_max(base, cached_bases)
+            _zoc_calc_zoc_max(guid)
         end
     end
 
     -- Have all bases have strokes
-    for _, base in pairs(cached_bases) do
-        local guid = base.getGUID()
+    for guid,_ in pairs(g_cache_zocs) do
         if not g_cache_zocs[guid].strokes then
             _zoc_set_strokes(guid)
         end
@@ -315,8 +408,7 @@ function zoc_get_all_strokes()
     
     -- Return all the strokes
     local strokes = {}
-    for _, base in pairs(cached_bases) do
-        local guid = base.getGUID()
+    for guid,_ in pairs(g_cache_zocs) do
         table.insert(strokes, g_cache_zocs[guid].strokes)
     end
     return strokes
@@ -356,10 +448,9 @@ function _zoc_invalidate_base_guid(base_guid)
 end
 
 
-function _zoc_invalidate_strokes(base_obj)
-    local name = base_obj.getGUID()
-    if g_cache_zocs[name] then
-        g_cache_zocs[name].strokes = nil
+function _zoc_invalidate_strokes(guid)
+    if g_cache_zocs[guid] then
+        g_cache_zocs[guid].strokes = nil
     end
     Global.setVectorLines({})
     draw_all_gizmos()
@@ -394,9 +485,8 @@ function zoc_get_strokes(base_guid, transform)
 end
 
 
-function _zoc_initialize_zoc_max(base_obj)
-    local guid = base_obj.getGUID()
-    if _is_war_wagon(base_obj) then
+function _zoc_initialize_zoc_max(guid)
+    if g_cache_zocs[guid].is_war_wagon then
         g_cache_zocs[guid].zoc_max =
             {
                 top=g_zoc_height_in_inches,
@@ -419,9 +509,7 @@ end
 -- indicated that blocker is reducing the zoc of blocked
 -- zoc_max: Maximum size in inches that the blocked base can
 -- have as their zoc.  dictionary of left, right, front, bottom.
-function _zoc_add_blocker(blocker, blocked, zoc_max)
-    local blocker_guid = blocker.getGUID()
-    local blocked_guid = blocked.getGUID()
+function _zoc_add_blocker(blocked_guid, blocker_guid, zoc_max)
     if not g_cache_zocs[blocker_guid] then
         g_cache_zocs[blocker_guid] = {}
     end
@@ -429,15 +517,13 @@ function _zoc_add_blocker(blocker, blocked, zoc_max)
         g_cache_zocs[blocker_guid].blocks = {}
     end
     g_cache_zocs[blocker_guid].blocks[blocked_guid] = true
-    _zoc_initialize_zoc_max(blocker)
-    after = shallow_copy(g_cache_zocs[blocker_guid].zoc_max)
+    local after = shallow_copy(g_cache_zocs[blocked_guid].zoc_max)
     for k,v in pairs(zoc_max) do
-        after[k] = math.min(v, g_cache_zocs[blocker_guid].zoc_max[k])
+        after[k] = math.min(v, g_cache_zocs[blocked_guid].zoc_max[k])
     end
     if not table_equals(g_cache_zocs[blocker_guid].zoc_max, after) then
-        g_cache_zocs[blocker_guid].zoc_max = after
-        _zoc_invalidate_strokes(blocker)
-        _zoc_invalidate_strokes(blocked)
+        g_cache_zocs[blocked_guid].zoc_max = after
+        g_cache_zocs[blocked_guid].zocs = nil
+        g_cache_zocs[blocked_guid].strokes = nil
     end
-
 end

@@ -32,3 +32,194 @@ function is_segment_contained(segment1, segment2)
     return false
 end
 
+
+function closest_points(segment1, segment2)
+    local min_distance = math.huge
+    local closest_p1, closest_p2
+    
+    for i = 1, #segment1 - 1 do
+        for j = 1, #segment2 - 1 do
+            local p1, p2 = segment1[i], segment1[i + 1]
+            local q1, q2 = segment2[j], segment2[j + 1]
+            
+            local ux, uy = p2.x - p1.x, p2.z - p1.z
+            local vx, vy = q2.x - q1.x, q2.z - q1.z
+            local wx, wy = p1.x - q1.x, p1.z - q1.z
+            
+            local a = ux * ux + uy * uy
+            local b = ux * vx + uy * vy
+            local c = vx * vx + vy * vy
+            local d = ux * wx + uy * wy
+            local e = vx * wx + vy * wy
+            
+            local sc, tc
+            
+            if a * c - b * b ~= 0 then
+                sc = (b * e - c * d) / (a * c - b * b)
+                tc = (a * e - b * d) / (a * c - b * b)
+            else
+                sc = 0
+                tc = (b > c and d / b or e / c)
+            end
+            
+            local closest1, closest2
+            if sc < 0 then
+                closest1 = {x = p1.x, z = p1.z}
+            elseif sc > 1 then
+                closest1 = {x = p2.x, z = p2.z}
+            else
+                closest1 = {x = p1.x + sc * ux, z = p1.z + sc * uy}
+            end
+            
+            if tc < 0 then
+                closest2 = {x = q1.x, z = q1.z}
+            elseif tc > 1 then
+                closest2 = {x = q2.x, z = q2.z}
+            else
+                closest2 = {x = q1.x + tc * vx, z = q1.z + tc * vy}
+            end
+            
+            local dist = distance_points_flat_sq(closest1, closest2)
+            if dist < min_distance then
+                min_distance = dist
+                closest_p1 = closest1
+                closest_p2 = closest2
+            end
+        end
+    end
+    
+    return closest_p1, closest_p2
+end
+
+
+function findLineSegmentIntersection(segment1, segment2)
+    -- Define helper functions
+    local function doBoundingBoxesIntersect(segment1, segment2)
+        local p1 = segment1[1]
+        local p2 = segment1[2]
+        local min_segment1_x = math.min(p1.x, p2.x)
+        local min_segment1_z = math.min(p1.z, p2.z)
+        local max_segment1_x = math.max(p1.x, p2.x)
+        local max_segment1_z = math.max(p1.z, p2.z)
+
+        local p3 = segment2[1]
+        local p4 = segment2[2]
+        local min_segment2_x = math.min(p3.x, p4.x)
+        local min_segment2_z = math.min(p3.z, p4.z)
+        local max_segment2_x = math.max(p3.x, p4.x)
+        local max_segment2_z = math.max(p3.z, p4.z)
+
+        if min_segment1_x > max_segment2_x then
+          return false
+        end
+        if min_segment1_z > max_segment2_z then
+          return false
+        end
+        if max_segment1_x < min_segment2_x then
+          return false
+        end
+        if max_segment1_z < min_segment2_z then
+          return false
+        end
+        return true
+    end
+
+    local function onSegment(p, q, r)
+        return (q.x <= math.max(p.x, r.x) and q.x >= math.min(p.x, r.x) and
+                q.z <= math.max(p.z, r.z) and q.z >= math.min(p.z, r.z))
+    end
+
+    local function orientation(p, q, r)
+        local val = (q.z - p.z) * (r.x - q.x) - (q.x - p.x) * (r.z - q.z)
+        if val == 0 then return 0 end
+        return (val > 0) and 1 or 2
+    end
+
+    local function doIntersect(segment1, segment2)
+        local p1, q1 = segment1[1], segment1[2]
+        local p2, q2 = segment2[1], segment2[2]
+
+        local o1 = orientation(p1, q1, p2)
+        local o2 = orientation(p1, q1, q2)
+        local o3 = orientation(p2, q2, p1)
+        local o4 = orientation(p2, q2, q1)
+
+        if o1 ~= o2 and o3 ~= o4 then
+            return true
+        end
+
+        if o1 == 0 and onSegment(p1, p2, q1) then return true end
+        if o2 == 0 and onSegment(p1, q2, q1) then return true end
+        if o3 == 0 and onSegment(p2, p1, q2) then return true end
+        if o4 == 0 and onSegment(p2, q1, q2) then return true end
+
+        return false
+    end
+
+    local function intersectionPoint(segment1, segment2)
+        local p1, q1 = segment1[1], segment1[2]
+        local p2, q2 = segment2[1], segment2[2]
+
+        local A1 = q1.z - p1.z
+        local B1 = p1.x - q1.x
+        local C1 = A1 * p1.x + B1 * p1.z
+
+        local A2 = q2.z - p2.z
+        local B2 = p2.x - q2.x
+        local C2 = A2 * p2.x + B2 * p2.z
+
+        local det = A1 * B2 - A2 * B1
+        local x = (B2 * C1 - B1 * C2) / det
+        local z = (A1 * C2 - A2 * C1) / det
+
+        return {x = x, z = z}
+    end
+
+    -- Main intersection check
+    if doBoundingBoxesIntersect(segment1, segment2) then
+        if doIntersect(segment1, segment2) then
+            return intersectionPoint(segment1, segment2)
+        end
+    end
+
+    return nil
+end
+
+
+function distance_point_to_segment(point, segment)
+    local function dot(v1x, v1z, v2x, v2z)
+        return v1x * v2x + v1z * v2z
+    end
+    
+    local function length_squared(vx, vz)
+        return vx^2 + vz^2
+    end
+    
+    local function project(x, z, x1, z1, x2, z2)
+        local vx, vz = x2 - x1, z2 - z1
+        local wx, wz = x - x1, z - z1
+        local c1 = dot(wx, wz, vx, vz)
+        if c1 <= 0 then
+            return x1, z1
+        end
+        local c2 = dot(vx, vz, vx, vz)
+        if c2 <= c1 then
+            return x2, z2
+        end
+        local b = c1 / c2
+        local px = x1 + b * vx
+        local pz = z1 + b * vz
+        return px, pz
+    end
+    
+    local px, pz = project(point.x, point.z, segment[1].x, segment[1].z, segment[2].x, segment[2].z)
+    
+    if px >= math.min(segment[1].x, segment[2].x) and px <= math.max(segment[1].x, segment[2].x) and
+       pz >= math.min(segment[1].z, segment[2].z) and pz <= math.max(segment[1].z, segment[2].z) then
+        return math.sqrt(length_squared(point.x - px, point.z - pz))
+    else
+        local d1 = math.sqrt(length_squared(point.x - segment[1].x, point.z - segment[1].z))
+        local d2 = math.sqrt(length_squared(point.x - segment[2].x, point.z - segment[2].z))
+        return math.min(d1, d2)
+    end
+end
