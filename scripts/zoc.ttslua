@@ -40,23 +40,7 @@ function _zoc_compare_transforms(a_transform, b_transform)
 end
 
 
--- Indicate that the location of a base for drawing 
--- ZOC has changed.
--- @param base_obj: Base whose location is being changed
--- @param transform: New location of the base for ZOC calculation.
---   Note that the transform might not be the actual bases location.
--- @returns true if there was a change, false otherwise
-function zoc_set_transform(base_obj, transform)
-    _zoc_initialize_base(base_obj)
-    local base_guid = base_obj.getGUID()
-    if _zoc_compare_transforms(g_cache_zocs[base_guid]['transform'], transform) then
-        -- location  has not changed
-        return false
-    end
-    g_cache_zocs[base_guid]['transform'] = transform
-    g_cache_zocs[base_guid]['zoc_max'] = nil
-    g_cache_zocs[base_guid]['zocs'] = nil
-    g_cache_zocs[base_guid]['strokes'] = nil
+function _zoc_invalidate_near_bases(base_guid, transform)
     for other_guid,_ in pairs(g_cache_zocs) do
         if other_guid ~= base_guid then
             if g_cache_zocs[other_guid].transform then
@@ -69,7 +53,28 @@ function zoc_set_transform(base_obj, transform)
             end
         end
     end
-    return true
+end
+
+
+-- Indicate that the location of a base for drawing 
+-- ZOC has changed.
+-- @param base_obj: Base whose location is being changed
+-- @param transform: New location of the base for ZOC calculation.
+--   Note that the transform might not be the actual bases location.
+-- @returns true if there was a change, false otherwise
+function zoc_set_transform(base_obj, transform)
+    _zoc_initialize_base(base_obj)
+    local base_guid = base_obj.getGUID()
+    if _zoc_compare_transforms(g_cache_zocs[base_guid]['transform'], transform) then
+        -- location  has not changed
+        return 
+    end
+    g_cache_zocs[base_guid]['transform'] = transform
+    g_cache_zocs[base_guid]['zoc_max'] = nil
+    g_cache_zocs[base_guid]['zocs'] = nil
+    g_cache_zocs[base_guid]['strokes'] = nil
+    _zoc_invalidate_near_bases(base_guid, transform)
+    return
 end
 
 
@@ -429,18 +434,15 @@ function _zoc_friendly_base_blocking(blocked)
 end
 
 
---@returns true if changes made, false otherwise
 function _zoc_calc_zoc_max(guid)
     if not g_cache_zocs[guid] then
         g_cache_zocs[guid] = {}
     end
-    local changed = false
     if not g_cache_zocs[guid].zoc_max then
-        changed = _zoc_initialize_zoc_max(guid) or changed
+        _zoc_initialize_zoc_max(guid) 
     end
-   changed =  _zoc_set_close_combat_distance(guid) or changed
-   changed = _zoc_friendly_base_blocking(guid) or changed
-   return changed
+   _zoc_set_close_combat_distance(guid)
+   _zoc_friendly_base_blocking(guid)
 end
 
 
@@ -451,10 +453,11 @@ function _can_have_zoc(base_obj)
     if is_base_prepared_defenses(base_obj) then 
         return false
     end
-    if str_has_substr(base_obj.getName(), 'Elephant Screen') then
+    local name = base_obj.getName()
+    if str_has_substr(name, 'Elephant Screen') then
         return false
     end
-    if str_has_substr(base_obj.getName(), 'Camp') then
+    if str_has_substr(name, 'Camp') then
       -- In Triumph! camps do not have a zoc
         return false
     end
@@ -549,7 +552,7 @@ end
 
 function _zoc_invalidate_base_guid(base_guid)
     g_cache_zocs[base_guid] = nil
-    Global.setVectorLines({})
+    zoc_invalidate_cache()
 end
 
 
