@@ -1354,6 +1354,7 @@ function onObjectDrop(player_color, picked_up_object)
     else
         new_transform = calculate_transform(picked_up_object)
     end
+    zoc_set_transform(picked_up_object, new_transform)
 
     local distance = max_distance_between_bases_front_corners(new_transform['corners'],
         g_picked_base_initial_transform['corners'])

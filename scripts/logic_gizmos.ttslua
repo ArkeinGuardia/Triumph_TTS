@@ -620,11 +620,7 @@ function get_strokes_base_pos(obj, transform)
         table.insert(strokes, get_strokes_command(obj, transform, g_command_distance_long))
     end
 
-    if g_zoc_enabled then
-        local guid = obj.getGUID()
-        local zoc_strokes = zoc_get_strokes(guid, transform)
-        table.insert(strokes, zoc_strokes)
-    end
+    zoc_set_transform(obj, transform)
     return strokes
 end
 
@@ -691,14 +687,9 @@ function get_strokes_bases_nothing(bases)
     end
 
     local strokes = {}
-    for _, obj in ipairs(bases) do
-        if g_zoc_enabled then
-            local base_strokes = zoc_get_strokes(obj.getGUID(), calculate_transform(obj))
-            table.insert(strokes, base_strokes)
-        end
-    end
     return strokes
 end
+
 
 function get_bases_for_gizmos()
     local all_objs = getAllObjects()
@@ -764,8 +755,9 @@ function draw_all_gizmos_execute()
         array_concat(strokes, get_strokes_future_movements(moving_selected_items))
     end
     if g_zoc_enabled then
-        array_concat(strokes, get_strokes_bases_nothing(other_bases))
+        array_concat(strokes, zoc_get_all_strokes())
     end
+    
     Global.setVectorLines(strokes)
 end
 
