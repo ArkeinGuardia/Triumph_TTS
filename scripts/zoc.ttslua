@@ -16,6 +16,90 @@ function zoc_invalidate_cache()
 end
 
 
+-- Clear the cache for a base
+function zoc_invalidate_base(base_obj)
+    if not g_zoc_enabled then
+        return
+    end
+    local guid = base_obj.getGUID()
+    _zoc_invalidate_base_guid(guid)
+end
+
+
+-- Indicate that the location of a base for drawing 
+-- ZOC has changed.
+-- @param base_obj: Base whose location is being changed
+-- @param transform: New location of the base for ZOC calculation.
+--   Note that the transform might not be the actual bases location.
+function zoc_set_transform(base_obj, transform)
+    if not g_zoc_enabled then
+        return
+    end
+
+    _zoc_initialize_base(base_obj)
+    local base_guid = base_obj.getGUID()
+    if _zoc_compare_transforms(g_cache_zocs[base_guid]['transform'], transform) then
+        -- location  has not changed
+        return 
+    end
+    g_cache_zocs[base_guid]['transform'] = transform
+    g_cache_zocs[base_guid]['zoc_max'] = nil
+    g_cache_zocs[base_guid]['zocs'] = nil
+    g_cache_zocs[base_guid]['strokes'] = nil
+    _zoc_invalidate_near_bases(base_guid, transform)
+    return
+end
+
+
+function zoc_get_all_strokes()
+    if not g_zoc_enabled then
+        return {}
+    end
+
+    local all_bases = get_all_bases()
+    local cached_bases = {}
+    for _, base in pairs(all_bases) do        
+        if _can_have_zoc(base) then
+            table.insert(cached_bases, build_base_cache(base))
+        end
+    end
+
+    -- Verify the base has an entry, transform, size, color
+    for _, base in pairs(cached_bases) do
+        local guid = base.getGUID()
+        _zoc_initialize_base(base)
+        if not g_cache_zocs[guid].transform then
+            g_cache_zocs[guid].transform = base.getTransform()
+        end
+    end
+
+    -- After this point the bases are not used only the entries
+    -- in g_cache_zocs
+
+    -- Have all bases have valid zoc_max entries
+    for guid,_ in pairs(g_cache_zocs) do
+        if not g_cache_zocs[guid].zoc_max then
+            _zoc_calc_zoc_max(guid) 
+        end
+    end
+
+    -- Have all bases have strokes
+    for guid,_ in pairs(g_cache_zocs) do
+        if not g_cache_zocs[guid].strokes then
+            _zoc_set_strokes(guid)
+        end
+    end
+    
+    -- Return all the strokes
+    local strokes = {}
+    for guid,_ in pairs(g_cache_zocs) do
+        table.insert(strokes, g_cache_zocs[guid].strokes)
+    end
+    return strokes
+end
+
+-- PRIVATE METHODS
+
 function _zoc_compare_transforms(a_transform, b_transform)
     if a_transform == b_transform then
         return true
@@ -54,29 +138,6 @@ function _zoc_invalidate_near_bases(base_guid, transform)
         end
     end
 end
-
-
--- Indicate that the location of a base for drawing 
--- ZOC has changed.
--- @param base_obj: Base whose location is being changed
--- @param transform: New location of the base for ZOC calculation.
---   Note that the transform might not be the actual bases location.
--- @returns true if there was a change, false otherwise
-function zoc_set_transform(base_obj, transform)
-    _zoc_initialize_base(base_obj)
-    local base_guid = base_obj.getGUID()
-    if _zoc_compare_transforms(g_cache_zocs[base_guid]['transform'], transform) then
-        -- location  has not changed
-        return 
-    end
-    g_cache_zocs[base_guid]['transform'] = transform
-    g_cache_zocs[base_guid]['zoc_max'] = nil
-    g_cache_zocs[base_guid]['zocs'] = nil
-    g_cache_zocs[base_guid]['strokes'] = nil
-    _zoc_invalidate_near_bases(base_guid, transform)
-    return
-end
-
 
 
 function _zoc_get_color(base_obj)
@@ -486,53 +547,6 @@ function _zoc_initialize_base(base_obj)
 end
 
 
-function zoc_get_all_strokes()
-    if not g_zoc_enabled then
-        return {}
-    end
-
-    local all_bases = get_all_bases()
-    local cached_bases = {}
-    for _, base in pairs(all_bases) do        
-        if _can_have_zoc(base) then
-            table.insert(cached_bases, build_base_cache(base))
-        end
-    end
-
-    -- Verify the base has an entry, transform, size, color
-    for _, base in pairs(cached_bases) do
-        local guid = base.getGUID()
-        _zoc_initialize_base(base)
-        if not g_cache_zocs[guid].transform then
-            g_cache_zocs[guid].transform = base.getTransform()
-        end
-    end
-
-    -- After this point the bases are not used only the entries
-    -- in g_cache_zocs
-
-    -- Have all bases have valid zoc_max entries
-    for guid,_ in pairs(g_cache_zocs) do
-        if not g_cache_zocs[guid].zoc_max then
-            _zoc_calc_zoc_max(guid) 
-        end
-    end
-
-    -- Have all bases have strokes
-    for guid,_ in pairs(g_cache_zocs) do
-        if not g_cache_zocs[guid].strokes then
-            _zoc_set_strokes(guid)
-        end
-    end
-    
-    -- Return all the strokes
-    local strokes = {}
-    for guid,_ in pairs(g_cache_zocs) do
-        table.insert(strokes, g_cache_zocs[guid].strokes)
-    end
-    return strokes
-end
-
   
 
 function _is_war_wagon(base_obj)
@@ -542,12 +556,6 @@ function _is_war_wagon(base_obj)
     return false 
 end
 
-
--- Clear the cache for a base
-function zoc_invalidate_base(base_obj)
-    local guid = base_obj.getGUID()
-    _zoc_invalidate_base_guid(guid)
-end
 
 
 function _zoc_invalidate_base_guid(base_guid)
