@@ -1173,6 +1173,9 @@ g_picked_base_initial_transform = nil
 function onObjectPickUp(player_color, picked_up_object)
     -- record the objects that are up in the air
     if is_base_obj(picked_up_object) then
+        update_move_controls(0)
+        zoc_invalidate_base(picked_up_object)
+
         g_picked_base_objects[picked_up_object] = calculate_transform(picked_up_object)
     end
 
@@ -1305,7 +1308,6 @@ end
 function onObjectDrop(player_color, picked_up_object)
     if get_decoration_for_obj(picked_up_object, "flank_march_card") ~= nil then
         on_flank_card_dropped(picked_up_object)
-        return
     end
 
     g_picked_base_objects[picked_up_object] = nil
@@ -1320,6 +1322,9 @@ function onObjectDrop(player_color, picked_up_object)
         z = 0
     })
     if is_base_obj(picked_up_object) then
+        update_move_controls(0)
+        zoc_invalidate_base(picked_up_object)
+
         if is_table_empty(g_picked_base_objects) then
             history_record_delta_snapshot()
         end
@@ -1383,6 +1388,7 @@ function onObjectRotate(object, spin, flip, player_color, old_spin, old_flip)
     end
     if is_base_obj(object) then
         -- Redraw zoc
+        update_move_controls(0)
         zoc_invalidate_base(object)
         -- klude wait a bit for the object to settle
         Wait.frames(
@@ -1470,6 +1476,11 @@ function get_closest_transform(pos, transforms)
 end
 
 function on_selection_changed(player_color, new_selected_items)
+    if new_selected_items == nil or is_table_empty(new_selected_items) then
+        -- Make sure there are no left over artifacts from previously
+        -- selected objects
+        zoc_invalidate_cache()
+    end
     if player_color == g_player_wheeling then
         -- If someone is wheeling then changes its selected, deselect and move on
         print_info(Player[player_color].steam_name .. ' has canceled the wheeling by deselecting.')
