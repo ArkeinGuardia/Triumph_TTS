@@ -56,6 +56,7 @@ function move_bases(player, value, id)
     end
 
     -- Moving the bases should imply update the gizmos
+    update_move_controls(0)
     draw_all_gizmos()
     history_record_delta_snapshot()
 end
