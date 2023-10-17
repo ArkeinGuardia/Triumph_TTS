@@ -1444,6 +1444,8 @@ end
 g_ignore_next_delete = {}
 
 function onObjectDestroy(dying_object)
+  zoc_invalidate_base(dying_object)
+
     local name = dying_object.getName()
     if g_ignore_next_delete[name] ~= nil then
         g_ignore_next_delete[name] = nil
