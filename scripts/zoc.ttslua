@@ -545,7 +545,7 @@ end
 
 -- Clear the cache for a base
 function zoc_invalidate_base(base_obj)
-    guid = base_obj.getGUID()
+    local guid = base_obj.getGUID()
     _zoc_invalidate_base_guid(guid)
 end
 
